@@ -44,6 +44,11 @@
 
     .grid{display:grid;grid-template-columns:1fr;gap:12px}
     @media(min-width:860px){.grid{grid-template-columns:1.1fr .9fr}}
+    @media(max-width:720px){
+      main{grid-template-columns:1fr}
+      nav{display:none}
+      section{padding:16px}
+    }
 
     .card{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0e1530}
     .card h4{margin:0 0 6px;font-size:15px;color:#dbe6ff}
