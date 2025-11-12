@@ -110,6 +110,7 @@
 const WEEKS = [
   { id:1, title:"Admin & Acid–Base Review", tags:["acid","base"], chips:["Review"], dots:["organic"],
     refs:["Ch.16 Acid–Base", "Ch.17 Buffers (preview)"],
+    tutorial:`Acid–base ideas power much of Chem 123. In water, acids donate H⁺ and bases accept H⁺ (Brønsted–Lowry). Start from water’s autoionization (Kw) to quickly convert between [H⁺], [OH⁻], pH and pOH. Strong acids/bases are fully leveled to H₃O⁺/OH⁻ in water; weak acids/bases establish equilibria with Ka/Kb. Identify conjugate pairs fast: removing/adding one proton. This week: get fluent with pH arithmetic, conjugate logic, and spotting buffer pairs in formulas.`,
     left:[
       { h:"Key concepts", ul:[
         "Arrhenius vs Brønsted–Lowry; conjugate pairs; amphiprotic species",
@@ -128,6 +129,7 @@ const WEEKS = [
   },
   { id:2, title:"Intro to Thermodynamics & First Law", tags:["state variables","ideal gas","work"], chips:["Thermo"], dots:["thermo"],
     refs:["Ch.10 Gases (tools)", "Ch.19 Thermodynamics"],
+    tutorial:`Thermodynamics is an accounting system for energy. Define the system and track sign conventions: q>0 adds heat to the system; w>0 does work on the system. For simple expansions, w = −P_ext ΔV. Internal energy is a state function: ΔU = q + w. Use heat capacities and calorimetry to connect temperature changes to q, and Hess’s law to build ΔH from reactions. Ideal gases translate between n, T, P, V to relate macroscopic work and heat.`,
     left:[
       { h:"Key concepts", ul:[
         "State functions vs path functions; system vs surroundings; sign conventions",
@@ -147,6 +149,7 @@ const WEEKS = [
   },
   { id:3, title:"Enthalpy, Entropy, Second & Third Laws", tags:["enthalpy","entropy"], chips:["Thermo"], dots:["thermo"],
     refs:["Ch.19 Thermodynamics"],
+    tutorial:`ΔH tracks heat at constant pressure; ΔS measures dispersal of energy/matter. The second law says spontaneous change increases the entropy of the universe (ΔS_univ > 0). The third law pins S°(0 K)≈0 for a perfect crystal so we can tabulate absolute entropies. Compute ΔG = ΔH − TΔS to judge spontaneity at temperature T and predict how temperature toggles spontaneity when ΔH and ΔS compete.`,
     left:[
       { h:"Key concepts", ul:[
         "ΔH at constant P (heat flow); standard states; Hess’s law",
@@ -168,6 +171,7 @@ const WEEKS = [
   },
   { id:4, title:"Spontaneity, ΔG, Equilibrium, van’t Hoff; Intro Kinetics", tags:["Gibbs","equilibrium","rate laws"], chips:["Thermo","Kinetics"], dots:["thermo","kinetics"],
     refs:["Ch.15 Equilibrium","Ch.19 Thermo","Ch.14 Kinetics"],
+    tutorial:`Thermo predicts where reactions go; kinetics predicts how fast. Link ΔG° and K by ΔG° = −RT ln K. Away from equilibrium, use ΔG = ΔG° + RT ln Q to see which way the reaction moves. The van’t Hoff plot (ln K vs 1/T) reveals ΔH° from slope. Then pivot to kinetics: determine empirical rate laws from initial rates; different overall orders give distinct integrated forms and units for k.`,
     left:[
       { h:"Thermo ↔ Equilibrium", ul:[
         "ΔG° = −RT ln K;\u00A0 ΔG = ΔG° + RT ln Q",
@@ -189,6 +193,7 @@ const WEEKS = [
   },
   { id:5, title:"Integrated Rate Laws, Mechanisms, Catalysis", tags:["half-life","transition state"], chips:["Kinetics"], dots:["kinetics"],
     refs:["Ch.14 Kinetics"],
+    tutorial:`Diagnose order via linear plots: ln[A] vs t (1st), 1/[A] vs t (2nd), [A] vs t (0th). Half-life is constant only for 1st order. Visualize reaction coordinate diagrams to separate ΔH (thermo) from E_a (kinetics). Catalysts lower E_a and change mechanism but not overall ΔG° or position of equilibrium.`,
     left:[
       { h:"Integrated forms", ul:[
         "1st order: \u2061\ln[A]_t = −kt + \ln[A]_0;\u00A0 t_{1/2} = \ln2/k",
@@ -209,6 +214,7 @@ const WEEKS = [
   },
   { id:6, title:"Multi‑Step Mechanisms; Steady‑State; Michaelis–Menten", tags:["RDS","SSA","enzyme"], chips:["Kinetics"], dots:["kinetics"],
     refs:["Ch.14 Kinetics"],
+    tutorial:`Translate mechanisms to rate laws. If one step is slow (RDS), its molecularity sets the rate law (include pre-equilibrium where needed). For comparable steps, use the steady-state approximation to eliminate intermediate concentrations. Apply enzyme kinetics: v = (Vmax[S])/(KM+[S]) with Lineweaver–Burk for linear fits.`,
     left:[
       { h:"From mechanism → rate law", ul:[
         "Use RDS or pre‑equilibrium / steady‑state approximations",
@@ -225,6 +231,7 @@ const WEEKS = [
   },
   { id:7, title:"Intro to Organic; Representation; Functional Groups", tags:["line-angle","orbitals"], chips:["Organic"], dots:["organic"],
     refs:["Org Primer"],
+    tutorial:`Switch to organic ‘language’. Master line-angle drawings (implicit C/H), hybridization pictures (sp, sp², sp³), and recognize functional groups quickly—the map of reactivity. Start building 3-D intuition for bonding and polarity that drives mechanisms later.`,
     left:[
       { h:"Representations", ul:["Lewis, condensed, line‑angle; implied hydrogens",
         "Electronics: hybridization, orbital pictures (sp, sp2, sp3)"
@@ -237,6 +244,7 @@ const WEEKS = [
   },
   { id:8, title:"Bonding & Resonance; Arrow‑Pushing; Organic Acid–Base", tags:["resonance","curved arrows"], chips:["Organic"], dots:["organic"],
     refs:["Resonance toolkit"],
+    tutorial:`Resonance ≠ rapid flipping—it's a weighted hybrid. Draw all valid contributors (same atom framework), move only π/lone pairs, keep octets. Rank contributors by octets, charge separation, and placing negative charge on electronegative atoms. Learn curved-arrow grammar: arrows start at electron sources and end at sinks. Anchor intuition with a small pKa set.`,
     left:[
       { h:"Resonance rules", ul:[
         "Same atom framework; delocalize π or lone pairs",
@@ -256,6 +264,7 @@ const WEEKS = [
   },
   { id:9, title:"Conformational Analysis; Cyclohexane", tags:["Newman","chair"], chips:["Organic"], dots:["organic"],
     refs:["Conformations"],
+    tutorial:`Relate conformation to energy. Compare staggered vs eclipsed via torsional strain. For cyclohexane, learn chair drawings and axial/equatorial positions; use A-values to predict which chair is more stable and how substituents control equilibria.`,
     left:[
       { h:"Conformations", ul:[
         "Staggered vs eclipsed; torsional & steric strain",
@@ -269,6 +278,7 @@ const WEEKS = [
   },
   { id:10, title:"Alkenes & Stereochemistry (E/Z, R/S)", tags:["CIP","chirality"], chips:["Organic"], dots:["organic"],
     refs:["Alkenes & Stereo"],
+    tutorial:`Apply CIP priorities. For alkenes: E (opposite) vs Z (zusammen). For stereocenters: assign R/S from a correct 3-D view (lowest priority away). Connect chirality to physical properties (optical rotation, enantiomeric excess).`,
     left:[
       { h:"Alkenes", ul:["E/Z via CIP priorities; stability vs substitution; addition preview"]},
       { h:"Chirality", ul:["Chiral centers; R/S; enantiomers vs diastereomers; symmetry & meso"]},
@@ -280,6 +290,7 @@ const WEEKS = [
   },
   { id:11, title:"More on Relationships; Fischer Projections", tags:["meso","optical"], chips:["Organic"], dots:["organic"],
     refs:["Stereochem"],
+    tutorial:`Classify pairs of molecules fast (identical/enantiomer/diastereomer/constitutional). Detect internal symmetry for meso. Master Fischer projection rules: horizontal = wedges, vertical = dashes; only 180° rotations keep identity.`,
     left:[
       { h:"Relationships", ul:["Enantiomer/diastereomer/identical/constitutional", "Meso criteria (internal plane of symmetry)"]},
       { h:"Fischer rules", ul:["Horizontal = wedges, vertical = dashes; rotate 180° allowed (not 90°)"]}
@@ -290,6 +301,7 @@ const WEEKS = [
   },
   { id:12, title:"SN2 vs SN1; Course Review", tags:["substitution","carbocation"], chips:["Organic","Kinetics"], dots:["organic","kinetics"],
     refs:["Mechanisms"],
+    tutorial:`Decide mechanism from structure and conditions. SN2: strong Nu⁻, primary carbon, polar aprotic, inversion. SN1: tertiary carbon, polar protic, weak Nu, carbocation rearrangements possible, racemization common. Tie back to kinetics: SN2 is second-order (rate depends on both), SN1 is first-order (only substrate).`,
     left:[
       { h:"SN2", ul:["Bimolecular, backside attack, inversion, rate = k[Nu⁻][R–LG]", "Favored by: strong nucleophile, polar aprotic, Me/1° > 2°"]},
       { h:"SN1", ul:["Unimolecular, carbocation intermediate, racemization (often), rate = k[R–LG]", "Favored by: weak Nu, polar protic, 3° > 2°"]},
@@ -332,6 +344,11 @@ function render(){
             </div>`).join('')}
         </div>
         <div>
+          ${w.tutorial?`
+            <div class="card copyable" title="Double-click to copy card text">
+              <h4>Concise tutorial</h4>
+              <p class="muted">${w.tutorial}</p>
+            </div>`:''}
           ${(w.right||[]).map(b => `
             <div class="card copyable" title="Double-click to copy card text">
               <h4>${b.h}</h4>
