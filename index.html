@@ -34,7 +34,7 @@
     .wk{font-weight:700;color:var(--muted);min-width:2.3rem;display:inline-block}
     .pill{padding:0 8px;border-radius:999px;font-size:11px;border:1px solid var(--border);color:var(--muted)}
 
-    section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
+    section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;scroll-margin-top:90px}
     section:not(:first-of-type){margin-top:10px}
     .week-title{display:flex;align-items:center;gap:10px;margin:0 0 8px}
     .week-title h3{margin:0;font-size:18px}
@@ -315,7 +315,7 @@ function render(){
 
   content.innerHTML = WEEKS.map(w => `
     <section id="week-${w.id}" data-tags="${(w.tags||[]).join(' ').toLowerCase()} ${w.title.toLowerCase()}">
-      <div class="week-title">
+      <div class="week-title copyable" title="Double-click to copy week title">
         <h3><span class="wk">Week ${w.id}</span> — ${w.title}</h3>
       </div>
       <div class="chips">
@@ -325,7 +325,7 @@ function render(){
       <div class="grid">
         <div>
           ${(w.left||[]).map(b => `
-            <div class="card">
+            <div class="card copyable" title="Double-click to copy card text">
               <h4>${b.h}</h4>
               ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
               ${b.code?b.code.map(eqLine).join(''):''}
@@ -333,12 +333,12 @@ function render(){
         </div>
         <div>
           ${(w.right||[]).map(b => `
-            <div class="card">
+            <div class="card copyable" title="Double-click to copy card text">
               <h4>${b.h}</h4>
               ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
               ${b.code?b.code.map(eqLine).join(''):''}
             </div>`).join('')}
-          <div class="card">
+          <div class="card copyable" title="Double-click to copy card text">
             <h4>Textbook cross‑references</h4>
             <div class="ref">${(w.refs||[]).map(pill).join('')}</div>
           </div>
