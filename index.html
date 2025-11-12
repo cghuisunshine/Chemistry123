@@ -38,6 +38,7 @@
     section:not(:first-of-type){margin-top:10px}
     .week-title{display:flex;align-items:center;gap:10px;margin:0 0 8px}
     .week-title h3{margin:0;font-size:18px}
+    .week-body{margin-top:8px}
     .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
     .chip{font-size:12px;border:1px solid var(--border);border-radius:999px;padding:4px 8px;display:inline-flex;align-items:center;gap:6px}
     .chip .dot{border:1px solid var(--border)}
@@ -48,7 +49,19 @@
       main{grid-template-columns:1fr}
       nav{display:none}
       section{padding:16px}
+      header .wrap{justify-content:center}
+      header .wrap .tag,
+      header .wrap .legend{display:none}
+      .week-title{cursor:pointer}
+      .week-title::after{
+        content:'▾';
+        margin-left:auto;
+        font-size:14px;
+        color:var(--muted);
+      }
+      .collapsed .week-title::after{content:'▸'}
     }
+    .collapsed .week-body{display:none}
 
     .card{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0e1530}
     .card h4{margin:0 0 6px;font-size:15px;color:#dbe6ff}
@@ -321,6 +334,7 @@ const WEEKS = [
 // --- Render TOC & Content ---
 const toc = document.getElementById('toc');
 const content = document.getElementById('content');
+const mobileQuery = window.matchMedia('(max-width: 720px)');
 
 function pill(txt){return `<span class="pill">${txt}</span>`}
 function eqLine(s){return `<code class="eq copyable" title="Double‑click to copy">${s}</code>`}
@@ -335,34 +349,36 @@ function render(){
       <div class="week-title copyable" title="Double-click to copy week title">
         <h3><span class="wk">Week ${w.id}</span> — ${w.title}</h3>
       </div>
-      <div class="chips">
-        ${(w.dots||[]).map(d=>`<span class="chip"><i class="dot ${d}"></i>${d[0].toUpperCase()+d.slice(1)}</span>`).join('')}
-        ${(w.chips||[]).map(p=>pill(p)).join('')}
-      </div>
-      <div class="grid">
-        <div>
-          ${(w.left||[]).map(b => `
-            <div class="card copyable" title="Double-click to copy card text">
-              <h4>${b.h}</h4>
-              ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
-              ${b.code?b.code.map(eqLine).join(''):''}
-            </div>`).join('')}
+      <div class="week-body">
+        <div class="chips">
+          ${(w.dots||[]).map(d=>`<span class="chip"><i class="dot ${d}"></i>${d[0].toUpperCase()+d.slice(1)}</span>`).join('')}
+          ${(w.chips||[]).map(p=>pill(p)).join('')}
         </div>
-        <div>
-          ${w.tutorial?`
+        <div class="grid">
+          <div>
+            ${(w.left||[]).map(b => `
+              <div class="card copyable" title="Double-click to copy card text">
+                <h4>${b.h}</h4>
+                ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
+                ${b.code?b.code.map(eqLine).join(''):''}
+              </div>`).join('')}
+          </div>
+          <div>
+            ${w.tutorial?`
+              <div class="card copyable" title="Double-click to copy card text">
+                <h4>Concise tutorial</h4>
+                <p class="muted">${w.tutorial}</p>
+              </div>`:''}
+            ${(w.right||[]).map(b => `
+              <div class="card copyable" title="Double-click to copy card text">
+                <h4>${b.h}</h4>
+                ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
+                ${b.code?b.code.map(eqLine).join(''):''}
+              </div>`).join('')}
             <div class="card copyable" title="Double-click to copy card text">
-              <h4>Concise tutorial</h4>
-              <p class="muted">${w.tutorial}</p>
-            </div>`:''}
-          ${(w.right||[]).map(b => `
-            <div class="card copyable" title="Double-click to copy card text">
-              <h4>${b.h}</h4>
-              ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
-              ${b.code?b.code.map(eqLine).join(''):''}
-            </div>`).join('')}
-          <div class="card copyable" title="Double-click to copy card text">
-            <h4>Textbook cross‑references</h4>
-            <div class="ref">${(w.refs||[]).map(pill).join('')}</div>
+              <h4>Textbook cross‑references</h4>
+              <div class="ref">${(w.refs||[]).map(pill).join('')}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -370,6 +386,7 @@ function render(){
   `).join('');
 }
 render();
+setupWeekCollapsible();
 
 // --- Copy-on-double-click ---
 const toast = document.getElementById('toast');
@@ -400,6 +417,39 @@ q.addEventListener('input', ()=>{
 // --- Expand/Collapse helpers for all <details> ---
 function expandAll(open=true){
   document.querySelectorAll('details').forEach(d=> d.open = open);
+}
+
+function setupWeekCollapsible(){
+  const sections = [...document.querySelectorAll('#content section')];
+  sections.forEach(sec=>{
+    const title = sec.querySelector('.week-title');
+    if(!title) return;
+    title.addEventListener('click', ()=>{
+      if(!mobileQuery.matches) return;
+      const collapsed = sec.classList.toggle('collapsed');
+      sec.dataset.collapsed = collapsed ? '1' : '0';
+    });
+  });
+
+  function applyState(){
+    if(mobileQuery.matches){
+      sections.forEach((sec, idx)=>{
+        const shouldCollapse = sec.dataset.collapsed
+          ? sec.dataset.collapsed === '1'
+          : idx !== 0;
+        sec.classList.toggle('collapsed', shouldCollapse);
+      });
+    }else{
+      sections.forEach(sec=>sec.classList.remove('collapsed'));
+    }
+  }
+
+  if(mobileQuery.addEventListener){
+    mobileQuery.addEventListener('change', applyState);
+  }else if(mobileQuery.addListener){
+    mobileQuery.addListener(applyState);
+  }
+  applyState();
 }
 
 </script>
