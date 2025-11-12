@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UBC Chemistry 123 – Thermodynamics, Kinetics & Organic | Interactive Study Guide</title>
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#121933; --muted:#93a1bd; --text:#e6ecff; --accent:#6aa9ff;
+      --thermo:#4f8eff; --kinetics:#2ecc71; --organic:#ff8b3d; --border:rgba(255,255,255,0.1);
+      --warning:#ffe08a; --success:#9ff9c6; --danger:#ff7a7a;
+    }
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(120deg,#0b1020,#0f1b38);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,16,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    header .wrap{max-width:1100px;margin:auto;padding:12px 20px;display:flex;gap:16px;align-items:center}
+    h1{font-size:20px;margin:0;letter-spacing:.2px}
+    .tag{padding:4px 8px;border-radius:999px;border:1px solid var(--border);font-size:12px;color:var(--muted)}
+    .legend{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+    .legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .thermo{background:var(--thermo)} .kinetics{background:var(--kinetics)} .organic{background:var(--organic)}
+
+    main{max-width:1100px;margin:0 auto;padding:16px 20px 60px;display:grid;grid-template-columns:280px 1fr;gap:18px}
+    nav{position:sticky;top:62px;align-self:start;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
+    nav h2{font-size:14px;margin:0 0 10px;color:var(--muted);font-weight:600;letter-spacing:.3px}
+    .search{position:relative;margin-bottom:10px}
+    .search input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0e1530;color:var(--text)}
+    .search small{display:block;color:var(--muted);margin-top:6px}
+    details{border:1px solid var(--border);border-radius:10px;margin:8px 0;background:#0e1530}
+    summary{cursor:pointer;padding:10px 12px;color:var(--text);font-weight:600}
+    .toc{padding:0 8px 8px}
+    .toc a{display:flex;gap:8px;padding:8px 10px;border-radius:8px;color:var(--text);text-decoration:none;border:1px solid transparent}
+    .toc a:hover{border-color:var(--border);background:rgba(255,255,255,.03)}
+    .wk{font-weight:700;color:var(--muted);min-width:2.3rem;display:inline-block}
+    .pill{padding:0 8px;border-radius:999px;font-size:11px;border:1px solid var(--border);color:var(--muted)}
+
+    section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
+    section:not(:first-of-type){margin-top:10px}
+    .week-title{display:flex;align-items:center;gap:10px;margin:0 0 8px}
+    .week-title h3{margin:0;font-size:18px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
+    .chip{font-size:12px;border:1px solid var(--border);border-radius:999px;padding:4px 8px;display:inline-flex;align-items:center;gap:6px}
+    .chip .dot{border:1px solid var(--border)}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:860px){.grid{grid-template-columns:1.1fr .9fr}}
+
+    .card{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0e1530}
+    .card h4{margin:0 0 6px;font-size:15px;color:#dbe6ff}
+    .code, code{background:#0c1329;border:1px solid var(--border);border-radius:8px;padding:.1em .35em}
+    .copyable{cursor:copy}
+    .eq{display:block;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace}
+    .eq.copyable:hover{outline:1px dashed var(--accent)}
+
+    .list{margin:6px 0 0 16px}
+    .list li{margin:4px 0}
+
+    .ref{display:flex;gap:6px;flex-wrap:wrap}
+    .ref .pill{background:#0b1228}
+
+    .toast{position:fixed;inset:auto 16px 16px auto;background:#0b1228;border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.35);opacity:0;transform:translateY(10px);transition:all .25s}
+    .toast.show{opacity:1;transform:none}
+
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
+    .btn{background:#0b1228;border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+    .btn:hover{border-color:var(--accent)}
+    .muted{color:var(--muted)}
+    .hr{height:1px;background:var(--border);margin:12px 0}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>UBC Chemistry 123 — Thermodynamics, Kinetics & Organic</h1>
+    <span class="tag">Interactive HTML Guide</span>
+    <div class="legend">
+      <span><i class="dot thermo"></i>Thermodynamics</span>
+      <span><i class="dot kinetics"></i>Kinetics</span>
+      <span><i class="dot organic"></i>Organic & Stereochem</span>
+    </div>
+  </div>
+</header>
+<main>
+  <nav>
+    <h2>Table of Contents</h2>
+    <div class="search">
+      <input id="q" placeholder="Filter topics, e.g., Gibbs, SN2, Arrhenius…" />
+      <small class="muted">Tip: <span class="code">Ctrl/Cmd + F</span> also works. Double‑click blue equations to copy.</small>
+    </div>
+    <details open>
+      <summary>Weeks 1–12</summary>
+      <div class="toc" id="toc"></div>
+    </details>
+    <div class="toolbar">
+      <button class="btn" onclick="expandAll(true)">Expand all</button>
+      <button class="btn" onclick="expandAll(false)">Collapse all</button>
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+    <div class="hr"></div>
+    <div class="muted" style="font-size:12px">Textbook cross‑refs:<br> Ch. 10–13 (States & Solutions), 14 (Kinetics), 15 (Equilibrium), 16 (Acid–Base), 17 (Buffers), 18 (Environment), 19 (Thermo), 20 (Electrochem).</div>
+  </nav>
+
+  <div id="content"></div>
+</main>
+
+<div class="toast" id="toast">Copied to clipboard ✔</div>
+
+<script>
+// --- Data model (Weeks 1–12) ---
+const WEEKS = [
+  { id:1, title:"Admin & Acid–Base Review", tags:["acid","base"], chips:["Review"], dots:["organic"],
+    refs:["Ch.16 Acid–Base", "Ch.17 Buffers (preview)"],
+    left:[
+      { h:"Key concepts", ul:[
+        "Arrhenius vs Brønsted–Lowry; conjugate pairs; amphiprotic species",
+        "Autoionization of water & \u2061K_w; pH / pOH scales",
+        "Strong vs weak acids/bases; leveling effect"
+      ]},
+      { h:"Equations", code:[
+        "K_w = [H^+][OH^-] = 1.0×10^{-14} (25 °C)",
+        "pH = −\u2061log[H^+];\u00A0 pOH = −\u2061log[OH^-];\u00A0 pH + pOH = 14"
+      ]}
+    ],
+    right:[
+      { h:"Skills", ul:["Identify conjugate acid/base quickly", "Estimate pH/pOH from strong acid/base", "Recognize buffer pairs"]},
+      { h:"Quick checks", ul:["Is HCO3⁻ amphiprotic? (Yes)", "Conjugate base of HSO₄⁻? (SO₄²⁻)"]}
+    ]
+  },
+  { id:2, title:"Intro to Thermodynamics & First Law", tags:["state variables","ideal gas","work"], chips:["Thermo"], dots:["thermo"],
+    refs:["Ch.10 Gases (tools)", "Ch.19 Thermodynamics"],
+    left:[
+      { h:"Key concepts", ul:[
+        "State functions vs path functions; system vs surroundings; sign conventions",
+        "Pressure–volume work, \u2061w = −∫P\n\,dV\u00A0 (≈ −P_\text{ext}\u2061ΔV for const. external P)",
+        "Internal energy ΔU = q + w; ideal gas model"
+      ]},
+      { h:"Equations", code:[
+        "w_{PV} = −P_{ext}\,ΔV",
+        "ΔU = q + w",
+        "C = q/ΔT;\u00A0 q = nC_mΔT (at const. V or P)"
+      ]}
+    ],
+    right:[
+      { h:"Lab/Calc", ul:["Calorimetry (coffee‑cup vs bomb)", "Convert between \u2061C, K, and PV units", "Use Hess’s Law for ΔH"]},
+      { h:"Common pitfalls", ul:["Mixing system vs surroundings sign", "For expansion: w is negative (system does work)"]}
+    ]
+  },
+  { id:3, title:"Enthalpy, Entropy, Second & Third Laws", tags:["enthalpy","entropy"], chips:["Thermo"], dots:["thermo"],
+    refs:["Ch.19 Thermodynamics"],
+    left:[
+      { h:"Key concepts", ul:[
+        "ΔH at constant P (heat flow); standard states; Hess’s law",
+        "Entropy as dispersal; second law (ΔS_univ > 0 for spontaneity)",
+        "Third law (S° → 0 as T → 0 K for perfect crystal)"
+      ]},
+      { h:"Equations", code:[
+        "ΔH°_rxn = Σ n_p H°_f(products) − Σ n_r H°_f(reactants)",
+        "ΔS°_rxn = Σ n_p S° − Σ n_r S°",
+        "ΔG = ΔH − TΔS"
+      ]}
+    ],
+    right:[
+      { h:"Checkpoints", ul:[
+        "Sign of ΔS when moles of gas increase? (ΔS > 0)",
+        "Endothermic can be spontaneous? (Yes, if TΔS > ΔH)"
+      ]}
+    ]
+  },
+  { id:4, title:"Spontaneity, ΔG, Equilibrium, van’t Hoff; Intro Kinetics", tags:["Gibbs","equilibrium","rate laws"], chips:["Thermo","Kinetics"], dots:["thermo","kinetics"],
+    refs:["Ch.15 Equilibrium","Ch.19 Thermo","Ch.14 Kinetics"],
+    left:[
+      { h:"Thermo ↔ Equilibrium", ul:[
+        "ΔG° = −RT ln K;\u00A0 ΔG = ΔG° + RT ln Q",
+        "van’t Hoff: ln K = −ΔH°/R (1/T) + ΔS°/R"
+      ]},
+      { h:"Kinetics primer", ul:[
+        "Rate = k[A]^m[B]^n; initial rates; method of initial rates",
+        "Units of k depend on overall order"
+      ]},
+      { h:"Equations", code:[
+        "ΔG° = −RT\,\ln K",
+        "ΔG = ΔG° + RT\,\ln Q",
+        "\n\text{van’t Hoff: }\; \ln K = −\frac{ΔH°}{R}\,\frac{1}{T} + \frac{ΔS°}{R}"
+      ]}
+    ],
+    right:[
+      { h:"Exam cues", ul:["Relate sign of ΔG to K (K>1 ⇒ ΔG°<0)", "Slope of van’t Hoff equals −ΔH°/R"]}
+    ]
+  },
+  { id:5, title:"Integrated Rate Laws, Mechanisms, Catalysis", tags:["half-life","transition state"], chips:["Kinetics"], dots:["kinetics"],
+    refs:["Ch.14 Kinetics"],
+    left:[
+      { h:"Integrated forms", ul:[
+        "1st order: \u2061\ln[A]_t = −kt + \ln[A]_0;\u00A0 t_{1/2} = \ln2/k",
+        "2nd order: 1/[A]_t = kt + 1/[A]_0;\u00A0 0th: [A]_t = −kt + [A]_0"
+      ]},
+      { h:"Mechanisms", ul:[
+        "Elementary steps, molecularity; intermediates vs transition state",
+        "Catalysts lower E_a and change mechanism, not ΔG"
+      ]},
+      { h:"Arrhenius", code:[
+        "k = A e^{−E_a/(RT)}",
+        "\ln k = −E_a/(R) \cdot 1/T + \ln A"
+      ]}
+    ],
+    right:[
+      { h:"Graphs", ul:["Energy vs reaction coordinate; identify E_a, ΔH", "Linearize rate laws for order tests"]}
+    ]
+  },
+  { id:6, title:"Multi‑Step Mechanisms; Steady‑State; Michaelis–Menten", tags:["RDS","SSA","enzyme"], chips:["Kinetics"], dots:["kinetics"],
+    refs:["Ch.14 Kinetics"],
+    left:[
+      { h:"From mechanism → rate law", ul:[
+        "Use RDS or pre‑equilibrium / steady‑state approximations",
+        "Recognize catalysts & intermediates in rate expressions"
+      ]},
+      { h:"Enzyme kinetics", code:[
+        "v = (V_max [S]) / (K_M + [S])",
+        "Lineweaver–Burk: 1/v = (K_M/V_max)(1/[S]) + 1/V_max"
+      ]}
+    ],
+    right:[
+      { h:"Temperature", ul:["Extract E_a from Arrhenius plot (slope −E_a/R)"]}
+    ]
+  },
+  { id:7, title:"Intro to Organic; Representation; Functional Groups", tags:["line-angle","orbitals"], chips:["Organic"], dots:["organic"],
+    refs:["Org Primer"],
+    left:[
+      { h:"Representations", ul:["Lewis, condensed, line‑angle; implied hydrogens",
+        "Electronics: hybridization, orbital pictures (sp, sp2, sp3)"
+      ]},
+      { h:"Functional groups", ul:["Alkanes, alkenes, alkynes; alcohols; halides; carbonyls (aldehyde/ketone); acids, amides, esters, amines"]}
+    ],
+    right:[
+      { h:"Rapid ID", ul:["Spot FG by heteroatom/π‑bond patterns", "Prioritize sites for reactivity"]}
+    ]
+  },
+  { id:8, title:"Bonding & Resonance; Arrow‑Pushing; Organic Acid–Base", tags:["resonance","curved arrows"], chips:["Organic"], dots:["organic"],
+    refs:["Resonance toolkit"],
+    left:[
+      { h:"Resonance rules", ul:[
+        "Same atom framework; delocalize π or lone pairs",
+        "Evaluate contributors: octets, charge separation, electronegativity"
+      ]},
+      { h:"Arrow‑pushing", ul:[
+        "Arrows show electron pair movement (from source to sink)",
+        "Strong/weak acids & bases in organic context (pK_a intuition)"
+      ]},
+      { h:"Copy‑friendly pK_a anchors", code:[
+        "H3O^+ ~ −1.7;\u00A0 Carboxylic acid ~ 4–5;\u00A0 Phenol ~ 10;\u00A0 NH4^+ ~ 9.2;\u00A0 Alcohol ~ 16;\u00A0 Ketone α‑H ~ 20;\u00A0 Alkyne ~ 25;\u00A0 Amine conj. acid pK_a ~ 10–11;\u00A0 Alkene ~ 44;\u00A0 Alkane ~ 50"
+      ]}
+    ],
+    right:[
+      { h:"Practice", ul:["Rank resonance contributors; place charges; draw curved arrows correctly"]}
+    ]
+  },
+  { id:9, title:"Conformational Analysis; Cyclohexane", tags:["Newman","chair"], chips:["Organic"], dots:["organic"],
+    refs:["Conformations"],
+    left:[
+      { h:"Conformations", ul:[
+        "Staggered vs eclipsed; torsional & steric strain",
+        "Cyclohexane chairs: axial vs equatorial; 1,3‑diaxial interactions"
+      ]},
+      { h:"Energy", ul:["A‑values; most stable chair places larger groups equatorial"]}
+    ],
+    right:[
+      { h:"Tools", ul:["Draw Newman projections; perform chair flips; track stereochemistry"]}
+    ]
+  },
+  { id:10, title:"Alkenes & Stereochemistry (E/Z, R/S)", tags:["CIP","chirality"], chips:["Organic"], dots:["organic"],
+    refs:["Alkenes & Stereo"],
+    left:[
+      { h:"Alkenes", ul:["E/Z via CIP priorities; stability vs substitution; addition preview"]},
+      { h:"Chirality", ul:["Chiral centers; R/S; enantiomers vs diastereomers; symmetry & meso"]},
+      { h:"Optical activity", ul:["[α] = α_obs/(l·c); enantiomeric excess (ee)"]}
+    ],
+    right:[
+      { h:"Visual practice", ul:["Convert wedge/dash ↔ Fischer; identify meso in 2,3‑butanediol"]}
+    ]
+  },
+  { id:11, title:"More on Relationships; Fischer Projections", tags:["meso","optical"], chips:["Organic"], dots:["organic"],
+    refs:["Stereochem"],
+    left:[
+      { h:"Relationships", ul:["Enantiomer/diastereomer/identical/constitutional", "Meso criteria (internal plane of symmetry)"]},
+      { h:"Fischer rules", ul:["Horizontal = wedges, vertical = dashes; rotate 180° allowed (not 90°)"]}
+    ],
+    right:[
+      { h:"Tactics", ul:["Count stereocenters → max stereoisomers 2^n (adjust for meso)"]}
+    ]
+  },
+  { id:12, title:"SN2 vs SN1; Course Review", tags:["substitution","carbocation"], chips:["Organic","Kinetics"], dots:["organic","kinetics"],
+    refs:["Mechanisms"],
+    left:[
+      { h:"SN2", ul:["Bimolecular, backside attack, inversion, rate = k[Nu⁻][R–LG]", "Favored by: strong nucleophile, polar aprotic, Me/1° > 2°"]},
+      { h:"SN1", ul:["Unimolecular, carbocation intermediate, racemization (often), rate = k[R–LG]", "Favored by: weak Nu, polar protic, 3° > 2°"]},
+      { h:"Competition", ul:["Consider β‑branching, nucleophilicity vs basicity, leaving group ability"]}
+    ],
+    right:[
+      { h:"Integration", ul:["Link kinetics order to mechanism (SN1 first‑order; SN2 second‑order)", "Thermo vs kinetics: stability vs rate"]}
+    ]
+  }
+];
+
+// --- Render TOC & Content ---
+const toc = document.getElementById('toc');
+const content = document.getElementById('content');
+
+function pill(txt){return `<span class="pill">${txt}</span>`}
+function eqLine(s){return `<code class="eq copyable" title="Double‑click to copy">${s}</code>`}
+
+function render(){
+  toc.innerHTML = WEEKS.map(w => (
+    `<a href="#week-${w.id}"><span class="wk">W${w.id}</span> ${w.title}</a>`
+  )).join('');
+
+  content.innerHTML = WEEKS.map(w => `
+    <section id="week-${w.id}" data-tags="${(w.tags||[]).join(' ').toLowerCase()} ${w.title.toLowerCase()}">
+      <div class="week-title">
+        <h3><span class="wk">Week ${w.id}</span> — ${w.title}</h3>
+      </div>
+      <div class="chips">
+        ${(w.dots||[]).map(d=>`<span class="chip"><i class="dot ${d}"></i>${d[0].toUpperCase()+d.slice(1)}</span>`).join('')}
+        ${(w.chips||[]).map(p=>pill(p)).join('')}
+      </div>
+      <div class="grid">
+        <div>
+          ${(w.left||[]).map(b => `
+            <div class="card">
+              <h4>${b.h}</h4>
+              ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
+              ${b.code?b.code.map(eqLine).join(''):''}
+            </div>`).join('')}
+        </div>
+        <div>
+          ${(w.right||[]).map(b => `
+            <div class="card">
+              <h4>${b.h}</h4>
+              ${b.ul?`<ul class="list">${b.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`:''}
+              ${b.code?b.code.map(eqLine).join(''):''}
+            </div>`).join('')}
+          <div class="card">
+            <h4>Textbook cross‑references</h4>
+            <div class="ref">${(w.refs||[]).map(pill).join('')}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `).join('');
+}
+render();
+
+// --- Copy-on-double-click ---
+const toast = document.getElementById('toast');
+function showToast(msg){
+  toast.textContent = msg || 'Copied to clipboard ✔';
+  toast.classList.add('show');
+  setTimeout(()=> toast.classList.remove('show'), 1400);
+}
+
+document.addEventListener('dblclick', async (e)=>{
+  const t = e.target.closest('.copyable');
+  if(!t) return;
+  const text = t.textContent.replace(/\u00A0/g,' ');
+  try { await navigator.clipboard.writeText(text); showToast('Copied: '+text); }
+  catch { showToast('Copied'); }
+});
+
+// --- Filter ---
+const q = document.getElementById('q');
+q.addEventListener('input', ()=>{
+  const needle = q.value.trim().toLowerCase();
+  for(const sec of content.querySelectorAll('section')){
+    const tags = sec.getAttribute('data-tags');
+    sec.style.display = tags.includes(needle) || sec.textContent.toLowerCase().includes(needle) ? '' : 'none';
+  }
+});
+
+// --- Expand/Collapse helpers for all <details> ---
+function expandAll(open=true){
+  document.querySelectorAll('details').forEach(d=> d.open = open);
+}
+
+</script>
+</body>
+</html>
