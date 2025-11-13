@@ -186,6 +186,34 @@
       padding: 0.32rem 0.45rem;
     }
 
+    .mobile-fold-toggle {
+      display: none;
+      width: 100%;
+      margin: 0.2rem 0 0.4rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-family: inherit;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .mobile-fold-toggle:focus-visible {
+      outline: 2px solid rgba(56,189,248,0.7);
+      outline-offset: 2px;
+    }
+
+    .mobile-fold-toggle[aria-expanded="true"] {
+      border-color: rgba(191,219,254,0.6);
+      color: #e5f2ff;
+    }
+
     .sidebar-footer {
       font-size: 0.7rem;
       color: var(--text-soft);
@@ -436,20 +464,44 @@
     @media (max-width: 800px) {
       body {
         flex-direction: column;
+        overflow: auto;
       }
 
       .sidebar {
         width: 100%;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 0.6rem 0.7rem 0.6rem;
-        gap: 0.7rem;
-        overflow-x: auto;
-        overflow-y: hidden;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.8rem;
+        overflow: visible;
       }
 
       .nav-group {
-        max-height: 160px;
+        max-height: none;
+        width: 100%;
+        padding: 0.6rem;
+      }
+
+      .nav-item,
+      .nav-children .nav-item {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .nav-item-label {
+        flex-wrap: wrap;
+      }
+
+      .mobile-fold-toggle {
+        display: flex;
+      }
+
+      .nav-children {
+        display: none;
+      }
+
+      .nav-children.mobile-expanded {
+        display: block;
       }
 
       .main {
@@ -495,10 +547,15 @@
 
         <div class="nav-item nav-item-branch" data-section="branches">
           <div class="nav-item-label">
-            🌿 <span>Branches – Weeks 1–6</span>
+            🌿 <span>Branches – Weeks 1–12</span>
           </div>
           <span class="nav-tag">Topics</span>
         </div>
+
+        <button class="mobile-fold-toggle" type="button" aria-expanded="true">
+          <span class="mobile-fold-copy">Weeks 1–12</span>
+          <span class="mobile-fold-icon" aria-hidden="true">▾</span>
+        </button>
 
         <div class="nav-children">
           <div class="nav-item nav-item-branch" data-section="w1">
@@ -537,6 +594,43 @@
             </div>
             <span class="nav-tag">Tree view</span>
           </div>
+
+          <div class="nav-item nav-item-branch" data-section="w7">
+            <div class="nav-item-label">
+              7️⃣ <span>Week 7 – Organic Structure</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w8">
+            <div class="nav-item-label">
+              8️⃣ <span>Week 8 – Functional Groups</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w9">
+            <div class="nav-item-label">
+              9️⃣ <span>Week 9 – Stereochemistry</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w10">
+            <div class="nav-item-label">
+              🔟 <span>Week 10 – Org. Acid–Base</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w11">
+            <div class="nav-item-label">
+              1️⃣1️⃣ <span>Week 11 – SN1/SN2/E1/E2</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w12">
+            <div class="nav-item-label">
+              1️⃣2️⃣ <span>Week 12 – Integration</span>
+            </div>
+            <span class="nav-tag">Tree view</span>
+          </div>
         </div>
 
         <div class="nav-item nav-item-leaf" data-section="leaves">
@@ -555,26 +649,9 @@
       </div>
     </div>
 
-    <div class="sidebar-footer">
-      Double-click any card on the right to <span>copy</span> it into notes, Quizlet, or your HTML project.
-    </div>
   </aside>
 
   <main class="main">
-    <header class="page-header">
-      <div class="page-title-block">
-        <h1>Master Map</h1>
-        <h2>Thermo, Equilibrium &amp; Kinetics as One Story</h2>
-        <p class="page-title-note">
-          Left = tree structure (roots → trunk → branches → leaves → fruit). Each week is its own mini tree. Right = cards you can copy into your notes.
-        </p>
-        <div class="pill-row">
-          <div class="pill pill-grain">Layered explanations: overview → details → examples</div>
-          <div class="pill pill-tree">Tree inside each week: roots → trunk → branches → leaves → fruit</div>
-        </div>
-      </div>
-    </header>
-
     <div class="content-scroll">
       <!-- ROOTS -->
       <section id="roots" class="content-section active">
@@ -649,10 +726,6 @@
 
       <!-- TRUNK -->
       <section id="trunk" class="content-section">
-        <div class="section-title">Trunk – Core Concepts (Thermo + Equilibrium + Kinetics)</div>
-        <p class="section-note">
-          The central “spine” of the course. Each weekly mini tree plugs into these nodes.
-        </p>
         <div class="section-grid">
           <div class="copy-card">
             <div class="grain-label">Large grain – overview</div>
@@ -735,7 +808,7 @@
 
       <!-- BRANCHES – overview -->
       <section id="branches" class="content-section">
-        <div class="section-title">Branches – Weekly Topic Map (Weeks 1–6)</div>
+        <div class="section-title">Branches – Weekly Topic Map (Weeks 1–12)</div>
         <p class="section-note">
           Overview of each weekly mini tree. Click a specific week in the sidebar for the full roots → trunk → branches → leaves → fruit view.
         </p>
@@ -809,6 +882,78 @@
               <li>Branches: rate-determining step, catalytic pathways.</li>
               <li>Leaves: mechanism proposals and energy diagrams.</li>
               <li>Fruit: checking if a mechanism matches the observed rate law.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 7 – overview</div>
+            <h3>Week 7 – Organic Structure, Bonding &amp; Resonance</h3>
+            <ul>
+              <li>Roots: same quantum rules, new “organic” drawing language for carbon.</li>
+              <li>Trunk: Lewis structures, octet &amp; formal charge, VSEPR shapes, hybridization, resonance.</li>
+              <li>Branches: σ vs π bonds, where charge and lone pairs live in a structure.</li>
+              <li>Leaves: drawing organic Lewis structures, assigning shapes &amp; hybridization, resonance contributors.</li>
+              <li>Fruit: look at a small organic and instantly tell geometry, hybridization, and key resonance features.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 8 – overview</div>
+            <h3>Week 8 – Functional Groups &amp; Reactivity Maps</h3>
+            <ul>
+              <li>Roots: functional groups determine behaviour; electrons move at polarized sites.</li>
+              <li>Trunk: catalogue of groups (alkanes, alkenes, alkynes, alcohols, halides, carbonyls, amines, etc.).</li>
+              <li>Branches: nucleophiles, electrophiles, leaving groups, polarity patterns.</li>
+              <li>Leaves: circling functional groups and marking “attack here” sites on molecules.</li>
+              <li>Fruit: turn any structure into a reactivity map you can use for mechanisms later.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 9 – overview</div>
+            <h3>Week 9 – Stereochemistry &amp; 3D Thinking</h3>
+            <ul>
+              <li>Roots: molecules are 3D; orientation affects properties and biological activity.</li>
+              <li>Trunk: chirality, stereocenters, R/S rules, enantiomers vs diastereomers.</li>
+              <li>Branches: Newman projections and simple conformational analysis.</li>
+              <li>Leaves: finding stereocenters, assigning R/S, comparing pairs of structures.</li>
+              <li>Fruit: track 3D information cleanly through reactions and exam drawings.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 10 – overview</div>
+            <h3>Week 10 – Organic Acid–Base &amp; Mechanistic Thinking</h3>
+            <ul>
+              <li>Roots: many organic reactions are just proton/electron moves driven by stability.</li>
+              <li>Trunk: pKa scale, conjugate stability, inductive/resonance/hybridization effects.</li>
+              <li>Branches: Bronsted vs Lewis acids/bases, curved-arrow notation.</li>
+              <li>Leaves: comparing acidity/basicity and predicting equilibrium direction with pKa.</li>
+              <li>Fruit: justify “which side is favoured” and tell a clear electron-pushing story.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 11 – overview</div>
+            <h3>Week 11 – Substitution &amp; Elimination (S<sub>N</sub>1 / S<sub>N</sub>2 / E1 / E2)</h3>
+            <ul>
+              <li>Roots: same starting materials, multiple pathways compete.</li>
+              <li>Trunk: defining features of S<sub>N</sub>1, S<sub>N</sub>2, E1, E2 and when each is favoured.</li>
+              <li>Branches: roles of substrate structure, nucleophile/base strength, solvent, temperature.</li>
+              <li>Leaves: classifying pathways and drawing mechanisms with stereochemistry.</li>
+              <li>Fruit: quickly pick dominant pathway and sketch correct products under given conditions.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 12 – overview</div>
+            <h3>Week 12 – Integration, Synthesis &amp; Review</h3>
+            <ul>
+              <li>Roots: the whole course is one story about energy, probability, and structure.</li>
+              <li>Trunk: connecting ΔG, K, k and mechanisms into one framework.</li>
+              <li>Branches: multi-step, mixed problems combining thermo, kinetics, and organic.</li>
+              <li>Leaves: mini-lessons, one-page maps, and self-written questions.</li>
+              <li>Fruit: you can explain Chem 123’s “forest” to someone else without notes.</li>
             </ul>
           </div>
         </div>
@@ -1298,6 +1443,491 @@
         <div class="section-divider"></div>
       </section>
 
+      <!-- WEEK 7 TREE -->
+      <section id="w7" class="content-section">
+        <div class="section-title">Week 7 – Organic Structure, Bonding &amp; Resonance (Mini Tree)</div>
+        <p class="section-note">
+          Week 7 tree: move from “physical chem notation” to “organic drawing” while still obeying the same quantum rules.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Carbon Framework &amp; Electron Distribution</h3>
+            <ul>
+              <li>Organic chemistry focuses on carbon skeletons and how electrons are arranged around them.</li>
+              <li>Correct electron placement controls charge, geometry, stability, and reactivity.</li>
+              <li>Resonance shows that electrons can be delocalized over several atoms, lowering energy.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">carbon-based</div>
+              <div class="tag">delocalization</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Lewis, Formal Charge, VSEPR &amp; Hybridization</h3>
+            <ul>
+              <li>Draw Lewis structures to place valence electrons and satisfy octets (or duets for H).</li>
+              <li>Use formal charge bookkeeping to locate where charge “lives” in a structure.</li>
+              <li>Apply VSEPR around each central atom to get local geometry (linear, trigonal planar, tetrahedral, etc.).</li>
+              <li>Assign hybridization (sp, sp², sp³) to match geometry and typical bond angles.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">Lewis</div>
+              <div class="tag">formal charge</div>
+              <div class="tag">VSEPR</div>
+              <div class="tag">hybridization</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>σ / π Bonds &amp; Resonance Structures</h3>
+            <ul>
+              <li>σ bonds: head-on overlap; define the skeleton and single-bond framework.</li>
+              <li>π bonds: side-on p–p overlap; appear in double/triple bonds and are often delocalized.</li>
+              <li>Resonance contributors obey the rules: same atom connectivity, valid octets, only electrons move.</li>
+              <li>Resonance hybrid: weighted average of contributors, with charge and π density spread out.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">σ vs π</div>
+              <div class="tag">resonance</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 7 Problem Types</h3>
+            <ul>
+              <li>Draw Lewis structures for small organic fragments (C, H, O, N, halogens) and assign formal charges.</li>
+              <li>For a given atom, identify geometry and hybridization (e.g., sp² trigonal planar, sp³ tetrahedral).</li>
+              <li>Draw all valid resonance contributors and indicate which is best (lowest formal charge, etc.).</li>
+              <li>Label σ vs π bonds and lone pairs that participate in resonance.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">structure drawing</div>
+              <div class="tag">resonance practice</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 7</h3>
+            <ul>
+              <li>Look at a small organic molecule and instantly state bond types, local shapes, and hybridization.</li>
+              <li>Place charges and lone pairs correctly so later mechanisms make chemical sense.</li>
+              <li>Use resonance language (“charge delocalized over these atoms”) in explanations.</li>
+              <li>Set yourself up for functional-group reactivity and pKa reasoning in Weeks 8–10.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 8 TREE -->
+      <section id="w8" class="content-section">
+        <div class="section-title">Week 8 – Functional Groups &amp; Reactivity Maps (Mini Tree)</div>
+        <p class="section-note">
+          Week 8 tree: build the “cast of characters” (functional groups) and learn to draw reactivity maps on molecules.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Behaviour Comes from Functional Groups</h3>
+            <ul>
+              <li>Most organic behaviour is determined by a few recurring patterns called functional groups.</li>
+              <li>Polar bonds create electron-rich (nucleophilic) and electron-poor (electrophilic) sites.</li>
+              <li>Seeing the group means you can anticipate typical reactions without re-deriving everything.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">functional groups</div>
+              <div class="tag">polarity</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Functional Group Catalogue</h3>
+            <ul>
+              <li>Hydrocarbons: alkanes, alkenes, alkynes, aromatic rings.</li>
+              <li>Oxygen-containing: alcohols, ethers, carbonyls (aldehydes, ketones), carboxylic acids, esters, amides.</li>
+              <li>Nitrogen-containing: amines, amides.</li>
+              <li>Halides and other heteroatom groups (R–X, where X = Cl, Br, I, etc.).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">hydrocarbons</div>
+              <div class="tag">carbonyls</div>
+              <div class="tag">amines</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Nucleophiles, Electrophiles &amp; Leaving Groups</h3>
+            <ul>
+              <li>Nucleophiles: electron-rich donors (lone pairs, π bonds, negative charges).</li>
+              <li>Electrophiles: electron-poor acceptors (δ⁺ carbons, carbocations, polarized σ* orbitals).</li>
+              <li>Leaving groups: atoms/groups that can depart with an electron pair (e.g., halides, sulfonates).</li>
+              <li>Reactivity map: mark where arrows will start and end on a given structure.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">Nu vs E+</div>
+              <div class="tag">LG ability</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 8 Problem Types</h3>
+            <ul>
+              <li>Circle and name all functional groups in a given organic structure.</li>
+              <li>Label nucleophilic and electrophilic atoms using electronegativity and resonance arguments.</li>
+              <li>Identify potential leaving groups and rank their quality.</li>
+              <li>Classify carbon centres as primary, secondary, tertiary, benzylic, allylic, etc.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">FG ID</div>
+              <div class="tag">reactivity map</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 8</h3>
+            <ul>
+              <li>Turn any organic molecule into a labelled map of functional groups and hot spots.</li>
+              <li>Predict where a nucleophile would attack or where positive charge would form.</li>
+              <li>Use these maps as the starting point for mechanisms in Weeks 10–11.</li>
+              <li>Build your own functional-group flashcards sorted by “what they like to do.”</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 9 TREE -->
+      <section id="w9" class="content-section">
+        <div class="section-title">Week 9 – Stereochemistry &amp; 3D Thinking (Mini Tree)</div>
+        <p class="section-note">
+          Week 9 tree: train your brain to hold 3D structures, not just flat drawings.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>3D Shape Controls Behaviour</h3>
+            <ul>
+              <li>Molecules that look similar on paper can be very different in 3D space.</li>
+              <li>Chirality makes enantiomers interact differently with chiral environments (like enzymes).</li>
+              <li>Conformations (rotations around σ bonds) affect stability and reactivity.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">3D structure</div>
+              <div class="tag">chirality</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Stereocenters, R/S, and Stereoisomers</h3>
+            <ul>
+              <li>Chiral (stereogenic) centre: tetrahedral atom attached to four different groups.</li>
+              <li>Assign R or S using Cahn–Ingold–Prelog priority rules and oriented viewing.</li>
+              <li>Enantiomers: non-superimposable mirror images; diastereomers: stereoisomers not related as mirror images.</li>
+              <li>Meso compounds: internal plane of symmetry → achiral despite stereocenters.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">R/S</div>
+              <div class="tag">enantiomers</div>
+              <div class="tag">diastereomers</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Newman Projections &amp; Conformation</h3>
+            <ul>
+              <li>Draw Newman projections to view rotation about a C–C bond.</li>
+              <li>Identify eclipsed vs staggered conformations and their relative energies.</li>
+              <li>Recognize gauche vs anti relationships in simple systems.</li>
+              <li>Connect conformational preference to steric and electronic effects.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">Newman</div>
+              <div class="tag">conformations</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 9 Problem Types</h3>
+            <ul>
+              <li>Locate stereocenters and decide whether a molecule is chiral or achiral.</li>
+              <li>Assign R/S configurations at labelled stereocenters.</li>
+              <li>Determine if two structures are identical, enantiomers, or diastereomers.</li>
+              <li>Draw simple Newman projections and rank conformers by stability.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">config. practice</div>
+              <div class="tag">conformer ranking</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 9</h3>
+            <ul>
+              <li>Carry 3D information correctly when drawing mechanisms and products.</li>
+              <li>Explain why a given enantiomer might be biologically active while its mirror image is not.</li>
+              <li>Rotate molecules mentally and on paper without losing connectivity.</li>
+              <li>Be ready for stereochemical outcomes of S<sub>N</sub>1 / S<sub>N</sub>2 and E reactions in Week 11.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 10 TREE -->
+      <section id="w10" class="content-section">
+        <div class="section-title">Week 10 – Organic Acid–Base &amp; Mechanistic Thinking (Mini Tree)</div>
+        <p class="section-note">
+          Week 10 tree: use pKa and stability to predict proton movement and electron flow in organic reactions.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Stability Drives Proton &amp; Electron Flow</h3>
+            <ul>
+              <li>Acid–base reactions move protons to create more stable conjugate species.</li>
+              <li>Electrons flow from high-energy, crowded regions to more stable, delocalized homes.</li>
+              <li>pKa turns this “stability contest” into numbers we can compare.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">stability</div>
+              <div class="tag">pKa logic</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>pKa Scale &amp; Stability Factors</h3>
+            <ul>
+              <li>pKa is −log K<sub>a</sub>; lower pKa ⇒ stronger acid ⇒ weaker conjugate base.</li>
+              <li>Key stability factors: atom type and electronegativity, resonance delocalization, inductive effects, hybridization, solvation.</li>
+              <li>Bronsted acids/bases (protons) vs Lewis acids/bases (electron pairs).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">pKa</div>
+              <div class="tag">resonance</div>
+              <div class="tag">induction</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Curved Arrows &amp; Mechanism Language</h3>
+            <ul>
+              <li>Curved arrows always start at electrons (lone pairs or bonds) and end where electrons go.</li>
+              <li>Common patterns: deprotonation, protonation, resonance delocalization, nucleophile attacking an electrophile.</li>
+              <li>Draw mechanisms step-by-step, keeping formal charges consistent.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">arrow pushing</div>
+              <div class="tag">patterns</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 10 Problem Types</h3>
+            <ul>
+              <li>Given two acids, use pKa and structure to decide which is stronger and why.</li>
+              <li>Predict direction of an acid–base equilibrium (which side is favoured).</li>
+              <li>Draw a simple proton transfer mechanism with curved arrows.</li>
+              <li>Show resonance delocalization of negative charge in a conjugate base.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">equilibrium direction</div>
+              <div class="tag">mechanism steps</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 10</h3>
+            <ul>
+              <li>Explain acidity/basicity trends using a consistent stability story.</li>
+              <li>Predict proton movement in mechanisms without guessing.</li>
+              <li>Write short mechanism “stories”: “lone pair attacks… bond breaks… new bond forms…”.</li>
+              <li>Connect pKa back to ΔG via K and ΔG° = −RT ln K if you want the thermo layer.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 11 TREE -->
+      <section id="w11" class="content-section">
+        <div class="section-title">Week 11 – Substitution &amp; Elimination (S<sub>N</sub>1 / S<sub>N</sub>2 / E1 / E2) (Mini Tree)</div>
+        <p class="section-note">
+          Week 11 tree: organize the four classic pathways and learn to choose between them fast.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Competing Pathways, Same Ingredients</h3>
+            <ul>
+              <li>Alkyl halide + nucleophile/base can substitute (S<sub>N</sub>) or eliminate (E) depending on conditions.</li>
+              <li>Pathway choice balances structure, nucleophile/base strength, solvent, and temperature.</li>
+              <li>Understanding all four makes exam questions look like variations on one theme.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">competition</div>
+              <div class="tag">conditions</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>S<sub>N</sub>2, S<sub>N</sub>1, E2, E1 Profiles</h3>
+            <ul>
+              <li>S<sub>N</sub>2: one-step, backside attack, rate = k[substrate][Nu], inversion of configuration, hates steric bulk.</li>
+              <li>S<sub>N</sub>1: carbocation intermediate, rate = k[substrate], favoured by tertiary/benzylic/allylic and polar protic solvents.</li>
+              <li>E2: one-step, strong base, anti-periplanar β-H and leaving group, rate = k[substrate][base].</li>
+              <li>E1: carbocation then elimination, partners with S<sub>N</sub>1 in similar conditions.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">S<sub>N</sub>2</div>
+              <div class="tag">S<sub>N</sub>1</div>
+              <div class="tag">E2</div>
+              <div class="tag">E1</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Factors That Push the Choice</h3>
+            <ul>
+              <li>Substrate: primary &gt; S<sub>N</sub>2/E2, tertiary &gt; S<sub>N</sub>1/E1, secondary = mixed.</li>
+              <li>Nucleophile/base: strong small bases favour S<sub>N</sub>2/E2; bulky bases push E2.</li>
+              <li>Solvent: polar protic favours S<sub>N</sub>1/E1; polar aprotic often favours S<sub>N</sub>2.</li>
+              <li>Temperature: higher T usually favours elimination (E) over substitution (S).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">substrate type</div>
+              <div class="tag">solvent</div>
+              <div class="tag">temperature</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 11 Problem Types</h3>
+            <ul>
+              <li>Given substrate + nucleophile/base + solvent + T, predict the dominant pathway.</li>
+              <li>Draw full S<sub>N</sub>1 or E1 mechanisms with carbocations and potential rearrangements.</li>
+              <li>Draw S<sub>N</sub>2 or E2 mechanisms and show stereochemical outcomes (inversion, anti β-H, etc.).</li>
+              <li>Identify major vs minor alkene products (Zaitsev vs Hofmann) for elimination.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">pathway choice</div>
+              <div class="tag">stereochemistry</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 11</h3>
+            <ul>
+              <li>Classify any standard S<sub>N</sub>/E question in under ~10 seconds.</li>
+              <li>Sketch mechanisms that are consistent with your classification.</li>
+              <li>Explain why certain products (and stereochemistry) are favoured under given conditions.</li>
+              <li>See substitution/elimination as a concrete application of your Week 8–10 reactivity map + mechanism skills.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 12 TREE -->
+      <section id="w12" class="content-section">
+        <div class="section-title">Week 12 – Integration, Synthesis &amp; Review (Mini Tree)</div>
+        <p class="section-note">
+          Week 12 tree: compress the whole course into one “forest” you can teach to someone else.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>One Story: Energy + Probability + Structure</h3>
+            <ul>
+              <li>Thermo and equilibrium describe where reactions want to go; kinetics and mechanisms describe how they get there.</li>
+              <li>Organic structure (functional groups, stereochemistry) decides which paths are even possible.</li>
+              <li>Teaching the story to others forces you to clarify it for yourself.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">unification</div>
+              <div class="tag">teaching</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Linking ΔG, K, k, and Mechanism</h3>
+            <ul>
+              <li>ΔG° ↔ K sets how product-favoured an equilibrium is.</li>
+              <li>k and rate laws set the timescale to reach that equilibrium under given conditions.</li>
+              <li>Mechanisms (stepwise pathways) explain exactly how bonds break and form along the way.</li>
+              <li>Organic acid–base and S<sub>N</sub>/E are concrete case studies of this general framework.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">ΔG° &amp; K</div>
+              <div class="tag">rate laws</div>
+              <div class="tag">mechanism</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Mixed, Multi-Step Problems</h3>
+            <ul>
+              <li>Problems that require using thermo, equilibrium, and kinetics together (e.g., ΔG–K plus rate data plus mechanism choice).</li>
+              <li>Organic mechanism questions that also ask about relative rate or equilibrium position.</li>
+              <li>Designing your own “anchor examples” for each week of the course.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">integration</div>
+              <div class="tag">anchor problems</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 12 Problem Types</h3>
+            <ul>
+              <li>Given a reaction, discuss (<em>a</em>) ΔG/ΔH/ΔS aspects, (<em>b</em>) equilibrium position, and (<em>c</em>) kinetic/mechanistic considerations.</li>
+              <li>Build a one-page concept map connecting weeks 1–12 with arrows and keywords.</li>
+              <li>Turn a past exam problem into a mini-lesson you could teach a peer.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">mixed questions</div>
+              <div class="tag">concept maps</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 12</h3>
+            <ul>
+              <li>Explain Chem 123 as a whole, not just as separate topics.</li>
+              <li>Create your own compact study map and teaching script for each week.</li>
+              <li>Walk into the exam with a mental “forest view” plus ready-made examples for each major branch.</li>
+              <li>Carry this framework into second-year physical and organic chemistry courses.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
       <!-- LEAVES -->
       <section id="leaves" class="content-section">
         <div class="section-title">Leaves – Example Types (Practice Pattern Map)</div>
@@ -1402,6 +2032,49 @@
       });
     });
 
+    const mobileWeeksToggle = document.querySelector(".mobile-fold-toggle");
+    const mobileWeekList = document.querySelector(".nav-children");
+    const mobileNavQuery = window.matchMedia("(max-width: 800px)");
+    const mobileFoldCopy = mobileWeeksToggle ? mobileWeeksToggle.querySelector(".mobile-fold-copy") : null;
+    const mobileFoldIcon = mobileWeeksToggle ? mobileWeeksToggle.querySelector(".mobile-fold-icon") : null;
+    let mobileWeeksExpanded = !mobileNavQuery.matches;
+
+    function updateMobileNavState() {
+      if (!mobileWeeksToggle || !mobileWeekList) return;
+      if (!mobileNavQuery.matches) {
+        mobileWeekList.classList.remove("mobile-expanded");
+        mobileWeeksToggle.setAttribute("aria-expanded", "true");
+        if (mobileFoldCopy) mobileFoldCopy.textContent = "Weeks 1–12";
+        if (mobileFoldIcon) mobileFoldIcon.textContent = "▾";
+        return;
+      }
+      mobileWeekList.classList.toggle("mobile-expanded", mobileWeeksExpanded);
+      mobileWeeksToggle.setAttribute("aria-expanded", mobileWeeksExpanded ? "true" : "false");
+      if (mobileFoldCopy) mobileFoldCopy.textContent = mobileWeeksExpanded ? "Hide weeks" : "Show weeks";
+      if (mobileFoldIcon) mobileFoldIcon.textContent = mobileWeeksExpanded ? "▴" : "▾";
+    }
+
+    function handleMobileNavChange(event) {
+      mobileWeeksExpanded = !event.matches;
+      updateMobileNavState();
+    }
+
+    if (mobileWeeksToggle && mobileWeekList) {
+      mobileWeeksToggle.addEventListener("click", () => {
+        if (!mobileNavQuery.matches) return;
+        mobileWeeksExpanded = !mobileWeeksExpanded;
+        updateMobileNavState();
+      });
+
+      if (mobileNavQuery.addEventListener) {
+        mobileNavQuery.addEventListener("change", handleMobileNavChange);
+      } else if (mobileNavQuery.addListener) {
+        mobileNavQuery.addListener(handleMobileNavChange);
+      }
+
+      updateMobileNavState();
+    }
+
     // Double-click to copy
     const toast = document.getElementById("toast");
     let toastTimeout = null;
@@ -1443,4 +2116,3 @@
   </script>
 </body>
 </html>
-
