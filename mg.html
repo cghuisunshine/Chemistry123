@@ -29,7 +29,7 @@
         "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
       color: var(--text);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: stretch;
       justify-content: center;
@@ -292,6 +292,104 @@
       text-align: right;
     }
 
+    .mobile-hint {
+      display: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      background: rgba(15,23,42,0.6);
+    }
+
+    .copyable {
+      cursor: copy;
+    }
+
+    .toast {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.94);
+      color: var(--text);
+      font-size: 0.78rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    body.mobile-mode {
+      display: block;
+      background-attachment: fixed;
+    }
+
+    body.mobile-mode .sidebar {
+      display: none;
+    }
+
+    body.mobile-mode .mobile-hint {
+      display: block;
+    }
+
+    body.mobile-mode .week-panel {
+      display: block !important;
+      margin-bottom: 14px;
+      padding: 14px 14px 16px;
+    }
+
+    body.mobile-mode .week-panel.collapsed > :not(.week-title) {
+      display: none;
+    }
+
+    body.mobile-mode .week-title {
+      cursor: pointer;
+      position: relative;
+      padding-right: 28px;
+    }
+
+    body.mobile-mode .week-title::after {
+      content: '▾';
+      position: absolute;
+      right: 6px;
+      top: 4px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    body.mobile-mode .week-panel.collapsed .week-title::after {
+      content: '▸';
+    }
+
+    body.mobile-mode .week-panel:not(.collapsed) {
+      border-color: rgba(56,189,248,0.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    body.mobile-mode .breadcrumbs {
+      text-align: left;
+    }
+
+    body.mobile-mode .main-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    body.mobile-mode .main {
+      padding: 14px 16px 60px;
+    }
+
     @media (max-width: 900px) {
       .app-shell {
         flex-direction: column;
@@ -310,6 +408,40 @@
       }
       .week-list {
         max-height: 180px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        display: block;
+        min-height: 100vh;
+      }
+
+      .app-shell {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        padding: 14px 16px 60px;
+      }
+
+      .week-panel {
+        padding: 14px 14px 16px;
+      }
+
+      .mode-chip {
+        width: 100%;
       }
     }
   </style>
@@ -399,6 +531,10 @@
           <span class="mode-dot"></span>
           MG-SF: Large → Medium → Fine → Micro → Teach
         </div>
+      </div>
+
+      <div class="mobile-hint">
+        Tap a week title to expand/collapse on mobile. Double-tap any card to copy the text.
       </div>
 
       <!-- Week 1 -->
@@ -1233,34 +1369,124 @@
     </main>
   </div>
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script>
     const btns = document.querySelectorAll(".week-btn");
     const panels = document.querySelectorAll(".week-panel");
     const crumbWeek = document.getElementById("crumbWeek");
+    const toast = document.getElementById("toast");
+    const bodyEl = document.body;
+    const mobileQuery = window.matchMedia("(max-width: 720px)");
+    let currentWeekId = document.querySelector(".week-panel.active")?.id || "week-1";
+
+    function setActiveWeek(weekId, options = {}) {
+      if (!weekId) return;
+      currentWeekId = weekId;
+
+      btns.forEach(btn => {
+        const isMatch = btn.getAttribute("data-week") === weekId;
+        btn.classList.toggle("active", isMatch);
+        if (isMatch) {
+          const titleText = btn.querySelector(".title")?.textContent || "";
+          crumbWeek.textContent = titleText;
+        }
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle("active", panel.id === weekId);
+      });
+
+      if (options.revealOnMobile && bodyEl.classList.contains("mobile-mode")) {
+        const panel = document.getElementById(weekId);
+        if (panel) {
+          panel.dataset.collapsed = "0";
+          panel.classList.remove("collapsed");
+          if (options.scroll !== false) {
+            panel.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      }
+    }
 
     btns.forEach(btn => {
       btn.addEventListener("click", () => {
-        const targetId = btn.getAttribute("data-week");
-
-        // sidebar active state
-        btns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        // panels
-        panels.forEach(p => {
-          if (p.id === targetId) {
-            p.classList.add("active");
-          } else {
-            p.classList.remove("active");
-          }
-        });
-
-        // breadcrumb text
-        const titleText = btn.querySelector(".title").textContent;
-        crumbWeek.textContent = titleText;
+        setActiveWeek(btn.getAttribute("data-week"), { revealOnMobile: true });
       });
+    });
+
+    panels.forEach(panel => {
+      const title = panel.querySelector(".week-title");
+      if (!title) return;
+      title.addEventListener("click", () => {
+        if (!bodyEl.classList.contains("mobile-mode")) return;
+        const collapsed = panel.classList.toggle("collapsed");
+        panel.dataset.collapsed = collapsed ? "1" : "0";
+        if (!collapsed) {
+          setActiveWeek(panel.id, { revealOnMobile: false, scroll: false });
+        }
+      });
+    });
+
+    function applyMobileState() {
+      if (mobileQuery.matches) {
+        bodyEl.classList.add("mobile-mode");
+        panels.forEach((panel, index) => {
+          if (!panel.dataset.collapsed) {
+            panel.dataset.collapsed = index === 0 ? "0" : "1";
+          }
+          panel.classList.toggle("collapsed", panel.dataset.collapsed === "1");
+        });
+      } else {
+        bodyEl.classList.remove("mobile-mode");
+        panels.forEach(panel => {
+          panel.classList.remove("collapsed");
+          delete panel.dataset.collapsed;
+        });
+        setActiveWeek(currentWeekId, { revealOnMobile: false, scroll: false });
+      }
+    }
+
+    applyMobileState();
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener("change", applyMobileState);
+    } else if (mobileQuery.addListener) {
+      mobileQuery.addListener(applyMobileState);
+    }
+
+    setActiveWeek(currentWeekId, { revealOnMobile: false, scroll: false });
+
+    const copyTargets = document.querySelectorAll(
+      ".week-panel .card, .week-panel .teach-tips, .week-panel .bottom-note, .week-panel .pill-row, .week-panel .pill, .week-panel .week-title"
+    );
+    copyTargets.forEach(el => {
+      el.classList.add("copyable");
+      if (!el.getAttribute("title")) {
+        el.setAttribute("title", "Double-click to copy");
+      }
+    });
+
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg || "Copied to clipboard";
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1500);
+    }
+
+    document.addEventListener("dblclick", async event => {
+      const target = event.target.closest(".copyable");
+      if (!target) return;
+      const text = target.textContent.replace(/\u00A0/g, " ").trim();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        const preview = text.length > 80 ? `${text.slice(0, 80)}…` : text;
+        showToast(`Copied: ${preview}`);
+      } catch {
+        showToast("Copied");
+      }
     });
   </script>
 </body>
 </html>
-
