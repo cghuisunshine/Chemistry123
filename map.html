@@ -186,16 +186,16 @@
       padding: 0.32rem 0.45rem;
     }
 
-    .mobile-fold-toggle {
+    .mobile-tree-toggle {
       display: none;
       width: 100%;
-      margin: 0.2rem 0 0.4rem;
-      padding: 0.35rem 0.6rem;
-      border-radius: 0.6rem;
+      margin: 0.25rem 0 0.4rem;
+      padding: 0.4rem 0.65rem;
+      border-radius: 0.7rem;
       border: 1px solid rgba(148,163,184,0.45);
       background: rgba(15,23,42,0.9);
       color: var(--text-soft);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-family: inherit;
       align-items: center;
       justify-content: space-between;
@@ -204,14 +204,55 @@
       transition: border-color 0.15s ease, background 0.15s ease;
     }
 
-    .mobile-fold-toggle:focus-visible {
+    .mobile-tree-toggle:focus-visible {
       outline: 2px solid rgba(56,189,248,0.7);
       outline-offset: 2px;
     }
 
-    .mobile-fold-toggle[aria-expanded="true"] {
+    .mobile-tree-toggle[aria-expanded="true"] {
       border-color: rgba(191,219,254,0.6);
       color: #e5f2ff;
+    }
+
+    .nav-branches-toggle {
+      position: relative;
+    }
+
+    .nav-branches-toggle::after {
+      content: "";
+      display: none;
+    }
+
+    #branches .mobile-branches-toggle {
+      display: none;
+      width: 100%;
+      margin: 0.25rem 0 0.35rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-family: inherit;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    #branches .mobile-branches-toggle:focus-visible {
+      outline: 2px solid rgba(56,189,248,0.7);
+      outline-offset: 2px;
+    }
+
+    #branches .mobile-branches-toggle[aria-expanded="true"] {
+      border-color: rgba(191,219,254,0.6);
+      color: #e5f2ff;
+    }
+
+    #branches .branches-fold-content {
+      margin-top: 0.5rem;
     }
 
     .sidebar-footer {
@@ -476,6 +517,14 @@
         overflow: visible;
       }
 
+      .mobile-tree-toggle {
+        display: flex;
+      }
+
+      .nav-group.mobile-collapsed {
+        display: none;
+      }
+
       .nav-group {
         max-height: none;
         width: 100%;
@@ -492,16 +541,39 @@
         flex-wrap: wrap;
       }
 
-      .mobile-fold-toggle {
-        display: flex;
-      }
-
       .nav-children {
         display: none;
       }
 
       .nav-children.mobile-expanded {
         display: block;
+      }
+
+      .nav-branches-toggle {
+        padding-right: 2.1rem;
+      }
+
+      .nav-branches-toggle::after {
+        display: block;
+        content: "▾";
+        position: absolute;
+        right: 0.55rem;
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        opacity: 0.85;
+        transition: transform 0.15s ease;
+      }
+
+      .nav-branches-toggle.mobile-weeks-open::after {
+        content: "▴";
+      }
+
+      #branches .mobile-branches-toggle {
+        display: flex;
+      }
+
+      #branches.branches-collapsed .branches-fold-content {
+        display: none;
       }
 
       .main {
@@ -521,20 +593,24 @@
 </head>
 <body>
   <aside class="sidebar">
-    <div>
-      <div class="brand">
-        <div class="brand-orb"><div class="brand-orb-inner"></div></div>
-        <div>
-          <div class="brand-text-main">Chem 123</div>
-          <div class="brand-text-sub">Multi-Grain × Tree Map</div>
-        </div>
-      </div>
-      <div class="sidebar-section-title">Knowledge Tree</div>
-      <div class="nav-group">
-        <div class="nav-item nav-item-root active" data-section="roots">
-          <div class="nav-item-label">
-            🌌 <span>Roots – First Principles</span>
+      <div>
+        <div class="brand">
+          <div class="brand-orb"><div class="brand-orb-inner"></div></div>
+          <div>
+            <div class="brand-text-main">Chem 123</div>
+            <div class="brand-text-sub">Multi-Grain × Tree Map</div>
           </div>
+        </div>
+        <div class="sidebar-section-title">Knowledge Tree</div>
+        <button class="mobile-tree-toggle" type="button" aria-expanded="true">
+          <span class="mobile-tree-toggle-text">Hide tree</span>
+          <span class="mobile-tree-toggle-icon" aria-hidden="true">▴</span>
+        </button>
+        <div class="nav-group">
+          <div class="nav-item nav-item-root active" data-section="roots">
+            <div class="nav-item-label">
+              🌌 <span>Roots – First Principles</span>
+            </div>
           <span class="nav-tag">Why things happen</span>
         </div>
 
@@ -545,17 +621,12 @@
           <span class="nav-tag">Thermo + Kinetics</span>
         </div>
 
-        <div class="nav-item nav-item-branch" data-section="branches">
+        <div class="nav-item nav-item-branch nav-branches-toggle" data-section="branches">
           <div class="nav-item-label">
             🌿 <span>Branches – Weeks 1–12</span>
           </div>
           <span class="nav-tag">Topics</span>
         </div>
-
-        <button class="mobile-fold-toggle" type="button" aria-expanded="true">
-          <span class="mobile-fold-copy">Weeks 1–12</span>
-          <span class="mobile-fold-icon" aria-hidden="true">▾</span>
-        </button>
 
         <div class="nav-children">
           <div class="nav-item nav-item-branch" data-section="w1">
@@ -809,9 +880,14 @@
       <!-- BRANCHES – overview -->
       <section id="branches" class="content-section">
         <div class="section-title">Branches – Weekly Topic Map (Weeks 1–12)</div>
-        <p class="section-note">
-          Overview of each weekly mini tree. Click a specific week in the sidebar for the full roots → trunk → branches → leaves → fruit view.
-        </p>
+        <button class="mobile-branches-toggle" type="button" aria-expanded="true" aria-controls="branches-fold">
+          <span class="mobile-branches-toggle-text">Hide weeks</span>
+          <span class="mobile-branches-toggle-icon" aria-hidden="true">▴</span>
+        </button>
+        <div class="branches-fold-content" id="branches-fold">
+          <p class="section-note">
+            Overview of each weekly mini tree. Click a specific week in the sidebar for the full roots → trunk → branches → leaves → fruit view.
+          </p>
         <div class="section-grid">
           <div class="copy-card">
             <div class="grain-label">Week 1 – overview</div>
@@ -958,6 +1034,7 @@
           </div>
         </div>
         <div class="section-divider"></div>
+        </div>
       </section>
 
       <!-- WEEK 1 TREE -->
@@ -2023,57 +2100,120 @@
       });
     }
 
+    const mobileWeekToggleTarget = "branches";
+    const navGroup = document.querySelector(".nav-group");
+    const mobileTreeToggle = document.querySelector(".mobile-tree-toggle");
+    const mobileTreeToggleText = mobileTreeToggle ? mobileTreeToggle.querySelector(".mobile-tree-toggle-text") : null;
+    const mobileTreeToggleIcon = mobileTreeToggle ? mobileTreeToggle.querySelector(".mobile-tree-toggle-icon") : null;
+    const mobileWeekList = document.querySelector(".nav-children");
+    const branchesNavItem = document.querySelector(".nav-branches-toggle");
+    const branchesSection = document.getElementById("branches");
+    const branchesToggle = branchesSection ? branchesSection.querySelector(".mobile-branches-toggle") : null;
+    const branchesFoldContent = document.getElementById("branches-fold");
+    const branchesToggleText = branchesToggle ? branchesToggle.querySelector(".mobile-branches-toggle-text") : null;
+    const branchesToggleIcon = branchesToggle ? branchesToggle.querySelector(".mobile-branches-toggle-icon") : null;
+    const mobileNavQuery = window.matchMedia("(max-width: 800px)");
+    let mobileWeeksExpanded = !mobileNavQuery.matches;
+    let branchesExpanded = !mobileNavQuery.matches;
+    let mobileTreeExpanded = !mobileNavQuery.matches;
+
+    function updateMobileNavState() {
+      if (!mobileWeekList) return;
+      if (!mobileNavQuery.matches) {
+        mobileWeekList.classList.remove("mobile-expanded");
+        if (branchesNavItem) {
+          branchesNavItem.classList.remove("mobile-weeks-open", "mobile-weeks-collapsed");
+          branchesNavItem.removeAttribute("aria-expanded");
+        }
+        return;
+      }
+      mobileWeekList.classList.toggle("mobile-expanded", mobileWeeksExpanded);
+      if (branchesNavItem) {
+        branchesNavItem.classList.toggle("mobile-weeks-open", mobileWeeksExpanded);
+        branchesNavItem.classList.toggle("mobile-weeks-collapsed", !mobileWeeksExpanded);
+        branchesNavItem.setAttribute("aria-expanded", mobileWeeksExpanded ? "true" : "false");
+      }
+    }
+
+    function updateMobileTreeState() {
+      if (!navGroup || !mobileTreeToggle) return;
+      if (!mobileNavQuery.matches) {
+        mobileTreeExpanded = true;
+        navGroup.classList.remove("mobile-collapsed");
+        mobileTreeToggle.setAttribute("aria-expanded", "true");
+        if (mobileTreeToggleText) mobileTreeToggleText.textContent = "Hide tree";
+        if (mobileTreeToggleIcon) mobileTreeToggleIcon.textContent = "▴";
+        return;
+      }
+      navGroup.classList.toggle("mobile-collapsed", !mobileTreeExpanded);
+      mobileTreeToggle.setAttribute("aria-expanded", mobileTreeExpanded ? "true" : "false");
+      if (mobileTreeToggleText) mobileTreeToggleText.textContent = mobileTreeExpanded ? "Hide tree" : "Show tree";
+      if (mobileTreeToggleIcon) mobileTreeToggleIcon.textContent = mobileTreeExpanded ? "▴" : "▾";
+    }
+
+    function updateBranchesFoldState() {
+      if (!branchesSection || !branchesToggle || !branchesFoldContent) return;
+      if (!mobileNavQuery.matches) {
+        branchesExpanded = true;
+        branchesSection.classList.remove("branches-collapsed");
+        branchesToggle.setAttribute("aria-expanded", "true");
+        if (branchesToggleText) branchesToggleText.textContent = "Hide weeks";
+        if (branchesToggleIcon) branchesToggleIcon.textContent = "▴";
+        return;
+      }
+      branchesSection.classList.toggle("branches-collapsed", !branchesExpanded);
+      branchesToggle.setAttribute("aria-expanded", branchesExpanded ? "true" : "false");
+      if (branchesToggleText) branchesToggleText.textContent = branchesExpanded ? "Hide weeks" : "Show weeks";
+      if (branchesToggleIcon) branchesToggleIcon.textContent = branchesExpanded ? "▴" : "▾";
+    }
+
+    function handleViewportChange(event) {
+      mobileWeeksExpanded = !event.matches;
+      branchesExpanded = !event.matches;
+      mobileTreeExpanded = !event.matches;
+      updateMobileNavState();
+      updateBranchesFoldState();
+      updateMobileTreeState();
+    }
+
+    if (branchesToggle && branchesSection) {
+      branchesToggle.addEventListener("click", () => {
+        if (!mobileNavQuery.matches) return;
+        branchesExpanded = !branchesExpanded;
+        updateBranchesFoldState();
+      });
+    }
+
+    if (mobileTreeToggle && navGroup) {
+      mobileTreeToggle.addEventListener("click", () => {
+        if (!mobileNavQuery.matches) return;
+        mobileTreeExpanded = !mobileTreeExpanded;
+        updateMobileTreeState();
+      });
+    }
+
+    if (mobileNavQuery.addEventListener) {
+      mobileNavQuery.addEventListener("change", handleViewportChange);
+    } else if (mobileNavQuery.addListener) {
+      mobileNavQuery.addListener(handleViewportChange);
+    }
+
     navItems.forEach(item => {
       item.addEventListener("click", () => {
         const target = item.dataset.section;
+        if (mobileNavQuery.matches && target === mobileWeekToggleTarget) {
+          mobileWeeksExpanded = !mobileWeeksExpanded;
+          updateMobileNavState();
+        }
         if (target) {
           activateSection(target);
         }
       });
     });
 
-    const mobileWeeksToggle = document.querySelector(".mobile-fold-toggle");
-    const mobileWeekList = document.querySelector(".nav-children");
-    const mobileNavQuery = window.matchMedia("(max-width: 800px)");
-    const mobileFoldCopy = mobileWeeksToggle ? mobileWeeksToggle.querySelector(".mobile-fold-copy") : null;
-    const mobileFoldIcon = mobileWeeksToggle ? mobileWeeksToggle.querySelector(".mobile-fold-icon") : null;
-    let mobileWeeksExpanded = !mobileNavQuery.matches;
-
-    function updateMobileNavState() {
-      if (!mobileWeeksToggle || !mobileWeekList) return;
-      if (!mobileNavQuery.matches) {
-        mobileWeekList.classList.remove("mobile-expanded");
-        mobileWeeksToggle.setAttribute("aria-expanded", "true");
-        if (mobileFoldCopy) mobileFoldCopy.textContent = "Weeks 1–12";
-        if (mobileFoldIcon) mobileFoldIcon.textContent = "▾";
-        return;
-      }
-      mobileWeekList.classList.toggle("mobile-expanded", mobileWeeksExpanded);
-      mobileWeeksToggle.setAttribute("aria-expanded", mobileWeeksExpanded ? "true" : "false");
-      if (mobileFoldCopy) mobileFoldCopy.textContent = mobileWeeksExpanded ? "Hide weeks" : "Show weeks";
-      if (mobileFoldIcon) mobileFoldIcon.textContent = mobileWeeksExpanded ? "▴" : "▾";
-    }
-
-    function handleMobileNavChange(event) {
-      mobileWeeksExpanded = !event.matches;
-      updateMobileNavState();
-    }
-
-    if (mobileWeeksToggle && mobileWeekList) {
-      mobileWeeksToggle.addEventListener("click", () => {
-        if (!mobileNavQuery.matches) return;
-        mobileWeeksExpanded = !mobileWeeksExpanded;
-        updateMobileNavState();
-      });
-
-      if (mobileNavQuery.addEventListener) {
-        mobileNavQuery.addEventListener("change", handleMobileNavChange);
-      } else if (mobileNavQuery.addListener) {
-        mobileNavQuery.addListener(handleMobileNavChange);
-      }
-
-      updateMobileNavState();
-    }
+    updateMobileNavState();
+    updateBranchesFoldState();
+    updateMobileTreeState();
 
     // Double-click to copy
     const toast = document.getElementById("toast");
