@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chem 123 Master Map – Multi-Grain + Tree</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --bg-card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.14);
+      --accent-strong: rgba(56,189,248,0.35);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-subtle: rgba(148,163,184,0.35);
+      --radius-lg: 0.9rem;
+      --radius-xl: 1.2rem;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.85);
+      --shadow-subtle: 0 10px 30px rgba(15,23,42,0.6);
+      --sidebar-width: 290px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 38%, #020617 100%);
+    }
+
+    body {
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: linear-gradient(165deg, #020617 0, #020617 40%, #111827 100%);
+      border-right: 1px solid rgba(15,23,42,0.9);
+      padding: 1.3rem 1.1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .brand-orb {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: conic-gradient(from 200deg, #38bdf8, #a855f7, #f97316, #22c55e, #38bdf8);
+      padding: 2px;
+      box-shadow: 0 0 20px rgba(56,189,248,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-orb-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 20% 10%, #0ea5e9 0, #020617 48%);
+    }
+
+    .brand-text-main {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .brand-text-sub {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .sidebar-section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin: 0.4rem 0 0.25rem;
+    }
+
+    .nav-group {
+      border-radius: 0.8rem;
+      background: linear-gradient(135deg, rgba(15,23,42,0.88), rgba(15,23,42,0.96));
+      border: 1px solid rgba(30,64,175,0.8);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.85);
+      padding: 0.5rem 0.4rem;
+      max-height: calc(100vh - 150px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(148,163,184,0.6) transparent;
+    }
+
+    .nav-group::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .nav-group::-webkit-scrollbar-thumb {
+      background: rgba(148,163,184,0.7);
+      border-radius: 999px;
+    }
+
+    .nav-item {
+      border-radius: 0.6rem;
+      padding: 0.42rem 0.55rem;
+      margin: 0.05rem 0;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.16s ease, color 0.16s ease, transform 0.1s ease,
+        box-shadow 0.16s ease;
+    }
+
+    .nav-item-label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-tag {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    .nav-item:hover {
+      background: rgba(37,99,235,0.22);
+      color: #e5f2ff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.9);
+    }
+
+    .nav-item.active {
+      background: radial-gradient(circle at top left, #38bdf8 0, #1d4ed8 35%, #020617 100%);
+      color: #eff6ff;
+      box-shadow: 0 0 0 1px rgba(191,219,254,0.6),
+        0 0 25px rgba(56,189,248,0.6);
+      transform: translateY(-1px);
+    }
+
+    .nav-item.active .nav-tag {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .nav-item-root { border-left: 2px solid rgba(56,189,248,0.8); }
+    .nav-item-trunk { border-left: 2px solid rgba(168,85,247,0.8); }
+    .nav-item-branch { border-left: 2px solid rgba(59,130,246,0.85); }
+    .nav-item-leaf { border-left: 2px solid rgba(34,197,94,0.85); }
+    .nav-item-fruit { border-left: 2px solid rgba(249,115,22,0.9); }
+
+    .nav-children {
+      margin-left: 0.7rem;
+      padding-left: 0.45rem;
+      border-left: 1px dashed rgba(148,163,184,0.6);
+      margin-top: 0.08rem;
+      margin-bottom: 0.26rem;
+    }
+
+    .nav-children .nav-item {
+      font-size: 0.78rem;
+      padding: 0.32rem 0.45rem;
+    }
+
+    .sidebar-footer {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      opacity: 0.78;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      padding-top: 0.4rem;
+      margin-top: auto;
+    }
+
+    .sidebar-footer span {
+      color: var(--accent);
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.2rem 1.4rem 1.4rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .page-title-block h1 {
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin: 0 0 0.18rem;
+    }
+
+    .page-title-block h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .page-title-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      max-width: 460px;
+    }
+
+    .pill-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 0.16rem 0.55rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .pill.pill-grain { border-color: rgba(56,189,248,0.75); }
+    .pill.pill-tree { border-color: rgba(168,85,247,0.8); }
+
+    .content-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 0.2rem;
+      position: relative;
+    }
+
+    .content-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+    .content-scroll::-webkit-scrollbar-thumb {
+      background: rgba(148,163,184,0.9);
+      border-radius: 999px;
+    }
+
+    .content-section {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0.25rem 0 0.5rem;
+      color: #f9fafb;
+    }
+
+    .grain-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.18rem;
+    }
+
+    .copy-card {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.18), #020617 36%, #020617 100%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148,163,184,0.5);
+      padding: 0.8rem 0.85rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .copy-card::before {
+      content: "Double-click to copy";
+      position: absolute;
+      top: 0.55rem;
+      right: 0.7rem;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(148,163,184,0.85);
+      background: rgba(15,23,42,0.9);
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51,65,85,0.9);
+    }
+
+    .copy-card:hover {
+      box-shadow: 0 20px 50px rgba(15,23,42,0.92);
+      transform: translateY(-1px);
+      border-color: rgba(191,219,254,0.9);
+    }
+
+    .copy-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .copy-card ul {
+      padding-left: 1.1rem;
+      margin: 0.15rem 0 0;
+    }
+
+    .copy-card li {
+      margin: 0.08rem 0;
+    }
+
+    .eq-inline {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.83rem;
+      background: rgba(15,23,42,0.9);
+      padding: 0.03rem 0.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(30,64,175,0.5);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 0.12rem 0.45rem;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+    }
+
+    .tag.tag-thermo { border-color: rgba(59,130,246,0.95); }
+    .tag.tag-kin { border-color: rgba(249,115,22,0.95); }
+    .tag.tag-eq { border-color: rgba(34,197,94,0.95); }
+
+    .section-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin: 0.2rem 0 0.9rem;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(31,41,55,0), rgba(148,163,184,0.8), rgba(31,41,55,0));
+      margin: 0.6rem 0 0.9rem;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 1.1rem;
+      right: 1.3rem;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.4), #020617);
+      border: 1px solid rgba(191,219,254,0.7);
+      color: #e5f2ff;
+      box-shadow: 0 15px 35px rgba(15,23,42,0.95);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+      z-index: 50;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast span {
+      font-weight: 500;
+      margin-right: 0.2rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0.6rem 0.7rem 0.6rem;
+        gap: 0.7rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .nav-group {
+        max-height: 160px;
+      }
+
+      .main {
+        padding: 0.9rem;
+      }
+
+      .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="brand-orb"><div class="brand-orb-inner"></div></div>
+        <div>
+          <div class="brand-text-main">Chem 123</div>
+          <div class="brand-text-sub">Multi-Grain × Tree Map</div>
+        </div>
+      </div>
+      <div class="sidebar-section-title">Knowledge Tree</div>
+      <div class="nav-group">
+        <div class="nav-item nav-item-root active" data-section="roots">
+          <div class="nav-item-label">
+            🌌 <span>Roots – First Principles</span>
+          </div>
+          <span class="nav-tag">Why things happen</span>
+        </div>
+
+        <div class="nav-item nav-item-trunk" data-section="trunk">
+          <div class="nav-item-label">
+            🌲 <span>Trunk – Core Concepts</span>
+          </div>
+          <span class="nav-tag">Thermo + Kinetics</span>
+        </div>
+
+        <div class="nav-item nav-item-branch" data-section="branches">
+          <div class="nav-item-label">
+            🌿 <span>Branches – Weeks 1–6</span>
+          </div>
+          <span class="nav-tag">Topics</span>
+        </div>
+
+        <div class="nav-children">
+          <div class="nav-item nav-item-branch" data-section="w1">
+            <div class="nav-item-label">
+              1️⃣ <span>Week 1 – Acid–Base Review</span>
+            </div>
+            <span class="nav-tag">pH, pOH, Kw</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w2">
+            <div class="nav-item-label">
+              2️⃣ <span>Week 2 – Thermo Foundations</span>
+            </div>
+            <span class="nav-tag">ΔU, q, w</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w3">
+            <div class="nav-item-label">
+              3️⃣ <span>Week 3 – Enthalpy & Entropy</span>
+            </div>
+            <span class="nav-tag">ΔH, ΔS</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w4">
+            <div class="nav-item-label">
+              4️⃣ <span>Week 4 – Free Energy & K</span>
+            </div>
+            <span class="nav-tag">ΔG, K</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w5">
+            <div class="nav-item-label">
+              5️⃣ <span>Week 5 – Rate Laws</span>
+            </div>
+            <span class="nav-tag">k, order</span>
+          </div>
+          <div class="nav-item nav-item-branch" data-section="w6">
+            <div class="nav-item-label">
+              6️⃣ <span>Week 6 – Mechanisms</span>
+            </div>
+            <span class="nav-tag">Steps, TS</span>
+          </div>
+        </div>
+
+        <div class="nav-item nav-item-leaf" data-section="leaves">
+          <div class="nav-item-label">
+            🍃 <span>Leaves – Example Types</span>
+          </div>
+          <span class="nav-tag">Practice shapes</span>
+        </div>
+
+        <div class="nav-item nav-item-fruit" data-section="fruit">
+          <div class="nav-item-label">
+            🍎 <span>Fruit – Outputs</span>
+          </div>
+          <span class="nav-tag">What you can do</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      Double-click any card on the right to <span>copy</span> it into notes, Quizlet, or your HTML project.
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-header">
+      <div class="page-title-block">
+        <h1>Master Map</h1>
+        <h2>Thermo, Equilibrium &amp; Kinetics as One Story</h2>
+        <p class="page-title-note">
+          Left = tree structure (roots → trunk → branches → leaves → fruit). Right = multi-grain zoom (large → medium → micro → examples → outputs).
+        </p>
+        <div class="pill-row">
+          <div class="pill pill-grain">Multi-grain: overview → key concepts → deep theory → examples</div>
+          <div class="pill pill-tree">Tree: causes → core → topics → cases → products</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-scroll">
+      <!-- ROOTS -->
+      <section id="roots" class="content-section active">
+        <div class="section-title">Roots – First Principles (Why Any of This Happens)</div>
+        <p class="section-note">
+          Use these as your deepest explanations in reflections or “why” questions. They connect Chem 123 to physics and quantum/statistical ideas.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain – big picture</div>
+            <h3>Nature’s Direction: Probability and Energy</h3>
+            <ul>
+              <li>Spontaneous change is driven by both <strong>energy lowering</strong> and <strong>probability increasing</strong>.</li>
+              <li>Energy story: systems tend to states with lower <span class="eq-inline">ΔG</span> (free energy).</li>
+              <li>Probability story: systems tend to states with more accessible microstates (higher <span class="eq-inline">S</span>).</li>
+              <li>Thermodynamics = “destination chooser”; kinetics = “speed limit”.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">spontaneity</div>
+              <div class="tag tag-thermo">energy + probability</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain – key concepts</div>
+            <h3>Energy, Work &amp; Entropy Definitions</h3>
+            <ul>
+              <li>Energy: capacity to do work or produce heat.</li>
+              <li>Heat <span class="eq-inline">q</span>: energy transfer due to temperature difference.</li>
+              <li>Work <span class="eq-inline">w</span>: force acting through a distance (<span class="eq-inline">w = −PΔV</span> for expansion).</li>
+              <li>Entropy <span class="eq-inline">S</span>: a measure of energy spreading / number of microstates.</li>
+              <li>Gibbs free energy: <span class="eq-inline">ΔG = ΔH − TΔS</span>.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔU, q, w</div>
+              <div class="tag tag-thermo">ΔS, ΔG</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Micro grain – deeper theory</div>
+            <h3>Statistical Mechanics Root</h3>
+            <ul>
+              <li>Entropy relates to microstates: <span class="eq-inline">S = k \ln W</span>, where <span class="eq-inline">W</span> is number of microstates.</li>
+              <li>More ways to arrange energy/particles → larger <span class="eq-inline">W</span> → larger <span class="eq-inline">S</span>.</li>
+              <li>Free energy connection: <span class="eq-inline">ΔG° = −RT \ln K</span> links microstate counting to equilibrium constant.</li>
+              <li>Maxwell–Boltzmann distribution explains why only a fraction of molecules cross the activation barrier at given <span class="eq-inline">T</span>.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">S = k ln W</div>
+              <div class="tag tag-eq">ΔG° &amp; K</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Examples – leaf level</div>
+            <h3>Root-Level Example Snippets</h3>
+            <ul>
+              <li>Ice → liquid water: same molecules, many more accessible positions + orientations ⇒ <span class="eq-inline">ΔS &gt; 0</span>.</li>
+              <li>Gas expansion: more volume ⇒ more possible positions ⇒ entropy increase even if temperature stays similar.</li>
+              <li>Exothermic reaction with small <span class="eq-inline">ΔS</span>: driven mainly by <span class="eq-inline">ΔH &lt; 0</span>.</li>
+              <li>Endothermic but highly entropy-favored process (like some dissolutions) can still be spontaneous because <span class="eq-inline">TΔS</span> dominates.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">phase change</div>
+              <div class="tag tag-thermo">gas expansion</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- TRUNK -->
+      <section id="trunk" class="content-section">
+        <div class="section-title">Trunk – Core Concepts (Thermo + Equilibrium + Kinetics)</div>
+        <p class="section-note">
+          These are the central nodes of Chem 123. Every weekly topic plugs into one or more of these cards.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain – overview</div>
+            <h3>Three Pillars of Chem 123</h3>
+            <ul>
+              <li><strong>Thermodynamics:</strong> Will a change happen? (destination, ΔG, ΔH, ΔS).</li>
+              <li><strong>Equilibrium:</strong> How far will it go? (extent, K).</li>
+              <li><strong>Kinetics:</strong> How fast will it go? (speed, rate laws, mechanisms).</li>
+              <li>All three describe the same chemical system from different angles.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">thermo</div>
+              <div class="tag tag-eq">equilibrium</div>
+              <div class="tag tag-kin">kinetics</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain – thermo core</div>
+            <h3>Thermodynamic Toolkit</h3>
+            <ul>
+              <li>First law: <span class="eq-inline">ΔU = q + w</span>.</li>
+              <li>At constant pressure, <span class="eq-inline">ΔH = q_p</span> (heat measured in most lab setups).</li>
+              <li>Entropy trends: higher for gases &gt; liquids &gt; solids, more particles, more complex molecules, higher temperature.</li>
+              <li>Gibbs free energy: <span class="eq-inline">ΔG = ΔH − TΔS</span> and sign of <span class="eq-inline">ΔG</span> tells spontaneity.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔU, ΔH</div>
+              <div class="tag tag-thermo">ΔS, ΔG</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain – equilibrium core</div>
+            <h3>Equilibrium Toolkit</h3>
+            <ul>
+              <li>Equilibrium constant: <span class="eq-inline">K = \frac{[products]^{coeff}}{[reactants]^{coeff}}</span> for a balanced reaction.</li>
+              <li>Reaction quotient <span class="eq-inline">Q</span> uses the same expression as <span class="eq-inline">K</span> but with non-equilibrium concentrations.</li>
+              <li>Relationship: <span class="eq-inline">ΔG = ΔG° + RT \ln Q</span>, and at equilibrium <span class="eq-inline">ΔG = 0</span> so <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
+              <li>Le Chatelier’s principle predicts direction of shift when system is disturbed.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-eq">K, Q</div>
+              <div class="tag tag-eq">ΔG° = −RT ln K</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain – kinetics core</div>
+            <h3>Kinetics Toolkit</h3>
+            <ul>
+              <li>Rate law: <span class="eq-inline">rate = k [A]^m [B]^n</span> (exponents from experiment, not necessarily stoichiometry).</li>
+              <li>Integrated forms differentiate zero, first, and second order via straight-line plots.</li>
+              <li>Half-life expressions depend on order (constant for first order, decreases for second order).</li>
+              <li>Arrhenius equation: <span class="eq-inline">k = A e^{-E_a/RT}</span>, where <span class="eq-inline">E_a</span> is the activation energy.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">rate law</div>
+              <div class="tag tag-kin">Arrhenius</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Micro grain – unifying view</div>
+            <h3>How ΔG, K, and k Talk to Each Other</h3>
+            <ul>
+              <li><span class="eq-inline">ΔG°</span> tells where equilibrium lies via <span class="eq-inline">K</span>.</li>
+              <li><span class="eq-inline">K</span> describes the ratio of products to reactants at equilibrium.</li>
+              <li>Rate constants <span class="eq-inline">k_{forward}</span> and <span class="eq-inline">k_{reverse}</span> are related to <span class="eq-inline">K = k_{f}/k_{r}</span>.</li>
+              <li>Thermo doesn’t give you <em>how fast</em> equilibrium is reached; that's pure kinetics.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔG°</div>
+              <div class="tag tag-eq">K</div>
+              <div class="tag tag-kin">rate constants</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- BRANCHES – overview -->
+      <section id="branches" class="content-section">
+        <div class="section-title">Branches – Weekly Topic Map (Weeks 1–6)</div>
+        <p class="section-note">
+          Use this as a “directory”. Each week also has its own section in the sidebar with more detailed cards.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Week 1 – large &amp; medium grain</div>
+            <h3>Week 1 – Acid–Base Review</h3>
+            <ul>
+              <li>Big picture: acids donate H⁺, bases accept H⁺ (Brønsted–Lowry).</li>
+              <li>Core ideas: <span class="eq-inline">K_w</span>, pH, pOH, strong vs weak acids/bases, conjugate pairs.</li>
+              <li>Skills: quick pH arithmetic, strong acid/base approximations, spotting buffer pairs.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">pH</div>
+              <div class="tag">conjugates</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 2 – large &amp; medium grain</div>
+            <h3>Week 2 – Thermodynamics Foundations</h3>
+            <ul>
+              <li>Big picture: internal energy <span class="eq-inline">U</span> and the first law.</li>
+              <li>Core ideas: system vs surroundings, state vs path, PV work, basic gas link to thermo.</li>
+              <li>Skills: sign conventions, distinguishing <span class="eq-inline">q</span>, <span class="eq-inline">w</span>, and <span class="eq-inline">ΔU</span>.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔU</div>
+              <div class="tag tag-thermo">q, w</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 3 – large &amp; medium grain</div>
+            <h3>Week 3 – Enthalpy &amp; Entropy</h3>
+            <ul>
+              <li>Big picture: energy stored in chemical bonds and spreading of energy.</li>
+              <li>Core ideas: calorimetry, standard enthalpy, Hess’s Law, entropy trends, 2nd &amp; 3rd law.</li>
+              <li>Skills: combining reactions for ΔH, predicting sign of ΔS and relative magnitudes.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔH</div>
+              <div class="tag tag-thermo">ΔS</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 4 – large &amp; medium grain</div>
+            <h3>Week 4 – Free Energy &amp; Equilibrium</h3>
+            <ul>
+              <li>Big picture: free energy as a single “go / no-go” variable.</li>
+              <li>Core ideas: <span class="eq-inline">ΔG = ΔH − TΔS</span>, <span class="eq-inline">ΔG° = −RT \ln K</span>, Q vs K, van’t Hoff plots.</li>
+              <li>Skills: predicting spontaneity, converting between ΔG° and K, interpreting equilibrium shifts.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔG</div>
+              <div class="tag tag-eq">K, Q</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 5 – large &amp; medium grain</div>
+            <h3>Week 5 – Kinetics &amp; Rate Laws</h3>
+            <ul>
+              <li>Big picture: how fast chemical changes occur.</li>
+              <li>Core ideas: rate laws, orders, initial rate method, integrated rate laws, half-life.</li>
+              <li>Skills: extracting order from data, reading straight-line plots, computing half-life.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">rate</div>
+              <div class="tag tag-kin">half-life</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 6 – large &amp; medium grain</div>
+            <h3>Week 6 – Mechanisms &amp; Catalysis</h3>
+            <ul>
+              <li>Big picture: reactions often occur in multiple elementary steps.</li>
+              <li>Core ideas: intermediates, transition states, reaction coordinate diagrams, rate-determining step, catalysts.</li>
+              <li>Skills: proposing mechanisms consistent with observed rate law, identifying intermediates and catalysts, drawing reaction coordinate diagrams.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">mechanisms</div>
+              <div class="tag tag-kin">catalyst</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 1 -->
+      <section id="w1" class="content-section">
+        <div class="section-title">Week 1 – Acid–Base Review (Branch)</div>
+        <p class="section-note">
+          Use these as quick-copy cards when building pH cheat sheets or explaining acid–base foundations for Chem 123.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>Big Picture – Water as the Reference</h3>
+            <ul>
+              <li>Water autoionizes: <span class="eq-inline">2 H₂O ⇌ H₃O⁺ + OH⁻</span>.</li>
+              <li>The ion product <span class="eq-inline">K_w = [H⁺][OH⁻] = 1.0×10⁻¹⁴</span> at 25 °C sets the pH scale.</li>
+              <li>Acids are H⁺ donors, bases are H⁺ acceptors (Brønsted–Lowry).</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>pH, pOH and Strong vs Weak</h3>
+            <ul>
+              <li><span class="eq-inline">pH = −\log[H⁺]</span>, <span class="eq-inline">pOH = −\log[OH⁻]</span>, and <span class="eq-inline">pH + pOH = 14</span> at 25 °C.</li>
+              <li>Strong acids/bases: essentially complete ionization in water ⇒ [H⁺] or [OH⁻] ≈ initial concentration.</li>
+              <li>Weak acids/bases: require equilibrium treatment via <span class="eq-inline">K_a</span> or <span class="eq-inline">K_b</span>.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Micro grain</div>
+            <h3>Conjugate Pairs &amp; Buffer Logic</h3>
+            <ul>
+              <li>Conjugate base: remove one proton and reduce charge by 1.</li>
+              <li>Conjugate acid: add one proton and increase charge by 1.</li>
+              <li>Buffers: mixture of a weak acid and its conjugate base (or weak base and conjugate acid) so solution resists pH change.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 2 -->
+      <section id="w2" class="content-section">
+        <div class="section-title">Week 2 – Thermodynamics Foundations (Branch)</div>
+        <p class="section-note">
+          Focus here when you need to explain “what is ΔU really?” or sign conventions for q and w.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>Internal Energy and the First Law</h3>
+            <ul>
+              <li>Internal energy <span class="eq-inline">U</span> is the total microscopic kinetic and potential energy of the system.</li>
+              <li>First law: <span class="eq-inline">ΔU = q + w</span>.</li>
+              <li>“System vs surroundings”: positive <span class="eq-inline">q</span> or <span class="eq-inline">w</span> means energy enters the system.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>PV Work and Path vs State</h3>
+            <ul>
+              <li>For expansion/compression against constant external pressure: <span class="eq-inline">w = −P_{ext}ΔV</span>.</li>
+              <li>State functions (U, H, S, G) depend only on initial and final states, not on the path taken.</li>
+              <li>Heat and work are path-dependent, but their sum in <span class="eq-inline">ΔU</span> is not.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 3 -->
+      <section id="w3" class="content-section">
+        <div class="section-title">Week 3 – Enthalpy &amp; Entropy (Branch)</div>
+        <p class="section-note">
+          These cards are good for explaining why “enthalpy + entropy” is a better story than enthalpy alone.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>Enthalpy as Heat at Constant Pressure</h3>
+            <ul>
+              <li>Define: <span class="eq-inline">H = U + PV</span>.</li>
+              <li>At constant pressure, <span class="eq-inline">ΔH = q_p</span>, the heat exchanged in most lab reactions open to atmosphere.</li>
+              <li>Exothermic: <span class="eq-inline">ΔH &lt; 0</span> (system releases heat); endothermic: <span class="eq-inline">ΔH &gt; 0</span>.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Hess’s Law and Standard Enthalpies</h3>
+            <ul>
+              <li>Because enthalpy is a state function, overall <span class="eq-inline">ΔH</span> is independent of path.</li>
+              <li>Hess’s Law: add reactions like vectors, add their enthalpy changes.</li>
+              <li>Standard enthalpies of formation <span class="eq-inline">ΔH_f°</span> allow computing reaction enthalpy from tabulated values.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Entropy Trends</h3>
+            <ul>
+              <li>Phase: <span class="eq-inline">S (gas) &gt; S (liquid) &gt; S (solid)</span>.</li>
+              <li>More particles usually → greater entropy.</li>
+              <li>More complex molecules (more atoms, more vibrational modes) usually have higher entropy.</li>
+              <li>Third law: a perfect crystal at 0 K has entropy approaching 0.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 4 -->
+      <section id="w4" class="content-section">
+        <div class="section-title">Week 4 – Free Energy &amp; Equilibrium (Branch)</div>
+        <p class="section-note">
+          These are your go-to cards when connecting ΔH, ΔS, and equilibrium constants.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>Free Energy as a Master Criterion</h3>
+            <ul>
+              <li><span class="eq-inline">ΔG = ΔH − TΔS</span> combines energy and entropy competition.</li>
+              <li><span class="eq-inline">ΔG &lt; 0</span> ⇒ spontaneous (as written) under given conditions.</li>
+              <li><span class="eq-inline">ΔG = 0</span> ⇒ system at equilibrium (no net macroscopic change).</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>ΔG° and K</h3>
+            <ul>
+              <li>At equilibrium: <span class="eq-inline">0 = ΔG° + RT \ln K</span>, so <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
+              <li>Very negative <span class="eq-inline">ΔG°</span> ⇒ large <span class="eq-inline">K</span> (product-favored).</li>
+              <li>Very positive <span class="eq-inline">ΔG°</span> ⇒ small <span class="eq-inline">K</span> (reactant-favored).</li>
+              <li>van’t Hoff: shows how <span class="eq-inline">\ln K</span> changes with <span class="eq-inline">1/T</span>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 5 -->
+      <section id="w5" class="content-section">
+        <div class="section-title">Week 5 – Kinetics &amp; Rate Laws (Branch)</div>
+        <p class="section-note">
+          Use these when building your “rate law / order / half-life” study cards.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>What a Rate Law Tells You</h3>
+            <ul>
+              <li>Rate law connects reaction rate to reactant concentrations.</li>
+              <li>Order shows sensitivity of rate to concentration changes.</li>
+              <li>Rate laws are determined by mechanism, not just overall stoichiometry.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Integrated Forms and Plots</h3>
+            <ul>
+              <li>Zero order: <span class="eq-inline">[A] = [A]_0 − kt</span>, straight line in [A] vs t.</li>
+              <li>First order: <span class="eq-inline">\ln[A] = \ln[A]_0 − kt</span>, straight line in ln[A] vs t.</li>
+              <li>Second order: <span class="eq-inline">1/[A] = 1/[A]_0 + kt</span>, straight line in 1/[A] vs t.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Half-Life Logic</h3>
+            <ul>
+              <li>First order: <span class="eq-inline">t_{1/2} = \frac{\ln 2}{k}</span>, independent of concentration.</li>
+              <li>Second order (single reactant): <span class="eq-inline">t_{1/2} = \frac{1}{k[A]_0}</span>, depends on initial concentration.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 6 -->
+      <section id="w6" class="content-section">
+        <div class="section-title">Week 6 – Mechanisms &amp; Catalysis (Branch)</div>
+        <p class="section-note">
+          These connect the math of rate laws to pictures: reaction coordinate diagrams and multi-step paths.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Large grain</div>
+            <h3>From Overall Reaction to Steps</h3>
+            <ul>
+              <li>Overall balanced equation summarizes net change only.</li>
+              <li>Mechanism proposes a sequence of elementary steps that actually occur.</li>
+              <li>Each elementary step has its own molecularity and rate law.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Intermediates, Transition States, and RDS</h3>
+            <ul>
+              <li>Intermediates: formed in one step, consumed in another; do not appear in overall reaction.</li>
+              <li>Transition state: high-energy configuration at the top of the energy barrier.</li>
+              <li>Rate-determining step (RDS): slowest step; often controls the overall rate law.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Medium grain</div>
+            <h3>Catalysts on Energy Diagrams</h3>
+            <ul>
+              <li>Catalyst provides an alternative pathway with lower activation energy.</li>
+              <li>Changes rate constants, but not overall ΔG° or equilibrium position.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- LEAVES -->
+      <section id="leaves" class="content-section">
+        <div class="section-title">Leaves – Example Types (Practice Pattern Map)</div>
+        <p class="section-note">
+          These are “shapes of problems” rather than specific numbers. Use them to categorize practice questions.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Thermo problem shapes</div>
+            <h3>Common Thermo Example Types</h3>
+            <ul>
+              <li>Heating/cooling curve with <span class="eq-inline">q = mcΔT</span> and phase change plateaus.</li>
+              <li>Calorimetry: solution or bomb calorimeter to extract ΔH.</li>
+              <li>Hess’s law combination to get target reaction ΔH.</li>
+              <li>Sign prediction of ΔS and qualitative ΔG behavior vs T.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Equilibrium problem shapes</div>
+            <h3>Common Equilibrium Example Types</h3>
+            <ul>
+              <li>ICE table for weak acid/base to find equilibrium concentrations.</li>
+              <li>Compare Q and K to predict direction of shift.</li>
+              <li>Calculate K from equilibrium concentrations or partial pressures.</li>
+              <li>Le Chatelier scenarios: adding reactant, changing volume, temperature effects.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Kinetics problem shapes</div>
+            <h3>Common Kinetics Example Types</h3>
+            <ul>
+              <li>Determine reaction order using initial rate method.</li>
+              <li>Plot data sets to test zero, first, or second order via linearization.</li>
+              <li>Compute half-life for first or second order reactions.</li>
+              <li>Extract activation energy from Arrhenius plot (ln k vs 1/T).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- FRUIT -->
+      <section id="fruit" class="content-section">
+        <div class="section-title">Fruit – Outputs (What You Can Do)</div>
+        <p class="section-note">
+          This is where the tree produces results: explanations, exam performance, and transferable thinking skills.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Exam-level outputs</div>
+            <h3>Core Abilities After Mastering This Map</h3>
+            <ul>
+              <li>Predict spontaneity from signs of <span class="eq-inline">ΔH</span> and <span class="eq-inline">ΔS</span> and temperature.</li>
+              <li>Convert between <span class="eq-inline">ΔG°</span> and <span class="eq-inline">K</span> and reason about equilibrium composition.</li>
+              <li>Write and interpret rate laws, finding orders and half-lives from data.</li>
+              <li>Propose and test mechanisms against observed rate laws and intermediates.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Study-tool outputs</div>
+            <h3>Products You Actually Build</h3>
+            <ul>
+              <li>Weekly multi-grain pages (large / medium / micro / examples).</li>
+              <li>Double-click-to-copy HTML cards for each key idea.</li>
+              <li>Condensed cheat sheets for ΔH, ΔS, ΔG, K, and kinetics.</li>
+              <li>Concept maps and reaction coordinate diagrams that connect thermo and kinetics.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast">
+    <span>Copied</span>card to clipboard
+  </div>
+
+  <script>
+    // Sidebar navigation
+    const navItems = document.querySelectorAll(".nav-item");
+    const sections = document.querySelectorAll(".content-section");
+
+    function activateSection(id) {
+      sections.forEach(sec => {
+        sec.classList.toggle("active", sec.id === id);
+      });
+      navItems.forEach(item => {
+        item.classList.toggle("active", item.dataset.section === id);
+      });
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const target = item.dataset.section;
+        if (target) {
+          activateSection(target);
+        }
+      });
+    });
+
+    // Double-click to copy
+    const toast = document.getElementById("toast");
+    let toastTimeout = null;
+
+    function showToast() {
+      if (!toast) return;
+      toast.classList.add("visible");
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 1500);
+    }
+
+    function copyText(text) {
+      if (!navigator.clipboard) {
+        // fallback
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        try {
+          document.execCommand("copy");
+        } catch (e) {}
+        document.body.removeChild(textarea);
+        showToast();
+        return;
+      }
+      navigator.clipboard.writeText(text).then(showToast).catch(showToast);
+    }
+
+    document.querySelectorAll(".copy-card").forEach(card => {
+      card.addEventListener("dblclick", () => {
+        const text = card.innerText.replace("Double-click to copy", "").trim();
+        copyText(text);
+      });
+    });
+  </script>
+</body>
+</html>
+
