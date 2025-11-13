@@ -50,9 +50,9 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      box-shadow: var(--shadow-subtle);
       position: relative;
       z-index: 2;
+      box-shadow: var(--shadow-subtle);
     }
 
     .brand {
@@ -318,7 +318,7 @@
     }
 
     .copy-card::before {
-      content: "Double-click to copy";
+      content: "";
       position: absolute;
       top: 0.55rem;
       right: 0.7rem;
@@ -505,37 +505,37 @@
             <div class="nav-item-label">
               1️⃣ <span>Week 1 – Acid–Base Review</span>
             </div>
-            <span class="nav-tag">pH, pOH, Kw</span>
+            <span class="nav-tag">Tree view</span>
           </div>
           <div class="nav-item nav-item-branch" data-section="w2">
             <div class="nav-item-label">
               2️⃣ <span>Week 2 – Thermo Foundations</span>
             </div>
-            <span class="nav-tag">ΔU, q, w</span>
+            <span class="nav-tag">Tree view</span>
           </div>
           <div class="nav-item nav-item-branch" data-section="w3">
             <div class="nav-item-label">
-              3️⃣ <span>Week 3 – Enthalpy & Entropy</span>
+              3️⃣ <span>Week 3 – Enthalpy &amp; Entropy</span>
             </div>
-            <span class="nav-tag">ΔH, ΔS</span>
+            <span class="nav-tag">Tree view</span>
           </div>
           <div class="nav-item nav-item-branch" data-section="w4">
             <div class="nav-item-label">
-              4️⃣ <span>Week 4 – Free Energy & K</span>
+              4️⃣ <span>Week 4 – Free Energy &amp; K</span>
             </div>
-            <span class="nav-tag">ΔG, K</span>
+            <span class="nav-tag">Tree view</span>
           </div>
           <div class="nav-item nav-item-branch" data-section="w5">
             <div class="nav-item-label">
               5️⃣ <span>Week 5 – Rate Laws</span>
             </div>
-            <span class="nav-tag">k, order</span>
+            <span class="nav-tag">Tree view</span>
           </div>
           <div class="nav-item nav-item-branch" data-section="w6">
             <div class="nav-item-label">
               6️⃣ <span>Week 6 – Mechanisms</span>
             </div>
-            <span class="nav-tag">Steps, TS</span>
+            <span class="nav-tag">Tree view</span>
           </div>
         </div>
 
@@ -566,11 +566,11 @@
         <h1>Master Map</h1>
         <h2>Thermo, Equilibrium &amp; Kinetics as One Story</h2>
         <p class="page-title-note">
-          Left = tree structure (roots → trunk → branches → leaves → fruit). Right = multi-grain zoom (large → medium → micro → examples → outputs).
+          Left = tree structure (roots → trunk → branches → leaves → fruit). Each week is its own mini tree. Right = cards you can copy into your notes.
         </p>
         <div class="pill-row">
-          <div class="pill pill-grain">Multi-grain: overview → key concepts → deep theory → examples</div>
-          <div class="pill pill-tree">Tree: causes → core → topics → cases → products</div>
+          <div class="pill pill-grain">Layered explanations: overview → details → examples</div>
+          <div class="pill pill-tree">Tree inside each week: roots → trunk → branches → leaves → fruit</div>
         </div>
       </div>
     </header>
@@ -580,7 +580,7 @@
       <section id="roots" class="content-section active">
         <div class="section-title">Roots – First Principles (Why Any of This Happens)</div>
         <p class="section-note">
-          Use these as your deepest explanations in reflections or “why” questions. They connect Chem 123 to physics and quantum/statistical ideas.
+          Deep “why” cards that you can reuse across weeks for reflections or conceptual questions.
         </p>
         <div class="section-grid">
           <div class="copy-card">
@@ -636,7 +636,7 @@
               <li>Ice → liquid water: same molecules, many more accessible positions + orientations ⇒ <span class="eq-inline">ΔS &gt; 0</span>.</li>
               <li>Gas expansion: more volume ⇒ more possible positions ⇒ entropy increase even if temperature stays similar.</li>
               <li>Exothermic reaction with small <span class="eq-inline">ΔS</span>: driven mainly by <span class="eq-inline">ΔH &lt; 0</span>.</li>
-              <li>Endothermic but highly entropy-favored process (like some dissolutions) can still be spontaneous because <span class="eq-inline">TΔS</span> dominates.</li>
+              <li>Endothermic but highly entropy-favored process can still be spontaneous because <span class="eq-inline">TΔS</span> dominates.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-thermo">phase change</div>
@@ -651,16 +651,16 @@
       <section id="trunk" class="content-section">
         <div class="section-title">Trunk – Core Concepts (Thermo + Equilibrium + Kinetics)</div>
         <p class="section-note">
-          These are the central nodes of Chem 123. Every weekly topic plugs into one or more of these cards.
+          The central “spine” of the course. Each weekly mini tree plugs into these nodes.
         </p>
         <div class="section-grid">
           <div class="copy-card">
             <div class="grain-label">Large grain – overview</div>
             <h3>Three Pillars of Chem 123</h3>
             <ul>
-              <li><strong>Thermodynamics:</strong> Will a change happen? (destination, ΔG, ΔH, ΔS).</li>
-              <li><strong>Equilibrium:</strong> How far will it go? (extent, K).</li>
-              <li><strong>Kinetics:</strong> How fast will it go? (speed, rate laws, mechanisms).</li>
+              <li><strong>Thermodynamics:</strong> Will a change happen? (ΔH, ΔS, ΔG).</li>
+              <li><strong>Equilibrium:</strong> How far will it go? (K, Q).</li>
+              <li><strong>Kinetics:</strong> How fast will it go? (rate, order, k, mechanism).</li>
               <li>All three describe the same chemical system from different angles.</li>
             </ul>
             <div class="tag-row">
@@ -675,9 +675,9 @@
             <h3>Thermodynamic Toolkit</h3>
             <ul>
               <li>First law: <span class="eq-inline">ΔU = q + w</span>.</li>
-              <li>At constant pressure, <span class="eq-inline">ΔH = q_p</span> (heat measured in most lab setups).</li>
-              <li>Entropy trends: higher for gases &gt; liquids &gt; solids, more particles, more complex molecules, higher temperature.</li>
-              <li>Gibbs free energy: <span class="eq-inline">ΔG = ΔH − TΔS</span> and sign of <span class="eq-inline">ΔG</span> tells spontaneity.</li>
+              <li>At constant pressure, <span class="eq-inline">ΔH = q_p</span>.</li>
+              <li>Entropy trends: higher for gases, more particles, more complex molecules, higher T.</li>
+              <li>Gibbs free energy: <span class="eq-inline">ΔG = ΔH − TΔS</span>.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-thermo">ΔU, ΔH</div>
@@ -689,10 +689,10 @@
             <div class="grain-label">Medium grain – equilibrium core</div>
             <h3>Equilibrium Toolkit</h3>
             <ul>
-              <li>Equilibrium constant: <span class="eq-inline">K = \frac{[products]^{coeff}}{[reactants]^{coeff}}</span> for a balanced reaction.</li>
-              <li>Reaction quotient <span class="eq-inline">Q</span> uses the same expression as <span class="eq-inline">K</span> but with non-equilibrium concentrations.</li>
-              <li>Relationship: <span class="eq-inline">ΔG = ΔG° + RT \ln Q</span>, and at equilibrium <span class="eq-inline">ΔG = 0</span> so <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
-              <li>Le Chatelier’s principle predicts direction of shift when system is disturbed.</li>
+              <li><span class="eq-inline">K = \frac{[products]^{coeff}}{[reactants]^{coeff}}</span>.</li>
+              <li><span class="eq-inline">Q</span> uses same expression with non-equilibrium concentrations.</li>
+              <li><span class="eq-inline">ΔG = ΔG° + RT \ln Q</span>; at equilibrium <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
+              <li>Le Chatelier predicts shifts when conditions change.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-eq">K, Q</div>
@@ -704,10 +704,10 @@
             <div class="grain-label">Medium grain – kinetics core</div>
             <h3>Kinetics Toolkit</h3>
             <ul>
-              <li>Rate law: <span class="eq-inline">rate = k [A]^m [B]^n</span> (exponents from experiment, not necessarily stoichiometry).</li>
-              <li>Integrated forms differentiate zero, first, and second order via straight-line plots.</li>
-              <li>Half-life expressions depend on order (constant for first order, decreases for second order).</li>
-              <li>Arrhenius equation: <span class="eq-inline">k = A e^{-E_a/RT}</span>, where <span class="eq-inline">E_a</span> is the activation energy.</li>
+              <li>Rate law: <span class="eq-inline">rate = k [A]^m [B]^n</span>.</li>
+              <li>Integrated forms distinguish order via straight-line plots.</li>
+              <li>Half-life depends on order (constant for first order).</li>
+              <li>Arrhenius: <span class="eq-inline">k = A e^{-E_a/RT}</span>.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-kin">rate law</div>
@@ -717,17 +717,16 @@
 
           <div class="copy-card">
             <div class="grain-label">Micro grain – unifying view</div>
-            <h3>How ΔG, K, and k Talk to Each Other</h3>
+            <h3>How ΔG, K, and k Talk</h3>
             <ul>
-              <li><span class="eq-inline">ΔG°</span> tells where equilibrium lies via <span class="eq-inline">K</span>.</li>
-              <li><span class="eq-inline">K</span> describes the ratio of products to reactants at equilibrium.</li>
-              <li>Rate constants <span class="eq-inline">k_{forward}</span> and <span class="eq-inline">k_{reverse}</span> are related to <span class="eq-inline">K = k_{f}/k_{r}</span>.</li>
-              <li>Thermo doesn’t give you <em>how fast</em> equilibrium is reached; that's pure kinetics.</li>
+              <li><span class="eq-inline">ΔG°</span> ↔ <span class="eq-inline">K</span> via <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
+              <li><span class="eq-inline">K = k_f / k_r</span> relates equilibrium to forward and reverse rate constants.</li>
+              <li>Thermo sets the “target” composition; kinetics sets the timescale to reach it.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-thermo">ΔG°</div>
               <div class="tag tag-eq">K</div>
-              <div class="tag tag-kin">rate constants</div>
+              <div class="tag tag-kin">k_f, k_r</div>
             </div>
           </div>
         </div>
@@ -738,44 +737,272 @@
       <section id="branches" class="content-section">
         <div class="section-title">Branches – Weekly Topic Map (Weeks 1–6)</div>
         <p class="section-note">
-          Use this as a “directory”. Each week also has its own section in the sidebar with more detailed cards.
+          Overview of each weekly mini tree. Click a specific week in the sidebar for the full roots → trunk → branches → leaves → fruit view.
         </p>
         <div class="section-grid">
           <div class="copy-card">
-            <div class="grain-label">Week 1 – large &amp; medium grain</div>
+            <div class="grain-label">Week 1 – overview</div>
             <h3>Week 1 – Acid–Base Review</h3>
             <ul>
-              <li>Big picture: acids donate H⁺, bases accept H⁺ (Brønsted–Lowry).</li>
-              <li>Core ideas: <span class="eq-inline">K_w</span>, pH, pOH, strong vs weak acids/bases, conjugate pairs.</li>
-              <li>Skills: quick pH arithmetic, strong acid/base approximations, spotting buffer pairs.</li>
+              <li>Roots: water autoionization and proton transfer.</li>
+              <li>Trunk: pH–pOH–Kw relationships, strong vs weak acids/bases.</li>
+              <li>Branches: conjugate pairs, buffer systems.</li>
+              <li>Leaves: pH calculations and classification examples.</li>
+              <li>Fruit: fluency with pH arithmetic and buffer recognition.</li>
             </ul>
-            <div class="tag-row">
-              <div class="tag">pH</div>
-              <div class="tag">conjugates</div>
-            </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Week 2 – large &amp; medium grain</div>
+            <div class="grain-label">Week 2 – overview</div>
             <h3>Week 2 – Thermodynamics Foundations</h3>
             <ul>
-              <li>Big picture: internal energy <span class="eq-inline">U</span> and the first law.</li>
-              <li>Core ideas: system vs surroundings, state vs path, PV work, basic gas link to thermo.</li>
-              <li>Skills: sign conventions, distinguishing <span class="eq-inline">q</span>, <span class="eq-inline">w</span>, and <span class="eq-inline">ΔU</span>.</li>
+              <li>Roots: conservation of energy.</li>
+              <li>Trunk: internal energy, q, w, first law.</li>
+              <li>Branches: system/surroundings, state vs path, PV work.</li>
+              <li>Leaves: sign convention and ΔU calculation examples.</li>
+              <li>Fruit: explaining energy flow in simple processes.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 3 – overview</div>
+            <h3>Week 3 – Enthalpy &amp; Entropy</h3>
+            <ul>
+              <li>Roots: microscopic picture of energy storage and spreading.</li>
+              <li>Trunk: enthalpy, calorimetry, entropy definitions and laws.</li>
+              <li>Branches: Hess’s law, ΔH_f°, entropy trends.</li>
+              <li>Leaves: ΔH calculations and ΔS sign predictions.</li>
+              <li>Fruit: reasoning about energetics and disorder together.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 4 – overview</div>
+            <h3>Week 4 – Free Energy &amp; Equilibrium</h3>
+            <ul>
+              <li>Roots: competition between energy and entropy.</li>
+              <li>Trunk: ΔG, ΔG°, K, Q relationships.</li>
+              <li>Branches: equilibrium position, van’t Hoff, Le Chatelier.</li>
+              <li>Leaves: ΔG–K conversions and shift predictions.</li>
+              <li>Fruit: global “go / no-go” reasoning for reactions.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 5 – overview</div>
+            <h3>Week 5 – Kinetics &amp; Rate Laws</h3>
+            <ul>
+              <li>Roots: molecular collisions and energy barriers.</li>
+              <li>Trunk: rate laws, orders, integrated forms, half-lives.</li>
+              <li>Branches: zero/first/second-order behaviours.</li>
+              <li>Leaves: data-fitting and half-life examples.</li>
+              <li>Fruit: predicting how concentration affects speed.</li>
+            </ul>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Week 6 – overview</div>
+            <h3>Week 6 – Mechanisms &amp; Catalysis</h3>
+            <ul>
+              <li>Roots: reactions proceed through stepwise molecular events.</li>
+              <li>Trunk: elementary steps, intermediates, transition states.</li>
+              <li>Branches: rate-determining step, catalytic pathways.</li>
+              <li>Leaves: mechanism proposals and energy diagrams.</li>
+              <li>Fruit: checking if a mechanism matches the observed rate law.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 1 TREE -->
+      <section id="w1" class="content-section">
+        <div class="section-title">Week 1 – Acid–Base Review (Mini Tree)</div>
+        <p class="section-note">
+          Each card is a node of the tree for this week: roots (causes), trunk (core tools), branches (subtopics), leaves (example patterns), fruit (skills).
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Water &amp; Proton Transfer</h3>
+            <ul>
+              <li>Water can both donate and accept protons ⇒ it autoionizes.</li>
+              <li><span class="eq-inline">2 H₂O ⇌ H₃O⁺ + OH⁻</span> defines the acid–base “background” of aqueous chemistry.</li>
+              <li>The constant <span class="eq-inline">K_w = [H⁺][OH⁻] = 1.0×10⁻¹⁴</span> at 25 °C sets the natural scale for pH.</li>
+              <li>Brønsted–Lowry: acid–base reactions are just controlled proton transfers between species.</li>
             </ul>
             <div class="tag-row">
-              <div class="tag tag-thermo">ΔU</div>
-              <div class="tag tag-thermo">q, w</div>
+              <div class="tag">autoionization</div>
+              <div class="tag">Brønsted–Lowry</div>
             </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Week 3 – large &amp; medium grain</div>
-            <h3>Week 3 – Enthalpy &amp; Entropy</h3>
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>pH / pOH / Kw Relationship</h3>
             <ul>
-              <li>Big picture: energy stored in chemical bonds and spreading of energy.</li>
-              <li>Core ideas: calorimetry, standard enthalpy, Hess’s Law, entropy trends, 2nd &amp; 3rd law.</li>
-              <li>Skills: combining reactions for ΔH, predicting sign of ΔS and relative magnitudes.</li>
+              <li><span class="eq-inline">pH = −\log[H⁺]</span>, <span class="eq-inline">pOH = −\log[OH⁻]</span>.</li>
+              <li>At 25 °C: <span class="eq-inline">pH + pOH = 14.00</span>.</li>
+              <li>If one of [H⁺], [OH⁻], pH, pOH is known, the others follow quickly.</li>
+              <li><span class="eq-inline">K_w</span> connects all acid–base calculations in water.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">pH scale</div>
+              <div class="tag">Kw link</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Strong vs Weak &amp; Conjugates</h3>
+            <ul>
+              <li>Strong acids/bases are essentially fully ionized in water: [H⁺] or [OH⁻] ≈ initial concentration.</li>
+              <li>Weak acids/bases require equilibrium treatment with <span class="eq-inline">K_a</span> or <span class="eq-inline">K_b</span>.</li>
+              <li>Conjugate base: remove one proton; conjugate acid: add one proton.</li>
+              <li>Buffer pairs: weak acid + its conjugate base (or weak base + conjugate acid).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">strong vs weak</div>
+              <div class="tag">conjugate pairs</div>
+              <div class="tag">buffers</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 1 Problem Types</h3>
+            <ul>
+              <li>Given [H⁺] or [OH⁻], calculate pH or pOH and classify solution as acidic, neutral, or basic.</li>
+              <li>Given pH, find [H⁺] and [OH⁻] using <span class="eq-inline">K_w</span>.</li>
+              <li>Recognize conjugate pairs from formulas (acid/base matching).</li>
+              <li>Identify which mixtures could behave as buffers.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">classification</div>
+              <div class="tag">recognition</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 1</h3>
+            <ul>
+              <li>Quickly convert between [H⁺], [OH⁻], pH, and pOH without getting lost.</li>
+              <li>Explain the meaning of pH in terms of <span class="eq-inline">K_w</span> and water’s autoionization.</li>
+              <li>Spot strong vs weak acids/bases and predict when a buffer is present.</li>
+              <li>Use these tools as the foundation for later equilibrium and buffer calculations.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 2 TREE -->
+      <section id="w2" class="content-section">
+        <div class="section-title">Week 2 – Thermodynamics Foundations (Mini Tree)</div>
+        <p class="section-note">
+          Internal energy, heat, and work organized as a tree: why energy is conserved, how we track it, and what problems look like.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Energy Conservation in Closed Systems</h3>
+            <ul>
+              <li>The total energy of the universe is constant; it can change form but not be created or destroyed.</li>
+              <li>For a system, changes in internal energy <span class="eq-inline">ΔU</span> arise from energy exchange with surroundings.</li>
+              <li>Heat and work are the main macroscopic ways energy crosses the system boundary.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">first law root</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>First Law &amp; Sign Conventions</h3>
+            <ul>
+              <li>First law: <span class="eq-inline">ΔU = q + w</span>.</li>
+              <li>By convention, <span class="eq-inline">q &gt; 0</span> when the system absorbs heat; <span class="eq-inline">w &gt; 0</span> when work is done <em>on</em> the system.</li>
+              <li>For pressure–volume work at constant external pressure: <span class="eq-inline">w = −P_{ext}ΔV</span>.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">ΔU, q, w</div>
+              <div class="tag tag-thermo">PV work</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>System vs Surroundings, Path vs State</h3>
+            <ul>
+              <li>System: the part we focus on (e.g., gas in a cylinder); surroundings: everything else.</li>
+              <li>State functions (U, H, S, G) depend only on the current state, not how you got there.</li>
+              <li>q and w individually depend on the path, but their sum <span class="eq-inline">ΔU</span> does not.</li>
+              <li>Reversible vs irreversible paths differ in detailed heat/work splits for the same overall state change.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">state vs path</div>
+              <div class="tag">system boundary</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 2 Problem Types</h3>
+            <ul>
+              <li>Compute <span class="eq-inline">ΔU</span> from given q and w values.</li>
+              <li>Calculate PV work from <span class="eq-inline">P_{ext}</span> and <span class="eq-inline">ΔV</span> and determine sign.</li>
+              <li>Given two different paths between the same states, compare q and w but confirm identical <span class="eq-inline">ΔU</span>.</li>
+              <li>Classify processes as endothermic/exothermic and compression/expansion.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">energy bookkeeping</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 2</h3>
+            <ul>
+              <li>Explain in words and symbols what <span class="eq-inline">ΔU = q + w</span> means for a process.</li>
+              <li>Correctly assign signs to q and w for simple lab scenarios (heating, cooling, compression, expansion).</li>
+              <li>Identify whether a quantity is path-dependent or state-dependent.</li>
+              <li>Use this language as the base for enthalpy and later free energy discussions.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 3 TREE -->
+      <section id="w3" class="content-section">
+        <div class="section-title">Week 3 – Enthalpy &amp; Entropy (Mini Tree)</div>
+        <p class="section-note">
+          Week 3 tree: roots in microscopic energy and disorder, trunk in ΔH and ΔS tools, branches in Hess’s law and entropy trends.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Microscopic Picture of Energy &amp; Disorder</h3>
+            <ul>
+              <li>Molecules store energy in translational, rotational, vibrational, and electronic modes.</li>
+              <li>More ways to arrange that energy ⇒ higher entropy <span class="eq-inline">S</span>.</li>
+              <li>Reactions rearrange bonds and energy distribution among particles and modes.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">microstates</div>
+              <div class="tag tag-thermo">molecular picture</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Enthalpy &amp; Entropy Definitions</h3>
+            <ul>
+              <li>Enthalpy: <span class="eq-inline">H = U + PV</span>; at constant pressure, <span class="eq-inline">ΔH = q_p</span>.</li>
+              <li>Entropy: state function measuring energy dispersal; absolute <span class="eq-inline">S°</span> values tabulated relative to 0 at 0 K for a perfect crystal.</li>
+              <li>Second law: the entropy of the universe tends to increase for spontaneous processes.</li>
+              <li>Third law: <span class="eq-inline">S → 0</span> as <span class="eq-inline">T → 0 K</span> for a perfect crystal.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-thermo">ΔH</div>
@@ -784,12 +1011,83 @@
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Week 4 – large &amp; medium grain</div>
-            <h3>Week 4 – Free Energy &amp; Equilibrium</h3>
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Hess’s Law, ΔH°f, and Entropy Trends</h3>
             <ul>
-              <li>Big picture: free energy as a single “go / no-go” variable.</li>
-              <li>Core ideas: <span class="eq-inline">ΔG = ΔH − TΔS</span>, <span class="eq-inline">ΔG° = −RT \ln K</span>, Q vs K, van’t Hoff plots.</li>
-              <li>Skills: predicting spontaneity, converting between ΔG° and K, interpreting equilibrium shifts.</li>
+              <li>Hess’s law: add reactions and their ΔH values like vectors.</li>
+              <li>Use standard enthalpies of formation: <span class="eq-inline">ΔH°_{rxn} = ΣνΔH_f°(products) − ΣνΔH_f°(reactants)</span>.</li>
+              <li>Entropy trends:
+                <ul>
+                  <li>Phase: <span class="eq-inline">S_{gas} &gt; S_{liquid} &gt; S_{solid}</span>.</li>
+                  <li>More moles of gas ⇒ usually higher ΔS.</li>
+                  <li>More complex molecules ⇒ higher S.</li>
+                </ul>
+              </li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">Hess’s law</div>
+              <div class="tag">ΔH°f</div>
+              <div class="tag">entropy rules</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 3 Problem Types</h3>
+            <ul>
+              <li>Use calorimetry data to compute ΔH for a reaction.</li>
+              <li>Apply Hess’s law to build a target reaction and find ΔH.</li>
+              <li>Calculate ΔH° and ΔS° from tabulated values and predict the sign of ΔG at different temperatures (qualitatively).</li>
+              <li>Rank processes by expected ΔS (e.g., melting, vaporization, dissolution).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">calorimetry</div>
+              <div class="tag">sign prediction</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 3</h3>
+            <ul>
+              <li>Explain the difference between ΔH and ΔS in words and with diagrams.</li>
+              <li>Compute reaction enthalpies from experimental data or tables.</li>
+              <li>Predict qualitatively whether entropy increases or decreases in a process.</li>
+              <li>Prepare for combining ΔH and ΔS into ΔG in Week 4.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+      </section>
+
+      <!-- WEEK 4 TREE -->
+      <section id="w4" class="content-section">
+        <div class="section-title">Week 4 – Free Energy &amp; Equilibrium (Mini Tree)</div>
+        <p class="section-note">
+          Week 4 tree: roots in competition of ΔH and ΔS, trunk in ΔG equations, branches in K, Q, and van’t Hoff, leaves in problem types, fruit in full ΔG–K reasoning.
+        </p>
+        <div class="section-grid">
+          <div class="copy-card">
+            <div class="grain-label">Roots – why</div>
+            <h3>Energy vs Disorder Competition</h3>
+            <ul>
+              <li>Processes are favored if they both lower energy and increase entropy, but temperature can shift the balance.</li>
+              <li>Some reactions win on enthalpy (strong bond formation), others win on entropy (more microstates).</li>
+              <li>Free energy combines these two drives into one number (ΔG).</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-thermo">competition</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>ΔG and ΔG° Relationships</h3>
+            <ul>
+              <li><span class="eq-inline">ΔG = ΔH − TΔS</span> for a process at given T.</li>
+              <li>Sign of ΔG tells spontaneity at those specific conditions.</li>
+              <li>Link to equilibrium: <span class="eq-inline">ΔG = ΔG° + RT \ln Q</span>.</li>
+              <li>At equilibrium, <span class="eq-inline">ΔG = 0</span> ⇒ <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
             </ul>
             <div class="tag-row">
               <div class="tag tag-thermo">ΔG</div>
@@ -798,250 +1096,202 @@
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Week 5 – large &amp; medium grain</div>
-            <h3>Week 5 – Kinetics &amp; Rate Laws</h3>
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Equilibrium, Shifts &amp; Temperature</h3>
             <ul>
-              <li>Big picture: how fast chemical changes occur.</li>
-              <li>Core ideas: rate laws, orders, initial rate method, integrated rate laws, half-life.</li>
-              <li>Skills: extracting order from data, reading straight-line plots, computing half-life.</li>
+              <li>Equilibrium constant K summarizes the balance of products and reactants at equilibrium.</li>
+              <li>Reaction quotient Q tells where the system is relative to equilibrium.</li>
+              <li>van’t Hoff equation shows how <span class="eq-inline">\ln K</span> changes with <span class="eq-inline">1/T</span>.</li>
+              <li>Le Chatelier’s principle: system responds to stress (concentration, pressure, temperature) to counteract the change.</li>
             </ul>
             <div class="tag-row">
-              <div class="tag tag-kin">rate</div>
-              <div class="tag tag-kin">half-life</div>
+              <div class="tag">van’t Hoff</div>
+              <div class="tag">Le Chatelier</div>
             </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Week 6 – large &amp; medium grain</div>
-            <h3>Week 6 – Mechanisms &amp; Catalysis</h3>
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 4 Problem Types</h3>
             <ul>
-              <li>Big picture: reactions often occur in multiple elementary steps.</li>
-              <li>Core ideas: intermediates, transition states, reaction coordinate diagrams, rate-determining step, catalysts.</li>
-              <li>Skills: proposing mechanisms consistent with observed rate law, identifying intermediates and catalysts, drawing reaction coordinate diagrams.</li>
+              <li>Given ΔH and ΔS, predict sign of ΔG at low vs high temperature.</li>
+              <li>Convert between ΔG° and K for a reaction at a given T.</li>
+              <li>Use Q and K to decide which way a reaction will shift to reach equilibrium.</li>
+              <li>Qualitatively predict effect of temperature on K using reaction enthalpy sign.</li>
             </ul>
             <div class="tag-row">
-              <div class="tag tag-kin">mechanisms</div>
-              <div class="tag tag-kin">catalyst</div>
+              <div class="tag">ΔG–K conversion</div>
+              <div class="tag">shift prediction</div>
             </div>
           </div>
-        </div>
-        <div class="section-divider"></div>
-      </section>
-
-      <!-- WEEK 1 -->
-      <section id="w1" class="content-section">
-        <div class="section-title">Week 1 – Acid–Base Review (Branch)</div>
-        <p class="section-note">
-          Use these as quick-copy cards when building pH cheat sheets or explaining acid–base foundations for Chem 123.
-        </p>
-        <div class="section-grid">
-          <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>Big Picture – Water as the Reference</h3>
-            <ul>
-              <li>Water autoionizes: <span class="eq-inline">2 H₂O ⇌ H₃O⁺ + OH⁻</span>.</li>
-              <li>The ion product <span class="eq-inline">K_w = [H⁺][OH⁻] = 1.0×10⁻¹⁴</span> at 25 °C sets the pH scale.</li>
-              <li>Acids are H⁺ donors, bases are H⁺ acceptors (Brønsted–Lowry).</li>
-            </ul>
-          </div>
 
           <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>pH, pOH and Strong vs Weak</h3>
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 4</h3>
             <ul>
-              <li><span class="eq-inline">pH = −\log[H⁺]</span>, <span class="eq-inline">pOH = −\log[OH⁻]</span>, and <span class="eq-inline">pH + pOH = 14</span> at 25 °C.</li>
-              <li>Strong acids/bases: essentially complete ionization in water ⇒ [H⁺] or [OH⁻] ≈ initial concentration.</li>
-              <li>Weak acids/bases: require equilibrium treatment via <span class="eq-inline">K_a</span> or <span class="eq-inline">K_b</span>.</li>
-            </ul>
-          </div>
-
-          <div class="copy-card">
-            <div class="grain-label">Micro grain</div>
-            <h3>Conjugate Pairs &amp; Buffer Logic</h3>
-            <ul>
-              <li>Conjugate base: remove one proton and reduce charge by 1.</li>
-              <li>Conjugate acid: add one proton and increase charge by 1.</li>
-              <li>Buffers: mixture of a weak acid and its conjugate base (or weak base and conjugate acid) so solution resists pH change.</li>
+              <li>Use ΔH and ΔS to answer “spontaneous or not?” at a given temperature.</li>
+              <li>Translate between thermodynamic language (ΔG°) and equilibrium language (K).</li>
+              <li>Explain why temperature changes can favor products or reactants.</li>
+              <li>Build solid, exam-level explanations linking ΔG, K, and shifts in equilibrium.</li>
             </ul>
           </div>
         </div>
         <div class="section-divider"></div>
       </section>
 
-      <!-- WEEK 2 -->
-      <section id="w2" class="content-section">
-        <div class="section-title">Week 2 – Thermodynamics Foundations (Branch)</div>
-        <p class="section-note">
-          Focus here when you need to explain “what is ΔU really?” or sign conventions for q and w.
-        </p>
-        <div class="section-grid">
-          <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>Internal Energy and the First Law</h3>
-            <ul>
-              <li>Internal energy <span class="eq-inline">U</span> is the total microscopic kinetic and potential energy of the system.</li>
-              <li>First law: <span class="eq-inline">ΔU = q + w</span>.</li>
-              <li>“System vs surroundings”: positive <span class="eq-inline">q</span> or <span class="eq-inline">w</span> means energy enters the system.</li>
-            </ul>
-          </div>
-
-          <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>PV Work and Path vs State</h3>
-            <ul>
-              <li>For expansion/compression against constant external pressure: <span class="eq-inline">w = −P_{ext}ΔV</span>.</li>
-              <li>State functions (U, H, S, G) depend only on initial and final states, not on the path taken.</li>
-              <li>Heat and work are path-dependent, but their sum in <span class="eq-inline">ΔU</span> is not.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="section-divider"></div>
-      </section>
-
-      <!-- WEEK 3 -->
-      <section id="w3" class="content-section">
-        <div class="section-title">Week 3 – Enthalpy &amp; Entropy (Branch)</div>
-        <p class="section-note">
-          These cards are good for explaining why “enthalpy + entropy” is a better story than enthalpy alone.
-        </p>
-        <div class="section-grid">
-          <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>Enthalpy as Heat at Constant Pressure</h3>
-            <ul>
-              <li>Define: <span class="eq-inline">H = U + PV</span>.</li>
-              <li>At constant pressure, <span class="eq-inline">ΔH = q_p</span>, the heat exchanged in most lab reactions open to atmosphere.</li>
-              <li>Exothermic: <span class="eq-inline">ΔH &lt; 0</span> (system releases heat); endothermic: <span class="eq-inline">ΔH &gt; 0</span>.</li>
-            </ul>
-          </div>
-
-          <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Hess’s Law and Standard Enthalpies</h3>
-            <ul>
-              <li>Because enthalpy is a state function, overall <span class="eq-inline">ΔH</span> is independent of path.</li>
-              <li>Hess’s Law: add reactions like vectors, add their enthalpy changes.</li>
-              <li>Standard enthalpies of formation <span class="eq-inline">ΔH_f°</span> allow computing reaction enthalpy from tabulated values.</li>
-            </ul>
-          </div>
-
-          <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Entropy Trends</h3>
-            <ul>
-              <li>Phase: <span class="eq-inline">S (gas) &gt; S (liquid) &gt; S (solid)</span>.</li>
-              <li>More particles usually → greater entropy.</li>
-              <li>More complex molecules (more atoms, more vibrational modes) usually have higher entropy.</li>
-              <li>Third law: a perfect crystal at 0 K has entropy approaching 0.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="section-divider"></div>
-      </section>
-
-      <!-- WEEK 4 -->
-      <section id="w4" class="content-section">
-        <div class="section-title">Week 4 – Free Energy &amp; Equilibrium (Branch)</div>
-        <p class="section-note">
-          These are your go-to cards when connecting ΔH, ΔS, and equilibrium constants.
-        </p>
-        <div class="section-grid">
-          <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>Free Energy as a Master Criterion</h3>
-            <ul>
-              <li><span class="eq-inline">ΔG = ΔH − TΔS</span> combines energy and entropy competition.</li>
-              <li><span class="eq-inline">ΔG &lt; 0</span> ⇒ spontaneous (as written) under given conditions.</li>
-              <li><span class="eq-inline">ΔG = 0</span> ⇒ system at equilibrium (no net macroscopic change).</li>
-            </ul>
-          </div>
-
-          <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>ΔG° and K</h3>
-            <ul>
-              <li>At equilibrium: <span class="eq-inline">0 = ΔG° + RT \ln K</span>, so <span class="eq-inline">ΔG° = −RT \ln K</span>.</li>
-              <li>Very negative <span class="eq-inline">ΔG°</span> ⇒ large <span class="eq-inline">K</span> (product-favored).</li>
-              <li>Very positive <span class="eq-inline">ΔG°</span> ⇒ small <span class="eq-inline">K</span> (reactant-favored).</li>
-              <li>van’t Hoff: shows how <span class="eq-inline">\ln K</span> changes with <span class="eq-inline">1/T</span>.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="section-divider"></div>
-      </section>
-
-      <!-- WEEK 5 -->
+      <!-- WEEK 5 TREE -->
       <section id="w5" class="content-section">
-        <div class="section-title">Week 5 – Kinetics &amp; Rate Laws (Branch)</div>
+        <div class="section-title">Week 5 – Kinetics &amp; Rate Laws (Mini Tree)</div>
         <p class="section-note">
-          Use these when building your “rate law / order / half-life” study cards.
+          Week 5 tree: roots in molecular collisions, trunk in rate laws, branches in integrated forms and half-life, leaves in data-analysis problems, fruit in predicting speed behaviour.
         </p>
         <div class="section-grid">
           <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>What a Rate Law Tells You</h3>
+            <div class="grain-label">Roots – why</div>
+            <h3>Collisions and Activation Energy</h3>
             <ul>
-              <li>Rate law connects reaction rate to reactant concentrations.</li>
-              <li>Order shows sensitivity of rate to concentration changes.</li>
-              <li>Rate laws are determined by mechanism, not just overall stoichiometry.</li>
+              <li>Molecules must collide with enough energy and correct orientation to react.</li>
+              <li>Activation energy <span class="eq-inline">E_a</span> is the barrier that must be overcome.</li>
+              <li>Temperature affects the fraction of molecules with energy ≥ <span class="eq-inline">E_a</span>.</li>
             </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">collision model</div>
+              <div class="tag tag-kin">Ea</div>
+            </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Integrated Forms and Plots</h3>
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Rate Law &amp; Orders</h3>
             <ul>
-              <li>Zero order: <span class="eq-inline">[A] = [A]_0 − kt</span>, straight line in [A] vs t.</li>
-              <li>First order: <span class="eq-inline">\ln[A] = \ln[A]_0 − kt</span>, straight line in ln[A] vs t.</li>
-              <li>Second order: <span class="eq-inline">1/[A] = 1/[A]_0 + kt</span>, straight line in 1/[A] vs t.</li>
+              <li>General form: <span class="eq-inline">rate = k [A]^m [B]^n</span>.</li>
+              <li>Exponents m, n are reaction orders; they come from experiment (or from mechanism for elementary steps).</li>
+              <li>Overall order = m + n (for two-reactant case).</li>
+              <li>Rate constant k encodes speed at a given T.</li>
             </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">rate law</div>
+              <div class="tag tag-kin">order</div>
+            </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Half-Life Logic</h3>
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Integrated Forms &amp; Half-Life</h3>
             <ul>
-              <li>First order: <span class="eq-inline">t_{1/2} = \frac{\ln 2}{k}</span>, independent of concentration.</li>
-              <li>Second order (single reactant): <span class="eq-inline">t_{1/2} = \frac{1}{k[A]_0}</span>, depends on initial concentration.</li>
+              <li>Zero order: <span class="eq-inline">[A] = [A]_0 − kt</span>, linear in [A] vs t.</li>
+              <li>First order: <span class="eq-inline">\ln[A] = \ln[A]_0 − kt</span>, linear in ln[A] vs t.</li>
+              <li>Second order: <span class="eq-inline">1/[A] = 1/[A]_0 + kt</span>, linear in 1/[A] vs t.</li>
+              <li>First-order half-life: <span class="eq-inline">t_{1/2} = \ln 2 / k</span>, independent of [A]_0.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">integrated rate laws</div>
+              <div class="tag">half-life</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 5 Problem Types</h3>
+            <ul>
+              <li>Use initial rate data to find m, n in the rate law.</li>
+              <li>Test which integrated plot is linear to identify reaction order.</li>
+              <li>Calculate t₁/₂ for a first-order reaction given k.</li>
+              <li>Determine [A] after a certain time for first- or second-order processes.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">data analysis</div>
+              <div class="tag">plot recognition</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 5</h3>
+            <ul>
+              <li>Write and interpret rate laws from experimental data.</li>
+              <li>Predict how doubling a concentration affects the rate based on order.</li>
+              <li>Use half-life equations to compare speeds of different reactions.</li>
+              <li>Connect rate law behaviour to possible mechanisms in Week 6.</li>
             </ul>
           </div>
         </div>
         <div class="section-divider"></div>
       </section>
 
-      <!-- WEEK 6 -->
+      <!-- WEEK 6 TREE -->
       <section id="w6" class="content-section">
-        <div class="section-title">Week 6 – Mechanisms &amp; Catalysis (Branch)</div>
+        <div class="section-title">Week 6 – Mechanisms &amp; Catalysis (Mini Tree)</div>
         <p class="section-note">
-          These connect the math of rate laws to pictures: reaction coordinate diagrams and multi-step paths.
+          Week 6 tree: roots in stepwise molecular processes, trunk in elementary steps and intermediates, branches in RDS and catalysis, leaves in mechanism questions, fruit in checking mechanism–rate law consistency.
         </p>
         <div class="section-grid">
           <div class="copy-card">
-            <div class="grain-label">Large grain</div>
-            <h3>From Overall Reaction to Steps</h3>
+            <div class="grain-label">Roots – why</div>
+            <h3>Reactions as Multi-Step Journeys</h3>
             <ul>
-              <li>Overall balanced equation summarizes net change only.</li>
-              <li>Mechanism proposes a sequence of elementary steps that actually occur.</li>
-              <li>Each elementary step has its own molecularity and rate law.</li>
+              <li>The overall balanced equation hides the detailed path the system takes.</li>
+              <li>At the molecular level, reactions often proceed through several collisions and rearrangements.</li>
+              <li>Each microscopic step has its own energy barrier and molecularity.</li>
             </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">microscopic steps</div>
+            </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Intermediates, Transition States, and RDS</h3>
+            <div class="grain-label">Trunk – core tools</div>
+            <h3>Elementary Steps &amp; Intermediates</h3>
             <ul>
-              <li>Intermediates: formed in one step, consumed in another; do not appear in overall reaction.</li>
-              <li>Transition state: high-energy configuration at the top of the energy barrier.</li>
+              <li>Elementary step: a single molecular event (e.g., A + B → C).</li>
+              <li>Rate law for an elementary step follows directly from its stoichiometry.</li>
+              <li>Intermediates: produced in one step, consumed in another; not present in overall reaction.</li>
+              <li>Transition states: high-energy configurations at the top of the barrier on the reaction coordinate diagram.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag tag-kin">elementary step</div>
+              <div class="tag tag-kin">intermediate</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Branches – subtopics</div>
+            <h3>Rate-Determining Step &amp; Catalysts</h3>
+            <ul>
               <li>Rate-determining step (RDS): slowest step; often controls the overall rate law.</li>
+              <li>Pre-equilibrium and steady-state approximations link intermediates to observable species.</li>
+              <li>Catalyst: provides an alternative pathway with lower activation energy.</li>
+              <li>Catalysis changes k and rates but not ΔG° or K.</li>
             </ul>
+            <div class="tag-row">
+              <div class="tag">RDS</div>
+              <div class="tag">catalyst</div>
+            </div>
           </div>
 
           <div class="copy-card">
-            <div class="grain-label">Medium grain</div>
-            <h3>Catalysts on Energy Diagrams</h3>
+            <div class="grain-label">Leaves – example shapes</div>
+            <h3>Typical Week 6 Problem Types</h3>
             <ul>
-              <li>Catalyst provides an alternative pathway with lower activation energy.</li>
-              <li>Changes rate constants, but not overall ΔG° or equilibrium position.</li>
+              <li>Given a proposed mechanism, identify intermediates and catalysts.</li>
+              <li>Derive the predicted rate law from the mechanism and compare to experiment.</li>
+              <li>Draw reaction coordinate diagrams with multiple steps and identify transition states and intermediates.</li>
+              <li>Compare catalyzed vs uncatalyzed pathways on an energy diagram.</li>
+            </ul>
+            <div class="tag-row">
+              <div class="tag">mechanism check</div>
+              <div class="tag">energy diagrams</div>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <div class="grain-label">Fruit – skills &amp; outputs</div>
+            <h3>What You Can Do After Week 6</h3>
+            <ul>
+              <li>Translate between a mechanism and a rate law, and judge whether they match.</li>
+              <li>Explain clearly what intermediates and catalysts are and how they appear in mechanisms.</li>
+              <li>Use reaction coordinate diagrams to tell a visual story of a multi-step reaction.</li>
+              <li>Connect kinetics and thermo by explaining why catalysts don’t change equilibrium, only speed.</li>
             </ul>
           </div>
         </div>
@@ -1052,17 +1302,17 @@
       <section id="leaves" class="content-section">
         <div class="section-title">Leaves – Example Types (Practice Pattern Map)</div>
         <p class="section-note">
-          These are “shapes of problems” rather than specific numbers. Use them to categorize practice questions.
+          Cross-week “shapes of problems” you can tag your practice with (thermo, equilibrium, kinetics).
         </p>
         <div class="section-grid">
           <div class="copy-card">
             <div class="grain-label">Thermo problem shapes</div>
             <h3>Common Thermo Example Types</h3>
             <ul>
-              <li>Heating/cooling curve with <span class="eq-inline">q = mcΔT</span> and phase change plateaus.</li>
-              <li>Calorimetry: solution or bomb calorimeter to extract ΔH.</li>
-              <li>Hess’s law combination to get target reaction ΔH.</li>
-              <li>Sign prediction of ΔS and qualitative ΔG behavior vs T.</li>
+              <li>Heating/cooling curve with <span class="eq-inline">q = mcΔT</span> and phase changes.</li>
+              <li>Calorimetry to find ΔH.</li>
+              <li>Hess’s law combinations for ΔH.</li>
+              <li>Sign prediction for ΔS and qualitative ΔG vs T.</li>
             </ul>
           </div>
 
@@ -1070,10 +1320,10 @@
             <div class="grain-label">Equilibrium problem shapes</div>
             <h3>Common Equilibrium Example Types</h3>
             <ul>
-              <li>ICE table for weak acid/base to find equilibrium concentrations.</li>
+              <li>ICE tables for weak acids/bases.</li>
+              <li>Compute K from equilibrium concentrations or pressures.</li>
               <li>Compare Q and K to predict direction of shift.</li>
-              <li>Calculate K from equilibrium concentrations or partial pressures.</li>
-              <li>Le Chatelier scenarios: adding reactant, changing volume, temperature effects.</li>
+              <li>Le Chatelier reasoning for stresses on the system.</li>
             </ul>
           </div>
 
@@ -1081,10 +1331,10 @@
             <div class="grain-label">Kinetics problem shapes</div>
             <h3>Common Kinetics Example Types</h3>
             <ul>
-              <li>Determine reaction order using initial rate method.</li>
-              <li>Plot data sets to test zero, first, or second order via linearization.</li>
-              <li>Compute half-life for first or second order reactions.</li>
-              <li>Extract activation energy from Arrhenius plot (ln k vs 1/T).</li>
+              <li>Determine reaction order from initial rate data.</li>
+              <li>Use linear plots (zero/first/second) to identify order.</li>
+              <li>Calculate half-lives and remaining concentration vs time.</li>
+              <li>Arrhenius plots to extract activation energy.</li>
             </ul>
           </div>
         </div>
@@ -1095,28 +1345,28 @@
       <section id="fruit" class="content-section">
         <div class="section-title">Fruit – Outputs (What You Can Do)</div>
         <p class="section-note">
-          This is where the tree produces results: explanations, exam performance, and transferable thinking skills.
+          Final outputs: exam skills, explanations, and study tools you generate from the whole forest.
         </p>
         <div class="section-grid">
           <div class="copy-card">
             <div class="grain-label">Exam-level outputs</div>
-            <h3>Core Abilities After Mastering This Map</h3>
+            <h3>Core Abilities From the Full Map</h3>
             <ul>
-              <li>Predict spontaneity from signs of <span class="eq-inline">ΔH</span> and <span class="eq-inline">ΔS</span> and temperature.</li>
-              <li>Convert between <span class="eq-inline">ΔG°</span> and <span class="eq-inline">K</span> and reason about equilibrium composition.</li>
-              <li>Write and interpret rate laws, finding orders and half-lives from data.</li>
-              <li>Propose and test mechanisms against observed rate laws and intermediates.</li>
+              <li>Predict spontaneity and equilibrium position using ΔH, ΔS, ΔG, and K.</li>
+              <li>Analyze rates, orders, and half-lives from kinetic data.</li>
+              <li>Propose and critique mechanisms consistent with observed rate laws.</li>
+              <li>Explain how thermo, equilibrium, and kinetics connect in one coherent story.</li>
             </ul>
           </div>
 
           <div class="copy-card">
             <div class="grain-label">Study-tool outputs</div>
-            <h3>Products You Actually Build</h3>
+            <h3>Things You Actually Build</h3>
             <ul>
-              <li>Weekly multi-grain pages (large / medium / micro / examples).</li>
-              <li>Double-click-to-copy HTML cards for each key idea.</li>
-              <li>Condensed cheat sheets for ΔH, ΔS, ΔG, K, and kinetics.</li>
-              <li>Concept maps and reaction coordinate diagrams that connect thermo and kinetics.</li>
+              <li>Weekly mini trees (roots → trunk → branches → leaves → fruit) in your own words.</li>
+              <li>Double-click-to-copy HTML cards like these inside your own project.</li>
+              <li>Compact cheat sheets and flashcards organized by tree level.</li>
+              <li>Reflection paragraphs for PBLA or learning journals that use the root-level explanations.</li>
             </ul>
           </div>
         </div>
@@ -1167,7 +1417,6 @@
 
     function copyText(text) {
       if (!navigator.clipboard) {
-        // fallback
         const textarea = document.createElement("textarea");
         textarea.value = text;
         textarea.style.position = "fixed";
