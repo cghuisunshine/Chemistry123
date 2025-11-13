@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chem 123 – Multi-Grain Study Framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-light: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .app-shell {
+      display: flex;
+      width: min(1200px, 100%);
+      height: min(780px, 100vh);
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98));
+      border-radius: 20px;
+      margin: 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+      border-right: 1px solid var(--border);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .app-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .app-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .week-list {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin-top: 4px;
+    }
+
+    .week-btn {
+      width: 100%;
+      text-align: left;
+      padding: 9px 10px;
+      margin-bottom: 6px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.15s ease;
+      font-size: 0.86rem;
+    }
+
+    .week-btn span.title {
+      font-weight: 500;
+    }
+
+    .week-btn span.desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .week-btn:hover {
+      background: rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.5);
+      transform: translateY(-1px);
+    }
+
+    .week-btn.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.4);
+    }
+
+    .legend {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .legend strong {
+      color: var(--accent);
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 18px;
+      gap: 12px;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumbs {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumbs span {
+      opacity: 0.7;
+    }
+
+    .breadcrumbs strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .mode-chip {
+      font-size: 0.78rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+    }
+
+    .mode-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.28);
+    }
+
+    .week-panel {
+      flex: 1;
+      overflow-y: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left,
+        rgba(15,23,42,0.85) 0,
+        rgba(2,6,23,0.98) 55%);
+      padding: 16px 18px 18px;
+      display: none;
+    }
+
+    .week-panel.active {
+      display: block;
+    }
+
+    .week-title {
+      font-size: 1.1rem;
+      margin: 0 0 2px;
+    }
+
+    .week-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.8);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.9);
+      padding: 10px 11px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 0 0 4px;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .card ul {
+      margin: 0 0 0 16px;
+      padding: 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card ul li + li {
+      margin-top: 2px;
+    }
+
+    .teach-tips {
+      font-size: 0.8rem;
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      color: var(--text-muted);
+    }
+
+    .teach-tips strong {
+      color: var(--accent);
+    }
+
+    .bottom-note {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        flex-direction: column;
+        height: auto;
+      }
+      .sidebar {
+        flex-direction: row;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+        gap: 10px;
+      }
+      .sidebar-header-wrapper {
+        min-width: 180px;
+      }
+      .week-list {
+        max-height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header-wrapper">
+        <div class="app-title">Chem 123 MG-SF</div>
+        <div class="app-subtitle">Thermo + Kinetics + Organic, multi-grain</div>
+        <div class="badge-row">
+          <span class="badge">Large grain → micro grain</span>
+          <span class="badge">Learn fast, then teach</span>
+        </div>
+      </div>
+
+      <div class="week-list" id="weekList">
+        <!-- Physical chem weeks -->
+        <button class="week-btn active" data-week="week-1">
+          <span class="title">Week 1 – Acid–Base & Review</span>
+          <span class="desc">Baseline tools: pH, Ka, equilibrium language</span>
+        </button>
+        <button class="week-btn" data-week="week-2">
+          <span class="title">Week 2 – Thermo Foundations</span>
+          <span class="desc">Systems, state functions, 1st law</span>
+        </button>
+        <button class="week-btn" data-week="week-3">
+          <span class="title">Week 3 – Enthalpy & Entropy</span>
+          <span class="desc">Calorimetry, Hess’s law, 2nd & 3rd laws</span>
+        </button>
+        <button class="week-btn" data-week="week-4">
+          <span class="title">Week 4 – Gibbs & Equilibrium</span>
+          <span class="desc">ΔG, K, van’t Hoff, spontaneity</span>
+        </button>
+        <button class="week-btn" data-week="week-5">
+          <span class="title">Week 5 – Rate Laws & Data</span>
+          <span class="desc">Integrated laws, half-life, graphs</span>
+        </button>
+        <button class="week-btn" data-week="week-6">
+          <span class="title">Week 6 – Mechanisms & Catalysts</span>
+          <span class="desc">Multi-step, RDS, steady-state</span>
+        </button>
+
+        <!-- Organic weeks -->
+        <button class="week-btn" data-week="week-7">
+          <span class="title">Week 7 – Organic Structure & Bonding</span>
+          <span class="desc">Lewis, VSEPR, orbitals, resonance</span>
+        </button>
+        <button class="week-btn" data-week="week-8">
+          <span class="title">Week 8 – Functional Groups & Reactivity Maps</span>
+          <span class="desc">Families, polarity, reaction “hot spots”</span>
+        </button>
+        <button class="week-btn" data-week="week-9">
+          <span class="title">Week 9 – Stereochemistry & 3D Thinking</span>
+          <span class="desc">Chirality, R/S, enantiomers & diastereomers</span>
+        </button>
+        <button class="week-btn" data-week="week-10">
+          <span class="title">Week 10 – Organic Acid–Base & Mechanistic Thinking</span>
+          <span class="desc">pKa, stability, electron pushing</span>
+        </button>
+        <button class="week-btn" data-week="week-11">
+          <span class="title">Week 11 – Substitution & Elimination (S<sub>N</sub>1/S<sub>N</sub>2/E1/E2)</span>
+          <span class="desc">Competing pathways & conditions</span>
+        </button>
+        <button class="week-btn" data-week="week-12">
+          <span class="title">Week 12 – Integration, Synthesis & Review</span>
+          <span class="desc">Connect thermo, kinetics & organic</span>
+        </button>
+      </div>
+
+      <div class="legend">
+        <strong>Tip:</strong> Click a week on the left.<br />
+        Right panel shows that week’s:<br />
+        Big picture → concepts → problems → deep theory → teaching tips.
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <div class="main-header">
+        <div class="breadcrumbs">
+          <span>Chem 123 · Multi-Grain Study · </span>
+          <strong id="crumbWeek">Week 1 – Acid–Base & Review</strong>
+        </div>
+        <div class="mode-chip">
+          <span class="mode-dot"></span>
+          MG-SF: Large → Medium → Fine → Micro → Teach
+        </div>
+      </div>
+
+      <!-- Week 1 -->
+      <section class="week-panel active" id="week-1">
+        <h2 class="week-title">Week 1 – Acid–Base & General Review</h2>
+        <div class="week-tagline">
+          Large grain: Chem 123 is built on acid–base and equilibrium language.  
+          This week rebuilds that language so thermo/kinetics make sense later.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">pH / pOH</span>
+          <span class="pill">K<sub>w</sub></span>
+          <span class="pill">Strong vs weak acids/bases</span>
+          <span class="pill">Conjugate pairs</span>
+          <span class="pill">ICE tables</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Remember how solutions behave: acids donate H⁺, bases accept H⁺.</li>
+              <li>Use pH, pOH, and K<sub>w</sub> as your “language of water”.</li>
+              <li>Bridge Chem 11/12 & Chem 121 knowledge into Chem 123.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Water autoionization: K<sub>w</sub> = [H⁺][OH⁻].</li>
+              <li>pH, pOH, and pH + pOH = 14 (25 °C).</li>
+              <li>Strong vs weak acids/bases; conjugate acid–base pairs.</li>
+              <li>ICE tables for weak acids/bases and buffers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Convert between [H⁺], [OH⁻], pH, pOH quickly.</li>
+              <li>Set up ICE tables for HA ⇌ H⁺ + A⁻ or B + H₂O ⇌ BH⁺ + OH⁻.</li>
+              <li>Identify buffer pairs (weak acid + conjugate base, etc.).</li>
+              <li>Estimate pH of strong acid/base and simple buffers.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>K<sub>w</sub> comes from equilibrium of H₂O ⇌ H⁺ + OH⁻.</li>
+              <li>pH is a log scale: convenient for tiny concentrations.</li>
+              <li>Conjugate pairs differ by exactly one H⁺.</li>
+              <li>Leveling effect: strong acids are “leveled” to H₃O⁺ in water.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Explain pH with a 0–14 number line, then map [H⁺] onto it.  
+          Make learners say conjugate pairs out loud: “HA / A⁻”, “NH₃ / NH₄⁺” etc.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: can you do 5 pH/pOH conversions in a row mentally?
+        </div>
+      </section>
+
+      <!-- Week 2 -->
+      <section class="week-panel" id="week-2">
+        <h2 class="week-title">Week 2 – Thermodynamics Foundations & First Law</h2>
+        <div class="week-tagline">
+          Large grain: describe energy changes in reactions using systems, surroundings, and state functions.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">System vs surroundings</span>
+          <span class="pill">State variables</span>
+          <span class="pill">Internal energy U</span>
+          <span class="pill">Work & heat (w, q)</span>
+          <span class="pill">Ideal gas</span>
+          <span class="pill">ΔU = q + w</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>We want a precise way to talk about energy changes in reactions.</li>
+              <li>Focus on the <em>system</em> (reacting chemicals) vs surroundings.</li>
+              <li>First Law: energy is conserved; it only moves around.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>System vs surroundings; open, closed, isolated systems.</li>
+              <li>State functions (U, P, V, T) vs path functions (q, w).</li>
+              <li>PV work: w = −PΔV (for expansion/compression).</li>
+              <li>Ideal gas law as an approximation for real gases.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Classify processes: energy entering or leaving the system?</li>
+              <li>Use sign conventions: q &gt; 0 (heat into system), w &gt; 0 (work on system).</li>
+              <li>Compute ΔU from q and w, including PV work.</li>
+              <li>Handle simple piston/ideal gas expansion/compression problems.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Internal energy as microscopic kinetic + potential energy.</li>
+              <li>Why state functions ignore path: only initial/final states matter.</li>
+              <li>PV work as force × distance at molecular level.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Use cartoons of a piston being pushed vs pushing back.  
+          Always ask: “From the system’s viewpoint, did energy go in or out?”
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can assign correct signs to q, w, and ΔU for any basic scenario.
+        </div>
+      </section>
+
+      <!-- Week 3 -->
+      <section class="week-panel" id="week-3">
+        <h2 class="week-title">Week 3 – Enthalpy, Calorimetry, Entropy & Laws of Thermo</h2>
+        <div class="week-tagline">
+          Large grain: connect heat changes (ΔH) and dispersal of energy/disorder (ΔS) to predict tendencies.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Heat capacity</span>
+          <span class="pill">Calorimetry</span>
+          <span class="pill">Enthalpy ΔH</span>
+          <span class="pill">Hess’s Law</span>
+          <span class="pill">Entropy ΔS</span>
+          <span class="pill">2nd & 3rd Laws</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>ΔH tracks heat flow at constant pressure (lab conditions).</li>
+              <li>Entropy measures energy spreading / number of microstates.</li>
+              <li>Thermo laws give global rules for what can/can’t happen.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>q = m·c·ΔT and q = n·C<sub>m</sub>·ΔT for calorimetry.</li>
+              <li>ΔH from calorimetry vs from tabulated ΔH°<sub>f</sub>.</li>
+              <li>Hess’s Law: enthalpy is a state function; add reactions like vectors.</li>
+              <li>Entropy trends: phase, temperature, number of particles, mixing.</li>
+              <li>Third Law: S° → 0 as T → 0 K for perfect crystals.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Calculate q and use it to get ΔH<sub>rxn</sub>.</li>
+              <li>Use Hess’s Law to build ΔH<sub>rxn</sub> from other reactions.</li>
+              <li>Estimate ΔS qualitatively from particle pictures.</li>
+              <li>Use S° tables to compute ΔS° for reactions.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Entropy and multiplicity: S = k ln W (statistical view).</li>
+              <li>Why nature “likes” high-multiplicity (more possible arrangements).</li>
+              <li>Microscopic justification of heat capacity and energy storage modes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Use phase-change examples: ice → water → steam; ask where S is largest.  
+          For Hess’s Law, treat each reaction like a LEGO piece you can flip and add.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can solve calorimetry problems and predict relative entropy changes intuitively.
+        </div>
+      </section>
+
+      <!-- Week 4 -->
+      <section class="week-panel" id="week-4">
+        <h2 class="week-title">Week 4 – Spontaneity, Gibbs Free Energy & Equilibrium</h2>
+        <div class="week-tagline">
+          Large grain: tie together ΔH and ΔS into ΔG to decide if a process is spontaneous and where equilibrium lies.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Gibbs free energy ΔG</span>
+          <span class="pill">Spontaneous vs non-spontaneous</span>
+          <span class="pill">Equilibrium constant K</span>
+          <span class="pill">ΔG° = −RT ln K</span>
+          <span class="pill">van’t Hoff plots</span>
+          <span class="pill">Intro to rate laws</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>ΔG combines ΔH and ΔS into a single “go/no-go” criterion.</li>
+              <li>Equilibrium is the balance point where ΔG = 0.</li>
+              <li>K tells composition at equilibrium; kinetics tells how fast you get there.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>ΔG = ΔH − TΔS and the four sign cases (“always”, “never”, “T-dependent”).</li>
+              <li>Standard vs non-standard conditions (ΔG vs ΔG°).</li>
+              <li>ΔG° = −RT ln K and ΔG = ΔG° + RT ln Q.</li>
+              <li>van’t Hoff: ln K vs 1/T slope = −ΔH°/R.</li>
+              <li>Rate laws & orders preview (for kinetics blocks).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Given ΔH and ΔS, decide spontaneity at a given T.</li>
+              <li>Convert between K and ΔG°.</li>
+              <li>Interpret van’t Hoff plots to find ΔH° and ΔS°.</li>
+              <li>Decide if a reaction is product- or reactant-favoured.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>ΔG as maximum non-PV work available from a process.</li>
+              <li>Equilibrium as a minimum in the Gibbs energy landscape.</li>
+              <li>Boltzmann view: K related to relative microstate probabilities.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Use a 2×2 table of ΔH/ΔS sign combos.  
+          Connect to real life: ice melting vs freezing around 0 °C to show T dependence.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can quickly go from ΔH, ΔS → ΔG → “spontaneous?” → rough K.
+        </div>
+      </section>
+
+      <!-- Week 5 -->
+      <section class="week-panel" id="week-5">
+        <h2 class="week-title">Week 5 – Rate Laws, Integrated Forms & Data Analysis</h2>
+        <div class="week-tagline">
+          Large grain: quantify how fast reactions go and how concentration changes with time.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Rate laws</span>
+          <span class="pill">Rate constant k</span>
+          <span class="pill">Reaction order</span>
+          <span class="pill">Integrated laws</span>
+          <span class="pill">Half-life</span>
+          <span class="pill">Graphical tests</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Thermo: can it happen? Kinetics: how fast?</li>
+              <li>Rate laws link rate to concentration.</li>
+              <li>Integrated laws predict [A] at any time t.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Rate expressions from stoichiometry.</li>
+              <li>Rate = k[A]^m[B]^n; meaning of orders m, n.</li>
+              <li>Integrated forms for zero, first, second order.</li>
+              <li>Half-life t½ and its concentration dependence.</li>
+              <li>Method of initial rates; straight-line testing.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Use experiments to find reaction order and k.</li>
+              <li>Pick the right integrated law and compute [A] at time t.</li>
+              <li>Use half-life expressions to check order.</li>
+              <li>Make and interpret plots: [A] vs t, ln[A] vs t, 1/[A] vs t.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Collision theory: frequency and orientation of collisions.</li>
+              <li>Arrhenius: k = A e^(−Eₐ/RT); T dependence of k.</li>
+              <li>Energy barriers and simple reaction coordinate diagrams.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Keep a “graph decision tree”: which plot is straight? → order.  
+          Emphasize careful units and axis labels; that’s where marks are lost.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can look at a table of [A] vs t, decide order, and calculate k.
+        </div>
+      </section>
+
+      <!-- Week 6 -->
+      <section class="week-panel" id="week-6">
+        <h2 class="week-title">Week 6 – Mechanisms, Rate-Determining Step & Catalysts</h2>
+        <div class="week-tagline">
+          Large grain: connect observed rate laws to plausible multi-step mechanisms and understand catalysis.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Elementary steps</span>
+          <span class="pill">Molecularity</span>
+          <span class="pill">Intermediates</span>
+          <span class="pill">Rate-determining step</span>
+          <span class="pill">Steady-state</span>
+          <span class="pill">Catalysts</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Real reactions proceed through several microscopic steps.</li>
+              <li>Mechanisms must match both stoichiometry and rate law.</li>
+              <li>Catalysts speed reactions by lowering Eₐ, not by changing ΔG°.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Elementary vs overall reactions; molecularity.</li>
+              <li>Intermediates vs catalysts in multi-step schemes.</li>
+              <li>Rate-determining step (RDS) as bottleneck.</li>
+              <li>Steady-state and pre-equilibrium approximations.</li>
+              <li>Homogeneous vs heterogeneous catalysis; enzyme analogy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Given a proposed mechanism, derive the predicted rate law.</li>
+              <li>Check consistency: does mechanism fit experimental rate law?</li>
+              <li>Identify intermediates and catalysts from steps.</li>
+              <li>Draw reaction coordinate diagrams with and without catalyst.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Transition state theory and activated complexes.</li>
+              <li>Potential energy surfaces and multi-step pathways.</li>
+              <li>Why catalysts change Eₐ and k but not equilibrium K.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Always line up: mechanism → derived rate law → experimental rate law.  
+          Use colour when you write mechanisms to track intermediates that cancel.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can sketch at least one reasonable mechanism that fits a given rate law.
+        </div>
+      </section>
+
+      <!-- Week 7 -->
+      <section class="week-panel" id="week-7">
+        <h2 class="week-title">Week 7 – Organic Structure, Bonding & Resonance</h2>
+        <div class="week-tagline">
+          Large grain: move from “physical chem world” into “organic world” – still the same atoms, new style of thinking.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Lewis structures</span>
+          <span class="pill">Octet & formal charge</span>
+          <span class="pill">VSEPR & 3D shape</span>
+          <span class="pill">Hybridization (sp, sp², sp³)</span>
+          <span class="pill">Resonance</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Organic chemistry = carbon-based structures and their reactivity.</li>
+              <li>Good structures → correct charge, geometry, and hybridization.</li>
+              <li>Resonance is about delocalized electrons, not “flipping structures”.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Drawing Lewis structures with valence electrons and octet rule.</li>
+              <li>Formal charge vs oxidation state; where charge “lives”.</li>
+              <li>VSEPR geometries: linear, trigonal planar, tetrahedral, etc.</li>
+              <li>Hybridization: sp, sp², sp³ and their bond angles.</li>
+              <li>Resonance structures and resonance hybrids.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Draw correct Lewis structures for organic fragments (C, H, O, N, X).</li>
+              <li>Assign formal charges correctly and choose the best resonance form.</li>
+              <li>Identify geometry and hybridization of atoms in a structure.</li>
+              <li>Draw valid resonance contributors and the resonance hybrid.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Connection between hybridization and atomic orbitals (s + p mixing).</li>
+              <li>Why resonance lowers energy: electron delocalization.</li>
+              <li>σ vs π bonds; where electrons are located in space.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Always start organic questions with: “Draw the structure cleanly.”  
+          Use colour for lone pairs and charges; mark resonance arrows clearly.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can look at any small organic molecule and instantly state shapes & hybridization.
+        </div>
+      </section>
+
+      <!-- Week 8 -->
+      <section class="week-panel" id="week-8">
+        <h2 class="week-title">Week 8 – Functional Groups & Reactivity Maps</h2>
+        <div class="week-tagline">
+          Large grain: memorize the “cast of characters” in organic chemistry and what each likes to do.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Functional groups</span>
+          <span class="pill">Alkanes, alkenes, alkynes</span>
+          <span class="pill">Alcohols, halides, carbonyls</span>
+          <span class="pill">Polarity & electron-rich sites</span>
+          <span class="pill">Reactivity maps</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Functional groups define behaviour; C skeleton is the “frame”.</li>
+              <li>Reactions happen at electron-rich or electron-poor sites.</li>
+              <li>Seeing functional groups = seeing possible reactions.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Recognize common groups: alkane, alkene, alkyne, alcohol, ether, halide, carbonyl (aldehyde, ketone, carboxylic acid, ester, amide), amine.</li>
+              <li>Electronegativity and bond polarity (δ⁺ vs δ⁻ sites).</li>
+              <li>Nucleophiles vs electrophiles, leaving groups.</li>
+              <li>“Reactivity map” of a molecule: where arrows will start/end.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Circle functional groups in a structure and label them.</li>
+              <li>Identify nucleophilic vs electrophilic atoms.</li>
+              <li>Predict which bonds are easiest to break or attack.</li>
+              <li>Classify carbon centers (primary, secondary, tertiary).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>How polarity and orbital overlap control reactivity.</li>
+              <li>Why carbonyl C is electrophilic (π* LUMO, resonance with O).</li>
+              <li>Leaving group ability vs conjugate acid strength.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Turn functional groups into a visual “flashcard wall”.  
+          Ask: “If I were a nucleophile, where would I attack in this molecule?”
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can quickly annotate any structure with functional groups and likely reaction sites.
+        </div>
+      </section>
+
+      <!-- Week 9 -->
+      <section class="week-panel" id="week-9">
+        <h2 class="week-title">Week 9 – Stereochemistry & 3D Thinking</h2>
+        <div class="week-tagline">
+          Large grain: chemistry is 3D; the shape of molecules controls properties and reactivity.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Chirality</span>
+          <span class="pill">Stereocenters</span>
+          <span class="pill">R/S configuration</span>
+          <span class="pill">Enantiomers & diastereomers</span>
+          <span class="pill">Newman projections</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>3D arrangement affects physical properties and biological activity.</li>
+              <li>Chiral molecules can behave differently in chiral environments.</li>
+              <li>Stereochemistry is about tracking 3D information carefully.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Chiral center: tetrahedral atom with four different groups.</li>
+              <li>R/S naming rules (Cahn–Ingold–Prelog priorities).</li>
+              <li>Enantiomers vs diastereomers vs meso compounds.</li>
+              <li>Newman projections and conformational analysis basics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Locate stereocenters in a structure.</li>
+              <li>Assign R or S configuration correctly.</li>
+              <li>Determine if two drawings are identical, enantiomers, or diastereomers.</li>
+              <li>Draw simple Newman projections and compare conformer stability.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>How potential energy changes with rotation around σ bonds.</li>
+              <li>Why biology is sensitive to chirality (chiral receptors/enzymes).</li>
+              <li>Relationship between symmetry planes and achirality/meso structures.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Have learners physically build models or use hands as analogies.  
+          Make them practise flipping molecules in 3D without losing connectivity.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can quickly assign R/S and decide enantiomer vs diastereomer for exam-style questions.
+        </div>
+      </section>
+
+      <!-- Week 10 -->
+      <section class="week-panel" id="week-10">
+        <h2 class="week-title">Week 10 – Organic Acid–Base & Mechanistic Thinking</h2>
+        <div class="week-tagline">
+          Large grain: use pKa and stability arguments to predict which way protons and electrons move.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">pKa scale</span>
+          <span class="pill">Conjugate stability</span>
+          <span class="pill">Inductive effects</span>
+          <span class="pill">Resonance stabilization</span>
+          <span class="pill">Arrow-pushing</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Many organic reactions are acid–base in disguise.</li>
+              <li>Stronger acid → weaker conjugate base and vice versa.</li>
+              <li>Mechanisms = stories about electrons moving to more stable places.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>pKa as a quantitative measure of acidity.</li>
+              <li>Stability factors: atom, resonance, induction, hybridization, solvation.</li>
+              <li>Bronsted vs Lewis acid/base in organic context.</li>
+              <li>Curved arrow notation for mechanisms (arrow starts at electrons).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Compare relative acidity/basicity using pKa and structural effects.</li>
+              <li>Predict direction of acid–base reactions (which side favoured).</li>
+              <li>Draw simple proton transfer and resonance delocalization mechanisms.</li>
+              <li>Explain why certain intermediates are especially stable or unstable.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>How energy changes along a reaction coordinate for proton transfer.</li>
+              <li>Connection between pKa and ΔG° via Ka and ΔG° = −RT ln K.</li>
+              <li>Orbital view of donating vs accepting electrons (HOMO/LUMO).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Always ask “which conjugate is more stable and why?” before pushing arrows.  
+          Have students narrate mechanisms out loud: “lone pair attacks… bond breaks…”.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can predict which side of an organic acid–base equilibrium is favoured and justify it.
+        </div>
+      </section>
+
+      <!-- Week 11 -->
+      <section class="week-panel" id="week-11">
+        <h2 class="week-title">Week 11 – Substitution & Elimination (S<sub>N</sub>1 / S<sub>N</sub>2 / E1 / E2)</h2>
+        <div class="week-tagline">
+          Large grain: understand competing pathways when a nucleophile/base meets an alkyl halide.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">S<sub>N</sub>2</span>
+          <span class="pill">S<sub>N</sub>1</span>
+          <span class="pill">E2</span>
+          <span class="pill">E1</span>
+          <span class="pill">Substrate structure</span>
+          <span class="pill">Solvent effects</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>Same starting materials, different pathways → different products.</li>
+              <li>Pathway choice depends on structure, nucleophile/base, solvent, temperature.</li>
+              <li>These mechanisms unify a lot of exam questions in first-year organic.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>S<sub>N</sub>2: one-step, backside attack, inversion of configuration.</li>
+              <li>S<sub>N</sub>1: carbocation intermediate, racemization, rearrangements.</li>
+              <li>E2: one-step β-elimination, anti-periplanar geometry.</li>
+              <li>E1: carbocation then elimination; competition with S<sub>N</sub>1.</li>
+              <li>Factors: primary/secondary/tertiary, strength of nucleophile/base, solvent type.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Predict dominant pathway (S<sub>N</sub>1/S<sub>N</sub>2/E1/E2) from conditions.</li>
+              <li>Draw detailed mechanisms with curved arrows and intermediates.</li>
+              <li>Predict stereochemistry of products (inversion, mixtures, etc.).</li>
+              <li>Identify major vs minor elimination products (Zaitsev vs Hofmann).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>Energy profiles: number of steps, height of barriers.</li>
+              <li>Why tertiary carbocations/stabilized alkenes are favoured.</li>
+              <li>Solvent effects on ion formation vs concerted pathways.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Make a 4-cell summary chart: S<sub>N</sub>1, S<sub>N</sub>2, E1, E2 with key conditions.  
+          Practise “rapid classification” drills: 10 scenarios, shout out the pathway.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can classify any standard S<sub>N</sub>/E question in under 10 seconds and sketch the mechanism.
+        </div>
+      </section>
+
+      <!-- Week 12 -->
+      <section class="week-panel" id="week-12">
+        <h2 class="week-title">Week 12 – Integration, Synthesis & Review</h2>
+        <div class="week-tagline">
+          Large grain: connect thermo, kinetics and organic into one mental map; prepare to teach and to write the exam.
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Concept map</span>
+          <span class="pill">Multi-step problems</span>
+          <span class="pill">Thermo + kinetics + mechanism</span>
+          <span class="pill">Exam strategy</span>
+          <span class="pill">Teaching mini-lessons</span>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Big Picture (Large Grain)</h3>
+            <ul>
+              <li>All three pillars connect: ΔG (thermo), k (kinetics), mechanism (organic).</li>
+              <li>You’re moving from “course taker” to “course teacher”.</li>
+              <li>Use MG-SF to compress the whole course into a small, teachable model.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Key Concepts (Medium Grain)</h3>
+            <ul>
+              <li>Link ΔG ↔ K ↔ reaction favourability with mechanisms that achieve it.</li>
+              <li>Recognize how rate laws reflect underlying elementary steps.</li>
+              <li>See organic mechanisms as specific kinetic pathways over an energy surface.</li>
+              <li>Identify your top 10 “anchor concepts” for the whole course.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-two">
+          <div class="card">
+            <h3>Skills & Problem Types (Fine Grain)</h3>
+            <ul>
+              <li>Solve mixed problems that use thermo + kinetics + organic together.</li>
+              <li>Turn each week into a 2–3 minute mini-lesson with one flagship example.</li>
+              <li>Build a one-page cheat sheet summarizing formulas and patterns.</li>
+              <li>Design your own practice questions and solution skeletons.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Deeper Theory (Micro Grain)</h3>
+            <ul>
+              <li>See the whole course as “energy + probability + structure”.</li>
+              <li>Understand how microscopic collisions and orbitals lead to macroscopic K and k.</li>
+              <li>Reflect on which topics connect most directly to second-year courses.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card teach-tips">
+          <strong>Teach-It Tips:</strong>  
+          Create a final “story of the course” slide: start at acid–base, end at mechanisms.  
+          Practise explaining each week to an imaginary student in under 2 minutes.
+        </div>
+
+        <div class="bottom-note">
+          Checkpoint: you can teach a friend the whole course structure without looking at notes.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const btns = document.querySelectorAll(".week-btn");
+    const panels = document.querySelectorAll(".week-panel");
+    const crumbWeek = document.getElementById("crumbWeek");
+
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-week");
+
+        // sidebar active state
+        btns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // panels
+        panels.forEach(p => {
+          if (p.id === targetId) {
+            p.classList.add("active");
+          } else {
+            p.classList.remove("active");
+          }
+        });
+
+        // breadcrumb text
+        const titleText = btn.querySelector(".title").textContent;
+        crumbWeek.textContent = titleText;
+      });
+    });
+  </script>
+</body>
+</html>
+
