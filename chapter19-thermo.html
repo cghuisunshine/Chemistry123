@@ -35,7 +35,7 @@
     <li>Define entropy and calculate &Delta;S for simple processes.</li>
     <li>Use standard molar entropies to estimate &Delta;S&deg; for reactions.</li>
     <li>Define Gibbs free energy and use <code>&Delta;G = &Delta;H - T &Delta;S</code> to predict spontaneity.</li>
-    <li>Relate &Delta;G, &Delta;G&deg;, Q, and K using <code>&Delta;G&deg; = -RT \ln K</code>.</li>
+    <li>Relate &Delta;G, &Delta;G&deg;, Q, and K using <code>&Delta;G&deg; = -RT ln K</code>.</li>
   </ul>
 
   <h2>Key Vocabulary</h2>
@@ -69,7 +69,7 @@
 
   <h3>Statistical View</h3>
   <p>Entropy is related to the number of accessible microstates (W):</p>
-  <p><code>S = k \ln W</code>, where <code>k</code> is the Boltzmann constant.</p>
+  <p><code>S = k ln W</code>, where <code>k</code> is the Boltzmann constant.</p>
   <p>More ways to arrange energy &rarr; higher W &rarr; higher S.</p>
 
   <h3>Trends in Entropy</h3>
@@ -84,27 +84,27 @@
 
   <h3>Reversible Heat Transfer at Constant Temperature</h3>
   <p>For a reversible process at constant temperature:</p>
-  <p><code>&Delta;S = \dfrac{q_{rev}}{T}</code></p>
+  <p><code>&Delta;S = q_rev / T</code></p>
 
   <h3>Phase Changes at the Transition Temperature</h3>
   <p>For melting, vaporization, etc. at the transition temperature:</p>
-  <p><code>&Delta;S = \dfrac{\Delta H_{transition}}{T_{transition}}</code></p>
+  <p><code>&Delta;S = &Delta;H_transition / T_transition</code></p>
 
   <h3>Standard Reaction Entropy</h3>
   <p>For a reaction: aA + bB &rarr; cC + dD</p>
-  <p><code>&Delta;S&deg;_{rxn} = \sum n S&deg;(\text{products}) - \sum n S&deg;(\text{reactants})</code></p>
+  <p><code>&Delta;S&deg;<sub>rxn</sub> = [&Sigma; n S&deg;(products)] &minus; [&Sigma; n S&deg;(reactants)]</code></p>
   <p>(Multiply each S&deg; by its stoichiometric coefficient, then subtract.)</p>
 
   <h3>Symbolic Example</h3>
   <p>For:</p>
   <p>2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2 SO<sub>3</sub>(g)</p>
-  <p><code>&Delta;S&deg;_{rxn} = [2 S&deg;(\text{SO}_3)] - [2 S&deg;(\text{SO}_2) + S&deg;(\text{O}_2)]</code></p>
+  <p><code>&Delta;S&deg;<sub>rxn</sub> = [2 S&deg;(SO<sub>3</sub>)] &minus; [2 S&deg;(SO<sub>2</sub>) + S&deg;(O<sub>2</sub>)]</code></p>
 
   <h2>4. Entropy Change of the Surroundings (&Delta;S<sub>surr</sub>)</h2>
   <p>At constant pressure, the surroundings gain or lose heat equal to the negative of the system&rsquo;s heat:</p>
-  <p><code>\Delta S_{surr} = - \dfrac{q_{sys}}{T} \approx - \dfrac{\Delta H_{sys}}{T}</code></p>
+  <p><code>&Delta;S_surr = -q_sys / T &asymp; -&Delta;H_sys / T</code></p>
   <p>Then:</p>
-  <p><code>\Delta S_{univ} = \Delta S_{sys} + \Delta S_{surr}</code></p>
+  <p><code>&Delta;S_univ = &Delta;S_sys + &Delta;S_surr</code></p>
   <p>Use &Delta;S<sub>univ</sub> to assess spontaneity.</p>
 
   <h2>5. Gibbs Free Energy and Spontaneity</h2>
@@ -113,7 +113,7 @@
   <p>Gibbs free energy is defined as:</p>
   <p><code>G = H - TS</code></p>
   <p>At constant temperature and pressure:</p>
-  <p><code>\Delta G = \Delta H - T \Delta S</code></p>
+  <p><code>&Delta;G = &Delta;H - T &Delta;S</code></p>
 
   <h3>Spontaneity Criterion (Constant T, P)</h3>
   <ul>
@@ -132,25 +132,25 @@
 
   <h2>6. Standard Free Energy Change (&Delta;G&deg;) and Temperature</h2>
   <p>At standard conditions (1 bar, usually 298 K):</p>
-  <p><code>\Delta G&deg; = \Delta H&deg; - T \Delta S&deg;</code></p>
+  <p><code>&Delta;G&deg; = &Delta;H&deg; - T &Delta;S&deg;</code></p>
 
   <h3>Standard Reaction Free Energy</h3>
   <p>From standard free energies of formation:</p>
-  <p><code>\Delta G&deg;_{rxn} = \sum n \Delta G&deg;_{f}(\text{products}) - \sum n \Delta G&deg;_{f}(\text{reactants})</code></p>
+  <p><code>&Delta;G&deg;<sub>rxn</sub> = [&Sigma; n &Delta;G&deg;<sub>f</sub>(products)] &minus; [&Sigma; n &Delta;G&deg;<sub>f</sub>(reactants)]</code></p>
   <p>As with enthalpy, reversing a reaction changes the sign, and scaling the reaction scales &Delta;G&deg;.</p>
 
   <h2>7. &Delta;G, Equilibrium, and K</h2>
 
   <h3>Nonstandard Conditions</h3>
   <p>The reaction quotient Q measures the current composition:</p>
-  <p><code>\Delta G = \Delta G&deg; + RT \ln Q</code></p>
+  <p><code>&Delta;G = &Delta;G&deg; + RT&nbsp;ln&nbsp;Q</code></p>
   <p>where R = 8.314 J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup> and T is in K.</p>
 
   <h3>At Equilibrium</h3>
   <p>At equilibrium, &Delta;G = 0 and Q = K:</p>
-  <p><code>0 = \Delta G&deg; + RT \ln K</code></p>
+  <p><code>0 = &Delta;G&deg; + RT&nbsp;ln&nbsp;K</code></p>
   <p>so:</p>
-  <p><code>\Delta G&deg; = -RT \ln K</code></p>
+  <p><code>&Delta;G&deg; = -RT&nbsp;ln&nbsp;K</code></p>
 
   <h3>Interpretation of &Delta;G&deg; and K</h3>
   <ul>
