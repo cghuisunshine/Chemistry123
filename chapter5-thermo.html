@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 5: Thermochemistry - Tutorial</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 2rem;
+      max-width: 900px;
+    }
+    h1, h2, h3 {
+      color: #12345f;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    ul {
+      margin-left: 1.5rem;
+    }
+    ol {
+      margin-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 5: Thermochemistry</h1>
+
+  <h2>Learning Objectives</h2>
+  <p>By the end of this tutorial, you should be able to:</p>
+  <ul>
+    <li>Distinguish system vs. surroundings, and heat vs. work.</li>
+    <li>Use the first law of thermodynamics (<code>&Delta;E = q + w</code>).</li>
+    <li>Define enthalpy and solve basic enthalpy problems.</li>
+    <li>Use calorimetry data (coffee-cup and bomb calorimetry).</li>
+    <li>Apply Hess&rsquo;s law and standard enthalpies of formation.</li>
+  </ul>
+
+  <h2>Key Terms</h2>
+  <ul>
+    <li><strong>System</strong>: the part of the universe you are studying (for example, chemicals in a beaker).</li>
+    <li><strong>Surroundings</strong>: everything else (the beaker, lab air, etc.).</li>
+    <li><strong>Open / Closed / Isolated system</strong>: describes whether matter and/or energy can be exchanged with surroundings.</li>
+    <li><strong>Energy (E)</strong>: capacity to do work or transfer heat.</li>
+    <li><strong>Kinetic energy (E<sub>k</sub>)</strong>: energy of motion.</li>
+    <li><strong>Potential energy (E<sub>p</sub>)</strong>: energy due to position or composition.</li>
+    <li><strong>Heat (q)</strong>: energy transfer due to temperature difference.</li>
+    <li><strong>Work (w)</strong>: energy transfer when a force moves an object (for example, gas expansion).</li>
+    <li><strong>Internal energy (E)</strong>: total energy of a system&rsquo;s particles.</li>
+    <li><strong>State function</strong>: depends only on initial and final states (<code>&Delta;E</code>, <code>&Delta;H</code>); path-independent.</li>
+    <li><strong>Enthalpy (H)</strong>: heat content at constant pressure; <code>&Delta;H = q_p</code>.</li>
+    <li><strong>Exothermic</strong>: releases heat (<code>&Delta;H &lt; 0</code>).</li>
+    <li><strong>Endothermic</strong>: absorbs heat (<code>&Delta;H &gt; 0</code>).</li>
+    <li><strong>Calorimetry</strong>: experimental measurement of heat changes.</li>
+    <li><strong>Heat capacity (C)</strong>: heat needed to change temperature of an object by 1 K.</li>
+    <li><strong>Specific heat (c)</strong>: heat needed to change 1 g of a substance by 1 K.</li>
+    <li><strong>Standard enthalpy of formation (&Delta;H&deg;<sub>f</sub>)</strong>: enthalpy change for forming 1 mol of a compound from its elements in their standard states.</li>
+  </ul>
+
+  <h2>1. Energy, Heat, Work, and the First Law</h2>
+
+  <h3>Sign Conventions (Chemistry)</h3>
+  <ul>
+    <li><code>q &gt; 0</code>: heat flows into the system (endothermic).</li>
+    <li><code>q &lt; 0</code>: heat flows out of the system (exothermic).</li>
+    <li><code>w &gt; 0</code>: work done on the system.</li>
+    <li><code>w &lt; 0</code>: work done by the system.</li>
+  </ul>
+
+  <h3>First Law of Thermodynamics</h3>
+  <p>Energy is conserved:</p>
+  <p><code>&Delta;E = q + w</code></p>
+  <p>If the system loses energy, the surroundings gain it, and vice versa.</p>
+
+  <h3>Pressure&ndash;Volume Work</h3>
+  <p>For gas expansion or compression at constant external pressure:</p>
+  <p><code>w = -P &Delta;V</code></p>
+  <p>with <code>P</code> in atm and <code>&Delta;V</code> in L (convert to joules using 1 L&middot;atm &approx; 101.3 J).</p>
+
+  <h2>2. Enthalpy (&Delta;H) and Types of Processes</h2>
+  <p>Enthalpy is defined as <code>H = E + PV</code>.</p>
+  <p>At constant pressure, the heat flow equals the change in enthalpy:</p>
+  <p><code>&Delta;H = q_p</code></p>
+
+  <ul>
+    <li><strong>Exothermic</strong> (<code>&Delta;H &lt; 0</code>): system releases heat; surroundings warm up.</li>
+    <li><strong>Endothermic</strong> (<code>&Delta;H &gt; 0</code>): system absorbs heat; surroundings cool down.</li>
+  </ul>
+
+  <h3>Properties of &Delta;H</h3>
+  <ul>
+    <li>&Delta;H is a state function.</li>
+    <li>Reversing a process changes the sign of &Delta;H.</li>
+    <li>&Delta;H depends on the amount of substance (it is an extensive property).</li>
+  </ul>
+
+  <h3>Example: Sign of &Delta;H</h3>
+  <p>Combustion of methane:</p>
+  <p>CH<sub>4</sub>(g) + 2 O<sub>2</sub>(g) &rarr; CO<sub>2</sub>(g) + 2 H<sub>2</sub>O(l) + heat</p>
+  <p>Heat is produced, so the reaction is exothermic and <code>&Delta;H &lt; 0</code>.</p>
+
+  <h2>3. Calorimetry and Specific Heat</h2>
+
+  <h3>Basic Relationships</h3>
+  <p>For a sample of mass <em>m</em> (g), specific heat <em>c</em>, and temperature change &Delta;T (K or &deg;C):</p>
+  <p><code>q = m c &Delta;T</code></p>
+
+  <h3>Coffee-Cup Calorimetry (Constant Pressure)</h3>
+  <p>Used for reactions in aqueous solution at (approximately) constant pressure.</p>
+  <p>Assuming no heat loss to the outside surroundings:</p>
+  <p><code>q_{reaction} + q_{solution} = 0</code></p>
+  <p>For the solution, <code>q_{solution} = m c &Delta;T</code>, so:</p>
+  <p><code>q_{reaction} = - q_{solution}</code></p>
+  <p>At constant pressure, <code>&Delta;H \approx q_{reaction}</code>.</p>
+
+  <h3>Example (Solution Calorimetry)</h3>
+  <p>A 100.0 g water solution (assume <code>c \approx 4.18 \text{ J g}^{-1} \text{ K}^{-1}</code>) warms from 25.0 &deg;C to 32.0 &deg;C due to a reaction.</p>
+  <ol>
+    <li>&Delta;T = 32.0 &minus; 25.0 = 7.0 K.</li>
+    <li><code>q_{solution} = (100.0 \text{ g})(4.18 \text{ J g}^{-1} \text{ K}^{-1})(7.0 \text{ K}) \approx 2926 \text{ J}</code>.</li>
+    <li><code>q_{reaction} = -2926 \text{ J}</code> (the system released heat; exothermic).</li>
+    <li>If the reaction involved 0.0500 mol of reactant: <code>&Delta;H \approx \frac{-2.926 \text{ kJ}}{0.0500 \text{ mol}} = -58.5 \text{ kJ mol}^{-1}</code>.</li>
+  </ol>
+
+  <h3>Bomb Calorimetry (Constant Volume)</h3>
+  <p>Used for combustion reactions at constant volume.</p>
+  <ul>
+    <li>Volume is constant &rarr; no PV work, so <code>&Delta;E = q_v</code>.</li>
+    <li>The calorimeter has a heat capacity <code>C_{cal}</code>: <code>q_{cal} = C_{cal} &Delta;T</code>.</li>
+    <li>For the reaction: <code>q_{reaction} = - q_{cal}</code>.</li>
+  </ul>
+
+  <h2>4. Hess&rsquo;s Law</h2>
+  <p>Because enthalpy is a state function, the overall enthalpy change for a process is the sum of the enthalpy changes for any sequence of steps that leads from the same initial to the same final state.</p>
+
+  <h3>Rules When Manipulating Equations</h3>
+  <ul>
+    <li>Reverse a reaction &rarr; change the sign of &Delta;H.</li>
+    <li>Multiply a reaction by a factor <em>n</em> &rarr; multiply &Delta;H by <em>n</em>.</li>
+    <li>Add reactions &rarr; add their &Delta;H values.</li>
+  </ul>
+
+  <h3>Conceptual Example</h3>
+  <p>If you know:</p>
+  <ol>
+    <li>C(s) + O<sub>2</sub>(g) &rarr; CO<sub>2</sub>(g) &nbsp;&nbsp; &Delta;H<sub>1</sub></li>
+    <li>2 H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2 H<sub>2</sub>O(l) &nbsp;&nbsp; &Delta;H<sub>2</sub></li>
+  </ol>
+  <p>and you want &Delta;H for:</p>
+  <p>CH<sub>4</sub>(g) + 2 O<sub>2</sub>(g) &rarr; CO<sub>2</sub>(g) + 2 H<sub>2</sub>O(l)</p>
+  <p>You can build CH<sub>4</sub> from C and H<sub>2</sub> using known intermediate equations and then sum the corresponding enthalpy changes.</p>
+
+  <h2>5. Standard Enthalpies of Formation and &Delta;H&deg;<sub>rxn</sub></h2>
+
+  <h3>Standard State</h3>
+  <p>The standard state of a substance is its most stable form at 1 bar (approximately 1 atm) and a specified temperature (usually 298 K).</p>
+  <p>Examples: O<sub>2</sub>(g), H<sub>2</sub>(g), N<sub>2</sub>(g), C (graphite).</p>
+
+  <h3>Standard Enthalpy of Formation (&Delta;H&deg;<sub>f</sub>)</h3>
+  <ul>
+    <li>&Delta;H for forming 1 mol of a compound from its elements in their standard states.</li>
+    <li>By convention, &Delta;H&deg;<sub>f</sub> of any element in its standard state is zero.</li>
+  </ul>
+
+  <h3>Using &Delta;H&deg;<sub>f</sub> to Find &Delta;H&deg;<sub>rxn</sub></h3>
+  <p>For a reaction:</p>
+  <p>aA + bB &rarr; cC + dD</p>
+  <p>The standard enthalpy of reaction is:</p>
+  <p><code>&Delta;H&deg;_{rxn} = \sum n \Delta H&deg;_{f}(\text{products}) - \sum n \Delta H&deg;_{f}(\text{reactants})</code></p>
+
+  <h3>Symbolic Example</h3>
+  <p>For the combustion of methane:</p>
+  <p>CH<sub>4</sub>(g) + 2 O<sub>2</sub>(g) &rarr; CO<sub>2</sub>(g) + 2 H<sub>2</sub>O(l)</p>
+  <p><code>&Delta;H&deg;_{rxn} = [\Delta H&deg;_{f}(\text{CO}_2) + 2 \Delta H&deg;_{f}(\text{H}_2\text{O})] - [\Delta H&deg;_{f}(\text{CH}_4) + 2 \Delta H&deg;_{f}(\text{O}_2)]</code></p>
+  <p>Since &Delta;H&deg;<sub>f</sub>(O<sub>2</sub>) = 0, that term drops out.</p>
+
+  <h2>6. Practice Problems (Self-Check)</h2>
+  <p>Try these problems. You can check your work with a teacher or tutor, or ask for detailed solutions.</p>
+  <ol>
+    <li>
+      <strong>Conceptual &ndash; Sign Conventions</strong><br>
+      (a) A reaction warms the solution: is <code>q</code> for the system positive or negative?<br>
+      (b) A gas expands against an external pressure: is <code>w</code> positive or negative?
+    </li>
+    <li>
+      <strong>q, w, and &Delta;E</strong><br>
+      A system absorbs 150 J of heat and does 75 J of work on the surroundings.<br>
+      (a) What are <code>q</code> and <code>w</code> (with signs)?<br>
+      (b) Calculate <code>&Delta;E</code>.
+    </li>
+    <li>
+      <strong>Specific Heat</strong><br>
+      A 50.0 g metal sample is heated from 20.0 &deg;C to 45.0 &deg;C, absorbing 520 J of heat.<br>
+      (a) Calculate its specific heat.<br>
+      (b) If the same metal (50.0 g) cools from 45.0 &deg;C to 25.0 &deg;C, how much heat is released?
+    </li>
+    <li>
+      <strong>Coffee-Cup Calorimetry</strong><br>
+      When 1.00 g of NaOH is dissolved in 100.0 g water (assume <code>c = 4.18 \text{ J g}^{-1} \text{ K}^{-1}</code>), the temperature rises from 25.0 &deg;C to 31.0 &deg;C.<br>
+      (a) Calculate <code>q_{solution}</code> and <code>q_{reaction}</code>.<br>
+      (b) Find &Delta;H (kJ&middot;mol<sup>&minus;1</sup>) for the dissolution of NaOH (M &approx; 40.0 g&middot;mol<sup>&minus;1</sup>).
+    </li>
+    <li>
+      <strong>Bomb Calorimetry</strong><br>
+      A 0.800 g hydrocarbon sample is burned in a bomb calorimeter (assume <code>C_{cal} = 5.50 \text{ kJ K}^{-1}</code>), causing a temperature rise of 2.15 K.<br>
+      (a) Find <code>q_{reaction}</code>.<br>
+      (b) What is the energy released per gram of the sample?
+    </li>
+    <li>
+      <strong>Hess&rsquo;s Law</strong><br>
+      Use these data to find &Delta;H for:<br>
+      C(graphite) + &frac12; O<sub>2</sub>(g) &rarr; CO(g)<br>
+      Given:<br>
+      &nbsp;&nbsp;- C(graphite) + O<sub>2</sub>(g) &rarr; CO<sub>2</sub>(g) &nbsp;&nbsp; &Delta;H<sub>1</sub><br>
+      &nbsp;&nbsp;- 2 CO(g) + O<sub>2</sub>(g) &rarr; 2 CO<sub>2</sub>(g) &nbsp;&nbsp; &Delta;H<sub>2</sub>
+    </li>
+    <li>
+      <strong>&Delta;H&deg;<sub>rxn</sub> from &Delta;H&deg;<sub>f</sub></strong><br>
+      Write the formula for &Delta;H&deg;<sub>rxn</sub> in terms of &Delta;H&deg;<sub>f</sub> values and apply it to any combustion reaction you choose (for example, C<sub>2</sub>H<sub>6</sub> or C<sub>3</sub>H<sub>8</sub>).
+    </li>
+  </ol>
+</body>
+</html>
