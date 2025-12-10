@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 19: Chemical Thermodynamics - Tutorial</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 2rem;
+      max-width: 900px;
+    }
+    h1, h2, h3 {
+      color: #12345f;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 19: Chemical Thermodynamics</h1>
+
+  <h2>Learning Objectives</h2>
+  <p>By the end of this tutorial, you should be able to:</p>
+  <ul>
+    <li>Explain what makes a process spontaneous and how this relates to the second law of thermodynamics.</li>
+    <li>Define entropy and calculate &Delta;S for simple processes.</li>
+    <li>Use standard molar entropies to estimate &Delta;S&deg; for reactions.</li>
+    <li>Define Gibbs free energy and use <code>&Delta;G = &Delta;H - T &Delta;S</code> to predict spontaneity.</li>
+    <li>Relate &Delta;G, &Delta;G&deg;, Q, and K using <code>&Delta;G&deg; = -RT \ln K</code>.</li>
+  </ul>
+
+  <h2>Key Vocabulary</h2>
+  <ul>
+    <li><strong>Spontaneous process</strong>: occurs without ongoing outside intervention (may be fast or slow).</li>
+    <li><strong>Nonspontaneous process</strong>: requires continuous external influence to occur.</li>
+    <li><strong>Second law of thermodynamics</strong>: for any spontaneous process, the total entropy of the universe increases (&Delta;S<sub>univ</sub> &gt; 0).</li>
+    <li><strong>Entropy (S)</strong>: measure of energy dispersal or randomness (J&middot;K<sup>&minus;1</sup>).</li>
+    <li><strong>Microstate</strong>: a specific way of arranging the energy among particles.</li>
+    <li><strong>Third law of thermodynamics</strong>: entropy of a perfect crystal at 0 K is zero.</li>
+    <li><strong>Standard molar entropy (S&deg;)</strong>: entropy of 1 mol of a substance at 1 bar, usually 298 K.</li>
+    <li><strong>Gibbs free energy (G)</strong>: defined by <code>G = H - TS</code>.</li>
+    <li><strong>&Delta;G</strong>: change in free energy; predicts spontaneity at constant T and P.</li>
+    <li><strong>Reaction quotient (Q)</strong>: ratio of product to reactant activities at any moment.</li>
+    <li><strong>Equilibrium constant (K)</strong>: value of Q at equilibrium.</li>
+  </ul>
+
+  <h2>1. Spontaneity and the Second Law</h2>
+  <ul>
+    <li>Spontaneity is about direction, not speed.</li>
+    <li>Examples of spontaneous processes: ice melting above 0 &deg;C, gas expansion into a vacuum, iron rusting in moist air.</li>
+  </ul>
+
+  <p><strong>Second law (qualitative):</strong></p>
+  <p>For a spontaneous process:</p>
+  <p><code>&Delta;S_{univ} = &Delta;S_{sys} + &Delta;S_{surr} &gt; 0</code></p>
+  <p>At equilibrium: <code>&Delta;S_{univ} = 0</code>.</p>
+  <p>Nonspontaneous forward: <code>&Delta;S_{univ} &lt; 0</code> for the forward direction (reverse is spontaneous).</p>
+
+  <h2>2. Entropy: Definition and Ideas</h2>
+
+  <h3>Statistical View</h3>
+  <p>Entropy is related to the number of accessible microstates (W):</p>
+  <p><code>S = k \ln W</code>, where <code>k</code> is the Boltzmann constant.</p>
+  <p>More ways to arrange energy &rarr; higher W &rarr; higher S.</p>
+
+  <h3>Trends in Entropy</h3>
+  <ul>
+    <li>Phase changes: S(s) &lt; S(l) &lt; S(g).</li>
+    <li>More particles (more moles of gas) usually means higher entropy.</li>
+    <li>Larger, more complex molecules tend to have higher S&deg;.</li>
+    <li>Higher temperature &rarr; higher entropy (more accessible energy levels).</li>
+  </ul>
+
+  <h2>3. Entropy Changes for the System (&Delta;S<sub>sys</sub>)</h2>
+
+  <h3>Reversible Heat Transfer at Constant Temperature</h3>
+  <p>For a reversible process at constant temperature:</p>
+  <p><code>&Delta;S = \dfrac{q_{rev}}{T}</code></p>
+
+  <h3>Phase Changes at the Transition Temperature</h3>
+  <p>For melting, vaporization, etc. at the transition temperature:</p>
+  <p><code>&Delta;S = \dfrac{\Delta H_{transition}}{T_{transition}}</code></p>
+
+  <h3>Standard Reaction Entropy</h3>
+  <p>For a reaction: aA + bB &rarr; cC + dD</p>
+  <p><code>&Delta;S&deg;_{rxn} = \sum n S&deg;(\text{products}) - \sum n S&deg;(\text{reactants})</code></p>
+  <p>(Multiply each S&deg; by its stoichiometric coefficient, then subtract.)</p>
+
+  <h3>Symbolic Example</h3>
+  <p>For:</p>
+  <p>2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2 SO<sub>3</sub>(g)</p>
+  <p><code>&Delta;S&deg;_{rxn} = [2 S&deg;(\text{SO}_3)] - [2 S&deg;(\text{SO}_2) + S&deg;(\text{O}_2)]</code></p>
+
+  <h2>4. Entropy Change of the Surroundings (&Delta;S<sub>surr</sub>)</h2>
+  <p>At constant pressure, the surroundings gain or lose heat equal to the negative of the system&rsquo;s heat:</p>
+  <p><code>\Delta S_{surr} = - \dfrac{q_{sys}}{T} \approx - \dfrac{\Delta H_{sys}}{T}</code></p>
+  <p>Then:</p>
+  <p><code>\Delta S_{univ} = \Delta S_{sys} + \Delta S_{surr}</code></p>
+  <p>Use &Delta;S<sub>univ</sub> to assess spontaneity.</p>
+
+  <h2>5. Gibbs Free Energy and Spontaneity</h2>
+
+  <h3>Definition</h3>
+  <p>Gibbs free energy is defined as:</p>
+  <p><code>G = H - TS</code></p>
+  <p>At constant temperature and pressure:</p>
+  <p><code>\Delta G = \Delta H - T \Delta S</code></p>
+
+  <h3>Spontaneity Criterion (Constant T, P)</h3>
+  <ul>
+    <li>&Delta;G &lt; 0 &rarr; process is spontaneous.</li>
+    <li>&Delta;G &gt; 0 &rarr; process is nonspontaneous (reverse is spontaneous).</li>
+    <li>&Delta;G = 0 &rarr; system is at equilibrium.</li>
+  </ul>
+
+  <h3>Signs and Interpretation</h3>
+  <ul>
+    <li>&Delta;H &lt; 0, &Delta;S &gt; 0 &rarr; &Delta;G &lt; 0 at all T (always spontaneous).</li>
+    <li>&Delta;H &gt; 0, &Delta;S &lt; 0 &rarr; &Delta;G &gt; 0 at all T (never spontaneous in forward direction).</li>
+    <li>&Delta;H &lt; 0, &Delta;S &lt; 0 &rarr; spontaneous at low T (enthalpy-driven).</li>
+    <li>&Delta;H &gt; 0, &Delta;S &gt; 0 &rarr; spontaneous at high T (entropy-driven).</li>
+  </ul>
+
+  <h2>6. Standard Free Energy Change (&Delta;G&deg;) and Temperature</h2>
+  <p>At standard conditions (1 bar, usually 298 K):</p>
+  <p><code>\Delta G&deg; = \Delta H&deg; - T \Delta S&deg;</code></p>
+
+  <h3>Standard Reaction Free Energy</h3>
+  <p>From standard free energies of formation:</p>
+  <p><code>\Delta G&deg;_{rxn} = \sum n \Delta G&deg;_{f}(\text{products}) - \sum n \Delta G&deg;_{f}(\text{reactants})</code></p>
+  <p>As with enthalpy, reversing a reaction changes the sign, and scaling the reaction scales &Delta;G&deg;.</p>
+
+  <h2>7. &Delta;G, Equilibrium, and K</h2>
+
+  <h3>Nonstandard Conditions</h3>
+  <p>The reaction quotient Q measures the current composition:</p>
+  <p><code>\Delta G = \Delta G&deg; + RT \ln Q</code></p>
+  <p>where R = 8.314 J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup> and T is in K.</p>
+
+  <h3>At Equilibrium</h3>
+  <p>At equilibrium, &Delta;G = 0 and Q = K:</p>
+  <p><code>0 = \Delta G&deg; + RT \ln K</code></p>
+  <p>so:</p>
+  <p><code>\Delta G&deg; = -RT \ln K</code></p>
+
+  <h3>Interpretation of &Delta;G&deg; and K</h3>
+  <ul>
+    <li>&Delta;G&deg; &lt; 0 &rarr; K &gt; 1 &rarr; products favored at equilibrium.</li>
+    <li>&Delta;G&deg; &gt; 0 &rarr; K &lt; 1 &rarr; reactants favored.</li>
+    <li>&Delta;G&deg; &approx; 0 &rarr; K &approx; 1 &rarr; significant amounts of both.</li>
+  </ul>
+
+  <h2>8. Practice Problems (Self-Check)</h2>
+  <p>Try these problems. You can check your work with a teacher or tutor, or ask for detailed solutions.</p>
+  <ol>
+    <li>
+      <strong>Conceptual &ndash; Spontaneity and Entropy</strong><br>
+      (a) Is every spontaneous process exothermic? Explain briefly.<br>
+      (b) For the evaporation of water at 25 &deg;C and 1 atm, what is the sign of &Delta;S<sub>sys</sub>? Of &Delta;S<sub>surr</sub>? Of &Delta;S<sub>univ</sub>?
+    </li>
+    <li>
+      <strong>&Delta;S&deg; for a Reaction</strong><br>
+      Given S&deg; values (in J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup>), calculate &Delta;S&deg; for:<br>
+      N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) &rarr; 2 NH<sub>3</sub>(g)<br>
+      Use: S&deg;(N<sub>2</sub>) = 192, S&deg;(H<sub>2</sub>) = 131, S&deg;(NH<sub>3</sub>) = 193.
+    </li>
+    <li>
+      <strong>Using &Delta;H and &Delta;S to Find &Delta;G&deg;</strong><br>
+      A reaction has &Delta;H&deg; = &minus;125 kJ&middot;mol<sup>&minus;1</sup> and &Delta;S&deg; = &minus;150 J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup> at 298 K.<br>
+      (a) Calculate &Delta;G&deg; at 298 K.<br>
+      (b) Is the reaction spontaneous at 298 K?<br>
+      (c) Predict whether raising the temperature makes the reaction more or less favorable.
+    </li>
+    <li>
+      <strong>Temperature at Which &Delta;G Changes Sign</strong><br>
+      A process has &Delta;H&deg; = +85.0 kJ&middot;mol<sup>&minus;1</sup> and &Delta;S&deg; = +220 J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup>.<br>
+      (a) At what temperature (in K) is &Delta;G&deg; = 0?<br>
+      (b) For T above this value, is the process spontaneous or nonspontaneous?
+    </li>
+    <li>
+      <strong>&Delta;G&deg; and K</strong><br>
+      For a reaction at 298 K, &Delta;G&deg; = &minus;14.2 kJ&middot;mol<sup>&minus;1</sup>.<br>
+      (a) Compute K (use R = 8.314 J&middot;mol<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup>).<br>
+      (b) Is K &gt; 1 or &lt; 1? What does this say about the equilibrium composition?
+    </li>
+    <li>
+      <strong>&Delta;G Under Nonstandard Conditions</strong><br>
+      Consider: A &harr; B, with &Delta;G&deg; = +5.0 kJ&middot;mol<sup>&minus;1</sup> at 298 K.<br>
+      (a) Write the expression relating &Delta;G, &Delta;G&deg;, and Q.<br>
+      (b) If at some moment [B]/[A] = 0.010, calculate &Delta;G (in kJ&middot;mol<sup>&minus;1</sup>).<br>
+      (c) Based on your answer, does the system shift toward A or B?
+    </li>
+    <li>
+      <strong>Entropy and Phase Change</strong><br>
+      The molar enthalpy of fusion of ice at 0 &deg;C is &Delta;H<sub>fus</sub> = 6.01 kJ&middot;mol<sup>&minus;1</sup>.<br>
+      (a) Calculate &Delta;S for melting 1.00 mol of ice at 0 &deg;C.<br>
+      (b) Comment on why this &Delta;S has that sign.
+    </li>
+  </ol>
+</body>
+</html>
