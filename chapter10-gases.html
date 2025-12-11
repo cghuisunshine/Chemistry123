@@ -31,48 +31,101 @@
   <h2>Learning Objectives</h2>
   <p>By the end of this tutorial, you should be able to:</p>
   <ul>
-    <li>State and apply the gas laws (Boyle’s, Charles’s, Avogadro’s, and combined gas law).</li>
-    <li>Use the ideal‑gas equation <code>PV = nRT</code> in stoichiometry and density problems.</li>
-    <li>Work with partial pressures and mole fractions (Dalton’s law).</li>
-    <li>Describe deviations from ideal behavior qualitatively.</li>
+    <li>Define pressure and use common pressure units (atm, mmHg, kPa, torr).</li>
+    <li>State and apply Boyle’s, Charles’s, Avogadro’s, and the combined gas law.</li>
+    <li>Use the ideal‑gas equation <code>PV = nRT</code> to solve for any variable, including in stoichiometry and density problems.</li>
+    <li>Work with gas mixtures using Dalton’s law of partial pressures and mole fractions.</li>
+    <li>Describe deviations from ideal behavior qualitatively (high pressure, low temperature, strong attractions).</li>
   </ul>
 
   <h2>Key Vocabulary</h2>
   <ul>
-    <li><strong>Pressure (P)</strong>: force per unit area (SI unit: Pa; common lab unit: atm).</li>
-    <li><strong>Boyle’s law</strong>: at constant T and n, <code>P ∝ 1/V</code>.</li>
-    <li><strong>Charles’s law</strong>: at constant P and n, <code>V ∝ T</code> (T in K).</li>
-    <li><strong>Avogadro’s law</strong>: at constant T and P, <code>V ∝ n</code>.</li>
+    <li><strong>Pressure (P)</strong>: force per unit area; SI unit Pa, but atm and mmHg are widely used.</li>
+    <li><strong>Boyle’s law</strong>: at constant T and n, <code>P ∝ 1/V</code> or <code>P_1V_1 = P_2V_2</code>.</li>
+    <li><strong>Charles’s law</strong>: at constant P and n, <code>V ∝ T</code> (T in kelvin) or <code>V_1/T_1 = V_2/T_2</code>.</li>
+    <li><strong>Avogadro’s law</strong>: at constant T and P, <code>V ∝ n</code> or <code>V_1/n_1 = V_2/n_2</code>.</li>
     <li><strong>Ideal‑gas equation</strong>: <code>PV = nRT</code>.</li>
-    <li><strong>Dalton’s law</strong>: total pressure is sum of partial pressures.</li>
-    <li><strong>Mole fraction</strong>: <code>χ_i = n_i / n_total</code>.</li>
+    <li><strong>Dalton’s law</strong>: total pressure equals sum of partial pressures of components.</li>
+    <li><strong>Mole fraction</strong>: <code>χ_i = n_i / n_{total}</code>; <code>P_i = χ_i P_{total}</code>.</li>
   </ul>
 
-  <h2>1. Ideal‑Gas Relationships</h2>
+  <h2>1. Single‑Gas Laws and Units</h2>
   <ul>
-    <li>Combined gas law: <code>P_1V_1/T_1 = P_2V_2/T_2</code> (n constant).</li>
-    <li>Standard temperature and pressure (STP): 1 atm and 273.15 K; 1 mol ideal gas occupies ~22.4 L.</li>
+    <li>Standard temperature and pressure (STP): 1 atm and 273.15 K; 1 mol ideal gas occupies ≈ 22.4 L at STP.</li>
+    <li>Always convert T to kelvin in gas calculations: <code>K = °C + 273.15</code>.</li>
   </ul>
 
-  <h2>2. Gas Stoichiometry and Density</h2>
-  <ul>
-    <li>Use <code>PV = nRT</code> to find moles from P, V, T, then use stoichiometry for reactions involving gases.</li>
-    <li>Gas density: <code>d = m/V = (MP)/(RT)</code>, where M is molar mass.</li>
-  </ul>
-
-  <h2>3. Partial Pressures</h2>
-  <ul>
-    <li>For a gas mixture: <code>P_total = ΣP_i</code>, and <code>P_i = χ_i P_total</code>.</li>
-    <li>Useful for collecting gases over water and for gas‑phase reactions with mixtures.</li>
-  </ul>
-
-  <h2>4. Practice Problems (Self-Check)</h2>
+  <h3>Worked Example 1 – Boyle’s Law</h3>
+  <p>A 2.00 L gas sample at 1.00 atm is compressed at constant temperature to 0.500 L. What is the new pressure?</p>
   <ol>
-    <li>A 2.00 L sample of gas at 1.00 atm and 298 K is compressed to 1.00 L at constant temperature. What is the new pressure?</li>
-    <li>How many moles of gas are contained in a 5.00 L flask at 27.0 °C and 0.850 atm?</li>
-    <li>What is the density of O<sub>2</sub>(g) at 1.00 atm and 25.0 °C?</li>
-    <li>A mixture contains 0.50 mol N<sub>2</sub> and 0.25 mol O<sub>2</sub> in a 10.0 L container at 300 K. Calculate the partial pressure of each gas and the total pressure.</li>
-    <li>Qualitatively, why do real gases deviate from ideal behavior at high pressure and low temperature?</li>
+    <li>Use <code>P_1V_1 = P_2V_2</code>.</li>
+    <li><code>1.00\,\text{atm} × 2.00\,\text{L} = P_2 × 0.500\,\text{L}</code>.</li>
+    <li><code>P_2 = (1.00 × 2.00)/0.500 = 4.00\,\text{atm}</code>.</li>
+  </ol>
+
+  <h2>2. The Ideal‑Gas Equation</h2>
+  <p>The combined gas law plus Avogadro’s law lead to:</p>
+  <p><code>PV = nRT</code></p>
+  <ul>
+    <li>R is the gas constant; common value: 0.08206 L·atm·mol<sup>−1</sup>·K<sup>−1</sup>.</li>
+    <li>Use consistent units: P in atm, V in L, T in K, n in mol.</li>
+  </ul>
+
+  <h3>Worked Example 2 – Moles of Gas</h3>
+  <p>How many moles of gas are contained in a 5.00 L flask at 27.0 °C and 0.850 atm?</p>
+  <ol>
+    <li>Convert T to K: 27.0 °C → 300.2 K (approx 300 K if using 3 sig figs).</li>
+    <li>Use <code>n = PV/RT</code>.</li>
+    <li><code>n = (0.850\,\text{atm})(5.00\,\text{L}) / [(0.08206)(300\,\text{K})] ≈ 0.173\,\text{mol</code>} (check calculator and sig figs).</li>
+  </ol>
+
+  <h2>3. Gas Density and Molar Mass</h2>
+  <ul>
+    <li>Rearrange ideal‑gas equation to get density <code>d = m/V</code> in terms of molar mass M:</li>
+  </ul>
+  <p><code>d = (MP)/(RT)</code></p>
+  <ul>
+    <li>You can also solve for M if you know d, P, T: <code>M = dRT/P</code>.</li>
+  </ul>
+
+  <h3>Worked Example 3 – Density of O<sub>2</sub></h3>
+  <p>What is the density of O<sub>2</sub>(g) at 1.00 atm and 25.0 °C?</p>
+  <ol>
+    <li>T = 298 K; M(O<sub>2</sub>) ≈ 32.0 g·mol<sup>−1</sup>.</li>
+    <li><code>d = MP/RT = (32.0\,\text{g mol}^{−1})(1.00\,\text{atm}) / [(0.08206)(298\,\text{K})] ≈ 1.31\,\text{g L}^{−1}</code>.</li>
+  </ol>
+
+  <h2>4. Gas Mixtures and Partial Pressures</h2>
+  <p>For a mixture of gases in a container:</p>
+  <ul>
+    <li><code>P_{total} = P_1 + P_2 + ...</code>.</li>
+    <li><code>P_i = χ_i P_{total}</code>, where <code>χ_i</code> is the mole fraction.</li>
+  </ul>
+
+  <h3>Worked Example 4 – Partial Pressures</h3>
+  <p>A mixture contains 0.50 mol N<sub>2</sub> and 0.25 mol O<sub>2</sub> in a 10.0 L container at 300 K. Find the partial pressure of each gas and the total pressure.</p>
+  <ol>
+    <li>Total moles: n<sub>total</sub> = 0.50 + 0.25 = 0.75 mol.</li>
+    <li>Mole fractions: χ(N<sub>2</sub>) = 0.50/0.75 = 0.667; χ(O<sub>2</sub>) = 0.25/0.75 = 0.333.</li>
+    <li>Use ideal‑gas equation for total: <code>P_{total} = nRT/V = (0.75)(0.08206)(300)/10.0 ≈ 1.84\,\text{atm}</code>.</li>
+    <li>Partial pressures: <code>P(N_2) = 0.667 × 1.84 ≈ 1.23\,\text{atm}</code>; <code>P(O_2) = 0.333 × 1.84 ≈ 0.61\,\text{atm}</code>.</li>
+  </ol>
+
+  <h2>5. Real Gases (Qualitative)</h2>
+  <ul>
+    <li>Ideal‑gas model assumes point particles with no volume and no intermolecular attractions.</li>
+    <li>At high pressure: gas particles occupy a significant fraction of the volume → measured P is higher than ideal predicts.</li>
+    <li>At low temperature: attractions cause particles to stick together more → measured P is lower than ideal predicts.</li>
+    <li>Real‑gas corrections (van der Waals equation) adjust for volume and attractions; you usually just need qualitative understanding in Chem 11.</li>
+  </ul>
+
+  <h2>6. Practice Problems (Self-Check)</h2>
+  <ol>
+    <li>A 3.00 L sample of gas at 1.20 atm and 20.0 °C is heated to 40.0 °C at constant pressure. What is the new volume?</li>
+    <li>How many grams of N<sub>2</sub> gas are in a 7.50 L tank at 35.0 °C and 2.00 atm?</li>
+    <li>What is the density of CO<sub>2</sub>(g) at 0.750 atm and 20.0 °C?</li>
+    <li>A mixture contains 0.10 mol He, 0.20 mol Ne, and 0.30 mol Ar in a 5.00 L container at 298 K. (a) What is the total pressure? (b) What is the partial pressure of each gas?</li>
+    <li>Explain qualitatively why real gases deviate from ideal behavior at high pressures and low temperatures and why some gases show larger deviations than others.</li>
   </ol>
 </body>
 </html>
