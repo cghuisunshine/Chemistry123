@@ -31,52 +31,84 @@
   <h2>Learning Objectives</h2>
   <p>By the end of this tutorial, you should be able to:</p>
   <ul>
-    <li>Write equilibrium constant expressions in terms of concentration (K<sub>c</sub>) and pressure (K<sub>p</sub>).</li>
-    <li>Relate the reaction quotient Q to K and predict the direction of shift.</li>
-    <li>Set up and solve ICE tables for equilibrium concentrations.</li>
-    <li>Apply Le Châtelier’s principle to predict how systems respond to disturbances.</li>
+    <li>Write equilibrium constant expressions (K<sub>c</sub> and K<sub>p</sub>) for homogeneous and heterogeneous equilibria.</li>
+    <li>Relate the reaction quotient Q to K and predict the direction of shift for nonequilibrium mixtures.</li>
+    <li>Set up and solve ICE (Initial–Change–Equilibrium) tables for concentration‑based equilibrium problems.</li>
+    <li>Apply Le Châtelier’s principle to predict the qualitative response of a system to disturbances in concentration, pressure, and temperature.</li>
   </ul>
 
   <h2>Key Vocabulary</h2>
   <ul>
-    <li><strong>Equilibrium</strong>: dynamic state where forward and reverse reaction rates are equal.</li>
-    <li><strong>Equilibrium constant (K)</strong>: ratio of product to reactant activities at equilibrium.</li>
-    <li><strong>Reaction quotient (Q)</strong>: same expression as K but for any set of concentrations or pressures.</li>
-    <li><strong>Le Châtelier’s principle</strong>: system at equilibrium shifts to counteract an imposed change.</li>
+    <li><strong>Equilibrium</strong>: dynamic state where forward and reverse reaction rates are equal; concentrations become constant in time.</li>
+    <li><strong>Equilibrium constant (K)</strong>: ratio of product to reactant activities at equilibrium, raised to stoichiometric powers.</li>
+    <li><strong>Reaction quotient (Q)</strong>: same expression as K but evaluated for any set of concentrations or pressures.</li>
+    <li><strong>Le Châtelier’s principle</strong>: if a system at equilibrium is disturbed, it shifts in the direction that tends to counteract the disturbance.</li>
   </ul>
 
   <h2>1. Writing K and Q</h2>
   <ul>
-    <li>For aA + bB ⇌ cC + dD, <code>K_c = [C]^c[D]^d / ([A]^a[B]^b)</code> (omit solids and pure liquids).</li>
-    <li>For gases, K<sub>p</sub> uses partial pressures; K<sub>p</sub> and K<sub>c</sub> are related by <code>K_p = K_c(RT)^Δn</code>.</li>
+    <li>For a generic reaction: aA + bB ⇌ cC + dD, the equilibrium constant in terms of concentration is:</li>
+  </ul>
+  <p><code>K_c = [C]^c[D]^d / ([A]^a[B]^b)</code></p>
+  <ul>
+    <li>Pure solids and pure liquids are omitted from the expression (activity ≈ 1).</li>
+    <li>For gases, you can write K<sub>p</sub> in terms of partial pressures; K<sub>p</sub> and K<sub>c</sub> are related by <code>K_p = K_c(RT)^Δn</code>, where Δn is (moles gas products − moles gas reactants).</li>
   </ul>
 
   <h2>2. Using Q to Predict Direction</h2>
   <ul>
-    <li>Q &lt; K: system has too much reactant; shifts right (toward products).</li>
-    <li>Q &gt; K: system has too much product; shifts left (toward reactants).</li>
-    <li>Q = K: system is at equilibrium.</li>
+    <li>Q &lt; K: system has too much reactant relative to product → reaction shifts right (toward products).</li>
+    <li>Q &gt; K: system has too much product → reaction shifts left (toward reactants).</li>
+    <li>Q = K: system is at equilibrium; no net shift.</li>
   </ul>
 
+  <h3>Worked Example 1 – Comparing Q and K</h3>
+  <p>For N<sub>2</sub>O<sub>4</sub>(g) ⇌ 2 NO<sub>2</sub>(g), suppose K<sub>c</sub> = 0.36 at a certain temperature. If initially [N<sub>2</sub>O<sub>4</sub>] = 0.10 M and [NO<sub>2</sub>] = 0.010 M, what is Q, and which way will the system shift?</p>
+  <ol>
+    <li><code>Q = [NO_2]^2/[N_2O_4] = (0.010)^2 / 0.10 = 1.0 × 10^{−3}</code>.</li>
+    <li>Q (1.0 × 10<sup>−3</sup>) &lt; K (0.36) → reaction shifts right (toward producing more NO<sub>2</sub>).</li>
+  </ol>
+
   <h2>3. ICE Tables and Approximations</h2>
+  <p>ICE = Initial, Change, Equilibrium. Strategy:</p>
+  <ol>
+    <li>Write balanced equation and K expression.</li>
+    <li>Fill an ICE table with given initial concentrations.</li>
+    <li>Represent changes using a variable (often x) consistent with stoichiometry.</li>
+    <li>Substitute equilibrium values into K expression and solve for x.</li>
+    <li>Check any approximations (for example, if x is small relative to initial values).</li>
+  </ol>
+
+  <h3>Worked Example 2 – Weak Acid Dissociation Sketch</h3>
+  <p>For a weak acid HA ⇌ H<sup>+</sup> + A<sup>−</sup> with initial [HA] = 0.10 M and no added H<sup>+</sup> or A<sup>−</sup>, the ICE table would be:</p>
   <ul>
-    <li>ICE: Initial, Change, Equilibrium; use balanced equation to relate changes.</li>
-    <li>For small x approximations, justify that <code>x ≪ initial</code> when K is very small or very large.</li>
+    <li>Initial: [HA] = 0.10, [H<sup>+</sup>] ≈ 0 (ignore 10<sup>−7</sup> from water), [A<sup>−</sup>] = 0.</li>
+    <li>Change: [HA] → −x, [H<sup>+</sup>] → +x, [A<sup>−</sup>] → +x.</li>
+    <li>Equilibrium: [HA] = 0.10 − x, [H<sup>+</sup>] = x, [A<sup>−</sup>] = x.</li>
   </ul>
+  <p>Substitute into K<sub>a</sub> expression and solve for x; for small K<sub>a</sub>, the approximation 0.10 − x ≈ 0.10 is often valid.</p>
 
   <h2>4. Le Châtelier’s Principle</h2>
   <ul>
-    <li>Adding reactant or removing product shifts equilibrium right; the opposite shifts left.</li>
-    <li>Increasing pressure (decreasing volume) favors the side with fewer moles of gas.</li>
-    <li>Temperature changes effectively change K; for exothermic reactions, increasing T shifts equilibrium left.</li>
+    <li>Adding reactant or removing product → equilibrium shifts toward products.</li>
+    <li>Removing reactant or adding product → equilibrium shifts toward reactants.</li>
+    <li>Changing volume (for gases): decreasing volume (increasing pressure) favors the side with fewer moles of gas; increasing volume favors more moles of gas.</li>
+    <li>Temperature changes effectively alter K. For exothermic reactions (ΔH &lt; 0), increasing T shifts equilibrium left; for endothermic (ΔH &gt; 0), increasing T shifts equilibrium right.</li>
+  </ul>
+
+  <h3>Worked Example 3 – Le Châtelier and Haber Process</h3>
+  <p>N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ⇌ 2 NH<sub>3</sub>(g), ΔH &lt; 0 (exothermic).</p>
+  <ul>
+    <li>Increasing pressure (by decreasing volume) favors the side with fewer moles of gas → products (2 mol) vs reactants (4 mol) → more NH<sub>3</sub> at equilibrium.</li>
+    <li>Increasing temperature adds heat to an exothermic system → shifts equilibrium left (toward reactants), lowering NH<sub>3</sub> yield.</li>
   </ul>
 
   <h2>5. Practice Problems (Self-Check)</h2>
   <ol>
-    <li>Write the equilibrium expression for: N<sub>2</sub>O<sub>4</sub>(g) ⇌ 2 NO<sub>2</sub>(g).</li>
-    <li>For an equilibrium mixture with [A] = 0.20 M, [B] = 0.10 M, [C] = 0.40 M, [D] = 0.50 M and reaction aA + bB ⇌ cC + dD, calculate Q and compare to a given K.</li>
-    <li>Set up an ICE table for the dissociation of acetic acid (weak acid) HA ⇌ H<sup>+</sup> + A<sup>−</sup> starting from 0.10 M HA and 0 added H<sup>+</sup> or A<sup>−</sup>.</li>
-    <li>For N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ⇌ 2 NH<sub>3</sub>(g), predict qualitatively how increasing pressure or decreasing temperature affects the equilibrium amount of NH<sub>3</sub>.</li>
+    <li>Write the equilibrium expression for: N<sub>2</sub>O<sub>4</sub>(g) ⇌ 2 NO<sub>2</sub>(g) in terms of (a) concentrations, (b) partial pressures.</li>
+    <li>For the reaction aA + bB ⇌ cC + dD, a mixture initially contains some A, B, C, and D. Describe how you would compute Q and compare it with K to predict the direction of shift.</li>
+    <li>Set up (but do not fully solve) an ICE table for the equilibrium 2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ⇌ 2 SO<sub>3</sub>(g), starting from only SO<sub>2</sub> and O<sub>2</sub>.</li>
+    <li>For the equilibrium above, predict qualitatively what happens to the equilibrium amount of SO<sub>3</sub> if: (a) more SO<sub>2</sub> is added, (b) volume is decreased, (c) temperature is increased for an exothermic forward reaction.</li>
   </ol>
 </body>
 </html>
