@@ -31,17 +31,17 @@
   <h2>Learning Objectives</h2>
   <p>By the end of this tutorial, you should be able to:</p>
   <ul>
-    <li>Classify common types of radioactive decay (α, β, γ) and write nuclear equations.</li>
-    <li>Use half‑life relationships to describe radioactive decay.</li>
-    <li>Distinguish nuclear fission and fusion conceptually.</li>
+    <li>Classify common types of radioactive decay (α, β, γ) and write simple balanced nuclear equations.</li>
+    <li>Use half‑life relationships to describe radioactive decay quantitatively at a basic level.</li>
+    <li>Distinguish nuclear fission and fusion conceptually and relate them to binding energy.</li>
   </ul>
 
   <h2>Key Vocabulary</h2>
   <ul>
     <li><strong>Radioactivity</strong>: spontaneous emission of particles or radiation from unstable nuclei.</li>
-    <li><strong>Alpha (α) decay</strong>: emission of a He‑4 nucleus.</li>
-    <li><strong>Beta (β) decay</strong>: emission of an electron (β<sup>−</sup>) or positron (β<sup>+</sup>); often changes Z by ±1.</li>
-    <li><strong>Gamma (γ) emission</strong>: emission of high‑energy photons; nucleus goes to lower energy state.</li>
+    <li><strong>Alpha (α) decay</strong>: emission of a He‑4 nucleus (<code>^4_2He</code> or α).</li>
+    <li><strong>Beta (β) decay</strong>: emission of an electron (β<sup>−</sup> = <code>^0_{−1}e</code>) or positron (β<sup>+</sup>).</li>
+    <li><strong>Gamma (γ) emission</strong>: emission of high‑energy photons; nucleus moves to lower energy state without changing Z or A.</li>
     <li><strong>Half‑life (t<sub>1/2</sub>)</strong>: time for half the nuclei in a sample to decay.</li>
     <li><strong>Nuclear fission</strong>: splitting of heavy nucleus into smaller fragments with energy release.</li>
     <li><strong>Nuclear fusion</strong>: combining light nuclei into heavier ones with energy release.</li>
@@ -50,27 +50,47 @@
   <h2>1. Nuclear Equations and Decay Types</h2>
   <ul>
     <li>Balance both mass number (A) and atomic number (Z) in nuclear equations.</li>
-    <li>Recognize typical patterns: α emission decreases A by 4 and Z by 2; β<sup>−</sup> increases Z by 1.</li>
+    <li>α emission: A decreases by 4, Z decreases by 2.</li>
+    <li>β<sup>−</sup> emission: a neutron converts to a proton + electron; Z increases by 1, A unchanged.</li>
   </ul>
 
+  <h3>Worked Example 1 – Alpha Decay of U‑238</h3>
+  <p>Write a balanced nuclear equation for α decay of <code>^{238}_{92}U</code>.</p>
+  <ol>
+    <li>α particle is <code>^4_2He</code>.</li>
+    <li>Mass number: 238 = A<sub>daughter</sub> + 4 → A<sub>daughter</sub> = 234.</li>
+    <li>Atomic number: 92 = Z<sub>daughter</sub> + 2 → Z<sub>daughter</sub> = 90 (thorium).</li>
+    <li>Equation: <code>^{238}_{92}U → ^{234}_{90}Th + ^4_2He</code>.</li>
+  </ol>
+
   <h2>2. Half‑Life and Decay</h2>
+  <p>For a first‑order decay process:</p>
+  <p><code>N_t = N_0\left(\tfrac{1}{2}\right)^{t/t_{1/2}}</code></p>
   <ul>
-    <li>For a first‑order decay process: <code>N_t = N_0(1/2)^{t/t_{1/2}}</code>.</li>
-    <li>Activity and amount decrease exponentially with time.</li>
+    <li>N<sub>0</sub> = initial amount; N<sub>t</sub> = amount remaining after time t.</li>
+    <li>Each additional half‑life reduces the amount by another factor of 1/2.</li>
   </ul>
+
+  <h3>Worked Example 2 – Fraction Remaining</h3>
+  <p>A radioisotope has half‑life 5.0 days. What fraction of the original sample remains after 20.0 days?</p>
+  <ol>
+    <li>Number of half‑lives: t/t<sub>1/2</sub> = 20.0 / 5.0 = 4.</li>
+    <li>Fraction remaining: (1/2)<sup>4</sup> = 1/16 = 0.0625 (6.25%).</li>
+  </ol>
 
   <h2>3. Fission and Fusion (Qualitative)</h2>
   <ul>
-    <li>Fission is used in current nuclear power plants; controlled chain reactions in reactors.</li>
-    <li>Fusion powers the sun; challenging to implement on Earth due to high temperature requirements.</li>
+    <li>Fission: heavy nuclei (like U‑235) can undergo chain reactions, releasing large amounts of energy; used in nuclear power plants and weapons.</li>
+    <li>Fusion: light nuclei (like H isotopes) combine to form heavier nuclei (like He); powers the sun and stars; practical controlled fusion on Earth is still under development.</li>
+    <li>Both processes involve changes in nuclear binding energy per nucleon; products are often more tightly bound than reactants → energy release.</li>
   </ul>
 
   <h2>4. Practice Problems (Self-Check)</h2>
   <ol>
-    <li>Write a balanced nuclear equation for α decay of <code>^{238}_{92}U</code>.</li>
     <li>Write a balanced nuclear equation for β<sup>−</sup> decay of <code>^{14}_{6}C</code>.</li>
-    <li>A radioisotope has half‑life 5.0 days. What fraction of the original sample remains after 20.0 days?</li>
-    <li>Explain in basic terms why both fission of heavy nuclei and fusion of light nuclei can release energy (hint: binding energy per nucleon).</li>
+    <li>A radioisotope has half‑life 2.0 years. What fraction of the sample remains after 8.0 years? How many half‑lives is this?</li>
+    <li>Explain in simple terms why both fission of heavy nuclei and fusion of light nuclei can release energy (hint: binding energy per nucleon curve).</li>
+    <li>List one advantage and one concern for nuclear fission as a power source, in terms of energy density and waste.</li>
   </ol>
 </body>
 </html>
