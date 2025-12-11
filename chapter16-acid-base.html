@@ -31,48 +31,77 @@
   <h2>Learning Objectives</h2>
   <p>By the end of this tutorial, you should be able to:</p>
   <ul>
-    <li>Apply Brønsted–Lowry definitions of acids and bases.</li>
-    <li>Write acid–base equilibria and identify conjugate acid–base pairs.</li>
-    <li>Use K<sub>a</sub>, K<sub>b</sub>, and K<sub>w</sub> to calculate pH for weak acids and bases.</li>
-    <li>Explain trends in acid strength and the effect of structure.</li>
+    <li>Apply Brønsted–Lowry definitions of acids and bases and identify conjugate acid–base pairs.</li>
+    <li>Write equilibrium expressions for weak acids and weak bases using K<sub>a</sub> and K<sub>b</sub>.</li>
+    <li>Use K<sub>a</sub>, K<sub>b</sub>, and K<sub>w</sub> to calculate pH for weak acid and weak base solutions.</li>
+    <li>Explain trends in acid strength and the effect of structure, electronegativity, and resonance.</li>
   </ul>
 
   <h2>Key Vocabulary</h2>
   <ul>
     <li><strong>Brønsted–Lowry acid</strong>: proton (H<sup>+</sup>) donor.</li>
     <li><strong>Brønsted–Lowry base</strong>: proton (H<sup>+</sup>) acceptor.</li>
-    <li><strong>Conjugate acid–base pair</strong>: species that differ by one H<sup>+</sup>.</li>
+    <li><strong>Conjugate acid–base pair</strong>: species differing by one H<sup>+</sup>.</li>
     <li><strong>Acid dissociation constant</strong> (K<sub>a</sub>): equilibrium constant for HA ⇌ H<sup>+</sup> + A<sup>−</sup>.</li>
     <li><strong>Base dissociation constant</strong> (K<sub>b</sub>): equilibrium constant for B + H<sub>2</sub>O ⇌ BH<sup>+</sup> + OH<sup>−</sup>.</li>
-    <li><strong>Ion‑product of water</strong>: <code>K_w = [H^+][OH^-]</code> (≈ 1.0 × 10<sup>−14</sup> at 25 °C).</li>
-    <li><strong>pH</strong>: <code>pH = −log[H^+]</code>.</li>
+    <li><strong>Ion‑product of water</strong>: <code>K_w = [H^+][OH^-] ≈ 1.0 × 10^{−14}</code> at 25 °C.</li>
+    <li><strong>pH</strong>: <code>pH = −\log[H^+]</code> (base‑10 log).</li>
   </ul>
 
   <h2>1. Conjugate Pairs and Relative Strengths</h2>
   <ul>
+    <li>HA (acid) ⇌ H<sup>+</sup> + A<sup>−</sup> (conjugate base).</li>
+    <li>NH<sub>3</sub> (base) + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> (conjugate acid) + OH<sup>−</sup>.</li>
     <li>Strong acid → weak conjugate base; weak acid → relatively stronger conjugate base.</li>
     <li>In water, strong acids are completely dissociated; weak acids establish equilibrium.</li>
   </ul>
 
   <h2>2. Using K<sub>a</sub>, K<sub>b</sub>, and K<sub>w</sub></h2>
   <ul>
-    <li>For a weak monoprotic acid HA: set up ICE table, K<sub>a</sub> = <code>[H^+][A^-]/[HA]</code>, and solve for [H<sup>+</sup>].</li>
-    <li>For conjugate pairs: <code>K_a K_b = K_w</code>.</li>
+    <li>For a weak monoprotic acid HA: K<sub>a</sub> = <code>[H^+][A^-]/[HA]</code>.</li>
+    <li>For a weak base B: K<sub>b</sub> = <code>[BH^+][OH^-]/[B]</code>.</li>
+    <li>Relationship for conjugate pairs: <code>K_a K_b = K_w</code>.</li>
   </ul>
+
+  <h3>Worked Example 1 – Weak Acid pH</h3>
+  <p>A 0.10 M solution of a weak acid HA has K<sub>a</sub> = 1.8 × 10<sup>−5</sup>. Estimate the pH.</p>
+  <ol>
+    <li>Write HA ⇌ H<sup>+</sup> + A<sup>−</sup>.</li>
+    <li>ICE table: initial [HA] = 0.10, [H<sup>+</sup>] ≈ 0, [A<sup>−</sup>] = 0; change −x, +x, +x; equilibrium 0.10 − x, x, x.</li>
+    <li>Expression: <code>K_a = x^2 / (0.10 − x)</code>.</li>
+    <li>Assume x ≪ 0.10 → <code>K_a ≈ x^2 / 0.10</code> → <code>x = \sqrt{K_a × 0.10}</code>.</li>
+    <li>Compute: <code>x ≈ \sqrt{(1.8 × 10^{−5})(0.10)} ≈ 1.3 × 10^{−3} M</code>.</li>
+    <li>pH = −log x ≈ −log(1.3 × 10<sup>−3</sup>) ≈ 2.89.</li>
+  </ol>
+
+  <h3>Worked Example 2 – Conjugate Base K<sub>b</sub></h3>
+  <p>Given K<sub>a</sub> for acetic acid (HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>) is 1.8 × 10<sup>−5</sup>, find K<sub>b</sub> for acetate (C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>−</sup>).</p>
+  <ol>
+    <li>Use <code>K_a K_b = K_w</code>.</li>
+    <li><code>K_b = K_w / K_a = (1.0 × 10^{−14}) / (1.8 × 10^{−5}) ≈ 5.6 × 10^{−10}</code>.</li>
+  </ol>
 
   <h2>3. Structural Effects on Acid Strength</h2>
   <ul>
-    <li>For oxyacids H–O–X: electronegativity and oxidation state of X affect acidity.</li>
-    <li>Across a period, acid strength increases as the attached atom becomes more electronegative.</li>
-    <li>Down a group, stronger bonds weaken more slowly; trends depend on bond strength and polarity together.</li>
+    <li>For binary acids (H–X): down a group, bond strength decreases, so acid strength often increases.</li>
+    <li>For oxyacids H–O–X: electronegativity of X and number of oxygens influence acid strength.</li>
+    <li>More electronegative X or more O atoms (which stabilize negative charge) → stronger acid.</li>
   </ul>
+
+  <h3>Worked Example 3 – Comparing Oxyacid Strengths</h3>
+  <p>Explain qualitatively why HClO<sub>4</sub> is a stronger acid than HClO.</p>
+  <ol>
+    <li>Both are H–O–Cl acids, but HClO<sub>4</sub> has three additional oxygen atoms.</li>
+    <li>These oxygens help delocalize and stabilize the negative charge on the conjugate base.</li>
+    <li>More stabilization of the conjugate base means stronger acid.</li>
+  </ol>
 
   <h2>4. Practice Problems (Self-Check)</h2>
   <ol>
     <li>Identify the conjugate acid–base pairs in: NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup>.</li>
-    <li>A 0.10 M solution of a weak acid HA has pH 3.20. Calculate [H<sup>+</sup>], K<sub>a</sub>, and the percent dissociation.</li>
-    <li>Given K<sub>a</sub> for acetic acid, compute K<sub>b</sub> for acetate ion using K<sub>w</sub>.</li>
-    <li>Explain qualitatively why HClO<sub>4</sub> is a stronger acid than HClO.</li>
+    <li>A 0.10 M solution of a weak acid HA has pH 3.20. Calculate [H<sup>+</sup>], K<sub>a</sub>, and percent dissociation.</li>
+    <li>Given K<sub>a</sub> for HF, compute K<sub>b</sub> for F<sup>−</sup> using K<sub>w</sub> and describe whether F<sup>−</sup> acts as a weak base.</li>
+    <li>Compare qualitatively the acid strengths of HCl, HBr, and HI. Use trends in bond strength and stability of halide ions in your explanation.</li>
   </ol>
 </body>
 </html>
