@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chemistry 123 (UBC) – Week-by-Week Guide with Chapter Links</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #0b1020;
+      color: #e6ecff;
+    }
+    header {
+      background: #050816;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 16px 24px;
+    }
+    header h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+    header p {
+      margin: 0;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 18px;
+    }
+    nav {
+      align-self: start;
+      background: #111827;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 14px 14px 10px;
+    }
+    nav h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    nav ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      margin-bottom: 4px;
+    }
+    nav a {
+      display: block;
+      padding: 6px 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+    nav a:hover {
+      background: rgba(148,163,184,0.15);
+    }
+    section.week {
+      background: #111827;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 16px 18px 18px;
+      margin-bottom: 14px;
+    }
+    section.week h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+    .week-tagline {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: #9ca3af;
+      background: rgba(15,23,42,0.9);
+    }
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .card {
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: #020617;
+      padding: 10px 11px;
+      font-size: 14px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: #bfdbfe;
+    }
+    .card ul {
+      margin: 4px 0 0 1.1em;
+      padding: 0;
+    }
+    .card li {
+      margin-bottom: 3px;
+    }
+    .chapters {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+    .chapters a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    .chapters a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background: #020617;
+      border-radius: 4px;
+      padding: 1px 4px;
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 12px;
+    }
+    @media (max-width: 760px) {
+      main { grid-template-columns: 1fr; }
+      nav { position: static; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>UBC Chemistry 123 – Week-by-Week with Textbook Chapters</h1>
+  <p>This page mirrors the 12‑week structure of the interactive index, but adds more detail from the corresponding chapter tutorials and textbook topics.</p>
+</header>
+<main>
+  <nav>
+    <h2>Weeks</h2>
+    <ol>
+      <li><a href="#week-1">Week&nbsp;1 – Foundations &amp; Stoichiometry</a></li>
+      <li><a href="#week-2">Week&nbsp;2 – Thermochemistry &amp; Calorimetry</a></li>
+      <li><a href="#week-3">Week&nbsp;3 – Entropy &amp; the Second/Third Laws</a></li>
+      <li><a href="#week-4">Week&nbsp;4 – Free Energy &amp; Equilibrium</a></li>
+      <li><a href="#week-5">Week&nbsp;5 – Chemical Kinetics</a></li>
+      <li><a href="#week-6">Week&nbsp;6 – Equilibrium &amp; Acid–Base Basics</a></li>
+      <li><a href="#week-7">Week&nbsp;7 – Buffers, Titrations &amp; Solubility</a></li>
+      <li><a href="#week-8">Week&nbsp;8 – Electrochemistry</a></li>
+      <li><a href="#week-9">Week&nbsp;9 – Intro to Organic &amp; Structure</a></li>
+      <li><a href="#week-10">Week&nbsp;10 – Stereochemistry</a></li>
+      <li><a href="#week-11">Week&nbsp;11 – Functional Groups &amp; Reactivity</a></li>
+      <li><a href="#week-12">Week&nbsp;12 – Carbonyls, Biomolecules &amp; Structure Solving</a></li>
+    </ol>
+  </nav>
+
+  <div>
+    <!-- Week 1 -->
+    <section class="week" id="week-1">
+      <h2>Week 1 – Foundations &amp; Stoichiometry</h2>
+      <p class="week-tagline">Build the language of chemistry: units, significant figures, dimensional analysis, classification of matter, and the mole/stoichiometry bridge.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter1-intro.html">1 – Introduction, Matter, Energy, and Measurement</a>,
+        <a href="chapter2-atoms.html">2 – Atoms, Molecules, and Ions</a>,
+        <a href="chapter3-stoichiometry.html">3 – Chemical Reactions and Stoichiometry</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">SI units &amp; conversions</span>
+        <span class="pill">significant figures</span>
+        <span class="pill">mole concept</span>
+        <span class="pill">balancing equations</span>
+        <span class="pill">limiting reactant</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Classify matter by state (solid, liquid, gas) and composition (element, compound, mixture).</li>
+            <li>Use SI units and prefixes; treat units as algebraic quantities.</li>
+            <li>Define the mole and relate moles, mass, and number of particles.</li>
+            <li>Balance chemical equations and interpret coefficients as mole ratios.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas &amp; patterns</h3>
+          <ul>
+            <li>Density: <code>ρ = m/V</code></li>
+            <li>Moles: <code>n = m / M<sub>r</sub></code>, particles: <code>N = n N<sub>A</sub></code></li>
+            <li>Percent yield: <code>% yield = (actual / theoretical) × 100%</code></li>
+            <li>Dimensional analysis: chain conversion where units cancel step by step.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Convert multi-step units (for example, km → cm, g·mL<sup>−1</sup> → kg·L<sup>−1</sup>).</li>
+          <li>Given masses of reactants, identify the limiting reactant and compute theoretical yield.</li>
+          <li>Use a balanced equation to go mass → moles → moles → mass between reactant and product.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 2 -->
+    <section class="week" id="week-2">
+      <h2>Week 2 – Thermochemistry &amp; Calorimetry</h2>
+      <p class="week-tagline">Introduce energy, work, heat, and enthalpy; start connecting chemical change with energy change.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter5-thermo.html">5 – Thermochemistry</a>, plus relevant review from
+        <a href="chapter10-gases.html">10 – Gases</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">q, w, ΔE</span>
+        <span class="pill">enthalpy ΔH</span>
+        <span class="pill">calorimetry</span>
+        <span class="pill">Hess’s law</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Distinguish system vs surroundings; heat vs work.</li>
+            <li>First law: energy is conserved, <code>ΔE = q + w</code>.</li>
+            <li>Enthalpy <code>H</code> as heat at constant pressure; exothermic vs endothermic processes.</li>
+            <li>Use coffee‑cup calorimetry data to estimate <code>ΔH</code>.</li>
+            <li>Apply Hess’s law and standard enthalpies of formation to compute reaction enthalpies.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>q (heat) for a sample: <code>q = m c ΔT</code></li>
+            <li>PV work at constant external pressure: <code>w = −PΔV</code></li>
+            <li>Calorimetry: <code>q<sub>reaction</sub> = −q<sub>solution</sub></code></li>
+            <li>Hess’s law and enthalpies of formation: <code>ΔH°<sub>rxn</sub> = ΣnΔH°<sub>f</sub>(products) − ΣnΔH°<sub>f</sub>(reactants)</code></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>From temperature rise in a solution, calculate <code>q</code> and <code>ΔH</code> for a reaction per mole of reactant.</li>
+          <li>Use Hess’s law to build a target equation from given steps and sum their enthalpies.</li>
+          <li>Use standard enthalpies of formation to estimate heat of reaction at 298 K.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 3 -->
+    <section class="week" id="week-3">
+      <h2>Week 3 – Entropy &amp; the Second/Third Laws</h2>
+      <p class="week-tagline">Move from “how much heat?” to “will it happen?” by introducing entropy, microstates, and the second and third laws.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter19-thermo.html">19 – Chemical Thermodynamics</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">entropy S</span>
+        <span class="pill">microstates</span>
+        <span class="pill">ΔS<sub>sys</sub>, ΔS<sub>surr</sub>, ΔS<sub>univ</sub></span>
+        <span class="pill">second &amp; third laws</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Entropy as a measure of energy dispersal and number of microstates.</li>
+            <li>Second law: spontaneous processes increase the entropy of the universe.</li>
+            <li>Third law: a perfect crystal at 0 K has S = 0; standard molar entropies are measured relative to this.</li>
+            <li>Qualitative entropy trends: phase, number of particles, complexity, and temperature.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>Microstate definition: <code>S = k ln W</code></li>
+            <li>System entropy at constant T (reversible): <code>ΔS = q<sub>rev</sub>/T</code></li>
+            <li>Reaction entropy from tables: <code>ΔS°<sub>rxn</sub> = ΣnS°(products) − ΣnS°(reactants)</code></li>
+            <li>Surroundings entropy (approx): <code>ΔS<sub>surr</sub> ≈ −ΔH<sub>sys</sub>/T</code></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Predict the sign of ΔS for phase changes, dissolution, and gas‑forming reactions.</li>
+          <li>Compute ΔS° for a reaction using tabulated S° values and interpret whether entropy increases or decreases.</li>
+          <li>Combine ΔS<sub>sys</sub> and ΔS<sub>surr</sub> to decide if a process is spontaneous at a given temperature.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 4 -->
+    <section class="week" id="week-4">
+      <h2>Week 4 – Free Energy &amp; Equilibrium</h2>
+      <p class="week-tagline">Combine enthalpy and entropy into Gibbs free energy, link ΔG to equilibrium, and interpret van’t Hoff plots qualitatively.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter19-thermo.html">19 – Chemical Thermodynamics</a>,
+        <a href="chapter15-equilibrium.html">15 – Chemical Equilibrium</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">ΔG = ΔH − TΔS</span>
+        <span class="pill">ΔG° and K</span>
+        <span class="pill">reaction quotient Q</span>
+        <span class="pill">Le Châtelier (thermo view)</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Gibbs free energy as a “score” combining enthalpy and entropy at a given temperature.</li>
+            <li>Sign of ΔG predicts spontaneity at specified T and composition.</li>
+            <li>At equilibrium, ΔG = 0 and Q = K; ΔG° relates to K through the exponential dependence.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li><code>ΔG = ΔH − TΔS</code> (nonstandard conditions, but using system ΔH, ΔS).</li>
+            <li><code>ΔG = ΔG° + RT ln Q</code> for any composition at temperature T.</li>
+            <li><code>ΔG° = −RT ln K</code> linking standard free energy change and equilibrium constant.</li>
+            <li>Qualitative van’t Hoff form: <code>ln K ≈ −ΔH°/(R T) + ΔS°/R</code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Given ΔH° and ΔS°, decide for which temperature ranges a reaction is spontaneous.</li>
+          <li>Relate the magnitude and sign of ΔG° to whether K is &gt; 1, ≈ 1, or &lt; 1.</li>
+          <li>Use ΔG° = −RT ln K to estimate K for thermodynamically favored or disfavored reactions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 5 -->
+    <section class="week" id="week-5">
+      <h2>Week 5 – Chemical Kinetics</h2>
+      <p class="week-tagline">Shift from “will it happen?” to “how fast?” by focusing on rates, rate laws, and activation energy.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter14-kinetics.html">14 – Chemical Kinetics</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">rate laws</span>
+        <span class="pill">orders of reaction</span>
+        <span class="pill">half-life</span>
+        <span class="pill">Arrhenius equation</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Define rate in terms of disappearance of reactants or appearance of products.</li>
+            <li>Rate laws relate rate to reactant concentrations; orders are found experimentally.</li>
+            <li>Integrated rate laws give [A] as a function of time for zero-, first-, second-order reactions.</li>
+            <li>Activation energy and Arrhenius equation explain temperature dependence of k.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>General rate law: <code>rate = k[A]<sup>n</sup></code> (for a simple A → products).</li>
+            <li>First-order: <code>ln([A]<sub>t</sub> / [A]<sub>0</sub>) = −kt</code>, <code>t<sub>1/2</sub> = 0.693/k</code>.</li>
+            <li>Second-order: <code>1/[A]<sub>t</sub> = 1/[A]<sub>0</sub> + kt</code>.</li>
+            <li>Arrhenius: <code>k = A e<sup>−E<sub>a</sub>/(RT)</sup></code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>From initial-rate data, determine the order in each reactant and the rate constant k.</li>
+          <li>Use a straight-line plot (ln[A] vs t, 1/[A] vs t) to identify reaction order and extract k.</li>
+          <li>Use the Arrhenius equation or a plot of ln k vs 1/T to estimate E<sub>a</sub>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 6 -->
+    <section class="week" id="week-6">
+      <h2>Week 6 – Equilibrium &amp; Acid–Base Basics</h2>
+      <p class="week-tagline">Introduce equilibrium constants, Q vs K, and the Brønsted–Lowry picture of acids and bases.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter15-equilibrium.html">15 – Chemical Equilibrium</a>,
+        <a href="chapter16-acid-base.html">16 – Acid–Base Equilibria</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">Kc, Kp, Q</span>
+        <span class="pill">Le Châtelier</span>
+        <span class="pill">weak acids/bases</span>
+        <span class="pill">pH and pK<sub>a</sub></span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Write equilibrium expressions and relate K to the position of equilibrium.</li>
+            <li>Use Q vs K to predict the direction of shift for any composition.</li>
+            <li>Brønsted–Lowry acids donate H<sup>+</sup>, bases accept H<sup>+</sup>; conjugate pairs differ by one proton.</li>
+            <li>Weak acids/bases establish equilibria described by K<sub>a</sub> or K<sub>b</sub>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>Equilibrium constant for aA + bB ⇌ cC + dD: <code>K<sub>c</sub> = [C]<sup>c</sup>[D]<sup>d</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)</code>.</li>
+            <li>Reaction quotient Q has the same form as K but uses current concentrations.</li>
+            <li>Water autoprotolysis: <code>K<sub>w</sub> = [H<sup>+</sup>][OH<sup>−</sup>] ≈ 1.0 × 10<sup>−14</sup> at 25 °C</code>.</li>
+            <li>pH: <code>pH = −log[H<sup>+</sup>]</code>; for weak acids: <code>K<sub>a</sub> = [H<sup>+</sup>][A<sup>−</sup>]/[HA]</code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Set up ICE tables to find equilibrium concentrations and K, or to find concentrations given K.</li>
+          <li>Calculate the pH of a weak acid solution using K<sub>a</sub> and an ICE approximation.</li>
+          <li>Classify acid–base conjugate pairs and estimate the relative strength of conjugate bases.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 7 -->
+    <section class="week" id="week-7">
+      <h2>Week 7 – Buffers, Titrations &amp; Solubility</h2>
+      <p class="week-tagline">Build buffer intuition, sketch qualitative titration curves, and connect K<sub>sp</sub> to precipitation.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter17-aq-equilibria.html">17 – Additional Aspects of Aqueous Equilibria</a>,
+        <a href="chapter13-solutions.html">13 – Properties of Solutions</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">buffer pH</span>
+        <span class="pill">Henderson–Hasselbalch</span>
+        <span class="pill">titration curves</span>
+        <span class="pill">K<sub>sp</sub> and Q</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Buffers contain significant amounts of a weak acid and its conjugate base (or weak base and conjugate acid).</li>
+            <li>Henderson–Hasselbalch equation gives pH in terms of pK<sub>a</sub> and the ratio [base]/[acid].</li>
+            <li>Titration curves show how pH changes as titrant is added; equivalence point and buffer regions stand out.</li>
+            <li>Sparingly soluble salts have K<sub>sp</sub>; the common-ion effect reduces solubility.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>Buffer pH: <code>pH = pK<sub>a</sub> + log([base]/[acid])</code>.</li>
+            <li>Solubility product for MX(s) ⇌ M<sup>+</sup> + X<sup>−</sup>: <code>K<sub>sp</sub> = [M<sup>+</sup>][X<sup>−</sup>]</code>.</li>
+            <li>For simple 1:1 salts in pure water: if s = molar solubility, <code>K<sub>sp</sub> = s<sup>2</sup></code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Calculate buffer pH before and after adding a small amount of strong acid or base.</li>
+          <li>Sketch a qualitative titration curve for a weak acid titrated by a strong base, indicating buffer region and equivalence point.</li>
+          <li>Use K<sub>sp</sub> and ionic concentrations to decide whether a precipitate will form (compare Q to K<sub>sp</sub>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 8 -->
+    <section class="week" id="week-8">
+      <h2>Week 8 – Electrochemistry</h2>
+      <p class="week-tagline">Translate redox chemistry into electrical work: galvanic cells, cell notation, and E°–ΔG–K links.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter20-electrochem.html">20 – Electrochemistry</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">redox &amp; oxidation states</span>
+        <span class="pill">galvanic cells</span>
+        <span class="pill">E° and ΔG°</span>
+        <span class="pill">qualitative Nernst</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Assign oxidation numbers and identify oxidizing and reducing agents.</li>
+            <li>Dissect a galvanic cell into half‑reactions at the anode and cathode.</li>
+            <li>Interpret cell notation and direction of electron flow.</li>
+            <li>Relate standard cell potential to ΔG° and to K qualitatively.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core formulas</h3>
+          <ul>
+            <li>Standard cell potential: <code>E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub></code>.</li>
+            <li>Free energy: <code>ΔG° = −nF E°<sub>cell</sub></code>.</li>
+            <li>Connection to equilibrium (25 °C): <code>E°<sub>cell</sub> = (0.0592 V / n) log K</code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Given standard reduction potentials, write the spontaneous cell reaction and compute E°<sub>cell</sub>.</li>
+          <li>Determine whether a redox reaction is product- or reactant-favoured from the sign of E°<sub>cell</sub>.</li>
+          <li>Qualitatively predict how changing ion concentrations shifts cell potential using the idea behind the Nernst equation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 9 -->
+    <section class="week" id="week-9">
+      <h2>Week 9 – Intro to Organic &amp; Structure</h2>
+      <p class="week-tagline">Switch gears to organic chemistry: functional groups, line structures, and basic IUPAC naming.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter24-organic-overview.html">24 – The Chemistry of Organic Compounds</a>,
+        <a href="chapter26-alkenes-alkynes.html">26 – Chemistry of Alkenes and Alkynes</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">functional groups</span>
+        <span class="pill">line-angle formulas</span>
+        <span class="pill">alkanes/alkenes/alkynes</span>
+        <span class="pill">basic naming</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Recognize core functional groups: alkane, alkene, alkyne, alcohol, carbonyl, carboxylic acid, amine.</li>
+            <li>Translate between condensed formulas and line-angle drawings.</li>
+            <li>Apply simple IUPAC naming: choose longest chain, identify substituents, number to minimize locants.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core patterns</h3>
+          <ul>
+            <li>Base names: meth-, eth-, prop-, but-, pent-, etc., with -ane, -ene, -yne endings.</li>
+            <li>Isomerism: same molecular formula, different connectivity or geometry.</li>
+            <li>Double bonds restrict rotation and can lead to cis/trans (E/Z) isomerism.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Draw line-angle structures for simple alkanes and substituted alkanes.</li>
+          <li>Name straight-chain and branched alkanes and simple alkenes.</li>
+          <li>Identify the functional groups present in a given organic structure.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 10 -->
+    <section class="week" id="week-10">
+      <h2>Week 10 – Stereochemistry</h2>
+      <p class="week-tagline">Bring 3D thinking into organic: chirality, R/S configuration, and relationships between stereoisomers.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter25-stereochem.html">25 – Stereochemistry of Organic Compounds</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">chiral centers</span>
+        <span class="pill">R/S notation</span>
+        <span class="pill">enantiomers vs diastereomers</span>
+        <span class="pill">meso compounds</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Chiral centers are typically sp<sup>3</sup> carbons with four different substituents.</li>
+            <li>Enantiomers are non-superimposable mirror images; diastereomers are stereoisomers that are not mirror images.</li>
+            <li>Assign R or S using CIP priority rules and a 3D viewing convention.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core patterns</h3>
+          <ul>
+            <li>Number of possible stereoisomers ≤ 2<sup>n</sup> for n stereocenters (adjust for meso).</li>
+            <li>Meso compounds contain stereocenters but have an internal plane of symmetry and are achiral.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Identify chiral centers and classify pairs of structures as enantiomers, diastereomers, or identical.</li>
+          <li>Assign R/S configuration to labeled stereocenters on wedge-dash diagrams.</li>
+          <li>Determine whether a drawn structure is meso.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 11 -->
+    <section class="week" id="week-11">
+      <h2>Week 11 – Functional Groups &amp; Reactivity</h2>
+      <p class="week-tagline">Connect structure to reactivity for alkenes, alkynes, alcohols, haloalkanes, and ethers.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter26-alkenes-alkynes.html">26 – Chemistry of Alkenes and Alkynes</a>,
+        <a href="chapter27-alcohols-haloethers.html">27 – Alcohols, Haloalkanes, and Ethers</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">π-bond reactivity</span>
+        <span class="pill">nucleophiles &amp; electrophiles</span>
+        <span class="pill">substitution vs elimination (concept)</span>
+        <span class="pill">functional group interconversion</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Alkenes and alkynes are electron-rich π systems that undergo addition reactions.</li>
+            <li>Alcohols, ethers, and haloalkanes differ in polarity and leaving-group ability, influencing substitution and elimination.</li>
+            <li>Conceptual link between structure (primary/secondary/tertiary) and reactivity patterns.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core patterns</h3>
+          <ul>
+            <li>π bonds act as nucleophiles; electrophiles add first, then nucleophiles follow.</li>
+            <li>Haloalkanes can undergo nucleophilic substitution (Nu replaces halogen) or elimination to give alkenes.</li>
+            <li>Hydrogen bonding in alcohols raises boiling points relative to ethers and haloalkanes of similar mass.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Predict products for simple additions across C=C or C≡C.</li>
+          <li>Classify reagents as nucleophiles or electrophiles and identify likely sites of attack.</li>
+          <li>Compare physical properties and reactivity trends across a set of alcohols, ethers, and haloalkanes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Week 12 -->
+    <section class="week" id="week-12">
+      <h2>Week 12 – Carbonyls, Biomolecules &amp; Structure Solving</h2>
+      <p class="week-tagline">Tie together carbonyl chemistry, carboxylic acids, nitrogen-containing compounds, and basic spectroscopic structure determination.</p>
+      <p class="chapters"><strong>Textbook chapters:</strong>
+        <a href="chapter28-carbonyls-carbohydrates.html">28 – Aldehydes, Ketones, and Carbohydrates</a>,
+        <a href="chapter29-carboxy-derivatives.html">29 – Carboxylic Acids and Their Derivatives</a>,
+        <a href="chapter31-nitrogen-organic.html">31 – Nitrogen-Containing Organic Compounds</a>,
+        <a href="chapter32-structure.html">32 – Solving Molecular Structure</a>
+      </p>
+      <div class="pill-row">
+        <span class="pill">carbonyl polarity</span>
+        <span class="pill">carboxylic acids &amp; derivatives</span>
+        <span class="pill">amines &amp; amides</span>
+        <span class="pill">IR &amp; NMR (concept)</span>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <h3>Key ideas</h3>
+          <ul>
+            <li>Carbonyl carbon is electrophilic; aldehydes and ketones undergo nucleophilic addition.</li>
+            <li>Carboxylic acids are more acidic than alcohols due to resonance-stabilized conjugate bases.</li>
+            <li>Carboxylic acid derivatives (acid chlorides, esters, amides) differ in reactivity based on leaving groups.</li>
+            <li>Amines are basic due to their lone pair; amides are less basic because of resonance with the carbonyl.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Structure tools (qualitative)</h3>
+          <ul>
+            <li>Index of hydrogen deficiency (IHD) counts rings and π bonds.</li>
+            <li>IR: broad O–H stretches, sharp C=O peaks, nitrile/alkyne signatures help identify functional groups.</li>
+            <li>Basic <sup>1</sup>H NMR: number of signals, integration, and simple splitting patterns reveal the skeleton.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical problems</h3>
+        <ul>
+          <li>Given functional-group information, suggest likely reactivity (addition vs substitution, acid vs base behavior).</li>
+          <li>Use a molecular formula, simple IR notes (for example, “strong C=O, no O–H”), and a few NMR hints to sketch plausible structures.</li>
+          <li>Recognize how carbohydrates, amino acids, and peptide bonds use the carbonyl and amine chemistry developed here.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
