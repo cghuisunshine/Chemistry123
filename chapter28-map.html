@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 28 Concept Map</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05060a;
+      --card: #0c111c;
+      --panel: #111827;
+      --border: #1f2937;
+      --muted: #a7b2c9;
+      --accent: #7dd3fc;
+      --accent-strong: #22d3ee;
+      --toast-bg: rgba(15, 23, 42, 0.9);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+    main, .sidebar {
+      transition: all 0.3s ease;
+    }
+    .app-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .sidebar h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .sidebar p {
+      margin: 0.5rem 0 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .sidebar input {
+      width: 100%;
+      border-radius: 0.75rem;
+      border: 1px solid #374151;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.95rem;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .sidebar nav a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .sidebar nav a:hover {
+      color: var(--accent-strong);
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .intro-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 20px 45px rgba(2, 6, 23, 0.8);
+    }
+    .intro-card p {
+      margin: 0.5rem 0;
+      color: var(--muted);
+    }
+    .map-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 30px 50px rgba(2, 6, 23, 0.75);
+    }
+    .map-card h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+    .map-card header p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+    .node {
+      margin-top: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .node__header {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      border: none;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      color: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .node__header::-moz-focus-inner {
+      border: 0;
+    }
+    .node__header span {
+      font-weight: 600;
+    }
+    .node__header svg {
+      width: 1rem;
+      height: 1rem;
+      transform: rotate(0deg);
+      transition: transform 0.2s ease;
+    }
+    .node[data-open="true"] .node__header svg {
+      transform: rotate(180deg);
+    }
+    .node__body {
+      overflow: hidden;
+      padding: 0 1.25rem;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    .node[data-open="true"] .node__body {
+      padding: 1rem 1.25rem 1.15rem;
+      max-height: 1000px;
+    }
+    .node__body p {
+      margin: 0.6rem 0;
+      line-height: 1.5;
+    }
+    .node__body strong {
+      color: #cbd5f5;
+    }
+    .formula-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.6rem 0;
+    }
+    .formula-line .formula {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      color: #f0f9ff;
+      flex: 1;
+    }
+    .copy-btn {
+      border: 1px solid rgba(229, 231, 235, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      color: #f8fafc;
+      padding: 0.3rem 0.65rem;
+      border-radius: 0.65rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .copy-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .copy-hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+    .hidden {
+      display: none !important;
+    }
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--toast-bg);
+      color: #f1f5f9;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 960px) {
+      .app-shell {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      main {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1>Chapter 28 Map</h1>
+      <p>Search, collapse, and copy any idea. Double-click paragraphs to copy text instantly, and use the clipboard buttons for formulas.</p>
+      <input id="filterInput" type="search" placeholder="Filter cards (e.g., Grignard, tautomer)" aria-label="Filter sections">
+      <nav>
+        <a href="#section-28-1">28.1 Carbonyl Group</a>
+        <a href="#section-28-2">28.2 Preparation Routes</a>
+        <a href="#section-28-3">28.3 Reactions</a>
+        <a href="#section-28-4">28.4 Carbohydrates</a>
+      </nav>
+    </aside>
+    <main>
+      <div class="intro-card">
+        <p><strong>Tip:</strong> Collapse nodes to focus on one layer at a time (roots = definitions, trunks = rules, leaves = worked ideas).</p>
+        <p>Double-click any block of text to copy it. Use the clipboard button next to a formula to copy that expression verbatim.</p>
+      </div>
+      <article class="map-card" id="section-28-1" data-keywords="carbonyl aldehyde ketone naming reactivity polarity">
+        <header>
+          <h2>28.1 Aldehydes, Ketones, and the Carbonyl Group</h2>
+          <p>Root definitions, naming patterns, and the polarized geometry that makes carbonyls reactive.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">The carbonyl group is a trigonal-planar sp² pair; the C=O bond is shorter (≈123 pm) and stronger (≈745 kJ/mol) than a C=C because the π electrons sit in unhybridized p orbitals while the σ bond forms from overlapping hybrids.</p>
+            <p data-copyable="true">The oxygen is more electronegative than carbon, so electron density shifts toward O, leaving the carbon electrophilic and the oxygen with lone pairs. This polarization causes nucleophiles to seek that carbon and makes carbonyls pervasive in synthesis and biology.</p>
+            <p data-copyable="true">An aldehyde has the CHO unit at the end of a chain: the carbonyl carbon carries one hydrogen and one substituent. You name it by selecting the longest chain with the carbonyl, replacing –e with –al, and never numbering the carbonyl carbon because it is position 1.</p>
+            <p data-copyable="true">A ketone locates the carbonyl between two carbon fragments. Its suffix is –one, and for chains longer than four carbons you assign the carbonyl a number so isomers like pentan-2-one and pentan-3-one remain unambiguous. Ketones are less reactive than aldehydes and often serve as solvents in the household (acetone) and in fragrances (camphor, testosterone).</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–CHO">R–CHO (terminal aldehyde)</span>
+              <button class="copy-btn" type="button" data-copy-text="R–CHO (terminal aldehyde)" aria-label="Copy aldehyde formula">📋</button>
+            </div>
+            <p data-copyable="true">R stands for any alkyl or aryl fragment; the carbonyl carbon is attached to a hydrogen, so it is always at the start of the chain and does not require numbering.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–C(=O)–R′">R–C(=O)–R′ (internal ketone)</span>
+              <button class="copy-btn" type="button" data-copy-text="R–C(=O)–R′" aria-label="Copy ketone formula">📋</button>
+            </div>
+            <p data-copyable="true">Each R and R′ is carbon-based, so the ketone sits inside the chain and requires numbering if multiple equivalent carbonyls could exist; the carbonyl still threatens nucleophiles thanks to its polarized bond.</p>
+            <p data-copyable="true">Because the carbonyl is more polarized and stronger than a carbon–carbon double bond, species that attack it (nucleophiles, hydrides) readily form tetrahedral intermediates while leaving alkenes untouched unless harsher conditions intervene.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">C₅H₁₀O gives pentanal, 3-methylbutanal, and 2,2-dimethylpropanal when the carbonyl is terminal, and ketones like 2-pentanone or 3-pentanone when the carbonyl sits internally. This illustrates the naming rule about terminal aldehydes versus numbered ketones.</p>
+            <p data-copyable="true">Fragrances such as citronellal, vanillin, and cinnamaldehyde rely on aldehyde or ketone carbonyls. The shape of the carbonyl and whether it can hydrogen-bond with receptors determine whether the scent smells like roses, cinnamon, or vanilla.</p>
+          </div>
+        </div>
+      </article>
+      <article class="map-card" id="section-28-2" data-keywords="oxidation alcohol aldehyde ketone ozonolysis PCC chromic acid">
+        <header>
+          <h2>28.2 Preparation of Aldehydes and Ketones</h2>
+          <p>Strategies for stopping at the carbonyl (PCC, chromic oxidants) or cutting alkenes (ozonolysis).</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Primary alcohols oxidize to aldehydes when mild oxidants such as PCC (soluble in THF or CH₂Cl₂) are used; stronger oxidants (CrO₃/H₂SO₄ or K₂Cr₂O₇/H₂SO₄) keep oxidizing aldehydes to carboxylic acids because water is available to hydrate the aldehyde.</p>
+            <p data-copyable="true">Secondary alcohols oxidize to ketones under the same strong oxidants, while tertiary alcohols resist oxidation entirely because doing so would require breaking a C–C bond.</p>
+            <p data-copyable="true">Ozonolysis breaks C=C into two carbonyl fragments. The substitution pattern on the alkene determines whether each fragment is an aldehyde (if a hydrogen was attached) or a ketone (if two carbons were attached).</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCH₂OH + PCC → RCHO">RCH₂OH + PCC → RCHO</span>
+              <button class="copy-btn" type="button" data-copy-text="RCH₂OH + PCC → RCHO" aria-label="Copy mild oxidation formula">📋</button>
+            </div>
+            <p data-copyable="true">PCC oxidizes the alcohol to the carbonyl without adding the water that would convert it further to an acid.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCH₂OH + CrO₃/H₂SO₄ → RCOOH">RCH₂OH + CrO₃/H₂SO₄ → RCOOH</span>
+              <button class="copy-btn" type="button" data-copy-text="RCH₂OH + CrO₃/H₂SO₄ → RCOOH" aria-label="Copy strong oxidation formula">📋</button>
+            </div>
+            <p data-copyable="true">The strong oxidant keeps the aldehyde hydrated and oxidizes it to the carboxylic acid.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R₂CHOH + PCC/CrO₃ → R₂C=O">R₂CHOH + PCC/CrO₃ → R₂C=O</span>
+              <button class="copy-btn" type="button" data-copy-text="R₂CHOH + PCC/CrO₃ → R₂C=O" aria-label="Copy secondary oxidation formula">📋</button>
+            </div>
+            <p data-copyable="true">Secondary alcohols cleanly lose two hydrogens to deliver ketones because no C–C bonds are disrupted.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–CH=CH–R′ + O₃, (CH₃)₂S → R–C(=O)H + R′–C(=O)R″">R–CH=CH–R′ + O₃, (CH₃)₂S → carbonyl fragments</span>
+              <button class="copy-btn" type="button" data-copy-text="R–CH=CH–R′ + O₃, (CH₃)₂S → carbonyl fragments" aria-label="Copy ozonolysis formula">📋</button>
+            </div>
+            <p data-copyable="true">Dimethyl sulfide reduces the ozonide intermediate to stable aldehydes or ketones; the fragment depends on whether the original carbon had hydrogens.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">In the lab, retinol (vitamin A alcohol) is oxidized with PCC in acetone to give retinal. The mild reagent keeps the conjugated double bonds intact because it cannot oxidize further or react with the alkene.</p>
+            <p data-copyable="true">1-Methylcyclohexene plus ozone/dimethyl sulfide furnishes cyclohexanone on the substituted side and formaldehyde on the terminal CH₂. If the alkene is symmetrical the same carbonyl appears twice; if it is unsymmetrical you get separable fragments.</p>
+          </div>
+        </div>
+      </article>
+      <article class="map-card" id="section-28-3" data-keywords="nucleophilic addition Grignard imine acetal reduction cyanohydrin tautomer halogenation">
+        <header>
+          <h2>28.3 Reactions of Aldehydes and Ketones</h2>
+          <p>Nucleophilic additions, protecting groups, reductions, cyanohydrins, tautomerism, and α-substitution.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">The carbonyl carbon is electron-poor, so nucleophiles such as Grignard reagents (RMgX), hydride donors, cyanide, and amines attack it. The tetrahedral intermediate collapses only after protonation, so every addition is governed by acid workup.</p>
+            <p data-copyable="true">Grignard reagents are prepared by adding magnesium to a haloalkane in ether, making the carbon behave like a carbanion. The resulting addition to carbonyls forms new C–C bonds and, after acidic workup, yields alcohols whose class (primary, secondary, tertiary) reflects the starting carbonyl.</p>
+            <p data-copyable="true">Imines (Schiff bases) form from primary amines plus carbonyls and remove water, whereas acetals form from alcohols plus carbonyls. Carbohydrates rely on intramolecular hemiacetal formation to lock in ring structures, and acetals protect sensitive carbonyls during complex syntheses.</p>
+            <p data-copyable="true">Hydride reductions (NaBH₄, LiAlH₄) add H⁻ to the carbonyl, and cyanide adds to give cyanohydrins, which easily convert to α-hydroxy acids. Keto–enol tautomerism allows α-protons to become acidic and react with halogens via the enol form.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–C(=O) + Nu⁻ → R–C(OH)–Nu">R–C(=O) + Nu⁻ → R–C(OH)–Nu</span>
+              <button class="copy-btn" type="button" data-copy-text="R–C(=O) + Nu⁻ → R–C(OH)–Nu" aria-label="Copy nucleophilic addition">📋</button>
+            </div>
+            <p data-copyable="true">Nu⁻ might be a Grignard reagent, hydride, or cyanide; after protonation the alkoxide becomes the alcohol or substituted product.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R′NH₂ + R(=O)H ⇌ R(=N–R′) + H₂O">R′NH₂ + R(=O)H ⇌ R(=N–R′) + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="R′NH₂ + R(=O)H ⇌ R(=N–R′) + H₂O" aria-label="Copy imine formation">📋</button>
+            </div>
+            <p data-copyable="true">An acid base removes water to shift the equilibrium toward the C=N imine.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–C(=O)R′ + ROH ⇌ R–C(OR)(OR′) + H₂O">R–C(=O)R′ + ROH ⇌ R–C(OR)(OR′) + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="R–C(=O)R′ + ROH ⇌ R–C(OR)(OR′) + H₂O" aria-label="Copy acetal formation">📋</button>
+            </div>
+            <p data-copyable="true">Acetal formation goes through a hemiacetal and oxonium ion and is easily reversed with acid because water is a good leaving group.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–C(=O)H + NaBH₄ → R–CH₂OH">R–C(=O)H + NaBH₄ → R–CH₂OH</span>
+              <button class="copy-btn" type="button" data-copy-text="R–C(=O)H + NaBH₄ → R–CH₂OH" aria-label="Copy hydride reduction">📋</button>
+            </div>
+            <p data-copyable="true">Hydride donors attack the carbonyl, forming a metal alkoxide that becomes the alcohol upon protonation.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–C(=O)R′ + CN⁻ + H⁺ ⇌ R–CH(OH)–C≡N–R′">R–C(=O)R′ + CN⁻ + H⁺ ⇌ R–CH(OH)–C≡N–R′</span>
+              <button class="copy-btn" type="button" data-copy-text="R–C(=O)R′ + CN⁻ + H⁺ ⇌ R–CH(OH)–C≡N–R′" aria-label="Copy cyanohydrin formation">📋</button>
+            </div>
+            <p data-copyable="true">Cyanohydrin formation regenerates CN⁻ after protonation, so only a catalytic amount of cyanide is needed.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–CH–CO–R′ ⇌ R–CH=COH–R′">R–CH–CO–R′ ⇌ R–CH=COH–R′</span>
+              <button class="copy-btn" type="button" data-copy-text="R–CH–CO–R′ ⇌ R–CH=COH–R′" aria-label="Copy tautomerization">📋</button>
+            </div>
+            <p data-copyable="true">The enol form is the reactive state that allows α-proton halogenation and other electrophilic substitution reactions.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="R–CH=COH + X₂ → R–CH(X)–C(=O)–R′">R–CH=COH + X₂ → R–CH(X)–C(=O)–R′</span>
+              <button class="copy-btn" type="button" data-copy-text="R–CH=COH + X₂ → R–CH(X)–C(=O)–R′" aria-label="Copy halogenation">📋</button>
+            </div>
+            <p data-copyable="true">Halogenation follows enol attack, resonance stabilizes the intermediate, and proton loss yields the haloaldehyde/haloketone.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Propylmagnesium bromide + formaldehyde → butan-1-ol, while the same reagent + propanal → hexan-3-ol, and + 2-butanone → 3-methylhexan-3-ol. The starting carbonyl determines whether the final alcohol is primary, secondary, or tertiary.</p>
+            <p data-copyable="true">Propanamine + propanone gives an imine and water; removing water (via azeotrope or desiccant) pushes the equilibrium toward the Schiff base.</p>
+            <p data-copyable="true">5-Hydroxypentanal puckers into a six-membered cyclic hemiacetal, showing how carbohydrates convert achiral open chains into chiral cycles and why the anomeric carbon appears.</p>
+            <p data-copyable="true">Sodium borohydride selectively reduces carbonyls while leaving alkenes untouched, so butanal becomes butanol without affecting nearby double bonds—ideal for sensitive molecules.</p>
+            <p data-copyable="true">Mandelonitrile is a cyanohydrin that millipedes store and degrade to benzaldehyde + HCN for defense; the reversible cyanohydrin equilibrium keeps the toxin locked until needed.</p>
+            <p data-copyable="true">Acid-catalyzed tautomerism of a chiral ketone yields an achiral enol, so reprotonation from either face produces a racemic mixture, explaining optical rotation decay.</p>
+            <p data-copyable="true">Bromination of acetone proceeds through the enol form; the oxygen lone pair stabilizes the bromonium-like intermediate, and the final deprotonation gives 2-bromopropanone.</p>
+          </div>
+        </div>
+      </article>
+      <article class="map-card" id="section-28-4" data-keywords="carbohydrates monosaccharides Fischer Haworth glycoside anomer mutarotation polysaccharide">
+        <header>
+          <h2>28.4 Carbohydrates</h2>
+          <p>How sugars are defined, nicknamed, cycled, and linked into oligo- and polysaccharides.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Carbohydrates are polyhydroxy aldehydes or ketones of the form CₙH₂ₙOₙ, typically with 3 ≤ n ≤ 8. Aldoses carry an aldehyde, ketoses a ketone.</p>
+            <p data-copyable="true">Fischer projections place the most oxidized carbon at the top, vertical bonds away from the reader, and horizontal bonds toward the reader. The descriptor d or l tells us whether the OH on the stereocenter farthest from the carbonyl sits on the right (d) or left (l), referencing glyceraldehyde.</p>
+            <p data-copyable="true">Intramolecular attack of a hydroxyl on the carbonyl forms hemiacetals; the new stereocenter is called the anomeric carbon. α-Anomers have the anomeric OH opposite the CH₂OH, β-anomers have it on the same side.</p>
+            <p data-copyable="true">Mutarotation is the gradual change in optical rotation as anomers equilibrate via the open-chain form; e.g., β-d-galactose (initial +151°) relaxes to +80° (72:28 β:α) in water.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="CₙH₂ₙOₙ">CₙH₂ₙOₙ (monosaccharide formula)</span>
+              <button class="copy-btn" type="button" data-copy-text="CₙH₂ₙOₙ" aria-label="Copy monosaccharide formula">📋</button>
+            </div>
+            <p data-copyable="true">Each carbon effectively pairs with a water molecule, giving an empirical carbide-hydrate relationship, although the actual structure is a polyhydroxyaldehyde or ketone.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="Hemiacetal + ROH ⇌ Glycoside + H₂O">Hemiacetal + ROH ⇌ Glycoside + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="Hemiacetal + ROH ⇌ Glycoside + H₂O" aria-label="Copy glycoside formula">📋</button>
+            </div>
+            <p data-copyable="true">Acid catalysis protonates the hemiacetal OH, ejects water, and lets another alcohol attack the anomeric carbon, locking the configuration with an OR group and preventing mutarotation.</p>
+            <p data-copyable="true">Glycosidic bonds are described by the stereochemistry at the donor anomeric carbon (α or β) and the two carbons that connect, such as α-1,4 in amylose or β-1,4 in cellulose.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">D-glucose (aldohexose) and D-fructose (ketohexose) share the formula C₆H₁₂O₆ but differ in the location of the carbonyl and the arrangement of chiral centers; Fischer projections easily show which hydroxyls point left or right.</p>
+            <p data-copyable="true">β-D-galactopyranose’s optical rotation drifts from +151° down to +80° as it mutarotates to the equilibrium mixture, demonstrating that the α and β forms interconvert through the open-chain aldehyde.</p>
+            <p data-copyable="true">Sucrose links α-D-glucose and β-D-fructose through an α-1,2 glycosidic bond, so both anomeric carbons are tied up and the sugar cannot mutarotate until acid hydrolysis cuts the bond; lactose links D-galactose and D-glucose via β-1,4, keeping it less sweet.</p>
+            <p data-copyable="true">Starch (amylose) uses α-1,4 linkages to form helices that animals digest; glycogen adds α-1,6 branches for rapid glucose delivery; cellulose uses β-1,4 linkages so the chains stack with hydrogen bonding and form tough plant fibers.</p>
+            <p data-copyable="true">Cyclodextrins are cyclic glycosides made enzymatically from glucose that have hydrophobic cavities for trapping nonpolar guests while remaining water soluble, making them excellent solubilizing agents in pharma.</p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const toggleButtons = document.querySelectorAll('[data-role="toggle"]');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const node = button.closest('.node');
+        const isOpen = node.getAttribute('data-open') === 'true';
+        node.setAttribute('data-open', String(!isOpen));
+        button.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    const cards = document.querySelectorAll('.map-card');
+    const filterInput = document.getElementById('filterInput');
+    filterInput.addEventListener('input', () => {
+      const term = filterInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const haystack = (card.dataset.keywords || '') + ' ' + card.textContent;
+        card.classList.toggle('hidden', !haystack.toLowerCase().includes(term));
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    async function copyText(text) {
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard');
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Copied to clipboard');
+      }
+    }
+
+    document.addEventListener('click', event => {
+      const button = event.target.closest('.copy-btn');
+      if (!button) return;
+      const payload = button.dataset.copyText || button.previousElementSibling?.textContent;
+      copyText(payload?.trim());
+    });
+
+    document.addEventListener('dblclick', event => {
+      if (event.target.closest('button')) return;
+      const target = event.target.closest('[data-copyable]');
+      if (!target) return;
+      const payload = target.dataset.copyText || target.innerText;
+      copyText(payload.trim());
+    });
+  </script>
+</body>
+</html>

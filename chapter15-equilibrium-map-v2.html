@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 15 Concept Map: Chemical Equilibrium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition:
+        border-color var(--transition-med),
+        box-shadow var(--transition-med),
+        transform var(--transition-med),
+        background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+      z-index: 40;
+    }
+
+    #toast.toast-visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #toast-icon {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 15</div>
+        <div class="chapter-title">Chemical Equilibrium</div>
+        <div class="chapter-subtitle">Concept map for equilibrium constants, Q, and Le Châtelier’s principle.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-15-1"><span>15.1 Concept of Equilibrium</span><span class="nav-shortcut">rates equal</span></button></li>
+          <li><button class="nav-link" data-target="sec-15-2"><span>15.2 Equilibrium Constant</span><span class="nav-shortcut">Kc &amp; Kp</span></button></li>
+          <li><button class="nav-link" data-target="sec-15-3"><span>15.3 Working with K</span><span class="nav-shortcut">heterogeneous, combine</span></button></li>
+          <li><button class="nav-link" data-target="sec-15-4"><span>15.4 Calculating with K</span><span class="nav-shortcut">Q &amp; ICE</span></button></li>
+          <li><button class="nav-link" data-target="sec-15-5"><span>15.5 Le Châtelier</span><span class="nav-shortcut">stress &amp; shift</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Tip: use the search box to hide cards that don’t match your current topic. Double-click any text to copy. Use 📋 buttons to copy key equations or snippets.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each card corresponds to a section of Chapter 15. Within a card, Roots focus on the core ideas and definitions, Trunk explains formulas and patterns, and Leaves give examples, tips, and common pitfalls. Click any node header to expand or collapse it.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Dynamic equilibrium</span>
+          <span class="tag-pill">Kc and Kp</span>
+          <span class="tag-pill">Reaction quotient Q</span>
+          <span class="tag-pill">ICE tables</span>
+          <span class="tag-pill">Le Châtelier’s principle</span>
+        </div>
+      </section>
+
+      <!-- 15.1 -->
+      <section
+        class="section-card"
+        id="sec-15-1"
+        data-section-title="15.1 Concept of Equilibrium dynamic equilibrium forward reverse rates equal N2O4 NO2"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">15.1 The Concept of Equilibrium</div>
+            <div class="section-subtitle">Dynamic balance between forward and reverse reactions.</div>
+          </div>
+          <div class="section-tagline">Roots: Rates equal, concentrations constant.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>equilibrium</strong> is a state of balance. In a <strong>static equilibrium</strong> (for example, a motionless tug-of-war) nothing moves, while in a <strong>dynamic equilibrium</strong>, opposing processes continue at equal rates, so there is no net change.</p>
+              <p><strong>Chemical equilibrium</strong> is a dynamic equilibrium between the forward and reverse reactions:</p>
+              <ul>
+                <li>The <strong>forward reaction rate</strong> equals the <strong>reverse reaction rate</strong>.</li>
+                <li>The concentrations of reactants and products become constant with time, even though molecules keep reacting.</li>
+                <li>Equilibrium can be reached starting from only reactants or only products; the same equilibrium mixture is obtained at a given temperature.</li>
+              </ul>
+              <p>A closed system is essential: reactants and products cannot escape if a true equilibrium is to be established and maintained.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Rates and the equilibrium ratio</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>For the gas-phase equilibrium</p>
+              <p><em>N₂O₄(g) ⇌ 2NO₂(g)</em>, the elementary steps can be written as:</p>
+              <ul>
+                <li>Forward: N₂O₄(g) → 2NO₂(g), with rate law <em>Rate<sub>f</sub> = k<sub>f</sub>[N₂O₄]</em>.</li>
+                <li>Reverse: 2NO₂(g) → N₂O₄(g), with rate law <em>Rate<sub>r</sub> = k<sub>r</sub>[NO₂]²</em>.</li>
+              </ul>
+              <p>At equilibrium, the forward and reverse rates are equal:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Balance of rates</span> k<sub>f</sub>[N₂O₄] = k<sub>r</sub>[NO₂]²
+                </div>
+                <button class="copy-btn" type="button" data-copy="k_f [N2O4] = k_r [NO2]^2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Rearranging gives a constant ratio of concentrations:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  [NO₂]² / [N₂O₄] = k<sub>f</sub> / k<sub>r</sub> = constant
+                </div>
+                <button class="copy-btn" type="button" data-copy="[NO2]^2 / [N2O4] = k_f / k_r">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This constant ratio is the equilibrium constant for this reaction at that temperature. It emerges from the balance of forward and reverse reaction rates.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Example &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: color change in N₂O₄/NO₂ equilibrium.</strong></p>
+              <ul>
+                <li>Solid N₂O₄ in a sealed tube is nearly colorless. When warmed above its boiling point, N₂O₄(g) forms and partially dissociates to brown NO₂(g).</li>
+                <li>The gas darkens as more NO₂ forms, then the color stops changing once equilibrium is reached, even though both N₂O₄ and NO₂ are still present.</li>
+                <li>Macroscopic view: color becomes constant. Microscopic view: N₂O₄ ⇌ 2NO₂ continues, but at equal forward and reverse rates.</li>
+              </ul>
+              <p><strong>Key lesson:</strong> “No change in concentrations over time” does <em>not</em> mean reactions stopped; it means they are balanced dynamically.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 15.2 -->
+      <section
+        class="section-card"
+        id="sec-15-2"
+        data-section-title="15.2 Equilibrium Constant law of mass action Kc Kp Kp = Kc (RT)^Δn Haber process"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">15.2 The Equilibrium Constant</div>
+            <div class="section-subtitle">Mass-action expressions in concentration and pressure.</div>
+          </div>
+          <div class="section-tagline">Trunk: Kc, Kp, and what they tell you.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Law of mass action &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>law of mass action</strong> states that for a general equilibrium</p>
+              <p><em>aA + bB ⇌ dD + eE</em></p>
+              <p>the equilibrium condition is summarized by the <strong>equilibrium-constant expression</strong>:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Mass action</span> K<sub>c</sub> = [D]<sup>d</sup>[E]<sup>e</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kc = [D]^d [E]^e / ([A]^a [B]^b)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <ul>
+                <li>[X] = molar equilibrium concentration (mol·L⁻¹) of species X.</li>
+                <li>Exponents are the coefficients in the balanced equation, not the reaction orders (as in kinetics).</li>
+              </ul>
+              <p>For gas-phase equilibria, we can write an analogous expression using partial pressures in place of concentrations, defining K<sub>p</sub>.</p>
+              <p>At a fixed temperature, K<sub>c</sub> (or K<sub>p</sub>) is constant and does <em>not</em> depend on initial amounts or on how equilibrium was reached.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Kc, Kp, and their relationship</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Equilibrium constant in terms of concentration:</strong></p>
+              <p>For the Haber process:</p>
+              <p><em>N₂(g) + 3H₂(g) ⇌ 2NH₃(g)</em></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>c</sub> = [NH₃]² / ([N₂][H₂]³)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kc = [NH3]^2 / ([N2][H2]^3)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Equilibrium constant in terms of pressures:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>p</sub> = (P<sub>NH₃</sub>)² / (P<sub>N₂</sub>(P<sub>H₂</sub>)³)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kp = (PNH3)^2 / (PN2 (PH2)^3)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Relationship between K<sub>p</sub> and K<sub>c</sub>:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>p</sub> = K<sub>c</sub>(RT)<sup>Δn</sup>
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kp = Kc (RT)^Δn">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <ul>
+                <li>R is the gas constant, T is the absolute temperature.</li>
+                <li>Δn = (moles of gaseous products) − (moles of gaseous reactants).</li>
+                <li>If Δn = 0, then K<sub>p</sub> = K<sub>c</sub>.</li>
+              </ul>
+
+              <p><strong>Units and activities:</strong> In a more advanced view, equilibrium constants are strictly defined in terms of <em>activities</em> (unitless ratios), so K is written without units. For typical student problems, we treat K as a pure number and focus on how it links equilibrium concentrations.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: evaluating Kc for N₂O₄ ⇌ 2NO₂.</strong></p>
+              <ul>
+                <li>At 100 °C, one experiment finds [NO₂] = 0.0172 M and [N₂O₄] = 0.00140 M at equilibrium.</li>
+                <li>Equilibrium expression: K<sub>c</sub> = [NO₂]² / [N₂O₄].</li>
+                <li>Calculation: K<sub>c</sub> = (0.0172)² / 0.00140 ≈ 0.21.</li>
+                <li>Other starting conditions give the same K<sub>c</sub> at this temperature, even though equilibrium concentrations differ.</li>
+              </ul>
+
+              <p><strong>Example: converting between Kc and Kp.</strong></p>
+              <ul>
+                <li>For N₂ + 3H₂ ⇌ 2NH₃, Δn = 2 − 4 = −2.</li>
+                <li>If K<sub>c</sub> = 9.60 at 300 °C (573 K), then K<sub>p</sub> = K<sub>c</sub>(RT)<sup>−2</sup> = K<sub>c</sub> / (RT)².</li>
+                <li>This shows why K<sub>p</sub> and K<sub>c</sub> for the same reaction are often quite different numerically.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> The magnitude of K is a quick “extent-of-reaction” indicator: K ≫ 1 means products dominate, K ≪ 1 means reactants dominate, and K ~ 1 means appreciable amounts of both are present at equilibrium.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 15.3 -->
+      <section
+        class="section-card"
+        id="sec-15-3"
+        data-section-title="15.3 Understanding and Working with Equilibrium Constants heterogeneous equilibria solids liquids omitted combining reactions reverse multiply"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">15.3 Understanding and Working with Equilibrium Constants</div>
+            <div class="section-subtitle">Heterogeneous equilibria and algebra of K.</div>
+          </div>
+          <div class="section-tagline">Roots: What K measures and how it transforms.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Homogeneous vs heterogeneous equilibria</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Homogeneous equilibria</strong> involve substances all in the same phase (for example, all gases, or all aqueous species). The N₂O₄/NO₂ and Haber equilibria are examples.</p>
+              <p><strong>Heterogeneous equilibria</strong> involve more than one phase (for example, solid + aqueous, or solid + gas):</p>
+              <ul>
+                <li>Example: PbCl₂(s) ⇌ Pb²⁺(aq) + 2Cl⁻(aq).</li>
+                <li>Example: CaCO₃(s) ⇌ CaO(s) + CO₂(g).</li>
+              </ul>
+              <p>For heterogeneous equilibria, <strong>pure solids and pure liquids are omitted</strong> from K expressions because their “concentration” is constant as long as both phases are present.</p>
+              <p>The value of K tells us whether reactants or products dominate at equilibrium, but not how fast equilibrium is reached (that is governed by kinetics).</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Transforming equilibrium constants</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>1. Omit pure solids and liquids.</strong></p>
+              <ul>
+                <li>PbCl₂(s) ⇌ Pb²⁺(aq) + 2Cl⁻(aq) → K<sub>c</sub> = [Pb²⁺][Cl⁻]².</li>
+                <li>CaCO₃(s) ⇌ CaO(s) + CO₂(g) → K<sub>p</sub> = P<sub>CO₂</sub>.</li>
+              </ul>
+
+              <p><strong>2. Reverse the reaction.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>reverse</sub> = 1 / K<sub>forward</sub>
+                </div>
+                <button class="copy-btn" type="button" data-copy="K_reverse = 1 / K_forward">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>If you write the equilibrium in the opposite direction, the equilibrium expression is inverted, so K is inverted.</p>
+
+              <p><strong>3. Multiply the equation by a factor n.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  If the balanced equation is multiplied by n, then K becomes K<sup>n</sup>.
+                </div>
+                <button class="copy-btn" type="button" data-copy="K_new = K_old^n">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>4. Add reactions; multiply K’s.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  If Eq. net = Eq. 1 + Eq. 2, then K<sub>net</sub> = K<sub>1</sub> × K<sub>2</sub>.
+                </div>
+                <button class="copy-btn" type="button" data-copy="K_net = K1 × K2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This is analogous to Hess’s law for enthalpies: you can build up a desired equilibrium constant from known ones.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; strategy hints</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: combining aqueous acid equilibria.</strong></p>
+              <p>Given:</p>
+              <ul>
+                <li>HNO₂(aq) ⇌ H⁺(aq) + NO₂⁻(aq), K<sub>1</sub>.</li>
+                <li>H₂C₂O₄(aq) ⇌ 2H⁺(aq) + C₂O₄²⁻(aq), K<sub>2</sub>.</li>
+              </ul>
+              <p>You can manipulate and add these equations to derive the K for a reaction like:</p>
+              <p>2HNO₂(aq) + C₂O₄²⁻(aq) ⇌ H₂C₂O₄(aq) + 2NO₂⁻(aq).</p>
+              <p>After reversing and multiplying as needed, K for the net reaction is the product of the adjusted constants.</p>
+
+              <p><strong>Example: solids omitted in a heterogeneous equilibrium.</strong></p>
+              <ul>
+                <li>CaCO₃(s) ⇌ CaO(s) + CO₂(g).</li>
+                <li>Even if you double the mass of CaCO₃(s) and CaO(s), the equilibrium P<sub>CO₂</sub> stays the same as long as some solid is present.</li>
+                <li>This is why only CO₂(g) appears in K<sub>p</sub>.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When re-writing equilibria, always track:</p>
+              <ul>
+                <li>Which way the equation is written (forward vs reverse).</li>
+                <li>What factor (if any) multiplies all coefficients.</li>
+                <li>How many component equations you’ve added. Then adjust K with reciprocal, power, and multiplication accordingly.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 15.4 -->
+      <section
+        class="section-card"
+        id="sec-15-4"
+        data-section-title="15.4 Calculating Equilibrium Constants reaction quotient Q predicting direction ICE tables finding K or equilibrium concentrations"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">15.4 Calculating Equilibrium Constants</div>
+            <div class="section-subtitle">Using Q and ICE tables to connect initial conditions and K.</div>
+          </div>
+          <div class="section-tagline">Trunk: Q vs K and systematic equilibrium calculations.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Reaction quotient Q &amp; direction of shift</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>reaction quotient</strong>, Q, has the same algebraic form as K but uses concentrations or partial pressures measured at any moment (not necessarily equilibrium).</p>
+              <p>For aA + bB ⇌ dD + eE:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Q<sub>c</sub> = [D]<sup>d</sup>[E]<sup>e</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Qc = [D]^d [E]^e / ([A]^a [B]^b)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Comparing Q with K tells you which direction the reaction will proceed to reach equilibrium:</p>
+              <ul>
+                <li><strong>Q &lt; K</strong>: too little product, too much reactant → reaction proceeds forward (left → right).</li>
+                <li><strong>Q = K</strong>: system is at equilibrium.</li>
+                <li><strong>Q &gt; K</strong>: too much product, too little reactant → reaction proceeds in reverse (right → left).</li>
+              </ul>
+              <p>This is another way to state Le Châtelier’s principle numerically.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">ICE tables &amp; solving for equilibrium</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A standard approach to equilibrium calculations is to set up an <strong>ICE table</strong> (Initial, Change, Equilibrium):</p>
+              <ol>
+                <li><strong>Write</strong> the balanced equation and K expression.</li>
+                <li><strong>List</strong> initial concentrations or partial pressures.</li>
+                <li><strong>Express</strong> the changes in terms of a variable (x) guided by stoichiometry.</li>
+                <li><strong>Write</strong> equilibrium concentrations in terms of initial values and x.</li>
+                <li><strong>Substitute</strong> into K and solve for x, then back-substitute to find all equilibrium values.</li>
+              </ol>
+              <p>For H₂(g) + I₂(g) ⇌ 2HI(g):</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>c</sub> = [HI]² / ([H₂][I₂])
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kc = [HI]^2 / ([H2][I2])">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>If initial [H₂] = a, [I₂] = b, [HI] = 0, and the change in [H₂] is −x, then at equilibrium:</p>
+              <ul>
+                <li>[H₂] = a − x</li>
+                <li>[I₂] = b − x</li>
+                <li>[HI] = 2x</li>
+              </ul>
+              <p>Substituting into K gives a single equation in x, which you can solve exactly (using algebra or the quadratic formula) or approximately (if justified).</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; practical advice</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: Q vs K for Haber equilibrium.</strong></p>
+              <ul>
+                <li>At 472 °C, K<sub>c</sub> for N₂ + 3H₂ ⇌ 2NH₃ is 0.105.</li>
+                <li>Start with [N₂] = 1.00 M, [H₂] = 2.00 M, [NH₃] = 2.00 M.</li>
+                <li>Q<sub>c</sub> = (2.00)² / (1.00 × (2.00)³) = 0.50 &gt; K<sub>c</sub>.</li>
+                <li>Because Q &gt; K, the reaction shifts left to form more N₂ and H₂ and less NH₃ until Q falls to 0.105.</li>
+              </ul>
+
+              <p><strong>Example: finding K from equilibrium mixture (H₂ + I₂ ⇌ 2HI).</strong></p>
+              <ul>
+                <li>Initial [H₂] = 1.00 × 10⁻³ M, [I₂] = 2.00 × 10⁻³ M, [HI] = 0.</li>
+                <li>At equilibrium, [HI] = 1.87 × 10⁻³ M.</li>
+                <li>Change in [HI] is +1.87 × 10⁻³ M; H₂ and I₂ each decrease by 0.935 × 10⁻³ M (because of stoichiometric factors).</li>
+                <li>Equilibrium [H₂] = 0.065 × 10⁻³ M; [I₂] = 1.065 × 10⁻³ M.</li>
+                <li>Then K<sub>c</sub> = (1.87 × 10⁻³)² / ((0.065 × 10⁻³)(1.065 × 10⁻³)) ≈ 51.</li>
+              </ul>
+
+              <p><strong>Tips:</strong></p>
+              <ul>
+                <li>Always keep units in your ICE table (M or bar) so you can catch mistakes.</li>
+                <li>Only make algebraic approximations (like neglecting x) after checking that x is indeed small compared with initial concentrations.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 15.5 -->
+      <section
+        class="section-card"
+        id="sec-15-5"
+        data-section-title="15.5 Le Chatelier principle concentration pressure volume temperature Haber process endothermic exothermic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">15.5 Le Châtelier’s Principle</div>
+            <div class="section-subtitle">How equilibria respond to changes in conditions.</div>
+          </div>
+          <div class="section-tagline">Roots: Disturb the system, it shifts to oppose.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Statement &amp; types of disturbances</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Le Châtelier’s principle</strong> states:</p>
+              <p><em>If a system at equilibrium is disturbed by a change in concentration, pressure (volume), or temperature, it will shift its equilibrium position in the direction that partially counteracts the disturbance.</em></p>
+              <p>Main types of disturbances:</p>
+              <ul>
+                <li><strong>Changing concentration</strong> of a reactant or product.</li>
+                <li><strong>Changing pressure</strong> by changing the volume of the system (for gas-phase reactions).</li>
+                <li><strong>Changing temperature</strong>, which affects the relative favorability of endothermic vs exothermic directions.</li>
+              </ul>
+              <p>Concentration and pressure changes shift the position of equilibrium but don’t change K (as long as T is constant). Temperature changes usually change K itself.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Concentration, pressure, and temperature shifts</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Concentration changes:</strong></p>
+              <ul>
+                <li>Add a reactant → system shifts to consume it by forming more products.</li>
+                <li>Add a product → system shifts to consume it by forming more reactants.</li>
+                <li>Remove a reactant → system shifts to produce more reactant (toward reactants).</li>
+                <li>Remove a product → system shifts to produce more product (toward products).</li>
+              </ul>
+
+              <p><strong>Pressure/volume changes (gases):</strong></p>
+              <ul>
+                <li>Decrease volume (increase pressure) → shift toward the side with fewer moles of gas.</li>
+                <li>Increase volume (decrease pressure) → shift toward the side with more moles of gas.</li>
+                <li>Adding an inert gas at constant volume → no change in partial pressures of reacting gases → no shift.</li>
+              </ul>
+
+              <p><strong>Temperature changes:</strong></p>
+              <ul>
+                <li>For an <strong>endothermic</strong> reaction (heat as reactant): increasing T adds heat and shifts equilibrium toward products; K increases.</li>
+                <li>For an <strong>exothermic</strong> reaction (heat as product): increasing T adds heat and shifts equilibrium toward reactants; K decreases.</li>
+                <li>Decreasing T has the opposite effect in each case.</li>
+              </ul>
+              <p>This helps explain trends like the increase of NO formation with temperature from N₂ and O₂ in combustion engines and the dependence of ammonia yield on T and P in the Haber process.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples: Haber process &amp; NO formation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: Haber process (N₂ + 3H₂ ⇌ 2NH₃, exothermic).</strong></p>
+              <ul>
+                <li>Four moles of gas on the left, two on the right → increased pressure (lower volume) shifts equilibrium toward NH₃, increasing yield.</li>
+                <li>The reaction is exothermic → decreasing temperature shifts equilibrium toward NH₃ (products), increasing yield but slowing the rate.</li>
+                <li>In industry, high P and moderate T are used, and NH₃ is continuously removed (condensed) to pull the equilibrium toward further NH₃ formation.</li>
+              </ul>
+
+              <p><strong>Example: NO formation in engines.</strong></p>
+              <ul>
+                <li>For ½N₂(g) + ½O₂(g) ⇌ NO(g), ΔH° is positive (endothermic).</li>
+                <li>At high cylinder temperatures (~2400 K), K is large enough that significant NO forms.</li>
+                <li>As gases cool in the exhaust, the equilibrium shifts back toward N₂ and O₂, but the reaction becomes too slow to eliminate all NO, so it remains as a pollutant.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When applying Le Châtelier’s principle, always:</p>
+              <ul>
+                <li>Write down the change (add/remove species, increase/decrease P or T).</li>
+                <li>Ask: which direction would reduce that change (least oppose it)?</li>
+                <li>Consider moles of gas and whether the reaction is endothermic or exothermic.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => { link.style.opacity = ''; });
+            return;
+          }
+          cards.forEach(card => {
+            const title = (card.getAttribute('data-section-title') || '').toLowerCase();
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

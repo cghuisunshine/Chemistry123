@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 16 Concept Map: Acid–Base Equilibria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition:
+        border-color var(--transition-med),
+        box-shadow var(--transition-med),
+        transform var(--transition-med),
+        background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+      z-index: 40;
+    }
+
+    #toast.toast-visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #toast-icon {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 16</div>
+        <div class="chapter-title">Acid–Base Equilibria</div>
+        <div class="chapter-subtitle">Concept map for Brønsted–Lowry acids/bases, pH, weak acids/bases, salts, and structure.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-16-1"><span>16.1 Acid–Base Equilibria</span><span class="nav-shortcut">Brønsted &amp; conjugates</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-2"><span>16.2 Autoionization of Water</span><span class="nav-shortcut">Kw</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-3"><span>16.3 The pH Scale</span><span class="nav-shortcut">pH/pOH</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-4"><span>16.4 Strong Acids &amp; Bases</span><span class="nav-shortcut">pH from C</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-5"><span>16.5 Weak Acids</span><span class="nav-shortcut">Ka &amp; ICE</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-6"><span>16.6 Weak Bases</span><span class="nav-shortcut">Kb &amp; Ka·Kb</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-7"><span>16.7 Salt Solutions</span><span class="nav-shortcut">acidic/basic salts</span></button></li>
+          <li><button class="nav-link" data-target="sec-16-8"><span>16.8 Structure &amp; Lewis</span><span class="nav-shortcut">binary, oxy, Lewis</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Tip: use the search box to hide cards that don’t match your current topic. Double-click any text to copy it. Use 📋 buttons to copy key equations and short snippets.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each card corresponds to a section of Chapter 16. Within a card, Roots focus on core ideas and definitions, Trunk explains formulas, rules, and patterns, and Leaves provide examples, tips, and common pitfalls. Click any node header to expand or collapse it.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Brønsted–Lowry acids &amp; bases</span>
+          <span class="tag-pill">Kw, pH, &amp; pOH</span>
+          <span class="tag-pill">Ka &amp; Kb</span>
+          <span class="tag-pill">Salts &amp; amphiprotic ions</span>
+          <span class="tag-pill">Structure &amp; Lewis acidity</span>
+        </div>
+      </section>
+
+      <!-- 16.1 -->
+      <section
+        class="section-card"
+        id="sec-16-1"
+        data-section-title="16.1 Acid–Base Equilibria Arrhenius Bronsted Lowry conjugate acid base amphiprotic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.1 Acid–Base Equilibria</div>
+            <div class="section-subtitle">Arrhenius vs Brønsted–Lowry, conjugate pairs, and amphiprotic species.</div>
+          </div>
+          <div class="section-tagline">Roots: Proton donors, acceptors, and their partners.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Definitions &amp; core concepts</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Historically, <strong>Arrhenius acids</strong> were defined as substances that increase [H⁺] in water, while <strong>Arrhenius bases</strong> increase [OH⁻]. This is useful but limited to aqueous solutions and to bases that contain OH⁻.</p>
+              <p>The more general <strong>Brønsted–Lowry definition</strong> focuses on proton transfer:</p>
+              <ul>
+                <li><strong>Acid</strong>: proton (H⁺) donor.</li>
+                <li><strong>Base</strong>: proton (H⁺) acceptor.</li>
+              </ul>
+              <p>Every proton-transfer reaction involves both an acid and a base at once: one species donates H⁺ while another accepts it.</p>
+              <p>In water:</p>
+              <ul>
+                <li>HCl donates H⁺ to H₂O → HCl is a Brønsted acid; H₂O is a Brønsted base.</li>
+                <li>NH₃ accepts H⁺ from H₂O → NH₃ is a Brønsted base; H₂O is a Brønsted acid.</li>
+              </ul>
+              <p><strong>Amphiprotic</strong> substances, such as H₂O, HCO₃⁻, and H₂PO₄⁻, can act as either acids or bases depending on the reaction partner.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Conjugate acid–base pairs &amp; relative strength</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>For a generic reaction of an acid HA with water:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  HA(aq) + H₂O(l) ⇌ A⁻(aq) + H₃O⁺(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HA(aq) + H2O(l) ⇌ A−(aq) + H3O+(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <ul>
+                <li>HA / A⁻ is one conjugate acid–base pair.</li>
+                <li>H₂O / H₃O⁺ is another conjugate acid–base pair.</li>
+                <li>The conjugate base A⁻ differs from HA by the absence of one proton.</li>
+                <li>The conjugate acid H₃O⁺ differs from H₂O by the addition of one proton.</li>
+              </ul>
+              <p>In any acid–base equilibrium:</p>
+              <ul>
+                <li>The stronger the acid, the weaker its conjugate base.</li>
+                <li>The stronger the base, the weaker its conjugate acid.</li>
+                <li>Equilibrium favors formation of the weaker acid and weaker base (proton transfer goes from stronger acid/stronger base to weaker acid/weaker base).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: HCl in water.</strong></p>
+              <ul>
+                <li>HCl(g) + H₂O(l) → H₃O⁺(aq) + Cl⁻(aq).</li>
+                <li>HCl is a very strong acid, so the equilibrium lies essentially completely to the right; Cl⁻ is a very weak base.</li>
+              </ul>
+
+              <p><strong>Example: NH₃ in water.</strong></p>
+              <ul>
+                <li>NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq).</li>
+                <li>Only a small fraction of NH₃ is converted to NH₄⁺ → NH₃ is a weak base, and NH₄⁺ is a weak acid.</li>
+              </ul>
+
+              <p><strong>Example: amphiprotic water.</strong></p>
+              <ul>
+                <li>With HCl, H₂O acts as a base and becomes H₃O⁺.</li>
+                <li>With NH₃, H₂O acts as an acid and becomes OH⁻.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> To identify conjugate pairs, look for species that differ by exactly one H⁺. The one with the extra H⁺ is the conjugate acid; the one without it is the conjugate base.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.2 -->
+      <section
+        class="section-card"
+        id="sec-16-2"
+        data-section-title="16.2 Autoionization of Water Kw = [H+][OH−] neutral acidic basic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.2 The Autoionization of Water</div>
+            <div class="section-subtitle">Kw, neutral water, and the link between [H⁺] and [OH⁻].</div>
+          </div>
+          <div class="section-tagline">Trunk: Kw ties acids and bases together.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Autoionization &amp; neutral water</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Water is amphiprotic and can react with itself in a process called <strong>autoionization</strong>:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  H₂O(l) + H₂O(l) ⇌ H₃O⁺(aq) + OH⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H2O(l) + H2O(l) ⇌ H3O+(aq) + OH−(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>We often simplify H₃O⁺(aq) to H⁺(aq) for convenience.</p>
+              <p>Because water is the solvent and present in huge excess, its concentration is treated as constant and omitted from the equilibrium expression. This leads to the ion-product constant for water.</p>
+              <p>At 25 °C:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Kw</span> K<sub>w</sub> = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kw = [H+][OH−] = 1.0 × 10^−14">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This relationship holds for pure water and for any dilute aqueous solution at 25 °C.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Neutral, acidic, and basic solutions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Because [H⁺][OH⁻] = 1.0 × 10⁻¹⁴:</p>
+              <ul>
+                <li><strong>Neutral solution</strong>: [H⁺] = [OH⁻] = 1.0 × 10⁻⁷ M.</li>
+                <li><strong>Acidic solution</strong>: [H⁺] &gt; [OH⁻].</li>
+                <li><strong>Basic solution</strong>: [H⁺] &lt; [OH⁻].</li>
+              </ul>
+              <p>Given any one of [H⁺] or [OH⁻], you can calculate the other:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  [H⁺] = K<sub>w</sub> / [OH⁻],&nbsp;&nbsp; [OH⁻] = K<sub>w</sub> / [H⁺]
+                </div>
+                <button class="copy-btn" type="button" data-copy="[H+] = Kw / [OH−]; [OH−] = Kw / [H+]">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This relationship underlies the pH and pOH scales and is the basis for classifying solutions as acidic, neutral, or basic.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; common patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: pure water at 25 °C.</strong></p>
+              <ul>
+                <li>Neutral means [H⁺] = [OH⁻] = x.</li>
+                <li>Using K<sub>w</sub>: x² = 1.0 × 10⁻¹⁴ → x = 1.0 × 10⁻⁷ M.</li>
+              </ul>
+
+              <p><strong>Example: basic solution with [OH⁻] = 0.010 M.</strong></p>
+              <ul>
+                <li>[H⁺] = (1.0 × 10⁻¹⁴) / 0.010 = 1.0 × 10⁻¹² M.</li>
+                <li>[H⁺] (10⁻¹² M) is much smaller than neutral 10⁻⁷ M → strongly basic.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> In strongly acidic or basic solutions, [H⁺] or [OH⁻] from water autoionization is often negligible compared to the acid or base added. But autoionization always dictates the product [H⁺][OH⁻].</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.3 -->
+      <section
+        class="section-card"
+        id="sec-16-3"
+        data-section-title="16.3 The pH Scale pH = −log[H+] pOH = −log[OH−] pH + pOH = 14 indicators meter"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.3 The pH Scale</div>
+            <div class="section-subtitle">Logarithmic measure of acidity and basicity, and how we measure it.</div>
+          </div>
+          <div class="section-tagline">Trunk: pH, pOH, and their relationship to [H⁺] and [OH⁻].</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Definitions &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>pH scale</strong> provides a convenient way to express [H⁺] over many orders of magnitude:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">pH</span> pH = −log[H⁺]
+                </div>
+                <button class="copy-btn" type="button" data-copy="pH = −log[H+]">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Similarly:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  pOH = −log[OH⁻]
+                </div>
+                <button class="copy-btn" type="button" data-copy="pOH = −log[OH−]">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Because K<sub>w</sub> = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴ at 25 °C,</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  pH + pOH = 14.00
+                </div>
+                <button class="copy-btn" type="button" data-copy="pH + pOH = 14.00">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>At 25 °C:</p>
+              <ul>
+                <li>Neutral: pH = 7.00.</li>
+                <li>Acidic: pH &lt; 7.00.</li>
+                <li>Basic: pH &gt; 7.00.</li>
+              </ul>
+              <p>A change of 1.0 in pH corresponds to a factor of 10 change in [H⁺].</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Measuring pH &amp; common values</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>pH meter</strong>:</p>
+              <ul>
+                <li>Uses a special electrode pair immersed in the solution.</li>
+                <li>Measures a voltage that depends on pH and displays pH directly.</li>
+              </ul>
+              <p><strong>Indicators</strong>:</p>
+              <ul>
+                <li>Colored weak acids/bases that have different colors in their acid and base forms.</li>
+                <li>Each indicator has a characteristic pH transition range (~2 pH units).</li>
+                <li>Examples: methyl red, bromothymol blue, phenolphthalein.</li>
+              </ul>
+              <p>Indicators can give approximate pH (for example, “acidic,” “near neutral,” or “basic”), while pH meters provide precise numerical values.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; quick estimates</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: pH from [H⁺].</strong></p>
+              <ul>
+                <li>If [H⁺] = 1.0 × 10⁻³ M, then pH = 3.00 (acidic).</li>
+              </ul>
+
+              <p><strong>Example: [H⁺] from pH.</strong></p>
+              <ul>
+                <li>If pH = 8.40 (seawater): [H⁺] = 10⁻⁸·⁴⁰ ≈ 4.0 × 10⁻⁹ M (basic).</li>
+              </ul>
+
+              <p><strong>Example: using pOH to get [H⁺].</strong></p>
+              <ul>
+                <li>Given pOH = 10.24, pH = 14.00 − 10.24 = 3.76.</li>
+                <li>[H⁺] = 10⁻³·⁷⁶ ≈ 1.7 × 10⁻⁴ M.</li>
+              </ul>
+
+              <p><strong>Indicator-based reasoning:</strong> If a colorless solution turns pink with phenolphthalein (which turns pink above roughly pH 8–9), the solution is basic (pH &gt; about 8).</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.4 -->
+      <section
+        class="section-card"
+        id="sec-16-4"
+        data-section-title="16.4 Strong Acids and Bases strong electrolytes pH from concentration"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.4 Strong Acids and Bases</div>
+            <div class="section-subtitle">Complete ionization and straightforward pH calculations.</div>
+          </div>
+          <div class="section-tagline">Roots: When the acid/base is the only source of H⁺ or OH⁻.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">What makes an acid or base “strong”?</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Strong acids</strong> and <strong>strong bases</strong> are <strong>strong electrolytes</strong>: they are essentially 100% ionized in water.</p>
+              <p>Common strong acids:</p>
+              <ul>
+                <li>HCl, HBr, HI (strong binary acids of the heavier halogens).</li>
+                <li>HNO₃, HClO₃, HClO₄ (strong oxyacids of nitrogen and chlorine).</li>
+                <li>H₂SO₄ (strong in its first ionization step).</li>
+              </ul>
+              <p>Common strong bases:</p>
+              <ul>
+                <li>Group 1 hydroxides: LiOH, NaOH, KOH, etc.</li>
+                <li>Heavy Group 2 hydroxides: Ca(OH)₂, Sr(OH)₂, Ba(OH)₂.</li>
+              </ul>
+              <p>In a solution of a strong monoprotic acid, [H⁺] ≈ c<sub>acid</sub>. In a solution of a strong base MOH, [OH⁻] ≈ c<sub>base</sub> (or 2c<sub>base</sub> for M(OH)₂).</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas for pH &amp; pOH of strong acids/bases</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>For a strong monoprotic acid HA:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  HA → H⁺ + A⁻,&nbsp;&nbsp; [H⁺] ≈ c<sub>HA</sub>
+                </div>
+                <button class="copy-btn" type="button" data-copy="[H+] ≈ c_acid for a strong monoprotic acid">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For a strong base MOH or M(OH)₂:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  [OH⁻] ≈ c<sub>MOH</sub>&nbsp; or&nbsp; [OH⁻] ≈ 2c<sub>M(OH)₂</sub>
+                </div>
+                <button class="copy-btn" type="button" data-copy="[OH−] ≈ c_strong base (or 2c for M(OH)2)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Once you know [H⁺] or [OH⁻], use the pH and pOH relations:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  pH = −log[H⁺],&nbsp; pOH = −log[OH⁻],&nbsp; pH + pOH = 14.00
+                </div>
+                <button class="copy-btn" type="button" data-copy="pH = −log[H+]; pOH = −log[OH−]; pH + pOH = 14.00">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; comparisons</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: 0.040 M HClO₄.</strong></p>
+              <ul>
+                <li>HClO₄ is a strong acid; [H⁺] ≈ 0.040 M.</li>
+                <li>pH = −log(0.040) ≈ 1.40.</li>
+              </ul>
+
+              <p><strong>Example: 0.010 M NaOH.</strong></p>
+              <ul>
+                <li>[OH⁻] = 0.010 M → pOH = 2.00.</li>
+                <li>pH = 14.00 − 2.00 = 12.00 (strongly basic).</li>
+              </ul>
+
+              <p><strong>Comparing strong acids of different concentrations:</strong></p>
+              <ul>
+                <li>0.20 M HClO₃ (pH ≈ 0.70), 0.0030 M HNO₃ (pH ≈ 2.52), 1.50 M HCl (pH ≈ −0.18).</li>
+                <li>Lower pH → higher [H⁺]. In this set, 1.50 M HCl is the most acidic.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> For typical concentrations (≥ 10⁻⁵ M), the [H⁺] or [OH⁻] from water (~10⁻⁷ M) is negligible. At very low acid/base concentrations, you may need to consider water’s contribution more carefully.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.5 -->
+      <section
+        class="section-card"
+        id="sec-16-5"
+        data-section-title="16.5 Weak Acids Ka expression ICE table percent ionization polyprotic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.5 Weak Acids</div>
+            <div class="section-subtitle">Ka, percent ionization, and polyprotic behavior.</div>
+          </div>
+          <div class="section-tagline">Roots: Partial ionization and equilibrium constants.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Definition &amp; Ka</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Weak acids</strong> ionize only partially in water. For a generic weak acid HA:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  HA(aq) ⇌ H⁺(aq) + A⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HA(aq) ⇌ H+(aq) + A−(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The <strong>acid-dissociation constant</strong> K<sub>a</sub> measures the tendency of HA to donate H⁺:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Ka</span> K<sub>a</sub> = [H⁺][A⁻] / [HA]
+                </div>
+                <button class="copy-btn" type="button" data-copy="Ka = [H+][A−] / [HA]">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <ul>
+                <li>Large K<sub>a</sub> → stronger weak acid (greater ionization).</li>
+                <li>Small K<sub>a</sub> → weaker weak acid.</li>
+              </ul>
+              <p><strong>Percent ionization</strong> links K<sub>a</sub> and concentration:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  % ionization = ( [H⁺]<sub>eq</sub> / [HA]<sub>initial</sub> ) × 100%
+                </div>
+                <button class="copy-btn" type="button" data-copy="% ionization = ([H+]_eq / [HA]_initial) × 100%">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For a given acid, percent ionization decreases as initial concentration increases.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Using Ka &amp; ICE tables (and polyprotic acids)</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>To calculate the pH of a weak acid solution:</p>
+              <ol>
+                <li>Write the ionization equilibrium (for example, CH₃COOH ⇌ H⁺ + CH₃COO⁻).</li>
+                <li>Set up an ICE table with initial concentrations, changes (in terms of x), and equilibrium values.</li>
+                <li>Write the Ka expression and substitute equilibrium concentrations.</li>
+                <li>Solve for x (often using the approximation that x ≪ initial concentration).</li>
+                <li>Use x = [H⁺] to determine pH and percent ionization.</li>
+              </ol>
+              <p>For many weak acids, the approximation</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>a</sub> ≈ x² / C
+                </div>
+                <button class="copy-btn" type="button" data-copy="Ka ≈ x^2 / C for a weak acid">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>is valid, where C is the initial acid concentration. Always check that x is small compared with C (for example, &lt; 5%) to justify the approximation.</p>
+              <p><strong>Polyprotic acids</strong> (H₂A, H₃A, etc.) ionize in steps:</p>
+              <ul>
+                <li>Each step has its own K<sub>a</sub>: K<sub>a1</sub> &gt; K<sub>a2</sub> &gt; K<sub>a3</sub>…</li>
+                <li>The first dissociation usually dominates the [H⁺] at moderate concentrations.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; approximation checks</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: 0.30 M acetic acid (CH₃COOH, K<sub>a</sub> = 1.8 × 10⁻⁵).</strong></p>
+              <ul>
+                <li>CH₃COOH ⇌ H⁺ + CH₃COO⁻.</li>
+                <li>Let x = [H⁺] at equilibrium.</li>
+                <li>Ka = x²/(0.30 − x) ≈ x²/0.30.</li>
+                <li>x² ≈ 0.30 × 1.8 × 10⁻⁵ → x ≈ 2.3 × 10⁻³ M.</li>
+                <li>Check: 2.3 × 10⁻³ is &lt; 1% of 0.30 → approximation is fine.</li>
+                <li>pH ≈ 2.64; percent ionization ≈ 0.77%.</li>
+              </ul>
+
+              <p><strong>Example: HF (K<sub>a</sub> = 6.8 × 10⁻⁴) at 0.10 M.</strong></p>
+              <ul>
+                <li>HF is a stronger weak acid than CH₃COOH (larger Ka), so [H⁺] and % ionization are higher.</li>
+                <li>In this case, the approximation may not be sufficient; you may need the quadratic formula to solve accurately.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> If solving for x gives x ≥ ~5% of the initial acid concentration, redo the calculation using the full quadratic equation. Also, for typical weak acid concentrations, the additional [H⁺] from water autoionization (~10⁻⁷ M) is negligible compared to [H⁺] from the acid.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.6 -->
+      <section
+        class="section-card"
+        id="sec-16-6"
+        data-section-title="16.6 Weak Bases Kb expression weak base types relation Ka Kb = Kw"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.6 Weak Bases</div>
+            <div class="section-subtitle">Kb, types of weak bases, and the Ka–Kb connection.</div>
+          </div>
+          <div class="section-tagline">Roots: Lone pairs, conjugate bases, and base equilibria.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Definition &amp; Kb</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Weak bases</strong> partially accept protons from water:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  B(aq) + H₂O(l) ⇌ BH⁺(aq) + OH⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="B(aq) + H2O(l) ⇌ BH+(aq) + OH−(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The <strong>base-dissociation constant</strong> K<sub>b</sub> is:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Kb</span> K<sub>b</sub> = [BH⁺][OH⁻] / [B]
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kb = [BH+][OH−] / [B]">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Main categories of weak bases:</p>
+              <ul>
+                <li>Neutral molecules with lone pairs, especially nitrogen bases:
+                  <ul>
+                    <li>NH₃, CH₃NH₂, C₅H₅N (pyridine), HONH₂, etc.</li>
+                  </ul>
+                </li>
+                <li>Anions that are conjugate bases of weak acids:
+                  <ul>
+                    <li>HS⁻, HCO₃⁻, F⁻, CH₃COO⁻, ClO⁻, CO₃²⁻, etc.</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>A lone pair of electrons is required to accept H⁺ and form BH⁺.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Kb calculations &amp; Ka–Kb relationship</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>To find the pH of a weak base solution:</p>
+              <ol>
+                <li>Write B + H₂O ⇌ BH⁺ + OH⁻ and its K<sub>b</sub> expression.</li>
+                <li>Set up an ICE table with initial base concentration C and change x.</li>
+                <li>Approximate [B] ≈ C − x ≈ C if x ≪ C.</li>
+                <li>Use K<sub>b</sub> ≈ x²/C to solve for x ≈ [OH⁻].</li>
+                <li>Find pOH from [OH⁻], then pH.</li>
+              </ol>
+              <p>The strengths of conjugate acid–base pairs are linked by:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>a</sub> × K<sub>b</sub> = K<sub>w</sub> = 1.0 × 10⁻¹⁴ (at 25 °C)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Ka × Kb = Kw = 1.0 × 10^−14">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For example, for NH₄⁺/NH₃, H₂CO₃/HCO₃⁻, or HF/F⁻ pairs.</p>
+              <p>Large Ka for an acid → small Kb for its conjugate base, and vice versa.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; applications</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: 0.15 M NH₃ (K<sub>b</sub> = 1.8 × 10⁻⁵).</strong></p>
+              <ul>
+                <li>NH₃ + H₂O ⇌ NH₄⁺ + OH⁻.</li>
+                <li>Let x = [OH⁻] at equilibrium.</li>
+                <li>K<sub>b</sub> ≈ x²/0.15 → x² ≈ (0.15)(1.8 × 10⁻⁵) = 2.7 × 10⁻⁶.</li>
+                <li>x ≈ 1.6 × 10⁻³ M = [OH⁻].</li>
+                <li>pOH = 2.80 → pH = 11.20.</li>
+              </ul>
+
+              <p><strong>Example: weak base from weak acid (ClO⁻, K<sub>b</sub> = 3.3 × 10⁻⁷).</strong></p>
+              <ul>
+                <li>NaClO solution: Na⁺ is neutral, ClO⁻ is a weak base.</li>
+                <li>ClO⁻ + H₂O ⇌ HClO + OH⁻.</li>
+                <li>A 0.31 M NaClO solution has a pH &gt; 7 (basic), consistent with bleach’s high pH.</li>
+              </ul>
+
+              <p><strong>Example: Ka–Kb relationship for NH₄⁺/NH₃.</strong></p>
+              <ul>
+                <li>If Ka(NH₄⁺) ≈ 5.6 × 10⁻¹⁰, Kb(NH₃) = (10⁻¹⁴)/(5.6 × 10⁻¹⁰) ≈ 1.8 × 10⁻⁵.</li>
+                <li>The relatively small Ka for NH₄⁺ corresponds to a moderate Kb for NH₃.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> In problems involving salts that contain weak bases (like NaClO or NaHCO₃), identify which ion is acting as the weak base, write its K<sub>b</sub> equilibrium, and proceed as with NH₃.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.7 -->
+      <section
+        class="section-card"
+        id="sec-16-7"
+        data-section-title="16.7 Acid–Base Properties of Salt Solutions cations anions acidic basic neutral amphiprotic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.7 Acid–Base Properties of Salt Solutions</div>
+            <div class="section-subtitle">How ions from salts control the pH of a solution.</div>
+          </div>
+          <div class="section-tagline">Roots: Cations, anions, and amphiprotic behavior.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Ion types &amp; their acid–base character</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Salts dissolve in water to give cations and anions. Each ion may be acidic, basic, or neutral. The net pH reflects the combination of their effects.</p>
+              <p><strong>Cations:</strong></p>
+              <ul>
+                <li>Group 1 (Li⁺, Na⁺, K⁺) and heavy Group 2 (Ca²⁺, Sr²⁺, Ba²⁺) cations are essentially <strong>neutral</strong>.</li>
+                <li>NH₄⁺ and protonated amines (RNH₃⁺) are <strong>acidic</strong> (conjugate acids of weak bases).</li>
+                <li>Small, highly charged metal cations (Al³⁺, Fe³⁺) are <strong>acidic</strong> because they strongly polarize surrounding water, leading to H₃O⁺ formation.</li>
+              </ul>
+              <p><strong>Anions:</strong></p>
+              <ul>
+                <li>Conjugate bases of strong acids (Cl⁻, Br⁻, NO₃⁻, ClO₄⁻) are <strong>neutral</strong>.</li>
+                <li>Conjugate bases of weak acids (F⁻, HCO₃⁻, CH₃COO⁻, ClO⁻, CN⁻, CO₃²⁻) are <strong>basic</strong>.</li>
+                <li>Amphiprotic anions, like HCO₃⁻, H₂PO₄⁻, HPO₄²⁻, HSO₄⁻, can act as either acids or bases.</li>
+              </ul>
+              <p>To decide if a salt solution is acidic, basic, or neutral, analyze each ion and see which behavior dominates.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Amphiprotic anions &amp; comparing Ka and Kb</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>For an <strong>amphiprotic anion</strong> like HPO₄²⁻, we must consider its behavior as both acid and base:</p>
+              <ul>
+                <li>As acid: HPO₄²⁻ ⇌ H⁺ + PO₄³⁻ (Ka = Ka₃ for H₃PO₄).</li>
+                <li>As base: HPO₄²⁻ + H₂O ⇌ H₂PO₄⁻ + OH⁻ (K<sub>b</sub> = K<sub>w</sub>/Ka₂).</li>
+              </ul>
+              <p>Compare Ka (for losing H⁺) with K<sub>b</sub> (for gaining H⁺ via forming OH⁻). The larger constant indicates whether the ion behaves predominantly as an acid or a base in water.</p>
+              <p>For Na₂HPO₄:</p>
+              <ul>
+                <li>Na⁺ is neutral.</li>
+                <li>HPO₄²⁻ has K<sub>b</sub> ≫ Ka, so the solution is basic overall.</li>
+              </ul>
+              <p>In general, Ka and K<sub>b</sub> are related via:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  K<sub>b</sub>(A⁻) = K<sub>w</sub> / K<sub>a</sub>(HA)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Kb(base) = Kw / Ka(conjugate acid)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This helps determine whether salts of amphiprotic ions are acidic or basic.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; classification practice</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: NH₄Cl.</strong></p>
+              <ul>
+                <li>NH₄Cl → NH₄⁺ + Cl⁻.</li>
+                <li>NH₄⁺ is acidic, Cl⁻ is neutral → solution is acidic.</li>
+              </ul>
+
+              <p><strong>Example: NaClO.</strong></p>
+              <ul>
+                <li>NaClO → Na⁺ + ClO⁻.</li>
+                <li>Na⁺ is neutral, ClO⁻ is basic → solution is basic.</li>
+              </ul>
+
+              <p><strong>Example: KBr.</strong></p>
+              <ul>
+                <li>K⁺ neutral; Br⁻ neutral (conjugate base of strong acid HBr) → solution is neutral.</li>
+              </ul>
+
+              <p><strong>Example: Na₂HPO₄.</strong></p>
+              <ul>
+                <li>Na⁺ neutral; HPO₄²⁻ is amphiprotic.</li>
+                <li>Ka (acid reaction) is tiny, K<sub>b</sub> (base reaction) is much bigger → solution is basic.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> For an unknown salt, first identify the acid and base that would form it by neutralization. If the original acid or base was strong, its conjugate partner in the salt is neutral; if it was weak, its conjugate partner will be acidic or basic.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 16.8 -->
+      <section
+        class="section-card"
+        id="sec-16-8"
+        data-section-title="16.8 Acid–Base Behavior and Chemical Structure binary acids oxyacids carboxylic acids Lewis acids bases"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">16.8 Acid–Base Behavior and Chemical Structure</div>
+            <div class="section-subtitle">Binary acids, oxyacids, carboxylic acids, and Lewis acids/bases.</div>
+          </div>
+          <div class="section-tagline">Roots: How structure makes an acid strong or weak.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Factors controlling acid strength</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Acid strength depends on how easy it is to lose H⁺ from HA. Three key factors:</p>
+              <ul>
+                <li><strong>H–A bond polarity</strong>: H must be partially positive (δ⁺) to be donated as H⁺.</li>
+                <li><strong>H–A bond strength</strong>: weaker bonds break more easily → stronger acids.</li>
+                <li><strong>Conjugate base stability</strong>: more stable A⁻ → stronger acid HA.</li>
+              </ul>
+
+              <p><strong>Binary acids</strong> (HX, H₂Y):</p>
+              <ul>
+                <li>Down a group: bond length increases, bond strength decreases → acidity increases (HF &lt; HCl &lt; HBr &lt; HI).</li>
+                <li>Across a period: increasing electronegativity of X → more polar H–X, more stable X⁻ → acidity increases (CH₄ ≪ NH₃ &lt; H₂O &lt; HF).</li>
+              </ul>
+
+              <p><strong>Oxyacids</strong> (Y–O–H):</p>
+              <ul>
+                <li>Y is often a nonmetal or a strongly positive metal.</li>
+                <li>As electronegativity of Y increases, more electron density is pulled from the O–H bond, making H⁺ easier to lose and A⁻ more stable → stronger acid.</li>
+                <li>More oxygens attached to Y → stronger acid (HClO &lt; HClO₂ &lt; HClO₃ &lt; HClO₄).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Carboxylic acids &amp; Lewis acids/bases</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Carboxylic acids</strong> (R–COOH) are common weak acids whose strength comes from:</p>
+              <ul>
+                <li><strong>Resonance stabilization</strong> of the conjugate base R–COO⁻ (charge delocalized over two oxygen atoms).</li>
+                <li><strong>Inductive effects</strong>: electron-withdrawing groups on R increase acidity by stabilizing the conjugate base.</li>
+              </ul>
+              <p><strong>Lewis acids and bases</strong> expand the acid–base concept:</p>
+              <ul>
+                <li><strong>Lewis acid</strong>: electron pair acceptor.</li>
+                <li><strong>Lewis base</strong>: electron pair donor.</li>
+              </ul>
+              <p>This definition includes, but is broader than, the Brønsted–Lowry definition. Many metal cations and electron-deficient molecules are Lewis acids; any species with a lone pair can be a Lewis base.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; structural patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Binary acid trends:</strong></p>
+              <ul>
+                <li>Group 17: HF (weak acid), HCl, HBr, HI (all strong acids in water).</li>
+                <li>HF has a very strong H–F bond (high bond energy), which makes it harder for H⁺ to leave despite high bond polarity.</li>
+              </ul>
+
+              <p><strong>Oxyacid trends:</strong></p>
+              <ul>
+                <li>Hypohalous acids Y–O–H (Y = Cl, Br, I): Ka increases with electronegativity of Y → HClO (strongest) &gt; HBrO &gt; HIO.</li>
+                <li>With a fixed central atom Y, more O atoms (more electron-withdrawing groups) lead to stronger acids (for example, HNO₂ &lt; HNO₃).</li>
+              </ul>
+
+              <p><strong>Carboxylic vs alcohol acids:</strong></p>
+              <ul>
+                <li>Acetic acid (CH₃COOH) is much more acidic than ethanol (CH₃CH₂OH).</li>
+                <li>Acetate (CH₃COO⁻) is resonance-stabilized; ethoxide (CH₃CH₂O⁻) is not.</li>
+              </ul>
+
+              <p><strong>Lewis acid–base examples:</strong></p>
+              <ul>
+                <li>BF₃ + NH₃ → F₃B←NH₃:
+                  <ul>
+                    <li>BF₃ (electron-deficient boron) is a Lewis acid.</li>
+                    <li>NH₃ (lone pair on N) is a Lewis base.</li>
+                  </ul>
+                </li>
+                <li>Fe³⁺ + 6H₂O → [Fe(H₂O)₆]³⁺: Fe³⁺ is a Lewis acid; H₂O is a Lewis base.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> For structure–acidity questions, look for:
+                <ul>
+                  <li>How easy it is to break H–A (bond length and strength).</li>
+                  <li>How polar the bond is (electronegativity differences).</li>
+                  <li>How well the resulting conjugate base can spread out or stabilize the negative charge (resonance, inductive effects).</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => { link.style.opacity = ''; });
+            return;
+          }
+          cards.forEach(card => {
+            const title = (card.getAttribute('data-section-title') || '').toLowerCase();
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

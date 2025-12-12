@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Chapter 26 Concept Map</title>
+  <style>
+    :root {
+      --bg:#030711;
+      --card:#0f172a;
+      --card-alt:#1e293b;
+      --text:#e2e8f0;
+      --accent:#38bdf8;
+      --muted:#94a3b8;
+      --border:#334155;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .page{
+      display:flex;
+      min-height:100vh;
+      flex-direction:row;
+    }
+    .sidebar{
+      width:260px;
+      background:#020617;
+      border-right:1px solid var(--border);
+      padding:1.5rem;
+      position:sticky;
+      top:0;
+      height:100vh;
+    }
+    .sidebar h1{
+      margin:0 0 0.8rem;
+      font-size:1.25rem;
+    }
+    .sidebar input{
+      width:100%;
+      padding:0.55rem;
+      border-radius:0.35rem;
+      border:1px solid var(--border);
+      background:#0b1221;
+      color:var(--text);
+      margin-bottom:1rem;
+    }
+    .sidebar nav{
+      display:flex;
+      flex-direction:column;
+      gap:0.35rem;
+    }
+    .sidebar a{
+      color:var(--text);
+      text-decoration:none;
+      padding:0.4rem 0.5rem;
+      border:1px solid transparent;
+      border-radius:0.35rem;
+      font-size:0.95rem;
+    }
+    .sidebar a:hover{
+      border-color:var(--accent);
+      background:rgba(56,189,248,0.12);
+    }
+    .content{
+      flex:1;
+      padding:2rem;
+      background:linear-gradient(180deg,#01040b,#030711);
+      display:flex;
+      flex-direction:column;
+      gap:1.25rem;
+    }
+    .card{
+      background:var(--card);
+      border-radius:1rem;
+      border:1px solid var(--border);
+      padding:1.4rem;
+      box-shadow:0 15px 30px rgba(0,0,0,0.45);
+    }
+    .card h2{
+      margin:0 0 0.9rem;
+      font-size:1.35rem;
+    }
+    .nodes{
+      display:flex;
+      flex-direction:column;
+      gap:0.75rem;
+    }
+    .node-toggle{
+      background:#0b111f;
+      border:1px solid var(--border);
+      border-radius:0.5rem;
+      padding:0.55rem 0.75rem;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-weight:600;
+      color:var(--text);
+    }
+    .node-toggle span{
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+    .node-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.35s ease;
+      background:var(--card-alt);
+      border-radius:0.6rem;
+      border:1px solid var(--border);
+      padding:0 0.85rem;
+    }
+    .node-content.open{
+      padding:0.85rem;
+      max-height:1000px;
+    }
+    .node-content p,
+    .node-content ul{
+      margin:0;
+      line-height:1.55;
+    }
+    .node-content ul{
+      padding-left:1rem;
+      margin-top:0.4rem;
+    }
+    .inline-code{
+      font-family:"JetBrains Mono","SFMono-Regular",monospace;
+      padding:0.1rem 0.35rem;
+      border-radius:0.35rem;
+      border:1px solid rgba(148,163,184,0.4);
+      background:rgba(226,232,240,0.05);
+    }
+    .copy-btn{
+      margin-left:0.4rem;
+      background:transparent;
+      border:none;
+      color:var(--accent);
+      cursor:pointer;
+    }
+    #toast{
+      position:fixed;
+      right:1.5rem;
+      bottom:1.5rem;
+      padding:0.65rem 1rem;
+      border-radius:0.55rem;
+      border:1px solid rgba(56,189,248,0.5);
+      background:rgba(15,23,42,0.95);
+      opacity:0;
+      transition:opacity 0.3s ease;
+    }
+    @media (max-width:900px){
+      .page{
+        flex-direction:column;
+      }
+      .sidebar{
+        width:100%;
+        height:auto;
+        position:static;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+      }
+      .content{
+        padding:1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <h1>Chapter 26 Map</h1>
+      <p style="color:var(--muted);font-size:0.9rem;">Search topics, expand nodes, copy snippets, or double-click any block to copy.</p>
+      <input id="section-search" type="search" placeholder="Search topics…" />
+      <nav>
+        <a href="#section-26-1">26.1 Structure</a>
+        <a href="#section-26-2">26.2 Isomers & Names</a>
+        <a href="#section-26-3">26.3 Arrow Resonance</a>
+        <a href="#section-26-4">26.4 Electrophilic Addition</a>
+        <a href="#section-26-5">26.5 Hydrogenation</a>
+        <a href="#section-26-6">26.6 Polymerization</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <article class="card" id="section-26-1" data-keywords="pi bond sp hybrid formulas rigidity">
+        <h2>26.1 Structure of Unsaturated Hydrocarbons</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-1" aria-expanded="false">
+              Roots <span>Geometry & hybridization</span>
+            </button>
+            <div class="node-content" id="roots-26-1">
+              <p>Alkenes use sp² carbon atoms with trigonal planar geometry; ethene’s remaining p orbitals overlap sideways to create a π bond above and below the molecular plane, locking the molecule’s shape.</p>
+              <p>Alkynes have sp carbons (linear) with two perpendicular p orbitals; the triple bond comprises one σ and two π bonds, each with less orbital overlap than σ bonds and thus higher reactivity.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-1" aria-expanded="false">
+              Trunk <span>Formulas</span>
+            </button>
+            <div class="node-content" id="trunk-26-1">
+              <p><span class="inline-code">CnH2n</span> for alkenes and <span class="inline-code">CnH2n−2</span> for alkynes—each double bond removes two hydrogens, each triple removes four compared to saturated alkanes.</p>
+              <p>Bond order progression: single (154 pm, 350 kJ/mol) &lt; double (134 pm, 620 kJ/mol) &lt; triple (121 pm, 840 kJ/mol), showing stronger attraction for higher bond orders.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-1" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-1">
+              <p>Ethene’s planar geometry arises because the sp² orbitals lie in a plane while the unhybridized p orbitals overlap perpendicularly; rotating around the double bond would break that π overlap.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" id="section-26-2" data-keywords="nomenclature E Z Markovnikov cycloalkene">
+        <h2>26.2 Isomerism and Nomenclature</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-2" aria-expanded="false">
+              Roots <span>Names</span>
+            </button>
+            <div class="node-content" id="roots-26-2">
+              <p>Names come from the longest chain containing the multiple bond; double/triple bonds get the lowest-numbered locant and change the suffix (-ene, -yne).</p>
+              <p>Cyclic alkenes share the general formula <span class="inline-code">CnH2n−2</span>, the same as acyclic alkynes with the same number of carbons.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-2" aria-expanded="false">
+              Trunk <span>E/Z system</span>
+            </button>
+            <div class="node-content" id="trunk-26-2">
+              <p>Assign priorities to the two substituents on each double-bonded carbon using atomic numbers; then compare radical positions: same side=Z, opposite=E.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-2" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-2">
+              <p>Pentene yields pent-1-ene plus cis/trans pent-2-ene; hept-2-ene with a methyl on C4 becomes Z-4-methylhept-2-ene when the higher-priority groups lie together.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" id="section-26-3" data-keywords="curved arrows resonance nitromethane formate retinal electron counting">
+        <h2>26.3 Arrow Notation and Resonance</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-3" aria-expanded="false">
+              Roots <span>Curved arrows</span>
+            </button>
+            <div class="node-content" id="roots-26-3">
+              <p>Curved arrows show electron pair movement: bonds to atoms (lone pair), atoms to bonds (π formation), or bond to bond (redistribution). Always retain electron count, obey octets, and ensure charges/paired electrons stay consistent.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-3" aria-expanded="false">
+              Trunk <span>General scheme</span>
+            </button>
+            <div class="node-content" id="trunk-26-3">
+              <p>The nucleophile (Nu⁻) donates electrons to the electrophile (E⁺); the resulting bond follows the equation <span class="inline-code">Nu⁻ + E⁺ → Nu–E</span>.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-3" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-3">
+              <p>Nitromethane has two resonance forms; the electron pair shifts from one oxygen to the other, delocalizing the negative charge and equalizing N–O bond lengths.</p>
+              <p>Vision depends on breaking a π bond in retinal—light energy cleaves the π component, allowing rotation and triggering the visual response.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" id="section-26-4" data-keywords="Markovnikov addition carbocation halohydrin E Z halogen hydration">
+        <h2>26.4 Electrophilic Addition Reactions</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-4" aria-expanded="false">
+              Roots <span>Mechanism</span>
+            </button>
+            <div class="node-content" id="roots-26-4">
+              <p>Alkenes/alkynes react with electrophiles to form carbocations, which nucleophiles then attack; the first step is rate-determining (rate = k[alkene][HBr]).</p>
+              <p>Markovnikov’s rule: the electrophile (often H⁺) adds to the carbon with more hydrogens so that the positive charge rests on the more substituted carbon.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-4" aria-expanded="false">
+              Trunk <span>General equation</span>
+            </button>
+            <div class="node-content" id="trunk-26-4">
+              <p><span class="inline-code">C=C + E⁺ + Nu⁻ → C–E + C–Nu</span> (Equation 26.25) lets you design halogenation, hydrohalogenation, hydration, or halohydrin formation through appropriate electrophile/nucleophile pairs.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-4" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-4">
+              <p>HBr adds to 2-methylpropene to give 2-bromo-2-methylpropane (tertiary carbocation) and bromohydrin formation from propene + Br₂ + H₂O yields 1-bromo-2-propanol via a cyclic bromonium ion and anti addition.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" id="section-26-5" data-keywords="hydrogenation Pt Pd Ni cis fats margarine">
+        <h2>26.5 Alkanes from Alkenes: Catalytic Hydrogenation</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-5" aria-expanded="false">
+              Roots <span>Catalyst action</span>
+            </button>
+            <div class="node-content" id="roots-26-5">
+              <p>H₂ adds across multiple bonds on metal catalysts (Pt, Pd, Ni); the H–H bond breaks on the surface, and hydrogen atoms add syn to the π bond, saturating the alkene or alkyne.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-5" aria-expanded="false">
+              Trunk <span>Reaction</span>
+            </button>
+            <div class="node-content" id="trunk-26-5">
+              <p><span class="inline-code">C=C + H₂ → C–C</span> (Equation 26.29) is exothermic (~137 kJ/mol) because the weaker π bond is replaced with new σ bonds.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-5" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-5">
+              <p>Hydrogenating linoleic/oleic esters converts kinks into straight chains, turning oils into solids (margarine); hydrogenation of 1,2-dimethylcyclohexene gives cis-1,2-dimethylcyclohexane due to syn addition.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" id="section-26-6" data-keywords="polymerization initiation propagation termination LDPE HDPE vulcanization cross-linking">
+        <h2>26.6 Addition Polymerization</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-26-6" aria-expanded="false">
+              Roots <span>Polymer basics</span>
+            </button>
+            <div class="node-content" id="roots-26-6">
+              <p>Addition polymers form when radicals or other reactive centers sequentially add monomers; the repeat unit is repeated n times, yielding macromolecules such as polyethene.</p>
+              <p><span class="inline-code">n CH₂=CH₂ → [−CH₂−CH₂−]ₙ</span> (Equation 26.35), where n may be hundreds of thousands.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-26-6" aria-expanded="false">
+              Trunk <span>Mechanism</span>
+            </button>
+            <div class="node-content" id="trunk-26-6">
+              <ul>
+                <li>Initiation: peroxide (e.g., benzoyl) forms radicals using fishhook arrows.</li>
+                <li>Propagation: each radical adds another monomer, regenerating the radical.</li>
+                <li>Termination: two radicals combine to end growth.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-26-6" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-26-6">
+              <p>LDPE (branched) is low density and amorphous; HDPE (linear) is crystalline and used for pipes. Vulcanized rubber cross-links chains with sulfur, turning sticky latex into strong, elastic material.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    document.querySelectorAll('.node-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        target.classList.toggle('open', !expanded);
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    const showToast = (msg) => {
+      toast.textContent = msg;
+      toast.style.opacity = '1';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.style.opacity = '0', 2000);
+    };
+
+    const copyText = (text) => {
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard'));
+    };
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => copyText(btn.dataset.copy));
+    });
+
+    document.body.addEventListener('dblclick', (event) => {
+      const container = event.target.closest('.node-content');
+      if (container) copyText(container.innerText);
+    });
+
+    document.getElementById('section-search').addEventListener('input', (event) => {
+      const query = event.target.value.trim().toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const keywords = card.dataset.keywords || '';
+        card.style.display = query === '' || keywords.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

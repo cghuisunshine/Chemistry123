@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chapter 23 – Transition Metals and Coordination Chemistry: Concept Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+        --bg: #050816;
+        --bg-elevated: #0b1020;
+        --bg-node: #111827;
+        --border-subtle: #1f2937;
+        --accent: #22d3ee;
+        --accent-soft: rgba(34, 211, 238, 0.15);
+        --text-main: #e5e7eb;
+        --text-muted: #9ca3af;
+        --text-soft: #6b7280;
+        --danger: #f97373;
+        --radius-lg: 12px;
+        --radius-md: 8px;
+        --radius-sm: 4px;
+        --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+        --transition-fast: 0.18s ease-out;
+        --transition-med: 0.25s ease-out;
+        --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: var(--font-sans);
+        background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+        color: var(--text-main);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        display: flex;
+        min-height: 100vh;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .sidebar {
+        flex: 0 0 280px;
+        background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+        border-radius: var(--radius-lg);
+        padding: 1rem 1rem 1.25rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        box-shadow: var(--shadow-soft);
+        position: sticky;
+        top: 0.75rem;
+        align-self: flex-start;
+        max-height: calc(100vh - 1.5rem);
+        overflow: auto;
+      }
+
+      .sidebar-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .sidebar-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #e5e7eb;
+      }
+
+      .sidebar-subtitle {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+      }
+
+      .sidebar-section {
+        margin-bottom: 0.9rem;
+      }
+
+      .search-label {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 0.45rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-main);
+        font-size: 0.85rem;
+        outline: none;
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      }
+
+      .search-box::placeholder {
+        color: #6b7280;
+      }
+
+      .search-box:focus {
+        border-color: var(--accent);
+        background: #020617;
+        box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+      }
+
+      .search-hint {
+        font-size: 0.7rem;
+        color: var(--text-soft);
+        margin-top: 0.25rem;
+      }
+
+      .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.2rem 0 0;
+        border-top: 1px solid rgba(31, 41, 55, 0.9);
+        padding-top: 0.5rem;
+      }
+
+      .nav-item {
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .nav-link span {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.25rem;
+      }
+
+      .nav-link strong {
+        font-weight: 600;
+        color: #e5e7eb;
+      }
+
+      .nav-link small {
+        text-transform: uppercase;
+        letter-spacing: 0.11em;
+        font-size: 0.68rem;
+        color: var(--text-soft);
+      }
+
+      .nav-link:hover {
+        background: rgba(56, 189, 248, 0.2);
+        border-color: rgba(45, 212, 191, 0.6);
+        color: #f9fafb;
+        transform: translateX(2px);
+      }
+
+      .nav-link.active-link {
+        background: var(--accent-soft);
+        border-color: rgba(34, 211, 238, 0.9);
+        color: #f9fafb;
+      }
+
+      .nav-tag {
+        font-size: 0.65rem;
+        padding: 0.05rem 0.4rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        color: var(--text-soft);
+      }
+
+      .sidebar-footer {
+        border-top: 1px solid rgba(31, 41, 55, 0.9);
+        margin-top: 0.7rem;
+        padding-top: 0.4rem;
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .sidebar-footer strong {
+        color: var(--text-muted);
+      }
+
+      .sidebar-footer code {
+        font-family: var(--font-mono);
+        background: rgba(15, 23, 42, 0.9);
+        padding: 0.08rem 0.35rem;
+        border-radius: 999px;
+        border: 1px solid rgba(51, 65, 85, 0.9);
+        font-size: 0.7rem;
+      }
+
+      .content {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .content-header {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+        border-radius: var(--radius-lg);
+        padding: 1rem 1.25rem;
+        border: 1px solid rgba(129, 140, 248, 0.7);
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .header-main {
+        position: relative;
+        z-index: 1;
+      }
+
+      .header-title {
+        font-size: 1.5rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+      }
+
+      .header-subtitle {
+        font-size: 0.9rem;
+        color: #cbd5f5;
+        margin-top: 0.1rem;
+      }
+
+      .header-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.6rem;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+      }
+
+      .header-tag {
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(191, 219, 254, 0.7);
+        background: rgba(15, 23, 42, 0.8);
+        color: #e0f2fe;
+      }
+
+      .header-highlight {
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+        color: #e5e7eb;
+        max-width: 46rem;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .section-card {
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(31, 41, 55, 0.95);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+        padding: 0.9rem 1rem 0.95rem;
+        position: relative;
+        overflow: hidden;
+        transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+      }
+
+      .section-card:hover {
+        border-color: rgba(34, 211, 238, 0.7);
+        transform: translateY(-2px);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+        background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: baseline;
+        margin-bottom: 0.35rem;
+      }
+
+      .section-title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.05rem;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-soft);
+      }
+
+      .section-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+      }
+
+      .section-badge {
+        padding: 0.15rem 0.45rem;
+        border-radius: 999px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        color: var(--text-soft);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .section-summary {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .nodes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .node {
+        border-radius: var(--radius-md);
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+      }
+
+      .node:hover {
+        border-color: rgba(34, 211, 238, 0.7);
+        transform: translateY(-1px);
+      }
+
+      .node-header {
+        border: none;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+        color: #f9fafb;
+        padding: 0.4rem 0.55rem;
+        font-size: 0.78rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      .node-header span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .node-type {
+        font-weight: 600;
+      }
+
+      .node-tagline {
+        font-size: 0.7rem;
+        color: rgba(209, 213, 219, 0.9);
+      }
+
+      .node-header::after {
+        content: "▾";
+        font-size: 0.75rem;
+        color: rgba(209, 213, 219, 0.9);
+        transform-origin: center;
+        transition: transform var(--transition-fast);
+      }
+
+      .node.collapsed .node-header::after {
+        transform: rotate(-90deg);
+      }
+
+      .node-content {
+        padding: 0.45rem 0.55rem 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-main);
+        background: rgba(15, 23, 42, 0.98);
+        line-height: 1.5;
+      }
+
+      .node.collapsed .node-content {
+        display: none;
+      }
+
+      .node-section-title {
+        font-weight: 600;
+        font-size: 0.82rem;
+        margin-bottom: 0.15rem;
+        color: var(--accent);
+      }
+
+      .node-list {
+        margin: 0.1rem 0 0.25rem;
+        padding-left: 1.1rem;
+      }
+
+      .node-list li {
+        margin-bottom: 0.12rem;
+      }
+
+      .chips-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+        margin-top: 0.3rem;
+        font-size: 0.7rem;
+      }
+
+      .chip {
+        padding: 0.08rem 0.4rem;
+        border-radius: 999px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        color: var(--text-soft);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin: 0.18rem 0;
+        padding: 0.2rem 0.25rem;
+        border-radius: var(--radius-sm);
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(55, 65, 81, 0.9);
+      }
+
+      .formula-label {
+        font-size: 0.72rem;
+        color: var(--text-soft);
+        margin-right: 0.1rem;
+        white-space: nowrap;
+      }
+
+      .formula-text {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: #e5e7eb;
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+
+      .copy-button {
+        border: none;
+        background: rgba(15, 23, 42, 0.9);
+        color: #f9fafb;
+        cursor: pointer;
+        font-size: 0.8rem;
+        border-radius: 999px;
+        padding: 0.12rem 0.35rem;
+        line-height: 1;
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(75, 85, 99, 0.9);
+        transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+      }
+
+      .copy-button:hover {
+        background: rgba(34, 211, 238, 0.2);
+        border-color: rgba(34, 211, 238, 0.9);
+        transform: translateY(-1px);
+      }
+
+      .example-block {
+        margin-top: 0.2rem;
+        padding: 0.35rem 0.4rem;
+        border-radius: var(--radius-sm);
+        background: rgba(15, 23, 42, 0.97);
+        border: 1px dashed rgba(55, 65, 81, 0.9);
+      }
+
+      .example-title {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #fbbf24;
+        margin-bottom: 0.12rem;
+      }
+
+      .example-body {
+        margin: 0;
+        font-size: 0.78rem;
+        color: var(--text-main);
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 0.85rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(120%);
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.96);
+        color: #f9fafb;
+        border: 1px solid rgba(34, 211, 238, 0.9);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-med), transform var(--transition-med);
+        z-index: 80;
+      }
+
+      .toast.visible {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @media (max-width: 960px) {
+        .page {
+          flex-direction: column;
+          padding: 0.6rem;
+        }
+        .sidebar {
+          position: static;
+          max-height: none;
+          width: 100%;
+          order: 0;
+        }
+        .content {
+          order: 1;
+        }
+        .nodes {
+          grid-template-columns: 1fr;
+        }
+        .section-card {
+          padding: 0.85rem 0.8rem 0.9rem;
+        }
+        .content-header {
+          padding: 0.9rem 0.8rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .sidebar-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .header-title {
+          font-size: 1.25rem;
+        }
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nodes {
+          gap: 0.45rem;
+        }
+        .formula-text {
+          font-size: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title">Chapter 23 Map</div>
+          <div class="sidebar-subtitle">Transition metals &amp; coordination</div>
+        </div>
+
+        <div class="sidebar-section">
+          <label for="search-box" class="search-label">Search / filter</label>
+          <input id="search-box" class="search-box" type="search" placeholder="ligands, Δ, chelate, color, spin..." />
+          <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="search-label">Sections</div>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#sec-23-1" class="nav-link">
+                <span><strong>23.1</strong><small>transition metals</small></span>
+                <span class="nav-tag">properties &amp; magnetism</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#sec-23-2" class="nav-link">
+                <span><strong>23.2</strong><small>complexes</small></span>
+                <span class="nav-tag">coordination spheres</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#sec-23-3" class="nav-link">
+                <span><strong>23.3</strong><small>ligands</small></span>
+                <span class="nav-tag">chelates &amp; biology</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#sec-23-4" class="nav-link">
+                <span><strong>23.4</strong><small>names &amp; isomers</small></span>
+                <span class="nav-tag">nomenclature</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#sec-23-5" class="nav-link">
+                <span><strong>23.5</strong><small>color &amp; magnetism</small></span>
+                <span class="nav-tag">spectra</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#sec-23-6" class="nav-link">
+                <span><strong>23.6</strong><small>crystal-field</small></span>
+                <span class="nav-tag">Δ &amp; spin state</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-footer">
+          <div><strong>Copy tips</strong></div>
+          <div>• Click <code>📋</code> to copy formulas.</div>
+          <div>• Double-click any text to copy it.</div>
+          <div>Use search + section links for quick review.</div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="content-header">
+          <div class="header-main">
+            <div class="header-title">Transition Metals and Coordination Chemistry – Concept Map</div>
+            <div class="header-subtitle">Chapter 23 • From d-orbitals and oxidation states to ligands, chelates, color, and crystal-field theory</div>
+            <div class="header-tags">
+              <span class="header-tag">d-block trends</span>
+              <span class="header-tag">coordination compounds</span>
+              <span class="header-tag">CRYSTAL-FIELD &amp; spin</span>
+            </div>
+            <p class="header-highlight">
+              Each card turns a section of Chapter 23 into roots–trunk–leaves: core ideas about transition metals and their complexes, the key formulas and rules (oxidation states, formation constants, ΔG°, E = hc/λ,
+  crystal-field splitting), and short worked examples that link structure, color, and magnetism to real systems such as hemoglobin, chelating agents, and high- vs low-spin complexes.
+            </p>
+          </div>
+        </header>
+
+        <section class="cards">
+
+          <!-- 23.1 The Transition Metals -->
+          <article class="section-card" id="sec-23-1" data-section-keywords="transition metals d-block oxidation states ferromagnetic paramagnetic diamagnetic lanthanide contraction hemoglobin hemocyanin">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.1 The Transition Metals</div>
+                <div class="section-label">Position, physical properties &amp; magnetism</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">d-block</div>
+                <div class="section-badge">variable oxidation states</div>
+                <div class="section-badge">magnetic behavior</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              Transition metals occupy groups 3–12, where d orbitals are being filled. Their partially filled d subshells give them characteristic radii, multiple oxidation states, colored compounds, and a rich set of
+  magnetic behaviors that show up in everything from structural alloys to blood pigments.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Where transition metals live &amp; what makes them special</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      Transition metals occupy the d-block (groups 3–12). Their valence shells contain (n−1)d and ns electrons, and the (n−1)d subshell is in the process of being filled across each series.
+                    </li>
+                    <li>
+                      In nature they are found as minerals (Fe<sub>2</sub>O<sub>3</sub>, CuFeS<sub>2</sub>, etc.). Metallurgy involves mining, concentrating, reducing, and refining these ores and often alloying the
+  resulting metals.
+                    </li>
+                    <li>
+                      Metallic radii decrease from left to right at first due to increasing effective nuclear charge and stronger metallic bonding, then level off or increase; the lanthanide contraction causes 4d and 5d
+  metals in a group to have similar radii and chemistry.
+                    </li>
+                    <li>
+                      When transition metals are oxidized, ns electrons are lost before (n−1)d electrons; most cations retain partially filled d subshells.
+                    </li>
+                    <li>
+                      Partially filled d subshells lead to variable oxidation states, colored compounds, and magnetic behavior (paramagnetism, ferromagnetism, antiferromagnetism, ferrimagnetism).
+                    </li>
+                    <li>
+                      Diamagnetic substances (all electrons paired) are weakly repelled by a magnetic field, whereas paramagnetic substances (one or more unpaired electrons) are attracted.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">lanthanide contraction</span>
+                    <span class="chip">partially filled d subshells</span>
+                    <span class="chip">diamagnetic vs paramagnetic</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">Electron configurations, oxidation states &amp; magnetism</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Fe atom &amp; ions:</span>
+                    <span class="formula-text">Fe: [Ar] 3d⁶ 4s²; Fe²⁺: [Ar] 3d⁶; Fe³⁺: [Ar] 3d⁵</span>
+                    <button class="copy-button" type="button" aria-label="Copy Fe configurations">📋</button>
+                  </div>
+                  <p>
+                    In forming cations, Fe first loses its 4s electrons, then (for Fe³⁺) one 3d electron. The especially stable half-filled d⁵ configuration helps explain the common +3 oxidation state.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Max oxidation state (example):</span>
+                    <span class="formula-text">Mn: [Ar] 3d⁵ 4s² → max oxidation state ≈ +7</span>
+                    <button class="copy-button" type="button" aria-label="Copy Mn oxidation state rule">📋</button>
+                  </div>
+                  <p>
+                    For early transition metals, the highest oxidation state is often the sum of ns and (n−1)d electrons, realized in oxides or fluorides with very electronegative ligands.
+                  </p>
+
+                  <p>
+                    Magnetic behavior is governed by the number of unpaired d electrons: completely filled d¹⁰ or empty d⁰ subshells produce diamagnetic ions, whereas partially filled d subshells usually give
+  paramagnetism or, in solids, more complex magnetic ordering.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">Examples: Mn²⁺ vs Zn²⁺, blood pigments</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Which ion is paramagnetic?</div>
+                    <p class="example-body">
+                      Zn: [Ar] 3d¹⁰ 4s² → Zn²⁺: [Ar] 3d¹⁰ (no unpaired electrons) → diamagnetic. Mn: [Ar] 3d⁵ 4s² → Mn²⁺: [Ar] 3d⁵ (five unpaired electrons) → strongly paramagnetic. The unpaired d electrons in Mn²⁺
+  produce a sizable magnetic moment; Zn²⁺ with filled d orbitals does not.
+                    </p>
+                  </div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Metals in blood pigments</div>
+                    <p class="example-body">
+                      Human hemoglobin contains Fe²⁺ in a porphyrin ligand environment and gives red blood; some marine animals use Cu-containing hemocyanin, which becomes blue when oxygen binds and converts Cu⁺ to
+  Cu²⁺. Both are transition metals whose variable oxidation states and d-electron structures enable reversible O₂ binding.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 23.2 Transition-Metal Complexes -->
+          <article class="section-card" id="sec-23-2" data-section-keywords="coordination compound complex ion coordination sphere coordination number Lewis acid base Ag(NH3)2 charge balance E degree potentials">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.2 Transition-Metal Complexes</div>
+                <div class="section-label">Coordination spheres, charges &amp; Lewis acid–base bonding</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">complex ions</div>
+                <div class="section-badge">coordination number</div>
+                <div class="section-badge">redox tuning</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              Coordination compounds consist of a metal center surrounded by ligands inside a coordination sphere, with counterions providing charge balance. The metal–ligand bond is a Lewis acid–base interaction, and
+  complex formation can change both color and redox behavior of metal ions.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Complex ions, ligands &amp; coordination numbers</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      A coordination compound contains a complex ion: a central metal atom/ion surrounded by ligands. The metal plus ligands form the coordination sphere, written in square brackets, with counterions
+  outside.
+                    </li>
+                    <li>
+                      Ligands are molecules or ions with lone pairs (H₂O, NH₃, Cl⁻, CN⁻, NO₂⁻) that donate electron pairs to the metal, acting as Lewis bases; the metal center acts as a Lewis acid.
+                    </li>
+                    <li>
+                      The <strong>coordination number</strong> is the number of donor atoms directly bonded to the metal; common values are 4 (tetrahedral or square planar) and 6 (octahedral).
+                    </li>
+                    <li>
+                      Hydrated metal ions such as [Fe(H₂O)₆]³⁺ are themselves coordination complexes, with water as the ligand.
+                    </li>
+                    <li>
+                      Complex formation can dramatically change color, solubility, and reduction potential of the metal ion, enabling control of chemical reactivity.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">coordination sphere</span>
+                    <span class="chip">Lewis acid–base</span>
+                    <span class="chip">hydrated complexes</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">Formation of complexes &amp; charge accounting</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Diamminesilver(I):</span>
+                    <span class="formula-text">Ag⁺(aq) + 2 NH₃(aq) ⇌ [Ag(NH₃)₂]⁺(aq)</span>
+                    <button class="copy-button" type="button" aria-label="Copy diamminesilver formation">📋</button>
+                  </div>
+                  <p>
+                    Silver(I) accepts two lone pairs from NH₃ to form a linear complex ion with coordination number 2. This is a simple example of a Lewis acid–base interaction at the metal center.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Charge relation:</span>
+                    <span class="formula-text">charge(complex) = oxidation state(metal) + Σ ligand charges</span>
+                    <button class="copy-button" type="button" aria-label="Copy charge relation for complexes">📋</button>
+                  </div>
+                  <p>
+                    Knowing the total complex charge and ligand charges lets you deduce the metal’s oxidation state. For [Cu(NH₃)₄]SO₄, sulfate is 2−, so [Cu(NH₃)₄] must be 2+, and neutral NH₃ ligands imply Cu²⁺.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Ag⁺ redox vs cyanide:</span>
+                    <span class="formula-text">Ag⁺ + e⁻ → Ag(s), E° = +0.799 V; [Ag(CN)₂]⁻ + e⁻ → Ag(s) + 2 CN⁻, E° = −0.31 V</span>
+                    <button class="copy-button" type="button" aria-label="Copy Ag redox potentials">📋</button>
+                  </div>
+                  <p>
+                    Complexation with cyanide stabilizes Ag⁺ in solution so strongly that the reduction potential becomes negative; the complex ion is much harder to reduce than bare Ag⁺.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">Worked oxidation-state example</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short example &amp; interpretation</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – [Co(NH₃)₅Cl]Cl₂</div>
+                    <p class="example-body">
+                      The complex cation is [Co(NH₃)₅Cl]²⁺ with two Cl⁻ counterions. NH₃ ligands are neutral; the coordinated Cl⁻ is −1. Charge balance gives x + 5(0) + (−1) = +2 → x = +3, so the metal oxidation state
+  is +3. There are six donor atoms (five N from NH₃ and one Cl), so the coordination number is 6 and the geometry is usually octahedral.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 23.3 Common Ligands in Coordination Chemistry -->
+          <article class="section-card" id="sec-23-3" data-section-keywords="chelate chelating agents EDTA en oxalate porphyrin heme chlorophyll ΔG = ΔH - TΔS Kf Ni(en)3 Cu(H2O)4 en">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.3 Common Ligands in Coordination Chemistry</div>
+                <div class="section-label">Monodentate, polydentate &amp; chelates in life and technology</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">chelate effect</div>
+                <div class="section-badge">formation constants</div>
+                <div class="section-badge">biological ligands</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              Ligands range from simple monodentate donors like H₂O and Cl⁻ to multidentate chelating agents like ethylenediamine, oxalate, EDTA, and porphyrins. Chelates are especially stable, a fact captured in large
+  formation constants and explained by favorable enthalpy and entropy changes.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Types of ligands &amp; the chelate effect</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      Monodentate ligands bind through a single donor atom (H₂O, NH₃, Cl⁻, CN⁻, OH⁻, NO₂⁻). Bidentate ligands (ethylenediamine, en; oxalate, C₂O₄²⁻) bind through two atoms; polydentate ligands (EDTA⁴⁻,
+  triphosphates, porphyrins) bind through three or more donor atoms.
+                    </li>
+                    <li>
+                      When a ligand binds through multiple donor atoms to the same metal, it forms a <strong>chelate</strong>. Chelating agents “wrap around” the metal and occupy several coordination sites.
+                    </li>
+                    <li>
+                      Chelate complexes are usually far more stable than comparable complexes with only monodentate ligands; this enhanced stability is known as the <strong>chelate effect</strong>.
+                    </li>
+                    <li>
+                      Chelating agents are used to sequester metal ions in detergents, foods, industrial processes, and medicine (for example, Na₂Ca(EDTA) to treat lead poisoning).
+                    </li>
+                    <li>
+                      In biology, porphyrin ligands bind Fe²⁺ in heme (hemoglobin, myoglobin) and Mg²⁺ in chlorophyll, enabling O₂ transport and photosynthesis.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">monodentate / polydentate</span>
+                    <span class="chip">chelates</span>
+                    <span class="chip">EDTA &amp; porphyrins</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">Formation constants &amp; thermodynamics of chelation</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Ni²⁺ + NH₃:</span>
+                    <span class="formula-text">[Ni(H₂O)₆]²⁺ + 6 NH₃ ⇌ [Ni(NH₃)₆]²⁺ + 6 H₂O, Kf = 1.2 × 10⁹</span>
+                    <button class="copy-button" type="button" aria-label="Copy Ni ammonia formation">📋</button>
+                  </div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Ni²⁺ + en:</span>
+                    <span class="formula-text">[Ni(H₂O)₆]²⁺ + 3 en ⇌ [Ni(en)₃]²⁺ + 6 H₂O, Kf = 6.8 × 10¹⁷</span>
+                    <button class="copy-button" type="button" aria-label="Copy Ni en formation">📋</button>
+                  </div>
+                  <p>
+                    Both complexes are octahedral and contain Ni²⁺, but the chelating ligand en gives a formation constant about 10⁸ times larger than NH₃, a dramatic manifestation of the chelate effect.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Free energy:</span>
+                    <span class="formula-text">ΔG° = ΔH° − TΔS° = −RT ln K</span>
+                    <button class="copy-button" type="button" aria-label="Copy ΔG expressions">📋</button>
+                  </div>
+                  <p>
+                    ΔG° (kJ·mol⁻¹) combines enthalpy (ΔH°, bond energies) and entropy (ΔS°, disorder/particle count). A more negative ΔG° corresponds to a larger K and a more stable complex.
+                  </p>
+
+                  <p>
+                    For Cu²⁺, replacing two H₂O with 2 NH₃ is exothermic (ΔH° &lt; 0) but slightly decreases entropy (ΔS° &lt; 0). Replacing them with one bidentate en is more exothermic and <em>increases</em> entropy
+  because one ligand replaces two, increasing the number of free molecules; both effects drive a more negative ΔG° and a larger K.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">Chelates in hard water &amp; hemoglobin</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – EDTA as a water softener</div>
+                    <p class="example-body">
+                      EDTA⁴⁻ binds Ca²⁺ through six donor atoms, forming a 1:1 chelate. Several water molecules are released and multiple strong metal–ligand bonds form, giving large negative ΔH° and positive ΔS°. As a
+  result, ΔG° is strongly negative, K is huge, and Ca²⁺ is effectively removed from solution, preventing scale and soap scum.
+                    </p>
+                  </div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – CO poisoning and heme</div>
+                    <p class="example-body">
+                      In hemoglobin, Fe²⁺ is chelated by a porphyrin ligand (heme) and also bound to a histidine side chain from the globin protein. O₂ binds to the sixth coordination site, but CO binds much more
+  strongly. Because the chelate framework holds Fe²⁺ in a fixed geometry, substitution of CO for O₂ locks hemoglobin into a form that can no longer transport oxygen, even though the metal remains in the same oxidation
+  state.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 23.4 Nomenclature and Isomerism -->
+          <article class="section-card" id="sec-23-4" data-section-keywords="nomenclature ligand names -ido aqua ammine carbonyl coordination sphere isomers linkage cis trans optical enantiomer">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.4 Nomenclature and Isomerism in Coordination Chemistry</div>
+                <div class="section-label">How to name complexes &amp; recognize their isomers</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">naming rules</div>
+                <div class="section-badge">linkage &amp; sphere isomers</div>
+                <div class="section-badge">cis/trans &amp; optical</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              Coordination compounds are named by listing ligands in alphabetical order followed by the metal with its oxidation state, and they can exhibit structural (linkage and coordination-sphere) and
+  stereoisomerism (geometric and optical). Correct naming and isomer classification rely on careful attention to ligand identity, charge, and connectivity.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Naming complexes &amp; common ligand names</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      In salts, name the cation first, then the anion. Within a complex ion or neutral complex, name ligands in alphabetical order (ignoring numeric prefixes), then the metal.
+                    </li>
+                    <li>
+                      Anionic ligands end in <em>-ido</em> (chloro, bromo, cyano, hydroxido, oxalato, carbonato). Neutral ligands often retain their molecular names but use special names like aqua (H₂O), ammine (NH₃),
+  carbonyl (CO).
+                    </li>
+                    <li>
+                      Use di-, tri-, tetra-, penta-, hexa- for simple ligands; use bis-, tris-, tetrakis- for polydentate or already-prefixed ligands, writing their names in parentheses.
+                    </li>
+                    <li>
+                      If the complex ion is an anion, the metal name ends in <em>-ate</em>, sometimes using Latin forms: ferrate (Fe), cuprate (Cu), nickelate (Ni), molybdate (Mo).
+                    </li>
+                    <li>
+                      The metal oxidation state is given in Roman numerals in parentheses after the metal name.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">tetraaqua</span>
+                    <span class="chip">ammine vs ammonia</span>
+                    <span class="chip">-ate for anions</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">Isomer types &amp; naming examples</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Tetraaqua example:</span>
+                    <span class="formula-text">[Cr(H₂O)₄Cl₂]Cl → tetraaquadichloridochromium(III) chloride</span>
+                    <button class="copy-button" type="button" aria-label="Copy Cr complex name">📋</button>
+                  </div>
+                  <p>
+                    Four aqua and two chlorido ligands surround Cr³⁺ in the cation; the remaining Cl⁻ is a counterion. The ligand names come first, followed by the metal with its oxidation state, and then the counterion
+  name.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Nickelate example:</span>
+                    <span class="formula-text">K₄[Ni(CN)₄] → potassium tetracyanidonickelate(0)</span>
+                    <button class="copy-button" type="button" aria-label="Copy Ni complex name">📋</button>
+                  </div>
+                  <p>
+                    The complex is an anion (nickelate) with a formal Ni oxidation state of 0: 4 K⁺ ions balance the 4− charge from four cyano ligands, leaving Ni uncharged.
+                  </p>
+
+                  <p>
+                    Isomer classification follows a simple logic: if two complexes have the same composition but different connections (which atoms are bonded), they are <strong>constitutional isomers</strong> (linkage
+  or coordination-sphere). If they differ only in the 3D arrangement of ligands, they are <strong>stereoisomers</strong>—either <strong>geometric</strong> (cis/trans) or <strong>optical</strong> (non-superimposable
+  mirror images).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">Nitro vs nitrito &amp; cisplatin vs transplatin</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Linkage isomerism of nitrite</div>
+                    <p class="example-body">
+                      NO₂⁻ can bind through N (nitro) to give, for example, pentaammine-nitrocobalt(III) chloride, [(NH₃)₅Co(NO₂)]Cl₂, or through O (nitrito) to give pentaammine-nitritocobalt(III) chloride,
+  [(NH₃)₅Co(ONO)]Cl₂. These isomers differ in color and reactivity but have the same overall composition.
+                    </p>
+                  </div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Cisplatin vs transplatin</div>
+                    <p class="example-body">
+                      The square-planar complex [Pt(NH₃)₂Cl₂] exists as cis and trans isomers. Cisplatin, with adjacent NH₃ ligands and adjacent Cl⁻ ligands, can bind two neighboring N atoms in DNA, forming a chelate
+  that blocks replication and treats certain cancers. The trans isomer cannot form the same chelate and is therapeutically inactive, even though its formula is identical.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 23.5 Color and Magnetism -->
+          <article class="section-card" id="sec-23-5" data-section-keywords="color absorption spectrum complementary colors E = hc/λ Ti(H2O)6 3+ Co(NH3)4Cl2 magnetism unpaired electrons">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.5 Color and Magnetism in Coordination Chemistry</div>
+                <div class="section-label">d–d transitions, complementary colors &amp; unpaired electrons</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">absorption spectra</div>
+                <div class="section-badge">complementary colors</div>
+                <div class="section-badge">paramagnetism</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              The vivid colors and magnetic properties of many transition-metal complexes originate in d–d electronic transitions between split d orbitals and in the number of unpaired d electrons. The wavelength of
+  light absorbed is related to the energy gap E = hc/λ, and the observed color is usually the complement of the absorbed color.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Why transition-metal complexes are colorful &amp; magnetic</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      In many complexes, the metal d orbitals are split into two energy levels by the ligand field; electronic transitions between these levels absorb photons in the visible range (d–d transitions),
+  producing color.
+                    </li>
+                    <li>
+                      A complex appears colored because it absorbs certain wavelengths of visible light while transmitting or reflecting others. The perceived color is the mixture of unabsorbed light.
+                    </li>
+                    <li>
+                      Complementary colors are opposite each other on a color wheel: if a complex absorbs orange, it appears blue; if it absorbs red, it appears green, and so on.
+                    </li>
+                    <li>
+                      An absorption spectrum plots how strongly a sample absorbs each wavelength. Peaks in the visible region correspond to electronic transitions in the complex.
+                    </li>
+                    <li>
+                      The number of unpaired d electrons in a complex determines whether it is paramagnetic (one or more unpaired electrons) or diamagnetic (all paired); this can be measured and compared with crystal-
+  field predictions.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">d–d transitions</span>
+                    <span class="chip">complementary colors</span>
+                    <span class="chip">absorption spectra</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">E = hc/λ &amp; color relationships</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Photon energy:</span>
+                    <span class="formula-text">E = hc / λ</span>
+                    <button class="copy-button" type="button" aria-label="Copy photon energy formula">📋</button>
+                  </div>
+                  <p>
+                    E is the energy of a photon (J), h is Planck’s constant (6.626 × 10⁻³⁴ J·s), c is the speed of light (3.00 × 10⁸ m·s⁻¹), and λ is the wavelength in meters. Shorter wavelengths correspond to higher-
+  energy transitions.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Example energy → λ:</span>
+                    <span class="formula-text">E = 4.51×10⁻¹⁹ J → λ ≈ 440 nm (blue)</span>
+                    <button class="copy-button" type="button" aria-label="Copy energy-wavelength example">📋</button>
+                  </div>
+                  <p>
+                    A complex that absorbs mainly at 440 nm is absorbing blue light. If this is the dominant absorption, the transmitted/reflected light lacks blue and appears orange, its complementary color.
+                  </p>
+
+                  <p>
+                    For [Ti(H₂O)₆]³⁺, the absorption spectrum has a maximum in the green–yellow region near 500 nm, so the complex appears purple (a mixture of the transmitted red and violet light).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">Worked color &amp; magnetism examples</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Color of trans-[Co(NH₃)₄Cl₂]⁺</div>
+                    <p class="example-body">
+                      The complex trans-[Co(NH₃)₄Cl₂]⁺ absorbs strongly around 680 nm (red light). Removing red from white light leaves mainly green light, so the solution appears green. The cis isomer absorbs yellow
+  light and appears violet, even though its composition is the same.
+                    </p>
+                  </div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Magnetism from unpaired electrons</div>
+                    <p class="example-body">
+                      A solution of [Mn(H₂O)₆]²⁺ is strongly attracted by a magnet because Mn²⁺ has five unpaired d electrons (high-spin d⁵). In contrast, [Zn(H₂O)₆]²⁺ is weakly repelled because Zn²⁺ has a filled d¹⁰
+  subshell and is diamagnetic. These behaviors match the expectations from their electron configurations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 23.6 Crystal-Field Theory -->
+          <article class="section-card" id="sec-23-6" data-section-keywords="crystal-field theory Δ octahedral t2g eg spectrochemical series high spin low spin CoF6 3- Co(CN)6 3- tetrahedral square planar">
+            <header class="section-header">
+              <div class="section-title-group">
+                <div class="section-title">23.6 Crystal-Field Theory</div>
+                <div class="section-label">Ligand fields, Δ, spin states &amp; color</div>
+              </div>
+              <div class="section-badges">
+                <div class="section-badge">octahedral splitting</div>
+                <div class="section-badge">spectrochemical series</div>
+                <div class="section-badge">high-spin vs low-spin</div>
+              </div>
+            </header>
+            <p class="section-summary">
+              Crystal-field theory treats ligands as point charges or dipoles that split the energies of metal d orbitals. The resulting crystal-field splitting energy Δ controls both the color of a complex and whether
+  it adopts a high-spin or low-spin electron configuration.
+            </p>
+
+            <div class="nodes">
+              <!-- Roots -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Roots</span>
+                    <span class="node-tagline">Ligand fields &amp; d-orbital splitting patterns</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Key ideas</div>
+                  <ul class="node-list">
+                    <li>
+                      Crystal-field theory models the attraction between a positively charged metal ion and negatively charged (or polar) ligands as an electrostatic interaction. The ligands create a “field” that
+  perturbs the energies of the metal’s d orbitals.
+                    </li>
+                    <li>
+                      In a free ion, all five d orbitals are degenerate. In an octahedral field (six ligands), they split into a lower-energy t₂ set (d<sub>xy</sub>, d<sub>xz</sub>, d<sub>yz</sub>) and a higher-energy e
+  set (d<sub>z²</sub>, d<sub>x²−y²</sub>), separated by an energy Δ (often Δ₀).
+                    </li>
+                    <li>
+                      The magnitude of Δ depends on the metal (charge, identity), the ligands, and the geometry. The spectrochemical series orders ligands by increasing Δ, from weak-field (I⁻, Br⁻, Cl⁻, F⁻, H₂O) to
+  strong-field (NH₃, en, NO₂⁻, CN⁻, CO).
+                    </li>
+                    <li>
+                      If Δ is large relative to the spin-pairing energy, electrons pair in the lower t₂ orbitals before occupying e (low-spin); if Δ is small, electrons occupy e orbitals before pairing (high-spin).
+                    </li>
+                    <li>
+                      Tetrahedral fields invert the splitting pattern and give smaller Δ (≈ 4/9 of Δ₀), so tetrahedral complexes are almost always high-spin. Square-planar fields, common for d⁸ metals like Pt(II), give
+  large Δ and are usually low-spin and diamagnetic.
+                    </li>
+                  </ul>
+                  <div class="chips-row">
+                    <span class="chip">t₂ vs e</span>
+                    <span class="chip">spectrochemical series</span>
+                    <span class="chip">tetrahedral vs octahedral</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trunk -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Trunk</span>
+                    <span class="node-tagline">Δ, E = hc/λ &amp; spin-state decisions</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Splitting energy:</span>
+                    <span class="formula-text">Δ = E(e) − E(t₂)</span>
+                    <button class="copy-button" type="button" aria-label="Copy Δ definition">📋</button>
+                  </div>
+                  <p>
+                    In an octahedral crystal field, the average d-orbital energy is unchanged, but the t₂ orbitals are stabilized and the e orbitals are destabilized by an amount that sums to Δ. Δ is the energy cost to
+  promote an electron from t₂ to e.
+                  </p>
+
+                  <div class="formula-row">
+                    <span class="formula-label">Δ from λ:</span>
+                    <span class="formula-text">Δ = hc / λ; Δmol = hcN_A / λ</span>
+                    <button class="copy-button" type="button" aria-label="Copy Δ from λ formula">📋</button>
+                  </div>
+                  <p>
+                    Δ (per photon) can be obtained from the wavelength λ of absorbed light using E = hc/λ; multiplying by Avogadro’s number gives Δ per mole of photons, often reported in kJ·mol⁻¹. Shorter wavelengths
+  correspond to larger Δ.
+                  </p>
+
+                  <p>
+                    Comparing Δ with the spin-pairing energy P determines whether a complex is high-spin (Δ &lt; P, more unpaired electrons) or low-spin (Δ &gt; P, fewer unpaired electrons).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Leaves -->
+              <div class="node">
+                <button type="button" class="node-header">
+                  <span>
+                    <span class="node-type">Leaves</span>
+                    <span class="node-tagline">High-spin vs low-spin &amp; a Δ estimate</span>
+                  </span>
+                </button>
+                <div class="node-content">
+                  <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – [CoF₆]³⁻ vs [Co(CN)₆]³⁻</div>
+                    <p class="example-body">
+                      Both complexes contain Co³⁺ (d⁶) in an octahedral field. F⁻ is a weak-field ligand, so Δ is small and electrons occupy e orbitals before pairing: the complex is high-spin with four unpaired
+  electrons and is paramagnetic. CN⁻ is a strong-field ligand, so Δ is large and electrons pair in t₂ before occupying e: the complex is low-spin with no unpaired electrons and is diamagnetic. Their colors and magnetic
+  behaviors differ even though both contain Co³⁺.
+                    </p>
+                  </div>
+
+                  <div class="example-block">
+                    <div class="example-title">Example – Estimating Δ from an absorption</div>
+                    <p class="example-body">
+                      A d¹ octahedral complex has an absorption maximum at 545 nm. Using Δ = hcN_A / λ gives Δ ≈ 2.2 × 10⁵ J·mol⁻¹ ≈ 220 kJ·mol⁻¹. Because it absorbs green light, the complex appears purple (the
+  complementary color). Knowing Δ also allows comparison with the spin-pairing energy to predict whether other dⁿ complexes of the same ligand set will be high-spin or low-spin.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+    <script>
+      (() => {
+        const searchBox = document.getElementById('search-box');
+        const cards = Array.from(document.querySelectorAll('.section-card'));
+        const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+        const toast = document.getElementById('toast');
+        let toastTimeoutId = null;
+
+        const showToast = (message) => {
+          if (!toast) return;
+          toast.textContent = message || 'Copied to clipboard';
+          toast.classList.add('visible');
+          if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+          toastTimeoutId = window.setTimeout(() => {
+            toast.classList.remove('visible');
+          }, 1500);
+        };
+
+        const copyText = async (text) => {
+          if (!text) return;
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              ta.style.position = 'fixed';
+              ta.style.top = '-9999px';
+              document.body.appendChild(ta);
+              ta.focus();
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+            }
+            showToast('Copied to clipboard');
+          } catch (err) {
+            showToast('Copy failed');
+          }
+        };
+
+        // Double-click to copy any non-trivial text
+        document.addEventListener('dblclick', (event) => {
+          const target = event.target;
+          if (!target) return;
+          let text = target.innerText || target.textContent || '';
+          if (text && text.trim().length >= 3) {
+            copyText(text.trim());
+          }
+        });
+
+        // Copy buttons for formulas
+        document.querySelectorAll('.copy-button').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const formula = btn.previousElementSibling;
+            if (!formula) return;
+            const text = (formula.innerText || formula.textContent || '').trim();
+            if (text) {
+              copyText(text);
+            }
+          });
+        });
+
+        // Collapsible nodes
+        document.querySelectorAll('.node').forEach((node) => {
+          const header = node.querySelector('.node-header');
+          if (!header) return;
+          header.addEventListener('click', () => {
+            node.classList.toggle('collapsed');
+          });
+        });
+
+        // Search/filter
+        const applyFilter = () => {
+          const term = (searchBox.value || '').toLowerCase().trim();
+          cards.forEach((card) => {
+            if (!term) {
+              card.style.display = '';
+              return;
+            }
+            const text = (card.innerText || card.textContent || '').toLowerCase();
+            card.style.display = text.includes(term) ? '' : 'none';
+          });
+        };
+
+        if (searchBox) {
+          searchBox.addEventListener('input', applyFilter);
+        }
+
+        // Scroll-linked nav highlighting
+        const setActiveNavLink = (id) => {
+          navLinks.forEach((link) => {
+            const href = link.getAttribute('href') || '';
+            if (href === '#' + id) {
+              link.classList.add('active-link');
+            } else {
+              link.classList.remove('active-link');
+            }
+          });
+        };
+
+        navLinks.forEach((link) => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const href = link.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            const targetId = href.slice(1);
+            const targetEl = document.getElementById(targetId);
+            if (!targetEl) return;
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setActiveNavLink(targetId);
+          });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+          let best = null;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (!best || entry.intersectionRatio > best.intersectionRatio) {
+                best = entry;
+              }
+            }
+          });
+          if (best && best.target && best.target.id) {
+            setActiveNavLink(best.target.id);
+          }
+        }, {
+          root: null,
+          rootMargin: '0px 0px -70% 0px',
+          threshold: [0.2, 0.35, 0.5]
+        });
+
+        cards.forEach((card) => observer.observe(card));
+      })();
+    </script>
+  </body>
+  </html>
+

@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 21 – Nuclear Chemistry: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 21 Map</div>
+        <div class="sidebar-subtitle">Nuclear Chemistry</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Search / filter</label>
+        <input id="search-box" class="search-box" type="search" placeholder="α, β, γ, half-life, E = mc^2..." />
+        <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Sections</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-21-1" class="nav-link">
+              <span><strong>21.1</strong><small>radioactivity &amp; equations</small></span>
+              <span class="nav-tag">α, β, γ</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-21-2" class="nav-link">
+              <span><strong>21.2</strong><small>nuclear stability</small></span>
+              <span class="nav-tag">n/p ratios</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-21-3" class="nav-link">
+              <span><strong>21.3</strong><small>decay rates</small></span>
+              <span class="nav-tag">half-life</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-21-4" class="nav-link">
+              <span><strong>21.4</strong><small>detecting radiation</small></span>
+              <span class="nav-tag">counters &amp; tracers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-21-5" class="nav-link">
+              <span><strong>21.5</strong><small>nuclear energy</small></span>
+              <span class="nav-tag">E = mc²</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-21-6" class="nav-link">
+              <span><strong>21.6</strong><small>radiation &amp; life</small></span>
+              <span class="nav-tag">dose &amp; risk</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Copy tips</strong></div>
+        <div>• Click <code>📋</code> to copy formulas.</div>
+        <div>• Double-click any text to copy it.</div>
+        <div>Use search + section links for quick review.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Nuclear Chemistry – Concept Map</div>
+          <div class="header-subtitle">Chapter 21 • Radioactivity, energy, and biological effects</div>
+          <div class="header-tags">
+            <span class="header-tag">radioactive decay</span>
+            <span class="header-tag">nuclear stability</span>
+            <span class="header-tag">E = mc²</span>
+            <span class="header-tag">radiation &amp; health</span>
+          </div>
+          <p class="header-highlight">
+            Each card maps a major section of nuclear chemistry into roots–trunk–leaves: core ideas about nuclei and decay, the key equations that connect decay rates and energies, and examples showing how we date objects, power reactors, and manage radiation risks.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards">
+
+        <!-- 21.1 Radioactivity and Nuclear Equations -->
+        <article class="section-card" id="sec-21-1" data-section-keywords="radioactivity nuclear equations alpha beta gamma positron electron capture">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.1 Radioactivity and Nuclear Equations</div>
+              <div class="section-label">Types of decay and balancing A/Z</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">α, β, γ</div>
+              <div class="section-badge">nuclear notation</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Radioactivity arises from unstable nuclei called radionuclides. Nuclear equations track changes in mass and atomic number as nuclei emit α, β, γ, or positron radiation or capture electrons to move toward greater stability.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Nuclides and decay types</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>nuclide</strong> is a nucleus with a specific number of protons and neutrons, written as <span class="inline-pill">A/Z X</span>, where A = mass number and Z = atomic number.
+                  </li>
+                  <li>
+                    <strong>Radionuclides</strong> are unstable; they undergo <strong>radioactive decay</strong>, emitting radiation and transforming into different nuclides.
+                  </li>
+                  <li>
+                    Common emissions: <strong>α (alpha)</strong> particles are ⁴₂He nuclei; <strong>β⁻ (beta)</strong> particles are electrons from the nucleus; <strong>γ (gamma)</strong> rays are high‑energy photons.
+                  </li>
+                  <li>
+                    A <strong>positron</strong> (β⁺) is a positively charged electron; in <strong>electron capture</strong>, the nucleus absorbs an inner-shell electron.
+                  </li>
+                  <li>
+                    Nuclear equations must conserve both <strong>mass number A</strong> and <strong>atomic number Z</strong>; balancing them reveals particle identities.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">radionuclides</span>
+                  <span class="chip">nuclide symbol A/Z X</span>
+                  <span class="chip">α, β⁻, β⁺, γ, EC</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Decay patterns &amp; equations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Alpha:</span>
+                  <span class="formula-text">^A_ZX → ^{A−4}_{Z−2}Y + ^4_2He</span>
+                  <button class="copy-button" type="button" aria-label="Copy alpha emission">📋</button>
+                </div>
+                <p>
+                  α emission removes 4 mass units and 2 protons, moving very heavy nuclei (Z ≥ 84) toward slightly lighter, more stable nuclides.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Beta (β⁻):</span>
+                  <span class="formula-text">^A_ZX → ^A_{Z+1}Y + ^0_{−1}e</span>
+                  <button class="copy-button" type="button" aria-label="Copy beta emission">📋</button>
+                </div>
+                <p>
+                  β⁻ decay converts a neutron into a proton (n → p + e⁻), increasing Z by 1 but keeping A constant; it helps neutron‑rich nuclei lower their n/p ratio.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Positron (β⁺):</span>
+                  <span class="formula-text">^A_ZX → ^A_{Z−1}Y + ^0_{+1}e</span>
+                  <button class="copy-button" type="button" aria-label="Copy positron emission">📋</button>
+                </div>
+                <p>
+                  β⁺ decay converts a proton to a neutron (p → n + e⁺), decreasing Z by 1; it occurs in proton‑rich nuclei.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Electron capture:</span>
+                  <span class="formula-text">^A_ZX + ^0_{−1}e → ^A_{Z−1}Y</span>
+                  <button class="copy-button" type="button" aria-label="Copy electron capture">📋</button>
+                </div>
+                <p>
+                  The nucleus captures an orbital electron; a proton becomes a neutron, lowering Z by 1 without changing A.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Gamma:</span>
+                  <span class="formula-text">^A_ZX* → ^A_ZX + ^0_0γ</span>
+                  <button class="copy-button" type="button" aria-label="Copy gamma emission">📋</button>
+                </div>
+                <p>
+                  γ emission releases excess nuclear energy as high‑energy photons without changing A or Z; it often accompanies other decay modes.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Worked decay examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – α decay of uranium-238</div>
+                  <p class="example-body">
+                    In ^238_92U → ^234_90Th + ^4_2He, the mass numbers balance (238 = 234 + 4) and atomic numbers balance (92 = 90 + 2). The uranium nucleus ejects a helium-4 nucleus (α particle), becoming thorium-234. Because α particles are heavy and highly charged, they are easily stopped outside the body but can be very damaging if emitted inside tissues.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – β⁺ decay of carbon-11</div>
+                  <p class="example-body">
+                    In ^11_6C → ^11_5B + ^0_{+1}e, Z decreases by 1 while A stays 11. A proton in the nucleus converts to a neutron and a positron. The emitted positron annihilates with an electron to produce two γ rays, which PET scanners detect to build metabolic images of tissues such as the brain.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21.2 Patterns of Nuclear Stability -->
+        <article class="section-card" id="sec-21-2" data-section-keywords="belt of stability neutron to proton ratio magic numbers positron emission electron capture alpha decay chains">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.2 Patterns of Nuclear Stability</div>
+              <div class="section-label">n/p ratios, magic numbers &amp; decay modes</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">belt of stability</div>
+              <div class="section-badge">magic numbers</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Stable nuclides cluster in a belt of stability where neutron-to-proton ratios are optimal. Nuclei outside this belt adjust their n/p ratio by β⁻, β⁺, electron capture, or α decay, and very heavy nuclides often decay in chains until they reach a stable lead isotope.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Stability trends &amp; n/p</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The <strong>strong nuclear force</strong> holds nucleons together; as proton number increases, more neutrons are needed to offset proton–proton repulsion.
+                  </li>
+                  <li>
+                    Stable light nuclei (Z ≤ ~20) have n/p ≈ 1; heavier stable nuclei have n/p &gt; 1 and the ratio increases with Z, defining the <strong>belt of stability</strong>.
+                  </li>
+                  <li>
+                    Nuclei above the belt (too many neutrons) tend to undergo β⁻ decay; nuclei below the belt (too many protons) tend to undergo β⁺ decay or electron capture.
+                  </li>
+                  <li>
+                    All nuclei with Z ≥ 84 are radioactive; many decay via α emission to move diagonally toward the belt, reducing both Z and A.
+                  </li>
+                  <li>
+                    <strong>Magic numbers</strong> of protons (2, 8, 20, 28, 50, 82) or neutrons (2, 8, 20, 28, 50, 82, 126) correspond to extra stability, analogous to filled electron shells.
+                  </li>
+                  <li>
+                    Nuclei with even numbers of protons and/or neutrons are more likely to be stable than those with both odd, reflecting pairing effects.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">n/p ratio &amp; decay rules</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important patterns &amp; notation</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">n/p ratio:</span>
+                  <span class="formula-text">(A − Z) / Z</span>
+                  <button class="copy-button" type="button" aria-label="Copy n/p formula">📋</button>
+                </div>
+                <p>
+                  Comparing a nuclide’s n/p ratio to nearby stable nuclides shows whether it is neutron-rich or proton-rich and which decay mode will likely move it toward the belt of stability.
+                </p>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Above belt (neutron-rich):</strong> β⁻ emission decreases n, increases p, lowering n/p.
+                  </li>
+                  <li>
+                    <strong>Below belt (proton-rich):</strong> β⁺ emission or electron capture increases n, decreases p, raising n/p.
+                  </li>
+                  <li>
+                    <strong>Very heavy (Z ≥ 84):</strong> α emission decreases both n and p by 2, moving diagonally toward stability.
+                  </li>
+                </ul>
+
+                <div class="formula-row">
+                  <span class="formula-label">Transmutation:</span>
+                  <span class="formula-text">^14_7N(α, p)^17_8O</span>
+                  <button class="copy-button" type="button" aria-label="Copy transmutation notation">📋</button>
+                </div>
+                <p>
+                  This shorthand describes ^14_7N + ^4_2He → ^17_8O + ^1_1H: a target nucleus is struck by a bombarding particle and ejects another particle, changing identity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Decay-mode predictions &amp; chains</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – C-14 and Xe-118</div>
+                  <p class="example-body">
+                    For ^14_6C, n = 8 and p = 6 (n/p ≈ 1.33). Nearby stable light nuclides have n/p ≈ 1, so C-14 is neutron-rich and decays via β⁻: ^14_6C → ^14_7N + e⁻. For ^118_54Xe, n = 64 and p = 54 (n/p ≈ 1.19), whereas stable Xe nuclides have larger n/p; Xe-118 is proton-rich and can decay by β⁺ or electron capture to ^118_53I, increasing its n/p ratio.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – U-238 decay chain</div>
+                  <p class="example-body">
+                    Uranium-238 lies far above and to the right of the belt of stability and cannot reach stability in a single step. It undergoes a series of α and β decays, ultimately forming stable ^206_82Pb. Each α step lowers Z by 2 and A by 4; each β⁻ step adjusts n/p by converting neutrons to protons, guiding the sequence back toward the belt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21.3 Rates of Radioactive Decay -->
+        <article class="section-card" id="sec-21-3" data-section-keywords="decay rate first-order kinetics half-life t1/2 0.693 radiometric dating carbon-14">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.3 Rates of Radioactive Decay</div>
+              <div class="section-label">First-order decay, half-life &amp; dating</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">Rate = kN</div>
+              <div class="section-badge">k = 0.693/t₁/₂</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Nuclear decay follows first-order kinetics with characteristic half-lives. These predictable decay patterns allow us to quantify activity and use radiometric dating to determine the ages of archaeological and geological samples.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Half-life &amp; activity</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Radioactive decay is a <strong>first-order process</strong>: the decay rate is proportional to the number of radioactive nuclei present.
+                  </li>
+                  <li>
+                    The <strong>half-life</strong> (t₁/₂) is the time needed for half the nuclei in a sample to decay; after n half-lives, only (1/2)ⁿ of the original remains.
+                  </li>
+                  <li>
+                    Each radionuclide has a characteristic half-life that does not depend on temperature, pressure, or chemical state.
+                  </li>
+                  <li>
+                    <strong>Activity</strong> measures how fast decay occurs, in disintegrations per second, with units like the becquerel (Bq) and curie (Ci).
+                  </li>
+                  <li>
+                    Because half-lives are reliable clocks, isotope ratios can be used for <strong>radiometric dating</strong> (e.g., C‑14 dating of organic remains, U‑Pb dating of rocks).
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Decay laws &amp; dating equations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Rate law:</span>
+                  <span class="formula-text">Rate = k N</span>
+                  <button class="copy-button" type="button" aria-label="Copy Rate=kN">📋</button>
+                </div>
+                <p>
+                  The decay rate is proportional to the number of radioactive nuclei N. A larger sample has a larger rate but the same half-life.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Half-life:</span>
+                  <span class="formula-text">k = 0.693 / t<sub>1/2</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy k=0.693/t1/2">📋</button>
+                </div>
+                <p>
+                  The decay constant k and half-life t₁/₂ are inversely related. A short half-life means a large k and a rapid decay.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Integrated law:</span>
+                  <span class="formula-text">ln(N<sub>t</sub> / N<sub>0</sub>) = −k t</span>
+                  <button class="copy-button" type="button" aria-label="Copy ln(Nt/N0)=-kt">📋</button>
+                </div>
+                <p>
+                  This first-order expression relates the number (or mass/activity) of nuclei now to the initial amount and the time elapsed, letting you solve for any one of the three.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Radiocarbon:</span>
+                  <span class="formula-text">^14_6C → ^14_7N + ^0_{−1}e (t<sub>1/2</sub> ≈ 5700 yr)</span>
+                  <button class="copy-button" type="button" aria-label="Copy C-14 decay">📋</button>
+                </div>
+                <p>
+                  Comparing the ¹⁴C/¹²C ratio in a sample to that of the atmosphere and using the half-life of ¹⁴C allows estimation of ages up to ~50,000 years.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Half-life and dating examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Cobalt-60 decay</div>
+                  <p class="example-body">
+                    Cobalt-60 has t<sub>1/2</sub> = 5.27 yr. If you start with 1.000 mg, after one half-life 0.500 mg remains; after two, 0.250 mg; after three, 0.125 mg. Using ln(N<sub>t</sub>/N<sub>0</sub>) = −kt, you can compute the exact remaining mass for any time t and link the activity of a Co-60 therapy source to its age.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Radiocarbon date</div>
+                  <p class="example-body">
+                    Suppose a piece of charcoal has half the ¹⁴C activity of modern wood. That means N<sub>t</sub>/N<sub>0</sub> = 1/2, so ln(1/2) = −k t gives t = t<sub>1/2</sub> ≈ 5700 yr. The charcoal is roughly 5700 years old, placing it in an early agricultural or Bronze Age context.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21.4 Detection of Radioactivity -->
+        <article class="section-card" id="sec-21-4" data-section-keywords="Geiger counter scintillation film badges radiotracer PET carbon-14 glucose metabolism">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.4 Detection of Radioactivity</div>
+              <div class="section-label">From film badges to PET scans</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">Geiger</div>
+              <div class="section-badge">scintillation</div>
+              <div class="section-badge">radiotracers</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Because ionizing radiation fogs film, ionizes gases, and excites phosphors, it can be measured with film badges, Geiger–Müller counters, and scintillation counters. The predictable behavior of radiotracers underlies powerful medical imaging tools such as PET.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">How we detect radiation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Ionizing radiation can <strong>fog photographic film</strong>, <strong>ionize gases</strong>, and <strong>excite phosphors</strong>, providing several routes to detection.
+                  </li>
+                  <li>
+                    <strong>Film badges</strong> darken in proportion to exposure and are used as personal dosimeters to monitor chronic occupational exposure.
+                  </li>
+                  <li>
+                    In a <strong>Geiger–Müller counter</strong>, radiation ionizes gas inside a tube, and ion/electron movement under high voltage produces countable current pulses.
+                  </li>
+                  <li>
+                    A <strong>scintillation counter</strong> uses phosphors that flash when hit by radiation; the light pulses are amplified and counted.
+                  </li>
+                  <li>
+                    <strong>Radiotracers</strong> are small amounts of radioisotopes that follow the chemical behavior of an element but are easy to trace, especially in medical diagnosis.
+                  </li>
+                  <li>
+                    <strong>PET scans</strong> use positron-emitting nuclides to map biological functions such as glucose metabolism in the brain.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Tracer and PET equations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Photosynthesis tracer:</span>
+                  <span class="formula-text">6 ^14CO₂ + 6 H₂O → ^14C₆H₁₂O₆ + 6 O₂</span>
+                  <button class="copy-button" type="button" aria-label="Copy 14C photosynthesis">📋</button>
+                </div>
+                <p>
+                  ¹⁴CO₂ is incorporated into plant glucose, letting scientists follow carbon from atmosphere to biomass. The chemistry of ¹⁴C mirrors ¹²C, but its radioactivity reveals its path.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Positron annihilation:</span>
+                  <span class="formula-text">^0_{+1}e + ^0_{−1}e → 2 ^0_0γ</span>
+                  <button class="copy-button" type="button" aria-label="Copy annihilation">📋</button>
+                </div>
+                <p>
+                  In PET, a positron from a labeled molecule annihilates with an electron, producing two γ rays in opposite directions. Detectors around the patient locate where these events occur, mapping tracer distribution.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Detector &amp; tracer examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Geiger counter operation</div>
+                  <p class="example-body">
+                    In a Geiger tube filled with argon, incoming β or γ radiation ionizes gas molecules, producing Ar⁺ and electrons. Under high voltage, electrons rush to the central wire, creating a brief current pulse. The electronics count each pulse, so the click rate or digital readout reflects the intensity of the radiation field.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – I-131 thyroid test</div>
+                  <p class="example-body">
+                    A patient swallows NaI containing a trace of ^131I, which behaves like normal iodide and is concentrated in the thyroid. A detector placed near the neck measures activity over time. A normal thyroid will take up about 12% of the dose in a few hours; deviations from this pattern signal hypo- or hyperthyroidism.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21.5 Energy Changes in Nuclear Reactions -->
+        <article class="section-card" id="sec-21-5" data-section-keywords="Einstein mass energy equivalence E = mc^2 mass defect binding energy fission fusion chain reaction">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.5 Energy Changes in Nuclear Reactions</div>
+              <div class="section-label">Mass–energy, binding, fission &amp; fusion</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ΔE = Δm c²</div>
+              <div class="section-badge">fission &amp; fusion</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Nuclear reactions alter nuclear masses, and via E = mc² even tiny mass defects translate into enormous energy changes. Both fission of heavy nuclei and fusion of light nuclei can release energy due to changes in binding energy per nucleon.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Mass defect &amp; binding</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The mass of a nucleus is less than the sum of the masses of its separate protons and neutrons; this <strong>mass defect</strong> corresponds to the nuclear <strong>binding energy</strong>.
+                  </li>
+                  <li>
+                    The higher the binding energy per nucleon, the more stable the nucleus; a plot of binding energy per nucleon vs mass number peaks near Fe/Ni.
+                  </li>
+                  <li>
+                    <strong>Fission</strong> of heavy nuclei (e.g., U-235, Pu-239) into intermediate-mass fragments increases binding energy per nucleon and releases energy.
+                  </li>
+                  <li>
+                    <strong>Fusion</strong> of light nuclei (e.g., H → He) also increases binding energy per nucleon and releases energy; this powers stars.
+                  </li>
+                  <li>
+                    Fission can proceed in self-sustaining <strong>chain reactions</strong> if enough fissile material is present, forming the basis of nuclear reactors and weapons.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Mass–energy &amp; reaction patterns</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Mass–energy:</span>
+                  <span class="formula-text">E = m c²</span>
+                  <button class="copy-button" type="button" aria-label="Copy E=mc^2">📋</button>
+                </div>
+                <p>
+                  Mass m (in kg) and energy E (in J) are equivalent; c ≈ 2.998×10⁸ m·s⁻¹. Because c² is huge, small mass changes yield large energy changes.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Reaction energy:</span>
+                  <span class="formula-text">ΔE = Δm c²</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔE=Δmc^2">📋</button>
+                </div>
+                <p>
+                  Δm is the mass of products minus the mass of reactants. If Δm &lt; 0, the reaction is exothermic and releases |ΔE|; if Δm &gt; 0, energy is absorbed.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Fission example:</span>
+                  <span class="formula-text">^235_92U + ^1_0n → ^92_36Kr + ^141_56Ba + 3 ^1_0n + energy</span>
+                  <button class="copy-button" type="button" aria-label="Copy U-235 fission">📋</button>
+                </div>
+                <p>
+                  Heavy ^235U splits into medium-mass nuclei and several neutrons. The products have higher binding energy per nucleon, and the mass difference appears as ~200 MeV per fission.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Fusion example:</span>
+                  <span class="formula-text">^2_1H + ^3_1H → ^4_2He + ^1_0n + energy</span>
+                  <button class="copy-button" type="button" aria-label="Copy D-T fusion">📋</button>
+                </div>
+                <p>
+                  Deuterium and tritium fuse into helium-4 and a neutron. The resulting helium nucleus has a higher binding energy per nucleon than the reactants, so mass is lost and energy released.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Energy calculation &amp; chain reactions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – α decay of U-238</div>
+                  <p class="example-body">
+                    For ^238_92U → ^234_90Th + ^4_2He, using nuclear masses (in u) gives a mass defect Δm ≈ −0.0046 u. Converting to energy yields ~4 MeV per nucleus, or ~4×10¹¹ J per mole. This dwarfs typical chemical reaction energies and explains the energy density of nuclear fuel.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Fission chain reaction</div>
+                  <p class="example-body">
+                    In U-235 fission, about 2–3 neutrons are emitted per event. If exactly one neutron from each fission triggers another fission, the reaction is self-sustaining at a steady rate (critical). If fewer than one continue the chain, the reaction dies out (subcritical); if more than one do so, the rate accelerates rapidly (supercritical), which underlies the operation of a bomb.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21.6 Radiation in the Environment and Living Systems -->
+        <article class="section-card" id="sec-21-6" data-section-keywords="ionizing radiation free radicals hydroxyl OH dose gray rad sievert rem RBE biological effects background">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">21.6 Radiation in the Environment and Living Systems</div>
+              <div class="section-label">Ionizing radiation, dose, and risk</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">Gy, rad</div>
+              <div class="section-badge">Sv, rem</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Ionizing radiation can ionize water in living tissue, creating reactive radicals that damage biomolecules. Radiation doses, expressed in rad/gray and rem/sievert, quantify absorbed energy and biological impact, helping us gauge risks from medical procedures and environmental exposure.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Ionization &amp; biological damage</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Ionizing radiation</strong> (α, β, γ, X-rays, high-energy UV) has enough energy to remove electrons from atoms or molecules; <strong>nonionizing radiation</strong> (radio, microwave, low-energy light) does not.
+                  </li>
+                  <li>
+                    In the body, water absorbs most radiation energy; ionization of water produces highly reactive free radicals like •OH that attack DNA, proteins, and membranes.
+                  </li>
+                  <li>
+                    Tissues with rapidly dividing cells (bone marrow, lymph nodes) are especially sensitive; radiation can cause cancer by damaging cell growth regulation.
+                  </li>
+                  <li>
+                    α, β, and γ rays differ in penetrating power: γ penetrates deeply and is dangerous from external sources; α is very damaging when inside the body despite low external penetration.
+                  </li>
+                  <li>
+                    Biological effect depends on dose, dose rate, radiation type, and whether the source is external or internal.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Dose units &amp; RBE</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Water radical formation:</span>
+                  <span class="formula-text">H₂O⁺ + H₂O → H₃O⁺ + ·OH</span>
+                  <button class="copy-button" type="button" aria-label="Copy radical reaction">📋</button>
+                </div>
+                <p>
+                  Ionizing radiation generates H₂O⁺, which reacts to produce the hydroxyl radical ·OH, a powerful oxidant that can trigger many damaging reactions within cells.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Absorbed dose:</span>
+                  <span class="formula-text">1 Gy = 1 J·kg⁻¹; 1 rad = 0.01 Gy</span>
+                  <button class="copy-button" type="button" aria-label="Copy Gy rad">📋</button>
+                </div>
+                <p>
+                  Gy (gray) and rad measure energy deposited per kilogram of tissue. Gy is the SI unit; rad is still common in medicine and older references.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Effective dose:</span>
+                  <span class="formula-text">rem = (rad) × (RBE)</span>
+                  <button class="copy-button" type="button" aria-label="Copy rem formula">📋</button>
+                </div>
+                <p>
+                  Effective dose accounts for how damaging a given radiation type is. RBE ≈ 1 for β and γ, ≈ 10 for α. The SI unit sievert (Sv) relates to rem via 1 Sv = 100 rem.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Sv relation:</span>
+                  <span class="formula-text">Sv = Gy × RBE; 1 Sv = 100 rem</span>
+                  <button class="copy-button" type="button" aria-label="Copy Sv relation">📋</button>
+                </div>
+                <p>
+                  Sv measures biological effect using Gy and RBE; typical annual background exposure is a few mSv, while doses of several Sv in a short time can be lethal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Dose examples &amp; risk levels</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Effective dose for α exposure</div>
+                  <p class="example-body">
+                    If a tissue absorbs 0.020 Gy of α radiation, that is 2.0 rad. With RBE ≈ 10, the effective dose is 2.0 rad × 10 = 20 rem, or 0.20 Sv. This is much greater in biological effect than 0.020 Gy of γ radiation (which would be only ~2 rem), illustrating why α radiation is especially dangerous internally.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Background vs medical doses</div>
+                  <p class="example-body">
+                    A typical dental X-ray gives ~5 mSv (0.005 Sv), while average annual background exposure is about 3.6 mSv. Short-term doses in the range 0–0.25 Sv produce no detectable acute effects, but cumulative exposure increases long-term cancer risk, so minimizing unnecessary doses is important even at low levels.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      // Double-click to copy any non-trivial text
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      // Copy buttons for formulas
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      // Search/filter
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      // Scroll-linked nav highlighting
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

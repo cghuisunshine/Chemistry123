@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 31 Map</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05060d;
+      --panel: #0b1220;
+      --card: #101828;
+      --border: #1f2937;
+      --muted: #94a3b8;
+      --accent: #34d399;
+      --accent-strong: #6ee7b7;
+      --toast-bg: rgba(15, 23, 42, 0.95);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    .app-shell { display:flex; min-height:100vh; }
+    .sidebar {
+      width: 280px;
+      background: var(--panel);
+      border-right:1px solid var(--border);
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+    .sidebar h1 { margin:0; font-size:1.6rem; }
+    .sidebar p { margin:0; color:var(--muted); line-height:1.4; font-size:0.95rem; }
+    .sidebar input { width:100%; border-radius:0.85rem; border:1px solid #374151; background:#07101f; color:#e2e8f0; padding:0.65rem 0.9rem; }
+    .sidebar nav { display:flex; flex-direction:column; gap:0.45rem; }
+    .sidebar nav a { color:var(--accent); text-decoration:none; }
+    .sidebar nav a:hover { color:var(--accent-strong); }
+    main { flex:1; padding:2rem; display:flex; flex-direction:column; gap:1.25rem; }
+    .intro-card, .map-card { background:var(--card); border:1px solid var(--border); border-radius:1.25rem; padding:1.25rem 1.5rem; box-shadow:0 25px 55px rgba(2,6,23,0.8); }
+    .intro-card p { margin:0.4rem 0; color:var(--muted); }
+    .map-card h2 { margin:0; font-size:1.35rem; }
+    .map-card header p { margin:0.35rem 0 0; color:var(--muted); }
+    .node { margin-top:1rem; border-radius:0.95rem; border:1px solid var(--border); overflow:hidden; background:rgba(255,255,255,0.03); }
+    .node__header { width:100%; border:none; background:rgba(15,23,42,0.95); padding:0.85rem 1.25rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-size:1rem; }
+    .node__header span { font-weight:600; }
+    .node__header svg { width:1rem; height:1rem; transition:transform 0.25s ease; }
+    .node[data-open="true"] .node__header svg { transform:rotate(180deg); }
+    .node__body { padding:0 1.25rem; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s ease; }
+    .node[data-open="true"] .node__body { padding:1rem 1.25rem 1.15rem; max-height:1100px; }
+    .node__body p { margin:0.45rem 0; line-height:1.45; color:#dbeafe; }
+    .formula-line { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin:0.6rem 0; flex-wrap:wrap; }
+    .formula-line .formula { font-family:"JetBrains Mono","Fira Code",monospace; font-size:0.95rem; color:#f8fafc; flex:1; }
+    .copy-btn { border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.05); color:#e2e8f0; padding:0.3rem 0.65rem; border-radius:0.65rem; cursor:pointer; font-size:0.9rem; }
+    .copy-btn:hover { border-color:var(--accent); color:var(--accent); }
+    #toast { position:fixed; bottom:1.2rem; right:1.2rem; background:var(--toast-bg); color:#e2e8f0; padding:0.7rem 1.3rem; border-radius:999px; font-size:0.9rem; opacity:0; transform:translateY(16px); transition:opacity 0.25s ease, transform 0.25s ease; pointer-events:none; }
+    #toast.show { opacity:1; transform:translateY(0); }
+    .hidden { display:none !important; }
+    @media (max-width:900px) { .app-shell { flex-direction:column; } .sidebar { width:100%; border-right:none; border-bottom:1px solid var(--border); } main { padding:1.5rem; } }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1>Chapter 31 Map</h1>
+      <p>Summaries, formulas, and interactions for amines, amino acids, proteins, and nucleic acids. Filter, collapse, and copy at will.</p>
+      <input id="filterInput" type="search" placeholder="Filter cards (e.g., Strecker, peptide)" aria-label="Filter sections">
+      <nav>
+        <a href="#section-31-1">31.1 Amines &amp; Amide Bonds</a>
+        <a href="#section-31-2">31.2 Amino Acids</a>
+        <a href="#section-31-3">31.3 Proteins &amp; Peptides</a>
+        <a href="#section-31-4">31.4 Nucleic Acids &amp; DNA</a>
+      </nav>
+    </aside>
+    <main>
+      <div class="intro-card">
+        <p><strong>Note:</strong> Collapse nodes to focus on definitions, behaviors, and applications; use the filter box to locate topics, and double-click any paragraph to copy it.</p>
+      </div>
+
+      <article class="map-card" id="section-31-1" data-keywords="amines amides basicity nucleophile synthesis"
+      >
+        <header>
+          <h2>31.1 Amines &amp; the Amide Bond</h2>
+          <p>Amines as bases/nucleophiles, tertiary salts, and condensation into amide (peptide) bonds.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Amines (RNH2, R2NH, R3N) contain a lone pair on nitrogen, making them basic and nucleophilic; they are aliphatic, aromatic (aniline), or heterocyclic (pyridine, pyrrole, piperidine) and are sorted by how many carbon/aryl groups are bonded to N (1°, 2°, 3°) or if they are quaternary ammonium salts.</p>
+            <p data-copyable="true">Amides form by condensing carboxylic acids with amines; peptide bonds in proteins are amide linkages with partial double-bond character, stabilizing the structure yet still hydrolyzable.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas &amp; behavior</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RNH2 + HCl → RNH3⁺Cl⁻">RNH₂ + HCl → RNH₃⁺Cl⁻</span>
+              <button class="copy-btn" type="button" data-copy-text="RNH2 + HCl → RNH3⁺Cl⁻" aria-label="Copy amine salt">📋</button>
+            </div>
+            <p data-copyable="true">Protonated amines form soluble salts, a common purification strategy.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH + R'NH2 → RCONHR' + H2O">RCOOH + R'NH₂ → RCONHR' + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH + R'NH2 → RCONHR' + H2O" aria-label="Copy amide formation">📋</button>
+            </div>
+            <p data-copyable="true">Each peptide bond comes from linkage between a carboxyl and an amino group, fundamental to protein chains.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Natural amines (coniine, nicotine, adrenaline, codeine) show how substitution pattern (aliphatic vs. aromatic) affects pharmacology; vitamins like pyridoxamine span primary and tertiary amines.</p>
+            <p data-copyable="true">Chloroquine and benzocaine illustrate how different amine types (primary, tertiary, aromatic) drive biological activity.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-31-2" data-keywords="amino acids pKa isoelectric electrophoresis Strecker Henderson Hasselbalch">
+        <header>
+          <h2>31.2 Amino Acids</h2>
+          <p>α-Amino acids as zwitterions, Henderson–Hasselbalch acid/base calculations, Strecker synthesis, and electrophoresis.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Amino acids contain both ammonium and carboxylate groups; at physiological pH they exist as zwitterions. Each has a unique side chain giving rise to 20 standard amino acids with three-letter/single-letter codes (e.g., Ala/A, Gly/G).</p>
+            <p data-copyable="true">Isoelectric point pI ≈ (pKa1 + pKa2)/2 (Equation 31.23). At pH < pI amino acids are positively charged; at pH > pI they are negative; the Henderson–Hasselbalch equation identifies proportions of each species.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas &amp; behavior</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="pI = 1/2(pKa1 + pKa2)">pI = 1/2(pKa1 + pKa2)</span>
+              <button class="copy-btn" type="button" data-copy-text="pI = 1/2(pKa1 + pKa2)" aria-label="Copy pI">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="pH = pKa + log([A⁻]/[HA])">Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA])</span>
+              <button class="copy-btn" type="button" data-copy-text="pH = pKa + log([A⁻]/[HA])" aria-label="Copy HH equation">📋</button>
+            </div>
+            <p data-copyable="true">Using these allows precise predictions of amino acid charge state (e.g., serine at pH 2 is ~62% positively charged +0.62 average charge).</p>
+            <p data-copyable="true">Strecker synthesis: aldehyde + NH4Cl + NaCN → amino nitrile → acid hydrolysis → α-amino acid (Equation 31.31); α-halo acid + NH3 also yields amino acid salts (Equation 31.30).</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="node__body">
+            <p data-copyable="true">Glycine at pH 1, 6, 12 transitions from fully protonated to zwitterion to deprotonated; electrophoresis separates amino acids by net charge (pH near 5.98 glycine stays neutral, lysine migrates toward negative electrode, aspartic acid toward positive).</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-31-3" data-keywords="peptide bond proteins enzymes globular fibrous glycoproteins">
+        <header>
+          <h2>31.3 Proteins, Peptides, &amp; Enzymes</h2>
+          <p>Peptide formation, protein structure/function, classes (glyco-, lipo-, metallo-, nucleoproteins), and enzyme catalysis.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Proteins are long polypeptides of amino acids joined by peptide (amide) bonds; primary sequence determines secondary (α-helix, β-sheet), tertiary, and quaternary structures, enabling diverse biological functions (structural, catalytic, regulatory).</p>
+            <p data-copyable="true">Protein classes include glycoproteins (carbohydrate moieties), lipoproteins, metalloproteins, nucleoproteins, and phosphoproteins (Table 31.1); enzymes are proteins whose active sites bind substrates like a lock and key.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Peptide notation</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="H2N-CH(R)-COOH + H2N-CH(R')-COOH → H2N-CH(R)-CO-NH-CH(R')-COOH + H2O">Peptide linkage</span>
+              <button class="copy-btn" type="button" data-copy-text="H2N-CH(R)-COOH + H2N-CH(R')-COOH → H2N-CH(R)-CO-NH-CH(R')-COOH + H2O" aria-label="Copy peptide bond">📋</button>
+            </div>
+            <p data-copyable="true">Naming uses `-yl` for upstream units; e.g., glycylalanine (Gly-Ala) for Glycine-Alanine, and aspartame is the methyl ester of Asp-Phe.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="node__body">
+            <p data-copyable="true">Peptide sequencing relies on cleavage and Edman degradation; proteins like insulin, hemoglobin, and enzymes depend on precise folding and disulfide linkages.</p>
+            <p data-copyable="true">Artificial sweetener aspartame (Asp-Phe methyl ester) or structural units like dipeptides built with one-letter codes illustrate the combinatorial possibilities.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-31-4" data-keywords="nucleotides DNA RNA transcription translation complementary base pairing">
+        <header>
+          <h2>31.4 Nucleic Acids &amp; DNA</h2>
+          <p>Nucleotides from sugars + bases + phosphate, DNA/RNA structure, base pairing, and genetic information flow.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Nucleic acids are polymers of nucleotides (sugar + base + phosphate). RNA uses ribose, DNA uses deoxyribose; bases include purines (A, G) and pyrimidines (C, T, U). Nucleosides form via N-glycosides between sugar and base.</p>
+            <p data-copyable="true">DNA is a double helix of two antiparallel strands held together by hydrogen bonds (A–T with two H bonds, C–G with three) and stacking interactions, encoding genetic information for transcription and translation.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Structure</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="3'-5' phosphodiester linkage">3'-5' phosphodiester linkage</span>
+              <button class="copy-btn" type="button" data-copy-text="3'-5' phosphodiester linkage" aria-label="Copy linkage">📋</button>
+            </div>
+            <p data-copyable="true">Each phosphate links the 5′ OH of one nucleotide to the 3′ OH of the next; this sugar-phosphate backbone is negatively charged, explaining DNA’s electrophoretic behavior.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Applications</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="node__body">
+            <p data-copyable="true">DNA replicates via complementary base pairing, transcription produces mRNA, and translation uses codons (triplets of nucleotides) with tRNA/ rRNA to assemble proteins; nucleic acids underlie heredity and biotechnology.</p>
+          </div>
+        </div>
+      </article>
+
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const toggleButtons = document.querySelectorAll('[data-role="toggle"]');
+    toggleButtons.forEach(button => button.addEventListener('click', () => {
+      const node = button.closest('.node');
+      const isOpen = node.getAttribute('data-open') === 'true';
+      node.setAttribute('data-open', String(!isOpen));
+      button.setAttribute('aria-expanded', String(!isOpen));
+    }));
+
+    const cards = document.querySelectorAll('.map-card');
+    const filterInput = document.getElementById('filterInput');
+    filterInput.addEventListener('input', () => {
+      const term = filterInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const haystack = (card.dataset.keywords || '') + ' ' + card.textContent;
+        card.classList.toggle('hidden', !haystack.toLowerCase().includes(term));
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    async function copyText(text) {
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard');
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Copied to clipboard');
+      }
+    }
+
+    document.addEventListener('click', event => {
+      const button = event.target.closest('.copy-btn');
+      if (!button) return;
+      const payload = button.dataset.copyText || button.previousElementSibling?.textContent;
+      if (payload) copyText(payload.trim());
+    });
+
+    document.addEventListener('dblclick', event => {
+      if (event.target.closest('button')) return;
+      const target = event.target.closest('[data-copyable]');
+      if (!target) return;
+      const payload = target.dataset.copyText || target.innerText;
+      if (payload) copyText(payload.trim());
+    });
+  </script>
+</body>
+</html>

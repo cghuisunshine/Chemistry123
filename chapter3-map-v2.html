@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 3 Concept Map: Chemical Reactions and Stoichiometry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition: border-color var(--transition-med), box-shadow var(--transition-med), transform var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1.0rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+      transform: translateY(0);
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #toast.toast-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #toast-icon {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 3</div>
+        <div class="chapter-title">Chemical Reactions and Stoichiometry</div>
+        <div class="chapter-subtitle">Concept map for conservation of mass, reaction patterns, moles, and yields.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-3-1"><span>3.1 Conservation &amp; Equations</span><span class="nav-shortcut">mass &amp; balance</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-2"><span>3.2 Patterns of Reactivity</span><span class="nav-shortcut">combo/dec/combust</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-3"><span>3.3 Formula Weights</span><span class="nav-shortcut">FW &amp; % by mass</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-4"><span>3.4 Mole &amp; Molar Mass</span><span class="nav-shortcut">n, M, Nₐ</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-5"><span>3.5 Empirical Formulas</span><span class="nav-shortcut">analysis</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-6"><span>3.6 Reaction Stoichiometry</span><span class="nav-shortcut">mass ↔ mass</span></button></li>
+          <li><button class="nav-link" data-target="sec-3-7"><span>3.7 Limiting Reactants</span><span class="nav-shortcut">limits &amp; yield</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Use the search box to focus on a topic. Double-click any text to copy it. Copy 📋 buttons are available on key formulas and equations.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each card corresponds to a section from Chapter 3. Use the Roots node for core ideas and definitions, the Trunk node for formulas and rules, and the Leaves node for examples, tips, and common pitfalls. Click any node header to expand or collapse it.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Conservation of mass</span>
+          <span class="tag-pill">Reaction patterns</span>
+          <span class="tag-pill">Mole concept</span>
+          <span class="tag-pill">Empirical formulas</span>
+          <span class="tag-pill">Stoichiometry</span>
+          <span class="tag-pill">Limiting reactants</span>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-1"
+        data-section-title="3.1 Conservation of Mass Chemical Equations Stoichiometry balancing coefficients subscripts"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.1 The Conservation of Mass, Chemical Equations, and Stoichiometry</div>
+            <div class="section-subtitle">Law of conservation of mass, chemical equation notation, and balancing.</div>
+          </div>
+          <div class="section-tagline">Roots: Atoms are rearranged, not created or destroyed.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Stoichiometry</strong> deals with the quantitative relationships between reactants and products in chemical reactions. It tells you how much of each substance is consumed or formed.</p>
+              <p>The <strong>law of conservation of mass</strong> states that atoms are neither created nor destroyed in a chemical reaction. Instead, chemical changes rearrange the same atoms into new groupings. Therefore, a balanced equation must have the same number of each type of atom on both sides.</p>
+              <p>A <strong>chemical equation</strong> uses formulas to represent a reaction. Substances on the left are <strong>reactants</strong>, those on the right are <strong>products</strong>. A plus sign (+) means “reacts with” and an arrow (→) means “produces”.</p>
+              <p><strong>Coefficients</strong> (numbers in front of formulas) indicate relative numbers of molecules and moles. <strong>Subscripts</strong> (small numbers within formulas) are part of the formula and must not be changed when balancing; changing a subscript changes the substance itself.</p>
+              <p>Physical state symbols show the state of each species: (s) solid, (l) liquid, (g) gas, and (aq) aqueous (dissolved in water). Conditions such as heat can appear above the arrow, for example Δ for “heated”.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Important equations &amp; what they mean</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Hydrogen reacting with oxygen:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.1]</span>
+                  2 H2 + O2 → 2 H2O
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 H2 + O2 → 2 H2O">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This equation shows that two molecules (or moles) of H₂ react with one of O₂ to form two of H₂O. All H atoms and O atoms present before the reaction are accounted for in the products, so mass is conserved.</p>
+
+              <p><strong>Combustion of methane (balanced):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  CH4(g) + 2 O2(g) → CO2(g) + 2 H2O(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="CH4(g) + 2 O2(g) → CO2(g) + 2 H2O(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Coefficients show that one CH₄ reacts with two O₂ to give one CO₂ and two H₂O. There is 1 C, 4 H, and 4 O atoms on each side.</p>
+
+              <p><strong>Key balancing rule:</strong> You may only change <em>coefficients</em> to balance equations. Never change subscripts in a chemical formula; that would represent a different compound (for example, H₂O vs H₂O₂).</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: balancing Na + H₂O → NaOH + H₂.</strong></p>
+              <p>Start with: <code>Na + H2O → NaOH + H2</code></p>
+              <ul>
+                <li>Left: Na 1, H 2, O 1.</li>
+                <li>Right: Na 1, H 3, O 1.</li>
+              </ul>
+              <p>Step 1: Put 2 in front of H₂O to increase H on the left:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Na + 2 H2O → NaOH + H2
+                </div>
+                <button class="copy-btn" type="button" data-copy="Na + 2 H2O → NaOH + H2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Step 2: Put 2 in front of NaOH:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Na + 2 H2O → 2 NaOH + H2
+                </div>
+                <button class="copy-btn" type="button" data-copy="Na + 2 H2O → 2 NaOH + H2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Step 3: Now Na is unbalanced, so put 2 in front of Na:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  2 Na + 2 H2O → 2 NaOH + H2
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 Na + 2 H2O → 2 NaOH + H2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>All atoms match. This illustrates the back-and-forth coefficient adjustments used in balancing.</p>
+
+              <p><strong>Tip:</strong> When balancing, start with elements that appear in the fewest formulas (often metals, then nonmetals, leaving H and O for last).</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-2"
+        data-section-title="3.2 Simple Patterns of Chemical Reactivity combination decomposition combustion"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.2 Simple Patterns of Chemical Reactivity</div>
+            <div class="section-subtitle">Combination, decomposition, and combustion reactions.</div>
+          </div>
+          <div class="section-tagline">Roots: Recognizing common reaction patterns.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>combination (synthesis) reaction</strong> occurs when two or more substances react to form a single product. It often involves a metal and a nonmetal forming an ionic compound.</p>
+              <p>A <strong>decomposition reaction</strong> is the reverse: a single compound breaks down into two or more simpler substances, usually upon heating or energy input.</p>
+              <p>A <strong>combustion reaction</strong> is a rapid reaction with O₂ that releases energy (heat, light). For hydrocarbons (compounds of C and H), complete combustion produces CO₂ and H₂O.</p>
+              <p>Recognizing these patterns helps you predict products:
+                <ul>
+                  <li>Combination: elements → compound.</li>
+                  <li>Decomposition: compound → simpler compounds/elements.</li>
+                  <li>Combustion (of hydrocarbons): fuel + O₂ → CO₂ + H₂O.</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Patterns &amp; key equations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>General combination reaction:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.6]</span>
+                  A + B → C
+                </div>
+                <button class="copy-btn" type="button" data-copy="A + B → C">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Example: Mg and O₂ forming MgO.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.7]</span>
+                  2 Mg(s) + O2(g) → 2 MgO(s)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 Mg(s) + O2(g) → 2 MgO(s)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Metal + nonmetal → ionic solid. Charges (Mg²⁺ and O²⁻) determine the formula MgO.</p>
+
+              <p><strong>Example of decomposition:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  CaCO3(s) → CaO(s) + CO2(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="CaCO3(s) → CaO(s) + CO2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here one compound splits into two simpler products.</p>
+
+              <p><strong>Combustion of a hydrocarbon:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  hydrocarbon + O2 → CO2 + H2O
+                </div>
+                <button class="copy-btn" type="button" data-copy="hydrocarbon + O2 → CO2 + H2O">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For example, propane combustion:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  C3H8(g) + 5 O2(g) → 3 CO2(g) + 4 H2O(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="C3H8(g) + 5 O2(g) → 3 CO2(g) + 4 H2O(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: classifying reactions.</strong></p>
+              <ul>
+                <li><code>2 Mg(s) + O2(g) → 2 MgO(s)</code> → combination (and redox).</li>
+                <li><code>2 KClO3(s) → 2 KCl(s) + 3 O2(g)</code> → decomposition.</li>
+                <li><code>CH4(g) + 2 O2(g) → CO2(g) + 2 H2O(g)</code> → combustion.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> Look at the number of reactants and products:
+                <ul>
+                  <li>Many reactants, one product → likely combination.</li>
+                  <li>One reactant, many products → likely decomposition.</li>
+                  <li>O₂ as a reactant, CO₂ and H₂O as products → combustion of a carbon-containing fuel.</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-3"
+        data-section-title="3.3 Formula Weights and Elemental Compositions FW molecular weight percent composition"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.3 Formula Weights and Elemental Compositions of Substances</div>
+            <div class="section-subtitle">Formula weights, molecular weights, and mass percent composition.</div>
+          </div>
+          <div class="section-tagline">Roots: Connecting formulas to mass.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>formula weight</strong> (FW) of a substance is the sum of the atomic weights of all atoms in its formula. For molecular substances, FW is also called the <strong>molecular weight</strong>.</p>
+              <p>For ionic substances (extended lattices), we use the <strong>empirical formula</strong> as the formula unit and compute the formula weight from that formula unit.</p>
+              <p><strong>Elemental composition</strong> describes what fraction of a compound’s mass comes from each element, usually as a percentage by mass. All mass percentages add up to 100%.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas &amp; their meaning</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Formula weight:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  FW = Σ (number of atoms of each element × AW of that element)
+                </div>
+                <button class="copy-btn" type="button" data-copy="FW = Σ (number of atoms × atomic weight)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Example for H₂SO₄:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  FW(H2SO4) = 2(1.0) + 32.1 + 4(16.0) = 98.1 amu
+                </div>
+                <button class="copy-btn" type="button" data-copy="FW(H2SO4) = 2(1.0) + 32.1 + 4(16.0) = 98.1 amu">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Mass percent composition:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.15]</span>
+                  % by mass of element = (number of atoms × AW of element / FW of substance) × 100%
+                </div>
+                <button class="copy-btn" type="button" data-copy="% by mass of element = (number of atoms × AW / FW) × 100%">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For sulfur in H₂SO₄:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  %S in H2SO4 = (32.1 / 98.1) × 100% ≈ 32.7%
+                </div>
+                <button class="copy-btn" type="button" data-copy="%S in H2SO4 = (32.1 / 98.1) × 100% ≈ 32.7%">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: sucrose (C₁₂H₂₂O₁₁).</strong></p>
+              <p>Formula weight:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  FW(C12H22O11) = 12(12.0) + 22(1.0) + 11(16.0) = 342.0 amu
+                </div>
+                <button class="copy-btn" type="button" data-copy="FW(C12H22O11) = 342.0 amu">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Based on this FW you can compute mass percentages or convert grams to moles.</p>
+
+              <p><strong>Tip:</strong> When calculating mass percent from a formula, it’s often easiest to compute the formula weight once and reuse it for each element’s percentage, as the book does for sucrose.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-4"
+        data-section-title="3.4 Avogadro's Number and the Mole Molar Mass"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.4 Avogadro’s Number and the Mole; Molar Mass</div>
+            <div class="section-subtitle">Relating mass, moles, and numbers of particles using molar mass and Avogadro’s number.</div>
+          </div>
+          <div class="section-tagline">Roots: Moles as the bridge between grams and particles.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>mole</strong> is a counting unit: 1 mol of any substance contains Avogadro’s number of entities (atoms, molecules, ions, etc.).</p>
+              <p><strong>Avogadro’s number (Nₐ)</strong> is approximately <strong>6.02 × 10²³ mol⁻¹</strong>. It ties microscopic particle counts to macroscopic amounts you can weigh.</p>
+              <p>The <strong>molar mass</strong> M (in g·mol⁻¹) of a substance is numerically equal to its formula weight in amu (but with different units). For example, if FW = 98.1 amu, then M ≈ 98.1 g·mol⁻¹.</p>
+              <p>These ideas give you the standard relationships:
+                <ul>
+                  <li>moles ↔ grams via molar mass.</li>
+                  <li>moles ↔ number of particles via Nₐ.</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Key relationships &amp; usage</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Moles and particles:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  N = n × Nₐ
+                </div>
+                <button class="copy-btn" type="button" data-copy="N = n × Nₐ">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>N is the number of particles; n is number of moles; Nₐ ≈ 6.02 × 10²³ mol⁻¹.</p>
+
+              <p><strong>Moles and mass:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  n = mass / M  and  mass = n × M
+                </div>
+                <button class="copy-btn" type="button" data-copy="n = mass / M">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here M is molar mass (g·mol⁻¹). These formulas allow you to move between grams of a substance and moles.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: moles of glucose in 5.380 g.</strong></p>
+              <p>Glucose: C₆H₁₂O₆, M ≈ 180.0 g·mol⁻¹.</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  n = 5.380 g / 180.0 g·mol⁻¹ ≈ 0.0299 mol
+                </div>
+                <button class="copy-btn" type="button" data-copy="n = 5.380 g / 180.0 g·mol⁻¹ ≈ 0.0299 mol">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Because 5.380 g is less than the molar mass, fewer than 1 mol makes sense.</p>
+
+              <p><strong>Example: molecules and atoms in 5.23 g of glucose.</strong></p>
+              <ol>
+                <li>Convert 5.23 g to moles: ≈ 0.0291 mol.</li>
+                <li>Molecules: 0.0291 mol × 6.02 × 10²³ ≈ 1.75 × 10²² molecules.</li>
+                <li>Atoms of oxygen (6 per molecule): 6 × 1.75 × 10²² ≈ 1.05 × 10²³ O atoms.</li>
+              </ol>
+
+              <p><strong>Tip:</strong> Any realistic count of atoms or molecules in a lab-scale sample will be a <em>very</em> large number (10²²–10²⁵ range). If your result is small (like 10³), you probably made a mistake in the exponent or unit conversions.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-5"
+        data-section-title="3.5 Empirical Formulas from Analyses combustion analysis percent composition"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.5 Empirical Formulas from Analyses</div>
+            <div class="section-subtitle">Using composition data and combustion analysis to find empirical and molecular formulas.</div>
+          </div>
+          <div class="section-tagline">Roots: Simplest whole-number ratios of atoms.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>empirical formula</strong> gives the simplest whole-number ratio of atoms of each element in a compound. A <strong>molecular formula</strong> shows the actual number of atoms of each element in one molecule; it is an integer multiple of the empirical formula.</p>
+              <p>You can determine an empirical formula from:
+                <ul>
+                  <li>Mass percentages of each element, or</li>
+                  <li>Experimental mass data for each element in a sample.</li>
+                </ul>
+              </p>
+              <p>For compounds containing carbon and hydrogen (and possibly oxygen), <strong>combustion analysis</strong> is a common technique. The compound is burned in O₂, converting C to CO₂ and H to H₂O. Measuring the masses of CO₂ and H₂O allows you to back-calculate how much C and H were present in the original sample. Oxygen (and other elements) can then be found by mass difference.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Procedures &amp; relationships</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Algorithm: percent composition → empirical formula.</strong></p>
+              <ol>
+                <li>Assume 100 g of the compound; convert each mass percent to grams.</li>
+                <li>Convert the grams of each element to moles using its atomic weight.</li>
+                <li>Divide each mole value by the smallest number of moles to get ratios.</li>
+                <li>If the ratios are not close to whole numbers, multiply all by a small integer (2, 3, 4, …) until you get whole-number ratios.</li>
+                <li>Use these whole numbers as subscripts in the empirical formula.</li>
+              </ol>
+
+              <p><strong>Molecular vs empirical formula:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Molecular formula = n × (empirical formula)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Molecular formula = n × empirical formula">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Where:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  n = molar mass of compound / molar mass of empirical formula
+                </div>
+                <button class="copy-btn" type="button" data-copy="n = (molar mass compound) / (molar mass empirical formula)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: empirical formula of 2-propanol by combustion analysis.</strong></p>
+              <p>Given: 0.255 g 2-propanol (C, H, O) yields 0.561 g CO₂ and 0.306 g H₂O on combustion.</p>
+              <ol>
+                <li>From 0.561 g CO₂:
+                  <ul>
+                    <li>n(CO₂) = 0.561 g / 44.0 g·mol⁻¹.</li>
+                    <li>n(C) = n(CO₂); mass C = n(C) × 12.0 g·mol⁻¹ ≈ 0.153 g.</li>
+                  </ul>
+                </li>
+                <li>From 0.306 g H₂O:
+                  <ul>
+                    <li>n(H₂O) = 0.306 g / 18.0 g·mol⁻¹.</li>
+                    <li>n(H) = 2 × n(H₂O); mass H ≈ 0.0343 g.</li>
+                  </ul>
+                </li>
+                <li>Mass O = 0.255 g − (0.153 g + 0.0343 g) ≈ 0.068 g.</li>
+                <li>Convert each mass to moles and divide by the smallest:
+                  <ul>
+                    <li>n(C) ≈ 0.0128 mol, n(H) ≈ 0.0340 mol, n(O) ≈ 0.0043 mol.</li>
+                    <li>Ratios ≈ C: 3.0, H: 8.0, O: 1.0.</li>
+                  </ul>
+                </li>
+                <li>Empirical formula: C₃H₈O.</li>
+              </ol>
+
+              <p><strong>Tip:</strong> If your final mole ratios are close to values like 1.5, 2.5, etc., multiply all ratios by 2 to clear the fraction and obtain whole numbers. For example, 1 : 1.5 : 1 becomes 2 : 3 : 2.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-6"
+        data-section-title="3.6 Reaction Stoichiometry moles grams stoichiometrically equivalent"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.6 Reaction Stoichiometry</div>
+            <div class="section-subtitle">Using balanced equations to relate grams and moles of reactants and products.</div>
+          </div>
+          <div class="section-tagline">Trunk: From balanced equations to quantitative predictions.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A balanced chemical equation provides <strong>mole ratios</strong> between reactants and products. These ratios allow you to calculate how much of one substance reacts with or produces another.</p>
+              <p>The coefficients represent <strong>stoichiometrically equivalent quantities</strong>. For example, in 2 H₂ + O₂ → 2 H₂O, the combination 2 mol H₂, 1 mol O₂, and 2 mol H₂O are equivalent in the sense that they appear together in the balanced equation.</p>
+              <p>By combining these mole ratios with molar masses, you can move between grams of reactants and grams of products.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Key equations &amp; procedure</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Stoichiometry of hydrogen and oxygen:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.16]</span>
+                  2 H2(g) + O2(g) → 2 H2O(l)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 H2(g) + O2(g) → 2 H2O(l)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here, 2 mol H₂, 1 mol O₂, and 2 mol H₂O are stoichiometrically linked. You can write:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  2 mol H2 ≅ 1 mol O2 ≅ 2 mol H2O
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 mol H2 ≅ 1 mol O2 ≅ 2 mol H2O">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>General mass–mass stoichiometry procedure:</strong></p>
+              <ol>
+                <li>Convert mass of given substance to moles (using molar mass).</li>
+                <li>Use the balanced equation’s mole ratio to convert moles of given substance to moles of desired substance.</li>
+                <li>Convert moles of desired substance back to mass (using molar mass).</li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: grams of CO₂ from burning butane (C₄H₁₀).</strong></p>
+              <p>Reaction:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[3.17]</span>
+                  2 C4H10(l) + 13 O2(g) → 8 CO2(g) + 10 H2O(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 C4H10(l) + 13 O2(g) → 8 CO2(g) + 10 H2O(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Find grams CO₂ from 1.00 g C₄H₁₀:</p>
+              <ol>
+                <li>Moles C₄H₁₀: 1.00 g / 58.0 g·mol⁻¹ ≈ 1.72 × 10⁻² mol.</li>
+                <li>Moles CO₂ via stoichiometry (2 → 8): n(CO₂) = 1.72 × 10⁻² × (8 / 2) = 6.88 × 10⁻² mol.</li>
+                <li>Mass CO₂: 6.88 × 10⁻² mol × 44.0 g·mol⁻¹ ≈ 3.03 g.</li>
+              </ol>
+              <p><strong>Tip:</strong> Always write the balanced equation first and identify which mole ratio you actually need (here, 2 mol C₄H₁₀ → 8 mol CO₂). Skipping that step is a common cause of errors.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-3-7"
+        data-section-title="3.7 Limiting Reactants theoretical yield percent yield"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">3.7 Limiting Reactants</div>
+            <div class="section-subtitle">Identifying limiting reactants, determining amounts of products, and calculating percent yield.</div>
+          </div>
+          <div class="section-tagline">Leaves: When one reactant runs out and how efficient the reaction is.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>limiting reactant</strong> is the reactant that is completely consumed first in a reaction. It limits how much product can be formed. Any other reactant(s) present in greater-than-required amounts are <strong>excess reactants</strong>; some of each excess reactant will remain after the reaction.</p>
+              <p>The <strong>theoretical yield</strong> is the maximum amount of product that could be formed from a given set of reactants, assuming complete reaction and no losses. The <strong>actual yield</strong> is the amount of product actually obtained in the laboratory.</p>
+              <p>The <strong>percent yield</strong> compares actual and theoretical yields to measure the efficiency of a reaction.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Key formulas &amp; procedure</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Identifying the limiting reactant (general method):</strong></p>
+              <ol>
+                <li>Convert initial amounts of each reactant to moles.</li>
+                <li>Using stoichiometric ratios from the balanced equation, compute how much product each reactant could theoretically produce.</li>
+                <li>The reactant that produces the <em>least</em> amount of product is the <strong>limiting reactant</strong>. The other(s) are in excess.</li>
+              </ol>
+
+              <p><strong>Percent yield:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Percent yield = (actual yield / theoretical yield) × 100%
+                </div>
+                <button class="copy-btn" type="button" data-copy="Percent yield = (actual yield / theoretical yield) × 100%">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This value can never exceed 100%; in practice it is often significantly less, because of side reactions, incomplete reaction, or losses during product isolation.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: limiting reactant in 2 H₂ + O₂ → 2 H₂O.</strong></p>
+              <p>If you start with 10 mol H₂ and 7 mol O₂:</p>
+              <ul>
+                <li>Stoichiometry requires 2 mol H₂ per 1 mol O₂.</li>
+                <li>To consume 10 mol H₂, you need 5 mol O₂.</li>
+                <li>You have 7 mol O₂ available, so H₂ runs out first.</li>
+              </ul>
+              <p>Thus H₂ is the <strong>limiting reactant</strong>, and O₂ is in excess with 2 mol left over.</p>
+
+              <p><strong>Example: percent yield for adipic acid production.</strong></p>
+              <p>Reaction: 2 C₆H₁₂(l) + 5 O₂(g) → 2 H₂C₆H₈O₄(l) + 2 H₂O(g).</p>
+              <ul>
+                <li>Starting with 25.0 g C₆H₁₂ (limiting reactant), the theoretical yield of H₂C₆H₈O₄ is 43.5 g.</li>
+                <li>If only 33.5 g of H₂C₆H₈O₄ is obtained, then:</li>
+              </ul>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Percent yield = (33.5 g / 43.5 g) × 100% ≈ 77.0%
+                </div>
+                <button class="copy-btn" type="button" data-copy="Percent yield = (33.5 g / 43.5 g) × 100% ≈ 77%">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Tip:</strong> Always base your limiting-reactant decision on <em>moles</em>, not grams. A smaller mass does not automatically mean a reactant is limiting; it is the mole ratio relative to the coefficients that matters.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => link.style.opacity = '');
+            return;
+          }
+          cards.forEach(card => {
+            const title = card.getAttribute('data-section-title') || '';
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.toLowerCase().includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

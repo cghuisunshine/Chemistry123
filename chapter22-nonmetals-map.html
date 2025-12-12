@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 22 – Chemistry of the Nonmetals: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 22 Map</div>
+        <div class="sidebar-subtitle">Chemistry of the Nonmetals</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Search / filter</label>
+        <input id="search-box" class="search-box" type="search" placeholder="oxidation states, oxyacids, silicates..." />
+        <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Sections</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-22-1" class="nav-link">
+              <span><strong>22.1</strong><small>periodic trends &amp; reactions</small></span>
+              <span class="nav-tag">nonmetals overview</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-2" class="nav-link">
+              <span><strong>22.2</strong><small>hydrogen</small></span>
+              <span class="nav-tag">isotopes &amp; hydrides</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-3" class="nav-link">
+              <span><strong>22.3</strong><small>noble gases</small></span>
+              <span class="nav-tag">Xe compounds</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-4" class="nav-link">
+              <span><strong>22.4</strong><small>halogens</small></span>
+              <span class="nav-tag">X₂ &amp; oxyacids</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-5" class="nav-link">
+              <span><strong>22.5</strong><small>oxygen</small></span>
+              <span class="nav-tag">O₂ &amp; O₃</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-6" class="nav-link">
+              <span><strong>22.6</strong><small>other Group 16</small></span>
+              <span class="nav-tag">S, Se, Te, Po</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-7" class="nav-link">
+              <span><strong>22.7</strong><small>nitrogen</small></span>
+              <span class="nav-tag">N₂ &amp; NH₃</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-8" class="nav-link">
+              <span><strong>22.8</strong><small>other Group 15</small></span>
+              <span class="nav-tag">P, As, Sb, Bi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-9" class="nav-link">
+              <span><strong>22.9</strong><small>carbon</small></span>
+              <span class="nav-tag">C allotropes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-10" class="nav-link">
+              <span><strong>22.10</strong><small>other Group 14</small></span>
+              <span class="nav-tag">Si &amp; silicates</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-22-11" class="nav-link">
+              <span><strong>22.11</strong><small>boron</small></span>
+              <span class="nav-tag">boranes &amp; borates</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Copy tips</strong></div>
+        <div>• Click <code>📋</code> to copy formulas.</div>
+        <div>• Double-click any text to copy it.</div>
+        <div>Use search + section links for quick review.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Chemistry of the Nonmetals – Concept Map</div>
+          <div class="header-subtitle">Chapter 22 • Periodic trends, key elements, and their compounds</div>
+          <div class="header-tags">
+            <span class="header-tag">oxidation states</span>
+            <span class="header-tag">oxyacids &amp; oxides</span>
+            <span class="header-tag">silicates &amp; boranes</span>
+          </div>
+          <p class="header-highlight">
+            Each card turns a section of Chapter 22 into roots–trunk–leaves: core periodic trends for nonmetals, the main formulas and bonding patterns they form, and worked examples that connect these ideas to combustion, acid–base behavior, oxide chemistry, and real-world applications from fertilizers and fuels to glass and hair chemistry.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards">
+
+        <!-- 22.1 Periodic Trends and Chemical Reactions -->
+        <article class="section-card" id="sec-22-1" data-section-keywords="nonmetals periodic trends electronegativity combustion CH3NH2 super bases water">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.1 Periodic Trends and Chemical Reactions</div>
+              <div class="section-label">Nonmetals, first-row anomalies &amp; key reaction partners</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">belt of nonmetals</div>
+              <div class="section-badge">π-bonding</div>
+              <div class="section-badge">O₂ &amp; H₂O</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Nonmetals cluster at the upper right of the periodic table and show high electronegativity and ionization energy. First-row elements (C, N, O, F) are especially good at forming multiple bonds, while heavier congeners favor expanded valence shells and higher coordination. Many nonmetal reactions feature O₂ and H₂O as key partners.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Nonmetal traits &amp; first-row differences</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Except for hydrogen, <strong>nonmetals</strong> occupy the upper right of the periodic table and show high electronegativity, high ionization energy, small radius, and low metallic character.
+                  </li>
+                  <li>
+                    Metal–nonmetal reactions often give <strong>ionic solids</strong>, whereas nonmetal–nonmetal reactions typically produce molecular substances with covalent bonds.
+                  </li>
+                  <li>
+                    The <strong>first element</strong> in a group (C, N, O, F) is smaller and forms strong π bonds (C=C, C≡C, C=O, N≡N); heavier congeners favor single bonds and can expand their valence shells (e.g., PCl₅ vs NCl₃).
+                  </li>
+                  <li>
+                    O₂ and H₂O appear in many nonmetal reactions: O₂ in combustion and oxidation; H₂O in acid–base and hydrolysis reactions.
+                  </li>
+                  <li>
+                    Very weak Brønsted acids (H₂, NH₃, CH₄, H₂O) have <strong>extremely strong conjugate bases</strong> (H⁻, NH₂⁻, CH₃⁻, O²⁻) that readily deprotonate water to form OH⁻.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">nonmetal region</span>
+                  <span class="chip">first-row special</span>
+                  <span class="chip">O₂ &amp; H₂O partners</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Combustion &amp; strong conjugate bases</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Combustion example:</span>
+                  <span class="formula-text">4 CH₃NH₂(g) + 9 O₂(g) → 4 CO₂(g) + 10 H₂O(g) + 2 N₂(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CH3NH2 combustion">📋</button>
+                </div>
+                <p>
+                  Hydrogen ends up in H₂O, carbon in CO₂, and nitrogen in N₂, reflecting the high stability of these products (strong O–H, C=O, and N≡N bonds).
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">CH₃⁻ base:</span>
+                  <span class="formula-text">CH₃⁻(aq) + H₂O(l) → CH₄(g) + OH⁻(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CH3- water reaction">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">N³⁻ base:</span>
+                  <span class="formula-text">N³⁻(aq) + 3 H₂O(l) → NH₃(aq) + 3 OH⁻(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy N3- water reaction">📋</button>
+                </div>
+                <p>
+                  These reactions show that conjugate bases of very weak acids are too basic to exist in water; they immediately pull protons from H₂O, forming OH⁻.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; tips</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – First-row vs heavier congeners</div>
+                  <p class="example-body">
+                    Nitrogen forms NCl₃ but not NCl₅, whereas phosphorus forms both PCl₃ and PCl₅. The small size of N limits the number of neighbors it can accommodate and makes valence-shell expansion unfavorable. Phosphorus is larger and can expand its valence shell, so PCl₅ is stable.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Combustion product prediction</div>
+                  <p class="example-body">
+                    For a compound containing C, H, and N, burning in excess O₂ usually yields CO₂, H₂O, and N₂. Knowing these patterns helps you write balanced combustion equations and identify likely oxidation products.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.2 Hydrogen -->
+        <article class="section-card" id="sec-22-2" data-section-keywords="hydrogen isotopes protium deuterium tritium hydrides fuel cell H2O">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.2 Hydrogen</div>
+              <div class="section-label">Isotopes, hydrides &amp; reactivity</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">¹H, ²H, ³H</div>
+              <div class="section-badge">ionic &amp; molecular hydrides</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Hydrogen is unique in the periodic table and forms three isotopes, including deuterium and radioactive tritium. It forms ionic, metallic, and molecular hydrides and plays central roles as a fuel, reducing agent, and component of water and organic molecules.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Isotopes &amp; uniqueness</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Hydrogen has three isotopes: protium (¹H), deuterium (²H or D), and tritium (³H or T). Protium dominates natural abundance; deuterium and tritium are rare.
+                  </li>
+                  <li>
+                    Deuterium-containing substances (D₂O, C–D bonds) have different physical properties and often react more slowly than their protium analogs (kinetic isotope effect).
+                  </li>
+                  <li>
+                    Hydrogen is unique: it can lose its electron to give H⁺ (alkali-metal‑like) or gain an electron to make H⁻ (halogen‑like).
+                  </li>
+                  <li>
+                    Hydrides fall into ionic (H⁻ with metals), metallic (H in metal lattices), and molecular (CH₄, NH₃, H₂O) categories.
+                  </li>
+                  <li>
+                    H₂ is a clean fuel; its combustion or electrochemical oxidation yields only water, with high energy density per mass.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">protium</span>
+                  <span class="chip">deuterium</span>
+                  <span class="chip">tritium</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Key equations &amp; hydride behavior</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Tritium decay:</span>
+                  <span class="formula-text">³₁H → ³₂He + 0₋₁e (t₁/₂ ≈ 12.3 yr)</span>
+                  <button class="copy-button" type="button" aria-label="Copy tritium decay">📋</button>
+                </div>
+                <p>
+                  A neutron in tritium converts to a proton and an electron (β⁻), increasing Z by 1. Because of its short half-life, tritium is mostly man-made.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Li-6 &amp; n:</span>
+                  <span class="formula-text">⁶₃Li + ¹₀n → ³₁H + ⁴₂He</span>
+                  <button class="copy-button" type="button" aria-label="Copy Li-6 reaction">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Hydride + water:</span>
+                  <span class="formula-text">H⁻ + H₂O(l) → H₂(g) + OH⁻(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy H- + water">📋</button>
+                </div>
+                <p>
+                  Hydride ion is a very strong base; it cannot exist in water and instead generates hydrogen gas and hydroxide.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Fuel cell overall:</span>
+                  <span class="formula-text">2 H₂(g) + O₂(g) → 2 H₂O(l)</span>
+                  <button class="copy-button" type="button" aria-label="Copy fuel cell reaction">📋</button>
+                </div>
+                <p>
+                  In a hydrogen–oxygen fuel cell, this reaction is split into half-reactions at electrodes, directly converting chemical energy into electrical work with water as the product.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Isotope &amp; hydride examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Heavy water properties</div>
+                  <p class="example-body">
+                    D₂O melts at 3.81 °C and boils at 101.42 °C, compared to 0.00 °C and 100.00 °C for H₂O. It is also denser, so ice made from D₂O sinks in H₂O. These differences arise from the higher mass and slightly different vibrational energies of D–O vs H–O bonds.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Deuteration and reaction rates</div>
+                  <p class="example-body">
+                    Replacing a C–H bond with C–D can slow reactions that involve breaking that bond. For instance, certain acid–base or substitution reactions proceed measurably more slowly in deuterated solvents or substrates, which is useful in mechanistic studies and NMR spectroscopy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.3 Noble Gases -->
+        <article class="section-card" id="sec-22-3" data-section-keywords="noble gases He Ne Ar Kr Xe XeF2 XeF4 XeF6 XeO3 valence-shell expansion">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.3 Group 18: The Noble Gases</div>
+              <div class="section-label">Inert gases and xenon chemistry</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">full valence shells</div>
+              <div class="section-badge">XeF₄ square planar</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Noble gases have filled valence shells and high ionization energies, making them remarkably inert. Under extreme conditions, however, heavier noble gases, especially xenon, form compounds with highly electronegative fluorine and oxygen, illustrating valence-shell expansion and advanced VSEPR structures.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Inertness &amp; uses</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Noble gases (He, Ne, Ar, Kr, Xe, Rn) possess filled valence shells (ns²np⁶, except He) and have very high ionization energies and low electron affinities.
+                  </li>
+                  <li>
+                    All are monatomic gases at room temperature; they appear mainly in physical contexts (lighting, lasers, cryogenics) rather than chemical ones.
+                  </li>
+                  <li>
+                    Helium’s extremely low boiling point makes it essential as a cryogenic coolant. Argon’s inertness makes it useful as a protective gas in welding and high‑T processes.
+                  </li>
+                  <li>
+                    Heavier noble gases, especially xenon, can form compounds with strong oxidizers like F₂ and O₂ under appropriate conditions, contradicting the older notion of complete inertness.
+                  </li>
+                  <li>
+                    Xenon compounds illustrate valence-shell expansion and unusual oxidation states for a noble gas (up to +8 in XeO₄).
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">inert gases</span>
+                  <span class="chip">lighting &amp; lasers</span>
+                  <span class="chip">cryogenics</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Xenon fluorides &amp; oxides</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Xenon fluorides:</span>
+                  <span class="formula-text">XeF₂, XeF₄, XeF₆</span>
+                  <button class="copy-button" type="button" aria-label="Copy XeF2-F6">📋</button>
+                </div>
+                <p>
+                  XeF₂, XeF₄, and XeF₆ are formed by direct reaction of xenon and fluorine under controlled conditions. Their structures (linear, square planar, and distorted octahedral) reflect electron-domain counts and lone pairs around Xe.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Hydrolysis example:</span>
+                  <span class="formula-text">XeF₆(s) + 3 H₂O(l) → XeO₃(aq) + 6 HF(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy XeF6 hydrolysis">📋</button>
+                </div>
+                <p>
+                  Xenon(VI) oxide and hydrofluoric acid form when XeF₆ is hydrolyzed; Xenon reaches oxidation state +6 and HF is produced as the fluoride leaves.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">VSEPR for XeF₄:</span>
+                  <span class="formula-text">XeF₄ → square planar (6 domains: 4 bonds, 2 lone pairs)</span>
+                  <button class="copy-button" type="button" aria-label="Copy XeF4 shape">📋</button>
+                </div>
+                <p>
+                  XeF₄ has an octahedral electron-domain geometry with two trans lone pairs. The molecular geometry is square planar because the lone pairs occupy axial positions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Noble gas compound examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Noble gas reactivity trend</div>
+                  <p class="example-body">
+                    Reactivity increases down Group 18: He &lt; Ne &lt; Ar &lt; Kr &lt; Xe. Xenon has lower ionization energy and more accessible d orbitals, making it able to form covalent bonds with strong oxidants like F₂ and O₂, whereas helium and neon form no stable binary compounds under normal conditions.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Argon and krypton compounds</div>
+                  <p class="example-body">
+                    KrF₂ is a known krypton compound but is unstable above about −10 °C. HArF was discovered in very cold argon matrices, but it is only stable at extremely low temperatures. These examples highlight how rare and delicate noble gas chemistry is compared to xenon compounds.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.4 Halogens -->
+        <article class="section-card" id="sec-22-4" data-section-keywords="halogens F Cl Br I At ns2np5 oxyacids hypochlorite perchlorate oxidizing agents">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.4 Group 17: The Halogens</div>
+              <div class="section-label">Electron-rich p-block oxidizers</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ns²np⁵</div>
+              <div class="section-badge">X⁻ &amp; oxyacids</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Halogens have ns²np⁵ valence configurations and high electronegativities, favoring −1 oxidation states but also exhibiting high positive oxidation states in oxyacids. Their elemental forms are powerful oxidizing agents, and their oxyanions such as hypochlorite and perchlorate play central roles in bleaching, disinfection, and energetics.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Valence, states &amp; reactivity</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Halogens (F, Cl, Br, I, At) have valence configuration ns²np⁵. They usually gain one electron to achieve noble-gas configuration (oxidation state −1).
+                  </li>
+                  <li>
+                    Fluorine is the most electronegative element and appears only in the −1 oxidation state. Other halogens exhibit +1, +3, +5, and +7 oxidation states in oxycompounds.
+                  </li>
+                  <li>
+                    F₂ and Cl₂ are gases, Br₂ is a liquid, and I₂ is a solid at room temperature; dispersion forces increase with molar mass.
+                  </li>
+                  <li>
+                    Halogens are strong oxidizing agents as X₂; their oxidizing power decreases F₂ &gt; Cl₂ &gt; Br₂ &gt; I₂.
+                  </li>
+                  <li>
+                    Their oxyacids and oxyanions (e.g., ClO⁻, ClO₃⁻, ClO₄⁻) are important in water treatment, bleaching, and as oxidizers in explosives and rocket propellants.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">ns²np⁵</span>
+                  <span class="chip">X₂ oxidants</span>
+                  <span class="chip">oxyacids</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Oxyacids &amp; disproportionation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Oxyacids (Cl):</span>
+                  <span class="formula-text">HClO, HClO₂, HClO₃, HClO₄ (Cl in +1, +3, +5, +7)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Cl oxyacids">📋</button>
+                </div>
+                <p>
+                  Hypochlorous (HClO), chlorous (HClO₂), chloric (HClO₃), and perchloric (HClO₄) acids illustrate increasing oxidation state and, generally, increasing acid strength and oxidizing power.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Disproportionation:</span>
+                  <span class="formula-text">Cl₂(g) + 2 OH⁻(aq) → Cl⁻(aq) + ClO⁻(aq) + H₂O(l)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Cl2 + OH-">📋</button>
+                </div>
+                <p>
+                  Chlorine simultaneously oxidizes and reduces itself in basic solution, forming chloride and hypochlorite. Hypochlorite (ClO⁻) is responsible for the bleaching and disinfecting power of household bleach.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">NH₄ClO₄ rocket fuel:</span>
+                  <span class="formula-text">10 Al + 6 NH₄ClO₄ → 4 Al₂O₃ + 2 AlCl₃ + 12 H₂O + 3 N₂</span>
+                  <button class="copy-button" type="button" aria-label="Copy NH4ClO4 equation">📋</button>
+                </div>
+                <p>
+                  Ammonium perchlorate’s ClO₄⁻ ion is a powerful oxidizer. When mixed with powdered aluminum, it yields a highly energetic mixture used in solid rocket boosters, with hot gases providing thrust.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Halogen examples &amp; trends</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Acid strength trend for oxyacids</div>
+                  <p class="example-body">
+                    For a given halogen, acid strength increases with oxidation state: HClO &lt; HClO₂ &lt; HClO₃ &lt; HClO₄. For a given oxidation state, acid strength decreases ClOₙ⁻ &gt; BrOₙ⁻ &gt; IOₙ⁻ because chlorine’s higher electronegativity better stabilizes the negative charge on the oxyanion conjugate base.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Why HF behaves differently</div>
+                  <p class="example-body">
+                    HF has a very strong H–F bond and extensive hydrogen bonding in solution, so it is only a weak acid in water, unlike HCl, HBr, and HI, which are strong acids. Fluoride is small and basic; HF can etch glass by reacting with SiO₂ to form SiF₆²⁻, so HF is stored in plastic rather than glass containers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.5 Oxygen -->
+        <article class="section-card" id="sec-22-5" data-section-keywords="oxygen O2 ozone O3 photosynthesis acidic oxides basic oxides ozonolysis">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.5 Oxygen</div>
+              <div class="section-label">O₂, O₃, oxides &amp; reactivity</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">O₂ &amp; O₃</div>
+              <div class="section-badge">acidic/basic oxides</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Oxygen’s high electronegativity and strong O=O bond make O₂ both abundant and kinetically stable, while O₃ is a powerful oxidant. The oxides of elements range from acidic to basic or amphoteric, influencing their reactions with water and acids and playing roles in combustion, corrosion, and environmental chemistry.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Allotropes &amp; abundance</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Oxygen exists mostly as dioxygen (O₂), a colorless, odorless paramagnetic gas; ozone (O₃) is a pale blue, toxic gas with a sharp odor and stronger oxidizing power.
+                  </li>
+                  <li>
+                    O₂ is only slightly soluble in water but essential for aquatic life; it is continually replenished by photosynthesis in plants and algae.
+                  </li>
+                  <li>
+                    O₂ forms strong bonds with many elements, so their oxides are often thermodynamically very stable, though many reactions require high activation energy or catalysts.
+                  </li>
+                  <li>
+                    Nonmetal oxides tend to be covalent and <strong>acidic</strong>, forming oxyacids with water; many metal oxides are ionic and <strong>basic</strong>, forming hydroxides; some oxides are <strong>amphoteric</strong>, showing both behaviors.
+                  </li>
+                  <li>
+                    Ozone in the upper atmosphere protects us from UV radiation, while tropospheric ozone is an air pollutant and constituent of photochemical smog.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">allotropes</span>
+                  <span class="chip">photosynthesis</span>
+                  <span class="chip">acidic/basic oxides</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Photosynthesis, oxyacetylene &amp; oxides</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Photosynthesis:</span>
+                  <span class="formula-text">6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂</span>
+                  <button class="copy-button" type="button" aria-label="Copy photosynthesis">📋</button>
+                </div>
+                <p>
+                  Green plants convert CO₂ and H₂O into glucose and O₂ using light; this process is the source of most atmospheric oxygen and organic matter.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Oxyacetylene:</span>
+                  <span class="formula-text">2 C₂H₂ + 5 O₂ → 4 CO₂ + 2 H₂O (ΔH° ≈ −2510 kJ)</span>
+                  <button class="copy-button" type="button" aria-label="Copy oxyacetylene">📋</button>
+                </div>
+                <p>
+                  This highly exothermic reaction produces a flame exceeding 3000 °C, used for cutting and welding metals.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Acidic oxide:</span>
+                  <span class="formula-text">SO₂ + H₂O → H₂SO₃</span>
+                  <button class="copy-button" type="button" aria-label="Copy SO2 + H2O">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Basic oxide:</span>
+                  <span class="formula-text">O²⁻ + H₂O → 2 OH⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy O2- + H2O">📋</button>
+                </div>
+                <p>
+                  Nonmetal oxides like SO₂ form oxyacids; metal oxides behave as basic anhydrides, forming hydroxide ions in water.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Ozone &amp; oxide examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Ozone as oxidant</div>
+                  <p class="example-body">
+                    Ozone (O₃) can oxidize many species that O₂ cannot under the same conditions; it can oxidize all common metals except gold and platinum. In water treatment, ozone disinfects by oxidizing cell walls and organic contaminants, then decomposes back to O₂, leaving no residual chlorine-like taste.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Rust removal</div>
+                  <p class="example-body">
+                    Iron(III) oxide (Fe₂O₃) dissolves in acid via Fe₂O₃(s) + 6 H⁺(aq) → 2 Fe³⁺(aq) + 3 H₂O(l). This reaction is used to remove rust from iron or steel before plating with a more protective metal, such as zinc or tin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.6 Other Group 16 -->
+        <article class="section-card" id="sec-22-6" data-section-keywords="sulfur selenium tellurium polonium H2S H2SO4 thiosulfate disulfide bonds hair">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.6 The Other Group 16 Elements: S, Se, Te, and Po</div>
+              <div class="section-label">From sulfides to sulfates &amp; disulfides</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">S allotropes</div>
+              <div class="section-badge">H₂SO₄ &amp; thiosulfate</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Sulfur, selenium, tellurium, and polonium extend Group 16 chemistry beyond oxygen, with common −2, +4, and +6 oxidation states. Their hydrides, oxides, and oxyacids—including sulfuric acid and thiosulfate—are central to industrial processes and biological systems, including the formation of disulfide bonds in proteins.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Elements &amp; oxidation states</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Sulfur occurs as S₈ rings and in many minerals; it forms numerous oxyanions and oxyacids in oxidation states −2, +4, and +6.
+                  </li>
+                  <li>
+                    Selenium and tellurium exhibit similar chemistry to sulfur but are less abundant; some Se compounds are essential in biology, while others are toxic.
+                  </li>
+                  <li>
+                    Polonium is highly radioactive and less important chemically.
+                  </li>
+                  <li>
+                    Sulfuric acid (H₂SO₄) is one of the most important industrial chemicals, with uses in fertilizers, detergents, and ore processing.
+                  </li>
+                  <li>
+                    Thiosulfate (S₂O₃²⁻) and thiols/disulfides play important roles in redox chemistry and in biological structures (e.g., hair proteins).
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">S⁻², S⁺⁴, S⁺⁶</span>
+                  <span class="chip">H₂SO₄</span>
+                  <span class="chip">S₂O₃²⁻</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Sulfuric acid &amp; thiosulfate</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">H₂SO₄ ionization:</span>
+                  <span class="formula-text">H₂SO₄ → H⁺ + HSO₄⁻; HSO₄⁻ ⇌ H⁺ + SO₄²⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy H2SO4 ionization">📋</button>
+                </div>
+                <p>
+                  Sulfuric acid is a strong acid for its first proton and a moderate acid for its second, forming sulfate and hydrogen sulfate salts that are widely used.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Dehydration of sugar:</span>
+                  <span class="formula-text">C₁₂H₂₂O₁₁(s) → 12 C(s) + 11 H₂O(l) (with H₂SO₄)</span>
+                  <button class="copy-button" type="button" aria-label="Copy sugar dehydration">📋</button>
+                </div>
+                <p>
+                  Concentrated H₂SO₄ removes water from sucrose, leaving elemental carbon and steam; this dramatic reaction illustrates sulfuric acid’s dehydrating power.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Thiosulfate:</span>
+                  <span class="formula-text">S₂O₃²⁻ (one S at −2, one at +6)</span>
+                  <button class="copy-button" type="button" aria-label="Copy thiosulfate description">📋</button>
+                </div>
+                <p>
+                  The mixed oxidation states make thiosulfate a useful reducing agent; it is important in photographic fixing and in removing excess chlorine.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Hair &amp; sulfur chemistry</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Disulfide bonds in hair</div>
+                  <p class="example-body">
+                    Cysteine residues in hair proteins form disulfide bonds (R–S–S–R). Hair straightening and perming treatments use reducing agents to break R–S–S–R into R–SH, reshape the hair, then oxidize to form new R–S–S–R bonds. The macroscopic change in hair texture reflects microscopic sulfur redox chemistry.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Thiosulfate as a chlorine remover</div>
+                  <p class="example-body">
+                    Sodium thiosulfate can reduce Cl₂ in bleached fabrics or water to Cl⁻ while being oxidized to sulfate and elemental sulfur. This quenching of chlorine prevents damage and is used in dechlorination applications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.7 Nitrogen -->
+        <article class="section-card" id="sec-22-7" data-section-keywords="nitrogen N2 triple bond Haber ammonia hydrazine oxidation states fertilizers">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.7 Nitrogen</div>
+              <div class="section-label">Triple bonds, fertilizers &amp; hydrazine</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">N≡N</div>
+              <div class="section-badge">−3 to +5</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Nitrogen’s strong N≡N triple bond makes N₂ chemically inert, but fixed nitrogen in compounds such as ammonia, nitrates, and nitrites is vital for life and agriculture. Nitrogen compounds span oxidation states from −3 to +5 and include key molecules like NH₃, NO, NO₂, and hydrazine.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">N₂, oxidation states &amp; fixation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    N₂ makes up ~78% of the atmosphere; its triple bond (N≡N) has very high bond enthalpy, making N₂ kinetically inert toward many reactions.
+                  </li>
+                  <li>
+                    Nitrogen exhibits oxidation states from −3 to +5, with −3 (in NH₃), 0 (in N₂), and +5 (in NO₃⁻, HNO₃) being especially common and stable.
+                  </li>
+                  <li>
+                    Industrial nitrogen fixation (Haber process) converts N₂ into NH₃, which is further processed into fertilizers; this underpins global food production.
+                  </li>
+                  <li>
+                    Nitrogen oxides (NO, NO₂, N₂O) and oxyacids (HNO₂, HNO₃) are involved in atmospheric chemistry, acid rain, and biological nitrogen cycles.
+                  </li>
+                  <li>
+                    Hydrazine (N₂H₄) and hydroxylamine (NH₂OH) are important nitrogen hydrides with strong reducing power and uses in fuels and synthesis.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">N₂ inertness</span>
+                  <span class="chip">Haber process</span>
+                  <span class="chip">NH₃ &amp; NOₓ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Haber process &amp; hydrazine formation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Haber process:</span>
+                  <span class="formula-text">N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Haber process">📋</button>
+                </div>
+                <p>
+                  Fixes atmospheric nitrogen as ammonia. High pressure and modest temperature with a catalyst make the equilibrium favorable and the rate practical; NH₃ is then converted to fertilizers and other nitrogen compounds.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Ammonia basicity:</span>
+                  <span class="formula-text">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy NH3 base">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Lab NH₃ prep:</span>
+                  <span class="formula-text">NH₄Cl + NaOH → NH₃ + H₂O + NaCl</span>
+                  <button class="copy-button" type="button" aria-label="Copy NH4Cl + NaOH">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Hydrazine:</span>
+                  <span class="formula-text">2 NH₃ + OCl⁻ → N₂H₄ + Cl⁻ + H₂O</span>
+                  <button class="copy-button" type="button" aria-label="Copy hydrazine formation">📋</button>
+                </div>
+                <p>
+                  Hydrazine (N₂H₄) contains an N–N single bond and acts as a powerful reducing agent and rocket fuel.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Oxidation-state &amp; reaction examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – N oxidation states in common species</div>
+                  <p class="example-body">
+                    In NH₃, N is −3; in N₂, it is 0; in NO, N is +2; in NO₂, N is +4; and in NO₃⁻/HNO₃, N is +5. Recognizing these states helps you identify whether nitrogen is being oxidized or reduced in a given reaction and how to balance redox equations.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Hydroxylamine reducing Cu²⁺</div>
+                  <p class="example-body">
+                    Hydroxylamine (NH₂OH) can reduce Cu²⁺ to Cu(s), with nitrogen being oxidized to N₂. Writing half-reactions for Cu²⁺ → Cu and NH₂OH → N₂ and balancing electrons yields the overall balanced redox equation, illustrating nitrogen’s flexible redox behavior.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.8 Other Group 15 -->
+        <article class="section-card" id="sec-22-8" data-section-keywords="phosphorus arsenic antimony bismuth P4 PCl3 PCl5 P4O6 P4O10 H3PO4 H3PO3 ATP arsenic water">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.8 The Other Group 15 Elements: P, As, Sb, and Bi</div>
+              <div class="section-label">From P₄ allotropes to arsenic in water</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">PCl₃/PCl₅</div>
+              <div class="section-badge">P₄O₆/P₄O₁₀</div>
+              <div class="section-badge">ATP</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Phosphorus, arsenic, antimony, and bismuth share ns²np³ valence configurations but display growing metallic character down the group. Phosphorus is central to life and industry via phosphates, oxyacids, and ATP, while arsenic’s oxyanions pose serious environmental challenges, especially in groundwater.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Elements, allotropes &amp; uses</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Phosphorus occurs primarily as phosphate minerals (e.g., Ca₃(PO₄)₂); white P₄ and red P are key allotropes with very different reactivities.
+                  </li>
+                  <li>
+                    Phosphorus forms many halides, oxides, and oxyacids that are essential in fertilizers, detergents, and biological molecules (DNA, RNA, ATP).
+                  </li>
+                  <li>
+                    Arsenic, antimony, and bismuth are more metallic; arsenic compounds (arsenite, arsenate) are toxic and problematic in drinking water.
+                  </li>
+                  <li>
+                    Phosphoric acid (H₃PO₄) is triprotic; phosphorous acid (H₃PO₃) is diprotic and has different structure and acidity.
+                  </li>
+                  <li>
+                    Polyphosphates form via condensation (loss of water) between phosphate units; ATP is a biologically critical triphosphate that stores chemical energy.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">P allotropes</span>
+                  <span class="chip">phosphates</span>
+                  <span class="chip">arsenic oxyanions</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Phosphorus halides, oxides &amp; ATP</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">PCl₃ formation:</span>
+                  <span class="formula-text">2 P + 3 Cl₂ → 2 PCl₃</span>
+                  <button class="copy-button" type="button" aria-label="Copy PCl3 formation">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">PCl₅ equilibrium:</span>
+                  <span class="formula-text">PCl₃ + Cl₂ ⇌ PCl₅</span>
+                  <button class="copy-button" type="button" aria-label="Copy PCl5 equilibrium">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Hydrolysis:</span>
+                  <span class="formula-text">PBr₃ + 3 H₂O → H₃PO₃ + 3 HBr</span>
+                  <button class="copy-button" type="button" aria-label="Copy PBr3 hydrolysis">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Hydrolysis:</span>
+                  <span class="formula-text">PCl₅ + 4 H₂O → H₃PO₄ + 5 HCl</span>
+                  <button class="copy-button" type="button" aria-label="Copy PCl5 hydrolysis">📋</button>
+                </div>
+                <p>
+                  These hydrolysis reactions link phosphorus halides to their corresponding oxyacids, highlighting how P in +3 and +5 states forms H₃PO₃ and H₃PO₄, respectively.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Phosphate condensation:</span>
+                  <span class="formula-text">2 H₃PO₄ → H₄P₂O₇ + H₂O</span>
+                  <button class="copy-button" type="button" aria-label="Copy phosphate condensation">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">ATP hydrolysis:</span>
+                  <span class="formula-text">ATP + H₂O → ADP + P<sub>i</sub> + energy</span>
+                  <button class="copy-button" type="button" aria-label="Copy ATP hydrolysis">📋</button>
+                </div>
+                <p>
+                  ATP hydrolysis under cellular conditions releases significant free energy (ΔG ≈ −57 kJ·mol⁻¹), which is used to drive many biological processes.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Environmental &amp; biological examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Arsenic in groundwater</div>
+                  <p class="example-body">
+                    In oxygen-rich waters, arsenic(V) as arsenate (AsO₄³⁻, HAsO₄²⁻, H₂AsO₄⁻) predominates; in oxygen-poor groundwaters, arsenic(III) as arsenite (AsO₃³⁻ and its protonated forms) is more common. Removal technologies work best for arsenic(V), so treatments often oxidize As(III) to As(V) before precipitation or adsorption.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Phosphate fertilizers &amp; water pollution</div>
+                  <p class="example-body">
+                    Insoluble Ca₃(PO₄)₂ in phosphate rock is converted with acid to soluble forms like Ca(H₂PO₄)₂ for fertilizers. These phosphates can run off into lakes and rivers, causing eutrophication—algal blooms followed by oxygen depletion, harming aquatic life.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.9 Carbon -->
+        <article class="section-card" id="sec-22-9" data-section-keywords="carbon diamond graphite CO CO2 carbonates organic">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.9 Carbon</div>
+              <div class="section-label">Allotropes, oxidation states &amp; backbone of life</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">C–C &amp; multiple bonds</div>
+              <div class="section-badge">CO₂ &amp; H₂CO₃</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Carbon’s ability to form strong C–C bonds and multiple bonds underlies the complexity of organic chemistry and living systems. Its allotropes illustrate the power of structure–property relationships, and its oxides and carbonates are central to environmental and geochemical cycles.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Allotropes &amp; bonding</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Carbon forms multiple allotropes: diamond (3D network of sp³ C–C bonds), graphite (layers of sp² C with delocalized electrons), fullerenes, nanotubes, and others.
+                  </li>
+                  <li>
+                    Strong C–C and C–heteroatom bonds plus the ability to form multiple bonds (C=C, C≡C, C=O) allow a vast variety of stable structures in organic chemistry.
+                  </li>
+                  <li>
+                    Carbon’s oxidation states range from −4 in CH₄ to +4 in CO₂, with many intermediate values in organic and inorganic compounds.
+                  </li>
+                  <li>
+                    CO₂ is the main product of carbon combustion and an acidic oxide; carbonates (CO₃²⁻) are important in geology and buffering natural waters.
+                  </li>
+                  <li>
+                    Carbon’s central role in carbohydrates, lipids, proteins, and nucleic acids makes it the backbone of biochemistry and life.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">diamond</span>
+                  <span class="chip">graphite</span>
+                  <span class="chip">CO₂ &amp; carbonates</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">CO₂ &amp; carbonate formation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Combustion:</span>
+                  <span class="formula-text">C(s) + O₂(g) → CO₂(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy C + O2">📋</button>
+                </div>
+                <p>
+                  Complete combustion of carbon produces CO₂, with carbon in oxidation state +4. This reaction is highly exothermic and central to energy production.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Carbonic acid:</span>
+                  <span class="formula-text">CO₂(g) + H₂O(l) ⇌ H₂CO₃(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CO2 + H2O">📋</button>
+                </div>
+                <p>
+                  Carbonic acid is a weak acid; its equilibria with CO₂ and carbonate/bicarbonate ions help buffer natural waters and regulate blood pH.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Allotropes &amp; life examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Diamond vs graphite</div>
+                  <p class="example-body">
+                    Diamond’s 3D sp³ network makes it extremely hard and an electrical insulator; graphite’s layered sp² structure with delocalized electrons makes it soft, lubricating, and electrically conductive. Same element, different bonding, very different properties.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Carbon in biochemistry</div>
+                  <p class="example-body">
+                    In glucose (C₆H₁₂O₆), carbon atoms exist mainly in oxidation states 0 and +1. When glucose is oxidized in cellular respiration to CO₂ and H₂O, carbon moves to +4 and energy is released, captured in ATP. This illustrates carbon’s redox flexibility in metabolism.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.10 Other Group 14 -->
+        <article class="section-card" id="sec-22-10" data-section-keywords="silicon germanium tin lead silicates SiO4 tetrahedra glass silicones">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.10 The Other Group 14 Elements: Si, Ge, Sn, and Pb</div>
+              <div class="section-label">Silicates, glasses &amp; silicones</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">SiO₄ tetrahedra</div>
+              <div class="section-badge">soda-lime glass</div>
+              <div class="section-badge">silicone polymers</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Silicon and its heavier congeners show increasing metallic character down Group 14. Silicon forms strong Si–O bonds that give rise to silicate minerals and silica glass, while modified silicate networks and silicone polymers underpin technologies from windows and cookware to lubricants and sealants.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Silicon &amp; silicate networks</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Silicon is abundant in Earth’s crust, mainly as SiO₂ and silicate minerals built from SiO₄⁴⁻ tetrahedra.
+                  </li>
+                  <li>
+                    Si–O bonds are strong, and Si prefers to form extended 3D networks rather than discrete SiO₂ molecules, unlike CO₂, which is molecular.
+                  </li>
+                  <li>
+                    Silicates can have isolated tetrahedra, single chains, double chains, sheets, or 3D frameworks, depending on how tetrahedra share oxygens.
+                  </li>
+                  <li>
+                    Glasses are amorphous silicates; soda-lime glass is made from SiO₂, Na₂O, and CaO, and borosilicate glass adds B₂O₃ to improve thermal resistance.
+                  </li>
+                  <li>
+                    Silicones are polymers with Si–O–Si backbones and organic side groups; they are thermally stable, chemically inert, and hydrophobic.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">silicate chains</span>
+                  <span class="chip">sheets</span>
+                  <span class="chip">glasses &amp; silicones</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Silicate units &amp; glass chemistry</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Isolated tetrahedron:</span>
+                  <span class="formula-text">SiO₄⁴⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy SiO4 unit">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Chain unit:</span>
+                  <span class="formula-text">SiO₃²⁻ (single chains)</span>
+                  <button class="copy-button" type="button" aria-label="Copy SiO3 chain">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Sheet unit:</span>
+                  <span class="formula-text">Si₂O₅²⁻ (sheets)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Si2O5 sheet">📋</button>
+                </div>
+                <p>
+                  Chain silicates (pyroxenes), double chains (amphiboles), sheets (micas, clays), and 3D frameworks (quartz) all derive from SiO₄ tetrahedra sharing oxygens.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Glass modifiers:</span>
+                  <span class="formula-text">CaCO₃ → CaO + CO₂; Na₂CO₃ → Na₂O + CO₂</span>
+                  <button class="copy-button" type="button" aria-label="Copy carbonate decomposition">📋</button>
+                </div>
+                <p>
+                  CaO and Na₂O from decomposed carbonates combine with SiO₂ to form soda-lime glass, which melts at lower temperatures than pure silica and is easier to work.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Silicate &amp; silicone examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Chrysotile (sheet silicate)</div>
+                  <p class="example-body">
+                    Chrysotile asbestos is based on sheet silicate units with empirical formula Mg₃(Si₂O₅)(OH)₄. The Mg²⁺ cations and OH⁻ groups reside between silicate sheets, and the sheets can slide, giving fibrous materials with characteristic mechanical properties.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Silicones as waterproofing agents</div>
+                  <p class="example-body">
+                    Silicone polymers with –Si–O–Si– backbones and CH₃ groups on silicon can hydrogen-bond via oxygen to fabric surfaces, while the hydrophobic CH₃ groups face outward. This arrangement produces water-repellent coatings used on fabrics and outdoor gear.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22.11 Boron -->
+        <article class="section-card" id="sec-22-11" data-section-keywords="boron B2H6 boranes borohydride BH4- boric acid H3BO3 borax Na2B4O7">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">22.11 Boron</div>
+              <div class="section-label">Electron-deficient bonding &amp; borates</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">boranes</div>
+              <div class="section-badge">BH₄⁻</div>
+              <div class="section-badge">borax</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Boron, the only nonmetal in Group 13, forms network solids and unusual electron-deficient boranes with 3-center 2-electron bonds. Borohydride salts are valuable reducing agents, while boric acid and its polyborate derivatives, including borax, find use in detergents, glass, and mild antiseptics.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Boron &amp; electron deficiency</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Boron is a hard, high-melting network solid with an electron configuration of 1s²2s²2p¹; it is less electronegative than hydrogen and shows nonmetallic behavior.
+                  </li>
+                  <li>
+                    In boranes (BₓHᵧ), boron often has fewer than eight valence electrons, leading to electron-deficient bonding and 3-center 2-electron bonds.
+                  </li>
+                  <li>
+                    Simple BH₃ is unstable and dimerizes to B₂H₆, in which two bridging hydrogens connect the boron atoms.
+                  </li>
+                  <li>
+                    Borohydride ion (BH₄⁻) is tetrahedral and electron-sufficient; salts such as NaBH₄ are widely used as hydride donors (reducing agents).
+                  </li>
+                  <li>
+                    Boric acid (H₃BO₃) is a weak Lewis acid; its condensation products and borate salts, such as borax, are important in cleaning products and glass formulations.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">B₂H₆</span>
+                  <span class="chip">BH₄⁻</span>
+                  <span class="chip">H₃BO₃ &amp; borax</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Boranes, borohydrides &amp; borates</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Diborane formation:</span>
+                  <span class="formula-text">2 BH₃ → B₂H₆</span>
+                  <button class="copy-button" type="button" aria-label="Copy diborane formation">📋</button>
+                </div>
+                <p>
+                  Electron-deficient BH₃ dimerizes to satisfy bonding needs. In B₂H₆, two bridging hydrogens form 3-center 2-electron bonds between the boron atoms.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Borohydride ion:</span>
+                  <span class="formula-text">BH₄⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy BH4-">📋</button>
+                </div>
+                <p>
+                  BH₄⁻ is tetrahedral and electron-sufficient; NaBH₄ and related salts act as hydride sources in reductions of carbonyl compounds and metal ions.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Boric acid:</span>
+                  <span class="formula-text">H₃BO₃ (B(OH)₃)</span>
+                  <button class="copy-button" type="button" aria-label="Copy H3BO3">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Condensation:</span>
+                  <span class="formula-text">4 H₃BO₃ → H₂B₄O₇ + 5 H₂O</span>
+                  <button class="copy-button" type="button" aria-label="Copy boric condensation">📋</button>
+                </div>
+                <p>
+                  Heating boric acid forms tetraboric acid; its salts like Na₂B₄O₇·10H₂O (borax) are used in detergents and as mild antiseptics.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Reducing agent &amp; detergent examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – NaBH₄ as a reducing agent</div>
+                  <p class="example-body">
+                    Sodium borohydride is used to reduce aldehydes and ketones to alcohols and to reduce metal ions like Ag⁺ to Ag(s). Its hydride ions are delivered in a controlled fashion, making it milder and safer than LiAlH₄ for many applications.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Borax in cleaning</div>
+                  <p class="example-body">
+                    Borax (Na₂B₄O₇·10H₂O) acts as a builder in laundry detergents, helping to soften water, buffer pH, and support surfactant performance. Its borate anions can also inhibit fungal growth, making borax useful in some preservative and antiseptic formulations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      // Double-click to copy any non-trivial text
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      // Copy buttons for formulas
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      // Search/filter
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      // Scroll-linked nav highlighting
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

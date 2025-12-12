@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 4 Concept Map: Reactions in Aqueous Solution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition: border-color var(--transition-med), box-shadow var(--transition-med), transform var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1.0rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+      transform: translateY(0);
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .node-body-annotation {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #toast.toast-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #toast-icon {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 4</div>
+        <div class="chapter-title">Reactions in Aqueous Solution</div>
+        <div class="chapter-subtitle">Concept map for solutions, precipitation, acids–bases, redox, and stoichiometry.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-4-1"><span>4.1 General Properties</span><span class="nav-shortcut">Roots → Leaves</span></button></li>
+          <li><button class="nav-link" data-target="sec-4-2"><span>4.2 Precipitation</span><span class="nav-shortcut">AX + BY → AY + BX</span></button></li>
+          <li><button class="nav-link" data-target="sec-4-3"><span>4.3 Acids &amp; Bases</span><span class="nav-shortcut">H⁺ &amp; OH⁻</span></button></li>
+          <li><button class="nav-link" data-target="sec-4-4"><span>4.4 Redox</span><span class="nav-shortcut">e⁻ transfer</span></button></li>
+          <li><button class="nav-link" data-target="sec-4-5"><span>4.5 Concentrations</span><span class="nav-shortcut">M, n, V</span></button></li>
+          <li><button class="nav-link" data-target="sec-4-6"><span>4.6 Stoichiometry</span><span class="nav-shortcut">M × V → m</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Tip: Use the search box to hide cards that don’t match your current focus. Double-click any text to copy it for your notes.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each section card summarizes one part of Chapter 4. Use the Roots panels for core ideas and definitions, Trunk for formulas and rules, and Leaves for examples, tips, and interpretations.
+          Click any header to collapse or expand a node. Press the 📋 buttons to copy key formulas; double-click text to copy it for your own notes.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Aqueous solutions</span>
+          <span class="tag-pill">Electrolytes</span>
+          <span class="tag-pill">Precipitation</span>
+          <span class="tag-pill">Acids–Bases</span>
+          <span class="tag-pill">Redox</span>
+          <span class="tag-pill">Molarity &amp; Titration</span>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-1"
+        data-section-title="4.1 General Properties of Aqueous Solutions electrolytes nonelectrolytes strong weak solvation"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.1 General Properties of Aqueous Solutions</div>
+            <div class="section-subtitle">Solutions, electrolytes, solvation, and strong vs weak electrolytes.</div>
+          </div>
+          <div class="section-tagline">Roots: What happens when substances dissolve?</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>solution</strong> is a homogeneous mixture of two or more substances. The component present in the greatest amount is the <strong>solvent</strong>, and the others are <strong>solutes</strong>. In aqueous solutions, water is the solvent.</p>
+              <p>When a small amount of sodium chloride (NaCl) dissolves in a large amount of water, water is the solvent and NaCl is the solute. The dissolved particles are dispersed uniformly throughout the solution.</p>
+              <p>Water is an excellent solvent for many ionic compounds because it is <strong>polar</strong>. The oxygen atom has a partial negative charge (δ−), and the hydrogen atoms have partial positive charges (δ+). The negative end of the water molecule attracts cations, and the positive end attracts anions.</p>
+              <p>As an ionic compound dissolves, its ions become <strong>solvated</strong> (surrounded) by water molecules and are written with the state symbol (aq), such as Na⁺(aq) and Cl⁻(aq). Solvation stabilizes ions and prevents them from recombining.</p>
+              <p>A <strong>substance whose aqueous solution contains ions</strong> is called an <strong>electrolyte</strong>. A substance that dissolves but <strong>does not form ions</strong> in solution is a <strong>nonelectrolyte</strong>. For example, NaCl(aq) is an electrolyte, while a sucrose solution C₁₂H₂₂O₁₁(aq) is a nonelectrolyte.</p>
+              <p><strong>Strong electrolytes</strong> are solutes that exist in solution almost entirely as ions. Most water-soluble ionic compounds (like NaCl) and a few molecular compounds (like HCl) fall into this category. <strong>Weak electrolytes</strong> exist mostly as neutral molecules with only a small fraction as ions.</p>
+              <p>When a weak electrolyte ionizes, the process is reversible and reaches a <strong>chemical equilibrium</strong>, where the relative numbers of ions and molecules remain constant over time. We represent this with half-arrows in both directions (⇌).</p>
+              <p>It is important not to confuse <strong>solubility</strong> with <strong>strength as an electrolyte</strong>. A compound can be very soluble but a weak electrolyte (like acetic acid), or only slightly soluble but a strong electrolyte for the amount that does dissolve (like Ca(OH)₂).</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Weak electrolyte example (acetic acid):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.1]</span>
+                  CH₃COOH(aq) ⇌ CH₃COO⁻(aq) + H⁺(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="CH3COOH(aq) ⇌ CH3COO⁻(aq) + H⁺(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here, acetic acid is a weak electrolyte: only a small fraction of molecules donate H⁺ to water and form acetate ions. The double half-arrow (⇌) shows that ionization and recombination both occur and reach equilibrium.</p>
+
+              <p><strong>Strong electrolyte example (hydrochloric acid):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.2]</span>
+                  HCl(aq) → H⁺(aq) + Cl⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HCl(aq) → H⁺(aq) + Cl⁻(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>HCl is a strong acid and strong electrolyte. The single arrow (→) indicates essentially complete ionization into H⁺ and Cl⁻ in water.</p>
+
+              <p><strong>Rule-of-thumb patterns:</strong></p>
+              <ul>
+                <li>Water-soluble <strong>ionic compounds</strong> (containing metals and nonmetals or NH₄⁺) are generally strong electrolytes.</li>
+                <li>Most molecular compounds are <strong>nonelectrolytes</strong>, except acids and NH₃, which can form ions.</li>
+                <li>Weak acids and weak bases are <strong>weak electrolytes</strong> and always shown with ⇌ in ionization equations.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: electrolyte vs nonelectrolyte.</strong> If you test three liquids—pure water, sugar solution, and salt solution—between electrodes:</p>
+              <ul>
+                <li>Pure water and sugar solution produce almost no light from a connected bulb: they contain virtually no ions → nonelectrolytes.</li>
+                <li>NaCl solution lights the bulb: Na⁺ and Cl⁻ ions conduct electricity → electrolyte.</li>
+              </ul>
+              <p><strong>Example: strong vs weak electrolyte at the same molarity.</strong> A 0.10 M NaCl solution has ≈0.10 M Na⁺ and 0.10 M Cl⁻, giving high conductivity. A 0.10 M acetic acid solution has mostly CH₃COOH molecules and a tiny fraction of ions, so it conducts poorly.</p>
+              <p><strong>Tip:</strong> Strength as an electrolyte depends on <em>how completely a substance forms ions</em>, not on how many grams dissolve. A very soluble weak acid can still be a weak electrolyte.</p>
+              <p><strong>Common pitfall:</strong> Do not automatically assume every substance with H at the front of its formula is a strong acid. Many (like HF or H₂CO₃) are weak acids and therefore weak electrolytes.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-2"
+        data-section-title="4.2 Precipitation Reactions insoluble solubility rules metathesis net ionic"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.2 Precipitation Reactions</div>
+            <div class="section-subtitle">Solubility rules, insoluble salts, exchange reactions, and ionic equations.</div>
+          </div>
+          <div class="section-tagline">Trunk: Which ions stay in solution, which form solids?</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>precipitation reaction</strong> occurs when two solutions are mixed and an <strong>insoluble solid</strong>, called a <strong>precipitate</strong>, forms. The precipitate appears when certain cation–anion combinations have such strong attractions that they form a solid rather than staying dissolved.</p>
+              <p>The <strong>solubility</strong> of a substance is the amount that can be dissolved in a given quantity of solvent at a certain temperature. In this chapter, any ionic compound with solubility below about 0.01 mol·L⁻¹ is treated as <strong>insoluble</strong>.</p>
+              <p>Ionic compounds vary widely in solubility. There is no single simple physical rule to predict solubility from charges alone, but empirical <strong>solubility guidelines</strong> give reliable patterns for many common ions.</p>
+              <p>Precipitation reactions typically follow an <strong>exchange (metathesis) pattern</strong>, where the cations trade anions. However, a precipitate forms only if one of the new combinations is insoluble in water.</p>
+              <p>In aqueous reaction equations, we distinguish between different levels of detail:
+                <ul>
+                  <li><strong>Molecular equation</strong>: shows complete formulas of reactants and products.</li>
+                  <li><strong>Complete ionic equation</strong>: shows all strong electrolytes as ions.</li>
+                  <li><strong>Net ionic equation</strong>: drops spectator ions and shows only species that change.</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example precipitation: lead(II) iodide formation.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.3]</span>
+                  Pb(NO₃)₂(aq) + 2 KI(aq) → PbI₂(s) + 2 KNO₃(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Pb(NO3)2(aq) + 2 KI(aq) → PbI2(s) + 2 KNO3(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here, Pb²⁺ and I⁻ combine to form the insoluble yellow solid PbI₂. K⁺ and NO₃⁻ remain in solution.</p>
+
+              <p><strong>Example precipitation: magnesium hydroxide from Mg(NO₃)₂ and NaOH.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.4]</span>
+                  Mg(NO₃)₂(aq) + 2 NaOH(aq) → Mg(OH)₂(s) + 2 NaNO₃(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg(NO3)2(aq) + 2 NaOH(aq) → Mg(OH)2(s) + 2 NaNO3(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>General metathesis pattern:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.5]</span>
+                  AX + BY → AY + BX
+                </div>
+                <button class="copy-btn" type="button" data-copy="AX + BY → AY + BX">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Solubility guidelines (summary):</strong></p>
+              <ul>
+                <li><strong>Always soluble:</strong> All NO₃⁻ and CH₃COO⁻ salts; all Group 1 and NH₄⁺ salts.</li>
+                <li><strong>Usually soluble, but with important exceptions:</strong>
+                  <ul>
+                    <li>Cl⁻, Br⁻, I⁻: insoluble with Ag⁺, Hg₂²⁺, Pb²⁺.</li>
+                    <li>SO₄²⁻: insoluble with Sr²⁺, Ba²⁺, Hg₂²⁺, Pb²⁺.</li>
+                  </ul>
+                </li>
+                <li><strong>Usually insoluble:</strong>
+                  <ul>
+                    <li>S²⁻, CO₃²⁻, PO₄³⁻: soluble only with Group 1 and NH₄⁺.</li>
+                    <li>OH⁻: soluble with Group 1, NH₄⁺, and moderately with Ca²⁺, Sr²⁺, Ba²⁺.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p><strong>Molecular, complete ionic, and net ionic equations for Pb²⁺/I⁻ precipitation:</strong></p>
+              <p>Molecular:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Pb(NO₃)₂(aq) + 2 KI(aq) → PbI₂(s) + 2 KNO₃(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Pb(NO3)2(aq) + 2 KI(aq) → PbI2(s) + 2 KNO3(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p>Complete ionic:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.6]</span>
+                  Pb²⁺(aq) + 2 NO₃⁻(aq) + 2 K⁺(aq) + 2 I⁻(aq) → PbI₂(s) + 2 K⁺(aq) + 2 NO₃⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Pb²⁺(aq) + 2 NO3⁻(aq) + 2 K⁺(aq) + 2 I⁻(aq) → PbI2(s) + 2 K⁺(aq) + 2 NO3⁻(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p>Net ionic:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.7]</span>
+                  Pb²⁺(aq) + 2 I⁻(aq) → PbI₂(s)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Pb²⁺(aq) + 2 I⁻(aq) → PbI2(s)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p>In the complete ionic equation, K⁺ and NO₃⁻ appear unchanged on both sides and are therefore <strong>spectator ions</strong>. They are omitted from the net ionic equation.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: will a precipitate form?</strong></p>
+              <p>Mix solutions of Mg(NO₃)₂ and NaOH. First, list ions: Mg²⁺, NO₃⁻, Na⁺, OH⁻. Possible products are Mg(OH)₂ and NaNO₃.</p>
+              <ul>
+                <li>NaNO₃: nitrate compounds are always soluble.</li>
+                <li>Mg(OH)₂: hydroxides are generally insoluble, and Mg(OH)₂ is not one of the special soluble hydroxides.</li>
+              </ul>
+              <p>Therefore, Mg(OH)₂(s) precipitates. The net ionic equation is:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Mg²⁺(aq) + 2 OH⁻(aq) → Mg(OH)₂(s)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg²⁺(aq) + 2 OH⁻(aq) → Mg(OH)2(s)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Tip for exams:</strong> For precipitation questions, always:
+                <ol>
+                  <li>Write all ions present.</li>
+                  <li>Form all possible new cation–anion pairs.</li>
+                  <li>Check each combination with solubility rules.</li>
+                  <li>If no insoluble product appears, write “no reaction”.</li>
+                </ol>
+              </p>
+              <p><strong>Common pitfall:</strong> Forgetting that Group 1 and NH₄⁺ salts are always soluble. If they appear as possible precipitates, that combination stays in solution and cannot be the precipitate.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-3"
+        data-section-title="4.3 Acids Bases Neutralization strong weak acid base gas formation H2S CO2"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.3 Acids, Bases, and Neutralization Reactions</div>
+            <div class="section-subtitle">Proton donors and acceptors, strong vs weak, and gas-forming neutralization.</div>
+          </div>
+          <div class="section-tagline">Roots: H⁺, OH⁻, and what “neutralization” really means.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Acids</strong> are substances that <strong>ionize in aqueous solution to form H⁺(aq)</strong>. They are often called <strong>proton donors</strong> because a hydrogen ion is essentially a bare proton.</p>
+              <p><strong>Bases</strong> are substances that <strong>accept H⁺</strong> or produce <strong>OH⁻(aq)</strong> when they dissolve in water. Ionic hydroxides like NaOH and KOH produce OH⁻ directly, whereas some molecular bases (like NH₃) react with water to make OH⁻.</p>
+              <p>Acids can be classified by the number of protons they can donate:
+                <ul>
+                  <li><strong>Monoprotic acids</strong> (HCl, HNO₃) donate one H⁺ per molecule.</li>
+                  <li><strong>Diprotic acids</strong> (H₂SO₄) can donate two protons in steps, forming HSO₄⁻ and then SO₄²⁻.</li>
+                </ul>
+              </p>
+              <p><strong>Strong acids and bases</strong> are strong electrolytes: they are essentially 100% ionized or dissociated in water. <strong>Weak acids and bases</strong> are weak electrolytes: they are only partially ionized and establish an equilibrium.</p>
+              <p><strong>Neutralization reactions</strong> occur when a solution of an acid is mixed with a solution of a base. For strong acid–strong base reactions, the essential process is H⁺(aq) reacting with OH⁻(aq) to form water.</p>
+              <p>The term <strong>salt</strong> refers to an ionic compound generated in a neutralization reaction whose cation comes from the base and anion from the acid (for example, Na⁺ from NaOH and Cl⁻ from HCl forming NaCl).</p>
+              <p>Some neutralization reactions lead to the formation of gases such as H₂S(g) and CO₂(g) when acids react with sulfides or carbonates/hydrogen carbonates.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Diprotic acid ionization (sulfuric acid):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.8]</span>
+                  H₂SO₄(aq) → H⁺(aq) + HSO₄⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H2SO4(aq) → H⁺(aq) + HSO4⁻(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.9]</span>
+                  HSO₄⁻(aq) ⇌ H⁺(aq) + SO₄²⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HSO4⁻(aq) ⇌ H⁺(aq) + SO4²⁻(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The first ionization is essentially complete (strong acid behavior). The second ionization is only partial and is written with an equilibrium arrow.</p>
+
+              <p><strong>Ammonia acting as a base:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.10]</span>
+                  H₂O(l) + NH₃(aq) ⇌ OH⁻(aq) + NH₄⁺(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H2O(l) + NH3(aq) ⇌ OH⁻(aq) + NH4⁺(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Only a small fraction of NH₃ molecules react with water, so NH₃ is a weak base and weak electrolyte.</p>
+
+              <p><strong>Neutralization of strong acid with strong base:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.11]</span>
+                  HCl(aq) + NaOH(aq) → H₂O(l) + NaCl(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HCl(aq) + NaOH(aq) → H2O(l) + NaCl(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Complete ionic form:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.12]</span>
+                  H⁺(aq) + Cl⁻(aq) + Na⁺(aq) + OH⁻(aq) → H₂O(l) + Na⁺(aq) + Cl⁻(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H⁺(aq) + Cl⁻(aq) + Na⁺(aq) + OH⁻(aq) → H2O(l) + Na⁺(aq) + Cl⁻(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Net ionic form:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.13]</span>
+                  H⁺(aq) + OH⁻(aq) → H₂O(l)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H⁺(aq) + OH⁻(aq) → H2O(l)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Equation [4.13] summarizes the essential feature of strong acid–strong base neutralization: H⁺ and OH⁻ forming water.</p>
+
+              <p><strong>Neutralization with a slightly soluble base (Mg(OH)₂):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.14]</span>
+                  Mg(OH)₂(s) + 2 HCl(aq) → MgCl₂(aq) + 2 H₂O(l)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg(OH)2(s) + 2 HCl(aq) → MgCl2(aq) + 2 H2O(l)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Net ionic:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.15]</span>
+                  Mg(OH)₂(s) + 2 H⁺(aq) → Mg²⁺(aq) + 2 H₂O(l)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg(OH)2(s) + 2 H⁺(aq) → Mg²⁺(aq) + 2 H2O(l)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Gas-forming neutralization reactions:</strong></p>
+              <p>Acid + sulfide:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.16]</span>
+                  2 HCl(aq) + Na₂S(aq) → H₂S(g) + 2 NaCl(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 HCl(aq) + Na2S(aq) → H2S(g) + 2 NaCl(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.17]</span>
+                  2 H⁺(aq) + S²⁻(aq) → H₂S(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 H⁺(aq) + S²⁻(aq) → H2S(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p>Acid + hydrogen carbonate:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.18]</span>
+                  HCl(aq) + NaHCO₃(aq) → NaCl(aq) + H₂CO₃(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HCl(aq) + NaHCO3(aq) → NaCl(aq) + H2CO3(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.19]</span>
+                  H₂CO₃(aq) → H₂O(l) + CO₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H2CO3(aq) → H2O(l) + CO2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Overall:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.20]</span>
+                  HCl(aq) + NaHCO₃(aq) → NaCl(aq) + H₂O(l) + CO₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HCl(aq) + NaHCO3(aq) → NaCl(aq) + H2O(l) + CO2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Net ionic:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.21]</span>
+                  H⁺(aq) + HCO₃⁻(aq) → H₂O(l) + CO₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H⁺(aq) + HCO3⁻(aq) → H2O(l) + CO2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: neutralizing stomach acid with NaHCO₃.</strong> Stomach acid contains HCl. When you swallow a tablet containing NaHCO₃ (baking soda), the HCO₃⁻ ions react with H⁺ in your stomach:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  H⁺(aq) + HCO₃⁻(aq) → H₂O(l) + CO₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="H⁺(aq) + HCO3⁻(aq) → H2O(l) + CO2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The CO₂ gas produced causes fizzing or belching, and the removal of H⁺ relieves excess acidity.</p>
+
+              <p><strong>Example: strong vs weak acid at equal concentration.</strong> A 0.10 M solution of HCl and a 0.10 M solution of acetic acid both contain the same total acid concentration, but:
+                <ul>
+                  <li>0.10 M HCl is almost completely ionized: [H⁺] ≈ 0.10 M, strong electrolyte, high conductivity.</li>
+                  <li>0.10 M CH₃COOH is only partly ionized: [H⁺] ≪ 0.10 M, weak electrolyte, lower conductivity.</li>
+                </ul>
+              </p>
+
+              <p><strong>Tip:</strong> Remember the list of strong acids and strong bases. Any acid not on the “strong” list should be treated as a <em>weak</em> acid in this course. NH₃ is the key molecular weak base you need to recognize.</p>
+              <p><strong>Common pitfall:</strong> Confusing sour/bitter taste and pH alone with strength. Strength is about the <em>extent of ionization in water</em>, not about how dangerous or concentrated the solution feels.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-4"
+        data-section-title="4.4 Oxidation Reduction Reactions redox oxidation number displacement activity series"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.4 Oxidation–Reduction Reactions</div>
+            <div class="section-subtitle">Electron transfer, oxidation numbers, displacement reactions, and activity series.</div>
+          </div>
+          <div class="section-tagline">Roots: Who loses electrons, who gains them?</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Many reactions involve the <strong>transfer of electrons</strong> between species. These are called <strong>oxidation–reduction (redox) reactions</strong>.</p>
+              <p><strong>Oxidation</strong> is the <strong>loss of electrons</strong>. The oxidation number of the atom increases (becomes more positive). <strong>Reduction</strong> is the <strong>gain of electrons</strong>, and the oxidation number decreases (becomes more negative).</p>
+              <p>Oxidation and reduction always occur together: whenever one species loses electrons, another must gain them. You can think of electrons as being “passed” from the substance being oxidized to the substance being reduced.</p>
+              <p>To track electrons in reactions, chemists assign each atom an <strong>oxidation number</strong> (also called oxidation state). In monatomic ions, this equals the ionic charge. In neutral molecules and polyatomic ions, oxidation numbers are assigned according to systematic rules and may be thought of as hypothetical charges.</p>
+              <p>Many redox reactions in solution are <strong>displacement reactions</strong>, where a metal reacts with an acid or a solution of another metal’s salt, producing a different metal or hydrogen gas and a new salt.</p>
+              <p>A list of metals arranged in order of decreasing ease of oxidation is called an <strong>activity series</strong>. Metals at the top (such as alkali and alkaline earth metals) are easily oxidized and react readily. Metals at the bottom (Cu, Ag, Hg, Pt, Au) are called <strong>noble metals</strong> because they resist oxidation.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Oxidation by oxygen: formation of CaO.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.22]</span>
+                  2 Ca(s) + O₂(g) → 2 CaO(s)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 Ca(s) + O2(g) → 2 CaO(s)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Oxidation states: Ca goes from 0 to +2 (oxidized), and O goes from 0 to −2 (reduced). Oxygen gains electrons from calcium.</p>
+
+              <p><strong>Rules for assigning oxidation numbers:</strong></p>
+              <ul>
+                <li>Atoms in their <strong>elemental form</strong> (H₂, O₂, P₄, S₈) have oxidation number 0.</li>
+                <li>For a <strong>monatomic ion</strong>, the oxidation number equals the ionic charge (Na⁺ is +1, S²⁻ is −2).</li>
+                <li>In compounds:
+                  <ul>
+                    <li>Group 1 metals: +1; Group 2 metals: +2; Al: +3.</li>
+                    <li>Oxygen is usually −2, except in peroxides (O₂²⁻) where it is −1.</li>
+                    <li>Hydrogen is +1 when bonded to nonmetals, −1 when bonded to metals.</li>
+                    <li>Fluorine is always −1; other halogens are usually −1 unless combined with oxygen.</li>
+                  </ul>
+                </li>
+                <li>In a <strong>neutral compound</strong>, the sum of oxidation numbers is 0.</li>
+                <li>In a <strong>polyatomic ion</strong>, the sum equals the net charge of the ion.</li>
+              </ul>
+
+              <p><strong>General displacement redox reaction:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.23]</span>
+                  A + BX → AX + B
+                </div>
+                <button class="copy-btn" type="button" data-copy="A + BX → AX + B">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here, A is oxidized (becomes part of AX), and B is reduced (released as an element).</p>
+
+              <p><strong>Metal with acid: hydrogen gas formation.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.24]</span>
+                  Mg(s) + 2 HCl(aq) → MgCl₂(aq) + H₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg(s) + 2 HCl(aq) → MgCl2(aq) + H2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Net ionic:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.25]</span>
+                  Mg(s) + 2 H⁺(aq) → Mg²⁺(aq) + H₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mg(s) + 2 H⁺(aq) → Mg²⁺(aq) + H2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Mg is oxidized from 0 to +2; H⁺ is reduced from +1 to 0.</p>
+
+              <p><strong>Metal with another metal’s ion (Fe and Ni²⁺):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Fe(s) + Ni²⁺(aq) → Fe²⁺(aq) + Ni(s)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Fe(s) + Ni²⁺(aq) → Fe²⁺(aq) + Ni(s)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Iron is oxidized; nickel ion is reduced. This reaction occurs because Fe is above Ni in the activity series.</p>
+
+              <p><strong>Activity series concept:</strong> Metals higher in the series can <strong>displace</strong> metals (or hydrogen) below them from compounds. For example, Zn can displace Cu²⁺ from CuSO₄, but Ag cannot.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: oxidation number of S in Na₂SO₃.</strong></p>
+              <p>We know Na is +1 (Group 1) and O is −2. Let the oxidation number of S be x.</p>
+              <p>Sum must be zero: 2(+1) + x + 3(−2) = 0 → 2 + x − 6 = 0 → x = +4. So sulfur is in the +4 oxidation state in Na₂SO₃.</p>
+
+              <p><strong>Example: will Zn react with HCl?</strong> Zinc is above hydrogen in the activity series. Therefore, Zn(s) will be oxidized by H⁺, and H₂ gas will be produced:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Zn(s) + 2 H⁺(aq) → Zn²⁺(aq) + H₂(g)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Zn(s) + 2 H⁺(aq) → Zn²⁺(aq) + H2(g)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>By contrast, Cu(s) will <em>not</em> react with HCl because Cu is below H in the activity series.</p>
+
+              <p><strong>Tip:</strong> When identifying what is oxidized and what is reduced in a reaction:
+                <ol>
+                  <li>Assign oxidation numbers to each element on both sides.</li>
+                  <li>Look for atoms whose oxidation number increases (oxidation) or decreases (reduction).</li>
+                  <li>Check that the total increase in oxidation numbers equals the total decrease; this corresponds to conservation of electrons.</li>
+                </ol>
+              </p>
+              <p><strong>Common pitfall:</strong> Assuming every reaction involving oxygen is a redox reaction. Many are, but the key is <em>change in oxidation number</em>, not the presence of oxygen alone.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-5"
+        data-section-title="4.5 Concentrations of Solutions molarity M stock dilution Mconc Vconc Mdil Vdil"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.5 Concentrations of Solutions</div>
+            <div class="section-subtitle">Molarity, ion concentrations, and dilution of stock solutions.</div>
+          </div>
+          <div class="section-tagline">Trunk: M, moles, liters, and how they connect.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Concentration</strong> tells us how much solute is present in a given amount of solvent or solution. Many biological and chemical processes depend critically on solution concentrations.</p>
+              <p>The most common concentration unit in chemistry is <strong>molarity (M)</strong>, which expresses the number of moles of solute per liter of solution.</p>
+              <p>When an ionic compound dissolves, we are often interested in the concentrations of individual <strong>ions</strong>, which depend on the compound’s formula. For instance, a solution of Ca(NO₃)₂ contains both Ca²⁺ and NO₃⁻ ions in specific proportions.</p>
+              <p>Solutions of known molarity can be prepared by <strong>weighing a known amount of solute</strong>, dissolving it in a small amount of solvent, and then diluting to a precise final volume in a volumetric flask.</p>
+              <p>Another common method is <strong>dilution of a stock solution</strong>. A small volume of a more concentrated solution is measured out and then diluted with solvent to increase the total volume and obtain a lower molarity.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Definition of molarity:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.31]</span>
+                  M = (moles of solute) / (volume of solution in liters)
+                </div>
+                <button class="copy-btn" type="button" data-copy="M = moles solute / volume solution (L)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This relationship can be rearranged to find moles from molarity and volume: n = M × V, or volume from moles and molarity: V = n / M.</p>
+
+              <p><strong>Ion concentrations from formula units:</strong> For an ionic solute, the concentration of each ion is found by multiplying the solution’s molarity by the subscript of that ion in the formula. For example, in Ca(NO₃)₂(aq):</p>
+              <ul>
+                <li>Each formula unit gives 1 Ca²⁺ and 2 NO₃⁻ ions.</li>
+                <li>If [Ca(NO₃)₂] = 0.025 M, then [Ca²⁺] = 0.025 M and [NO₃⁻] = 0.050 M.</li>
+              </ul>
+
+              <p><strong>Dilution formula:</strong> When a more concentrated solution is diluted with pure solvent, the number of moles of solute stays the same, so:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[4.33]</span>
+                  M<sub>conc</sub> × V<sub>conc</sub> = M<sub>dil</sub> × V<sub>dil</sub>
+                </div>
+                <button class="copy-btn" type="button" data-copy="Mconc × Vconc = Mdil × Vdil">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here, M<sub>conc</sub> and V<sub>conc</sub> are the molarity and volume of the concentrated solution, and M<sub>dil</sub> and V<sub>dil</sub> are those of the diluted solution.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: molarity from mass and volume.</strong> A solution is made by dissolving 23.4 g of Na₂SO₄ in enough water to form 125 mL of solution.</p>
+              <ol>
+                <li>Convert mass to moles: molar mass Na₂SO₄ ≈ 142.1 g·mol⁻¹.  
+                  n = 23.4 g × (1 mol / 142.1 g) ≈ 0.165 mol.</li>
+                <li>Convert volume to liters: 125 mL = 0.125 L.</li>
+                <li>Compute molarity: M = 0.165 mol / 0.125 L ≈ 1.32 M.</li>
+              </ol>
+              <p>Ion concentrations: [Na⁺] = 2 × 1.32 M = 2.64 M; [SO₄²⁻] = 1.32 M.</p>
+
+              <p><strong>Example: preparing a dilute solution from a stock.</strong> How much 3.0 M H₂SO₄ is needed to make 450 mL of 0.10 M H₂SO₄?</p>
+              <p>Using M<sub>conc</sub>V<sub>conc</sub> = M<sub>dil</sub>V<sub>dil</sub>:</p>
+              <p>3.0 × V<sub>conc</sub> = 0.10 × 0.450 → V<sub>conc</sub> = (0.10 × 0.450) / 3.0 = 0.015 L = 15 mL.</p>
+              <p>You measure 15 mL of 3.0 M H₂SO₄ into a volumetric flask and add water until the total volume is 450 mL.</p>
+
+              <p><strong>Tip:</strong> When comparing different solutions, pay attention to both:
+                <ul>
+                  <li>Molarity of the solute.</li>
+                  <li>Number of ions produced per formula unit (for ionic solutes).</li>
+                </ul>
+                A 1.0 M Na₃PO₄ solution has more total ions per liter than a 1.0 M NaCl solution.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section-card"
+        id="sec-4-6"
+        data-section-title="4.6 Solution Stoichiometry and Chemical Analysis titration equivalence stoichiometric calculations"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">4.6 Solution Stoichiometry and Chemical Analysis</div>
+            <div class="section-subtitle">Using molarity in stoichiometric calculations and titrations.</div>
+          </div>
+          <div class="section-tagline">Leaves: Putting it all together with moles, volumes, and reactions.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>In Chapter 3, you used stoichiometry to relate <strong>masses</strong> of reactants and products using balanced chemical equations. In solutions, the same idea applies, but now <strong>molarity</strong> links solution volume to moles of solute.</p>
+              <p>The key relationships are:
+                <ul>
+                  <li>For pure substances: grams ↔ moles via molar mass.</li>
+                  <li>For solutions: volume ↔ moles via molarity, n = M × V.</li>
+                  <li>Balanced equation coefficients relate moles of one substance to moles of another.</li>
+                </ul>
+              </p>
+              <p>A common way to determine unknown concentrations is through a <strong>titration</strong>. A solution of known concentration (the <strong>standard solution</strong>) is slowly added to a solution of unknown concentration until the reaction reaches the <strong>equivalence point</strong>, where stoichiometrically equivalent amounts have reacted.</p>
+              <p>In acid–base titrations, a suitable <strong>indicator</strong> changes color near the equivalence point, signaling that the reaction is complete.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas, rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>General stoichiometry pathway with a solution and a solid:</strong></p>
+              <ul>
+                <li>Given mass of solid A → convert to moles A using molar mass.</li>
+                <li>Use coefficients in the balanced equation to find moles of solute B that react with A.</li>
+                <li>Use B’s molarity to find the volume of B required (V = n / M), or vice versa.</li>
+              </ul>
+
+              <p><strong>Example neutralization equation (Ca(OH)₂ and HNO₃):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  2 HNO₃(aq) + Ca(OH)₂(s) → 2 H₂O(l) + Ca(NO₃)₂(aq)
+                </div>
+                <button class="copy-btn" type="button" data-copy="2 HNO3(aq) + Ca(OH)2(s) → 2 H2O(l) + Ca(NO3)2(aq)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This balanced equation shows that 2 moles of HNO₃ react with 1 mole of Ca(OH)₂.</p>
+
+              <p><strong>Titration relationships:</strong> At the equivalence point, the moles of reactants have reacted exactly according to the stoichiometric coefficients in the balanced equation. For a 1:1 acid–base reaction like HCl with NaOH, at equivalence:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  n(HCl) = n(NaOH) = M × V
+                </div>
+                <button class="copy-btn" type="button" data-copy="n(HCl) = n(NaOH) = M × V">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>If the concentration of one solution is known and volumes of both are measured, you can solve for the unknown molarity.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: mass of base needed to neutralize an acid.</strong> How many grams of Ca(OH)₂ are needed to neutralize 25.0 mL of 0.100 M HNO₃?</p>
+              <ol>
+                <li>Convert acid volume to moles using molarity:  
+                  V = 25.0 mL = 0.0250 L;  
+                  n(HNO₃) = 0.100 mol·L⁻¹ × 0.0250 L = 2.50 × 10⁻³ mol.</li>
+                <li>Use the stoichiometric ratio (2 HNO₃ : 1 Ca(OH)₂):  
+                  n[Ca(OH)₂] = (1/2) × n(HNO₃) = 1.25 × 10⁻³ mol.</li>
+                <li>Convert moles of Ca(OH)₂ to grams:  
+                  molar mass ≈ 74.1 g·mol⁻¹;  
+                  m = 1.25 × 10⁻³ mol × 74.1 g·mol⁻¹ ≈ 0.0926 g.</li>
+              </ol>
+              <p>So, about 0.093 g of Ca(OH)₂ is required.</p>
+
+              <p><strong>Example: finding an unknown acid concentration from a titration.</strong> Suppose 25.0 mL of 0.100 M NaOH is required to neutralize 20.0 mL of HCl solution. The reaction is:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)
+                </div>
+                <button class="copy-btn" type="button" data-copy="HCl(aq) + NaOH(aq) → NaCl(aq) + H2O(l)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>At equivalence, n(HCl) = n(NaOH).</p>
+              <ul>
+                <li>n(NaOH) = 0.100 M × 0.0250 L = 2.50 × 10⁻³ mol.</li>
+                <li>Thus n(HCl) = 2.50 × 10⁻³ mol.</li>
+                <li>Volume of HCl = 20.0 mL = 0.0200 L.</li>
+                <li>M(HCl) = n / V = 2.50 × 10⁻³ mol / 0.0200 L = 0.125 M.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> For multistep solution stoichiometry:
+                <ol>
+                  <li>Start with what you know (mass, volume, or molarity).</li>
+                  <li>Convert to moles using molar mass or M × V.</li>
+                  <li>Use the balanced equation to move between substances.</li>
+                  <li>Finish by converting moles back to the desired unit (grams, volume, or molarity).</li>
+                </ol>
+              </p>
+              <p><strong>Common pitfall:</strong> Forgetting to convert mL to L before using M = n / V. Always convert mL to L by dividing by 1000.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Formula copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => link.style.opacity = '');
+            return;
+          }
+          cards.forEach(card => {
+            const title = card.getAttribute('data-section-title') || '';
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.toLowerCase().includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Text copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

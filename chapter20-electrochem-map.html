@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 20 – Electrochemistry: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 20 Map</div>
+        <div class="sidebar-subtitle">Electrochemistry</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Search / filter</label>
+        <input id="search-box" class="search-box" type="search" placeholder="redox, E°, Nernst, batteries..." />
+        <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Sections</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-20-1" class="nav-link">
+              <span><strong>20.1</strong><small>oxidation states &amp; redox</small></span>
+              <span class="nav-tag">oxidation numbers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-2" class="nav-link">
+              <span><strong>20.2</strong><small>balancing redox</small></span>
+              <span class="nav-tag">half-reactions</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-3" class="nav-link">
+              <span><strong>20.3</strong><small>voltaic cells</small></span>
+              <span class="nav-tag">anode→cathode</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-4" class="nav-link">
+              <span><strong>20.4</strong><small>standard cell potentials</small></span>
+              <span class="nav-tag">E°cell</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-5" class="nav-link">
+              <span><strong>20.5</strong><small>free energy &amp; redox</small></span>
+              <span class="nav-tag">ΔG &amp; E°</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-6" class="nav-link">
+              <span><strong>20.6</strong><small>nonstandard conditions</small></span>
+              <span class="nav-tag">Nernst</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-7" class="nav-link">
+              <span><strong>20.7</strong><small>batteries &amp; fuel cells</small></span>
+              <span class="nav-tag">applications</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-8" class="nav-link">
+              <span><strong>20.8</strong><small>corrosion</small></span>
+              <span class="nav-tag">rusting</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-20-9" class="nav-link">
+              <span><strong>20.9</strong><small>electrolysis</small></span>
+              <span class="nav-tag">Faraday's law</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Copy tips</strong></div>
+        <div>• Click <code>📋</code> to copy formulas.</div>
+        <div>• Double-click any text to copy it.</div>
+        <div>Use search + section links for quick review.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Electrochemistry – Concept Map</div>
+          <div class="header-subtitle">Chapter 20 • Redox, cells, and applications</div>
+          <div class="header-tags">
+            <span class="header-tag">oxidation states</span>
+            <span class="header-tag">cell potentials</span>
+            <span class="header-tag">ΔG &amp; equilibrium</span>
+            <span class="header-tag">batteries &amp; electrolysis</span>
+          </div>
+          <p class="header-highlight">
+            This map turns Chapter 20 into interconnected “roots–trunk–leaves”: core redox ideas, the formulas that link electricity to energy and equilibrium, and worked examples showing how to apply them in real electrochemical cells.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards">
+
+        <!-- 20.1 Oxidation States and Redox -->
+        <article class="section-card" id="sec-20-1" data-section-keywords="oxidation state reduction oxidizing agent reducing agent electrons oxidation numbers">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.1 Oxidation States &amp; Redox Reactions</div>
+              <div class="section-label">Tracking electrons with oxidation numbers</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">oxidation numbers</div>
+              <div class="section-badge">oxidizing vs reducing agent</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Oxidation numbers provide a bookkeeping system to see where electrons effectively move in a reaction and to identify which species is oxidized, which is reduced, and who acts as oxidizing or reducing agent.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core redox definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>redox reaction</strong> is one where electrons are transferred: one species is <strong>oxidized</strong> (loses electrons) and another is <strong>reduced</strong> (gains electrons).
+                  </li>
+                  <li>
+                    <strong>Oxidation number</strong> (oxidation state) is an assigned charge-like number that helps us track electron gain/loss in compounds and ions.
+                  </li>
+                  <li>
+                    Elements in their standard state have oxidation number 0; monatomic ions have oxidation number equal to their charge.
+                  </li>
+                  <li>
+                    The <strong>oxidizing agent</strong> is the species that is reduced (gains electrons) and causes oxidation; the <strong>reducing agent</strong> is oxidized and causes reduction.
+                  </li>
+                  <li>
+                    In a neutral molecule, the sum of oxidation numbers is 0; in a polyatomic ion, the sum equals the ion’s net charge.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Rules for oxidation numbers</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important rules &amp; their meaning</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Elements:</strong> any element in its standard form (H₂, O₂, Na(s), Cl₂) has oxidation number 0.
+                  </li>
+                  <li>
+                    <strong>Monatomic ions:</strong> oxidation number equals ion charge, for example Na⁺ is +1, Cl⁻ is −1, Fe³⁺ is +3.
+                  </li>
+                  <li>
+                    <strong>Oxygen:</strong> usually −2 (except −1 in peroxides like H₂O₂ and some special species).
+                  </li>
+                  <li>
+                    <strong>Hydrogen:</strong> +1 when bonded to nonmetals, −1 when bonded to metals.
+                  </li>
+                  <li>
+                    If an atom’s oxidation number increases, it is oxidized; if it decreases, it is reduced. This lets you identify redox even when electrons are not explicitly written.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Zn + acid example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Oxidation and reduction in Zn + H⁺</div>
+                  <p class="example-body">
+                    For Zn(s) + 2 H⁺(aq) → Zn²⁺(aq) + H₂(g), Zn goes from 0 to +2, so Zn is oxidized and acts as the reducing agent. H⁺ goes from +1 to 0 in H₂, so H⁺ is reduced and acts as the oxidizing agent. Electrons move from Zn atoms to H⁺ ions, giving Zn²⁺ in solution and H₂ gas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.2 Balancing Redox Equations -->
+        <article class="section-card" id="sec-20-2" data-section-keywords="balancing redox half-reaction acidic basic electrons cancel">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.2 Balancing Redox Equations</div>
+              <div class="section-label">Half-reaction method in acid &amp; base</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">half-reactions</div>
+              <div class="section-badge">acidic &amp; basic media</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Balancing redox equations requires accounting for both atoms and electrons. The half-reaction method systematically balances oxidation and reduction separately, then recombines them so electrons cancel.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Why half-reactions?</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A redox equation must conserve both matter (atoms) and charge (electrons). The half-reaction method enforces both at once.
+                  </li>
+                  <li>
+                    Redox reactions are split into an <strong>oxidation half-reaction</strong> and a <strong>reduction half-reaction</strong>, each balanced separately.
+                  </li>
+                  <li>
+                    Acidic and basic solutions are handled slightly differently via H⁺/OH⁻ and H₂O, but the goal remains: electrons produced = electrons consumed.
+                  </li>
+                  <li>
+                    Electrons are internal bookkeeping devices; they must cancel in the final balanced overall equation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Half-reaction steps</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important procedures &amp; their meaning</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>In acidic solution:</strong> split into half-reactions, balance all atoms except H and O, add H₂O for O and H⁺ for H, then add electrons to balance charge, and finally scale half-reactions so electrons cancel.
+                  </li>
+                  <li>
+                    <strong>In basic solution:</strong> often balance as if acidic, then add OH⁻ to both sides to neutralize H⁺ into H₂O, and simplify by cancelling extra water molecules.
+                  </li>
+                  <li>
+                    The coefficients you obtain show the relative numbers of particles and electrons required so that overall charge and atoms are conserved.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">MnO₄⁻ + Fe²⁺ in acid</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; result</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Balancing MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺</div>
+                  <p class="example-body">
+                    In acidic solution the balanced equation is:
+                    MnO₄⁻(aq) + 5 Fe²⁺(aq) + 8 H⁺(aq) → Mn²⁺(aq) + 5 Fe³⁺(aq) + 4 H₂O(l).
+                    Mn is reduced from +7 to +2, Fe is oxidized from +2 to +3, and the 5 electrons lost by Fe²⁺ exactly match the 5 electrons gained by MnO₄⁻.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.3 Voltaic Cells -->
+        <article class="section-card" id="sec-20-3" data-section-keywords="voltaic galvanic cell anode cathode salt bridge Zn Cu cell notation">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.3 Voltaic Cells</div>
+              <div class="section-label">Spontaneous redox → electrical work</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">anode &amp; cathode</div>
+              <div class="section-badge">cell notation</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            A voltaic (galvanic) cell uses a spontaneous redox reaction to generate a current, with electrons flowing through an external wire and ions moving through a salt bridge to maintain charge balance.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Cell parts &amp; roles</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>voltaic cell</strong> is built from two half-cells: one where oxidation occurs (anode) and one where reduction occurs (cathode).
+                  </li>
+                  <li>
+                    Electrons flow spontaneously through the external circuit from anode to cathode, producing useful electrical work.
+                  </li>
+                  <li>
+                    A <strong>salt bridge</strong> or porous separator allows ions to move and keeps each half-cell electrically neutral so the cell can continue operating.
+                  </li>
+                  <li>
+                    In a voltaic cell, the <strong>anode is negative</strong> and the <strong>cathode is positive</strong>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Cell notation &amp; direction</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important patterns &amp; meaning</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Cell notation:</strong> anode | anode solution || cathode solution | cathode.
+                    Single vertical lines mark phase boundaries; the double line marks the salt bridge.
+                  </li>
+                  <li>
+                    For a Zn–Cu cell, Zn(s) | Zn²⁺(aq) || Cu²⁺(aq) | Cu(s) indicates Zn is the anode (oxidation), Cu is the cathode (reduction).
+                  </li>
+                  <li>
+                    Electron flow always goes from the anode side of the notation to the cathode side, matching where oxidation and reduction occur.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Zn–Cu cell story</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Zn(s) | Zn²⁺ || Cu²⁺ | Cu(s)</div>
+                  <p class="example-body">
+                    At the anode, Zn(s) → Zn²⁺(aq) + 2 e⁻: the zinc electrode gradually dissolves. At the cathode, Cu²⁺(aq) + 2 e⁻ → Cu(s): copper ions plate out, and the copper electrode gains mass. The salt bridge allows anions to migrate to the Zn half-cell and cations to the Cu half-cell to maintain neutrality.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.4 Cell Potentials under Standard Conditions -->
+        <article class="section-card" id="sec-20-4" data-section-keywords="standard reduction potentials E°cell SHE spontaneous">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.4 Cell Potentials under Standard Conditions</div>
+              <div class="section-label">Using E° values to predict spontaneity</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">E°cathode − E°anode</div>
+              <div class="section-badge">SHE reference</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Standard reduction potentials compare the tendency of species to be reduced against the standard hydrogen electrode. Combining two half-reactions gives a standard cell potential that predicts whether the overall redox process is spontaneous.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">E° tables &amp; SHE</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Standard reduction potentials, E°<sub>red</sub>, are measured relative to the standard hydrogen electrode (SHE), which is defined as 0.000 V.
+                  </li>
+                  <li>
+                    A more positive E°<sub>red</sub> means a stronger tendency to be reduced and a stronger oxidizing agent; more negative E°<sub>red</sub> means a stronger reducing agent.
+                  </li>
+                  <li>
+                    When two half-reactions are coupled, one acts as the cathode (reduction) and the other as the anode (oxidation) and their E° values combine to give E°<sub>cell</sub>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Formula for E°cell</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formula &amp; its meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Cell potential:</span>
+                  <span class="formula-text">E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy E°cell formula">📋</button>
+                </div>
+                <p>
+                  E°<sub>cell</sub> is the standard cell potential in volts. E°<sub>cathode</sub> and E°<sub>anode</sub> are standard <em>reduction</em> potentials for the actual cathode and anode reactions. If E°<sub>cell</sub> &gt; 0, the reaction is spontaneous under standard conditions.
+                </p>
+                <p>
+                  Note: when balancing equations, you never multiply E° values by coefficients; E° is an intensive quantity and depends on the nature of the half-reaction, not its scale.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Zn–Cu E° calculation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – E° for Zn–Cu cell</div>
+                  <p class="example-body">
+                    Using E° values: Cu²⁺ + 2 e⁻ → Cu(s), E°<sub>red</sub> = +0.34 V; Zn²⁺ + 2 e⁻ → Zn(s), E°<sub>red</sub> = −0.76 V. In the cell, Cu²⁺/Cu is the cathode and Zn/Zn²⁺ is the anode, so E°<sub>cell</sub> = 0.34 − (−0.76) = +1.10 V. The positive value confirms the cell is spontaneous and can deliver useful electrical energy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.5 Free Energy and Redox -->
+        <article class="section-card" id="sec-20-5" data-section-keywords="ΔG free energy electrical work nFE° K equilibrium">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.5 Free Energy and Redox Reactions</div>
+              <div class="section-label">Linking E, ΔG, and equilibrium</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ΔG = −nFE</div>
+              <div class="section-badge">ΔG° = −RT ln K</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            The cell potential measures electrical driving force, and free energy measures chemical driving force. Together they relate electron flow, spontaneity, and equilibrium constants for redox reactions.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Spontaneity &amp; E</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Free energy</strong> change, ΔG, tells whether a reaction is thermodynamically favorable: ΔG &lt; 0 indicates spontaneity.
+                  </li>
+                  <li>
+                    A voltaic cell that does electrical work corresponds to a redox reaction with ΔG &lt; 0 and E &gt; 0.
+                  </li>
+                  <li>
+                    Under standard conditions, ΔG° and E°<sub>cell</sub> are linked; under equilibrium, ΔG° is also linked to the equilibrium constant K.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Key equations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Free energy &amp; E:</span>
+                  <span class="formula-text">ΔG = −n F E<sub>cell</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG = -nFE">📋</button>
+                </div>
+                <p>
+                  Here n is the number of moles of electrons transferred, F ≈ 96,485 C·mol⁻¹, and E<sub>cell</sub> is in volts. The negative sign means a positive E corresponds to a negative ΔG (spontaneous).
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Standard link:</span>
+                  <span class="formula-text">ΔG° = −n F E°<sub>cell</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG° = -nFE°">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Equilibrium:</span>
+                  <span class="formula-text">ΔG° = −R T ln K</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG° = -RT ln K">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">E° &amp; K (25 °C):</span>
+                  <span class="formula-text">E°<sub>cell</sub> = (0.0592 V / n) log K</span>
+                  <button class="copy-button" type="button" aria-label="Copy E° = 0.0592/n log K">📋</button>
+                </div>
+                <p>
+                  Combining these equations lets you predict how far a redox reaction goes (via K) from the measured standard cell potential, and vice versa.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Zn–Cu ΔG° example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Free energy for Zn–Cu cell</div>
+                  <p class="example-body">
+                    For Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), n = 2 and E°<sub>cell</sub> = 1.10 V. Using ΔG° = −n F E°<sub>cell</sub> gives ΔG° ≈ −2×96,485×1.10 ≈ −2.1×10⁵ J·mol⁻¹ (≈ −212 kJ·mol⁻¹). The large negative value shows the reaction is strongly spontaneous and can do a substantial amount of electrical work per mole.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.6 Cell Potentials under Nonstandard Conditions -->
+        <article class="section-card" id="sec-20-6" data-section-keywords="Nernst equation reaction quotient Q nonstandard concentrations battery run-down">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.6 Cell Potentials under Nonstandard Conditions</div>
+              <div class="section-label">How concentrations &amp; Q affect E</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">E = E° − (0.0592/n) log Q</div>
+              <div class="section-badge">reaction quotient Q</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Real cells rarely operate at 1.0 M and 1 bar. The Nernst equation shows how the cell potential changes as the reaction mixture composition changes, explaining why batteries weaken as they discharge.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Q &amp; cell behavior</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The <strong>reaction quotient</strong> Q is calculated like K but uses current, not equilibrium, concentrations and pressures.
+                  </li>
+                  <li>
+                    If Q &lt; K, the reaction tends to proceed forward; if Q &gt; K, it tends to go backward; at Q = K, the system is at equilibrium.
+                  </li>
+                  <li>
+                    The Nernst equation shows that when Q is small (reactants favored), E is larger; when Q is large (products built up), E is smaller.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Nernst equation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">General form:</span>
+                  <span class="formula-text">E = E° − (RT / nF) ln Q</span>
+                  <button class="copy-button" type="button" aria-label="Copy general Nernst">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">At 25 °C:</span>
+                  <span class="formula-text">E = E° − (0.0592 V / n) log Q</span>
+                  <button class="copy-button" type="button" aria-label="Copy simplified Nernst">📋</button>
+                </div>
+                <p>
+                  Here R = 8.314 J·mol⁻¹·K⁻¹, T is temperature in K, n is moles of electrons, F is Faraday’s constant, and Q is the reaction quotient. This equation tells you how E changes as the cell composition changes.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Zn–Cu concentration effect</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – E when [Zn²⁺] = 0.10 M, [Cu²⁺] = 1.0 M</div>
+                  <p class="example-body">
+                    For the Zn–Cu cell, Q = [Zn²⁺]/[Cu²⁺] = 0.10/1.0 = 0.10. With n = 2 and E° = 1.10 V at 25 °C, E = 1.10 − (0.0592/2) log(0.10). Since log(0.10) = −1, E ≈ 1.10 + 0.0296 = 1.13 V. A low [Zn²⁺] (more reactants) slightly boosts the cell potential, but as the cell runs and Q increases, E gradually falls.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.7 Batteries and Fuel Cells -->
+        <article class="section-card" id="sec-20-7" data-section-keywords="primary secondary lithium-ion lead-acid alkaline fuel cell hydrogen oxygen">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.7 Batteries and Fuel Cells</div>
+              <div class="section-label">Packaging electrochemistry for real use</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">primary vs secondary</div>
+              <div class="section-badge">H₂/O₂ fuel cell</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Batteries combine one or more electrochemical cells into portable, practical power units, while fuel cells use a continuous supply of fuel and oxidant to generate electricity with high efficiency and often cleaner emissions.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Battery types &amp; roles</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Primary batteries</strong> (like alkaline cells) are designed for one-time use; their redox reactions are not easily reversed.
+                  </li>
+                  <li>
+                    <strong>Secondary batteries</strong> (like lead–acid, Ni–MH, lithium-ion) can be recharged by forcing current backward through the cell to reverse the redox processes.
+                  </li>
+                  <li>
+                    <strong>Fuel cells</strong> continuously convert fuel and oxidant (often H₂ and O₂) into electrical energy and heat; reactants are supplied and products removed.
+                  </li>
+                  <li>
+                    Engineering considerations include voltage, capacity, mass, cost, lifetime, and environmental impact.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Cell stacking &amp; design</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important patterns &amp; their meaning</div>
+                <ul class="node-list">
+                  <li>
+                    Each cell has a certain E<sub>cell</sub>; placing N cells in series ideally gives approximately N × E<sub>cell</sub> total voltage.
+                  </li>
+                  <li>
+                    In a lead–acid car battery, several ~2 V cells are connected in series to reach about 12 V.
+                  </li>
+                  <li>
+                    Fuel-cell stacks can be assembled to deliver desired voltages and power levels while maintaining efficient, controlled redox reactions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">H₂/O₂ fuel cell</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Hydrogen–oxygen fuel cell</div>
+                  <p class="example-body">
+                    The overall reaction 2 H₂(g) + O₂(g) → 2 H₂O(l) is the same as burning hydrogen, but in a fuel cell it is split into an anode reaction (H₂ → 2 H⁺ + 2 e⁻) and a cathode reaction (O₂ + 4 H⁺ + 4 e⁻ → 2 H₂O). Electrons travel through the external circuit instead of being released as light and heat in a flame. The main product is water, making this a relatively clean technology when H₂ is produced cleanly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.8 Corrosion -->
+        <article class="section-card" id="sec-20-8" data-section-keywords="corrosion rust iron oxidation sacrificial anode zinc protection">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.8 Corrosion</div>
+              <div class="section-label">Unwanted natural galvanic cells</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">rusting of iron</div>
+              <div class="section-badge">protection methods</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Corrosion is the gradual, spontaneous oxidation of metals by environmental agents like water and oxygen. Treating corrosion as an electrochemical process suggests strategies to slow or prevent it.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">What rust really is</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Corrosion involves metals being oxidized to oxides or hydroxides; iron rusting is a key example.
+                  </li>
+                  <li>
+                    Different spots on the metal surface can act as tiny anodes and cathodes, forming a network of microscopic voltaic cells.
+                  </li>
+                  <li>
+                    Water, dissolved oxygen, and electrolytes (like salt) greatly increase corrosion rates by allowing ion and electron movement.
+                  </li>
+                  <li>
+                    Protection strategies include coatings (paint, plating), corrosion-resistant alloys, and sacrificial anodes.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Electrochemical view of rusting</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important half-reactions &amp; meaning</div>
+                <ul class="node-list">
+                  <li>
+                    At an anodic region: Fe(s) → Fe²⁺(aq) + 2 e⁻ (iron is oxidized).
+                  </li>
+                  <li>
+                    At a cathodic region in acidic or neutral solution:
+                    O₂(g) + 4 H⁺(aq) + 4 e⁻ → 2 H₂O(l), or in neutral/basic media:
+                    O₂(g) + 2 H₂O(l) + 4 e⁻ → 4 OH⁻(aq).
+                  </li>
+                  <li>
+                    Fe²⁺ and OH⁻ then combine and further oxidize to form hydrated iron(III) oxides, Fe₂O₃·xH₂O (“rust”).
+                  </li>
+                  <li>
+                    A <strong>sacrificial anode</strong> is a more easily oxidized metal (like Zn) attached to steel so that Zn corrodes in place of iron.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Sacrificial protection example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Zinc protecting a steel structure</div>
+                  <p class="example-body">
+                    A steel hull fitted with Zn blocks forms a galvanic couple. Zn has a more negative E° and is oxidized more easily: Zn(s) → Zn²⁺ + 2 e⁻. Those electrons flow to steel, making the steel surface relatively protected from oxidation. Over time, the Zn blocks corrode away; they must be replaced, but the underlying steel remains largely intact.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20.9 Electrolysis -->
+        <article class="section-card" id="sec-20-9" data-section-keywords="electrolysis electrolytic cell nonspontaneous q = It Faraday moles of electrons plating">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">20.9 Electrolysis</div>
+              <div class="section-label">Driving nonspontaneous redox with current</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">q = I t</div>
+              <div class="section-badge">q/F → mol e⁻</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Electrolysis uses an external power source to force electrons through a cell and drive redox reactions that would not occur spontaneously, enabling processes like electroplating, metal refining, and gas production.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Electrolytic vs voltaic</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    In an <strong>electrolytic cell</strong>, a power supply forces a nonspontaneous redox reaction to occur.
+                  </li>
+                  <li>
+                    Oxidation still occurs at the anode and reduction at the cathode, but now the <strong>anode is positive</strong> and the <strong>cathode is negative</strong>.
+                  </li>
+                  <li>
+                    The amount of substance oxidized or reduced is directly proportional to the total charge passed through the cell.
+                  </li>
+                  <li>
+                    Electrolysis underlies electroplating, purification of metals, and production of substances like H₂, Cl₂, and NaOH.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Faraday relationships</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Charge:</span>
+                  <span class="formula-text">q = I × t</span>
+                  <button class="copy-button" type="button" aria-label="Copy q = It">📋</button>
+                </div>
+                <p>
+                  q is the total charge in coulombs (C), I is current in amperes (A = C·s⁻¹), and t is time in seconds. This tells you how many coulombs have flowed in a given time.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Moles of e⁻:</span>
+                  <span class="formula-text">n(e⁻) = q / F</span>
+                  <button class="copy-button" type="button" aria-label="Copy n(e-)=q/F">📋</button>
+                </div>
+                <p>
+                  F ≈ 96,485 C·mol⁻¹ is Faraday’s constant. Dividing the total charge by F gives the moles of electrons that passed through the cell.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Stoichiometry:</span>
+                  <span class="formula-text">mol metal = n(e⁻) / (electrons per ion)</span>
+                  <button class="copy-button" type="button" aria-label="Copy mol metal relation">📋</button>
+                </div>
+                <p>
+                  For a reduction like M²⁺ + 2 e⁻ → M(s), 2 moles of electrons deposit 1 mole of metal; for M³⁺, you would need 3 moles of electrons per mole of metal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Cu plating example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+                <div class="example-block">
+                  <div class="example-title">Example – Mass of Cu deposited</div>
+                  <p class="example-body">
+                    Passing a 2.00 A current for 30.0 min through a Cu²⁺ solution gives q = I t = (2.00 C·s⁻¹)(1800 s) = 3600 C. Moles of electrons = 3600 / 96,485 ≈ 0.0373 mol. For Cu²⁺ + 2 e⁻ → Cu(s), this yields 0.0187 mol Cu, or about 1.19 g of copper plated out. Increasing current or time increases the mass deposited in direct proportion.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      // Double-click to copy any non-trivial text
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      // Copy buttons for formulas
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      // Search/filter
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      // Scroll-linked nav highlighting
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

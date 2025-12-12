@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 2 Concept Map: Atoms, Molecules, and Ions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition: border-color var(--transition-med), box-shadow var(--transition-med), transform var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1.0rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+      transform: translateY(0);
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #toast.toast-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    #toast-icon {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 2</div>
+        <div class="chapter-title">Atoms, Molecules, and Ions</div>
+        <div class="chapter-subtitle">Concept map for atomic theory, structure, periodicity, and chemical naming.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-2-1"><span>2.1 Atomic Theory</span><span class="nav-shortcut">Dalton &amp; laws</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-2"><span>2.2 Discovery of Structure</span><span class="nav-shortcut">e⁻ &amp; nucleus</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-3"><span>2.3 Modern Atomic View</span><span class="nav-shortcut">p⁺, n⁰, e⁻</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-4"><span>2.4 Atomic Weights</span><span class="nav-shortcut">isotopes &amp; avg</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-5"><span>2.5 Periodic Table</span><span class="nav-shortcut">groups &amp; periods</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-6"><span>2.6 Molecules</span><span class="nav-shortcut">formulas</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-7"><span>2.7 Ions &amp; Ionic</span><span class="nav-shortcut">charges &amp; salts</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-8"><span>2.8 Naming Inorganic</span><span class="nav-shortcut">ionic, acids, covalent</span></button></li>
+          <li><button class="nav-link" data-target="sec-2-9"><span>2.9 Simple Organics</span><span class="nav-shortcut">alkanes &amp; alcohols</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Tip: use the search box to hide cards that don’t match your current topic. Double-click any text to copy. Use 📋 buttons to copy key equations or formulas.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each card matches a section from Chapter 2. Within a card, Roots focus on core ideas and definitions, Trunk focuses on formulas, rules, and naming patterns, and Leaves provide examples, tips, and common pitfalls. Click any node header to expand or collapse it.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Dalton’s theory</span>
+          <span class="tag-pill">Cathode rays &amp; Rutherford</span>
+          <span class="tag-pill">Isotopes &amp; atomic weight</span>
+          <span class="tag-pill">Periodic table</span>
+          <span class="tag-pill">Ions &amp; formulas</span>
+          <span class="tag-pill">Nomenclature</span>
+        </div>
+      </section>
+
+      <!-- 2.1 -->
+      <section
+        class="section-card"
+        id="sec-2-1"
+        data-section-title="2.1 Atomic Theory of Matter Dalton postulates laws constant composition multiple proportions"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.1 The Atomic Theory of Matter</div>
+            <div class="section-subtitle">Dalton’s postulates and laws of chemical combination.</div>
+          </div>
+          <div class="section-tagline">Roots: Atoms and the laws they explain.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Key ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Dalton’s atomic theory</strong> connects the observed behavior of elements and compounds to atoms:</p>
+              <ul>
+                <li>Each element consists of extremely small particles called <strong>atoms</strong>.</li>
+                <li>All atoms of a given element are <strong>identical</strong>, but atoms of different elements differ in mass and other properties.</li>
+                <li>Atoms are not created or destroyed in chemical reactions; they are only rearranged. Atoms of one element are not changed into atoms of another by chemical reactions.</li>
+                <li><strong>Compounds</strong> are formed when atoms of different elements combine; a given compound always contains the same relative numbers and kinds of atoms.</li>
+              </ul>
+              <p>These ideas help explain key laws:</p>
+              <ul>
+                <li><strong>Law of constant composition</strong>: a given compound always has the same composition by mass because it always contains the same types and ratios of atoms.</li>
+                <li><strong>Law of conservation of mass</strong>: total mass before and after a chemical reaction is the same because atoms are conserved.</li>
+                <li><strong>Law of multiple proportions</strong>: if two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in simple whole-number ratios, reflecting different small whole-number ratios of atoms.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Patterns &amp; implications</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>There are no algebraic formulas in this section, but Dalton’s postulates translate into important qualitative rules:</p>
+              <ul>
+                <li>Because atoms are indivisible in chemical reactions, any balanced equation must conserve the number of each type of atom.</li>
+                <li>A compound like CO₂ always has a 1:2 C:O atom ratio; you cannot have a “CO₁.₅” compound.</li>
+                <li>Different compounds of the same elements, such as CO and CO₂, arise from different small whole-number atom ratios (1:1 vs 1:2), producing simple whole-number mass ratios.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: multiple proportions for carbon and oxygen.</strong></p>
+              <p>Suppose:</p>
+              <ul>
+                <li>In CO, 1.0 g C combines with 1.33 g O.</li>
+                <li>In CO₂, 1.0 g C combines with 2.66 g O.</li>
+              </ul>
+              <p>The ratio of the masses of O that combine with a fixed mass of C is 1.33 : 2.66 ≈ 1 : 2. This is a small whole-number ratio, consistent with atom ratios of 1:1 and 1:2 for CO and CO₂.</p>
+              <p><strong>Tip:</strong> Whenever you see mass ratios that are near a small whole-number ratio (like 1:2, 2:3, 3:4), suspect different atomic combinations consistent with Dalton’s theory.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.2 -->
+      <section
+        class="section-card"
+        id="sec-2-2"
+        data-section-title="2.2 Discovery of Atomic Structure cathode rays electrons Millikan Rutherford nuclear model"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.2 The Discovery of Atomic Structure</div>
+            <div class="section-subtitle">Electrons, radioactivity, and the nuclear model of the atom.</div>
+          </div>
+          <div class="section-tagline">Roots: How we learned atoms have parts.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Key experiments &amp; ideas</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Cathode rays and electrons.</strong> Cathode-ray tubes produce beams when high voltage is applied across a low-pressure gas. J. J. Thomson showed that these beams are deflected by electric and magnetic fields, and always bend as if they carry negative charge. He concluded that they consist of negatively charged particles, later called <strong>electrons</strong>, and measured their charge-to-mass ratio.</p>
+              <p><strong>Millikan’s oil-drop experiment.</strong> Small oil drops were allowed to fall between charged plates. By adjusting the electric field to suspend a droplet, Millikan found the exact charge on the drop. He noticed the charge was always a multiple of a minimum value (≈ 1.602 × 10⁻¹⁹ C), which he identified as the charge of a single electron.</p>
+              <p><strong>Radioactivity.</strong> Becquerel and the Curies found that uranium compounds emit radiation spontaneously. Rutherford classified three types of radiation:
+                <ul>
+                  <li><strong>α (alpha)</strong>: positively charged, relatively massive particles.</li>
+                  <li><strong>β (beta)</strong>: negatively charged, high-speed electrons.</li>
+                  <li><strong>γ (gamma)</strong>: high-energy electromagnetic radiation, no charge.</li>
+                </ul>
+                The different bending of α and β rays in electric fields proved their charges, while γ rays were unaffected.</p>
+              <p><strong>Rutherford’s gold foil experiment.</strong> When α-particles were shot at thin gold foil, most passed straight through, but some were deflected at large angles or even backwards. This result could not be explained by Thomson’s “plum-pudding” model.</p>
+              <p>Rutherford proposed the <strong>nuclear model</strong>:
+                <ul>
+                  <li>Most of an atom’s mass and all its positive charge are concentrated in a tiny <strong>nucleus</strong>.</li>
+                  <li>Electrons move in the surrounding space, which is mostly empty.</li>
+                  <li>Most α-particles pass through without hitting the small nucleus; a few that come close to a nucleus are strongly deflected.</li>
+                </ul>
+              </p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Equations &amp; quantitative insights</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Electron mass from e/m and charge.</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  m<sub>e</sub> = e / (e/m)
+                </div>
+                <button class="copy-btn" type="button" data-copy="m_e = e / (e/m)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Using Thomson’s charge-to-mass ratio and Millikan’s measured charge:</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  m<sub>e</sub> = (1.602 × 10⁻¹⁹ C) / (1.76 × 10⁸ C·g⁻¹) ≈ 9.10 × 10⁻²⁸ g
+                </div>
+                <button class="copy-btn" type="button" data-copy="m_e ≈ 9.10 × 10⁻28 g">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Meaning: the electron’s mass is tiny compared to atomic masses (~10⁻²⁴ g), so electrons contribute very little to the atom’s mass and cannot explain the atom’s density; the mass must reside in the nucleus.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Rutherford’s scattering data.</strong> If the atom were a uniform “pudding” of positive charge, α-particles would mostly pass through with only slight deflection. The observed large-angle scattering means:</p>
+              <ul>
+                <li>The positive charge is concentrated in a very small region (nucleus).</li>
+                <li>The rest of the atom is largely empty space; hence most α-particles pass through unaffected.</li>
+              </ul>
+              <p><strong>Tip:</strong> When reasoning from scattering experiments, always ask: what arrangement of charges and masses would produce the observed deflection pattern?</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.3 -->
+      <section
+        class="section-card"
+        id="sec-2-3"
+        data-section-title="2.3 Modern View of Atomic Structure protons neutrons electrons isotopes atomic number mass number"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.3 The Modern View of Atomic Structure</div>
+            <div class="section-subtitle">Protons, neutrons, electrons, atomic number, and isotopes.</div>
+          </div>
+          <div class="section-tagline">Roots: What is inside an atom and how we label it.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Atoms contain three main subatomic particles:</p>
+              <ul>
+                <li><strong>Protons (p⁺)</strong>: charge +1 (in units of electron charge); mass ≈ 1 amu.</li>
+                <li><strong>Neutrons (n⁰)</strong>: charge 0; mass ≈ 1 amu.</li>
+                <li><strong>Electrons (e⁻)</strong>: charge −1; mass ≈ 1/1836 amu.</li>
+              </ul>
+              <p><strong>Nucleus:</strong> contains protons and neutrons; extremely small compared to the overall atom but holds nearly all the mass. The surrounding electron cloud determines the atom’s size and chemical behavior.</p>
+              <p><strong>Atomic number (Z)</strong>: the number of protons in the nucleus. This identifies the element. In a neutral atom, Z also equals the number of electrons.</p>
+              <p><strong>Mass number (A)</strong>: the total number of protons and neutrons (A = Z + N).</p>
+              <p><strong>Isotopes:</strong> atoms of the same element (same Z) with different numbers of neutrons (different A). They have the same chemical behavior but different masses and often different nuclear stability.</p>
+              <p><strong>Notation:</strong> an atom is written as <code>^A_ZX</code>, where X is the element symbol, Z is atomic number (subscript), and A is mass number (superscript). Often Z is omitted if it is known from the symbol.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Key relationships &amp; units</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Mass number and subatomic particle counts:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  A = Z + N
+                </div>
+                <button class="copy-btn" type="button" data-copy="A = Z + N">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For a neutral atom: number of electrons = Z.</p>
+
+              <p><strong>Atomic mass unit (u):</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  1 u = 1.66054 × 10⁻²⁴ g
+                </div>
+                <button class="copy-btn" type="button" data-copy="1 u = 1.66054 × 10⁻24 g">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>By definition, a ¹²C atom has a mass of exactly 12 u, and other atomic masses are measured relative to this.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example 1: ¹⁹⁷Au.</strong></p>
+              <ul>
+                <li>Gold (Au) has atomic number Z = 79 → 79 protons.</li>
+                <li>Mass number A = 197 → N = 197 − 79 = 118 neutrons.</li>
+                <li>Neutral atom → 79 electrons.</li>
+              </ul>
+
+              <p><strong>Example 2: strontium-90.</strong></p>
+              <ul>
+                <li>Strontium (Sr) has Z = 38.</li>
+                <li>A = 90 → N = 90 − 38 = 52.</li>
+                <li>Neutral Sr-90 has 38 electrons.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When you see a notation like “oxygen-18”, the number 18 is its mass number A. Use the periodic table to find Z (for O, Z = 8), then compute neutrons: N = 18 − 8 = 10.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.4 -->
+      <section
+        class="section-card"
+        id="sec-2-4"
+        data-section-title="2.4 Atomic Weights isotopes atomic mass unit average mass"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.4 Atomic Weights</div>
+            <div class="section-subtitle">Atomic mass unit, isotopes, and average atomic masses.</div>
+          </div>
+          <div class="section-tagline">Trunk: From isotope masses to the periodic table numbers.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Concepts &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Atoms of different elements have different masses. Rather than listing a separate mass for every isotope, the periodic table gives a single **atomic weight** for each element, which is a weighted average of isotope masses according to their natural abundances.</p>
+              <p>The **atomic mass unit (u)** is defined so that an unbound ¹²C atom has exactly 12 u. Other atomic masses are measured relative to this standard.</p>
+              <p>Most elements occur naturally as mixtures of isotopes, so atomic weights are rarely whole numbers.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Equations &amp; usage</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Atomic mass unit to grams:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  1 u = 1.66054 × 10⁻²⁴ g
+                </div>
+                <button class="copy-btn" type="button" data-copy="1 u = 1.66054 × 10⁻24 g">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Atomic weight from isotope data:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">[2.1]</span>
+                  Atomic weight = Σ (isotope mass × fractional abundance)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Atomic weight = Σ (isotope mass × fractional abundance)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Where each isotope’s percentage abundance is converted to a fraction (e.g., 75.78% → 0.7578) before multiplication.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: atomic weight of chlorine.</strong></p>
+              <p>Naturally occurring Cl: 75.78% ³⁵Cl (34.969 u) and 24.22% ³⁷Cl (36.966 u).</p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  AW(Cl) = (0.7578 × 34.969) + (0.2422 × 36.966) ≈ 35.45 u
+                </div>
+                <button class="copy-btn" type="button" data-copy="AW(Cl) = (0.7578 × 34.969) + (0.2422 × 36.966) ≈ 35.45 u">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This value lies between the two isotope masses and is closer to 34.969 u, as expected because ³⁵Cl is more abundant.</p>
+
+              <p><strong>Tip:</strong> If the isotopic percentages are 99% of one isotope and 1% of another, the atomic weight will be very close to the mass of the major isotope.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.5 -->
+      <section
+        class="section-card"
+        id="sec-2-5"
+        data-section-title="2.5 Periodic Table periods groups metals nonmetals metalloids"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.5 The Periodic Table</div>
+            <div class="section-subtitle">Arranging elements by atomic number and grouping similar behaviors.</div>
+          </div>
+          <div class="section-tagline">Roots: Plan of the elements.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Structure &amp; terminology</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>periodic table</strong> arranges elements in order of increasing atomic number, placing elements with similar properties in the same vertical columns.</p>
+              <p><strong>Periods</strong> are horizontal rows:
+                <ul>
+                  <li>Period 1: H and He.</li>
+                  <li>Periods 2–3: 8 elements each.</li>
+                  <li>Periods 4–5: 18 elements each.</li>
+                  <li>Periods 6–7: 32 elements each (with lanthanides and actinides often shown separately).</li>
+                </ul>
+              </p>
+              <p><strong>Groups</strong> are vertical columns, numbered 1–18. Elements in a group share similar chemical and physical properties.</p>
+              <p>Some groups have common names:
+                <ul>
+                  <li>Group 1: <strong>alkali metals</strong>.</li>
+                  <li>Group 2: <strong>alkaline earth metals</strong>.</li>
+                  <li>Group 17: <strong>halogens</strong>.</li>
+                  <li>Group 18: <strong>noble gases</strong>.</li>
+                  <li>Group 11: coinage metals (Cu, Ag, Au).</li>
+                </ul>
+              </p>
+              <p>Elements to the left and center are mostly <strong>metals</strong> (lustrous, good conductors, usually solid). Elements to the upper right are <strong>nonmetals</strong>. A zig-zag line separates them, with <strong>metalloids</strong> along the border showing intermediate properties.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Usage patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Again, no algebraic formula, but important patterns:</p>
+              <ul>
+                <li>Elements in the same group have similar valence electron configurations and similar chemistry.</li>
+                <li>Moving across a period (left to right), properties gradually change from metallic to nonmetallic.</li>
+                <li>Group location helps predict typical ion charges (Group 1 → +1, Group 2 → +2, Group 17 → −1, etc.).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: reactive metals vs noble gases.</strong></p>
+              <ul>
+                <li>Li, Na, K (Group 1): soft, very reactive metals, especially with water; form +1 cations.</li>
+                <li>He, Ne, Ar (Group 18): colorless, nonreactive gases; rarely form compounds under normal conditions.</li>
+              </ul>
+              <p><strong>Tip:</strong> When you see an unfamiliar element, locate it in the periodic table. Its group tells you how it will likely behave (metal vs nonmetal, likely ion charges, relative reactivity).</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.6 -->
+      <section
+        class="section-card"
+        id="sec-2-6"
+        data-section-title="2.6 Molecules and Molecular Compounds molecular formula empirical formula structural formula"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.6 Molecules and Molecular Compounds</div>
+            <div class="section-subtitle">Molecules, molecular vs empirical formulas, and structural representations.</div>
+          </div>
+          <div class="section-tagline">Roots: How we write and visualize molecules.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>molecule</strong> is a combination of two or more atoms held together by covalent bonds. Examples include H₂O, CO₂, NH₃, CH₄.</p>
+              <p><strong>Molecular formula:</strong> gives the actual number of each type of atom in a molecule (e.g., C₂H₆O).</p>
+              <p><strong>Empirical formula:</strong> gives the simplest whole-number ratio of atoms in a compound (e.g., for C₂H₆O the empirical formula is C₂H₆O itself; for C₆H₁₂O₆ it is CH₂O).</p>
+              <p><strong>Structural formula:</strong> shows the connectivity of atoms (who is bonded to whom). They do not usually show true 3D shape or bond angles.</p>
+              <p><strong>3D models:</strong> perspective drawings, ball-and-stick models, and space-filling models make it easier to visualize geometry and relative sizes.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Patterns and relationships</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Key relationships:</p>
+              <ul>
+                <li>If all subscripts in a molecular formula share a common factor, dividing by that factor yields the empirical formula.</li>
+                <li>Structural formulas and 3D models highlight that compounds with the same molecular formula can differ in connectivity (isomers).</li>
+              </ul>
+              <p>There is no single algebraic formula here, but the link from molecular formula → empirical formula → structural formula is central to understanding composition and structure.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; tips</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: lactic acid.</strong> Molecular formula C₃H₆O₃.</p>
+              <ul>
+                <li>Divide all subscripts by 3 → CH₂O, the empirical formula.</li>
+              </ul>
+
+              <p><strong>Example: n-butane vs isobutane.</strong></p>
+              <ul>
+                <li>Both have molecular formula C₄H₁₀.</li>
+                <li>n-Butane: straight chain of 4 carbons.</li>
+                <li>Isobutane: 3-carbon chain with one carbon branching off the middle.</li>
+                <li>Same molecular formula, different structures → structural isomers.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When given only a molecular formula, you often cannot tell how atoms are connected. Additional information (like structural formula, 3D model, or context) is needed to distinguish isomers.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.7 -->
+      <section
+        class="section-card"
+        id="sec-2-7"
+        data-section-title="2.7 Ions and Ionic Compounds cations anions ionic formulas charge neutrality"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.7 Ions and Ionic Compounds</div>
+            <div class="section-subtitle">How ions form and how we write ionic compound formulas.</div>
+          </div>
+          <div class="section-tagline">Roots: Electrons lost or gained, and neutral salts.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Key ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>ion</strong> is formed when electrons are added to or removed from a neutral atom:</p>
+              <ul>
+                <li><strong>Cation</strong>: positively charged ion formed when an atom loses one or more electrons.</li>
+                <li><strong>Anion</strong>: negatively charged ion formed when an atom gains one or more electrons.</li>
+              </ul>
+              <p>In general, metals form cations and nonmetals form anions. For example:</p>
+              <ul>
+                <li>Na atom (11 p, 11 e) → Na⁺ (11 p, 10 e) by losing an electron.</li>
+                <li>Cl atom (17 p, 17 e) → Cl⁻ (17 p, 18 e) by gaining an electron.</li>
+              </ul>
+              <p><strong>Polyatomic ions</strong> are groups of atoms bonded together that carry a net charge (e.g., NH₄⁺, SO₄²⁻).</p>
+              <p>An <strong>ionic compound</strong> is composed of cations and anions. Although it contains charged particles, the overall compound is electrically neutral (total positive charge = total negative charge).</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Charge rules &amp; formula building</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Net charge of an ion:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  Charge = (number of protons) − (number of electrons)
+                </div>
+                <button class="copy-btn" type="button" data-copy="Charge = protons − electrons">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Neutral ionic compound rule:</strong> The sum of all positive and negative charges must be zero.</p>
+              <ul>
+                <li>Na⁺ and Cl⁻ → NaCl (1(+1) + 1(−1) = 0).</li>
+                <li>Ca²⁺ and Cl⁻ → CaCl₂ (1(+2) + 2(−1) = 0).</li>
+                <li>Al³⁺ and O²⁻ → Al₂O₃ (2(+3) + 3(−2) = 0).</li>
+              </ul>
+
+              <p><strong>Predicting common charges from the periodic table:</strong></p>
+              <ul>
+                <li>Group 1 metals → +1.</li>
+                <li>Group 2 metals → +2.</li>
+                <li>Group 17 nonmetals → −1.</li>
+                <li>Group 16 nonmetals → −2.</li>
+                <li>Group 15 nonmetals → −3.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; tips</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: writing the formula for magnesium nitride.</strong></p>
+              <ul>
+                <li>Mg²⁺ from Mg (Group 2), N³⁻ from N (Group 15).</li>
+                <li>To balance charges, need 3 Mg²⁺ (+6) and 2 N³⁻ (−6) → Mg₃N₂.</li>
+              </ul>
+
+              <p><strong>Example: writing the symbol  for an ion given p, n, e.</strong></p>
+              <ul>
+                <li>22 p, 26 n, 19 e: element with Z = 22 is Ti; A = 22 + 26 = 48; charge = 22 − 19 = +3 → ⁴⁸Ti³⁺.</li>
+                <li>16 p, 16 n, 18 e: Z = 16 → S; A = 32; charge = 16 − 18 = −2 → ³²S²⁻.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When building ionic formulas, write the ions with their charges, then “cross” charges to become subscripts (simplified to the lowest ratio). Always check that total charge sums to zero.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.8 -->
+      <section
+        class="section-card"
+        id="sec-2-8"
+        data-section-title="2.8 Naming Inorganic Compounds ionic naming acids binary molecular"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.8 Naming Inorganic Compounds</div>
+            <div class="section-subtitle">Systematic names for ionic compounds, acids, and binary molecular compounds.</div>
+          </div>
+          <div class="section-tagline">Trunk: Names that reflect composition.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Categories &amp; principles</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Chemical nomenclature</strong> is a set of rules used to name chemical substances so that their names convey their composition.</p>
+              <p>We focus on three categories of <strong>inorganic compounds</strong>:</p>
+              <ul>
+                <li><strong>Ionic compounds</strong>: usually metal cations + nonmetal or polyatomic anions.</li>
+                <li><strong>Acids</strong>: hydrogen-containing compounds that yield H⁺ in water.</li>
+                <li><strong>Binary molecular (covalent) compounds</strong>: combinations of nonmetals.</li>
+              </ul>
+              <p>Organic compounds (those containing carbon and hydrogen) are treated separately in Section 2.9.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Naming rules &amp; patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Ionic compounds:</strong></p>
+              <ul>
+                <li>Cation first, anion second.</li>
+                <li>Monatomic cations (single metal ions): use the metal’s name (Na⁺ = sodium ion, Ca²⁺ = calcium ion).</li>
+                <li>Metal cations with multiple possible charges: use Roman numerals in parentheses (Fe²⁺ = iron(II), Fe³⁺ = iron(III); Cu⁺ = copper(I); Cu²⁺ = copper(II)).</li>
+                <li>Monatomic anions: root of element + “-ide” (Cl⁻: chloride, O²⁻: oxide).</li>
+                <li>Polyatomic ions use specific names (NO₃⁻: nitrate, SO₄²⁻: sulfate, NH₄⁺: ammonium).</li>
+                <li>Examples: NaCl = sodium chloride; FeCl₃ = iron(III) chloride; CaSO₄ = calcium sulfate.</li>
+              </ul>
+
+              <p><strong>Acids:</strong></p>
+              <ul>
+                <li>Acid = H⁺ plus an anion.</li>
+                <li>If the anion ends in -ide, acid name = “hydro- [root] -ic acid” (Cl⁻ → HCl = hydrochloric acid).</li>
+                <li>If the anion ends in -ate, acid name = “[root] -ic acid” (NO₃⁻ → HNO₃ = nitric acid; SO₄²⁻ → H₂SO₄ = sulfuric acid).</li>
+                <li>If the anion ends in -ite, acid name = “[root] -ous acid” (SO₃²⁻ → H₂SO₃ = sulfurous acid).</li>
+              </ul>
+
+              <p><strong>Binary molecular compounds (nonmetals only):</strong></p>
+              <ul>
+                <li>The more “metal-like” element (further left, or lower in the same group) is named first.</li>
+                <li>The second element is named as an anion (root + “-ide”).</li>
+                <li>Use Greek prefixes (mono-, di-, tri-, tetra-, penta-, hexa-, hepta-, octa-, nona-, deca-) to indicate the number of atoms. Do not use “mono-” for the first element.</li>
+                <li>Drop the final “a” or “o” of a prefix if the element name begins with a vowel (dinitrogen tetroxide, not “tetraoxide”).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; practice</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Ionic examples:</strong></p>
+              <ul>
+                <li>Li₂O: Li⁺ + O²⁻ → lithium oxide.</li>
+                <li>FeCl₃: Fe³⁺ + Cl⁻ → iron(III) chloride.</li>
+                <li>Na₂SO₄: Na⁺ + SO₄²⁻ → sodium sulfate.</li>
+              </ul>
+
+              <p><strong>Acid examples:</strong></p>
+              <ul>
+                <li>HCN(aq): CN⁻ is cyanide → hydrocyanic acid.</li>
+                <li>HNO₃: NO₃⁻ is nitrate → nitric acid.</li>
+                <li>H₂SO₄: SO₄²⁻ is sulfate → sulfuric acid.</li>
+                <li>H₂SO₃: SO₃²⁻ is sulfite → sulfurous acid.</li>
+              </ul>
+
+              <p><strong>Binary molecular examples:</strong></p>
+              <ul>
+                <li>SO₂: sulfur dioxide.</li>
+                <li>PCl₅: phosphorus pentachloride.</li>
+                <li>Cl₂O₃: dichlorine trioxide.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> To decide if a given formula is likely ionic or molecular, look at the elements: metal + nonmetal (ionic) vs nonmetal + nonmetal (molecular). Then apply the appropriate naming rules.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.9 -->
+      <section
+        class="section-card"
+        id="sec-2-9"
+        data-section-title="2.9 Some Simple Organic Compounds hydrocarbons alkanes alcohols isomers"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">2.9 Some Simple Organic Compounds</div>
+            <div class="section-subtitle">Basic hydrocarbon and alcohol structures, and isomerism.</div>
+          </div>
+          <div class="section-tagline">Leaves: Organic building blocks and naming basics.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Organic compounds</strong> are carbon-containing compounds, typically with C–H bonds and often containing O, N, or other elements.</p>
+              <p><strong>Hydrocarbons</strong> contain only C and H. The simplest class is the <strong>alkanes</strong>, where each carbon has four single bonds (saturated hydrocarbons).</p>
+              <p><strong>Alkanes:</strong> general formula CₙH₂ₙ₊₂. Their names end in -ane: methane (CH₄), ethane (C₂H₆), propane (C₃H₈), butane (C₄H₁₀), etc.</p>
+              <p><strong>Alcohols:</strong> formed when one H of an alkane is replaced by an OH group. Names end in -ol, such as methanol and ethanol.</p>
+              <p><strong>Isomers:</strong> compounds with the same molecular formula but different structural arrangements. They can have very different physical and chemical properties.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas &amp; naming patterns</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Alkane general formula:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  CₙH₂ₙ₊₂
+                </div>
+                <button class="copy-btn" type="button" data-copy="CₙH₂ₙ₊₂">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>This pattern applies to saturated, single-bonded hydrocarbons in the simplest series.</p>
+
+              <p><strong>Alcohol naming:</strong> replace the -ane of the corresponding alkane with -ol.</p>
+              <ul>
+                <li>Methane → methanol.</li>
+                <li>Ethane → ethanol.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretation</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: n-butane vs isobutane.</strong></p>
+              <ul>
+                <li>Both have molecular formula C₄H₁₀.</li>
+                <li>n-Butane: straight chain of 4 carbons.</li>
+                <li>Isobutane: 3-carbon chain with one carbon branching off the middle.</li>
+                <li>Different structures → different boiling points, densities, etc., even though the formula is the same.</li>
+              </ul>
+
+              <p><strong>Example: ethanol vs dimethyl ether (from other parts of the text).</strong></p>
+              <ul>
+                <li>Both have formula C₂H₆O, but ethanol is an alcohol (C₂H₅OH) and dimethyl ether is an ether (CH₃–O–CH₃).</li>
+                <li>They have different structural formulas, making them isomers with very different properties.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> Whenever you see a molecular formula with more than three atoms, always keep in mind that more than one structural arrangement (and thus more than one compound) may be possible.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => link.style.opacity = '');
+            return;
+          }
+          cards.forEach(card => {
+            const title = card.getAttribute('data-section-title') || '';
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.toLowerCase().includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

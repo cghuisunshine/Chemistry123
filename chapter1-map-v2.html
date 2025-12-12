@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 1 Concept Map: Introduction, Matter, Energy, and Measurement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-elevated-soft: #1f2933;
+      --border-subtle: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --danger: #f97583;
+      --success: #3fb950;
+      --radius-card: 10px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #161b22 0, #02040a 60%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(135deg, #151b23, #111720);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 30px 7px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(13, 17, 23, 0.9);
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+      transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #6e7681;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft);
+      background: #0d1117;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #6e7681;
+      pointer-events: none;
+    }
+
+    .sidebar-nav {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4px;
+      padding-top: 10px;
+      max-height: 260px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track {
+      background: #0b0f16;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb {
+      background: #333b48;
+      border-radius: 3px;
+    }
+
+    .nav-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 9px;
+      border-radius: 7px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--text);
+      border-color: rgba(88, 166, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .nav-link-active {
+      background: var(--accent-soft);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .nav-shortcut {
+      font-size: 0.75rem;
+      color: #6e7681;
+      padding-left: 8px;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), transparent 55%);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .intro-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .intro-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.05);
+      color: var(--accent);
+    }
+
+    .section-card {
+      background: rgba(13, 17, 23, 0.92);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-margin-top: 90px;
+      transition:
+        border-color var(--transition-med),
+        box-shadow var(--transition-med),
+        transform var(--transition-med),
+        background var(--transition-med);
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    .section-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+      background: radial-gradient(circle at top left, rgba(88, 166, 255, 0.18), #05070d);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .section-heading-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .section-tagline {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .node {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #111720, #10141c);
+      border: 1px solid #263241;
+      overflow: hidden;
+      transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .node.root-node {
+      border-color: rgba(63, 185, 80, 0.7);
+    }
+
+    .node.trunk-node {
+      border-color: rgba(88, 166, 255, 0.8);
+    }
+
+    .node.leaf-node {
+      border-color: rgba(249, 117, 131, 0.8);
+    }
+
+    .node.collapsed {
+      background: #0c1118;
+    }
+
+    .node-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-label-pill {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .node-title {
+      font-weight: 500;
+    }
+
+    .node-toggle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0 10px 8px 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .node.collapsed .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .node-body ul {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 2px 0;
+    }
+
+    .formula-block {
+      margin: 4px 0;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      background: #050913;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #f0f6fc;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .formula-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: var(--radius-pill);
+      border: 1px solid #30363d;
+      background: #111827;
+      color: #c9d1d9;
+      font-size: 0.8rem;
+      padding: 3px 7px 3px 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .copy-btn span {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(88, 166, 255, 0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-0.5px);
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #e6edf3;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+      z-index: 40;
+    }
+
+    #toast.toast-visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #toast-icon {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .content {
+        order: 0;
+      }
+
+      .section-card {
+        scroll-margin-top: 140px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .intro-banner {
+        padding: 10px 12px;
+      }
+
+      .section-card {
+        padding: 10px 12px 10px;
+      }
+
+      .node-body {
+        padding: 0 8px 8px 8px;
+      }
+
+      .section-title {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="chapter-label">Chem 123 – Chapter 1</div>
+        <div class="chapter-title">Introduction: Matter, Energy, and Measurement</div>
+        <div class="chapter-subtitle">Concept map for classification of matter, energy, units, measurement, and problem solving.</div>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Filter sections by keyword…"
+          aria-label="Filter concept cards by keyword"
+        >
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="sidebar-nav" aria-label="Section navigation">
+        <div class="nav-label">Sections</div>
+        <ul class="nav-list">
+          <li><button class="nav-link" data-target="sec-1-1"><span>1.1 Study of Chemistry</span><span class="nav-shortcut">atoms &amp; molecules</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-2"><span>1.2 Classifications of Matter</span><span class="nav-shortcut">states &amp; types</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-3"><span>1.3 Properties of Matter</span><span class="nav-shortcut">physical vs chemical</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-4"><span>1.4 Nature of Energy</span><span class="nav-shortcut">work &amp; heat</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-5"><span>1.5 Units of Measurement</span><span class="nav-shortcut">SI &amp; density</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-6"><span>1.6 Uncertainty</span><span class="nav-shortcut">sig figs</span></button></li>
+          <li><button class="nav-link" data-target="sec-1-7"><span>1.7 Dimensional Analysis</span><span class="nav-shortcut">unit conversions</span></button></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        Tip: use the search box to hide cards that don’t match your current topic. Double-click any text to copy it. Use 📋 buttons to copy key equations and snippets.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title">How to use this concept map</div>
+        <div class="intro-text">
+          Each card corresponds to a section of Chapter 1. Within a card, Roots highlight core ideas and definitions, Trunk focuses on formulas, rules, and patterns, and Leaves contain examples, tips, and interpretations. Click any node header to expand or collapse it.
+        </div>
+        <div class="intro-tags">
+          <span class="tag-pill">Matter &amp; classification</span>
+          <span class="tag-pill">Physical vs chemical</span>
+          <span class="tag-pill">Energy &amp; work</span>
+          <span class="tag-pill">SI units &amp; density</span>
+          <span class="tag-pill">Significant figures</span>
+          <span class="tag-pill">Dimensional analysis</span>
+        </div>
+      </section>
+
+      <!-- 1.1 -->
+      <section
+        class="section-card"
+        id="sec-1-1"
+        data-section-title="1.1 Study of Chemistry atoms molecules macroscopic microscopic symbolic central science"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.1 The Study of Chemistry</div>
+            <div class="section-subtitle">What chemistry is about and why it is central to science.</div>
+          </div>
+          <div class="section-tagline">Roots: Matter, atoms, and the three realms.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Core ideas &amp; definitions</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Chemistry is described as the “central science” because chemical principles underpin biology, medicine, environmental science, materials science, and energy technology.</p>
+              <ul>
+                <li><strong>Matter</strong> is anything that has mass and occupies space. Air, water, metals, and your body are all matter.</li>
+                <li>A <strong>property</strong> is any characteristic that helps us recognize a type of matter and distinguish it from others (for example, density, boiling point, flammability).</li>
+                <li>An <strong>element</strong> is a substance that cannot be decomposed into simpler substances by chemical means. Each element is made of one kind of atom.</li>
+                <li>An <strong>atom</strong> is an almost unimaginably small building block of matter; different elements have different kinds of atoms.</li>
+                <li>A <strong>molecule</strong> is a collection of two or more atoms held together in a specific arrangement. Composition and shape control properties.</li>
+              </ul>
+              <p>Chemistry constantly connects three realms:</p>
+              <ul>
+                <li><strong>Macroscopic</strong>: everyday, visible substances and changes (solutions, flames, rust).</li>
+                <li><strong>Microscopic</strong>: atoms, ions, and molecules we imagine and model.</li>
+                <li><strong>Symbolic</strong>: chemical formulas, equations, and diagrams we use to represent matter and its changes.</li>
+              </ul>
+              <p>Chemists broadly do three things: they make new substances, measure properties, and develop models or theories to explain and predict behavior.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Definitions as rules of thinking</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Although there are no algebraic formulas here, precise definitions guide how you interpret problems:</p>
+              <ul>
+                <li><strong>Chemistry</strong> is the science that seeks to understand the properties and behavior of matter by studying atoms and molecules.</li>
+                <li>All the complex behavior of matter (color, reactivity, toxicity, energy changes) ultimately comes from the types of atoms present and how they are arranged in molecules and materials.</li>
+                <li>Whenever you see a macroscopic change (for example, iron rusting), imagine what must be happening to atoms and molecules at the microscopic level and represent it symbolically with formulas and equations.</li>
+              </ul>
+              <p>Interpreting chemistry problems effectively means moving back and forth between these three levels.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, motivations, and tips</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: ethanol vs ethylene glycol.</strong></p>
+              <ul>
+                <li>Both molecules contain carbon, hydrogen, and oxygen, but they differ in composition and structure.</li>
+                <li><em>Ethanol</em> is safe to drink in moderate amounts and is used in beverages; <em>ethylene glycol</em> is used as antifreeze and is toxic.</li>
+                <li>Small differences in how atoms are connected can produce enormous differences in physical and biological properties.</li>
+              </ul>
+              <p><strong>Why this matters to you:</strong> Chemistry is behind medicines, batteries, fertilizers, foods, cleaning products, plastics, and air and water quality. Understanding basic chemistry helps you interpret scientific claims and make informed choices.</p>
+              <p><strong>Study tip:</strong> When you read a new concept, ask yourself: “What is the macroscopic example? What does it look like microscopically? How would I write it symbolically?”</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.2 -->
+      <section
+        class="section-card"
+        id="sec-1-2"
+        data-section-title="1.2 Classifications of Matter states gas liquid solid pure substance element compound mixture homogeneous heterogeneous law of constant composition"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.2 Classifications of Matter</div>
+            <div class="section-subtitle">States of matter and how we classify substances and mixtures.</div>
+          </div>
+          <div class="section-tagline">Roots: States, elements, compounds, and mixtures.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">States and types of matter</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Matter is first classified by <strong>physical state</strong> and then by <strong>composition</strong>.</p>
+              <ul>
+                <li><strong>Gas (vapor)</strong>: no fixed volume or shape; expands to fill its container; highly compressible. Microscopically, particles are far apart and move rapidly.</li>
+                <li><strong>Liquid</strong>: fixed volume, but takes the shape of its container; relatively incompressible. Particles are close together but can slide past one another.</li>
+                <li><strong>Solid</strong>: fixed shape and volume; essentially incompressible. Particles are tightly packed in fixed positions and only vibrate.</li>
+              </ul>
+              <p>By composition, matter is classified as:</p>
+              <ul>
+                <li><strong>Pure substances</strong>: have fixed composition and distinct properties.
+                  <ul>
+                    <li><strong>Elements</strong>: cannot be chemically decomposed; made of one kind of atom.</li>
+                    <li><strong>Compounds</strong>: two or more elements chemically combined in fixed ratios.</li>
+                  </ul>
+                </li>
+                <li><strong>Mixtures</strong>: physical combinations of substances with variable composition; each component retains its identity.
+                  <ul>
+                    <li><strong>Heterogeneous mixtures</strong>: non-uniform (for example, granite, salad, sandy water).</li>
+                    <li><strong>Homogeneous mixtures (solutions)</strong>: uniform throughout (for example, air, saltwater, brass).</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>The <strong>law of constant composition</strong> states that a given compound always has the same elemental composition by mass.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Law of constant composition &amp; classification logic</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Law of constant composition (law of definite proportions)</strong>:</p>
+              <p>If a substance is truly a pure compound, then every sample, regardless of source or amount, has the same mass ratio of elements because each molecule contains the same numbers of each type of atom.</p>
+              <p>Conceptually:</p>
+              <ul>
+                <li>Every H₂O molecule has 2 H atoms and 1 O atom.</li>
+                <li>Because H atoms are much lighter than O atoms, water is ~11% H and ~89% O by mass in every pure sample.</li>
+              </ul>
+              <p><strong>Classification tree for matter:</strong> start with “matter” → ask if composition is uniform → ask if composition can vary → decide whether you have an element, compound, or mixture. This logical tree is a mental “flowchart” that you can redraw quickly on exams.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: Is water a compound?</strong></p>
+              <ul>
+                <li>Electrolysis of pure water produces hydrogen gas and oxygen gas in a fixed volume ratio of 2:1 and mass ratio of about 1:8.</li>
+                <li>The constant mass ratio and reproducible decomposition products show that water is a <em>compound</em> of hydrogen and oxygen, not a mixture.</li>
+              </ul>
+              <p><strong>Example: White gold.</strong></p>
+              <ul>
+                <li>White gold is made by mixing gold with a “white” metal like palladium. Different samples have different amounts of the two metals but look uniform.</li>
+                <li>Because the composition can vary but each sample is uniform, white gold is a <strong>homogeneous mixture</strong>, not a compound.</li>
+              </ul>
+              <p><strong>Tip:</strong> If you can vary the composition smoothly (a little more of one component, a little less of another) and still have a single phase, you almost certainly have a mixture, not a pure compound.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.3 -->
+      <section
+        class="section-card"
+        id="sec-1-3"
+        data-section-title="1.3 Properties of Matter physical chemical intensive extensive separation filtration distillation chromatography"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.3 Properties of Matter</div>
+            <div class="section-subtitle">Physical vs chemical properties, intensive vs extensive, and separation methods.</div>
+          </div>
+          <div class="section-tagline">Roots: What properties tell us and how we use them.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Types of properties &amp; changes</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Physical properties</strong> can be observed without changing a substance’s identity.</p>
+              <ul>
+                <li>Examples: color, odor, density, melting point, boiling point, hardness, electrical conductivity, state.</li>
+              </ul>
+              <p><strong>Chemical properties</strong> describe how a substance may react to form new substances.</p>
+              <ul>
+                <li>Examples: flammability, tendency to rust, reactivity with acids or bases, toxicity.</li>
+              </ul>
+              <p><strong>Physical changes</strong> alter appearance or state, not composition (melting ice, boiling water, dissolving sugar).</p>
+              <p><strong>Chemical changes (reactions)</strong> transform substances into chemically different substances (burning, rusting, reacting metals with acids).</p>
+              <p>Two useful categories:</p>
+              <ul>
+                <li><strong>Intensive properties</strong>: independent of sample size (density, temperature, boiling point).</li>
+                <li><strong>Extensive properties</strong>: depend on how much matter is present (mass, volume, total energy).</li>
+              </ul>
+              <p>Differences in physical and chemical properties allow us to separate components of mixtures.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Using properties to separate mixtures</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Filtration</strong> uses differences in particle size and phase:</p>
+              <ul>
+                <li>A mixture of a solid and liquid is poured through filter paper.</li>
+                <li>The liquid passes through; the solid is trapped on the paper.</li>
+              </ul>
+              <p><strong>Distillation</strong> uses differences in boiling point:</p>
+              <ul>
+                <li>When a solution of salt in water is boiled, water vaporizes first because it has a lower boiling point.</li>
+                <li>The vapor is condensed back to liquid in a separate container, leaving the nonvolatile salt behind.</li>
+              </ul>
+              <p><strong>Chromatography</strong> uses differences in how strongly substances adhere to a solid vs move with a liquid or gas:</p>
+              <ul>
+                <li>A mixture is dissolved in a solvent and passed through a column (or over paper) containing a solid.</li>
+                <li>Components that interact strongly with the solid move slowly; those that prefer the solvent move faster, leading to separation.</li>
+              </ul>
+              <p>These are physical separation methods; the chemical identities of the components are unchanged.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; practical tips</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: boiling water vs burning fuel.</strong></p>
+              <ul>
+                <li>Boiling water: liquid water → water vapor; H₂O molecules remain unchanged → physical change.</li>
+                <li>Burning propane: C₃H₈ reacts with O₂ to form CO₂ and H₂O; new substances form → chemical change.</li>
+              </ul>
+              <p><strong>Example: separating sand and salt.</strong></p>
+              <ol>
+                <li>Add water: salt dissolves, sand does not.</li>
+                <li>Filter: sand is trapped on filter paper; saltwater passes through.</li>
+                <li>Evaporate water: salt crystals remain.</li>
+              </ol>
+              <p><strong>Tip:</strong> When deciding if a process is physical or chemical, ask: “Are the molecules themselves the same before and after?” If yes, it’s physical; if no, it’s chemical.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.4 -->
+      <section
+        class="section-card"
+        id="sec-1-4"
+        data-section-title="1.4 Nature of Energy work w = F d kinetic energy Ek = 1/2 m v^2 potential energy electrostatic Joule calorie"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.4 The Nature of Energy</div>
+            <div class="section-subtitle">Energy as work and heat, and its kinetic and potential forms.</div>
+          </div>
+          <div class="section-tagline">Trunk: Work, kinetic energy, and units.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Energy, work, and heat</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Energy</strong> is defined as the capacity to do work or transfer heat.</p>
+              <ul>
+                <li><strong>Work (w)</strong> is energy transferred when a force causes an object to move.</li>
+                <li><strong>Heat (q)</strong> is energy transferred that results in a temperature change.</li>
+              </ul>
+              <p>On the molecular level:</p>
+              <ul>
+                <li><strong>Kinetic energy</strong> is the energy of motion. Atoms and molecules have kinetic energy because they move; heating a substance increases their average speed.</li>
+                <li><strong>Potential energy</strong> is stored energy due to position or composition. Chemical bonds and interactions between charges store potential energy.</li>
+              </ul>
+              <p>In chemistry, electrical forces between charged particles dominate potential energy changes. <strong>Electrostatic potential energy</strong> arises from the attraction between opposite charges and repulsion between like charges.</p>
+              <p>Energy is conserved: it can change form (for example, from chemical to thermal) but cannot be created or destroyed.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Formulas and units for energy</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Work done by a force:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Eq. 1.1</span> w = F × d
+                </div>
+                <button class="copy-btn" type="button" data-copy="w = F × d">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here <em>w</em> is work (J), <em>F</em> is force (N), and <em>d</em> is distance moved in the direction of the force (m).</p>
+
+              <p><strong>Kinetic energy of a moving object:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Eq. 1.2</span> E<sub>k</sub> = ½ m v²
+                </div>
+                <button class="copy-btn" type="button" data-copy="E_k = 1/2 m v^2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Here <em>m</em> is mass (kg), <em>v</em> is speed (m/s), and <em>E<sub>k</sub></em> is kinetic energy (J). Kinetic energy grows with both mass and the square of speed.</p>
+
+              <p><strong>Qualitative form of electrostatic potential energy:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  E<sub>el</sub> ∝ (Q<sub>1</sub> Q<sub>2</sub>) / d
+                </div>
+                <button class="copy-btn" type="button" data-copy="E_el ∝ (Q1 Q2) / d">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Opposite charges (positive and negative) attract and have lower energy when closer together; like charges repel and have higher energy when forced close together.</p>
+
+              <p><strong>Energy units:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  1 J = 1 kg·m²/s²
+                </div>
+                <button class="copy-btn" type="button" data-copy="1 J = 1 kg·m^2/s^2">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <div class="formula-block">
+                <div class="formula-text">
+                  1 cal = 4.184 J;&nbsp;&nbsp;1 Cal = 1000 cal = 1 kcal
+                </div>
+                <button class="copy-btn" type="button" data-copy="1 cal = 4.184 J; 1 Cal = 1000 cal = 1 kcal">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The joule (J) is the SI unit of energy. The calorie (cal) remains common in chemistry and biology; the nutritional Calorie (Cal) on food labels is 1 kilocalorie.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: kinetic energy of a baseball.</strong></p>
+              <ul>
+                <li>Mass of baseball: 0.145 kg; speed: 30.0 m/s.</li>
+                <li>E<sub>k</sub> = ½ × 0.145 × (30.0)² ≈ 65 J.</li>
+                <li>If speed doubled to 60.0 m/s, E<sub>k</sub> would quadruple (proportional to v²).</li>
+              </ul>
+
+              <p><strong>Example: energy in a propane tank.</strong></p>
+              <ul>
+                <li>A 9.0 kg tank of propane releases 46 kJ of heat per gram when burned.</li>
+                <li>Mass in grams: 9.0 × 10³ g.</li>
+                <li>Energy: 9.0 × 10³ g × 46 kJ/g = 4.1 × 10⁵ kJ = 4.1 × 10⁸ J.</li>
+                <li>This shows how much chemical potential energy can be stored in a relatively small mass of fuel.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> When you see an “energy” problem, first decide whether it is about motion (kinetic), position/charges (potential), or heat; then decide which equation or idea applies.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.5 -->
+      <section
+        class="section-card"
+        id="sec-1-5"
+        data-section-title="1.5 Units of Measurement SI metric prefixes Kelvin Celsius Fahrenheit volume liter milliliter density = mass/volume"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.5 Units of Measurement</div>
+            <div class="section-subtitle">SI base units, metric prefixes, temperature scales, and density.</div>
+          </div>
+          <div class="section-tagline">Trunk: Units that make chemistry quantitative.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">SI units &amp; metric prefixes</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>Chemistry relies on the SI (International System of Units) and metric prefixes to express measurements clearly.</p>
+              <ul>
+                <li><strong>Base units</strong> used in this chapter:
+                  <ul>
+                    <li>Length – meter (m).</li>
+                    <li>Mass – kilogram (kg).</li>
+                    <li>Time – second (s).</li>
+                    <li>Temperature – kelvin (K).</li>
+                    <li>Amount of substance – mole (mol).</li>
+                  </ul>
+                </li>
+                <li><strong>Mass vs weight</strong>:
+                  <ul>
+                    <li>Mass is the amount of matter; it does not change with location.</li>
+                    <li>Weight is the force of gravity on that mass; it changes if the gravitational field changes.</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>Common metric prefixes:</p>
+              <ul>
+                <li>kilo (k) = 10³, mega (M) = 10⁶, giga (G) = 10⁹.</li>
+                <li>milli (m) = 10⁻³, micro (µ) = 10⁻⁶, nano (n) = 10⁻⁹, pico (p) = 10⁻¹².</li>
+              </ul>
+              <p>These prefixes attach to base units (for example, mg, km, mL) to handle very large or small quantities conveniently.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Temperature, volume, and density formulas</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Kelvin–Celsius relationship:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Eq. 1.3</span> K = °C + 273.15
+                </div>
+                <button class="copy-btn" type="button" data-copy="K = °C + 273.15">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The kelvin (K) is the SI temperature unit. Absolute zero is 0 K; on the Celsius scale it is −273.15 °C. One degree on the Celsius and Kelvin scales is the same size.</p>
+
+              <p><strong>Celsius–Fahrenheit conversions:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  °C = (5/9)(°F − 32)
+                </div>
+                <button class="copy-btn" type="button" data-copy="°C = (5/9)(°F - 32)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <div class="formula-block">
+                <div class="formula-text">
+                  °F = (9/5)°C + 32
+                </div>
+                <button class="copy-btn" type="button" data-copy="°F = (9/5)°C + 32">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+
+              <p><strong>Volume relationships:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  1 L = 1 dm³ = 1000 mL;&nbsp;&nbsp;1 mL = 1 cm³
+                </div>
+                <button class="copy-btn" type="button" data-copy="1 L = 1 dm^3 = 1000 mL; 1 mL = 1 cm^3">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>A liter is the volume of a cube 10 cm on each side; a milliliter is the volume of a cube 1 cm on each side.</p>
+
+              <p><strong>Density formula:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  <span class="formula-label">Eq. 1.4</span> density = mass / volume
+                </div>
+                <button class="copy-btn" type="button" data-copy="density = mass / volume">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>For liquids and solids, densities are commonly expressed in g/mL or g/cm³. Because volume changes with temperature, densities are temperature dependent.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples, tips, and interpretations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: converting temperature.</strong></p>
+              <ul>
+                <li>Convert 25.0 °C to K: K = 25.0 + 273.15 = 298.15 K.</li>
+                <li>Convert 101 °F to °C: °C = (5/9)(101 − 32) ≈ 38.3 °C.</li>
+              </ul>
+
+              <p><strong>Example: using density as a conversion factor.</strong></p>
+              <ul>
+                <li>A liquid has mass 38.5 g and volume 45.0 mL.</li>
+                <li>density = 38.5 g / 45.0 mL ≈ 0.856 g/mL.</li>
+                <li>If water is 1.00 g/mL, this liquid is less dense than water and will float if it does not mix with water.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> Treat density as either “g per mL” or “mL per g” depending on whether you want to go from mass to volume or from volume to mass. Always check that units cancel correctly.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.6 -->
+      <section
+        class="section-card"
+        id="sec-1-6"
+        data-section-title="1.6 Uncertainty in Measurement exact inexact numbers precision accuracy significant figures rules"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.6 Uncertainty in Measurement</div>
+            <div class="section-subtitle">Exact vs inexact numbers, precision, accuracy, and significant figures.</div>
+          </div>
+          <div class="section-tagline">Roots: How we report and trust measurements.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Uncertainty, precision, and accuracy</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p>In scientific work, we distinguish between <strong>exact</strong> and <strong>inexact</strong> numbers:</p>
+              <ul>
+                <li><strong>Exact numbers</strong> have no uncertainty (defined values like 1 kg = 1000 g, or counted quantities like 12 eggs).</li>
+                <li><strong>Inexact numbers</strong> arise from measurements; all measurements carry some uncertainty.</li>
+              </ul>
+              <p><strong>Precision</strong> measures how closely repeated measurements agree with each other. <strong>Accuracy</strong> measures how close a measurement is to the true value.</p>
+              <p>You can have:</p>
+              <ul>
+                <li>Good precision and good accuracy (ideal).</li>
+                <li>Good precision but poor accuracy (systematic error, for example, mis-calibrated instrument).</li>
+                <li>Poor precision and poor accuracy (random errors and poor technique).</li>
+              </ul>
+              <p>The number of <strong>significant figures</strong> in a measured value reports how many digits are meaningful (certain digits plus one estimated digit).</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Rules for significant figures &amp; calculations</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Counting significant figures:</strong></p>
+              <ul>
+                <li>All nonzero digits are significant (7.35 has 3 sig figs).</li>
+                <li>Zeros between nonzero digits are significant (1005 has 4 sig figs).</li>
+                <li>Leading zeros are not significant (0.0026 has 2 sig figs).</li>
+                <li>Trailing zeros after a decimal point are significant (2.300 has 4 sig figs).</li>
+                <li>Trailing zeros in numbers without a decimal point are ambiguous (3000 may have 1–4 sig figs); use scientific notation to make intent clear (3.00 × 10³ has 3 sig figs).</li>
+              </ul>
+              <p><strong>Significant figures in calculations:</strong></p>
+              <ul>
+                <li><strong>Addition and subtraction</strong>: the result should have the same number of decimal places as the quantity with the fewest decimal places.</li>
+                <li><strong>Multiplication and division</strong>: the result should have the same number of significant figures as the quantity with the fewest significant figures.</li>
+              </ul>
+              <p>These rules ensure that you do not imply more precision in your answer than your measurements justify.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Examples &amp; common pitfalls</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example: reading a thermometer.</strong></p>
+              <ul>
+                <li>If the mercury column lies between the 25 °C and 30 °C marks, you might read it as 27 °C.</li>
+                <li>“27” means 2 and 7 are significant; the “7” is estimated. Writing 27.0 °C suggests you can estimate to tenths of a degree, which may not be justified.</li>
+              </ul>
+
+              <p><strong>Example: significant figures in a calculation.</strong></p>
+              <ul>
+                <li>Compute (12.53 g + 1.8 g) / 0.055 g.</li>
+                <li>Addition: 12.53 + 1.8 = 14.33 → round to 14.3 g (1 decimal place).</li>
+                <li>Division: 14.3 g / 0.055 g ≈ 260 (calculator gives ~259.1).</li>
+                <li>14.3 has 3 sig figs; 0.055 has 2 sig figs → answer should have 2 sig figs → 2.6 × 10².</li>
+              </ul>
+
+              <p><strong>Common pitfalls:</strong></p>
+              <ul>
+                <li>Dropping units and focusing only on numbers.</li>
+                <li>Keeping too few significant figures early in a long calculation (round only at the end).</li>
+                <li>Reporting answers with more digits than your data support (overstating accuracy).</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 1.7 -->
+      <section
+        class="section-card"
+        id="sec-1-7"
+        data-section-title="1.7 Dimensional Analysis unit conversions conversion factors factor-label given unit desired unit liters kilometers grams"
+      >
+        <header class="section-header">
+          <div class="section-heading-text">
+            <div class="section-title">1.7 Dimensional Analysis</div>
+            <div class="section-subtitle">Using units systematically to convert and solve problems.</div>
+          </div>
+          <div class="section-tagline">Roots: Units as algebra and conversion factors.</div>
+        </header>
+
+        <div class="nodes">
+          <article class="node root-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Roots</span>
+                <span class="node-title">Concept of dimensional analysis</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Dimensional analysis</strong>, also called the factor-label method, treats units like algebraic symbols that can cancel or combine.</p>
+              <p>A <strong>conversion factor</strong> is a fraction whose numerator and denominator are the same physical quantity in different units. Because the two forms are equal, the fraction is equal to 1 physically, even though it changes units.</p>
+              <p>Basic strategy for solving most numeric chemistry problems:</p>
+              <ol>
+                <li>Write down the starting (given) quantity with its unit.</li>
+                <li>Multiply by one or more conversion factors so unwanted units cancel and the desired units remain.</li>
+                <li>Check that units are correct and that the magnitude of the answer is reasonable.</li>
+              </ol>
+              <p>This approach keeps track of both numbers and units and helps prevent common mistakes.</p>
+            </div>
+          </article>
+
+          <article class="node trunk-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Trunk</span>
+                <span class="node-title">Conversion factor pattern &amp; multi-step problems</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>General pattern for a single-step conversion:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  quantity<sub>desired</sub> = quantity<sub>given</sub> × (desired unit / given unit)
+                </div>
+                <button class="copy-btn" type="button" data-copy="quantity_desired = quantity_given × (desired unit / given unit)">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>The conversion factor <code>(desired unit / given unit)</code> is chosen so that the “given unit” in the denominator cancels the given quantity’s unit.</p>
+
+              <p><strong>Multi-step conversions:</strong></p>
+              <div class="formula-block">
+                <div class="formula-text">
+                  quantity × (unit<sub>2</sub> / unit<sub>1</sub>) × (unit<sub>3</sub> / unit<sub>2</sub>) × … → unit<sub>target</sub>
+                </div>
+                <button class="copy-btn" type="button" data-copy="quantity × (unit2 / unit1) × (unit3 / unit2) × …">
+                  <span>📋</span>Copy
+                </button>
+              </div>
+              <p>Each factor changes units one step at a time. The units cancel like algebraic factors until only the target unit remains.</p>
+              <p>Dimensional analysis also serves as a check: if the final units are wrong, something is wrong with your setup.</p>
+            </div>
+          </article>
+
+          <article class="node leaf-node">
+            <button class="node-header" type="button" aria-expanded="true">
+              <div class="node-header-left">
+                <span class="node-label-pill">Leaves</span>
+                <span class="node-title">Worked examples &amp; tips</span>
+              </div>
+              <span class="node-toggle" aria-hidden="true">▼</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example 1: converting pounds to grams.</strong></p>
+              <ul>
+                <li>Given: mass = 115 lb; conversion factor: 1 lb = 453.6 g.</li>
+                <li>Setup: 115 lb × (453.6 g / 1 lb) = 5.22 × 10⁴ g.</li>
+                <li>Units: “lb” cancels; answer is in grams.</li>
+                <li>Significant figures: 115 has 3 sig figs → report as 5.22 × 10⁴ g.</li>
+              </ul>
+
+              <p><strong>Example 2: ocean volume in liters.</strong></p>
+              <ul>
+                <li>Given: volume = 1.36 × 10⁹ km³ of water.</li>
+                <li>Conversions:
+                  <ul>
+                    <li>1 km = 10³ m → 1 km³ = (10³ m)³ = 10⁹ m³.</li>
+                    <li>1 m³ = 1000 L.</li>
+                  </ul>
+                </li>
+                <li>Setup: 1.36 × 10⁹ km³ × (10⁹ m³ / 1 km³) × (1000 L / 1 m³) = 1.36 × 10²¹ L.</li>
+                <li>Units: km³ → m³ → L; km³ and m³ cancel appropriately.</li>
+              </ul>
+
+              <p><strong>Tip:</strong> Always write units in every step. If you can make the units cancel all the way to your goal, the numerical part is usually straightforward. If the units don’t cancel correctly, fix the setup before touching your calculator.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const searchInput = document.getElementById('search-input');
+      const toastEl = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      let toastTimeoutId = null;
+
+      function showToast(message, type) {
+        if (!toastEl) return;
+        toastMsg.textContent = message;
+        toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+        toastEl.classList.add('toast-visible');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove('toast-visible');
+        }, 1500);
+      }
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cards.forEach(c => c.classList.remove('highlighted'));
+        el.classList.add('highlighted');
+        setTimeout(() => el.classList.remove('highlighted'), 1200);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('data-target');
+          navLinks.forEach(l => l.classList.remove('nav-link-active'));
+          link.classList.add('nav-link-active');
+          scrollToSection(targetId);
+        });
+      });
+
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const node = header.closest('.node');
+          if (!node) return;
+          const isCollapsed = node.classList.contains('collapsed');
+          node.classList.toggle('collapsed');
+          header.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
+        });
+      });
+
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard', 'success');
+          } catch (err) {
+            showToast('Copy failed (clipboard not available)', 'error');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            cards.forEach(card => card.classList.remove('hidden'));
+            navLinks.forEach(link => { link.style.opacity = ''; });
+            return;
+          }
+          cards.forEach(card => {
+            const title = (card.getAttribute('data-section-title') || '').toLowerCase();
+            const text = (card.textContent || '').toLowerCase();
+            const match = title.includes(query) || text.includes(query);
+            card.classList.toggle('hidden', !match);
+          });
+          navLinks.forEach(link => {
+            const targetId = link.getAttribute('data-target');
+            const card = document.getElementById(targetId);
+            const match = card && !card.classList.contains('hidden');
+            link.style.opacity = match ? '1' : '0.35';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection ? window.getSelection().toString().trim() : '';
+        let toCopy = selection;
+        if (!toCopy && event.target) {
+          const target = event.target;
+          toCopy = (target.innerText || target.textContent || '').trim();
+        }
+        if (!toCopy) return;
+        try {
+          await navigator.clipboard.writeText(toCopy);
+          showToast('Copied to clipboard', 'success');
+        } catch (err) {
+          showToast('Copy failed (clipboard not available)', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

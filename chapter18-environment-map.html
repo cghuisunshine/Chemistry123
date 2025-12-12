@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 18 – Chemistry of the Environment: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(15, 118, 110, 0.3);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 18 Map</div>
+        <div class="sidebar-subtitle">Chemistry of the Environment</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Search / filter</label>
+        <input id="search-box" class="search-box" type="search" placeholder="ozone, smog, CO2, water cycle..." />
+        <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Sections</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-18-1" class="nav-link">
+              <span><strong>18.1</strong><small>Earth’s atmosphere</small></span>
+              <span class="nav-tag">structure &amp; photons</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-18-2" class="nav-link">
+              <span><strong>18.2</strong><small>human impacts</small></span>
+              <span class="nav-tag">ozone &amp; climate</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-18-3" class="nav-link">
+              <span><strong>18.3</strong><small>Earth’s water</small></span>
+              <span class="nav-tag">cycle &amp; oceans</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-18-4" class="nav-link">
+              <span><strong>18.4</strong><small>water quality</small></span>
+              <span class="nav-tag">pollution &amp; treatment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-18-5" class="nav-link">
+              <span><strong>18.5</strong><small>green chemistry</small></span>
+              <span class="nav-tag">12 principles</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Copy tips</strong></div>
+        <div>• Click <code>📋</code> to copy formulas.</div>
+        <div>• Double-click any text to copy it.</div>
+        <div>Use search + section links for quick review.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Chemistry of the Environment</div>
+          <div class="header-subtitle">
+            Concept map for Chapter 18: Earth’s atmosphere, human impacts, water cycle and quality, and green chemistry.
+          </div>
+          <div class="header-tags">
+            <span class="header-tag">roots: core ideas &amp; definitions</span>
+            <span class="header-tag">trunk: formulas &amp; patterns</span>
+            <span class="header-tag">leaves: examples &amp; tips</span>
+          </div>
+          <p class="header-highlight">
+            Use this as a mini-textbook: expand Roots to grasp concepts, Trunk for equations and relationships with copy buttons,
+            and Leaves for short worked examples, interpretations, and strategy notes drawn from the full tutorial.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards" aria-label="Chapter 18 sections">
+
+        <!-- 18.1 Earth’s Atmosphere -->
+        <article class="section-card" id="sec-18-1" data-section-keywords="atmosphere troposphere stratosphere mesosphere thermosphere photodissociation photoionization ppm">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">18.1 Earth’s Atmosphere</div>
+              <div class="section-label">Layers, composition &amp; photochemistry</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">layers &amp; pressure</div>
+              <div class="section-badge">ppm &amp; photons</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            The atmosphere is layered by temperature, composed mainly of N₂ and O₂, and shaped by photodissociation and
+            photoionization in the upper regions that shield Earth from high-energy radiation.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The atmosphere is divided into four main layers by how <strong>temperature changes with altitude</strong>:
+                    <strong>troposphere</strong>, <strong>stratosphere</strong>, <strong>mesosphere</strong>, and
+                    <strong>thermosphere</strong>, separated by boundaries called the tropopause, stratopause, and mesopause.
+                  </li>
+                  <li>
+                    <strong>Troposphere:</strong> extends from the surface to about 10 km; temperature generally decreases with
+                    altitude; contains about 75% of atmospheric mass and nearly all weather.
+                  </li>
+                  <li>
+                    <strong>Stratosphere:</strong> ~10–50 km; temperature increases with altitude due to ozone absorbing UV
+                    radiation; contains the ozone layer.
+                  </li>
+                  <li>
+                    Air pressure decreases rapidly with altitude near the surface and more slowly higher up because the gas is
+                    compressible.
+                  </li>
+                  <li>
+                    <strong>Dry sea-level air</strong> is ~78% N₂, ~21% O₂, ~0.93% Ar, ~0.04% CO₂ by volume; the rest is trace
+                    gases in the ppm or lower range.
+                  </li>
+                  <li>
+                    For gases, <strong>ppm</strong> is parts per million by volume or moles; since gas volume is proportional to
+                    moles, ppm equals mole fraction × 10⁶.
+                  </li>
+                  <li>
+                    In the upper atmosphere, high-energy solar radiation causes <strong>photodissociation</strong> (bond breaking
+                    without ion formation) and <strong>photoionization</strong> (electron ejection, forming ions), which intercept
+                    dangerous UV before it reaches the surface.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">troposphere &amp; stratosphere</span>
+                  <span class="chip">mole fraction &amp; ppm</span>
+                  <span class="chip">photodissociation &amp; photoionization</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Formulas &amp; patterns</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Partial pressure, mole fraction, and ppm</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Partial pressure:</span>
+                  <span class="formula-text">Pᵢ = Xᵢ × P_total</span>
+                  <button class="copy-button" type="button" aria-label="Copy partial pressure formula">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Mole fraction:</span>
+                  <span class="formula-text">Xᵢ = Pᵢ / P_total</span>
+                  <button class="copy-button" type="button" aria-label="Copy mole fraction formula">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">ppm:</span>
+                  <span class="formula-text">ppmᵢ = Xᵢ × 10⁶</span>
+                  <button class="copy-button" type="button" aria-label="Copy ppm formula">📋</button>
+                </div>
+                <p>
+                  Because gas volume is proportional to moles at a given T and P, volume fraction and mole fraction coincide, so
+                  ppm by volume is simply mole fraction times one million.
+                </p>
+
+                <p><strong>2. Photon energy and wavelength</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Energy:</span>
+                  <span class="formula-text">E = hν</span>
+                  <button class="copy-button" type="button" aria-label="Copy E=hν">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Frequency:</span>
+                  <span class="formula-text">ν = c / λ</span>
+                  <button class="copy-button" type="button" aria-label="Copy ν=c/λ">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Energy–λ link:</span>
+                  <span class="formula-text">E = hc / λ</span>
+                  <button class="copy-button" type="button" aria-label="Copy E=hc/λ">📋</button>
+                </div>
+                <p>
+                  These relations connect photon energy, frequency, and wavelength. To break a bond by photodissociation, the
+                  photon energy must be at least as large as the bond dissociation energy per molecule.
+                </p>
+
+                <p><strong>3. O₂ photodissociation</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Process:</span>
+                  <span class="formula-text">O₂(g) + hν → O(g) + O(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy O2 photodissociation">📋</button>
+                </div>
+                <p>
+                  Short-wavelength UV photons with λ ≤ 242 nm have enough energy to dissociate O₂. This reaction is common high in
+                  the atmosphere and is the starting point for ozone formation.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; interpretations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Water vapor in ppm</div>
+                  <p class="example-body">
+                    If air has total pressure 98.0 kPa and the partial pressure of water vapor is 0.11 kPa, the mole fraction of
+                    water is X<sub>H₂O</sub> = 0.11/98.0 ≈ 1.1×10⁻³. Multiplying by 10⁶ gives about 1100 ppm of water vapor. This
+                    shows how partial pressures translate directly into ppm for atmospheric tracers.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Wavelength to break O=O</div>
+                  <p class="example-body">
+                    Using the bond energy of O₂ (495 kJ·mol⁻¹), we convert to 8.22×10⁻¹⁹ J per molecule and apply E = hc/λ to find
+                    λ ≈ 242 nm. UV light shorter than this wavelength can dissociate O₂; these photons are absorbed high in the
+                    atmosphere and do not reach the surface.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For ppm questions, first compute a mole fraction or partial pressure, then convert
+                    to ppm with a ×10⁶ factor.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> Very strong bonds (like in N₂) require short-wavelength UV and are less easily
+                    photodissociated; this is why atomic nitrogen is much rarer than atomic oxygen in the upper atmosphere.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18.2 Human Activities and Earth’s Atmosphere -->
+        <article class="section-card" id="sec-18-2" data-section-keywords="ozone layer cfc chlorine greenhouse effect greenhouse gases smog acid rain nox so2 co2 climate">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">18.2 Human Activities and Earth’s Atmosphere</div>
+              <div class="section-label">Ozone depletion, smog &amp; climate</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">CFCs &amp; ozone</div>
+              <div class="section-badge">NOx, SO₂ &amp; smog</div>
+              <div class="section-badge">greenhouse effect</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Human emissions of CFCs, sulfur and nitrogen oxides, hydrocarbons, and CO₂ alter atmospheric composition, leading to
+            ozone depletion, photochemical smog, acid rain, and enhanced greenhouse warming.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The <strong>ozone layer</strong> in the stratosphere absorbs much of the Sun’s UV-B and UV-C radiation. A
+                    major thinning would allow more harmful UV to reach Earth’s surface, increasing risks like skin cancer and
+                    ecosystem damage.
+                  </li>
+                  <li>
+                    Ozone forms and is destroyed in a natural cycle involving O₂, O atoms, and a third body M. This cycle converts
+                    UV light into heat and maintains a band of elevated O₃ concentration in the stratosphere.
+                  </li>
+                  <li>
+                    <strong>Chlorofluorocarbons (CFCs)</strong> are exceptionally stable in the troposphere and reach the
+                    stratosphere, where UV light photodissociates them to produce chlorine atoms that catalytically destroy ozone,
+                    leading to the Antarctic “ozone hole.”
+                  </li>
+                  <li>
+                    <strong>Sulfur oxides</strong> (SO₂, SO₃) and <strong>nitrogen oxides</strong> (NO, NO₂) from combustion are
+                    key air pollutants; oxidized and dissolved in water, they produce sulfuric and nitric acids that contribute to
+                    <strong>acid rain</strong>.
+                  </li>
+                  <li>
+                    <strong>Photochemical smog</strong> is a complex haze formed when sunlight drives reactions between NOx and
+                    volatile organic compounds (VOCs), generating ozone and other oxidants in the troposphere.
+                  </li>
+                  <li>
+                    <strong>Greenhouse gases</strong> such as H₂O, CO₂, CH₄, and N₂O strongly absorb infrared radiation emitted
+                    by Earth’s surface, trapping heat in the lower atmosphere — the <strong>greenhouse effect</strong>.
+                  </li>
+                  <li>
+                    Fossil fuel combustion has raised atmospheric CO₂ from preindustrial levels to about 400 ppm, contributing to
+                    <strong>global climate change</strong>.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">ozone shield</span>
+                  <span class="chip">CFCs &amp; Cl radicals</span>
+                  <span class="chip">NOx, VOCs, smog</span>
+                  <span class="chip">CO₂ &amp; climate</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Key reactions &amp; cycles</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Cl-catalyzed ozone destruction</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">CFC photolysis:</span>
+                  <span class="formula-text">CF₂Cl₂(g) + hν → CF₂Cl(g) + Cl(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CFC photolysis">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Step 1:</span>
+                  <span class="formula-text">Cl(g) + O₃(g) → ClO(g) + O₂(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Cl + O3">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Step 2:</span>
+                  <span class="formula-text">ClO(g) + hν → Cl(g) + O(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy ClO photolysis">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Net:</span>
+                  <span class="formula-text">2 O₃(g) → 3 O₂(g)</span>
+                  <button class="copy-button" type="button" aria-label="Copy ozone destruction net">📋</button>
+                </div>
+                <p>
+                  Chlorine is a <strong>catalyst</strong>: it participates in intermediate steps but is regenerated. A single Cl atom
+                  can destroy many O₃ molecules before it is deactivated.
+                </p>
+
+                <p><strong>2. NOx and ozone in photochemical smog</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Engine:</span>
+                  <span class="formula-text">N₂ + O₂ ⇌ 2 NO</span>
+                  <button class="copy-button" type="button" aria-label="Copy N2+O2->2NO">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Air:</span>
+                  <span class="formula-text">2 NO + O₂ ⇌ 2 NO₂</span>
+                  <button class="copy-button" type="button" aria-label="Copy 2NO+O2->2NO2">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Sunlight:</span>
+                  <span class="formula-text">NO₂ + hν → NO + O</span>
+                  <button class="copy-button" type="button" aria-label="Copy NO2 photolysis">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Ozone:</span>
+                  <span class="formula-text">O + O₂ + M → O₃ + M*</span>
+                  <button class="copy-button" type="button" aria-label="Copy ozone formation">📋</button>
+                </div>
+                <p>
+                  This sequence explains why ozone builds up in sunlit urban air with NOx and VOCs: NO₂ photolysis supplies O atoms
+                  that form O₃ in the troposphere, where it is a harmful oxidant.
+                </p>
+
+                <p><strong>3. Combustion and CO₂</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Octane:</span>
+                  <span class="formula-text">2 C₈H₁₈ + 25 O₂ → 16 CO₂ + 18 H₂O</span>
+                  <button class="copy-button" type="button" aria-label="Copy octane combustion">📋</button>
+                </div>
+                <p>
+                  This reaction shows that burning hydrocarbons inevitably produces CO₂. Scaling from one car to billions of liters
+                  of fuel burned worldwide illustrates why atmospheric CO₂ levels have risen sharply in the industrial era.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; climate links</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – CO₂ from 5 L of gasoline</div>
+                  <p class="example-body">
+                    Approximating gasoline as C₈H₁₈ with density 0.70 g·mL⁻¹, 5.0 L contains 3.5×10³ g of octane. This is
+                    3.5×10³/114 ≈ 30.7 mol C₈H₁₈. From 2 C₈H₁₈ → 16 CO₂, each mole gives 8 mol CO₂, so we form ≈ 246 mol CO₂,
+                    or about 11 kg CO₂. One tank of fuel therefore produces a mass of CO₂ comparable to the car itself over time.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Why stratospheric ozone is vital</div>
+                  <p class="example-body">
+                    Ozone in the stratosphere absorbs UV-B and UV-C photons that can break chemical bonds in DNA and other
+                    biomolecules. Without this shield, the flux of harmful UV reaching the surface would rise dramatically, making
+                    Earth’s surface much less hospitable for life. Yet the same molecule is a pollutant when formed in the
+                    troposphere during smog episodes.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For ozone-depletion mechanisms, write out the individual steps and then add them,
+                    canceling intermediates to see the overall effect on O₃ and O₂.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> The greenhouse effect is not inherently “bad” — without H₂O and CO₂ the
+                    surface would be too cold — but increasing greenhouse gas levels shifts the balance toward higher global
+                    temperatures.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18.3 Earth’s Water -->
+        <article class="section-card" id="sec-18-3" data-section-keywords="water cycle ocean salinity ions co2 carbonate buffer ocean acidification groundwater">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">18.3 Earth’s Water</div>
+              <div class="section-label">Water cycle, oceans &amp; carbon</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">global water cycle</div>
+              <div class="section-badge">salinity &amp; ions</div>
+              <div class="section-badge">ocean acidification</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Most of Earth’s water is in the salty world ocean and moves through a global cycle of phase changes that also redistributes heat. Dissolved carbon and carbonate equilibria link the ocean to the atmosphere and marine life.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Water covers about 72% of Earth’s surface. Because of hydrogen bonding, it has high boiling and melting points, high heat capacity, and excellent ability to dissolve ionic and polar substances.
+                  </li>
+                  <li>
+                    The <strong>global water cycle</strong> includes evaporation, condensation, precipitation, runoff, infiltration
+                    into the ground, and groundwater flow. Phase changes move both water and heat around the planet.
+                  </li>
+                  <li>
+                    The <strong>world ocean</strong> (a single interconnected saltwater body) contains about 97% of Earth’s water.
+                    Only a tiny fraction exists as freshwater in rivers, lakes, and groundwater.
+                  </li>
+                  <li>
+                    Typical seawater has a <strong>salinity</strong> of about 35 g of dissolved salts per kilogram of water, dominated
+                    by ions such as Cl⁻, Na⁺, SO₄²⁻, Mg²⁺, Ca²⁺, and K⁺.
+                  </li>
+                  <li>
+                    Seawater temperature decreases with depth: warm surface waters overlie a thermocline and cold deep waters
+                    around 4 °C. Light penetrates only the upper few hundred meters.
+                  </li>
+                  <li>
+                    The ocean absorbs a significant fraction of atmospheric CO₂. Dissolved CO₂ participates in a
+                    <strong>carbonic acid / bicarbonate / carbonate</strong> buffer system that maintains seawater pH around 8.0–8.3.
+                  </li>
+                  <li>
+                    <strong>Freshwater</strong> (low dissolved solids) is scarce and precious. About 20% of it is in underground
+                    <strong>aquifers</strong>, which can store water for long times but may be vulnerable to contamination.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">water cycle &amp; heat transfer</span>
+                  <span class="chip">salinity ≈ 35</span>
+                  <span class="chip">carbonate buffer</span>
+                  <span class="chip">groundwater &amp; aquifers</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Salts, Ksp &amp; carbonate equilibria</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Salinity (qualitative)</strong></p>
+                <p>
+                  Salinity is the mass of dry salts (in grams) in 1.0 kg of seawater. For average seawater, salinity ≈ 35, meaning
+                  about 3.5% of the mass is dissolved salts.
+                </p>
+
+                <p><strong>2. CaCO₃ dissolution in seawater</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Equilibrium:</span>
+                  <span class="formula-text">CaCO₃(s) ⇌ Ca²⁺(aq) + CO₃²⁻(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CaCO3 dissolution">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Ksp:</span>
+                  <span class="formula-text">Ksp ≈ 4.5×10⁻⁹</span>
+                  <button class="copy-button" type="button" aria-label="Copy Ksp value">📋</button>
+                </div>
+                <p>
+                  Many marine organisms build their shells and skeletons from CaCO₃. The low Ksp value means that CaCO₃ is only
+                  slightly soluble; whether it tends to dissolve or precipitate depends sensitively on [Ca²⁺] and [CO₃²⁻].
+                </p>
+
+                <p><strong>3. Carbonate buffer system &amp; ocean acidification</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">CO₂ hydration:</span>
+                  <span class="formula-text">CO₂(aq) + H₂O(l) ⇌ H₂CO₃(aq)</span>
+                  <button class="copy-button" type="button" aria-label="Copy CO2 hydration">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">First dissociation:</span>
+                  <span class="formula-text">H₂CO₃ ⇌ H⁺ + HCO₃⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy first dissociation">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Second dissociation:</span>
+                  <span class="formula-text">HCO₃⁻ ⇌ H⁺ + CO₃²⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy second dissociation">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">H⁺ + CO₃²⁻:</span>
+                  <span class="formula-text">CO₃²⁻ + H⁺ ⇌ HCO₃⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy carbonate + H+">📋</button>
+                </div>
+                <p>
+                  An increase in dissolved CO₂ increases H₂CO₃ and H⁺, lowering pH and shifting carbon species from CO₃²⁻ toward
+                  HCO₃⁻. This reduces [CO₃²⁻], making it harder for organisms to precipitate CaCO₃ and tending to dissolve existing
+                  shells.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; intuition</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – CO₂ and CaCO₃ shells</div>
+                  <p class="example-body">
+                    When atmospheric CO₂ rises, more CO₂ dissolves into the ocean and forms carbonic acid, which releases H⁺. The
+                    added H⁺ is consumed by CO₃²⁻ to form HCO₃⁻, lowering [CO₃²⁻]. According to Le Châtelier’s principle, the
+                    equilibrium CaCO₃(s) ⇌ Ca²⁺ + CO₃²⁻ shifts to the right to replace CO₃²⁻, which means more CaCO₃ dissolves.
+                    Over time, this can weaken shells and skeletons of marine calcifiers.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Why deep ocean water is cold</div>
+                  <p class="example-body">
+                    Sunlight warms only the upper 100–200 m of the ocean; below that depth, little light penetrates, and water is
+                    supplied mainly by the slow sinking of cooled, dense surface waters. This circulation pattern explains why
+                    deep-water temperatures are near 4 °C globally and why the ocean can store vast amounts of heat.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> When thinking about ocean acidity, track the fate of CO₂ and H⁺ across the linked
+                    equilibria; ask which species (CO₂, H₂CO₃, HCO₃⁻, CO₃²⁻) will increase or decrease.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> Although the change in pH from ~8.2 to ~7.9 may seem small, it corresponds to a
+                    noticeable increase in [H⁺], enough to significantly alter carbonate equilibria and shell stability.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18.4 Human Activities and Water Quality -->
+        <article class="section-card" id="sec-18-4" data-section-keywords="freshwater dissolved oxygen bod eutrophication desalination reverse osmosis water treatment">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">18.4 Human Activities and Water Quality</div>
+              <div class="section-label">Pollution, DO &amp; water treatment</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">DO &amp; BOD</div>
+              <div class="section-badge">eutrophication</div>
+              <div class="section-badge">desalination &amp; treatment</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Human wastes and nutrients can overload natural waters with oxygen demand and pollutants. Desalination and multi-step
+            municipal treatment aim to provide safe freshwater while limiting ecological damage.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Concepts &amp; terminology</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Freshwater</strong> contains relatively low concentrations of dissolved salts (less than ~500 ppm); it
+                    includes rivers, lakes, and shallow groundwater and is essential but limited in supply.
+                  </li>
+                  <li>
+                    <strong>Dissolved oxygen (DO)</strong> is necessary for fish and other aerobic aquatic organisms; it is usually
+                    measured in mg·L⁻¹ or ppm. Levels below about 4–5 ppm can stress or kill many fish species.
+                  </li>
+                  <li>
+                    Substances that can be broken down by aerobic bacteria are called <strong>biodegradable</strong>. Their
+                    oxidation consumes DO; such substances are called <strong>oxygen-demanding wastes</strong>.
+                  </li>
+                  <li>
+                    If oxygen-demanding wastes are too abundant, DO can be depleted, causing fish kills and foul odors. The
+                    severity is often quantified by biochemical oxygen demand (BOD).
+                  </li>
+                  <li>
+                    <strong>Nutrients</strong> (combined nitrogen and phosphorus) can overstimulate algal and plant growth. When
+                    these organisms die and decompose, they become additional oxygen-demanding waste, leading to
+                    <strong>eutrophication</strong>.
+                  </li>
+                  <li>
+                    <strong>Desalination</strong> removes dissolved salts from seawater or brackish water, using either distillation
+                    or reverse osmosis, to yield water suitable for human use.
+                  </li>
+                  <li>
+                    <strong>Municipal water treatment</strong> typically includes screening, sedimentation, sand filtration,
+                    aeration, and disinfection. Disinfectants like chlorine can form volatile by-products (trihalomethanes) with
+                    natural organic matter.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">DO &amp; fish health</span>
+                  <span class="chip">oxygen-demanding wastes</span>
+                  <span class="chip">nutrients &amp; eutrophication</span>
+                  <span class="chip">desalination &amp; THMs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Osmotic pressure &amp; treatment steps</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important relationships &amp; processes</div>
+
+                <p><strong>1. Osmotic pressure and reverse osmosis</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Osmotic pressure:</span>
+                  <span class="formula-text">π = M R T</span>
+                  <button class="copy-button" type="button" aria-label="Copy osmotic pressure formula">📋</button>
+                </div>
+                <p>
+                  Here π is osmotic pressure, M is the molarity of dissolved particles, R is the gas constant, and T is temperature.
+                  In reverse osmosis, a pressure greater than π is applied to the saline side of a semi-permeable membrane to force
+                  water to flow toward the pure-water side, leaving salts behind.
+                </p>
+
+                <p><strong>2. Oxygen-demanding wastes</strong></p>
+                <p>
+                  Biodegradable organic matter acts as fuel for aerobic bacteria:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Oxidation:</span>
+                  <span class="formula-text">organic matter + O₂ → CO₂ + H₂O (+ other products)</span>
+                  <button class="copy-button" type="button" aria-label="Copy organic oxidation">📋</button>
+                </div>
+                <p>
+                  The amount of O₂ that would be consumed if this oxidation went to completion is the
+                  <strong>biochemical oxygen demand</strong>. High BOD means high potential to deplete DO in receiving waters.
+                </p>
+
+                <p><strong>3. Typical steps in water treatment</strong></p>
+                <ul class="node-list">
+                  <li><strong>Coarse screening</strong> removes large debris.</li>
+                  <li><strong>Sedimentation</strong> allows heavier particles to settle.</li>
+                  <li><strong>Sand filtration</strong> removes fine suspended matter.</li>
+                  <li><strong>Aeration</strong> helps remove dissolved gases and can improve taste and odor.</li>
+                  <li>
+                    <strong>Disinfection</strong> (e.g., chlorination or ozonation) kills pathogens; excess disinfectant or by-products
+                    are often controlled to meet safety standards.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples, strategies &amp; pitfalls</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Sewage and DO depletion</div>
+                  <p class="example-body">
+                    When untreated sewage enters a river, aerobic bacteria oxidize the organic matter, consuming dissolved oxygen.
+                    If the oxygen demand exceeds the rate at which O₂ is replenished from the air and by photosynthesis, DO drops
+                    sharply. Fish and other aerobic organisms may die, and the water can develop strong odors until dilution and
+                    reoxygenation occur.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Why cleaner source water matters</div>
+                  <p class="example-body">
+                    If a water source contains less organic matter, less disinfectant is required to achieve the same level of
+                    pathogen removal. This reduces the formation of by-products like trihalomethanes, which arise when chlorine
+                    reacts with natural organics. Controlling pollution at the source thus makes downstream treatment both safer
+                    and cheaper.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For any water-quality question, track both the mass of pollutant added and the
+                    system’s capacity to dilute, degrade, or treat it.
+                  </li>
+                  <li>
+                    <strong>Common pitfall:</strong> Ignoring groundwater. Contamination of aquifers can persist for years or
+                    centuries because flow and mixing are slow compared to surface waters.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18.5 Green Chemistry -->
+        <article class="section-card" id="sec-18-5" data-section-keywords="green chemistry 12 principles atom economy catalysis renewable feedstocks safer solvents">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">18.5 Green Chemistry</div>
+              <div class="section-label">Designing safer, cleaner processes</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">12 principles</div>
+              <div class="section-badge">safer syntheses</div>
+              <div class="section-badge">atom economy</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Green chemistry promotes chemical products and processes that minimize waste, hazards, and energy use while meeting
+            society’s needs, guided by twelve widely adopted principles.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Foundations &amp; principles</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Earth is effectively a closed system for matter: most atoms remain on the planet, so chemical activities must be
+                    compatible with long-term environmental health if human societies are to thrive.
+                  </li>
+                  <li>
+                    <strong>Green chemistry</strong> is the design and application of chemical products and processes that reduce
+                    or eliminate the use and generation of hazardous substances and preserve the environment.
+                  </li>
+                  <li>
+                    The 12 principles of green chemistry cover prevention, atom economy, safer synthesis, safer products, solvents
+                    and auxiliaries, energy efficiency, renewable feedstocks, fewer derivatizations, catalysis, design for
+                    degradation, real-time analysis, and inherently safer processes.
+                  </li>
+                  <li>
+                    Applying these principles can improve chemical technology across the board, from industrial synthesis to consumer
+                    products, without sacrificing performance.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">prevention</span>
+                  <span class="chip">atom economy</span>
+                  <span class="chip">safer solvents</span>
+                  <span class="chip">catalysis</span>
+                  <span class="chip">renewable feedstocks</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Key principles &amp; applications</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important principles &amp; their meaning</div>
+
+                <p><strong>1. Prevention and atom economy</strong></p>
+                <ul class="node-list">
+                  <li>
+                    <strong>Prevention:</strong> It is better to <strong>prevent waste</strong> than to treat or clean it up after it
+                    has been created.
+                  </li>
+                  <li>
+                    <strong>Atom economy:</strong> Synthetic methods should maximize the incorporation of all atoms from starting
+                    materials into the final product, minimizing by-products and waste.
+                  </li>
+                </ul>
+
+                <p><strong>2. Safer syntheses and safer chemicals</strong></p>
+                <ul class="node-list">
+                  <li>
+                    Wherever possible, synthetic methods should use and generate substances with <strong>little or no toxicity</strong>
+                    to humans and the environment.
+                  </li>
+                  <li>
+                    Chemical products should be designed to perform their function while <strong>minimizing toxicity</strong> and to
+                    break down into harmless substances at the end of their life.
+                  </li>
+                </ul>
+
+                <p><strong>3. Solvents, energy, and catalysis</strong></p>
+                <ul class="node-list">
+                  <li>
+                    Use <strong>safer solvents and auxiliaries</strong> (or none at all) whenever possible, favoring substances like
+                    water or supercritical CO₂ over volatile, toxic solvents.
+                  </li>
+                  <li>
+                    Reactions should be conducted at <strong>near-ambient temperature and pressure</strong> when feasible to reduce
+                    energy consumption.
+                  </li>
+                  <li>
+                    <strong>Catalytic reagents</strong> are preferred to stoichiometric reagents because they can improve yields and
+                    rates with lower energy input and fewer by-products.
+                  </li>
+                </ul>
+
+                <p><strong>4. Renewable feedstocks and design for degradation</strong></p>
+                <ul class="node-list">
+                  <li>
+                    <strong>Renewable feedstocks</strong> (for example, biomass-derived chemicals) should be used when they are
+                    technically and economically practical, rather than depleting finite resources.
+                  </li>
+                  <li>
+                    Products should be designed to <strong>degrade</strong> after use into innocuous substances that do not persist in
+                    the environment or accumulate in organisms.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Styrene example &amp; tips</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; reflections</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Greener production of styrene</div>
+                  <p class="example-body">
+                    Traditional styrene manufacture uses a two-step process: benzene + ethene → ethylbenzene, then ethylbenzene +
+                    high-temperature steam → styrene + H₂. Benzene is a carcinogen, both feedstocks are fossil-derived, and the
+                    process uses much energy. A greener route reacts toluene with methanol in a one-step catalytic process at
+                    moderate temperature. Methanol can be made from biomass-derived CO, and the new route improves atom economy,
+                    energy efficiency, and safety while maintaining product performance.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> When evaluating a process, ask how each green-chemistry principle applies: Where is
+                    waste generated? Could a catalyst replace a stoichiometric reagent? Can a fossil feedstock be replaced with a
+                    renewable one?
+                  </li>
+                  <li>
+                    <strong>Perspective:</strong> Green chemistry is proactive: it aims to design problems out of a process up front
+                    rather than managing pollution at the end of the pipe.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      // Double-click to copy any non-trivial text
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      // Copy buttons for formulas
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      // Search/filter
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      // Scroll-linked nav highlighting
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

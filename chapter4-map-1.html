@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 4 – Reactions in Aqueous Solution</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --bg:#0d1117;
+  --card:#161b22;
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --accent:#58a6ff;
+  --border:#30363d;
+}
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.container{
+  display:flex;
+  flex-wrap:wrap;
+}
+.sidebar{
+  flex:1 1 220px;
+  background:#0b1220;
+  padding:16px;
+  border-right:1px solid var(--border);
+}
+.sidebar input{
+  width:100%;
+  padding:8px;
+  margin-bottom:12px;
+  background:#010409;
+  color:var(--text);
+  border:1px solid var(--border);
+}
+.sidebar a{
+  display:block;
+  color:var(--accent);
+  text-decoration:none;
+  margin:6px 0;
+}
+.main{
+  flex:4 1 600px;
+  padding:16px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:20px;
+}
+h2{
+  color:var(--accent);
+}
+.node{
+  border:1px solid var(--border);
+  border-radius:8px;
+  margin:10px 0;
+}
+.node summary{
+  cursor:pointer;
+  padding:10px;
+  font-weight:600;
+  background:#010409;
+}
+.node div{
+  padding:10px;
+}
+.copy{
+  cursor:pointer;
+  color:var(--accent);
+  margin-left:6px;
+}
+@media(max-width:800px){
+  .container{flex-direction:column;}
+  .sidebar{border-right:none;border-bottom:1px solid var(--border);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<input type="text" placeholder="Search..." oninput="filterCards(this.value)">
+<a href="#s41">4.1 Aqueous Solutions</a>
+<a href="#s42">4.2 Precipitation</a>
+<a href="#s43">4.3 Acids & Bases</a>
+<a href="#s44">4.4 Redox</a>
+<a href="#s45">4.5 Molarity</a>
+<a href="#s46">4.6 Stoichiometry</a>
+</div>
+
+<div class="main">
+
+<div class="card" id="s41">
+<h2>4.1 General Properties of Aqueous Solutions</h2>
+
+<details class="node">
+<summary>🌱 Roots – Core Ideas</summary>
+<div>
+Aqueous solutions are mixtures where water is the solvent. Substances dissolve as ions or molecules. Only solutions with mobile ions conduct electricity.
+</div>
+</details>
+
+<details class="node">
+<summary>🌳 Trunk – Rules & Definitions</summary>
+<div>
+Electrolytes produce ions in solution. Strong electrolytes dissociate completely, weak electrolytes partially, nonelectrolytes not at all.
+</div>
+</details>
+
+<details class="node">
+<summary>🍃 Leaves – Interpretation</summary>
+<div>
+NaCl conducts electricity because Na⁺ and Cl⁻ move freely. Sugar does not because it stays molecular.
+</div>
+</details>
+</div>
+
+<div class="card" id="s42">
+<h2>4.2 Precipitation Reactions</h2>
+
+<details class="node">
+<summary>🌱 Roots</summary>
+<div>
+A precipitate is an insoluble solid formed when aqueous solutions mix.
+</div>
+</details>
+
+<details class="node">
+<summary>🌳 Trunk</summary>
+<div>
+General pattern: AX + BY → AY + BX <span class="copy" onclick="copyText('AX + BY → AY + BX')">📋</span>
+</div>
+</details>
+
+<details class="node">
+<summary>🍃 Leaves</summary>
+<div>
+Only insoluble products appear in net ionic equations.
+</div>
+</details>
+</div>
+
+<div class="card" id="s43">
+<h2>4.3 Acids, Bases, Neutralization</h2>
+
+<details class="node">
+<summary>🌱 Roots</summary>
+<div>
+Acids donate H⁺, bases accept H⁺ or produce OH⁻.
+</div>
+</details>
+
+<details class="node">
+<summary>🌳 Trunk</summary>
+<div>
+H⁺ + OH⁻ → H₂O <span class="copy" onclick="copyText('H+ + OH- → H2O')">📋</span>
+</div>
+</details>
+
+<details class="node">
+<summary>🍃 Leaves</summary>
+<div>
+Antacids neutralize stomach acid by consuming H⁺ ions.
+</div>
+</details>
+</div>
+
+<div class="card" id="s44">
+<h2>4.4 Oxidation–Reduction</h2>
+
+<details class="node">
+<summary>🌱 Roots</summary>
+<div>
+Oxidation is loss of electrons; reduction is gain.
+</div>
+</details>
+
+<details class="node">
+<summary>🌳 Trunk</summary>
+<div>
+OIL RIG – Oxidation Is Loss, Reduction Is Gain
+</div>
+</details>
+
+<details class="node">
+<summary>🍃 Leaves</summary>
+<div>
+Metals higher in the activity series oxidize more easily.
+</div>
+</details>
+</div>
+
+<div class="card" id="s45">
+<h2>4.5 Concentration (Molarity)</h2>
+
+<details class="node">
+<summary>🌳 Formula</summary>
+<div>
+M = moles / liters <span class="copy" onclick="copyText('M = moles / liters')">📋</span>
+</div>
+</details>
+</div>
+
+<div class="card" id="s46">
+<h2>4.6 Solution Stoichiometry</h2>
+
+<details class="node">
+<summary>🌳 Formula</summary>
+<div>
+moles = M × V <span class="copy" onclick="copyText('moles = M × V')">📋</span>
+</div>
+</details>
+
+</div>
+</div>
+
+<script>
+function copyText(t){navigator.clipboard.writeText(t);}
+function filterCards(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+  });
+}
+document.addEventListener('dblclick',e=>{
+  if(e.target.innerText){
+    navigator.clipboard.writeText(e.target.innerText);
+  }
+});
+</script>
+
+</body>
+</html>
+

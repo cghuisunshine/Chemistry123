@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 32 Concept Map</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      background: #05060a;
+      color: #f6f7fb;
+      line-height: 1.6;
+    }
+    .page {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+      background: #0e111a;
+      border-right: 1px solid #1f2533;
+      padding: 1.5rem;
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+    }
+    .sidebar h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .sidebar p {
+      color: #9ca3b3;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    .sidebar input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #1f2533;
+      background: #151b2b;
+      color: #f6f7fb;
+      margin-bottom: 1rem;
+    }
+    .sidebar input::placeholder {
+      color: #64748b;
+    }
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar nav li + li {
+      margin-top: 0.5rem;
+    }
+    .sidebar nav a {
+      text-decoration: none;
+      color: #cdd5ff;
+      font-weight: 600;
+    }
+    .content {
+      flex: 1;
+      padding: 2rem 3rem;
+    }
+    h1,
+    h2 {
+      margin-top: 0;
+    }
+    .card {
+      background: #0b0f1b;
+      border: 1px solid #1f2533;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #374bff;
+    }
+    .card header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .card header p {
+      color: #cbd5ff;
+      margin: 0.3rem 0 0;
+    }
+    .nodes {
+      margin-top: 1rem;
+    }
+    .node {
+      border: 1px solid #1f2533;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .node-header {
+      width: 100%;
+      background: #131a2c;
+      border: none;
+      color: #f6f7fb;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .node-header span {
+      font-weight: 600;
+    }
+    .node-header::after {
+      content: '▼';
+      transition: transform 0.3s ease;
+    }
+    .node[data-open=\"true\"] .node-header::after {
+      transform: rotate(-180deg);
+    }
+    .node-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #0a0d16;
+      padding: 0 1rem;
+    }
+    .node[data-open=\"true\"] .node-body {
+      padding: 1rem;
+      max-height: 1200px;
+    }
+    .node-body p,
+    .node-body ul {
+      margin: 0;
+    }
+    .node-body ul {
+      padding-left: 1rem;
+    }
+    .node-body ul li {
+      margin-bottom: 0.35rem;
+    }
+    .formula {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.4rem 0.2rem;
+      border-radius: 8px;
+      background: #0f172b;
+      margin: 0.4rem 0;
+      font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', monospace;
+      font-size: 0.95rem;
+    }
+    .formula span {
+      flex: 1;
+    }
+    .copy-btn {
+      border: none;
+      background: #1f2937;
+      color: #cdd5ff;
+      border-radius: 6px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: #374bff;
+    }
+    .copy-toast {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      color: #f8fafc;
+      border: 1px solid #1f2533;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .copy-toast.show {
+      opacity: 1;
+    }
+    .hidden {
+      display: none;
+    }
+    .tip {
+      font-size: 0.85rem;
+      color: #8ba1c7;
+    }
+    @media (max-width: 900px) {
+      .page {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1f2533;
+        position: relative;
+      }
+      .content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <h1>Chapter 32 Map</h1>
+      <p>Roots = definitions, Trunk = formulas/rules, Leaves = examples & tips. Double‑click any text or tap a copy button to stash it to the clipboard.</p>
+      <input id="filterInput" type="search" placeholder="Filter by keyword" aria-label="Filter sections">
+      <nav>
+        <ul>
+          <li><a href="#sec32-1">32.1 Electromagnetic Spectrum</a></li>
+          <li><a href="#sec32-2">32.2 Infrared Spectroscopy</a></li>
+          <li><a href="#sec32-3">32.3 NMR Spectroscopy</a></li>
+          <li><a href="#sec32-4">32.4 Mass Spectrometry</a></li>
+          <li><a href="#sec32-5">32.5 Compound Identification</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="content">
+      <h1>Solving Molecular Structure</h1>
+      <p class="tip">Use the sidebar links to jump between sections. Collapse or expand each node to focus on concepts, formulas, or real examples.</p>
+      <section class="card" id="sec32-1" data-keywords="electromagnetic spectrum uv visible ir radio absorption beer lambert transmittance non destructive">
+        <header>
+          <div>
+            <h2>32.1 The Electromagnetic Spectrum</h2>
+            <p>Every energy region reveals a different molecular story: UV/visible for electrons, IR for vibrations, radio for nuclear spins.</p>
+          </div>
+        </header>
+        <div class="nodes">
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Roots</span><span>Key concepts</span></button>
+            <div class="node-body">
+              <p class="copyable">Organic chemists rely on the UV-visible region for electronic transitions, infrared for vibrational patterns, and the radio-frequency region for nuclear-spin spectroscopy; these regions are non-destructive and leave unique fingerprints.</p>
+              <p class="copyable">Absorption only occurs when the photon energy matches the gap between a ground state and an excited state, so each molecule absorbs a distinctive set of wavelengths.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Trunk</span><span>Core formulas</span></button>
+            <div class="node-body">
+              <div class="formula">
+                <span class="copyable" data-copy="\lambda = hc/(E_2 - E_1)">\(\lambda = \dfrac{hc}{E_2 - E_1}\)</span>
+                <button class="copy-btn" type="button" data-copy="\lambda = hc/(E_2 - E_1)" aria-label="Copy wavelength formula">📋</button>
+              </div>
+              <p class="copyable">The absorbed wavelength (\(\lambda\)) reflects the energy gap between electronic levels; shorter wavelengths correspond to larger \(E_2 - E_1\) values.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="A = \u03b5 c l">\(A = \varepsilon c l\)</span>
+                <button class="copy-btn" type="button" data-copy="A = \varepsilon c l" aria-label="Copy Beer–Lambert law">📋</button>
+              </div>
+              <p class="copyable">Absorbance rises proportionally with concentration and path length; \(\varepsilon\) encodes how strongly the transition absorbs at that wavelength.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="A = -log10(T)">\(A = -\log_{10}(T)\)</span>
+                <button class="copy-btn" type="button" data-copy="A = -log10(T)" aria-label="Copy absorbance-transmittance relation">📋</button>
+              </div>
+              <p class="copyable">Transmittance \(T\) is the fraction of light that survives the sample; converting it to absorbance makes comparisons linear.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Leaves</span><span>Examples</span></button>
+            <div class="node-body">
+              <p class="copyable">A 4-aminobenzoic acid solution with \(A = 0.21\) has \(T = 10^{-0.21} \approx 0.62\), so ~62% of the light is transmitted and 38% is absorbed—this small absorbance change is easy to detect.</p>
+              <p class="copyable">UV-visible spectra of aromatic molecules like naphthalene allow determining concentration by rearranging Beer–Lambert’s law once \(A\) is read from the peak.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card" id="sec32-2" data-keywords="infrared spectroscopy vibrations wavenumber hookes law fingerprin region functional groups atr oi stretch">
+        <header>
+          <div>
+            <h2>32.2 Infrared (IR) Spectroscopy</h2>
+            <p>IR spectra step through vibrational energies to reveal functional groups and bond stiffness.</p>
+          </div>
+        </header>
+        <div class="nodes">
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Roots</span><span>Key concepts</span></button>
+            <div class="node-body">
+              <p class="copyable">IR detects the stretching, bending, and torsional vibrations of covalent bonds, with absorptions plotted as %T versus wavenumber (cm⁻¹); the 300–1400 cm⁻¹ fingerprint region is complex but valuable for matching spectra.</p>
+              <p class="copyable">Only bonds whose vibration changes the dipole moment (e.g., O–H, C=O, N–H) are IR active, and ATR windows let solid or liquid samples be measured directly.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Trunk</span><span>Core formulas</span></button>
+            <div class="node-body">
+              <div class="formula">
+                <span class="copyable" data-copy="F_s = -k x">\(F_s = -k x\)</span>
+                <button class="copy-btn" type="button" data-copy="F_s = -k x" aria-label="Copy Hooke's law">📋</button>
+              </div>
+              <p class="copyable">The restoring force from a bond behaves like a spring: stronger bonds (larger \(k\)) or larger displacements require more energy to vibrate.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="\nu = (1/2\pi) \sqrt{k/\mu}">\(\nu = \dfrac{1}{2\pi} \sqrt{\dfrac{k}{\mu}}\)</span>
+                <button class="copy-btn" type="button" data-copy="\nu = (1/2\pi) \sqrt{k/\mu}" aria-label="Copy vibrational frequency">📋</button>
+              </div>
+              <p class="copyable">The frequency of vibration increases with the force constant and decreases with the reduced mass \(\mu\); light atoms and stiff bonds absorb at higher wavenumbers.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="\tilde{\u03bd} = 1/\lambda = \u03bd/c">\(\tilde{\nu} = \dfrac{1}{\lambda} = \dfrac{\nu}{c}\)</span>
+                <button class="copy-btn" type="button" data-copy="\tilde{\u03bd} = 1/\lambda = \u03bd/c" aria-label="Copy wavenumber definition">📋</button>
+              </div>
+              <p class="copyable">Wavenumber is proportional to energy and is the unit reported on the x-axis of IR spectra.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Leaves</span><span>Examples & insights</span></button>
+            <div class="node-body">
+              <p class="copyable">Butan-1-ol shows a broad O–H stretch between 3200–3500 cm⁻¹ and a strong C–H stretch near 3000 cm⁻¹; the breadth reflects hydrogen bonding and a large dipole change.</p>
+              <p class="copyable">Propanone’s C–H band is weak because its dipole moment change is small, but its C=O stretch near 1700 cm⁻¹ is intense, making carbonyl detection straightforward.</p>
+              <p class="copyable">Conjugated C=C systems absorb slightly lower (closer to 1600 cm⁻¹) than isolated double bonds because the electron density is delocalized, reducing the effective force constant.</p>
+              <p class="copyable">The fingerprint region (300–1400 cm⁻¹) contains many overlapping bands, so chemists use it to confirm a known spectrum rather than assign individual features.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card" id="sec32-3" data-keywords="nmr nuclear magnetic resonance shielding deshielding chemical shift integration splitting n+1 rule coupling constant">
+        <header>
+          <div>
+            <h2>32.3 Nuclear Magnetic Resonance</h2>
+            <p>Shielding, integration, and coupling paint a detailed picture of atomic connectivity.</p>
+          </div>
+        </header>
+        <div class="nodes">
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Roots</span><span>Key concepts</span></button>
+            <div class="node-body">
+              <p class="copyable">Nuclei with spin \(I = 1/2\) (like ¹H and ¹³C) align with or against the applied magnetic field; the energy gap leads to resonance when radiofrequency radiation flips their orientation.</p>
+              <p class="copyable">Electrons surrounding a nucleus generate local magnetic fields that shield or deshield it, and chemical shift normalizes the resulting frequency differences using TMS as a reference.</p>
+              <p class="copyable">Key pieces of information are chemical shift (functional group clues), integration (relative hydrogen counts), and multiplicity (connectivity via the \(n + 1\) rule and coupling constant \(J\)).</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Trunk</span><span>Core formulas</span></button>
+            <div class="node-body">
+              <div class="formula">
+                <span class="copyable" data-copy="B_effective = B_applied - B_local">\(B_{\text{effective}} = B_{\text{applied}} - B_{\text{local}}\)</span>
+                <button class="copy-btn" type="button" data-copy="B_effective = B_applied - B_local" aria-label="Copy effective field">📋</button>
+              </div>
+              <p class="copyable">Shielding from nearby electrons reduces the effective field felt by the nucleus, shifting its resonance upfield; deshielding increases \(B_{\text{effective}}\) and pushes the signal downfield.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="\u03b4 = (\u0394\u03bd / \u03bd_{operating})">\(\delta = \dfrac{\text{frequency shift}}{\text{operating frequency}}\)</span>
+                <button class="copy-btn" type="button" data-copy="\u03b4 = (\u0394\u03bd / \u03bd_{operating})" aria-label="Copy chemical shift">📋</button>
+              </div>
+              <p class="copyable">Chemical shift is dimensionless (ppm) so spectra recorded on different machines are comparable.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="multiplicity = n + 1">Multiplicity = \(n + 1\)</span>
+                <button class="copy-btn" type="button" data-copy="multiplicity = n + 1" aria-label="Copy n+1 rule">📋</button>
+              </div>
+              <p class="copyable">A hydrogen coupled to \(n\) equivalent neighbours splits into \(n + 1\) peaks with predictable intensity ratios (1:2:1 for CH₃–CH₂, 1:3:3:1 for CH₂ coupled to CH₃, etc.).</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Leaves</span><span>Examples & tips</span></button>
+            <div class="node-body">
+              <p class="copyable">Methyl acetate’s ¹H NMR displays three signals with integrations 3:2:3. The ethyl group produces a quartet/triplet pair sharing the same coupling constant \(J\), while the acetyl methyl appears as a singlet because it has no adjacent hydrogens.</p>
+              <p class="copyable">The ¹³C NMR of methyl acetate shows signals near 170 ppm (carbonyl), 60 ppm (O–CH₃), and 13 ppm (CH₃), confirming three unique carbon environments.</p>
+              <p class="copyable">Diethyl ether’s CH₃ and CH₂ resonances are split into the expected triplet/quartet patterns, and comparing their \(J\) values links them to the same ethyl fragment.</p>
+              <p class="copyable">Integration describes relative counts: if two signals integrate 2:3, the smaller corresponds to a CH₂, and the larger to a CH₃ group; this is especially helpful when symmetry reduces the number of unique signals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card" id="sec32-4" data-keywords="mass spectrometry ei m/z molecular ion base peak isotopes chlorine bromine high resolution fragmentation">
+        <header>
+          <div>
+            <h2>32.4 Mass Spectrometry</h2>
+            <p>Ionizing molecules and measuring their m/z reveals molecular weights and fragments that map to functional groups.</p>
+          </div>
+        </header>
+        <div class="nodes">
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Roots</span><span>Key concepts</span></button>
+            <div class="node-body">
+              <p class="copyable">Electron impact ionization (EI) knocks electrons off the neutral molecule to create radical cations; further collisions break the cation into fragments that are separated by a magnetic field.</p>
+              <p class="copyable">Each detected signal is plotted versus m/z, the mass-to-charge ratio (u per elementary charge), and the most intense peak is the base peak, even if it is not the molecular ion.</p>
+              <p class="copyable">Isotopic patterns, like the 3:1 M:[M + 2] ratio for chlorine or the roughly 1:1 pair for bromine, act as diagnostic clues for halogen-containing molecules.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Trunk</span><span>Core formulas</span></button>
+            <div class="node-body">
+              <div class="formula">
+                <span class="copyable" data-copy="m/z = mass/charge">\(\dfrac{m}{z} = \dfrac{\text{mass}}{\text{charge}}\)</span>
+                <button class="copy-btn" type="button" data-copy="m/z = mass/charge" aria-label="Copy mass-to-charge formula">📋</button>
+              </div>
+              <p class="copyable">Singly charged ions (\(z = +1\)) have m/z equal to their mass in atomic mass units, while multiply charged ions (common in ESI) appear at smaller m/z values.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="[M + nH]^{n+}">\([M + nH]^{n+}\)</span>
+                <button class="copy-btn" type="button" data-copy="[M + nH]^{n+}" aria-label="Copy multiply-charged ion notation">📋</button>
+              </div>
+              <p class="copyable">An ion that picks up \(n\) protons appears at \((M + n)/n\); this is how large biomolecules are observed with m/z values in range.</p>
+              <p class="copyable">High-resolution measurements use exact atomic masses (for example, 1.0078 for H and 15.9949 for O) to distinguish formulas with identical nominal masses (e.g., C₂H₄O versus CO₂).</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Leaves</span><span>Examples</span></button>
+            <div class="node-body">
+              <p class="copyable">Diethyl ether’s EI spectrum shows a molecular ion at m/z = 74 while the base peak at m/z = 31 arises from CH₂OH⁺; the illustrated fragmentation pathways confirm the observed peaks.</p>
+              <p class="copyable">4-Bromoaniline exhibits molecular ion peaks at m/z ≈ 171 and 173 of equal intensity because of ⁷⁹Br and ⁸¹Br isotopes; this 2 u separation is a talisman of bromine.</p>
+              <p class="copyable">In ESI spectra, the same molecule may show [M + 5H]⁵⁺, [M + 4H]⁴⁺, etc. Each signal divides the molecular mass by the number of charges, allowing huge molecules to be detected on m/z-limited analyzers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card" id="sec32-5" data-keywords="compound identification microanalysis ihd index hydrogen deficiency wet tests sodium bicarbonate dnp silver mirror lassaigne">
+        <header>
+          <div>
+            <h2>32.5 Compound Identification Using Spectra</h2>
+            <p>Combine molecular formula, IHD, IR, NMR, mass spec, and wet tests until every clue fits one structure.</p>
+          </div>
+        </header>
+        <div class="nodes">
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Roots</span><span>Key concepts</span></button>
+            <div class="node-body">
+              <p class="copyable">Microanalysis gives elemental percentages that lead to an empirical formula; a matching molecular ion from mass spectrometry fixes the molecular formula.</p>
+              <p class="copyable">IHD counts the total rings and π bonds, and the textbook provides quick adjustments for halogens (subtract H) and nitrogen (add H) when setting up the reference alkane.</p>
+              <p class="copyable">Wet tests (Na for alcohols, NaHCO₃ for acids, DNP for carbonyls, Ag mirror for aldehydes, Lassaigne for nitrogen, acetic anhydride for amines) narrow the functional group list before comparing spectra.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Trunk</span><span>Core formulas</span></button>
+            <div class="node-body">
+              <div class="formula">
+                <span class="copyable" data-copy="IHD = ((2n + 2) - H_actual)/2">\(\text{IHD} = \dfrac{(2n + 2) - H_{\text{actual}}}{2}\)</span>
+                <button class="copy-btn" type="button" data-copy="IHD = ((2n + 2) - H_actual)/2" aria-label="Copy IHD formula">📋</button>
+              </div>
+              <p class="copyable">\(n\) is the number of carbons; adjust \(H_{\text{actual}}\) for halogens (subtract one H each) and nitrogen (add one H each) before calculating.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="2 ROH + 2 Na -> 2 RO- + 2 Na+ + H2">\(2\,ROH + 2\,Na \rightarrow 2\,RO^- + 2\,Na^+ + H_2\)</span>
+                <button class="copy-btn" type="button" data-copy="2 ROH + 2 Na -> 2 RO- + 2 Na+ + H2" aria-label="Copy alcohol sodium test">📋</button>
+              </div>
+              <p class="copyable">Fizzing hydrogen gas confirms a free hydroxyl group.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="RCOOH + HCO3- -> RCOO- + H2O + CO2">\(RCOOH + HCO_3^- \rightarrow RCOO^- + H_2O + CO_2\)</span>
+                <button class="copy-btn" type="button" data-copy="RCOOH + HCO3- -> RCOO- + H2O + CO2" aria-label="Copy carboxylic acid test">📋</button>
+              </div>
+              <p class="copyable">Bubbling CO₂ proves a carboxylic acid.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="R2C=O + H2NR' -> R2C=NR' + H2O">\(R_2C=O + H_2NR' \rightarrow R_2C=NR' + H_2O\)</span>
+                <button class="copy-btn" type="button" data-copy="R2C=O + H2NR' -> R2C=NR' + H2O" aria-label="Copy DNP reaction">📋</button>
+              </div>
+              <p class="copyable">A colourful precipitate from DNP (Brady’s reagent) flags carbonyl compounds.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="RCHO + 2 Ag+ + 3 OH- -> RCOO- + 2 Ag + 2 H2O">\(RCHO + 2Ag^+ + 3OH^- \rightarrow RCOO^- + 2Ag + 2H_2O\)</span>
+                <button class="copy-btn" type="button" data-copy="RCHO + 2 Ag+ + 3 OH- -> RCOO- + 2 Ag + 2 H2O" aria-label="Copy silver mirror test">📋</button>
+              </div>
+              <p class="copyable">A silver mirror isolates aldehydes.</p>
+              <div class="formula">
+                <span class="copyable" data-copy="RNH2 + (CH3CO)2O -> RNHCOCH3 + CH3COOH">\(RNH_2 + (CH_3CO)_2O \rightarrow RNHCOCH_3 + CH_3COOH\)</span>
+                <button class="copy-btn" type="button" data-copy="RNH2 + (CH3CO)2O -> RNHCOCH3 + CH3COOH" aria-label="Copy amine acylation">📋</button>
+              </div>
+              <p class="copyable">Amine acylation reveals basic nitrogen atoms.</p>
+            </div>
+          </div>
+          <div class="node" data-open="true">
+            <button class="node-header" type="button" aria-expanded="true"><span>Leaves</span><span>Examples & strategy</span></button>
+            <div class="node-body">
+              <p class="copyable">For C₄H₈O₂, compare to C₄H₁₀ (alkane). \((2×4 + 2) - 8 = 2\), so IHD = 1. The strong C=O stretch (~1750 cm⁻¹), lack of O–H, and quartet/triplet ¹H NMR pattern identify ethyl acetate.</p>
+              <p class="copyable">A flowchart of wet tests (Br₂ for alkenes, Na for alcohols, NaHCO₃ for carboxylic acids, DNP/Ag mirror for carbonyls, plus Lassaigne for nitrogen) guides the first-pass functional group search.</p>
+              <p class="copyable">Always overlay the IR, ¹H NMR, ¹³C NMR, mass spectrum, IHD, and wet tests: each inconsistency forces a new structural hypothesis until every observation fits.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="copy-toast" id="copyToast" role="status" aria-live="polite">Copied to clipboard</div>
+  <script>
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+      const button = node.querySelector('.node-header');
+      button.addEventListener('click', () => {
+        const isOpen = node.dataset.open !== 'true';
+        node.dataset.open = isOpen ? 'true' : 'false';
+        button.setAttribute('aria-expanded', isOpen.toString());
+      });
+    });
+
+    const copyToast = document.getElementById('copyToast');
+    let toastTimeout;
+
+    function showToast(message) {
+      clearTimeout(toastTimeout);
+      copyToast.textContent = message;
+      copyToast.classList.add('show');
+      toastTimeout = setTimeout(() => {
+        copyToast.classList.remove('show');
+      }, 1400);
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard');
+      } catch (err) {
+        showToast('Copy failed');
+      }
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        copyText(btn.dataset.copy);
+      });
+    });
+
+    document.addEventListener('dblclick', event => {
+      const target = event.target.closest('.copyable');
+      if (target) {
+        const textToCopy = target.dataset.copy || target.innerText.trim();
+        if (textToCopy) {
+          copyText(textToCopy);
+        }
+      }
+    });
+
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const filterInput = document.getElementById('filterInput');
+    filterInput.addEventListener('input', () => {
+      const query = filterInput.value.trim().toLowerCase();
+      const terms = query === '' ? [] : query.split(/\s+/);
+      cards.forEach(card => {
+        if (terms.length === 0) {
+          card.classList.remove('hidden');
+          return;
+        }
+        const keywords = card.dataset.keywords;
+        const matches = terms.every(term => keywords.includes(term));
+        card.classList.toggle('hidden', !matches);
+      });
+    });
+  </script>
+</body>
+</html>

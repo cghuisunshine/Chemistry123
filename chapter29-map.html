@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 29 Map</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030712;
+      --card: #0e1524;
+      --panel: #0d1121;
+      --border: #1e293b;
+      --muted: #94a3b8;
+      --accent: #a5b4fc;
+      --accent-strong: #818cf8;
+      --toast-bg: rgba(15, 23, 42, 0.95);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+    .app-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sidebar h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+    .sidebar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .sidebar input {
+      width: 100%;
+      border-radius: 0.8rem;
+      border: 1px solid #374151;
+      background: #0b1220;
+      color: #f8fafc;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.95rem;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.95rem;
+    }
+    .sidebar nav a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .sidebar nav a:hover {
+      color: var(--accent-strong);
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .intro-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 25px 55px rgba(2, 6, 23, 0.8);
+    }
+    .intro-card p {
+      margin: 0.4rem 0;
+      color: var(--muted);
+    }
+    .map-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.4rem;
+      padding: 1.4rem;
+      box-shadow: 0 35px 60px rgba(2, 6, 23, 0.75);
+    }
+    .map-card h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+    .map-card header p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+    .node {
+      margin-top: 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+    .node__header {
+      width: 100%;
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.85rem 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #f8fafc;
+    }
+    .node__header span {
+      font-weight: 600;
+    }
+    .node__header svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .node[data-open="true"] .node__header svg {
+      transform: rotate(180deg);
+    }
+    .node__body {
+      padding: 0 1.3rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
+    .node[data-open="true"] .node__body {
+      padding: 1rem 1.3rem 1.2rem;
+      max-height: 1200px;
+    }
+    .node__body p {
+      margin: 0.6rem 0;
+      line-height: 1.45;
+    }
+    .formula-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.6rem 0;
+      flex-wrap: wrap;
+    }
+    .formula-line .formula {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      color: #fefce8;
+      flex: 1;
+    }
+    .copy-btn {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      color: #f8fafc;
+      padding: 0.3rem 0.65rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .copy-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-strong);
+    }
+    .hidden {
+      display: none !important;
+    }
+    #toast {
+      position: fixed;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      background: var(--toast-bg);
+      color: #e2e8f0;
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 940px) {
+      .app-shell {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      main {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1>Chapter 29 Map</h1>
+      <p>Browse carboxylic acids, esters, lipids, acyl derivatives, and polymers. Collapse nodes to focus and double-click text to copy.</p>
+      <input id="filterInput" type="search" placeholder="Filter cards (e.g., ester, saponification)" aria-label="Filter sections">
+      <nav>
+        <a href="#section-29-1">29.1 Carboxylic Acids</a>
+        <a href="#section-29-2">29.2 Preparing Acids</a>
+        <a href="#section-29-3">29.3 Esters</a>
+        <a href="#section-29-4">29.4 Fats &amp; Waxes</a>
+        <a href="#section-29-5">29.5 Acyl Derivatives</a>
+        <a href="#section-29-6">29.6 Condensation Polymers</a>
+      </nav>
+    </aside>
+    <main>
+      <div class="intro-card">
+        <p><strong>Tip:</strong> Use the filter box to hide cards that aren’t relevant, then copy any paragraph by double-clicking it. Formula buttons copy expressions to your clipboard.</p>
+      </div>
+
+      <article class="map-card" id="section-29-1" data-keywords="carboxyl resonance acidity salts solubility pka">
+        <header>
+          <h2>29.1 Carboxylic Acids</h2>
+          <p>Carboxyl structure, acidity, resonance stabilization, and solubility tuning via salts.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Carboxylic acids center on the COOH unit: a sp² carbon connects to a carbonyl and a hydroxyl that work together to hydrogen-bond and even dimerize, giving higher boiling/melting points than alcohols of similar size.</p>
+            <p data-copyable="true">The conjugate base, carboxylate, delocalizes negative charge over two oxygens so the O–H bond is easier to break—hence carboxylic acids are weak but noticeably stronger acids (pKa ~ 4–5) compared to alcohols (pKa ~ 16).</p>
+            <p data-copyable="true">Electron-withdrawing groups (Cl, NO₂) near the COOH pull electron density through sigma bonds, weakening the O–H bond further and lowering the pKa; long hydrocarbon tails do the opposite, diminishing water solubility.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH">RCOOH (carboxyl group)</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH (carboxyl group)" aria-label="Copy carboxyl">📋</button>
+            </div>
+            <p data-copyable="true">The R group can be alkyl or aryl, and the COOH dictates IUPAC naming (–oic acid) and chemical behavior.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH + H2O ⇌ RCOO⁻ + H3O⁺">Acid dissociation: RCOOH + H₂O ⇌ RCOO⁻ + H₃O⁺</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH + H2O ⇌ RCOO⁻ + H3O⁺" aria-label="Copy acid dissociation">📋</button>
+            </div>
+            <p data-copyable="true">Resonance stabilization of RCOO⁻ keeps the equilibrium to the right of alcohols, so carboxylic acids donate protons more readily.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH + NaOH → RCOONa + H2O">Salt formation: RCOOH + NaOH → RCOONa + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH + NaOH → RCOONa + H2O" aria-label="Copy salt formation">📋</button>
+            </div>
+            <p data-copyable="true">Neutralizing with base or creating ammonium salts boosts water solubility and is common in drug formulation or purification.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Benzoic acid is separated from benzyl alcohol by aqueous NaOH; the acid becomes soluble sodium benzoate while the alcohol stays in the organic layer, then re-acidifying retrieves the acid.</p>
+            <p data-copyable="true">Acetic acid’s resonance stabilized conjugate base sets the pattern for industrial chemistry—its salts, esters, and polymer precursors (vinyl acetate → poly(vinyl acetate)) come from the same core COOH.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-29-2" data-keywords="oxidation carbonylation Grignard hydrolysis nitrile amide">
+        <header>
+          <h2>29.2 Preparation of Carboxylic Acids</h2>
+          <p>Tactics to build acids from alcohols, benzylic carbons, CO₂, nitriles, amides, and esters.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Primary alcohols oxidize to acids with strong oxidants (K₂Cr₂O₇/H₂SO₄, CrO₃/H₂SO₄). Aldehydes formed en route are not isolated because they instantly oxidize further—air will do it if left alone.</p>
+            <p data-copyable="true">Benzylic carbons (toluene, brominated benzenes) readily oxidize to benzoic acids with KMnO₄ or dichromate, even if the benzylic carbon has multiple C–H bonds.</p>
+            <p data-copyable="true">Carbonylation inserts CO into methanol to yield acetic acid industrially, while Grignard reagents plus CO₂ (dry ice) extend carbon skeletons by a carbon. Hydrolysis of nitriles, amides, or esters also gives acids.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCH2OH + [O] → RCOOH">RCH₂OH + [O] → RCOOH (strong oxidation)</span>
+              <button class="copy-btn" type="button" data-copy-text="RCH2OH + [O] → RCOOH (strong oxidation)" aria-label="Copy oxidation">📋</button>
+            </div>
+            <p data-copyable="true">Potassium dichromate or chromic acid removes two hydrogens from the alcohol and the intermediate aldehyde to give the acid.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="CH3OH + CO → CH3COOH">CH₃OH + CO → CH₃COOH (carbonylation)</span>
+              <button class="copy-btn" type="button" data-copy-text="CH3OH + CO → CH3COOH" aria-label="Copy carbonylation">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RBr + Mg → RMgBr           RMgBr + CO2 + H3O+ → RCOOH">RBr → RMgBr → RCOOH (Grignard + CO₂)</span>
+              <button class="copy-btn" type="button" data-copy-text="RBr + Mg → RMgBr           RMgBr + CO2 + H3O+ → RCOOH" aria-label="Copy Grignard route">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCN + 2 H2O + H+ → RCOOH + NH4+">RCN + 2H₂O + H⁺ → RCOOH + NH₄⁺</span>
+              <button class="copy-btn" type="button" data-copy-text="RCN + 2 H2O + H+ → RCOOH + NH4+" aria-label="Copy nitrile hydrolysis">📋</button>
+            </div>
+            <p data-copyable="true">Hydrolyzing nitriles, amides, or esters under acidic then basic conditions is a flexible way to generate acids after protecting other groups.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">1-Bromobutane + Mg → butylmagnesium bromide; add CO₂ and H₃O⁺ to give pentanoic acid, creating a five-carbon acid from a four-carbon halide (Sample Exercise 29.2).</p>
+            <p data-copyable="true">Toluene oxidized with KMnO₄ selectively gives benzoic acid regardless of whether the benzylic hydrogen count is one, two, or three, because the benzylic radical is stabilized before oxidation (Equation 29.7).</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-29-3" data-keywords="esterification Fischer hydrolysis saponification flavors">
+        <header>
+          <h2>29.3 Esters and Esterification</h2>
+          <p>Condensation of acids + alcohols, reversed by hydrolysis or saponification, with aroma applications.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Esters replace the carboxyl OH with an alkoxy (R′O) group; the compound is named by citing the alcohol-derived alkyl group first, then the acid-derived –oate (ethyl butanoate, methyl salicylate, etc.).</p>
+            <p data-copyable="true">The Fischer esterification is reversible: protonate the carbonyl, add alcohol, then remove water to form RCOOR′. Hydrolysis (acidic or basic) reverses the process, regenerating the acid and alcohol.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH + R'OH ⇌ RCOOR' + H2O">Fischer esterification: RCOOH + R'OH ⇌ RCOOR' + H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH + R'OH ⇌ RCOOR' + H2O" aria-label="Copy esterification">📋</button>
+            </div>
+            <p data-copyable="true">The mechanism passes through a tetrahedral intermediate; removing water or using excess alcohol drives the equilibrium toward ester.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOR' + NaOH → RCOONa + R'OH">Saponification: RCOOR' + NaOH → RCOO⁻ + R'OH</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOR' + NaOH → RCOONa + R'OH" aria-label="Copy saponification">📋</button>
+            </div>
+            <p data-copyable="true">Base hydrolysis yields a carboxylate salt and alcohol; acidifying the aqueous layer re-forms the acid.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Ethyl benzoate (from benzoic acid + ethanol) and phenyl butanoate (from phenol + butanoic acid) both saponify to the benzoate or butanoate salts plus alcohols (Sample Exercise 29.3).</p>
+            <p data-copyable="true">Common esters (ethyl acetate, methyl salicylate, etc.) account for fruit aromas and fragrances, while base hydrolysis is the principle behind soapmaking.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-29-4" data-keywords="triglyceride saponification lipid soap micelle detergent">
+        <header>
+          <h2>29.4 Fats, Oils, and Waxes</h2>
+          <p>Fatty acid esters define fats, oils, soaps, and detergents—structure dictates solidity, solubility, and cleansing behavior.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Lipids are hydrocarbon-rich molecules extracted by non-polar solvents. Complex lipids include waxes (fatty acid + long-chain alcohol esters) and triglycerides (glycerol triesters of fatty acids) that are fats when saturated (packed tightly) or oils when unsaturated (kinked chains).</p>
+            <p data-copyable="true">Pigments like cholesterol/steroids are also lipids because of their non-polarity. Triglycerides vary in pendant fatty acids such as lauric, palmitic (saturated) or oleic, linoleic (unsaturated), giving distinct melting properties.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="Glycerol + 3 RCOOH → Triglyceride + 3 H2O">Glycerol + 3 RCOOH → Triglyceride + 3 H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="Glycerol + 3 RCOOH → Triglyceride + 3 H2O" aria-label="Copy triglyceride formation">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="Triglyceride + 3 NaOH → Glycerol + 3 RCOO⁻Na⁺">Triglyceride + 3 NaOH → Glycerol + 3 RCOO⁻Na⁺</span>
+              <button class="copy-btn" type="button" data-copy-text="Triglyceride + 3 NaOH → Glycerol + 3 RCOO⁻Na⁺" aria-label="Copy saponification">📋</button>
+            </div>
+            <p data-copyable="true">The soap molecules insert into micelles (tails inward, heads outward) to encapsulate grease while remaining soluble. Hard water precipitates calcium/magnesium salts of fatty acids (scum) or neutralizes soaps, so sulfonate-based detergents avoid that problem.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="2 RCOO⁻Na⁺ + Ca²⁺ → Ca(RCOO)₂ + 2 Na⁺">Ca²⁺ formation of soap scum: 2 RCOO⁻Na⁺ + Ca²⁺ → Ca(RCOO)₂ + 2 Na⁺</span>
+              <button class="copy-btn" type="button" data-copy-text="2 RCOO⁻Na⁺ + Ca²⁺ → Ca(RCOO)₂ + 2 Na⁺" aria-label="Copy scum formation">📋</button>
+            </div>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Soap micelles keep hydrophobic grease inside while the polar carboxylate shell interacts with water; detergent sulfonates avoid scum by forming soluble Ca²⁺ salts (Figure 29.9).</p>
+            <p data-copyable="true">Vegetable oils (polyunsaturated) are liquid at room temperature; partial hydrogenation reduces double bonds to give solid fats like margarine, tuned by controlling how many C=C bonds remain.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-29-5" data-keywords="acid chloride anhydride nucleophilic acyl substitution amide reactivity">
+        <header>
+          <h2>29.5 Acid Chlorides, Anhydrides, and Nucleophilic Acyl Substitution</h2>
+          <p>Activated acyl derivatives that let you swap leaving groups without disturbing other functions.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Carboxylic acid derivatives (acid chlorides, anhydrides, esters, amides) carry an acyl group (RCO–); acid halides and anhydrides are particularly reactive because their leaving groups (Cl⁻, RCOO⁻) are stable anions.</p>
+            <p data-copyable="true">Nucleophilic acyl substitution proceeds through a tetrahedral intermediate. Because the leaving group departs, you can interconvert acids, esters, amides, and acid chlorides while protecting other functional groups elsewhere in the molecule.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOH + SOCl2 → RCOCl + SO2 + HCl">RCOOH + SOCl₂ → RCOCl + SO₂ + HCl</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOH + SOCl2 → RCOCl + SO2 + HCl" aria-label="Copy acid chloride formation">📋</button>
+            </div>
+            <p data-copyable="true">Thionyl chloride converts the acid OH into Cl, giving butanoyl chloride or similar acid chlorides that are more electrophilic.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOCl + R'NH2 → RCONHR' + HCl">RCOCl + R'NH₂ → RCONHR' + HCl</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOCl + R'NH2 → RCONHR' + HCl" aria-label="Copy amide formation">📋</button>
+            </div>
+            <p data-copyable="true">Acid chlorides acylate amines to give amides; replacing “Cl” with OR or OCOR' yields esters or anhydrides under similar substitution logic.</p>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="RCOOR' + Nu⁻ → (tetrahedral) → RCONu + OR'⁻">General nucleophilic acyl substitution</span>
+              <button class="copy-btn" type="button" data-copy-text="RCOOR' + Nu⁻ → (tetrahedral) → RCONu + OR'⁻" aria-label="Copy nucleophilic substitution">📋</button>
+            </div>
+            <p data-copyable="true">The tetrahedral intermediate collapses, expelling the original Y group (Cl⁻, OR⁻, OCOR⁻) so the carbonyl returns with a new nucleophile bound.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Acetic anhydride forms from acetic acid and its chloride, and acyl chlorides protect acids during complex syntheses—after reacting, the chloride can be hydrolyzed back to the acid.</p>
+            <p data-copyable="true">The reactivity order (acid chloride > anhydride > aldehyde > ketone > ester > acid) reflects how good the leaving group is. Amides (RCONHR') are named by replacing –oic acid with –amide; acyl substitution of amines onto activated derivatives gives peptides and proteins.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-card" id="section-29-6" data-keywords="polyester nylon condensation polymerization Dacron nylon6 nylon66 biodegradable">
+        <header>
+          <h2>29.6 Condensation Polymerization</h2>
+          <p>Step-growth polymers—polyesters and polyamides—built by eliminating small molecules.</p>
+        </header>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Roots · Core ideas &amp; definitions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">Condensation (step-growth) polymerization links bifunctional monomers by successive reactions that release small molecules (water, methanol). Polyesters come from diacids/esters with diols, while polyamides connect diamines with diacids or acid chlorides.</p>
+            <p data-copyable="true">PET (polyethylene terephthalate) is a polyester used in medical textiles (Dacron®) and packaging; nylon 6,6 or nylon 6 use amide linkages whose hydrogen bonds give high strength in fibers, surgical sutures, and car parts.</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Trunk · Formulas, rules, and behavior</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="n HOCH2CH(OH)CH2OH + n HOOC-C6H4-COOCH3 → PET + 2n H2O">Dimethyl terephthalate + ethylene glycol → PET + 2n H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="n HOCH2CH(OH)CH2OH + n HOOC-C6H4-COOCH3 → PET + 2n H2O" aria-label="Copy PET formation">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="n H2N(CH2)6NH2 + n HOOC(CH2)4COOH → Nylon 6,6 + 2n H2O">Adipic acid + hexamethylenediamine → Nylon 6,6 + 2n H₂O</span>
+              <button class="copy-btn" type="button" data-copy-text="n H2N(CH2)6NH2 + n HOOC(CH2)4COOH → Nylon 6,6 + 2n H2O" aria-label="Copy nylon 6,6">📋</button>
+            </div>
+            <div class="formula-line">
+              <span class="formula" data-copyable="true" data-copy-text="ε-Caprolactam + H2O → Nylon 6">ε-Caprolactam + H₂O → Nylon 6 (ring-opening + condensation)</span>
+              <button class="copy-btn" type="button" data-copy-text="ε-Caprolactam + H2O → Nylon 6" aria-label="Copy nylon 6">📋</button>
+            </div>
+            <p data-copyable="true">Hydrogen bonding between amide linkages aligns polyester/nylon chains, boosting tensile strength—this is why Dacron® suits heart valve rings and nylon 6,6 is drawn into strong fibers (Figure 29.14).</p>
+          </div>
+        </div>
+        <div class="node" data-open="true">
+          <button class="node__header" type="button" data-role="toggle" aria-expanded="true">
+            <span>Leaves · Examples &amp; interpretations</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="node__body">
+            <p data-copyable="true">PET (Dacron®) is used in St. Jude heart valves because its polar ester links form favorable interactions with tissue and hold up under blood flow.</p>
+            <p data-copyable="true">Biodegradable sutures (polylactic acid/glycolic acid copolymers) slowly hydrolyze in the body, leaving no harmful residues; the same chemistry makes lactic acid polymer into a medical-grade plastic (Sample Exercise 29.6).</p>
+          </div>
+        </div>
+      </article>
+
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const toggleButtons = document.querySelectorAll('[data-role="toggle"]');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const node = button.closest('.node');
+        const isOpen = node.getAttribute('data-open') === 'true';
+        node.setAttribute('data-open', String(!isOpen));
+        button.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    const cards = document.querySelectorAll('.map-card');
+    const filterInput = document.getElementById('filterInput');
+
+    filterInput.addEventListener('input', () => {
+      const term = filterInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const haystack = (card.dataset.keywords || '') + ' ' + card.textContent;
+        card.classList.toggle('hidden', !haystack.toLowerCase().includes(term));
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    async function copyText(text) {
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard');
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Copied to clipboard');
+      }
+    }
+
+    document.addEventListener('click', event => {
+      const button = event.target.closest('.copy-btn');
+      if (!button) return;
+      const payload = button.dataset.copyText || button.previousElementSibling?.textContent;
+      if (payload) copyText(payload.trim());
+    });
+
+    document.addEventListener('dblclick', event => {
+      if (event.target.closest('button')) return;
+      const target = event.target.closest('[data-copyable]');
+      if (!target) return;
+      const payload = target.dataset.copyText || target.innerText;
+      if (payload) copyText(payload.trim());
+    });
+  </script>
+</body>
+</html>

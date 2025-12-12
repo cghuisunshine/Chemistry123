@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 17 – Additional Aspects of Aqueous Equilibria: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(15, 118, 110, 0.3);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 17 Map</div>
+        <div class="sidebar-subtitle">Aqueous Equilibria</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Filter sections</label>
+        <input id="search-box" type="search" class="search-box" placeholder="Search: buffer, Ksp, titration…" autocomplete="off">
+        <div class="search-hint">Filters section cards by keyword in real time.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Jump to section</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-17-1" class="nav-link">
+              <span>
+                <strong>17.1</strong>
+                <small>Common-Ion Effect</small>
+              </span>
+              <span class="nav-tag">roots · trunk · leaves</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-17-2" class="nav-link">
+              <span>
+                <strong>17.2</strong>
+                <small>Buffers</small>
+              </span>
+              <span class="nav-tag">pH control</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-17-3" class="nav-link">
+              <span>
+                <strong>17.3</strong>
+                <small>Titrations</small>
+              </span>
+              <span class="nav-tag">curves</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-17-4" class="nav-link">
+              <span>
+                <strong>17.4</strong>
+                <small>Solubility Equilibria</small>
+              </span>
+              <span class="nav-tag">Ksp</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-17-5" class="nav-link">
+              <span>
+                <strong>17.5</strong>
+                <small>Factors &amp; Ksp</small>
+              </span>
+              <span class="nav-tag">pH · complexes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-17-6" class="nav-link">
+              <span>
+                <strong>17.6</strong>
+                <small>Precipitation</small>
+              </span>
+              <span class="nav-tag">Qsp vs Ksp</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Tips</strong> — Double-click any text to copy it.</div>
+        <div>Use the <code>📋</code> buttons to copy formulas.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Additional Aspects of Aqueous Equilibria</div>
+          <div class="header-subtitle">
+            Concept map of Chapter 17 linking common-ion effect, buffers, titrations, solubility, and precipitation.
+          </div>
+          <div class="header-tags">
+            <span class="header-tag">roots: core ideas &amp; definitions</span>
+            <span class="header-tag">trunk: formulas &amp; patterns</span>
+            <span class="header-tag">leaves: examples &amp; tips</span>
+          </div>
+          <p class="header-highlight">
+            Use this map as a mini-textbook: expand each Roots, Trunk, and Leaves node to review concepts, see formulas with
+            quick-copy buttons, and walk through compact examples drawn from the full tutorial.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards" aria-label="Chapter 17 sections">
+
+        <!-- 17.1 Common-Ion Effect -->
+        <article class="section-card" id="sec-17-1" data-section-keywords="common ion effect weak acid base le chatelier buffer">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.1 The Common-Ion Effect</div>
+              <div class="section-label">How shared ions suppress ionization</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">weak electrolytes</div>
+              <div class="section-badge">Le Châtelier</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            When a weak acid or weak base shares a ion with a strong electrolyte in solution, its ionization is suppressed.
+            This is the common-ion effect, the conceptual foundation for buffers and solubility control.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>common ion</strong> is an ion present in more than one solute in the same solution (for example,
+                    CH₃COO⁻ from both CH₃COOH and CH₃COONa).
+                  </li>
+                  <li>
+                    A <strong>weak electrolyte</strong> (like CH₃COOH or NH₃) ionizes only partially; a <strong>strong
+                    electrolyte</strong> (like HCl or NaCl) dissociates completely.
+                  </li>
+                  <li>
+                    When a weak electrolyte and a strong electrolyte share a common ion, the weak electrolyte
+                    <strong>ionizes less</strong> than it would alone: this is the <strong>common-ion effect</strong>.
+                  </li>
+                  <li>
+                    The effect is an application of <strong>Le Châtelier’s principle</strong>: adding a product ion shifts
+                    the equilibrium toward reactants, lowering the concentration of newly produced ions like H⁺ or OH⁻.
+                  </li>
+                  <li>
+                    The <strong>equilibrium constant (Ka or Kb) does not change</strong>; only equilibrium concentrations
+                    change to keep the constant’s value fixed.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">weak acid + its salt</span>
+                  <span class="chip">weak base + its salt</span>
+                  <span class="chip">suppressed ionization</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Formulas &amp; patterns</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Weak acid:</span>
+                  <span class="formula-text">HA ⇌ H⁺ + A⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy weak acid equilibrium">📋</button>
+                </div>
+                <p>
+                  Here HA is any weak acid (for example, CH₃COOH), A⁻ is its conjugate base, and square brackets denote
+                  molar concentration (mol·L⁻¹).
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Acid Ka:</span>
+                  <span class="formula-text">Ka = [H⁺][A⁻] / [HA]</span>
+                  <button class="copy-button" type="button" aria-label="Copy Ka expression">📋</button>
+                </div>
+                <p>
+                  Ka (unitless) measures acid strength: the larger Ka is, the more the equilibrium lies to the right,
+                  meaning more H⁺ and A⁻ at equilibrium.
+                </p>
+
+                <p>
+                  In a solution containing CH₃COOH and CH₃COONa, the sodium salt fully dissociates, making
+                  <strong>[CH₃COO⁻]</strong> large from the start. To keep Ka fixed, the equilibrium shifts left:
+                  <strong>[H⁺] decreases</strong> and the acid ionizes less.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Weak base:</span>
+                  <span class="formula-text">B + H₂O ⇌ BH⁺ + OH⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy weak base equilibrium">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Base Kb:</span>
+                  <span class="formula-text">Kb = [BH⁺][OH⁻] / [B]</span>
+                  <button class="copy-button" type="button" aria-label="Copy Kb expression">📋</button>
+                </div>
+                <p>
+                  Adding the conjugate acid (BH⁺) from a strong electrolyte like NH₄Cl shifts this equilibrium left and
+                  lowers [OH⁻], making the solution less basic.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples, tips &amp; pitfalls</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – CH₃COOH + CH₃COONa</div>
+                  <p class="example-body">
+                    A solution contains 0.30 M CH₃COOH and 0.30 M CH₃COONa. The important equilibrium is
+                    CH₃COOH ⇌ H⁺ + CH₃COO⁻. Because the acetate ion is already at 0.30 M from the salt, only a tiny
+                    additional amount forms from acid ionization. Using Ka = 1.8×10⁻⁵ and <span class="inline-pill">
+                    [CH₃COOH] ≈ [CH₃COO⁻]</span>, we find [H⁺] ≈ 1.8×10⁻⁵ M and pH ≈ 4.74. The common ion CH₃COO⁻ has
+                    reduced the acid’s ionization compared to a solution of CH₃COOH alone.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Interpretation:</strong> For fixed Ka, increasing a product concentration (such as [A⁻]) forces
+                    [H⁺] down; the solution becomes less acidic.
+                  </li>
+                  <li>
+                    <strong>Common pitfall:</strong> Thinking Ka changes when you add a common ion. Ka is constant at a
+                    given temperature; only equilibrium concentrations change.
+                  </li>
+                  <li>
+                    <strong>Check yourself:</strong> In any common-ion problem, start by listing all major species and
+                    identifying which equilibrium actually controls [H⁺] or [OH⁻].
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17.2 Buffers -->
+        <article class="section-card" id="sec-17-2" data-section-keywords="buffer weak acid base henderson hasselbalch pH range capacity">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.2 Buffers</div>
+              <div class="section-label">Controlling pH with weak acid–base pairs</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">Henderson–Hasselbalch</div>
+              <div class="section-badge">pH = pKa ± 1</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Buffers are built from a weak acid and its conjugate base (or a weak base and its conjugate acid). They resist
+            pH change by consuming added strong acid or base and are quantified by the Henderson–Hasselbalch equation.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>buffer</strong> is a solution that resists significant pH changes when small amounts of strong
+                    acid or strong base are added.
+                  </li>
+                  <li>
+                    A typical buffer contains either:
+                    <ul class="node-list">
+                      <li>a weak acid, HA, and its conjugate base, A⁻ (often as a salt like NaA), or</li>
+                      <li>a weak base, B, and its conjugate acid, BH⁺.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Buffers work because the weak acid and conjugate base <strong>neutralize added H⁺ or OH⁻</strong> in
+                    nearly stoichiometric reactions.
+                  </li>
+                  <li>
+                    Buffers are most effective when <strong>[acid] and [base] are comparable</strong>, roughly within a
+                    factor of 10. This corresponds to the useful buffer range:
+                    <span class="inline-pill">pH ≈ pKa ± 1</span>.
+                  </li>
+                  <li>
+                    The <strong>buffer capacity</strong> is the amount of strong acid or base the buffer can absorb before
+                    its pH changes substantially. Higher total concentration of acid + base gives greater capacity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Formulas &amp; rules</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Buffer equilibrium and [H⁺]</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Equilibrium:</span>
+                  <span class="formula-text">HA ⇌ H⁺ + A⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy buffer equilibrium">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Ka form:</span>
+                  <span class="formula-text">Ka = [H⁺][A⁻] / [HA]</span>
+                  <button class="copy-button" type="button" aria-label="Copy Ka in buffer">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">[H⁺]:</span>
+                  <span class="formula-text">[H⁺] = Ka × [HA] / [A⁻]</span>
+                  <button class="copy-button" type="button" aria-label="Copy H+ expression">📋</button>
+                </div>
+                <p>
+                  In a buffer, [HA] and [A⁻] are both fairly large; small additions of acid or base change them only slightly,
+                  so their ratio—and thus [H⁺]—changes very little.
+                </p>
+
+                <p><strong>2. Henderson–Hasselbalch equation</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Key form:</span>
+                  <span class="formula-text">pH = pKa + log([A⁻]/[HA])</span>
+                  <button class="copy-button" type="button" aria-label="Copy Henderson-Hasselbalch">📋</button>
+                </div>
+                <p>
+                  Here <strong>pH</strong> is solution acidity, <strong>pKa = −log(Ka)</strong> is a constant for the weak
+                  acid at a given temperature, and [A⁻] and [HA] are buffer component concentrations (often well approximated
+                  by their initial values).
+                </p>
+                <p>
+                  When [A⁻] = [HA], <strong>pH = pKa</strong>. This is the buffer’s “sweet spot” and the midpoint of its useful
+                  range (pH = pKa ± 1).
+                </p>
+
+                <p><strong>3. Neutralization within a buffer</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Added base:</span>
+                  <span class="formula-text">OH⁻ + HA → H₂O + A⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy OH- reaction">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Added acid:</span>
+                  <span class="formula-text">H⁺ + A⁻ → HA</span>
+                  <button class="copy-button" type="button" aria-label="Copy H+ reaction">📋</button>
+                </div>
+                <p>
+                  These reactions go essentially to completion. To find the new pH after adding strong acid or base, first do a
+                  <strong>stoichiometric calculation</strong> to update moles of HA and A⁻, then use the
+                  Henderson–Hasselbalch equation.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; strategies</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – pH of a CH₃COOH/CH₃COO⁻ buffer</div>
+                  <p class="example-body">
+                    Consider a buffer with 0.20 M CH₃COOH and 0.30 M CH₃COONa, with pKa = 4.74. Using the Henderson–Hasselbalch
+                    equation, pH = 4.74 + log(0.30/0.20) ≈ 4.92. Because [base] &gt; [acid], the pH is above pKa. If we add a
+                    small amount of NaOH, OH⁻ is consumed by CH₃COOH, converting it to CH₃COO⁻, and the new pH can be found by
+                    updating the HA:A⁻ ratio and reapplying the equation.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Design tip:</strong> To prepare a buffer at a desired pH, pick a weak acid whose pKa is close to
+                    that pH, then adjust the [base]/[acid] ratio.
+                  </li>
+                  <li>
+                    <strong>Approximation check:</strong> Henderson–Hasselbalch works best when both [acid] and [base] are at
+                    least ~100× larger than Ka or Kb; otherwise, solving with full ICE tables is safer.
+                  </li>
+                  <li>
+                    <strong>Capacity vs range:</strong> Range (pH = pKa ± 1) is about where the buffer works; capacity is how
+                    much acid/base it can absorb. Increasing both [HA] and [A⁻] raises capacity without changing the buffered pH.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17.3 Titrations -->
+        <article class="section-card" id="sec-17-3" data-section-keywords="titration strong weak acid base equivalence point indicator curve pH=pKa">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.3 Acid–Base Titrations</div>
+              <div class="section-label">Tracking pH during neutralization</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">equivalence point</div>
+              <div class="section-badge">titration curves</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Titrations involve adding a titrant of known concentration to an analyte until stoichiometric neutralization is
+            reached. The resulting pH–volume curves differ for strong–strong and weak–strong systems and reveal points like
+            half-equivalence (pH = pKa) and equivalence.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; vocabulary</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>titration</strong> is a controlled reaction where a solution of known concentration (titrant) is
+                    added to a solution of unknown concentration (analyte) until the reaction is complete.
+                  </li>
+                  <li>
+                    The <strong>equivalence point</strong> is where moles of titrant added equal moles of analyte according to
+                    the reaction stoichiometry.
+                  </li>
+                  <li>
+                    The <strong>endpoint</strong> is where an indicator changes color; a good indicator has its transition
+                    range very close to the equivalence point pH.
+                  </li>
+                  <li>
+                    <strong>Titration curves</strong> (pH vs volume of titrant) show distinct shapes for:
+                    <span class="inline-pill">strong acid–strong base</span>,
+                    <span class="inline-pill">weak acid–strong base</span>, and
+                    <span class="inline-pill">weak base–strong acid</span>.
+                  </li>
+                  <li>
+                    For weak acid–strong base and weak base–strong acid titrations there is a <strong>buffer region</strong>
+                    before equivalence and a special point where <strong>pH = pKa</strong> (half-equivalence).
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Formulas &amp; milestones</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Stoichiometry at equivalence</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Strong–strong:</span>
+                  <span class="formula-text">Ma Va = Mb Vb</span>
+                  <button class="copy-button" type="button" aria-label="Copy titration stoichiometry">📋</button>
+                </div>
+                <p>
+                  Ma, Va are the molarity and volume of acid; Mb, Vb are those of the base. This relation holds at the
+                  equivalence point for a 1:1 acid–base reaction.
+                </p>
+
+                <p><strong>2. Weak acid–strong base (buffer region and half-equivalence)</strong></p>
+                <p>
+                  Before equivalence, the solution contains both a weak acid HA and its conjugate base A⁻. The pH is governed
+                  by the buffer relationship:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Buffer pH:</span>
+                  <span class="formula-text">pH = pKa + log([A⁻]/[HA])</span>
+                  <button class="copy-button" type="button" aria-label="Copy buffer pH in titration">📋</button>
+                </div>
+                <p>
+                  At the <strong>half-equivalence point</strong>, exactly half the original HA has been converted to A⁻, so
+                  [A⁻] = [HA] and <strong>pH = pKa</strong>.
+                </p>
+
+                <p><strong>3. Equivalence point for weak acid–strong base</strong></p>
+                <p>
+                  At equivalence, only the conjugate base A⁻ remains. It hydrolyzes water:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Hydrolysis:</span>
+                  <span class="formula-text">A⁻ + H₂O ⇌ HA + OH⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy hydrolysis equilibrium">📋</button>
+                </div>
+                <p>
+                  Using Kb = Kw/Ka and the concentration of A⁻, we compute [OH⁻] and hence pH. For a weak acid titrated with a
+                  strong base, <strong>pH &gt; 7 at equivalence</strong>.
+                </p>
+
+                <p><strong>4. Weak base–strong acid titrations</strong></p>
+                <p>
+                  Analogous logic applies: the buffer contains B and BH⁺, and at half-equivalence <strong>pOH = pKb</strong>
+                  (or pH = 14 − pKb). At equivalence, BH⁺ behaves as a weak acid, giving <strong>pH &lt; 7</strong>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Curves &amp; examples</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; interpretations</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Strong acid–strong base curve</div>
+                  <p class="example-body">
+                    Titrating 0.10 M HCl with 0.10 M NaOH: the pH starts near 1, climbs gradually, then shoots up through a
+                    very steep region around pH 7 at equivalence, and finally levels off near 13 as excess base is added. Any
+                    indicator whose transition range spans pH 7 (such as bromothymol blue) is suitable.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Half-equivalence for a weak acid</div>
+                  <p class="example-body">
+                    For 0.10 M CH₃COOH titrated with 0.10 M NaOH, the half-equivalence point occurs when half of the acid has
+                    been neutralized. The solution contains equal moles of CH₃COOH and CH₃COO⁻, so pH = pKa ≈ 4.74. This gives
+                    a quick way to estimate pKa from the titration curve.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Indicator choice:</strong> Match the indicator’s pH transition range to the vertical part of the
+                    titration curve near equivalence. For weak acid–strong base titrations, the jump is above pH 7, so choose
+                    an indicator that changes color in the basic range.
+                  </li>
+                  <li>
+                    <strong>Strategy:</strong> For any point on a weak acid titration curve, decide first whether stoichiometry
+                    (before or at equivalence) or equilibrium (buffer or hydrolysis) controls the pH.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17.4 Solubility Equilibria -->
+        <article class="section-card" id="sec-17-4" data-section-keywords="solubility equilibrium ksp molar solubility common ion">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.4 Solubility Equilibria</div>
+              <div class="section-label">Sparingly soluble salts and Ksp</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">molar solubility</div>
+              <div class="section-badge">common-ion effect</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Slightly soluble ionic compounds establish equilibria between solid and dissolved ions. Their solubility-product
+            constants, Ksp, link molar solubility to equilibrium concentrations and reveal how common ions reduce solubility.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Many ionic compounds are <strong>sparingly soluble</strong>; they dissolve only to a small extent but still
+                    obey equilibrium rules.
+                  </li>
+                  <li>
+                    At saturation, there is a dynamic equilibrium between solid and dissolved ions; the equilibrium constant is
+                    the <strong>solubility-product constant, Ksp</strong>.
+                  </li>
+                  <li>
+                    <strong>Molar solubility (s)</strong> is the number of moles of solute that dissolves per liter to reach
+                    saturation.
+                  </li>
+                  <li>
+                    Ksp and solubility are related but not identical: solubility depends on both Ksp and conditions such as
+                    presence of common ions.
+                  </li>
+                  <li>
+                    A <strong>common ion</strong> from another soluble salt lowers the solubility of a sparingly soluble salt by
+                    shifting the dissolution equilibrium toward the undissolved solid.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Ksp expressions &amp; solubility</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. General Ksp expression</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Dissolution:</span>
+                  <span class="formula-text">MₓAᵧ(s) ⇌ x Mⁿ⁺ + y Aᵐ⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy general dissolution">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Ksp:</span>
+                  <span class="formula-text">Ksp = [Mⁿ⁺]ˣ [Aᵐ⁻]ʸ</span>
+                  <button class="copy-button" type="button" aria-label="Copy Ksp expression">📋</button>
+                </div>
+                <p>
+                  The exponents come from stoichiometric coefficients; the solid does not appear in Ksp. At a fixed temperature,
+                  Ksp is constant.
+                </p>
+
+                <p><strong>2. Molar solubility in pure water</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">MX:</span>
+                  <span class="formula-text">Ksp = s² ⇒ s = √Ksp</span>
+                  <button class="copy-button" type="button" aria-label="Copy MX solubility">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">MX₂:</span>
+                  <span class="formula-text">Ksp = 4s³ ⇒ s = (Ksp/4)^{1/3}</span>
+                  <button class="copy-button" type="button" aria-label="Copy MX2 solubility">📋</button>
+                </div>
+                <p>
+                  Here s is the molar solubility (mol·L⁻¹). Different stoichiometries (MX₃, M₂X₃, etc.) lead to other polynomial
+                  relations between Ksp and s.
+                </p>
+
+                <p><strong>3. Solubility with a common ion</strong></p>
+                <p>
+                  For MX(s) ⇌ M⁺ + X⁻ in a solution where [X⁻] ≈ [X⁻]₀ from a soluble salt:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Approx.</span>
+                  <span class="formula-text">Ksp ≈ s · [X⁻]₀ ⇒ s ≈ Ksp / [X⁻]₀</span>
+                  <button class="copy-button" type="button" aria-label="Copy solubility with common ion">📋</button>
+                </div>
+                <p>
+                  A large [X⁻]₀ makes s small: increasing the concentration of a product ion suppresses dissolution.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; solubility logic</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – AgCl in pure water vs 0.10 M Cl⁻</div>
+                  <p class="example-body">
+                    For AgCl(s) ⇌ Ag⁺ + Cl⁻ with Ksp = 1.8×10⁻¹⁰: in pure water, [Ag⁺] = [Cl⁻] = s and s = √Ksp ≈ 1.3×10⁻⁵ M.
+                    In 0.10 M NaCl, [Cl⁻] ≈ 0.10 M and Ksp ≈ [Ag⁺](0.10), so [Ag⁺] ≈ 1.8×10⁻⁹ M. The common ion (Cl⁻) lowers
+                    solubility by ~10⁴.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Prediction strategy:</strong> Before calculating, decide whether the presence of other ions will
+                    raise, lower, or leave solubility unchanged (common-ion vs neutral ions).
+                  </li>
+                  <li>
+                    <strong>Common pitfall:</strong> Confusing “large Ksp” with “high solubility” without accounting for
+                    stoichiometry or common ions. Always write the equilibrium first.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17.5 Factors That Affect Solubility -->
+        <article class="section-card" id="sec-17-5" data-section-keywords="pH effect solubility basic anion complex ion formation kf">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.5 Factors That Affect Solubility</div>
+              <div class="section-label">pH and complex ions</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">acidic dissolution</div>
+              <div class="section-badge">Kf &amp; complex ions</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Solubility is shaped by more than Ksp: pH can increase solubility for salts with basic anions, while complex ion
+            formation can greatly enhance solubility of metal salts by binding metal ions into stable complexes.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Key concepts</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Salts containing <strong>basic anions</strong> (conjugate bases of weak acids, such as CO₃²⁻, S²⁻, F⁻, and
+                    OH⁻) become more soluble in <strong>acidic solutions</strong>, because H⁺ neutralizes the anion.
+                  </li>
+                  <li>
+                    Salts of anions that are conjugate bases of <strong>strong acids</strong> (Cl⁻, NO₃⁻, etc.) are virtually
+                    unaffected by pH, because their anions are of negligible basicity.
+                  </li>
+                  <li>
+                    Metal ions often form <strong>complex ions</strong> with ligands such as NH₃, CN⁻, or OH⁻. Complex
+                    formation removes free metal ions from solution and can dramatically increase solubility.
+                  </li>
+                  <li>
+                    The overall dissolution of a salt in the presence of complex formation can be described by a combined
+                    equilibrium constant involving both Ksp and the formation constant Kf.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Equilibria &amp; constants</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. pH effect for salts with basic anions</strong></p>
+                <p>
+                  For a carbonate salt, for example CaCO₃:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Ksp:</span>
+                  <span class="formula-text">CaCO₃(s) ⇌ Ca²⁺ + CO₃²⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy CaCO3 dissolution">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Acid step:</span>
+                  <span class="formula-text">CO₃²⁻ + 2H⁺ ⇌ H₂CO₃ ⇌ CO₂ + H₂O</span>
+                  <button class="copy-button" type="button" aria-label="Copy carbonate acid reaction">📋</button>
+                </div>
+                <p>
+                  Adding H⁺ reacts with CO₃²⁻ and removes it from solution, shifting the dissolution equilibrium right and
+                  increasing [Ca²⁺]. Thus, <strong>lowering pH increases solubility</strong> for salts with basic anions.
+                </p>
+
+                <p><strong>2. Complex ion formation</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">Complex:</span>
+                  <span class="formula-text">Ag⁺ + 2NH₃ ⇌ Ag(NH₃)₂⁺</span>
+                  <button class="copy-button" type="button" aria-label="Copy silver complex formation">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Kf:</span>
+                  <span class="formula-text">Kf = [Ag(NH₃)₂⁺] / ([Ag⁺][NH₃]²)</span>
+                  <button class="copy-button" type="button" aria-label="Copy Kf expression">📋</button>
+                </div>
+                <p>
+                  A large Kf means the complex ion is very stable: once Ag⁺ and NH₃ meet, they strongly favor forming
+                  Ag(NH₃)₂⁺. This pulls Ag⁺ out of solution, encouraging more AgCl (or another silver salt) to dissolve.
+                </p>
+
+                <p><strong>3. Overall equilibrium with complex formation</strong></p>
+                <p>
+                  For AgCl(s) in NH₃ solution, we combine:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Ksp step:</span>
+                  <span class="formula-text">AgCl(s) ⇌ Ag⁺ + Cl⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy AgCl dissolution">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Overall:</span>
+                  <span class="formula-text">AgCl(s) + 2NH₃ ⇌ Ag(NH₃)₂⁺ + Cl⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy overall AgCl + NH3">📋</button>
+                </div>
+                <p>
+                  The overall equilibrium constant is <strong>K = Ksp × Kf</strong>. Because Kf is large, K is large and the
+                  salt becomes much more soluble in NH₃ than in water alone.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; intuition</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Acidic dissolution of CaCO₃</div>
+                  <p class="example-body">
+                    Limestone (mostly CaCO₃) dissolves very slowly in pure water but much faster in acidic rainwater. H⁺ from
+                    the acid converts CO₃²⁻ into H₂CO₃ and eventually CO₂(g), removing CO₃²⁻ from solution. To re-establish
+                    equilibrium, more CaCO₃ dissolves, so the rock gradually wears away.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – AgCl dissolves in NH₃</div>
+                  <p class="example-body">
+                    A white precipitate of AgCl that does not dissolve in water can dissolve in concentrated NH₃ because
+                    Ag⁺ forms the complex Ag(NH₃)₂⁺. Complex formation lowers [Ag⁺], pulling the AgCl dissolution equilibrium
+                    to the right and increasing solubility.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Diagnostic tip:</strong> If a salt contains a basic anion or a metal known to form complexes, ask
+                    whether changing pH or adding ligands will change its solubility.
+                  </li>
+                  <li>
+                    <strong>Common pitfall:</strong> Forgetting that some anions (like Cl⁻, NO₃⁻) are so weakly basic that pH
+                    changes have essentially no effect on their solubility.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17.6 Precipitation and Separation of Ions -->
+        <article class="section-card" id="sec-17-6" data-section-keywords="precipitation separation ions qsp ksp selective qualitative analysis">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">17.6 Precipitation and Separation of Ions</div>
+              <div class="section-label">Using Qsp and Ksp to decide what precipitates</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">Qsp vs Ksp</div>
+              <div class="section-badge">selective precipitation</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Comparing the ion product Qsp to Ksp tells us whether a precipitate forms. By exploiting different Ksp values we
+            can precipitate one ion at a time from a mixture, forming the basis of classical separation schemes.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Concepts</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A solution is <strong>unsaturated</strong> if more solid can dissolve, <strong>saturated</strong> if at
+                    equilibrium, and <strong>supersaturated</strong> if it contains more dissolved solute than allowed at
+                    equilibrium.
+                  </li>
+                  <li>
+                    The <strong>reaction quotient Qsp</strong> has the same algebraic form as Ksp but uses current (possibly
+                    non-equilibrium) concentrations.
+                  </li>
+                  <li>
+                    Comparing Qsp and Ksp predicts precipitation:
+                    <ul class="node-list">
+                      <li>Qsp &lt; Ksp → unsaturated; no precipitate forms.</li>
+                      <li>Qsp = Ksp → saturated; at equilibrium.</li>
+                      <li>Qsp &gt; Ksp → supersaturated; precipitation occurs until Qsp = Ksp.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Selective precipitation</strong> uses differences in Ksp to precipitate one ion from a mixture by
+                    carefully adjusting the concentration of a counter-ion.
+                  </li>
+                  <li>
+                    Such precipitation schemes form the basis of classical <strong>qualitative analysis</strong> for metal
+                    ions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Qsp, thresholds &amp; separation</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <p><strong>1. Reaction quotient for solubility</strong></p>
+                <div class="formula-row">
+                  <span class="formula-label">General:</span>
+                  <span class="formula-text">MₓAᵧ(s) ⇌ x Mⁿ⁺ + y Aᵐ⁻</span>
+                  <button class="copy-button" type="button" aria-label="Copy general solubility">📋</button>
+                </div>
+                <div class="formula-row">
+                  <span class="formula-label">Qsp:</span>
+                  <span class="formula-text">Qsp = [Mⁿ⁺]ˣ [Aᵐ⁻]ʸ</span>
+                  <button class="copy-button" type="button" aria-label="Copy Qsp expression">📋</button>
+                </div>
+                <p>
+                  If Qsp &gt; Ksp, the system has too many ions in solution and responds by forming solid until Qsp drops to Ksp.
+                </p>
+
+                <p><strong>2. Onset of precipitation</strong></p>
+                <p>
+                  For AgCl(s) ⇌ Ag⁺ + Cl⁻, with Ksp = [Ag⁺][Cl⁻], the maximum [Ag⁺] allowed at a given [Cl⁻] before precipitation
+                  begins is:
+                </p>
+                <div class="formula-row">
+                  <span class="formula-label">Threshold:</span>
+                  <span class="formula-text">[Ag⁺]max = Ksp / [Cl⁻]</span>
+                  <button class="copy-button" type="button" aria-label="Copy threshold concentration">📋</button>
+                </div>
+                <p>
+                  Above this [Ag⁺], Qsp &gt; Ksp and AgCl must precipitate.
+                </p>
+
+                <p><strong>3. Selective precipitation</strong></p>
+                <p>
+                  In a mixture of ions (for example, Ag⁺ and Pb²⁺) treated with a counter-ion (Cl⁻ or SO₄²⁻), the salt with the
+                  <strong>smaller Ksp</strong> generally precipitates first because its threshold concentration is reached at a
+                  lower counter-ion concentration.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button class="node-header" type="button">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; separation logic</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Will AgCl precipitate?</div>
+                  <p class="example-body">
+                    Mixing equal volumes of 1.0×10⁻³ M AgNO₃ and 1.0×10⁻³ M NaCl gives [Ag⁺] = [Cl⁻] = 5.0×10⁻⁴ M. Then
+                    Qsp = (5.0×10⁻⁴)² = 2.5×10⁻⁷. Since Ksp(AgCl) = 1.8×10⁻¹⁰, Qsp &gt;&gt; Ksp and AgCl must precipitate until the
+                    product [Ag⁺][Cl⁻] drops back to 1.8×10⁻¹⁰.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Qualitative separation idea</div>
+                  <p class="example-body">
+                    In a solution containing Ag⁺ and a second metal ion that forms a less insoluble chloride, AgCl can be
+                    precipitated first by carefully adding Cl⁻ until the AgCl threshold is exceeded but the other metal’s
+                    chloride is still below its threshold. Filtering off the AgCl leaves the second metal ion in solution for
+                    further analysis.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For precipitation questions, always compute Qsp and compare it to Ksp rather
+                    than guessing based on “large” or “small” concentrations.
+                  </li>
+                  <li>
+                    <strong>Common pitfall:</strong> Forgetting dilution when solutions are mixed. Adjust concentrations after
+                    mixing before computing Qsp.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 19 – Chemical Thermodynamics: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --bg-node: #111827;
+      --border-subtle: #1f2937;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #020617, #020617 30%, #020617 100%);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.25rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0.75rem;
+      align-self: flex-start;
+      max-height: calc(100vh - 1.5rem);
+      overflow: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .sidebar-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0.9rem;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-box::placeholder {
+      color: #6b7280;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6);
+    }
+
+    .search-hint {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.2rem 0 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.5rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .nav-link strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .nav-link small {
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .nav-link:hover {
+      background: rgba(15, 118, 110, 0.3);
+      border-color: rgba(45, 212, 191, 0.6);
+      color: #f9fafb;
+      transform: translateX(2px);
+    }
+
+    .nav-link.active-link {
+      background: var(--accent-soft);
+      border-color: rgba(34, 211, 238, 0.9);
+      color: #f9fafb;
+    }
+
+    .nav-tag {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 0.7rem;
+      padding-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-footer strong {
+      color: var(--text-muted);
+    }
+
+    .sidebar-footer code {
+      font-family: var(--font-mono);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.08rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.15), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .header-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      margin-top: 0.1rem;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .header-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e0f2fe;
+    }
+
+    .header-highlight {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-width: 46rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 60%), var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      padding: 0.9rem 1rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 65%), #020617;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .section-badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .node:hover {
+      border-color: rgba(34, 211, 238, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      border: none;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.4));
+      color: #f9fafb;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .node-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .node-type {
+      font-weight: 600;
+    }
+
+    .node-tagline {
+      font-size: 0.7rem;
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .node-header::after {
+      content: "▾";
+      font-size: 0.75rem;
+      color: rgba(209, 213, 219, 0.9);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .node.collapsed .node-header::after {
+      transform: rotate(-90deg);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.55rem 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+      line-height: 1.5;
+    }
+
+    .node.collapsed .node-content {
+      display: none;
+    }
+
+    .node-section-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+      color: var(--accent);
+    }
+
+    .node-list {
+      margin: 0.1rem 0 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-list li {
+      margin-bottom: 0.12rem;
+    }
+
+    .inline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.72rem;
+      padding: 0.04rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.18rem 0;
+      padding: 0.2rem 0.25rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .formula-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-right: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      border: none;
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.35rem;
+      line-height: 1;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .copy-button:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: rgba(34, 211, 238, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .example-block {
+      margin-top: 0.2rem;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 0.12rem;
+    }
+
+    .example-body {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-main);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #f9fafb;
+      border: 1px solid rgba(34, 211, 238, 0.9);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 80;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        flex-direction: column;
+        padding: 0.6rem;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        width: 100%;
+        order: 0;
+      }
+      .content {
+        order: 1;
+      }
+      .nodes {
+        grid-template-columns: 1fr;
+      }
+      .section-card {
+        padding: 0.85rem 0.8rem 0.9rem;
+      }
+      .content-header {
+        padding: 0.9rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-title {
+        font-size: 1.25rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nodes {
+        gap: 0.45rem;
+      }
+      .formula-text {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Chapter 19 Map</div>
+        <div class="sidebar-subtitle">Chemical Thermodynamics</div>
+      </div>
+
+      <div class="sidebar-section">
+        <label for="search-box" class="search-label">Search / filter</label>
+        <input id="search-box" class="search-box" type="search" placeholder="ΔG, entropy, K, spontaneity..." />
+        <div class="search-hint">Filters cards live by keyword in titles and text.</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="search-label">Sections</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#sec-19-1" class="nav-link">
+              <span><strong>19.1</strong><small>spontaneous processes</small></span>
+              <span class="nav-tag">directionality</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-2" class="nav-link">
+              <span><strong>19.2</strong><small>entropy &amp; 2nd law</small></span>
+              <span class="nav-tag">ΔSuniv</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-3" class="nav-link">
+              <span><strong>19.3</strong><small>molecular entropy</small></span>
+              <span class="nav-tag">microstates</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-4" class="nav-link">
+              <span><strong>19.4</strong><small>ΔS in reactions</small></span>
+              <span class="nav-tag">S° &amp; ΔS°</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-5" class="nav-link">
+              <span><strong>19.5</strong><small>Gibbs free energy</small></span>
+              <span class="nav-tag">ΔG = ΔH − TΔS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-6" class="nav-link">
+              <span><strong>19.6</strong><small>ΔG &amp; temperature</small></span>
+              <span class="nav-tag">T = ΔH/ΔS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sec-19-7" class="nav-link">
+              <span><strong>19.7</strong><small>ΔG &amp; K</small></span>
+              <span class="nav-tag">ΔG° = −RT ln K</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><strong>Copy tips</strong></div>
+        <div>• Click <code>📋</code> to copy formulas.</div>
+        <div>• Double-click any text to copy it.</div>
+        <div>Use search + section links for quick review.</div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-main">
+          <div class="header-title">Chemical Thermodynamics</div>
+          <div class="header-subtitle">
+            Concept map for Chapter 19: spontaneity, entropy, free energy, temperature, and equilibrium.
+          </div>
+          <div class="header-tags">
+            <span class="header-tag">roots: core ideas &amp; definitions</span>
+            <span class="header-tag">trunk: formulas &amp; patterns</span>
+            <span class="header-tag">leaves: examples &amp; tips</span>
+          </div>
+          <p class="header-highlight">
+            Treat this as a roadmap: start with roots to understand spontaneity and entropy, move to trunk for ΔG formulas and
+            ΔG°–K relationships, and finish with leaves to interpret worked examples and common exam-style questions.
+          </p>
+        </div>
+      </header>
+
+      <section class="cards" aria-label="Chapter 19 sections">
+
+        <!-- 19.1 Spontaneous Processes -->
+        <article class="section-card" id="sec-19-1" data-section-keywords="spontaneous nonspontaneous reversible irreversible isothermal">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.1 Spontaneous Processes</div>
+              <div class="section-label">Directionality, reversibility &amp; isothermal changes</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">spontaneous vs nonspontaneous</div>
+              <div class="section-badge">reversible vs irreversible</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Spontaneous processes proceed in one preferred direction under given conditions, while their reverses are
+            nonspontaneous. Reversible paths are ideal limits used to define entropy changes and contrast with real irreversible
+            changes.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>spontaneous process</strong> occurs in a given direction without continuous outside input (brick
+                    falling, iron rusting, ice melting at T &gt; 0 °C).
+                  </li>
+                  <li>
+                    A <strong>nonspontaneous process</strong> does not occur in the stated direction; the reverse of a spontaneous
+                    process is always nonspontaneous under the same conditions.
+                  </li>
+                  <li>
+                    Spontaneity says nothing about <strong>rate</strong>: a process can be spontaneous but very slow (like rusting),
+                    or spontaneous and very fast (like acid–base neutralization).
+                  </li>
+                  <li>
+                    A <strong>reversible process</strong> is an ideal one that can be reversed so that both system and surroundings
+                    return to exactly their original states, with no net change anywhere. It proceeds through infinitesimal steps
+                    close to equilibrium.
+                  </li>
+                  <li>
+                    A <strong>irreversible process</strong> is any real process; if you return the system to its starting point, the
+                    surroundings are left changed. All spontaneous processes in nature are irreversible.
+                  </li>
+                  <li>
+                    An <strong>isothermal process</strong> happens at constant temperature; in thermodynamics we often analyze
+                    isothermal expansions and phase changes using entropy.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">direction of change</span>
+                  <span class="chip">real vs ideal paths</span>
+                  <span class="chip">T = const (isothermal)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Entropy definition (constant T)</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formula &amp; its meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Entropy change:</span>
+                  <span class="formula-text">ΔS = q<sub>rev</sub> / T</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔS definition">📋</button>
+                </div>
+                <p>
+                  For a reversible process at constant temperature, ΔS is defined as heat absorbed by the system along a reversible
+                  path divided by absolute temperature T. Entropy is a state function, so this ΔS is the same for any real path
+                  between the same states.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Examples &amp; interpretations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Melting vs freezing of water</div>
+                  <p class="example-body">
+                    At 1 atm, ice melts spontaneously when T &gt; 0 °C, while liquid water freezes spontaneously when T &lt; 0 °C. At
+                    T = 0 °C, ice and water are in equilibrium and neither direction is favored overall. This illustrates how
+                    spontaneity can depend strongly on temperature even for the same physical process.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> When asked about spontaneity, always specify the conditions (especially temperature
+                    and pressure) and distinguish carefully between “spontaneous” and “fast.”
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> Reversible processes are an ideal mathematical limit used for defining entropy;
+                    all real spontaneous processes are irreversible.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.2 Entropy and the Second Law -->
+        <article class="section-card" id="sec-19-2" data-section-keywords="entropy second law system surroundings ΔSuniv">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.2 Entropy and the Second Law</div>
+              <div class="section-label">ΔS, surroundings &amp; ΔS<sub>univ</sub></div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ΔS = q<sub>rev</sub>/T</div>
+              <div class="section-badge">ΔS<sub>univ</sub> &gt; 0</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Entropy measures the dispersal of energy and matter. The second law states that the entropy of the universe increases
+            in any spontaneous process, linking system and surroundings through ΔS<sub>univ</sub>.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Core ideas &amp; definitions</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    <strong>Entropy (S)</strong> is a state function that tracks the “spread” of energy and matter; more possible
+                    microscopic arrangements correspond to higher S.
+                  </li>
+                  <li>
+                    We divide the universe into a <strong>system</strong> (the part we focus on) and the <strong>surroundings</strong>
+                    (everything else).
+                  </li>
+                  <li>
+                    For a reversible process at constant temperature, the system’s entropy change is ΔS = q<sub>rev</sub>/T.
+                  </li>
+                  <li>
+                    The entropy change of the surroundings reflects heat flow between system and surroundings; at constant P,
+                    q<sub>surr</sub> = −ΔH<sub>sys</sub>.
+                  </li>
+                  <li>
+                    The <strong>second law of thermodynamics</strong>: for any real (irreversible) spontaneous process,
+                    ΔS<sub>univ</sub> &gt; 0; for a reversible process, ΔS<sub>univ</sub> = 0.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">ΔS<sub>univ</sub> &amp; surroundings</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">System entropy:</span>
+                  <span class="formula-text">ΔS<sub>sys</sub> = q<sub>rev</sub> / T</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔSsys">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Surroundings:</span>
+                  <span class="formula-text">ΔS<sub>surr</sub> ≈ −ΔH<sub>sys</sub> / T</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔSsurr">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Universe:</span>
+                  <span class="formula-text">ΔS<sub>univ</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔSuniv">📋</button>
+                </div>
+                <p>
+                  ΔS<sub>univ</sub> &gt; 0 identifies spontaneous change; ΔS<sub>univ</sub> = 0 identifies reversible equilibrium.
+                  This is the most fundamental test of spontaneity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Melting ice example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short example &amp; interpretation</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Melting ice in your hand</div>
+                  <p class="example-body">
+                    Melting 1 mol of ice at 0 °C in a 37 °C hand: the system (ice) gains 6.01×10³ J·mol⁻¹, giving ΔS<sub>sys</sub> ≈
+                    +22 J·K⁻¹·mol⁻¹. The surroundings lose that heat at T ≈ 310 K, giving ΔS<sub>surr</sub> ≈ −19.4 J·K⁻¹·mol⁻¹. The
+                    total ΔS<sub>univ</sub> ≈ +2.6 J·K⁻¹·mol⁻¹ &gt; 0, so melting is spontaneous under these conditions.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For intuitive ΔS questions, ask: who gains or loses heat? At what temperature? Then
+                    use ΔS<sub>univ</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub> to judge spontaneity.
+                  </li>
+                  <li>
+                    <strong>Note:</strong> An exothermic reaction (ΔH &lt; 0) tends to increase ΔS<sub>surr</sub> and favor
+                    spontaneity, especially at low temperatures.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.3 Molecular Interpretation and Third Law -->
+        <article class="section-card" id="sec-19-3" data-section-keywords="microstates boltzmann S = k ln W third law molecular motion">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.3 Molecular Interpretation &amp; Third Law</div>
+              <div class="section-label">Microstates, motion &amp; S(0 K) = 0</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">S = k ln W</div>
+              <div class="section-badge">trans/rot/vib</div>
+              <div class="section-badge">third law</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Entropy counts the number of accessible microstates and ways to store energy. The third law defines an entropy zero
+            point at absolute zero for a perfect crystal, anchoring absolute values of S.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Microstates &amp; motion</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    A <strong>microstate</strong> is a particular microscopic arrangement of positions and energies of particles
+                    consistent with the macroscopic state (same T, P, V, n).
+                  </li>
+                  <li>
+                    Entropy S increases as the number of possible microstates W increases, reflecting more ways to distribute
+                    energy and particles.
+                  </li>
+                  <li>
+                    Molecules can store energy in <strong>translational</strong>, <strong>rotational</strong>, and
+                    <strong>vibrational</strong> motion. More complicated molecules generally have more modes and higher entropy.
+                  </li>
+                  <li>
+                    Gases have far more accessible microstates than liquids, which in turn have more than solids; hence S(g) &gt;
+                    S(l) &gt; S(s) for the same substance.
+                  </li>
+                  <li>
+                    Increasing temperature increases molecular motion and the number of accessible microstates, so entropy rises
+                    with T.
+                  </li>
+                  <li>
+                    The <strong>third law of thermodynamics</strong>: S(0 K) = 0 for a pure, perfectly crystalline substance. At
+                    absolute zero, only one microstate (perfect order) is available.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">microstates W</span>
+                  <span class="chip">trans/rot/vib</span>
+                  <span class="chip">S(g) &gt; S(l) &gt; S(s)</span>
+                  <span class="chip">third law</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Boltzmann &amp; gas expansion</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Boltzmann:</span>
+                  <span class="formula-text">S = k ln W</span>
+                  <button class="copy-button" type="button" aria-label="Copy S=k ln W">📋</button>
+                </div>
+                <p>
+                  S is the entropy (J·K⁻¹), k is Boltzmann’s constant (1.38×10⁻²³ J·K⁻¹), and W is the number of microstates.
+                  Entropy increases logarithmically with W.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Ideal gas:</span>
+                  <span class="formula-text">ΔS = nR ln(V₂ / V₁)</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔS gas expansion">📋</button>
+                </div>
+                <p>
+                  For a reversible isothermal expansion of an ideal gas, n is moles of gas, R = 8.314 J·mol⁻¹·K⁻¹. Doubling volume
+                  (V₂ = 2 V₁) yields ΔS = nR ln 2 &gt; 0, reflecting more space and more microstates.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Third law:</span>
+                  <span class="formula-text">S(0 K) = 0 for a pure perfect crystal</span>
+                  <button class="copy-button" type="button" aria-label="Copy third law">📋</button>
+                </div>
+                <p>
+                  At absolute zero, only a single perfectly ordered arrangement is possible (W = 1), so S = k ln 1 = 0. This gives a
+                  natural zero point for absolute entropy.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Expansion example &amp; comparisons</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Short examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Gas expands isothermally from 1.00 L to 2.00 L</div>
+                  <p class="example-body">
+                    For 4.46×10⁻² mol of an ideal gas at 0 °C and 101.3 kPa, ΔS = nR ln(2.00/1.00) ≈ (4.46×10⁻² mol)(8.314 J·mol⁻¹·K⁻¹) ln 2 ≈ 0.26 J·K⁻¹. Even this small sample shows a measurable entropy increase when the gas spreads into a larger volume.
+                  </p>
+                </div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Comparing entropies</div>
+                  <p class="example-body">
+                    At 298 K, 1 mol of HCl(g) has higher entropy than 1 mol of NaCl(s) because gas particles can move freely and
+                    occupy many more positions than ions locked in a crystal. Similarly, 1 mol of SO₂(g) has higher entropy than
+                    1 mol of H₂(g) at STP because the larger, more complex SO₂ molecule has more ways to store energy.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> To compare entropies, first compare phases (g &gt; l &gt; s), then complexity (more atoms,
+                    heavier atoms), and finally number of moles of gas.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> Entropy can decrease in the system (e.g., gas turning into solid), but overall
+                    spontaneity is determined by ΔS<sub>univ</sub>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.4 Entropy Changes in Chemical Reactions -->
+        <article class="section-card" id="sec-19-4" data-section-keywords="standard molar entropy S° ΔS°rxn exothermic ΔSsurr">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.4 Entropy Changes in Chemical Reactions</div>
+              <div class="section-label">Standard molar entropies &amp; ΔS°</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">S° tables</div>
+              <div class="section-badge">ΔS° from S°</div>
+              <div class="section-badge">ΔSsurr = −ΔH/T</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Using standard molar entropies, we can compute the entropy change for any reaction and combine it with enthalpy
+            changes to evaluate ΔS for the universe and judge spontaneity.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">S° &amp; reaction entropy</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The <strong>standard molar entropy</strong>, S°, is the entropy of one mole of a substance in its standard state at
+                    a specified temperature (usually 298 K).
+                  </li>
+                  <li>
+                    S° values are always positive because they are measured relative to S = 0 at 0 K (third law).
+                  </li>
+                  <li>
+                    For a reaction, the standard entropy change ΔS°<sub>rxn</sub> is the difference between total product entropies
+                    and total reactant entropies, each weighted by stoichiometric coefficients.
+                  </li>
+                  <li>
+                    Entropy changes in the surroundings depend on how much heat the system releases or absorbs at constant
+                    pressure, via ΔS<sub>surr</sub> ≈ −ΔH<sub>sys</sub>/T.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">ΔS° formula &amp; surroundings</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Reaction entropy:</span>
+                  <span class="formula-text">ΔS°<sub>rxn</sub> = ΣνS°(products) − ΣνS°(reactants)</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔS°rxn">📋</button>
+                </div>
+                <p>
+                  Use tabulated standard molar entropies S° for each species at 298 K, multiply by coefficients, and subtract the
+                  reactant sum from the product sum.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Surroundings:</span>
+                  <span class="formula-text">ΔS<sub>surr</sub> ≈ −ΔH<sub>sys</sub> / T</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔSsurr again">📋</button>
+                </div>
+                <p>
+                  For a process at constant pressure and temperature, heat into the surroundings equals −ΔH<sub>sys</sub>. Dividing
+                  by T gives the surroundings’ entropy change.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Universe:</span>
+                  <span class="formula-text">ΔS<sub>univ</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub></span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔSuniv again">📋</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Predicting sign of ΔS</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Examples &amp; tips</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – Decrease in gas molecules</div>
+                  <p class="example-body">
+                    For 2 NO(g) + O₂(g) → 2 NO₂(g), the reactants contain 3 moles of gas while the products contain 2 moles of
+                    gas. This decrease in the number of gas particles and in their motional freedom leads to a negative ΔS<sub>sys</sub>.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Rule of thumb:</strong> For reactions with only gases, more gas moles in products → ΔS &gt; 0; fewer gas
+                    moles in products → ΔS &lt; 0.
+                  </li>
+                  <li>
+                    <strong>Strategy:</strong> Use qualitative trends first; when in doubt or for exact answers, compute ΔS° from
+                    S° tables.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.5 Gibbs Free Energy -->
+        <article class="section-card" id="sec-19-5" data-section-keywords="gibbs free energy ΔG ΔH TΔS spontaneity ΔGf°">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.5 Gibbs Free Energy</div>
+              <div class="section-label">ΔG, spontaneity &amp; ΔGf°</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ΔG = ΔH − TΔS</div>
+              <div class="section-badge">ΔGf° &amp; ΔG°</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Free energy combines enthalpy and entropy into a single quantity that predicts spontaneity at constant temperature and
+            pressure and connects directly to the maximum useful work obtainable.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Definition &amp; criteria</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    Gibbs free energy is defined as G = H − TS; for a process at constant T, the change is ΔG = ΔH − TΔS.
+                  </li>
+                  <li>
+                    At constant T and P: ΔG &lt; 0 implies the process is spontaneous as written; ΔG &gt; 0 implies the reverse is
+                    spontaneous; ΔG = 0 implies equilibrium.
+                  </li>
+                  <li>
+                    The magnitude of −ΔG gives the maximum non-expansion (useful) work obtainable from a system in a reversible
+                    process at constant T and P.
+                  </li>
+                  <li>
+                    The <strong>standard free energy of formation</strong>, ΔGf°, is defined for forming a substance from its elements
+                    in their standard states at 1 bar and a specified T (usually 298 K). For elements in their standard states, ΔGf° = 0.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">ΔG = ΔH − TΔS &amp; ΔG°rxn</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Definition:</span>
+                  <span class="formula-text">ΔG = ΔH − TΔS</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG=ΔH−TΔS">📋</button>
+                </div>
+                <p>
+                  ΔH and ΔS refer to the system; T is in kelvin. This formula captures the balance between enthalpy and entropy
+                  contributions to spontaneity.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">Standard ΔG:</span>
+                  <span class="formula-text">ΔG° = ΣνΔGf°(products) − ΣνΔGf°(reactants)</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG° from ΔGf°">📋</button>
+                </div>
+                <p>
+                  Use tabulated ΔGf° values for each species, multiply by stoichiometric coefficients, and subtract reactant sum
+                  from product sum. Units: kJ·mol⁻¹ of reaction as written.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">NO formation example</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Example &amp; interpretation</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – ΔG° for N₂ + O₂ → 2 NO</div>
+                  <p class="example-body">
+                    With ΔH° = +180.7 kJ and ΔS° = +24.7 J·K⁻¹ at 298 K, we compute TΔS° ≈ 7.4 kJ and hence ΔG° = 180.7 − 7.4 =
+                    +173.3 kJ. This large positive ΔG° indicates that under standard conditions at 25 °C the reaction is far from
+                    spontaneous toward NO formation; significant NO is formed only at high temperatures and under nonequilibrium
+                    conditions, as in engine cylinders.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> Keep units consistent: convert ΔS from J·mol⁻¹·K⁻¹ to kJ·mol⁻¹·K⁻¹ before multiplying by T
+                    when combining with ΔH in kJ.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> A negative ΔH and a positive ΔS both favor spontaneity; a positive ΔH and a
+                    negative ΔS both oppose spontaneity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.6 Free Energy and Temperature -->
+        <article class="section-card" id="sec-19-6" data-section-keywords="ΔG temperature sign of ΔH ΔS melting spontaneity ranges">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.6 Free Energy and Temperature</div>
+              <div class="section-label">How T tips the balance</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">sign of ΔH &amp; ΔS</div>
+              <div class="section-badge">T = ΔH/ΔS</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            The temperature dependence of ΔG explains why some processes (like ice melting) are spontaneous only above or below
+            certain temperatures, depending on the signs of ΔH and ΔS.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Sign combinations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    When ΔH &lt; 0 and ΔS &gt; 0, ΔG = ΔH − TΔS is negative at all temperatures; the process is spontaneous under
+                    all T (e.g., many combustion reactions).
+                  </li>
+                  <li>
+                    When ΔH &gt; 0 and ΔS &lt; 0, ΔG is positive at all T; the process is nonspontaneous at all T (its reverse is
+                    spontaneous).
+                  </li>
+                  <li>
+                    When ΔH &lt; 0 and ΔS &lt; 0, the process is spontaneous at <strong>low T</strong> (ΔH dominates) and
+                    nonspontaneous at <strong>high T</strong> (−TΔS term becomes large positive).
+                  </li>
+                  <li>
+                    When ΔH &gt; 0 and ΔS &gt; 0, the process is nonspontaneous at <strong>low T</strong> and spontaneous at
+                    <strong>high T</strong>.
+                  </li>
+                  <li>
+                    The critical temperature at which ΔG = 0 is T = ΔH / ΔS (with consistent units).
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">4 sign cases</span>
+                  <span class="chip">entropy dominates at high T</span>
+                  <span class="chip">enthalpy dominates at low T</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Critical temperature</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formula &amp; its meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">At ΔG = 0:</span>
+                  <span class="formula-text">T = ΔH / ΔS</span>
+                  <button class="copy-button" type="button" aria-label="Copy T=ΔH/ΔS">📋</button>
+                </div>
+                <p>
+                  This temperature marks the boundary between conditions where a process switches from nonspontaneous to
+                  spontaneous (or vice versa), assuming ΔH and ΔS are roughly constant with T.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Melting ice as a case study</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Example &amp; interpretation</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – When does ice melt spontaneously?</div>
+                  <p class="example-body">
+                    For H₂O(s) → H₂O(l), ΔH ≈ +6.01 kJ·mol⁻¹ and ΔS ≈ +22.0 J·mol⁻¹·K⁻¹. Converting ΔS to kJ units gives 0.0220
+                    kJ·mol⁻¹·K⁻¹, so T = ΔH/ΔS ≈ 6.01 / 0.0220 ≈ 273 K. Above 273 K (0 °C) the process is spontaneous; below 273 K
+                    it is nonspontaneous. The reverse process (freezing) is spontaneous below 0 °C.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> For sign-combination problems, set up a small table (ΔH, ΔS, ΔG at low vs high T)
+                    rather than trying to memorize a rule.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> Temperature can flip spontaneity, so always check whether the problem hints
+                    at “higher” vs “lower” temperatures.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19.7 Free Energy and the Equilibrium Constant -->
+        <article class="section-card" id="sec-19-7" data-section-keywords="ΔG ΔG° reaction quotient Q equilibrium constant K e−ΔG°/RT">
+          <header class="section-header">
+            <div class="section-title-group">
+              <div class="section-title">19.7 Free Energy and the Equilibrium Constant</div>
+              <div class="section-label">ΔG under nonstandard conditions &amp; ΔG°–K</div>
+            </div>
+            <div class="section-badges">
+              <div class="section-badge">ΔG = ΔG° + RT ln Q</div>
+              <div class="section-badge">ΔG° = −RT ln K</div>
+            </div>
+          </header>
+          <p class="section-summary">
+            Free energy connects nonstandard reaction conditions to standard state via the reaction quotient Q and ties the
+            standard free energy change directly to the equilibrium constant K.
+          </p>
+
+          <div class="nodes">
+            <!-- Roots -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Roots</span>
+                  <span class="node-tagline">Q, K &amp; ΔG</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Key ideas</div>
+                <ul class="node-list">
+                  <li>
+                    The free energy change under arbitrary conditions is related to the standard free energy and the reaction
+                    quotient Q by ΔG = ΔG° + RT ln Q.
+                  </li>
+                  <li>
+                    At equilibrium, ΔG = 0 and Q = K, leading to ΔG° = −RT ln K, which links thermodynamics to equilibrium
+                    constants.
+                  </li>
+                  <li>
+                    If ΔG° &lt; 0, then K &gt; 1 and products are favored at equilibrium; if ΔG° &gt; 0, then K &lt; 1 and reactants are
+                    favored.
+                  </li>
+                  <li>
+                    The value of ΔG at a particular moment depends on Q; if Q ≠ K, the system is not at equilibrium and has a
+                    “driving force” to change.
+                  </li>
+                </ul>
+                <div class="chips-row">
+                  <span class="chip">reaction quotient Q</span>
+                  <span class="chip">equilibrium constant K</span>
+                  <span class="chip">ΔG° &amp; K link</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trunk -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Trunk</span>
+                  <span class="node-tagline">Key equations</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Important formulas &amp; their meaning</div>
+
+                <div class="formula-row">
+                  <span class="formula-label">General:</span>
+                  <span class="formula-text">ΔG = ΔG° + RT ln Q</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG=ΔG°+RT ln Q">📋</button>
+                </div>
+                <p>
+                  R = 8.314 J·mol⁻¹·K⁻¹, T is in K, and Q is constructed from current pressures/concentrations like an equilibrium
+                  expression. If Q &lt; K, ΔG tends to be negative; if Q &gt; K, ΔG tends to be positive.
+                </p>
+
+                <div class="formula-row">
+                  <span class="formula-label">At equilibrium:</span>
+                  <span class="formula-text">ΔG° = −RT ln K</span>
+                  <button class="copy-button" type="button" aria-label="Copy ΔG°=−RT ln K">📋</button>
+                </div>
+
+                <div class="formula-row">
+                  <span class="formula-label">Also:</span>
+                  <span class="formula-text">K = e<sup>−ΔG°/(RT)</sup></span>
+                  <button class="copy-button" type="button" aria-label="Copy K expression">📋</button>
+                </div>
+                <p>
+                  These expressions show that relatively small changes in ΔG° can lead to large changes in K, because the
+                  relationship is exponential.
+                </p>
+              </div>
+            </div>
+
+            <!-- Leaves -->
+            <div class="node">
+              <button type="button" class="node-header">
+                <span>
+                  <span class="node-type">Leaves</span>
+                  <span class="node-tagline">Haber example &amp; tips</span>
+                </span>
+              </button>
+              <div class="node-content">
+                <div class="node-section-title">Example &amp; strategies</div>
+
+                <div class="example-block">
+                  <div class="example-title">Example – ΔG under nonstandard conditions (Haber process)</div>
+                  <p class="example-body">
+                    For N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g) at 298 K, taking P(N₂) = 1.00 atm, P(H₂) = 3.00 atm, P(NH₃) = 0.500 atm and
+                    ΔG° = −33.3 kJ, the reaction quotient is Q = (0.500²)/(1.00×3.00³) ≈ 9.26×10⁻³. Using ΔG = ΔG° + RT ln Q with
+                    RT ≈ 2.48 kJ gives ΔG ≈ −44.9 kJ, more negative than ΔG°, indicating an even stronger drive toward NH₃ under
+                    these conditions.
+                  </p>
+                </div>
+
+                <ul class="node-list">
+                  <li>
+                    <strong>Strategy:</strong> Always compute Q from the given conditions first, then use ΔG = ΔG° + RT ln Q to
+                    see whether the system will move toward products or reactants.
+                  </li>
+                  <li>
+                    <strong>Interpretation:</strong> If ΔG° &lt; 0 and |ΔG°| is large compared to RT, K will be much greater than 1;
+                    if ΔG° &gt; 0 and large, K will be much less than 1.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (() => {
+      const searchBox = document.getElementById('search-box');
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const toast = document.getElementById('toast');
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message || 'Copied to clipboard';
+        toast.classList.add('visible');
+        if (toastTimeoutId) window.clearTimeout(toastTimeoutId);
+        toastTimeoutId = window.setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1500);
+      };
+
+      const copyText = async (text) => {
+        if (!text) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Copy failed');
+        }
+      };
+
+      // Double-click to copy any non-trivial text
+      document.addEventListener('dblclick', (event) => {
+        const target = event.target;
+        if (!target) return;
+        let text = target.innerText || target.textContent || '';
+        if (text && text.trim().length >= 3) {
+          copyText(text.trim());
+        }
+      });
+
+      // Copy buttons for formulas
+      document.querySelectorAll('.copy-button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const formula = btn.previousElementSibling;
+          if (!formula) return;
+          const text = (formula.innerText || formula.textContent || '').trim();
+          if (text) {
+            copyText(text);
+          }
+        });
+      });
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach((node) => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          node.classList.toggle('collapsed');
+        });
+      });
+
+      // Search/filter
+      const applyFilter = () => {
+        const term = (searchBox.value || '').toLowerCase().trim();
+        cards.forEach((card) => {
+          if (!term) {
+            card.style.display = '';
+            return;
+          }
+          const text = (card.innerText || card.textContent || '').toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      };
+
+      if (searchBox) {
+        searchBox.addEventListener('input', applyFilter);
+      }
+
+      // Scroll-linked nav highlighting
+      const setActiveNavLink = (id) => {
+        navLinks.forEach((link) => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active-link');
+          } else {
+            link.classList.remove('active-link');
+          }
+        });
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const targetId = href.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (!targetEl) return;
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveNavLink(targetId);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
+          }
+        });
+        if (best && best.target && best.target.id) {
+          setActiveNavLink(best.target.id);
+        }
+      }, {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      });
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+</body>
+</html>
+

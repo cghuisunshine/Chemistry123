@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Chapter 25 Concept Map</title>
+  <style>
+    :root {
+      --bg:#050914;
+      --card:#111827;
+      --card-alt:#1f2937;
+      --text:#e9edf5;
+      --accent:#e879f9;
+      --muted:#94a3b8;
+      --border:#334155;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:row;
+    }
+    .sidebar{
+      width:260px;
+      background:rgba(15,23,42,0.95);
+      border-right:1px solid var(--border);
+      padding:1.5rem;
+      position:sticky;
+      top:0;
+      height:100vh;
+    }
+    .sidebar h1{
+      margin:0 0 0.75rem;
+      font-size:1.25rem;
+    }
+    .sidebar input{
+      width:100%;
+      padding:0.55rem;
+      border-radius:0.35rem;
+      border:1px solid var(--border);
+      background:#0f172a;
+      color:var(--text);
+      margin-bottom:1rem;
+    }
+    .sidebar nav{
+      display:flex;
+      flex-direction:column;
+      gap:0.4rem;
+    }
+    .sidebar a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:0.95rem;
+      padding:0.35rem 0.5rem;
+      border-radius:0.35rem;
+      border:1px solid transparent;
+    }
+    .sidebar a:hover{
+      border-color:var(--accent);
+      background:rgba(232,121,249,0.15);
+    }
+    .content-area{
+      flex:1;
+      background:linear-gradient(180deg,#020617,#050914);
+      padding:2rem;
+      display:flex;
+      flex-direction:column;
+      gap:1.25rem;
+    }
+    .section-card{
+      background:var(--card);
+      border-radius:1rem;
+      padding:1.5rem;
+      border:1px solid var(--border);
+      box-shadow:0 15px 35px rgba(0,0,0,0.45);
+    }
+    .section-card h2{
+      margin:0 0 0.85rem;
+      font-size:1.35rem;
+    }
+    .nodes{
+      display:flex;
+      flex-direction:column;
+      gap:0.75rem;
+    }
+    .node-toggle{
+      background:#0b111f;
+      border:1px solid var(--border);
+      border-radius:0.5rem;
+      padding:0.55rem 0.75rem;
+      color:var(--text);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .node-toggle span{
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+    .node-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.35s ease;
+      background:var(--card-alt);
+      border-radius:0.6rem;
+      border:1px solid var(--border);
+      padding:0 0.85rem;
+    }
+    .node-content.open{
+      padding:0.85rem;
+      max-height:1000px;
+    }
+    .node-content p,
+    .node-content ul{
+      margin:0;
+      line-height:1.6;
+      color:var(--text);
+    }
+    .node-content ul{
+      padding-left:1rem;
+      margin-top:0.3rem;
+    }
+    .inline-code{
+      font-family:"JetBrains Mono", "SFMono-Regular",monospace;
+      background:rgba(226,232,240,0.05);
+      padding:0.1rem 0.35rem;
+      border-radius:0.4rem;
+      border:1px solid rgba(148,163,184,0.4);
+    }
+    .copy-btn{
+      margin-left:0.3rem;
+      background:transparent;
+      border:none;
+      color:var(--accent);
+      cursor:pointer;
+    }
+    #toast{
+      position:fixed;
+      bottom:1.5rem;
+      right:1.5rem;
+      padding:0.65rem 1rem;
+      border-radius:0.55rem;
+      border:1px solid rgba(232,121,249,0.5);
+      background:rgba(15,23,42,0.95);
+      opacity:0;
+      transition:opacity 0.3s ease;
+    }
+    @media (max-width:900px){
+      .page{
+        flex-direction:column;
+      }
+      .sidebar{
+        width:100%;
+        height:auto;
+        position:static;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+      }
+      .content-area{
+        padding:1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <h1>Chapter 25 Map</h1>
+      <p style="color:var(--muted);font-size:0.9rem;">Filter topics, expand nodes, and double-click any text block to copy it.</p>
+      <input id="section-search" type="search" placeholder="Search concepts…" />
+      <nav>
+        <a href="#section-25-1">25.1 Stereochemistry</a>
+        <a href="#section-25-2">25.2 Cis–Trans Cycloalkanes</a>
+        <a href="#section-25-3">25.3 Chirality & Enantiomers</a>
+        <a href="#section-25-4">25.4 Optical Activity</a>
+        <a href="#section-25-5">25.5 Absolute Stereochemistry</a>
+        <a href="#section-25-6">25.6 Multiple Stereocenters</a>
+      </nav>
+    </aside>
+    <main class="content-area">
+      <article class="section-card" id="section-25-1" data-keywords="stereochemistry isomers enantiomer diastereomer meso limonene">
+        <h2>25.1 Stereochemistry in Organic Chemistry</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-1" aria-expanded="false">
+              Roots <span>Core definitions</span>
+            </button>
+            <div class="node-content" id="roots-25-1">
+              <p><strong>Stereochemistry</strong> traces how a compound’s atoms occupy three-dimensional space, shaping not only bulk properties but also how molecules fit into enzymes or receptors.</p>
+              <p><strong>Stereoisomers</strong> share formulas and connectivities but differ by spatial arrangement; include <strong>geometric isomers</strong> (cis/trans), <strong>enantiomers</strong> (non-superimposable mirror images), and <strong>diastereomers</strong> (stereoisomers that are not mirrors).</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-1" aria-expanded="false">
+              Trunk <span>Conceptual rules</span>
+            </button>
+            <div class="node-content" id="trunk-25-1">
+              <ul>
+                <li>Constitutional isomers rearrange bonds, stereoisomers preserve connectivity but reorganize positions in 3D.</li>
+                <li>Enantiomers are always paired; they differ only in a chiral environment, while diastereomers can have distinct physical constants.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-1" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-1">
+              <p>Limonene enantiomers smell like oranges vs lemons despite identical formula and connectivity—only the “handedness” changes how the nose receptors bind.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card" id="section-25-2" data-keywords="cis trans cycloalkane wedge dash ring strain">
+        <h2>25.2 Cis–Trans Isomerism in Cycloalkanes</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-2" aria-expanded="false">
+              Roots <span>Definitions</span>
+            </button>
+            <div class="node-content" id="roots-25-2">
+              <p><strong>Geometric (cis/trans) isomers</strong> appear when substituents on a ring point to the same side (cis) or opposite sides (trans) of the plane.</p>
+              <p>Ring strain constrains rotation, so cycloalkanes keep these orientations fixed unless a C–C bond is broken.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-2" aria-expanded="false">
+              Trunk <span>Visualization</span>
+            </button>
+            <div class="node-content" id="trunk-25-2">
+              <ul>
+                <li>Use wedge (solid triangle) for bonds toward the viewer, dashed wedge for away, and plain lines for in-plane bonds.</li>
+                <li>Naming adds stereodescriptors, e.g., <strong>cis-1-ethyl-2-methylcyclohexane</strong> if both substituents stick out the same way.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-2" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-2">
+              <p>1,2-Dimethylcyclohexane has three stereoisomers (cis plus two trans) that cannot interconvert without breaking the ring, demonstrating geometric constraints.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card" id="section-25-3" data-keywords="chirality stereogenic center enantiomer chiral achiral carvone chiral environment">
+        <h2>25.3 Chirality in Organic Compounds</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-3" aria-expanded="false">
+              Roots <span>Core definitions</span>
+            </button>
+            <div class="node-content" id="roots-25-3">
+              <p><strong>Chiral molecules</strong> lack an internal mirror plane and have non-superimposable mirror images called <strong>enantiomers</strong>.</p>
+              <p>A <strong>stereogenic center</strong> (often a carbon with four different groups) guarantees chirality unless symmetry reappears.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-3" aria-expanded="false">
+              Trunk <span>Rules</span>
+            </button>
+            <div class="node-content" id="trunk-25-3">
+              <ul>
+                <li>Achiral molecules usually possess a plane of symmetry; meso compounds are special cases where stereocenters are present but overall molecule remains achiral.</li>
+                <li>Enantiomers have identical physical properties (melting point, boiling point) but respond differently in chiral environments, like smell receptors.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-3" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-3">
+              <p>Carvone enantiomers illustrate how chirality changes a smell: (+)-carvone smells like spearmint, (–)-carvone like caraway, even though the structures differ only by mirror-image arrangement.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card" id="section-25-4" data-keywords="optical activity polarimeter specific rotation racemic invert sugar">
+        <h2>25.4 Measuring Optical Activity</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-4" aria-expanded="false">
+              Roots <span>Definition</span>
+            </button>
+            <div class="node-content" id="roots-25-4">
+              <p>Chiral solutions rotate plane-polarized light; (+) enantiomers rotate right, (–) rotate left, and racemic mixtures yield zero net rotation.</p>
+              <p>A polarimeter detects this rotation by sending polarized light through a solution cell.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-4" aria-expanded="false">
+              Trunk <span>Formula</span>
+            </button>
+            <div class="node-content" id="trunk-25-4">
+              <p><span class="inline-code">[α]^D_20 = α / (c × l)</span>
+              <button class="copy-btn" data-copy="[alpha]^D_20 = alpha / (c * l)" aria-label="Copy specific rotation formula">📋</button></p>
+              <p>Here α is observed rotation (degrees), c is concentration (g/cm³), l is path length (dm), D indicates sodium lamp, and 20 is temperature (°C).</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-4" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-4">
+              <p>Hydrolysis of sucrose (specific rotation +65°) into glucose (+53°) and fructose (–89.5°) flips the optical rotation because the magnitudes sum to –36.5° for the mixture.</p>
+              <p>Calculating observed rotation for (-)-carvone uses the formula: substituting α, c, and l gives the measured twist of polarized light.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card" id="section-25-5" data-keywords="absolute configuration R S priority rules Cahn Ingold Prelog albuterol ibuprofen thalidomide">
+        <h2>25.5 Absolute Stereochemistry</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-5" aria-expanded="false">
+              Roots <span>Priority rules</span>
+            </button>
+            <div class="node-content" id="roots-25-5">
+              <p>The Cahn–Ingold–Prelog system assigns priorities to substituents based on atomic number and chain comparisons; highest gets 1, lowest 4.</p>
+              <p>Orient the molecule with priority 4 away, then trace from 1→3: clockwise means R, counterclockwise means S.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-5" aria-expanded="false">
+              Trunk <span>Step-by-step</span>
+            </button>
+            <div class="node-content" id="trunk-25-5">
+              <ol style="padding-left:1rem;margin:0.1rem 0;">
+                <li>Identify the stereocenter and the four atoms directly attached.</li>
+                <li>Rank atoms by atomic number (Br>Cl>O>N>C>H); break ties by examining the next atoms along each branch.</li>
+                <li>Arrange so the lowest priority group points away; read the sequence 1→3.</li>
+              </ol>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-5" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-5">
+              <p>Using the rules on (R)-2-butanol yields R configuration once priorities are assigned (OH>CH2CH3>CH3>H).</p>
+              <p>Chiral drugs illustrate why R/S matter: (R)-albuterol opens airways while (S)-albuterol blocks it, and (S)-ibuprofen provides pain relief while the R isomer is less active until enzymatically converted.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="section-card" id="section-25-6" data-keywords="2^n meso diastereomer resolution RAMBA diastereomeric salt">
+        <h2>25.6 Molecules with More than One Stereocenter</h2>
+        <div class="nodes">
+          <div>
+            <button class="node-toggle" data-target="roots-25-6" aria-expanded="false">
+              Roots <span>Key formula</span>
+            </button>
+            <div class="node-content" id="roots-25-6">
+              <p><span class="inline-code">Number of stereoisomers = 2^n</span>
+              <button class="copy-btn" data-copy="Number of stereoisomers = 2^n" aria-label="Copy stereoisomer count formula">📋</button></p>
+              <p>n equals the number of stereocenters; this predicts the maximum total of enantiomers and diastereomers.</p>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="trunk-25-6" aria-expanded="false">
+              Trunk <span>Relationships</span>
+            </button>
+            <div class="node-content" id="trunk-25-6">
+              <ul>
+                <li>Two stereocenters produce four stereoisomers: two enantiomer pairs (e.g., (R,R)/(S,S) and (R,S)/(S,R)).</li>
+                <li>Diastereomers are not mirror images and show different physical/chemical properties, so you can separate them.</li>
+                <li>Meso compounds (like (R,S)-2,3-dibromobutane) possess internal symmetry and are achiral despite multiple stereocenters.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <button class="node-toggle" data-target="leaves-25-6" aria-expanded="false">
+              Leaves <span>Examples</span>
+            </button>
+            <div class="node-content" id="leaves-25-6">
+              <p>2-bromo-3-chlorobutane has (R,R), (S,S), (R,S), (S,R) stereoisomers; (R,R) and (S,S) are enantiomers, the mixed pairs are diastereomers.</p>
+              <p>Resolution strategy: convert a racemic acid to diastereomeric salts (e.g., with (R)-α-methylbenzylamine); diastereomers have different solubilities, so you can crystallize and liberate the purified enantiomer.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    const toggles = document.querySelectorAll('.node-toggle');
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        target.classList.toggle('open', !expanded);
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    const showToast = (message) => {
+      toast.textContent = message;
+      toast.style.opacity = '1';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+      }, 2000);
+    };
+
+    const copyText = (text) => {
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard'));
+    };
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => copyText(btn.dataset.copy));
+    });
+
+    document.body.addEventListener('dblclick', (event) => {
+      const container = event.target.closest('.node-content');
+      if (!container) return;
+      copyText(container.innerText);
+    });
+
+    const searchInput = document.getElementById('section-search');
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('.section-card').forEach(card => {
+        const keywords = card.dataset.keywords || '';
+        card.style.display = query === '' || keywords.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
