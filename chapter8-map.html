@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chem 123 – Chapter 8 Concept Map: Basic Concepts of Chemical Bonding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-elevated: #0b1020;
+      --bg-elevated-soft: #11182a;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.12);
+      --accent-strong: #3ab5a8;
+      --accent-danger: #f56565;
+      --text-main: #f7fafc;
+      --text-muted: #a0aec0;
+      --border-subtle: #2d3748;
+      --border-strong: #4a5568;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.24s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a365d 0, #050814 45%, #020309 100%);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1rem 2.75rem;
+    }
+
+    header.app-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-header-title {
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e2e8f0;
+    }
+
+    .app-header-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    nav.sidebar {
+      flex: 0 0 260px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: var(--shadow-soft);
+      padding: 0.85rem 0.85rem 0.95rem;
+      position: sticky;
+      top: 0.75rem;
+      max-height: calc(100vh - 1.5rem);
+      overflow-y: auto;
+    }
+
+    .sidebar-section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .search-box {
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 2rem 0.45rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: rgba(148, 163, 184, 0.8);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(79, 209, 197, 0.4);
+      background: #020617;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      color: rgba(148, 163, 184, 0.9);
+      pointer-events: none;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar-links li {
+      margin: 0;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: rgba(226, 232, 240, 0.9);
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform 0.08s ease-out;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(148, 163, 184, 0.6);
+      transform: translateY(-0.5px);
+    }
+
+    .sidebar-link span.code {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+      margin-right: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sidebar-link span.kind-chip {
+      font-size: 0.68rem;
+      padding: 0.08rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.3);
+      color: rgba(190, 242, 237, 0.95);
+      border: 1px solid rgba(45, 212, 191, 0.9);
+      margin-left: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .sidebar-footer {
+      margin-top: 0.7rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid rgba(30, 64, 175, 0.6);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sidebar-footer-accent {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    .sidebar-reset {
+      margin-top: 0.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      cursor: pointer;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform 0.08s ease-out;
+    }
+
+    .sidebar-reset:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(148, 163, 184, 0.9);
+      color: #e2e8f0;
+      transform: translateY(-0.5px);
+    }
+
+    main.content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .section-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 0.95rem 0.95rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(79, 209, 197, 0.08), transparent 55%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-title-code {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      padding: 0.08rem 0.42rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .section-title-text {
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .section-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .nodes-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    @media (max-width: 960px) {
+      .nodes-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .node {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(71, 85, 105, 0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .node.roots {
+      border-color: rgba(56, 161, 105, 0.8);
+    }
+
+    .node.trunk {
+      border-color: rgba(79, 209, 197, 0.9);
+    }
+
+    .node.leaves {
+      border-color: rgba(129, 140, 248, 0.9);
+    }
+
+    .node-header {
+      width: 100%;
+      padding: 0.4rem 0.55rem;
+      border: none;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+      text-align: left;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .node-header-label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .node-header-pill {
+      font-size: 0.65rem;
+      padding: 0.06rem 0.32rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      text-transform: none;
+      font-weight: 500;
+      color: rgba(226, 232, 240, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .node-header-node-type.roots {
+      color: #bbf7d0;
+    }
+
+    .node-header-node-type.trunk {
+      color: #a5f3fc;
+    }
+
+    .node-header-node-type.leaves {
+      color: #c7d2fe;
+    }
+
+    .node-chevron {
+      font-size: 0.7rem;
+      opacity: 0.8;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .node-body {
+      padding: 0.48rem 0.6rem 0.6rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      max-height: 700px;
+      overflow-y: auto;
+      transition: max-height var(--transition-med), opacity var(--transition-med), padding-bottom var(--transition-fast);
+    }
+
+    .node.collapsed .node-body {
+      max-height: 0;
+      padding-bottom: 0;
+      opacity: 0;
+    }
+
+    .node.collapsed .node-chevron {
+      transform: rotate(-90deg);
+      opacity: 0.6;
+    }
+
+    .node-body p {
+      margin: 0 0 0.35rem;
+      line-height: 1.45;
+    }
+
+    .node-body ul {
+      margin: 0 0 0.35rem 1.1rem;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin-bottom: 0.18rem;
+    }
+
+    .node-body code {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 0.76rem;
+      padding: 0.04rem 0.32rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: #e0f2fe;
+    }
+
+    .formula-line {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    .copy-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(15, 23, 42, 0.98);
+      color: rgba(226, 232, 240, 0.95);
+      font-size: 0.72rem;
+      padding: 0.02rem 0.35rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform 0.08s ease-out;
+    }
+
+    .copy-btn:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: var(--accent);
+      color: #f9fafb;
+      transform: translateY(-0.5px);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.78rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.68rem;
+    }
+
+    .hint {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.22rem;
+    }
+
+    .highlighted {
+      outline: 1px solid rgba(129, 230, 217, 0.85);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+    }
+
+    .hidden-by-filter {
+      display: none !important;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 0.9rem;
+      right: 0.9rem;
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 50;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        padding: 0.8rem 0.6rem 2.4rem;
+      }
+      .layout {
+        flex-direction: column;
+      }
+      nav.sidebar {
+        position: static;
+        max-height: none;
+        order: 0;
+      }
+      main.content {
+        order: 1;
+      }
+      .section-card {
+        padding: 0.8rem 0.8rem 0.85rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-header-title {
+        font-size: 1.1rem;
+      }
+      .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+      }
+      .toast {
+        left: 0.8rem;
+        right: 0.8rem;
+        border-radius: var(--radius-md);
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-title">Chapter 8 &mdash; Basic Concepts of Chemical Bonding</div>
+      <div class="app-header-subtitle">Interactive concept map: roots (core ideas), trunk (formulas & rules), leaves (examples & tips). Double-click text or use 📋 buttons to copy.</div>
+    </header>
+
+    <div class="layout">
+      <nav class="sidebar" aria-label="Chapter 8 navigation">
+        <div class="sidebar-section-label">Sections</div>
+        <div class="search-box">
+          <input id="search-input" class="search-input" type="search" placeholder="Filter sections by keyword..." />
+          <span class="search-icon">🔎</span>
+        </div>
+        <ul class="sidebar-links">
+          <li><button class="sidebar-link" data-target="sec-8-0"><span class="code">8.0</span><span class="label">Overview: bond types & valence e⁻</span><span class="kind-chip">Intro</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-1"><span class="code">8.1</span><span class="label">Lewis symbols & octet rule</span><span class="kind-chip">Roots</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-2"><span class="code">8.2</span><span class="label">Ionic bonding & lattice energy</span><span class="kind-chip">Ionic</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-3"><span class="code">8.3</span><span class="label">Covalent bonds & bond order</span><span class="kind-chip">Covalent</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-4"><span class="code">8.4</span><span class="label">Bond polarity & electronegativity</span><span class="kind-chip">Polarity</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-5"><span class="code">8.5</span><span class="label">Drawing Lewis structures & formal charge</span><span class="kind-chip">Structures</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-6"><span class="code">8.6</span><span class="label">Resonance structures</span><span class="kind-chip">Resonance</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-7"><span class="code">8.7</span><span class="label">Exceptions to the octet rule</span><span class="kind-chip">Exceptions</span></button></li>
+          <li><button class="sidebar-link" data-target="sec-8-8"><span class="code">8.8</span><span class="label">Bond strength & bond length</span><span class="kind-chip">Strength</span></button></li>
+        </ul>
+        <div class="sidebar-footer">
+          <div>Tip: type e.g. <span class="sidebar-footer-accent">octet</span>, <span class="sidebar-footer-accent">lattice</span>, or <span class="sidebar-footer-accent">dipole</span> to show matching cards.</div>
+          <button class="sidebar-reset" type="button" id="reset-filter">
+            <span>Reset filter</span>
+          </button>
+        </div>
+      </nav>
+
+      <main class="content">
+        <!-- 8.0 Overview -->
+        <section class="section-card" id="sec-8-0" data-keywords="overview bond types valence electrons ionic covalent metallic">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.0</span>
+                <span class="section-title-text">Overview &mdash; Chemical Bonds and Valence Electrons</span>
+              </h2>
+              <div class="section-meta">Big picture: what bonds are & which electrons matter</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Core ideas & definitions</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>Whenever atoms or ions are held together strongly, we say there is a chemical bond between them. The three main bonding “flavors” are:</p>
+                  <ul>
+                    <li><strong>Ionic bonds</strong>: electrostatic attractions between positive and negative ions, usually a metal cation and a nonmetal anion, arranged in a repeating ionic lattice.</li>
+                    <li><strong>Covalent bonds</strong>: two nonmetal atoms share one or more pairs of electrons, forming discrete molecules like H₂O or CO₂.</li>
+                    <li><strong>Metallic bonds</strong>: many metal atoms share a “sea of electrons” that can move throughout the solid, explaining properties like conductivity and malleability.</li>
+                  </ul>
+                  <p>The electrons that matter most for bonding are the <strong>valence electrons</strong>, which are in the outermost occupied shell. These determine how an atom will bond and what ions or molecules it tends to form.</p>
+                  <p class="hint">Think: “core electrons stay home; valence electrons go out to bond.”</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Patterns & classifications</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>Common bonding patterns in main-group chemistry:</p>
+                  <ul>
+                    <li><strong>Metal + nonmetal</strong> → often forms an <strong>ionic</strong> compound with cations (from metal) and anions (from nonmetal).</li>
+                    <li><strong>Nonmetal + nonmetal</strong> → usually forms <strong>covalent</strong> molecules by sharing electron pairs.</li>
+                    <li><strong>Metal + metal</strong> in bulk → <strong>metallic</strong> bonding with delocalized electrons, giving high electrical and thermal conductivity.</li>
+                  </ul>
+                  <p>As you move through the chapter, you’ll repeatedly connect these three patterns back to the same basic idea: valence electrons either transfer, share locally, or delocalize.</p>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Examples & interpretations</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Salt in water.</strong> Sodium chloride (NaCl) contains Na⁺ and Cl⁻ ions held in an ionic lattice. When you put it in water, the polar water molecules surround and separate the ions.</p>
+                  <p><strong>Water in a glass.</strong> H₂O has covalent bonds between H and O. The molecules attract each other through weaker intermolecular forces, not ionic bonds.</p>
+                  <p><strong>Metal spoon.</strong> In stainless steel, metal atoms are packed together and share delocalized electrons. This “sea” can carry charge and heat, unlike in ionic or molecular solids.</p>
+                  <p class="hint">Use these familiar items to anchor your intuition: salt = ionic, water = covalent, metal = metallic.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.1 Lewis Symbols & Octet Rule -->
+        <section class="section-card" id="sec-8-1" data-keywords="8.1 lewis symbols octet rule valence electrons noble gas configuration">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.1</span>
+                <span class="section-title-text">Lewis Symbols and the Octet Rule</span>
+              </h2>
+              <div class="section-meta">Representing valence electrons & why “8” is special</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Valence electrons</strong> are the outermost electrons and are responsible for bonding. For most main-group elements, they are the electrons in the highest principal energy level (n).</p>
+                  <p>A <strong>Lewis symbol</strong> represents an atom’s valence electrons as dots drawn around the element symbol. Each dot is one valence electron.</p>
+                  <ul>
+                    <li>Dots are placed on four sides of the symbol; each side can hold up to two dots.</li>
+                    <li>Dots are spread out as much as possible before pairing them.</li>
+                    <li>The number of dots equals the number of valence electrons.</li>
+                  </ul>
+                  <p>The <strong>octet rule</strong> says that atoms tend to gain, lose, or share electrons until they are surrounded by eight valence electrons, like the noble gases (except He, which is stable with two).</p>
+                  <p class="hint">Group number tells valence electrons: Group 1 → 1, Group 16 → 6, Group 17 → 7, etc., for main-group elements.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Formulas, rules & patterns</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <div class="formula-line">
+                    <code>Lewis symbol: element symbol + 1 dot per valence e⁻</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+                  </div>
+                  <p>This is a simple bookkeeping tool: it tracks only valence electrons, which are the ones that will be lost, gained, or shared in bonding.</p>
+
+                  <div class="formula-line">
+                    <code>Octet rule: atoms gain, lose, or share e⁻ until they have 8 valence e⁻</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+                  </div>
+                  <p>The octet corresponds to filled s and p subshells (ns²np⁶). Atoms that reach a noble-gas configuration are generally low in energy and relatively stable.</p>
+
+                  <p>For <strong>main-group elements</strong> (representative elements):</p>
+                  <ul>
+                    <li>Group 1 → 1 valence electron (e.g., Li, Na).</li>
+                    <li>Group 2 → 2 valence electrons (e.g., Be, Mg).</li>
+                    <li>Group 13 → 3 valence electrons, …, Group 18 → 8 (except He).</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example 1: Lewis symbol for oxygen.</strong></p>
+                  <ul>
+                    <li>O is in Group 16 → 6 valence electrons.</li>
+                    <li>Draw O with 6 dots around it. Spread them out: one on each side first, then pair.</li>
+                  </ul>
+
+                  <p><strong>Example 2: Na and Cl obey the octet rule in NaCl.</strong></p>
+                  <ul>
+                    <li>Na: [Ne]3s¹ → loses 1 electron → Na⁺ has [Ne] (8 valence electrons) configuration.</li>
+                    <li>Cl: [Ne]3s²3p⁵ → gains 1 electron → Cl⁻ has [Ar]-like configuration (octet).</li>
+                    <li>Both ions reach noble-gas electron counts, explaining the stability of NaCl.</li>
+                  </ul>
+
+                  <p class="hint">When in doubt, sketch the Lewis symbol and count dots: 8 dots around an atom (or 2 for H/He) usually signals “happy, stable” in main-group chemistry.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.2 Ionic Bonding -->
+        <section class="section-card" id="sec-8-2" data-keywords="8.2 ionic bonding lattice energy coulomb born haber cations anions">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.2</span>
+                <span class="section-title-text">Ionic Bonding</span>
+              </h2>
+              <div class="section-meta">Electron transfer, ionic lattices, and lattice energy</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>An <strong>ionic bond</strong> results from electron transfer from one atom to another, forming positively charged cations and negatively charged anions that attract each other strongly.</p>
+                  <p>Ionic substances typically form when:</p>
+                  <ul>
+                    <li>A <strong>metal</strong> with low ionization energy loses electron(s) to become a cation.</li>
+                    <li>A <strong>nonmetal</strong> with high electron affinity gains electron(s) to become an anion.</li>
+                  </ul>
+                  <p>In the solid, ions are arranged in a three-dimensional <strong>ionic lattice</strong>, not as separate molecules. This lattice leads to properties such as high melting points, brittleness, and crystalline structure.</p>
+                  <p><strong>Lattice energy</strong> is the energy required to completely separate 1 mol of an ionic solid into its gaseous ions; it reflects how strongly the ions attract one another.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Formulas, rules & patterns</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <div class="formula-line">
+                    <code>Na(s) + ½Cl₂(g) → NaCl(s)</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+                  </div>
+                  <p>This reaction is strongly exothermic: Na(s) loses an electron to form Na⁺, Cl₂ gains electrons to form Cl⁻, and the resulting ions pack into an ionic solid.</p>
+
+                  <div class="formula-line">
+                    <code>NaCl(s) → Na⁺(g) + Cl⁻(g)   ΔH = +ΔHₗₐₜₜᵢcₑ</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+                  </div>
+                  <p><strong>Lattice energy</strong> (ΔHₗₐₜₜᵢcₑ) is defined for breaking the solid into gas-phase ions; forming the solid releases the same magnitude of energy.</p>
+
+                  <div class="formula-line">
+                    <code>Eₑₗ = kQ₁Q₂ / d</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy Eel</span></button>
+                  </div>
+                  <p><strong>Coulomb’s law</strong> expresses the electrostatic potential energy between two charges:</p>
+                  <ul>
+                    <li><code>Q₁</code> and <code>Q₂</code> are the charges (in C) with their signs.</li>
+                    <li><code>d</code> is the distance between charge centers (in m).</li>
+                    <li><code>k</code> is a constant (≈ 8.99×10⁹ J·m·C⁻²).</li>
+                    <li>For opposite charges (e.g. + and −), <code>Q₁Q₂ &lt; 0</code>, so <code>Eₑₗ</code> is negative (attractive).</li>
+                  </ul>
+                  <p>This tells us that lattice energy is larger when ion charges are larger and when ions are smaller (so <code>d</code> is smaller).</p>
+
+                  <p><strong>Charge trends for main-group ions:</strong></p>
+                  <ul>
+                    <li>Group 1 → +1; Group 2 → +2; Group 13 → +3.</li>
+                    <li>Group 15 → −3; Group 16 → −2; Group 17 → −1.</li>
+                  </ul>
+
+                  <p><strong>Born–Haber cycle (concept):</strong> use Hess’s law to sum steps like sublimation, ionization energy, bond breaking, electron affinity, and lattice formation to solve for ΔHₗₐₜₜᵢcₑ.</p>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: ordering lattice energies (NaF, CsI, CaO).</strong></p>
+                  <ul>
+                    <li>NaF: 1⁺/1⁻ ions, relatively small → fairly large lattice energy.</li>
+                    <li>CsI: 1⁺/1⁻ ions, larger ions → smaller lattice energy than NaF.</li>
+                    <li>CaO: 2⁺/2⁻ ions → very large charge product; lattice energy much larger than 1⁺/1⁻ salts.</li>
+                    <li>Order (increasing lattice energy): CsI &lt; NaF &lt; CaO.</li>
+                  </ul>
+
+                  <p><strong>Why Na²⁺ and Cl²⁻ don’t form in typical ionic solids.</strong></p>
+                  <ul>
+                    <li>Removing a second electron from Na would come from an inner shell → extremely high ionization energy.</li>
+                    <li>Adding a second electron to Cl to make Cl²⁻ would force it into a higher shell → very unfavorable.</li>
+                    <li>Even strong lattice energy cannot compensate for such huge energy costs.</li>
+                  </ul>
+
+                  <p class="hint">When predicting formulas and charges, combine the octet rule with the idea that removing or adding inner-shell electrons is almost never worth the energy cost.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.3 Covalent Bonding -->
+        <section class="section-card" id="sec-8-3" data-keywords="8.3 covalent bonding single double triple bond order">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.3</span>
+                <span class="section-title-text">Covalent Bonding</span>
+              </h2>
+              <div class="section-meta">Sharing electrons & how many bonds atoms like to make</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>In a <strong>covalent bond</strong>, two atoms share one or more pairs of electrons. This sharing allows each atom to reach a more stable electron configuration, often an octet.</p>
+                  <ul>
+                    <li><strong>Single bond</strong>: one shared pair of electrons between two atoms.</li>
+                    <li><strong>Double bond</strong>: two shared pairs (four electrons) between the same two atoms.</li>
+                    <li><strong>Triple bond</strong>: three shared pairs (six electrons) between the same two atoms.</li>
+                  </ul>
+                  <p>Multiple bonds (double or triple) generally make the atoms closer together and the bond stronger than a single bond between the same atoms.</p>
+                  <p>Typical bonding patterns for second-row nonmetals:</p>
+                  <ul>
+                    <li>Group 17 (F, Cl) → 1 bond.</li>
+                    <li>Group 16 (O, S) → 2 bonds.</li>
+                    <li>Group 15 (N, P) → 3 bonds.</li>
+                    <li>Group 14 (C, Si) → 4 bonds.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Patterns & bond order</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <div class="formula-line">
+                    <code>Bond order: single = 1, double = 2, triple = 3</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+                  </div>
+                  <p>For a given pair of atoms (for example, C–C), a higher bond order means more electron density between the nuclei, resulting in a shorter, stronger bond.</p>
+
+                  <p>Second-row nonmetals often follow “default” valence expectations when neutral:</p>
+                  <ul>
+                    <li>C tends to form 4 covalent bonds.</li>
+                    <li>N tends to form 3 covalent bonds and 1 lone pair.</li>
+                    <li>O tends to form 2 bonds and 2 lone pairs.</li>
+                    <li>F tends to form 1 bond and 3 lone pairs.</li>
+                  </ul>
+
+                  <p>These patterns connect directly to their valence electron counts and the octet rule.</p>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: H₂.</strong></p>
+                  <ul>
+                    <li>Each H has 1 valence electron.</li>
+                    <li>Sharing a pair of electrons gives each H access to 2 electrons, like He.</li>
+                    <li>The Lewis structure is H–H.</li>
+                  </ul>
+
+                  <p><strong>Example: Cl₂.</strong></p>
+                  <ul>
+                    <li>Each Cl has 7 valence electrons.</li>
+                    <li>Each shares 1 electron to form a single bond; each now has 8 electrons around it (octet).</li>
+                    <li>Structure: Cl–Cl, each Cl with 3 lone pairs.</li>
+                  </ul>
+
+                  <p><strong>Multiple bonding examples.</strong></p>
+                  <ul>
+                    <li>CO₂: O=C=O. C forms two double bonds (4 pairs shared); each O forms one double bond plus two lone pairs.</li>
+                    <li>N₂: N≡N. Each N shares three pairs; the triple bond is short and strong, explaining why N₂ is very stable and relatively inert.</li>
+                  </ul>
+
+                  <p class="hint">If a neutral C, N, or O appears with “too few” bonds in your drawing, check whether a multiple bond is needed to give octets.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.4 Bond Polarity & Electronegativity -->
+        <section class="section-card" id="sec-8-4" data-keywords="8.4 bond polarity electronegativity dipole moment debeye nonpolar polar ionic">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.4</span>
+                <span class="section-title-text">Bond Polarity and Electronegativity</span>
+              </h2>
+              <div class="section-meta">How unequally shared electrons produce dipoles</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Bond polarity</strong> describes how equally or unequally the electrons in a bond are shared.</p>
+                  <ul>
+                    <li><strong>Nonpolar covalent bond</strong>: electrons shared equally (e.g., H₂, Cl₂, N₂).</li>
+                    <li><strong>Polar covalent bond</strong>: electrons shared unequally; one atom pulls electron density more strongly (e.g., H–F, H–Cl).</li>
+                    <li><strong>Ionic bond</strong>: extreme case where electron transfer is nearly complete (e.g., NaCl).</li>
+                  </ul>
+                  <p><strong>Electronegativity</strong> (EN) is the ability of an atom in a molecule to attract electrons to itself.</p>
+                  <ul>
+                    <li>EN generally increases from left to right across a period and decreases down a group.</li>
+                    <li>Fluorine is the most electronegative element (EN ≈ 4.0); Cs is among the least (EN ≈ 0.7).</li>
+                  </ul>
+                  <p>A <strong>polar molecule</strong> has centers of positive and negative charge that do not coincide, giving it a net dipole moment.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Formulas & classification rules</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Electronegativity difference and bond type (approximate):</strong></p>
+                  <ul>
+                    <li>ΔEN ≈ 0–0.4 → mostly nonpolar covalent.</li>
+                    <li>ΔEN ≈ 0.4–2 → polar covalent.</li>
+                    <li>ΔEN ≳ 2 → very polar / ionic character.</li>
+                  </ul>
+
+                  <div class="formula-line">
+                    <code>μ = Q · r</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy μ</span></button>
+                  </div>
+                  <p>The <strong>dipole moment</strong> μ is the product of the separated charge and the distance between charges:</p>
+                  <ul>
+                    <li><code>μ</code>: dipole moment (C·m) or in debye (D).</li>
+                    <li><code>Q</code>: magnitude of the charge separation (C) or in units of e.</li>
+                    <li><code>r</code>: distance between charges (m).</li>
+                    <li>1 D = 3.34×10⁻³⁰ C·m.</li>
+                  </ul>
+
+                  <p>For a given bond, μ increases when either the charge separation increases (more ionic character) or the bond length increases, but in real molecules changes in EN often dominate over small changes in bond length.</p>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: polarity trend in hydrogen halides.</strong></p>
+                  <ul>
+                    <li>HF has the largest EN difference and the largest dipole moment (≈ 1.82 D).</li>
+                    <li>Going down the group to HCl, HBr, HI, the EN difference shrinks.</li>
+                    <li>Bond length gets longer, but the decreasing ΔEN dominates, so μ decreases from HF → HI.</li>
+                  </ul>
+
+                  <p><strong>Example: hypothetical “fully ionic” dipole.</strong></p>
+                  <ul>
+                    <li>Imagine a full +e and −e separated by 100 pm.</li>
+                    <li>Using <code>μ = Qr</code>, you get μ ≈ 4.8 D.</li>
+                    <li>Real polar covalent bonds, like HCl, have smaller μ values (≈ 1 D), indicating only partial charge separation.</li>
+                  </ul>
+
+                  <p><strong>Molecule vs bond polarity.</strong></p>
+                  <ul>
+                    <li>HF: one polar bond and asymmetry → polar molecule.</li>
+                    <li>CO₂: two polar C=O bonds but linear and symmetric → bond dipoles cancel, giving a nonpolar molecule.</li>
+                  </ul>
+
+                  <p class="hint">Decision tree: find ΔEN to guess bond polarity, then look at molecular shape to decide if the dipoles cancel or reinforce.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.5 Drawing Lewis Structures -->
+        <section class="section-card" id="sec-8-5" data-keywords="8.5 lewis structures formal charge octet drawing steps">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.5</span>
+                <span class="section-title-text">Drawing Lewis Structures & Formal Charge</span>
+              </h2>
+              <div class="section-meta">Systematic drawing + choosing the best structure</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>A <strong>Lewis structure</strong> shows which atoms are bonded, how many bonds there are, and where lone pairs are placed. It encodes the valence electron picture of a molecule or polyatomic ion.</p>
+                  <p>General procedure for drawing a Lewis structure:</p>
+                  <ol>
+                    <li><strong>Count valence electrons</strong> for all atoms; adjust for overall charge (add electrons for negative charge; subtract for positive).</li>
+                    <li><strong>Choose a central atom</strong> (often the least electronegative, not H) and connect surrounding atoms with single bonds.</li>
+                    <li><strong>Complete octets</strong> for outer atoms by adding lone pairs.</li>
+                    <li><strong>Place remaining electrons</strong> on the central atom.</li>
+                    <li>If the central atom still lacks an octet, <strong>form multiple bonds</strong> by converting lone pairs on surrounding atoms into bonding pairs.</li>
+                  </ol>
+                  <p><strong>Formal charge</strong> helps you choose the most reasonable structure when more than one satisfies the octet rule.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Formal charge formula & rules</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <div class="formula-line">
+                    <code>Formal charge = valence e⁻ − ½(bonding e⁻) − (nonbonding e⁻)</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy FC</span></button>
+                  </div>
+                  <p>To compute formal charge for an atom in a Lewis structure:</p>
+                  <ul>
+                    <li>Count all its lone-pair electrons (nonbonding).</li>
+                    <li>Add half of the bonding electrons (or simply count bonds and multiply by 1).</li>
+                    <li>Subtract that total from the valence electrons of the neutral atom (from the periodic table).</li>
+                  </ul>
+
+                  <p><strong>Guidelines for choosing the dominant Lewis structure:</strong></p>
+                  <ul>
+                    <li>Prefer structures where formal charges are small in magnitude (0, ±1).</li>
+                    <li>When negative formal charges are unavoidable, they should reside on more electronegative atoms.</li>
+                    <li>The sum of all formal charges must equal the overall charge on the molecule/ion.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: PCl₃.</strong></p>
+                  <ul>
+                    <li>Valence electrons: P (5) + 3×Cl (3×7) = 26 e⁻.</li>
+                    <li>Skeleton: Cl–P–Cl–Cl with three P–Cl single bonds → 6 e⁻ used.</li>
+                    <li>Complete Cl octets (3×6 = 18 e⁻) → total 24 used.</li>
+                    <li>Remaining 2 e⁻ go as a lone pair on P, giving P eight electrons.</li>
+                    <li>Formal charges: all atoms 0 → this is the preferred structure.</li>
+                  </ul>
+
+                  <p><strong>Example: HCN.</strong></p>
+                  <ul>
+                    <li>Valence electrons: H (1) + C (4) + N (5) = 10 e⁻.</li>
+                    <li>Skeleton: H–C–N → 4 e⁻ in bonds.</li>
+                    <li>Place remaining electrons to satisfy octets; you find C needs more bonds.</li>
+                    <li>Convert lone pairs on N into bonding pairs until C has an octet → H–C≡N.</li>
+                    <li>Final structure has a triple bond (C≡N) and satisfies the octet rule for C and N.</li>
+                  </ul>
+
+                  <p class="hint">If you have a valid Lewis structure but high formal charges or negative charge on an atom that’s not very electronegative, look for an alternative with multiple bonds and better formal charges.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.6 Resonance Structures -->
+        <section class="section-card" id="sec-8-6" data-keywords="8.6 resonance structures hybrid ozone nitrate benzene">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.6</span>
+                <span class="section-title-text">Resonance Structures</span>
+              </h2>
+              <div class="section-meta">Blending multiple valid Lewis pictures</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>Sometimes a single Lewis structure cannot explain the experimentally observed structure of a molecule or ion. In these cases, we use <strong>resonance structures</strong>.</p>
+                  <p><strong>Resonance structures</strong> are multiple valid Lewis structures that:</p>
+                  <ul>
+                    <li>Have the same arrangement of atoms.</li>
+                    <li>Differ only in the placement of electrons (bonds and lone pairs).</li>
+                  </ul>
+                  <p>The actual molecule is a <strong>resonance hybrid</strong>, a blend of all significant resonance structures. It does not flip back and forth between them; instead, its true electron distribution is intermediate.</p>
+                  <p>Resonance often leads to bonds that are all the same length, intermediate between single and double bonds, and to extra stability (as in benzene).</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Rules & bond order ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Rules for drawing resonance structures:</strong></p>
+                  <ul>
+                    <li>Keep atom positions fixed; only move electrons.</li>
+                    <li>Preserve the overall number of electrons and the overall charge.</li>
+                    <li>Each resonance structure should satisfy the octet rule as much as possible and have reasonable formal charges.</li>
+                  </ul>
+
+                  <p><strong>Effective bond order in resonance hybrids:</strong></p>
+                  <ul>
+                    <li>If two equivalent resonance structures place a double bond in different positions, each of those bonds in the hybrid has bond order between 1 and 2.</li>
+                    <li>Example: in ozone (O₃), the two O–O bonds have an effective bond order of about 1.5 each.</li>
+                    <li>In NO₃⁻, three equivalent resonance structures lead to three equal N–O bonds with bond order between 1 and 2.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: Ozone, O₃.</strong></p>
+                  <ul>
+                    <li>Lewis structures: one with double bond on the left, one with double bond on the right.</li>
+                    <li>Experiments show two identical O–O bond lengths, both intermediate between a single and a double bond.</li>
+                    <li>Conclusion: the real molecule is the resonance hybrid of both structures.</li>
+                  </ul>
+
+                  <p><strong>Example: Nitrate ion, NO₃⁻.</strong></p>
+                  <ul>
+                    <li>Three equivalent structures, each with one N=O and two N–O single bonds, but with the double bond in a different place.</li>
+                    <li>All N–O bonds are experimentally equal and intermediate in length.</li>
+                    <li>The negative charge is delocalized over the three oxygens, lowering the energy and stabilizing the ion.</li>
+                  </ul>
+
+                  <p><strong>Example: Benzene, C₆H₆.</strong></p>
+                  <ul>
+                    <li>Two structures with alternating single and double C–C bonds arranged in a hexagon.</li>
+                    <li>Experimentally, all C–C bonds are the same length, between a single and a double bond.</li>
+                    <li>This resonance leads to special stability characteristic of aromatic compounds.</li>
+                  </ul>
+
+                  <p class="hint">If your Lewis structure predicts different bond lengths for a molecule that experimentally has identical bonds, think “resonance.”</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.7 Exceptions to the Octet Rule -->
+        <section class="section-card" id="sec-8-7" data-keywords="8.7 exceptions octet rule odd electrons incomplete octet expanded hypervalent bf3 pf5">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.7</span>
+                <span class="section-title-text">Exceptions to the Octet Rule</span>
+              </h2>
+              <div class="section-meta">When atoms don’t follow “8 electrons” exactly</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p>The octet rule works for many main-group molecules, but there are important exceptions. They fall into three main categories:</p>
+                  <ol>
+                    <li><strong>Odd-electron species</strong>: molecules or ions with an odd number of total valence electrons. An octet cannot be given to every atom.</li>
+                    <li><strong>Incomplete octet (electron-deficient)</strong>: the central atom has fewer than eight valence electrons (common for B and Be).</li>
+                    <li><strong>Expanded octet (hypervalent)</strong>: the central atom has more than eight valence electrons (10, 12, etc.), possible only for atoms in period 3 or below.</li>
+                  </ol>
+                  <p>Hypervalent molecules are more common when a large central atom is surrounded by several small, very electronegative atoms such as F or Cl.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Classification & reasoning</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Odd-electron species.</strong></p>
+                  <ul>
+                    <li>Total valence electrons are odd (e.g., 11, 17).</li>
+                    <li>Examples: NO, NO₂, ClO₂, O₂⁻.</li>
+                    <li>These molecules often contain an unpaired electron and are radicals, usually quite reactive.</li>
+                  </ul>
+
+                  <p><strong>Incomplete octet (electron-deficient).</strong></p>
+                  <ul>
+                    <li>Central atom has less than 8 electrons, often 6.</li>
+                    <li>Common elements: B, Be.</li>
+                    <li>Sometimes giving them an octet creates unfavorable formal charges (e.g., putting positive charge on a very electronegative atom), so the electron-deficient structure is actually preferred.</li>
+                  </ul>
+
+                  <p><strong>Expanded octet (hypervalent).</strong></p>
+                  <ul>
+                    <li>Central atom has more than 8 electrons (10, 12, etc.).</li>
+                    <li>Only atoms from period 3 onward (e.g., P, S, Cl, Br, I) can do this, because they are larger.</li>
+                    <li>The main reason is spatial: a larger atom can accommodate more bonded atoms around it without severe crowding.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: odd-electron NO.</strong></p>
+                  <ul>
+                    <li>N (5 e⁻) + O (6 e⁻) = 11 valence electrons.</li>
+                    <li>Any reasonable Lewis structure ends up with one unpaired electron.</li>
+                    <li>NO is a radical and relatively reactive.</li>
+                  </ul>
+
+                  <p><strong>Example: incomplete octet in BF₃.</strong></p>
+                  <ul>
+                    <li>Total valence electrons: B (3) + 3×F (3×7) = 24 e⁻.</li>
+                    <li>Simple structure: B with three B–F single bonds and three lone pairs on each F.</li>
+                    <li>B has only 6 electrons; F atoms have octets.</li>
+                    <li>Alternative structures with B=F double bonds give B⁻ and F⁺, placing positive charge on highly electronegative F → disfavored.</li>
+                    <li>Conclusion: the electron-deficient 6-electron B structure is dominant.</li>
+                  </ul>
+
+                  <p><strong>Example: expanded octet in PF₅.</strong></p>
+                  <ul>
+                    <li>Valence electrons: P (5) + 5×F (5×7) = 40 e⁻.</li>
+                    <li>Lewis structure: central P with five P–F single bonds and no lone pairs.</li>
+                    <li>P has 10 electrons around it (expanded octet), which is allowed because P is a third-period element.</li>
+                    <li>An analogous NCl₅ would require N (a second-period element) to hold 10 electrons; this doesn’t occur under normal conditions.</li>
+                  </ul>
+
+                  <p class="hint">When an atom from period 3 or lower is surrounded by five or six small, electronegative atoms, suspect a stable expanded-octet structure.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8.8 Bond Strengths & Lengths -->
+        <section class="section-card" id="sec-8-8" data-keywords="8.8 bond enthalpy strength length single double triple">
+          <div class="section-inner">
+            <div class="section-header-row">
+              <h2 class="section-title">
+                <span class="section-title-code">8.8</span>
+                <span class="section-title-text">Strengths and Lengths of Covalent Bonds</span>
+              </h2>
+              <div class="section-meta">Relating bond order, bond energy, and bond length</div>
+            </div>
+            <div class="nodes-row">
+              <article class="node roots">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type roots">Roots</span>
+                    <span class="node-header-pill">Key ideas</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Bond enthalpy</strong> (bond energy) is the energy required to break one mole of a given bond in the gas phase. It is always positive because breaking bonds requires energy.</p>
+                  <p><strong>Bond length</strong> is the distance between the nuclei of two bonded atoms, usually measured in picometers (pm, 10⁻¹² m).</p>
+                  <p>For a given pair of atoms:</p>
+                  <ul>
+                    <li>Single bond → longest and weakest.</li>
+                    <li>Double bond → shorter and stronger.</li>
+                    <li>Triple bond → shortest and strongest.</li>
+                  </ul>
+                  <p>Average bond enthalpies and bond lengths can be used to estimate reaction enthalpies by summing the energies for bonds broken and formed.</p>
+                </div>
+              </article>
+
+              <article class="node trunk collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type trunk">Trunk</span>
+                    <span class="node-header-pill">Data patterns & ΔH estimate rule</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example bond data (C–C bonds):</strong></p>
+                  <ul>
+                    <li>C–C single: length ≈ 154 pm, bond enthalpy ≈ 348 kJ/mol.</li>
+                    <li>C=C double: length ≈ 134 pm, bond enthalpy ≈ 614 kJ/mol.</li>
+                    <li>C≡C triple: length ≈ 120 pm, bond enthalpy ≈ 839 kJ/mol.</li>
+                  </ul>
+                  <p>The pattern:</p>
+                  <ul>
+                    <li>Higher bond order → shorter bond length.</li>
+                    <li>Higher bond order → higher bond enthalpy (stronger bond).</li>
+                  </ul>
+
+                  <div class="formula-line">
+                    <code>ΔHᵣₓₙ ≈ Σ(bond enthalpies of bonds broken) − Σ(bond enthalpies of bonds formed)</code>
+                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy ΔH</span></button>
+                  </div>
+                  <p>This approximate rule treats bond enthalpies like “costs” for breaking and “rebates” for forming bonds. If forming bonds releases more energy than breaking bonds costs, the reaction is exothermic (ΔHᵣₓₙ &lt; 0).</p>
+                </div>
+              </article>
+
+              <article class="node leaves collapsed">
+                <button class="node-header" type="button">
+                  <span class="node-header-label">
+                    <span class="node-header-node-type leaves">Leaves</span>
+                    <span class="node-header-pill">Short examples & tips</span>
+                  </span>
+                  <span class="node-chevron">▾</span>
+                </button>
+                <div class="node-body">
+                  <p><strong>Example: N–N bonds.</strong></p>
+                  <ul>
+                    <li>N–N single bond: relatively long and weak.</li>
+                    <li>N=N double bond: shorter and stronger.</li>
+                    <li>N≡N triple bond in N₂: very short and very strong, explaining why N₂ is so stable and why reactions that break N≡N (like forming NO) require significant energy input.</li>
+                  </ul>
+
+                  <p><strong>Example: O₃ bond enthalpy (qualitative).</strong></p>
+                  <ul>
+                    <li>O–O single and O=O double bonds have different bond enthalpies.</li>
+                    <li>In ozone, O–O bond length is between typical single and double bond lengths.</li>
+                    <li>Thus, each O–O bond in O₃ has a bond enthalpy between that of a single and a double bond, consistent with its resonance description.</li>
+                  </ul>
+
+                  <p class="hint">If you see a resonance hybrid with bond lengths between typical single and double bonds, expect bond energies to also be intermediate.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script>
+    (function () {
+      const sectionCards = Array.from(document.querySelectorAll(".section-card"));
+      const toastEl = document.getElementById("toast");
+      let toastTimeoutId = null;
+
+      const showToast = (message) => {
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.add("visible");
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toastEl.classList.remove("visible");
+        }, 1500);
+      };
+
+      // Collapsible nodes
+      const nodeHeaders = document.querySelectorAll(".node-header");
+      nodeHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          const node = header.closest(".node");
+          if (!node) return;
+          node.classList.toggle("collapsed");
+        });
+      });
+
+      // Sidebar navigation: scroll to section
+      const sidebarLinks = document.querySelectorAll(".sidebar-link");
+      sidebarLinks.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("data-target");
+          const target = document.getElementById(targetId);
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          sectionCards.forEach((card) => card.classList.remove("highlighted"));
+          target.classList.add("highlighted");
+          setTimeout(() => {
+            target.classList.remove("highlighted");
+          }, 1400);
+        });
+      });
+
+      // Search/filter
+      const searchInput = document.getElementById("search-input");
+      const resetFilterBtn = document.getElementById("reset-filter");
+
+      const applyFilter = (term) => {
+        const normalized = term.trim().toLowerCase();
+        if (!normalized) {
+          sectionCards.forEach((card) => card.classList.remove("hidden-by-filter"));
+          return;
+        }
+        sectionCards.forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(normalized)) {
+            card.classList.remove("hidden-by-filter");
+          } else {
+            card.classList.add("hidden-by-filter");
+          }
+        });
+      };
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          applyFilter(e.target.value);
+        });
+      }
+
+      if (resetFilterBtn) {
+        resetFilterBtn.addEventListener("click", () => {
+          if (searchInput) {
+            searchInput.value = "";
+          }
+          applyFilter("");
+        });
+      }
+
+      // Copy buttons: copy the text of the neighboring code element
+      const copyButtons = document.querySelectorAll(".copy-btn");
+      copyButtons.forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          try {
+            let textToCopy = "";
+            const formulaLine = btn.closest(".formula-line");
+            if (formulaLine) {
+              const codeEl = formulaLine.querySelector("code");
+              if (codeEl) {
+                textToCopy = codeEl.textContent.trim();
+              }
+            }
+            if (!textToCopy) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(textToCopy);
+              showToast("Formula copied to clipboard");
+            }
+          } catch {
+            showToast("Unable to copy (clipboard blocked)");
+          }
+        });
+      });
+
+      // Double-click to copy selected text
+      document.addEventListener("dblclick", async (event) => {
+        const tag = event.target.tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || event.target.isContentEditable) {
+          return;
+        }
+        const selection = window.getSelection
+          ? window.getSelection().toString().trim()
+          : "";
+        if (!selection) return;
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(selection);
+            showToast("Selected text copied");
+          }
+        } catch {
+          showToast("Unable to copy selection");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

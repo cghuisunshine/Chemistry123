@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 14 Concept Map – Chemical Kinetics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #ffca28;
+      --accent-soft: rgba(255, 202, 40, 0.18);
+      --accent-strong: #ffd54f;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(255, 202, 40, 0.08);
+      border-color: rgba(255, 202, 40, 0.3);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(255, 202, 40, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 202, 40, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 202, 40, 0.5);
+      background: rgba(255, 202, 40, 0.12);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(255, 202, 40, 0.5);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(255, 202, 40, 0.7);
+      background: rgba(255, 202, 40, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 202, 40, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #9ea3c8;
+      margin-top: 0.2rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 14 · Chemical Kinetics</h1>
+      <p>Interactive concept map – roots (what controls rate), trunk (rate laws, integrated laws, Arrhenius, mechanisms), leaves (examples, tips, and interpretations).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list">
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-1">
+              <span class="badge">14.1</span>
+              <span class="label">Factors That Affect Reaction Rates</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-2">
+              <span class="badge">14.2</span>
+              <span class="label">Reaction Rates</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-3">
+              <span class="badge">14.3</span>
+              <span class="label">Concentration and Rate Laws</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-4">
+              <span class="badge">14.4</span>
+              <span class="label">Change of Concentration with Time</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-5">
+              <span class="badge">14.5</span>
+              <span class="label">Temperature and Rate</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-6">
+              <span class="badge">14.6</span>
+              <span class="label">Reaction Mechanisms</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c14-sec-7">
+              <span class="badge">14.7</span>
+              <span class="label">Catalysis</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>Chemical kinetics describes how fast reactions occur and what controls their rates. This chapter connects particle‑level ideas (collisions and energy barriers) with macroscopic tools (rate laws, graphs, and Arrhenius plots) to interpret and predict reaction speeds.</p>
+          <ul>
+            <li>Describe how physical state, concentration, temperature, and catalysts affect reaction rate.</li>
+            <li>Write and interpret rate laws, determine reaction order, and connect stoichiometric coefficients to relative rates of species.</li>
+            <li>Use integrated rate laws and half‑life expressions to relate concentration and time for zero‑, first‑, and second‑order reactions.</li>
+            <li>Apply the Arrhenius equation to relate rate constants to activation energy and temperature.</li>
+            <li>Explain how mechanisms and catalysts provide molecular‑level pictures of how reactions proceed.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: 14.1 Factors That Affect Reaction Rates -->
+        <section class="card" id="c14-sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.1 Factors That Affect Reaction Rates</h3>
+              <p class="card-subtitle">How collisions, surface area, concentration, temperature, and catalysts control speed.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">physical state &amp; surface area</span>
+            <span class="pill">concentration</span>
+            <span class="pill">temperature</span>
+            <span class="pill">catalysts</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Chemical kinetics and effective collisions</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Chemical kinetics</strong> is the study of how fast reactions occur and which factors control their speeds. It complements thermodynamics: thermodynamics tells us whether a reaction is possible; kinetics tells us how quickly it actually happens.</p>
+              <p>On the particle level, reactions occur when molecules experience <strong>effective collisions</strong> — collisions with enough energy and the right orientation to break old bonds and form new ones. Anything that changes how often effective collisions occur will change the rate.</p>
+              <ul>
+                <li><strong>Physical state and surface area:</strong> A reaction between a solid and a gas or liquid happens at the solid’s surface. Grinding a solid into a powder increases its surface area, giving more contact points for collisions and a faster rate.</li>
+                <li><strong>Concentration:</strong> Higher concentration means more particles per volume, increasing collision frequency and usually increasing rate.</li>
+                <li><strong>Temperature:</strong> Higher temperature means particles move faster and more of them have enough energy to overcome the activation barrier.</li>
+                <li><strong>Catalysts:</strong> Catalysts offer an alternative pathway with a lower activation energy, so a larger fraction of collisions are effective at the same temperature.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Rate as “change per time” and collision perspective</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Conceptually, reaction rate follows the same pattern as any “per time” quantity:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-rate-concept">rate ∝ frequency of effective collisions</code>
+                <button class="copy-btn" data-copy="#f14-rate-concept">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here, “effective collisions” means collisions that both:</p>
+              <ul>
+                <li>Have energy ≥ activation energy (the minimum required to get over the barrier).</li>
+                <li>Have a geometry that aligns reacting bonds appropriately.</li>
+              </ul>
+              <p>Each of the four main factors affects one of these pieces:</p>
+              <ul>
+                <li>Surface area and mixing: control how often particles actually meet.</li>
+                <li>Concentration: changes collision frequency in a given volume.</li>
+                <li>Temperature: shifts the energy distribution of molecules, changing the fraction above the barrier.</li>
+                <li>Catalysts: change the height of the barrier and sometimes the orientation requirements.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples: surface area, temperature, and catalysts in everyday life</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Surface area:</strong> Powdered medicine dissolves and acts more quickly in the body than the same dose in a large tablet because more surface is in contact with stomach fluid at once.</p>
+              <p><strong>Concentration:</strong> Steel wool burns slowly in air (about 20% O₂) but can flare intensely in nearly pure O₂, where the concentration of oxygen molecules — and thus collisions with iron — is much higher.</p>
+              <p><strong>Temperature:</strong> Food spoils faster on a warm countertop than in a refrigerator because the biochemical reactions responsible run faster at higher temperature.</p>
+              <p><strong>Catalysts:</strong> Catalytic converters in car exhaust systems use solid catalysts (like Pt, Pd) to make harmful gases react more quickly to safer products at the temperature of the exhaust, without being consumed in the process.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: 14.2 Reaction Rates -->
+        <section class="card" id="c14-sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.2 Reaction Rates</h3>
+              <p class="card-subtitle">Defining rate in terms of concentration and connecting different species through stoichiometry.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">rate = Δ[ ] / Δt</span>
+            <span class="pill">average vs instantaneous</span>
+            <span class="pill">stoichiometric factors</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Rate as change in concentration per time</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>For a reactant A in a reaction, we define its rate of consumption using a concentration–time ratio:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-rate-A">rate = −Δ[A]/Δt</code>
+                <button class="copy-btn" data-copy="#f14-rate-A">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>The minus sign makes the rate positive even though [A] decreases. Here:</p>
+              <ul>
+                <li><strong>[A]</strong> is the molar concentration of A (mol·L⁻¹, or M).</li>
+                <li><strong>Δ[A]</strong> is the change in concentration over a time interval (final minus initial).</li>
+                <li><strong>Δt</strong> is the time elapsed, often in seconds.</li>
+                <li>The unit of rate is typically M·s⁻¹.</li>
+              </ul>
+              <p>For a product B, whose concentration increases, we define:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-rate-B">rate = +Δ[B]/Δt</code>
+                <button class="copy-btn" data-copy="#f14-rate-B">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>The <strong>average rate</strong> uses finite Δ[ ] and Δt over an interval; the <strong>instantaneous rate</strong> is the slope of the tangent to the concentration–time curve at a single point.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Stoichiometric relationships between species’ rates</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>For a general reaction:</p>
+              <p><strong>aA + bB → cC + dD</strong></p>
+              <p>we define the overall rate so that the stoichiometric factors are built in:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-stoich-rate">rate = −(1/a)·Δ[A]/Δt = −(1/b)·Δ[B]/Δt = (1/c)·Δ[C]/Δt = (1/d)·Δ[D]/Δt</code>
+                <button class="copy-btn" data-copy="#f14-stoich-rate">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Each expression gives the same overall reaction rate but through a different species. The coefficients ensure, for example, that if 2 moles of A disappear for every mole of D formed, the calculated rates match numerically.</p>
+              <p>This connection is important for converting an experimentally measured rate (say, disappearance of a colored reactant) into the rate of appearance of some product.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Worked example: relating disappearance and appearance rates</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Consider the reaction:</p>
+              <p><strong>2 NO₂(g) → 2 NO(g) + O₂(g)</strong></p>
+              <p>Suppose [NO₂] drops from 0.100 M to 0.040 M in 50.0 s.</p>
+              <ol>
+                <li>Compute Δ[NO₂]:  
+                  Δ[NO₂] = 0.040 − 0.100 = −0.060 M.</li>
+                <li>Use the stoichiometric definition:  
+                  <code class="formula">rate = −(1/2)·Δ[NO₂]/Δt</code>  
+                  So: rate = −(1/2)·(−0.060 M) / 50.0 s = 6.0 × 10⁻⁴ M·s⁻¹.</li>
+                <li>Rate of NO formation:  
+                  <code class="formula">rate = (1/2)·Δ[NO]/Δt</code>  
+                  So Δ[NO]/Δt = 2 × rate = 1.2 × 10⁻³ M·s⁻¹.</li>
+                <li>Rate of O₂ formation:  
+                  <code class="formula">rate = (1/1)·Δ[O₂]/Δt</code>  
+                  So Δ[O₂]/Δt = rate = 6.0 × 10⁻⁴ M·s⁻¹.</li>
+              </ol>
+              <p>This example shows how stoichiometry connects the rates at which all species change during a reaction.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: 14.3 Concentration and Rate Laws -->
+        <section class="card" id="c14-sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.3 Concentration and Rate Laws</h3>
+              <p class="card-subtitle">How rate depends on concentration and how to determine reaction orders.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">rate = k [A]^m [B]^n</span>
+            <span class="pill">reaction order</span>
+            <span class="pill">initial rates</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Rate laws, orders, and rate constants</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>rate law</strong> expresses how the rate of a reaction depends on reactant concentrations. For a reaction:</p>
+              <p><strong>aA + bB → products</strong></p>
+              <p>the rate law often takes the empirical form:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-ratelaw-general">rate = k [A]^m [B]^n</code>
+                <button class="copy-btn" data-copy="#f14-ratelaw-general">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li><strong>k</strong> is the rate constant (depends on temperature and mechanism).</li>
+                <li><strong>m</strong> is the order with respect to A; <strong>n</strong> is the order with respect to B.</li>
+                <li>The <strong>overall order</strong> is m + n.</li>
+                <li>In general, m and n are not the same as the stoichiometric coefficients a and b, except for simple elementary steps.</li>
+              </ul>
+              <p>Order tells you how sensitive the rate is to concentration. For example, if a reaction is second order in A, doubling [A] increases the rate by a factor of four (if other conditions are unchanged).</p>
+              <p>The units of <strong>k</strong> depend on the overall order so that the rate has units of M·s⁻¹. For a first‑order reaction, k has units s⁻¹; for a second‑order reaction in a single reactant, k has units M⁻¹·s⁻¹.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Using initial rates to find reaction order</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>To determine m and n, we often use the <strong>method of initial rates</strong>:</p>
+              <ul>
+                <li>Run several experiments at the same temperature but with different initial concentrations.</li>
+                <li>Measure the initial rate in each experiment (before concentrations change much).</li>
+                <li>Compare how the rate changes when one reactant’s concentration is changed while the others are held constant.</li>
+              </ul>
+              <p>For example, if doubling [A] while keeping [B] constant doubles the rate, the reaction is first order in A. If doubling [A] quadruples the rate, the reaction is second order in A.</p>
+              <p>Once the exponents are known, you can plug any one set of initial data into the rate law to solve for k.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: finding a rate law from initial rates</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Consider <strong>A + B → products</strong>. At a fixed temperature, you measure:</p>
+              <ul>
+                <li>Exp. 1: [A] = 0.10 M, [B] = 0.10 M, rate = 1.0 × 10⁻³ M·s⁻¹</li>
+                <li>Exp. 2: [A] = 0.20 M, [B] = 0.10 M, rate = 4.0 × 10⁻³ M·s⁻¹</li>
+                <li>Exp. 3: [A] = 0.10 M, [B] = 0.20 M, rate = 2.0 × 10⁻³ M·s⁻¹</li>
+              </ul>
+              <p>Assume the rate law has the form <code class="formula">rate = k [A]^m [B]^n</code>.</p>
+              <ol>
+                <li>Compare exp. 1 and 2 (B constant at 0.10 M): [A] doubles, rate goes up by a factor of 4. That implies 2^m = 4 → m = 2. The reaction is second order in A.</li>
+                <li>Compare exp. 1 and 3 (A constant at 0.10 M): [B] doubles, rate doubles. That implies 2^n = 2 → n = 1. The reaction is first order in B.</li>
+                <li>The overall rate law is <code class="formula">rate = k [A]^2 [B]</code>, overall order 3.</li>
+              </ol>
+              <p>This pattern of reasoning is central to connecting experimental data to a quantitative rate law.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: 14.4 Change of Concentration with Time -->
+        <section class="card" id="c14-sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.4 Change of Concentration with Time</h3>
+              <p class="card-subtitle">Integrated rate laws, graphical tests, and half-life expressions for different orders.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">[A] vs t</span>
+            <span class="pill">ln[A] vs t</span>
+            <span class="pill">1/[A] vs t</span>
+            <span class="pill">half-life</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Integrated rate laws and reaction order</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Integrated rate laws</strong> relate the concentration of a reactant to time. For a reaction <strong>A → products</strong>, the form of the integrated rate law depends on reaction order and lets you:</p>
+              <ul>
+                <li>Predict how [A] changes with time.</li>
+                <li>Determine the reaction order by seeing which plot is linear.</li>
+                <li>Use <strong>half-life</strong> to describe how quickly A is consumed.</li>
+              </ul>
+              <p>Each order gives a characteristic “straight-line” test:</p>
+              <ul>
+                <li>Zero order: plot [A] vs. t → straight line with slope −k.</li>
+                <li>First order: plot ln[A] vs. t → straight line with slope −k.</li>
+                <li>Second order: plot 1/[A] vs. t → straight line with slope +k.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Integrated forms and half-life equations</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>For <strong>A → products</strong>, with [A] in M, t in seconds:</p>
+              <ul>
+                <li><strong>Zero order (rate = k):</strong></li>
+              </ul>
+              <div class="formula-row">
+                <code class="formula" id="f14-zero-int">[A]<sub>t</sub> = [A]<sub>0</sub> − k t</code>
+                <button class="copy-btn" data-copy="#f14-zero-int">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f14-zero-t12">t<sub>1/2</sub> = [A]<sub>0</sub> / (2k)</code>
+                <button class="copy-btn" data-copy="#f14-zero-t12">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here k has units M·s⁻¹. Concentration decreases linearly, and half-life depends on [A]<sub>0</sub>.</p>
+              <ul>
+                <li><strong>First order (rate = k[A]):</strong></li>
+              </ul>
+              <div class="formula-row">
+                <code class="formula" id="f14-first-int">ln([A]<sub>t</sub> / [A]<sub>0</sub>) = −k t</code>
+                <button class="copy-btn" data-copy="#f14-first-int">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f14-first-t12">t<sub>1/2</sub> = 0.693 / k</code>
+                <button class="copy-btn" data-copy="#f14-first-t12">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here k has units s⁻¹. Concentration decays exponentially, and the half-life is constant, independent of [A]<sub>0</sub>.</p>
+              <ul>
+                <li><strong>Second order (rate = k[A]²):</strong></li>
+              </ul>
+              <div class="formula-row">
+                <code class="formula" id="f14-second-int">1/[A]<sub>t</sub> = 1/[A]<sub>0</sub> + k t</code>
+                <button class="copy-btn" data-copy="#f14-second-int">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f14-second-t12">t<sub>1/2</sub> = 1 / (k [A]<sub>0</sub>)</code>
+                <button class="copy-btn" data-copy="#f14-second-t12">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here k has units M⁻¹·s⁻¹. As the reaction proceeds and [A] falls, the half-life gets longer because fewer reactant molecules collide.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: first-order decay and remaining fraction</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Suppose a first‑order reaction has <strong>k = 0.0500 s⁻¹</strong> and an initial concentration <strong>[A]<sub>0</sub> = 0.100 M</strong>. What is [A] after <strong>60.0 s</strong>?</p>
+              <ol>
+                <li>Use the integrated first‑order law: <code class="formula">ln([A]<sub>t</sub> / [A]<sub>0</sub>) = −k t</code>.</li>
+                <li>Plug in values:  
+                  ln([A]<sub>t</sub> / 0.100) = −(0.0500 s⁻¹)(60.0 s) = −3.00.</li>
+                <li>Exponentiate:  
+                  [A]<sub>t</sub> / 0.100 = e^(−3.00) ≈ 0.0498 → [A]<sub>t</sub> ≈ 4.98 × 10⁻³ M.</li>
+                <li>Interpretation: only about 5% of the original reactant remains after 60 s.</li>
+              </ol>
+              <p>You could also view this in terms of half-lives: t<sub>1/2</sub> = 0.693 / 0.0500 ≈ 13.9 s. After about four half-lives (~56 s), you’d expect about (1/2)⁴ ≈ 6.25% remaining, consistent with the calculation.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 5: 14.5 Temperature and Rate -->
+        <section class="card" id="c14-sec-5">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.5 Temperature and Rate</h3>
+              <p class="card-subtitle">Arrhenius equation, activation energy, and how temperature changes rate constants.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">k = A e^(−Eₐ/RT)</span>
+            <span class="pill">ln k vs 1/T</span>
+            <span class="pill">activation energy</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Activation energy and energy profiles</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Activation energy</strong> Eₐ is the energy barrier between reactants and products. On an energy diagram, it’s the difference in energy between the reactants and the highest point along the reaction pathway (the transition state).</p>
+              <p>At higher temperature, molecules move faster, so a larger fraction have enough energy to exceed Eₐ. That’s why many reactions go much faster when warmed, even though the overall enthalpy change ΔH may not change much.</p>
+              <p>Kinetics focuses on how many molecules per second get over the barrier, rather than the energy difference between reactants and products.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Arrhenius equation and two-point form</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>Arrhenius equation</strong> relates the rate constant k to temperature:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-arrhenius">k = A e^(−Eₐ / (RT))</code>
+                <button class="copy-btn" data-copy="#f14-arrhenius">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li><strong>k</strong>: rate constant (units depend on reaction order).</li>
+                <li><strong>A</strong>: frequency factor, related to collision frequency and orientation.</li>
+                <li><strong>Eₐ</strong>: activation energy (J·mol⁻¹ or kJ·mol⁻¹).</li>
+                <li><strong>R</strong>: gas constant, usually 8.314 J·mol⁻¹·K⁻¹.</li>
+                <li><strong>T</strong>: temperature in kelvin (K).</li>
+              </ul>
+              <p>Taking natural logs gives a linear relationship:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-ln-arrhenius">ln k = ln A − (Eₐ / R)(1/T)</code>
+                <button class="copy-btn" data-copy="#f14-ln-arrhenius">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>A plot of ln k vs 1/T is a straight line with slope −Eₐ / R. From its slope, you can solve for Eₐ.</p>
+              <p>To compare two temperatures without computing A explicitly, use the two‑point form:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-two-arrhenius">ln(k₂ / k₁) = −(Eₐ / R)(1/T₂ − 1/T₁)</code>
+                <button class="copy-btn" data-copy="#f14-two-arrhenius">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>This form lets you estimate Eₐ from two measured rate constants, or predict how k changes when T changes.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: estimating Eₐ from rate constants at two temperatures</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Suppose a reaction has k₁ = 1.0 × 10⁻³ s⁻¹ at T₁ = 300 K and k₂ = 2.0 × 10⁻³ s⁻¹ at T₂ = 310 K. To estimate Eₐ:</p>
+              <ol>
+                <li>Compute the ratio of rate constants:  
+                  k₂ / k₁ = 2.0 → ln(k₂ / k₁) = ln 2.0 ≈ 0.693.</li>
+                <li>Compute 1/T₂ − 1/T₁:  
+                  1/310 − 1/300 ≈ −1.08 × 10⁻⁴ K⁻¹.</li>
+                <li>Plug into the two‑point Arrhenius equation:  
+                  0.693 = −(Eₐ / 8.314)(−1.08 × 10⁻⁴).</li>
+                <li>Solve for Eₐ:  
+                  Eₐ ≈ 5.4 × 10⁴ J·mol⁻¹ ≈ 54 kJ·mol⁻¹.</li>
+              </ol>
+              <p>This shows that even a moderate activation energy can cause the rate to roughly double with a 10 K increase in temperature, especially in the room‑temperature range.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 6: 14.6 Reaction Mechanisms -->
+        <section class="card" id="c14-sec-6">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.6 Reaction Mechanisms</h3>
+              <p class="card-subtitle">Elementary steps, molecularity, intermediates, and the rate-determining step.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">elementary steps</span>
+            <span class="pill">rate-determining step</span>
+            <span class="pill">intermediates</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Mechanisms and molecularity</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>reaction mechanism</strong> is a sequence of <strong>elementary steps</strong> whose sum gives the overall balanced equation. Each step represents a single, simple molecular event.</p>
+              <p>The <strong>molecularity</strong> of an elementary step is the number of molecules colliding in that step:</p>
+              <ul>
+                <li><strong>Unimolecular:</strong> a single molecule changes form, such as isomerization.</li>
+                <li><strong>Bimolecular:</strong> two molecules collide and react.</li>
+                <li><strong>Termolecular:</strong> three molecules collide (rare, because three-body collisions are unlikely).</li>
+              </ul>
+              <p>For an elementary step, the rate law can be written directly from its molecularity: for example, for A + B → C (bimolecular), the step’s rate law is rate = k[A][B]. This is different from the overall reaction, where the stoichiometric equation usually does not directly give the rate law.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Rate-determining step and consistency with rate laws</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>In many mechanisms, one step is significantly slower than the others. This <strong>rate-determining step (RDS)</strong> acts like a bottleneck: the overall rate cannot be faster than this slowest step.</p>
+              <p>If the first step is slow and the others are fast, the overall rate law often matches the rate law of that slow step. For example, consider:</p>
+              <ul>
+                <li>Slow: A + B → X</li>
+                <li>Fast: X → products</li>
+              </ul>
+              <p>The observed rate is then approximately:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-mech-slow">rate ≈ k₁ [A][B]</code>
+                <button class="copy-btn" data-copy="#f14-mech-slow">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here X is an <strong>intermediate</strong>: it’s produced in one step and consumed in another, and it does not appear in the overall balanced equation.</p>
+              <p>More complex mechanisms might use pre‑equilibrium or steady‑state approximations to eliminate intermediates from the final rate law, but the key point is that any proposed mechanism must be consistent with the experimentally determined rate law.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: NO₂ decomposition mechanism and rate law</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Experimentally, the reaction:</p>
+              <p><strong>2 NO₂(g) → 2 NO(g) + O₂(g)</strong></p>
+              <p>is found to have rate law <code class="formula">rate = k [NO₂]²</code>.</p>
+              <p>Consider the mechanism:</p>
+              <ol>
+                <li>Slow: NO₂ + NO₂ → NO₃ + NO</li>
+                <li>Fast: NO₃ + NO₂ → NO + O₂ + NO₂</li>
+              </ol>
+              <p>Adding the steps cancels the intermediate NO₃ and one NO₂, giving the overall reaction 2 NO₂ → 2 NO + O₂.</p>
+              <p>The slow step is bimolecular in NO₂, so its rate law is rate = k₁[NO₂]². Because it is rate‑determining, the observed overall rate law matches this form, which is consistent with experiment.</p>
+              <p>Although this does not prove the mechanism uniquely, it shows how kinetics and mechanisms must agree. Mechanistic proposals that produce the wrong rate law must be rejected.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 7: 14.7 Catalysis -->
+        <section class="card" id="c14-sec-7">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">14.7 Catalysis</h3>
+              <p class="card-subtitle">How catalysts speed up reactions without being consumed and why they matter.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">lower Eₐ, faster rate</span>
+            <span class="pill">homogeneous vs heterogeneous</span>
+            <span class="pill">enzymes</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What catalysts do and do not change</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>catalyst</strong> is a substance that increases the rate of a reaction but is not consumed overall. It participates in one or more steps but is regenerated by the end of the mechanism.</p>
+              <p>Catalysts work by providing an alternative reaction pathway with a lower activation energy. In terms of the Arrhenius equation:</p>
+              <ul>
+                <li>The catalyzed pathway has a smaller Eₐ.</li>
+                <li>At the same temperature, a smaller Eₐ means a larger rate constant k.</li>
+              </ul>
+              <p>Important: catalysts do <strong>not</strong> change the overall enthalpy change ΔH or the equilibrium constant K. They speed up both the forward and reverse reactions equally, helping the system reach equilibrium faster but not changing the equilibrium composition itself.</p>
+              <p>Catalysts can be classified as:</p>
+              <ul>
+                <li><strong>Homogeneous:</strong> same phase as reactants (for example, all species in aqueous solution).</li>
+                <li><strong>Heterogeneous:</strong> different phase, often a solid surface with gas or liquid reactants adsorbed.</li>
+                <li><strong>Enzymes:</strong> biological catalysts, usually proteins, with specific active sites that bind substrates and dramatically lower Eₐ.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Catalysis in the Arrhenius framework</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>We can compare uncatalyzed and catalyzed pathways using Arrhenius‑type expressions:</p>
+              <div class="formula-row">
+                <code class="formula" id="f14-cat-uncat">k<sub>uncat</sub> = A e^(−Eₐ,uncat / (RT))</code>
+                <button class="copy-btn" data-copy="#f14-cat-uncat">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f14-cat-cat">k<sub>cat</sub> = A' e^(−Eₐ,cat / (RT))</code>
+                <button class="copy-btn" data-copy="#f14-cat-cat">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Because Eₐ,cat &lt; Eₐ,uncat, the exponential term for the catalyzed pathway is larger at the same T, so k<sub>cat</sub> &gt; k<sub>uncat</sub>.</p>
+              <p>On an energy diagram, the catalyzed reaction has a lower “hill” (activation barrier) between reactants and products but the same overall difference in energy between them.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples: hydrogen peroxide and biological catalysis</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Decomposition of hydrogen peroxide:</strong></p>
+              <p>The reaction <strong>2 H₂O₂(aq) → 2 H₂O(l) + O₂(g)</strong> occurs slowly on its own at room temperature. In a sealed bottle of hydrogen peroxide, you see only gradual bubble formation over months.</p>
+              <p>Adding a catalyst such as iodide ion (I⁻) or the enzyme catalase (present in your cells) makes the reaction much faster: O₂ bubbles appear vigorously. The overall balanced equation is unchanged, but the mechanism includes catalyst‑dependent steps with lower activation energies.</p>
+              <p><strong>Enzymes in biology:</strong></p>
+              <p>Enzymes are highly specific catalysts that speed up particular biochemical reactions, sometimes by factors of 10⁶ or more compared to the uncatalyzed rate. They bind reactants (substrates) at an active site, stabilize the transition state, and then release products while regenerating the catalyst.</p>
+              <p>These examples underscore that catalysts impact how fast equilibrium is reached, not what the final equilibrium composition is.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

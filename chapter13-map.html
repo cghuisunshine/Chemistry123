@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 13 – Properties of Solutions: Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-main: #020617;
+      --bg-elevated: #0b1120;
+      --bg-card: #0f172a;
+      --bg-node: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.25);
+      --text-main: #e5e7eb;
+      --text-muted: #94a3b8;
+      --border-subtle: #1e293b;
+      --danger: #fb7185;
+      --radius-lg: 10px;
+      --radius-md: 8px;
+      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.9);
+      --shadow-subtle: 0 6px 18px rgba(15, 23, 42, 0.7);
+      --transition-fast: 180ms ease-out;
+      --transition-med: 220ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 280px;
+      padding: 1.25rem 1.5rem 1.5rem;
+      background: linear-gradient(180deg, #020617 0, #020617 40%, #020617ee 100%);
+      border-right: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.25rem;
+      color: #f9fafb;
+    }
+
+    .sidebar-subtitle {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      margin: 1rem 0;
+    }
+
+    .search-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: #64748b;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.8);
+      background: #020617;
+    }
+
+    .nav-section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #64748b;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .section-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #cbd5f5;
+      text-align: left;
+      font-size: 0.83rem;
+      padding: 0.3rem 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform 80ms ease-out;
+    }
+
+    .nav-link span.nav-code {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .nav-link span.nav-label {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-link:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-0.5px);
+    }
+
+    .nav-link.is-active {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), transparent);
+      border-color: var(--accent);
+      color: #e5f8ff;
+    }
+
+    .sidebar-footer {
+      margin-top: 1.3rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .sidebar-footer strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .content-area {
+      flex: 1;
+      padding: 1.3rem 1.4rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-intro {
+      margin-bottom: 1rem;
+    }
+
+    .page-intro h1 {
+      font-size: 1.4rem;
+      margin: 0 0 0.25rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .page-intro p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.55rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #cbd5f5;
+      background: rgba(15, 23, 42, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+    }
+
+    .pill code {
+      font-size: 0.72rem;
+      background: transparent;
+      padding: 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    @media (min-width: 960px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    .section-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(30, 64, 175, 0.6);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-med), box-shadow var(--transition-med), transform 120ms ease-out, background 200ms ease-out;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: -140px;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.21) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.13) 0, transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med);
+    }
+
+    .section-card:hover {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .section-card:hover::before {
+      opacity: 0.85;
+    }
+
+    .section-card.is-filtered-out {
+      opacity: 0.16;
+      filter: grayscale(0.5);
+      pointer-events: none;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.55rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .card-title span.code {
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 0.25rem;
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-meta .tag {
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .node-header {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border: none;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.28), transparent 55%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .node-header span.node-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .node-chip {
+      font-size: 0.7rem;
+      padding: 0.02rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .node-header span.node-toggle {
+      font-size: 0.9rem;
+      color: rgba(226, 232, 240, 0.9);
+      transition: transform var(--transition-fast);
+    }
+
+    .node[data-open="false"] .node-header span.node-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .node-body {
+      padding: 0.5rem 0.7rem 0.6rem;
+      font-size: 0.84rem;
+      background: var(--bg-node);
+      border-top: 1px solid rgba(30, 64, 175, 0.6);
+      max-height: 680px;
+      overflow: hidden auto;
+    }
+
+    .node[data-open="false"] .node-body {
+      display: none;
+    }
+
+    .node-body p {
+      margin: 0.15rem 0 0.35rem;
+    }
+
+    .node-body ul {
+      margin: 0.2rem 0 0.4rem 1.1rem;
+      padding: 0;
+    }
+
+    .node-body li {
+      margin: 0.12rem 0;
+    }
+
+    .node-body strong {
+      color: #e5e7eb;
+    }
+
+    .subheading {
+      margin: 0.35rem 0 0.15rem;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.1rem 0 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .formula {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.1rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      color: #e5f8ff;
+      white-space: nowrap;
+    }
+
+    .formula sub {
+      font-size: 0.7em;
+    }
+
+    .copy-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      color: #cbd5f5;
+      font-size: 0.75rem;
+      padding: 0.12rem 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform 80ms ease-out, color var(--transition-fast);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.85rem;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: #e0f2fe;
+      transform: translateY(-0.5px);
+    }
+
+    .copy-btn:active {
+      transform: translateY(0.2px) scale(0.98);
+    }
+
+    .tip-list {
+      margin: 0.2rem 0 0.2rem 1.1rem;
+      padding: 0;
+    }
+
+    .tip-list li {
+      margin: 0.1rem 0;
+    }
+
+    .inline-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .danger {
+      color: var(--danger);
+      font-weight: 500;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.1rem;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med), transform var(--transition-med);
+      z-index: 50;
+    }
+
+    .toast[data-visible="true"] {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast span.icon {
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        max-height: none;
+      }
+
+      .content-area {
+        padding: 1rem 1rem 2rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sidebar {
+        padding: 0.9rem 0.9rem 1.1rem;
+      }
+
+      .content-area {
+        padding: 0.9rem 0.9rem 1.8rem;
+      }
+
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Chapter 13 • Properties of Solutions</h2>
+        <p class="sidebar-subtitle">Interactive concept map • Roots, Trunk, Leaves</p>
+      </div>
+
+      <div class="search-box">
+        <label for="search" class="search-label">Search concepts, formulas, or examples</label>
+        <input id="search" class="search-input" type="search" placeholder="e.g. colligative, osmotic pressure, ppm">
+      </div>
+
+      <div class="nav-section-title">Jump to section</div>
+      <nav class="section-nav" aria-label="Chapter sections">
+        <button class="nav-link is-active" data-target="section-13-1">
+          <span class="nav-code">13.1</span>
+          <span class="nav-label">The Solution Process</span>
+        </button>
+        <button class="nav-link" data-target="section-13-2">
+          <span class="nav-code">13.2</span>
+          <span class="nav-label">Saturated Solutions &amp; Solubility</span>
+        </button>
+        <button class="nav-link" data-target="section-13-3">
+          <span class="nav-code">13.3</span>
+          <span class="nav-label">Factors Affecting Solubility</span>
+        </button>
+        <button class="nav-link" data-target="section-13-4">
+          <span class="nav-code">13.4</span>
+          <span class="nav-label">Concentration Units</span>
+        </button>
+        <button class="nav-link" data-target="section-13-5">
+          <span class="nav-code">13.5</span>
+          <span class="nav-label">Colligative Properties</span>
+        </button>
+        <button class="nav-link" data-target="section-13-6">
+          <span class="nav-code">13.6</span>
+          <span class="nav-label">Colloids</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p><strong>Quick tips</strong></p>
+        <p>• Type in the search box to filter cards by keyword.</p>
+        <p>• Click a section link to scroll.</p>
+        <p>• Click a node header to expand/collapse Roots, Trunk, or Leaves.</p>
+        <p>• Use the <strong>📋</strong> buttons to copy key formulas.</p>
+        <p>• <strong>Double-click any text</strong> to copy it to your clipboard.</p>
+      </div>
+    </aside>
+
+    <main class="content-area">
+      <header class="page-intro">
+        <h1>Concept Map – Chapter 13: Properties of Solutions</h1>
+        <p>This mini-textbook organizes the chapter into six section cards. Within each, Roots capture core ideas &amp; definitions, Trunk holds formulas and rules, and Leaves collect examples, tips, and interpretations.</p>
+        <div class="pill-row">
+          <div class="pill"><span>Conceptual focus</span></div>
+          <div class="pill"><span>Formula meaning</span></div>
+          <div class="pill"><span>Worked micro-examples</span></div>
+          <div class="pill"><code>ΔT_b = iK_bm</code></div>
+          <div class="pill"><code>Π = iMRT</code></div>
+        </div>
+      </header>
+
+      <section class="cards-grid">
+        <article id="section-13-1" class="section-card" data-title="13.1 the solution process entropy enthalpy mixing like dissolves like">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.1</span>
+              <span>The Solution Process</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Roots • Trunk • Leaves</span>
+              <span>entropy, enthalpy, intermolecular forces</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Solutions and components</strong></p>
+                <ul>
+                  <li>A <strong>solution</strong> is a homogeneous mixture; its substances are called <strong>components</strong>.</li>
+                  <li>The <strong>solvent</strong> is usually the component present in the greatest amount; other components are <strong>solutes</strong>.</li>
+                  <li>In this chapter we mostly consider <strong>aqueous solutions</strong>, where water is the solvent.</li>
+                </ul>
+
+                <p><strong>Natural tendency to mix</strong></p>
+                <ul>
+                  <li>When different substances are allowed to mix, they often do so spontaneously, increasing the system’s <strong>entropy</strong> (disorder or energy dispersal).</li>
+                  <li>For gases, intermolecular forces are very weak, so mixing is driven largely by entropy: gases spread out to fill the available volume.</li>
+                </ul>
+
+                <p><strong>Role of intermolecular forces</strong></p>
+                <ul>
+                  <li>For liquid and solid solutes/solvents, whether a solution forms depends on three interactions: <strong>solute–solute</strong>, <strong>solvent–solvent</strong>, and <strong>solute–solvent</strong>.</li>
+                  <li>The key question: are the new <strong>solute–solvent</strong> attractions strong enough to “pay for” breaking solute–solute and solvent–solvent attractions?</li>
+                  <li>This is the molecular basis of the rule <span class="highlight">“like dissolves like”</span>:
+                    <ul class="tip-list">
+                      <li>Polar/ionic solutes tend to dissolve in polar solvents (e.g., NaCl in water).</li>
+                      <li>Nonpolar solutes tend to dissolve in nonpolar solvents (e.g., wax in hexane).</li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <p><strong>Dissolution vs chemical reaction</strong></p>
+                <ul>
+                  <li><strong>Dissolution</strong> itself is a physical process: solute particles separate and are surrounded by solvent; the chemical identity stays the same.</li>
+                  <li>Sometimes a solute also undergoes a <strong>chemical reaction</strong> while dissolving (for example, a metal reacting with acid), but that’s separate from the pure solution process.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Formulas, rules &amp; patterns
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p class="subheading">Enthalpy of solution</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ΔH_soln = ΔH_solute + ΔH_solvent + ΔH_mix">ΔH<sub>soln</sub> = ΔH<sub>solute</sub> + ΔH<sub>solvent</sub> + ΔH<sub>mix</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <p><strong>Meaning</strong>: the overall enthalpy change for forming a solution is the sum of:</p>
+                <ul>
+                  <li><strong>ΔH<sub>solute</sub></strong> &gt; 0: energy to separate solute particles (break solute–solute forces).</li>
+                  <li><strong>ΔH<sub>solvent</sub></strong> &gt; 0: energy to separate solvent molecules (break solvent–solvent forces).</li>
+                  <li><strong>ΔH<sub>mix</sub></strong> &lt; 0: energy released when new solute–solvent attractions form.</li>
+                </ul>
+                <p><strong>Student interpretation</strong>:</p>
+                <ul>
+                  <li>If ΔH<sub>mix</sub> is very negative (strong solute–solvent attractions), the process is often <strong>exothermic</strong> (solution warms).</li>
+                  <li>If ΔH<sub>mix</sub> is not very negative, the process may be <strong>endothermic</strong> (solution cools), but can still be spontaneous because mixing increases entropy.</li>
+                  <li>Whether a solution forms depends on the balance of <strong>enthalpy (ΔH)</strong> and <strong>entropy</strong>, not enthalpy alone.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example: NaCl in water vs NaCl in hexane</strong></p>
+                <ul>
+                  <li><strong>NaCl in water</strong>: ions are strongly hydrated by polar water molecules (ion–dipole forces). ΔH<sub>mix</sub> is large and negative, so NaCl readily dissolves.</li>
+                  <li><strong>NaCl in hexane</strong>: hexane is nonpolar, cannot stabilize ions; ΔH<sub>mix</sub> is too small to offset the cost of breaking ionic bonds → NaCl remains undissolved.</li>
+                </ul>
+                <p><strong>Example: hot vs cold packs</strong></p>
+                <ul>
+                  <li>Solutions that form with large negative ΔH<sub>soln</sub> (e.g., MgSO₄ in water) can be used in <strong>instant hot packs</strong>.</li>
+                  <li>Solutions with positive ΔH<sub>soln</sub> (e.g., NH₄NO₃ in water) absorb heat and are used in <strong>cold packs</strong>.</li>
+                </ul>
+                <p class="inline-note">Tip: When deciding if a solute will dissolve, always think first about <strong>intermolecular forces</strong> and “like dissolves like,” then about <strong>energy changes</strong> and <strong>entropy</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="section-13-2" class="section-card" data-title="13.2 saturated solutions solubility supersaturated unsaturated">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.2</span>
+              <span>Saturated Solutions &amp; Solubility</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Equilibrium</span>
+              <span>dynamic dissolving &amp; crystallization</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Solubility</strong></p>
+                <ul>
+                  <li><strong>Solubility</strong> is the maximum amount of solute that dissolves in a given amount of solvent at a given temperature to form a stable, equilibrium solution.</li>
+                  <li>It is often given as “g of solute per 100 g (or mL) of water” or in mol·L⁻¹.</li>
+                  <li>Solubility depends strongly on <strong>temperature</strong> and on the nature of both solute and solvent.</li>
+                </ul>
+
+                <p><strong>Types of solutions</strong></p>
+                <ul>
+                  <li><strong>Saturated solution</strong>: contains the maximum amount of dissolved solute in equilibrium with undissolved solute.
+                    <ul class="tip-list">
+                      <li>Dissolving and crystallization occur at equal rates.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Unsaturated solution</strong>: contains less solute than the solubility; more solute can still dissolve.</li>
+                  <li><strong>Supersaturated solution</strong>: contains more dissolved solute than the solubility predicts at that temperature; it is unstable and can crystallize suddenly.</li>
+                </ul>
+
+                <p><strong>Seed crystals and crystallization</strong></p>
+                <ul>
+                  <li>In a supersaturated solution, solute particles must arrange in an orderly lattice to crystallize.</li>
+                  <li>Adding a tiny <strong>seed crystal</strong> provides a template, making crystallization much easier and rapidly driving the system back to a saturated state plus excess solid.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Patterns &amp; conditions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Solubility as an equilibrium quantity</strong></p>
+                <ul>
+                  <li>The solubility value describes a <strong>dynamic equilibrium</strong> between dissolved and undissolved solute.</li>
+                  <li>At equilibrium:
+                    <ul class="tip-list">
+                      <li>Rate of dissolving (solid → dissolved) = rate of crystallization (dissolved → solid).</li>
+                      <li>Concentrations and solubility remain constant.</li>
+                    </ul>
+                  </li>
+                </ul>
+                <p><strong>Temperature dependence</strong></p>
+                <ul>
+                  <li>Most ionic solids in water have <strong>higher solubility at higher temperatures</strong>.</li>
+                  <li>Some solids are exceptions and may have decreasing solubility with temperature; solubility must be read from data or graphs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example: NaCl at 0 °C</strong></p>
+                <ul>
+                  <li>Solubility of NaCl in water at 0 °C ≈ 35.7 g per 100 mL of water.</li>
+                  <li>10.0 g NaCl in 100 mL water at 0 °C → <strong>unsaturated</strong> (more NaCl can dissolve).</li>
+                  <li>35.7 g in 100 mL at 0 °C → <strong>saturated</strong>.</li>
+                </ul>
+
+                <p><strong>Example: supersaturated sodium acetate</strong></p>
+                <ul>
+                  <li>Prepare a hot solution with ≈ 170 g sodium acetate in 100 mL water at a high temperature and cool it slowly to 20 °C.</li>
+                  <li>At 20 °C, solubility is about 46 g per 100 mL. If no crystals form, the solution holds much more solute than equilibrium allows → <strong>supersaturated</strong>.</li>
+                  <li>Adding a seed crystal rapidly triggers crystallization of excess solute back to the stable saturated level.</li>
+                </ul>
+
+                <p class="inline-note">Tip: To test if a solution is saturated, unsaturated, or supersaturated at a given T, you can compare how much solute is already dissolved to accepted solubility data, or add a tiny amount of solute and observe whether it dissolves or triggers crystallization.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="section-13-3" class="section-card" data-title="13.3 factors affecting solubility like dissolves like Henry's law pressure temperature">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.3</span>
+              <span>Factors Affecting Solubility</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Patterns</span>
+              <span>IMFs, pressure, temperature</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Solute–solvent interactions</strong></p>
+                <ul>
+                  <li>The stronger the attraction between solute particles and solvent molecules, the <strong>greater</strong> the solubility tends to be.</li>
+                  <li><span class="highlight">“Like dissolves like”</span>:
+                    <ul class="tip-list">
+                      <li>Polar or ionic solutes (e.g., Na₂SO₄, HCl) dissolve well in polar solvents (water).</li>
+                      <li>Nonpolar solutes (e.g., C₇H₁₆, I₂) dissolve better in nonpolar solvents (CCl₄, hexane).</li>
+                    </ul>
+                  </li>
+                  <li><strong>Miscible</strong> liquids mix in all proportions (e.g., ethanol and water). <strong>Immiscible</strong> liquids do not mix (e.g., gasoline and water).</li>
+                </ul>
+
+                <p><strong>Pressure and gas solubility</strong></p>
+                <ul>
+                  <li>For gases in liquids, solubility increases with the gas’s <strong>partial pressure</strong> above the solution.</li>
+                  <li>Compressing the gas (higher pressure) → more frequent collisions with the liquid surface → more gas dissolves until a new equilibrium is reached.</li>
+                </ul>
+
+                <p><strong>Temperature effects</strong></p>
+                <ul>
+                  <li>For most <strong>ionic solids</strong> in water: solubility <strong>increases</strong> with temperature (added thermal energy helps break crystal lattice and hydrate ions).</li>
+                  <li>For <strong>gases</strong> in water: solubility <strong>decreases</strong> as temperature increases (gas molecules gain energy and escape more easily).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Henry’s law &amp; qualitative rules
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p class="subheading">Henry’s law</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="S_g = k P_g">S<sub>g</sub> = k P<sub>g</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li><strong>S<sub>g</sub></strong>: solubility of gas (usually mol·L⁻¹).</li>
+                  <li><strong>P<sub>g</sub></strong>: partial pressure of the gas (atm, kPa, or Pa).</li>
+                  <li><strong>k</strong>: Henry’s law constant, depends on gas, solvent, and temperature.</li>
+                </ul>
+                <p><strong>Interpretation</strong>:</p>
+                <ul>
+                  <li>Solubility ∝ pressure. Doubling the gas pressure doubles the equilibrium amount dissolved.</li>
+                  <li>Different gases have different k values. More polarizable gases (heavier, larger atoms) often have higher solubility in water.</li>
+                </ul>
+                <p><strong>Qualitative rules to remember</strong>:</p>
+                <ul>
+                  <li>Cool, high-pressure conditions favor gases dissolving in liquids.</li>
+                  <li>Solids usually dissolve better in hot water; gases dissolve better in cold water.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example: CO₂ in soft drinks</strong></p>
+                <ul>
+                  <li>Soft drinks are bottled under high CO₂ pressure. A higher P<sub>CO₂</sub> increases CO₂ solubility (Henry’s law).</li>
+                  <li>When the bottle is opened, P<sub>CO₂</sub> above the solution suddenly drops to near atmospheric levels, so CO₂ escapes as bubbles until a new equilibrium is reached.</li>
+                  <li>Warming the drink further decreases CO₂ solubility, causing even more gas to come out of solution.</li>
+                </ul>
+
+                <p><strong>Example: deep-sea diving</strong></p>
+                <ul>
+                  <li>At depth, total pressure and partial pressures of gases increase, so more gases dissolve in blood.</li>
+                  <li>Rapid ascent → pressures drop quickly and dissolved gases come out of solution as bubbles, causing <strong>decompression sickness</strong> (“the bends”).</li>
+                  <li>Using helium (lower solubility) instead of nitrogen in breathing mixtures reduces this risk.</li>
+                </ul>
+
+                <p class="inline-note">Tip: If a problem mentions gas solubility, always check what happens to both <strong>pressure</strong> and <strong>temperature</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="section-13-4" class="section-card" data-title="13.4 expressing solution concentration molarity molality ppm ppb mole fraction mass percent">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.4</span>
+              <span>Expressing Solution Concentration</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Units</span>
+              <span>mass %, ppm, M, m, χ</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Qualitative vs quantitative concentration</strong></p>
+                <ul>
+                  <li>“<strong>Dilute</strong>” and “<strong>concentrated</strong>” are qualitative and relative; they don’t tell exact amounts.</li>
+                  <li>Quantitative description uses <strong>concentration units</strong> such as mass %, ppm, mole fraction, molarity, and molality.</li>
+                </ul>
+
+                <p><strong>Why multiple units?</strong></p>
+                <ul>
+                  <li>Mass-based units (mass %, ppm, ppb) are convenient when mass is measured directly or when dealing with trace components.</li>
+                  <li>Molarity (M) is ideal for volumetric solution prep and stoichiometry in reactions.</li>
+                  <li>Molality (m) is preferred for colligative properties because it does not change with temperature.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Key concentration formulas
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p class="subheading">Mass percentage</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="mass % = (mass of component / mass of solution) × 100">mass % = (mass component / mass solution) × 100</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>Mass can be in g or kg, as long as numerator and denominator use the same unit.</li>
+                  <li>Represents g of component per 100 g of solution.</li>
+                </ul>
+
+                <p class="subheading">Parts per million (ppm) &amp; parts per billion (ppb)</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ppm = (mass of component / mass of solution) × 10^6">ppm = (mass component / mass solution) × 10^6</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ppb = (mass of component / mass of solution) × 10^9">ppb = (mass component / mass solution) × 10^9</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>1 ppm ≈ 1 mg solute per kg solution ≈ 1 mg·L⁻¹ for dilute aqueous solutions.</li>
+                  <li>1 ppb ≈ 1 µg solute per kg solution ≈ 1 µg·L⁻¹ when density ≈ 1 g·mL⁻¹.</li>
+                </ul>
+
+                <p class="subheading">Mole fraction</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="χ_i = n_i / n_total">χ<sub>i</sub> = n<sub>i</sub> / n<sub>total</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li><strong>χ<sub>i</sub></strong> is dimensionless; sum of all χ values = 1.</li>
+                  <li>Often used in gas mixtures and vapor pressure calculations (Raoult’s law).</li>
+                </ul>
+
+                <p class="subheading">Molarity (M)</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="M = n_solute / V_solution">M = n<sub>solute</sub> / V<sub>solution</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>n in mol, V in liters → units mol·L⁻¹.</li>
+                  <li>Volume changes with temperature, so M is temperature-dependent.</li>
+                </ul>
+
+                <p class="subheading">Molality (m)</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="m = n_solute / kg_solvent">m = n<sub>solute</sub> / kg<sub>solvent</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>n in mol, mass of solvent in kg → units mol·kg⁻¹.</li>
+                  <li>Does not change with temperature, so ideal for colligative property formulas.</li>
+                </ul>
+
+                <p class="inline-note">Rule of thumb: for dilute aqueous solutions at room temperature, M and m often have similar numerical values, but you must still choose the correct unit for each formula.</p>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example 1: mass percentage</strong></p>
+                <ul>
+                  <li>Dissolve 13.5 g glucose in 100 g water → total solution mass = 113.5 g.</li>
+                  <li>Mass % glucose = 13.5 / 113.5 × 100 ≈ <strong>11.9%</strong>.</li>
+                  <li>Mass % water = 100 − 11.9 = 88.1%.</li>
+                </ul>
+
+                <p><strong>Example 2: ppm</strong></p>
+                <ul>
+                  <li>Groundwater sample: 5.4 mg Zn²⁺ in 2.5 g water.</li>
+                  <li>Convert 5.4 mg = 5.4 × 10⁻³ g.</li>
+                  <li>ppm Zn²⁺ = (5.4 × 10⁻³ g / 2.5 g) × 10⁶ ≈ <strong>2.2 ppm</strong>.</li>
+                </ul>
+
+                <p><strong>Example 3: molality</strong></p>
+                <ul>
+                  <li>4.35 g glucose (M ≈ 180.2 g·mol⁻¹) in 25.0 mL water (≈ 25.0 g = 0.0250 kg).</li>
+                  <li>Moles glucose ≈ 4.35 / 180.2 ≈ 0.0241 mol.</li>
+                  <li>molality m ≈ 0.0241 / 0.0250 ≈ <strong>0.964 m</strong>.</li>
+                </ul>
+
+                <p class="inline-note">Tip: When converting between units (e.g., mass % → molality), it is often easiest to assume a convenient total mass (like 100 g of solution) and work from there.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="section-13-5" class="section-card" data-title="13.5 colligative properties vapor pressure lowering Raoult boiling point elevation freezing point depression osmotic pressure van't Hoff factor">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.5</span>
+              <span>Colligative Properties</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Numbers matter</span>
+              <span>Raoult, ΔT, Π, i</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>What are colligative properties?</strong></p>
+                <ul>
+                  <li>Physical properties of solutions that depend only on the <strong>number</strong> of solute particles, not their identity.</li>
+                  <li>Key colligative properties:
+                    <ul class="tip-list">
+                      <li>Vapor-pressure lowering.</li>
+                      <li>Boiling-point elevation.</li>
+                      <li>Freezing-point depression.</li>
+                      <li>Osmotic pressure.</li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <p><strong>Electrolytes vs nonelectrolytes</strong></p>
+                <ul>
+                  <li><strong>Nonelectrolyte</strong>: does not dissociate into ions (e.g., glucose, urea). Each formula unit is one particle (i ≈ 1).</li>
+                  <li><strong>Strong electrolyte</strong>: dissociates almost completely (e.g., NaCl, CaCl₂). Each formula unit ideally produces multiple particles (NaCl → 2, CaCl₂ → 3).</li>
+                  <li>Real solutions show <strong>ion pairing</strong>, so measured i is often slightly less than the ideal integer.</li>
+                </ul>
+
+                <p><strong>Osmosis and osmotic pressure</strong></p>
+                <ul>
+                  <li><strong>Osmosis</strong>: net movement of solvent through a semipermeable membrane from lower solute concentration (higher solvent concentration) to higher solute concentration.</li>
+                  <li><strong>Osmotic pressure Π</strong>: the external pressure required to stop osmosis.</li>
+                  <li><strong>Isotonic</strong>: same Π; <strong>hypotonic</strong>: lower Π; <strong>hypertonic</strong>: higher Π.</li>
+                  <li>In biology, maintaining isotonic conditions is crucial for cell survival (especially red blood cells).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Core colligative formulas
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p class="subheading">Raoult’s law &amp; vapor-pressure lowering</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="P_solution = X_solvent P°_solvent">P<sub>solution</sub> = X<sub>solvent</sub> P°<sub>solvent</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li><strong>P<sub>solution</sub></strong>: vapor pressure of solvent above solution.</li>
+                  <li><strong>X<sub>solvent</sub></strong>: mole fraction of solvent.</li>
+                  <li><strong>P°<sub>solvent</sub></strong>: vapor pressure of pure solvent at the same T.</li>
+                </ul>
+                <p>Vapor-pressure lowering:</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ΔP = X_solute P°_solvent">ΔP = X<sub>solute</sub> P°<sub>solvent</sub></code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+
+                <p class="subheading">Boiling-point elevation</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ΔT_b = i K_b m">ΔT<sub>b</sub> = i K<sub>b</sub> m</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>ΔT<sub>b</sub> = T<sub>b</sub>(solution) − T<sub>b</sub>(pure solvent) (°C or K).</li>
+                  <li><strong>i</strong>: van’t Hoff factor (effective particles per formula unit).</li>
+                  <li><strong>K<sub>b</sub></strong>: molal boiling-point elevation constant of the solvent (°C·m⁻¹).</li>
+                  <li><strong>m</strong>: molality of solute (mol·kg⁻¹).</li>
+                </ul>
+
+                <p class="subheading">Freezing-point depression</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="ΔT_f = i K_f m">ΔT<sub>f</sub> = i K<sub>f</sub> m</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li>ΔT<sub>f</sub> = T<sub>f</sub>(pure solvent) − T<sub>f</sub>(solution).</li>
+                  <li><strong>K<sub>f</sub></strong>: molal freezing-point depression constant of the solvent (°C·m⁻¹).</li>
+                </ul>
+
+                <p class="subheading">Osmotic pressure</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="Π = i M R T">Π = i M R T</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <ul>
+                  <li><strong>Π</strong>: osmotic pressure.</li>
+                  <li><strong>M</strong>: molarity of solute (mol·L⁻¹).</li>
+                  <li><strong>R</strong>: gas constant (0.08206 L·atm·mol⁻¹·K⁻¹ or 8.314 J·mol⁻¹·K⁻¹).</li>
+                  <li><strong>T</strong>: absolute temperature in kelvins.</li>
+                  <li><strong>i</strong>: van’t Hoff factor.</li>
+                </ul>
+
+                <p class="subheading">van’t Hoff factor from data</p>
+                <div class="formula-row">
+                  <code class="formula" data-copy-text="i = ΔT_f(measured) / ΔT_f(calculated for nonelectrolyte)">i = ΔT<sub>f</sub>(measured) / ΔT<sub>f</sub>(calc as nonelectrolyte)</code>
+                  <button class="copy-btn" type="button">
+                    <span class="icon">📋</span><span>Copy</span>
+                  </button>
+                </div>
+                <p>Similar ratios can be used with ΔT<sub>b</sub>, Π, or ΔP to find i experimentally and infer how strongly an electrolyte dissociates.</p>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example 1: vapor pressure of a solution</strong></p>
+                <ul>
+                  <li>At 20 °C, pure water has P° = 2.33 kPa.</li>
+                  <li>A solution has X<sub>H₂O</sub> = 0.80 and X<sub>solute</sub> = 0.20.</li>
+                  <li>Raoult’s law: P<sub>solution</sub> = 0.80 × 2.33 ≈ <strong>1.87 kPa</strong>.</li>
+                  <li>Vapor-pressure lowering: ΔP = 0.20 × 2.33 ≈ 0.47 kPa.</li>
+                </ul>
+
+                <p><strong>Example 2: freezing-point depression</strong></p>
+                <ul>
+                  <li>0.50 m aqueous sugar solution (nonelectrolyte, i = 1), water K<sub>f</sub> ≈ 1.86 °C·m⁻¹.</li>
+                  <li>ΔT<sub>f</sub> = 1 × 1.86 × 0.50 ≈ <strong>0.93 °C</strong>.</li>
+                  <li>New freezing point: 0.00 − 0.93 ≈ −0.93 °C.</li>
+                </ul>
+
+                <p><strong>Example 3: osmotic pressure and blood</strong></p>
+                <ul>
+                  <li>Average osmotic pressure of blood at 25 °C ≈ 780 kPa.</li>
+                  <li>For glucose (i = 1): Π = MRT → M ≈ 780 kPa / (8.314 J·mol⁻¹·K⁻¹ × 298 K) ≈ 0.31 M.</li>
+                  <li>Thus, a ≈0.31 M glucose solution is isotonic with blood.</li>
+                  <li>For NaCl (i ≈ 2): a ≈0.16 M NaCl solution is isotonic (0.16 × 2 ≈ 0.31 M in particles).</li>
+                </ul>
+
+                <p><strong>Example 4: which solution freezes lower?</strong></p>
+                <ul>
+                  <li>0.10 m NaCl (i ≈ 2) vs 0.10 m CaCl₂ (i ≈ 3).</li>
+                  <li>NaCl: effective particle molality ≈ 0.20 m; CaCl₂: ≈ 0.30 m.</li>
+                  <li>Since ΔT<sub>f</sub> ∝ i m, the CaCl₂ solution has a larger ΔT<sub>f</sub>, so its freezing point is lower.</li>
+                </ul>
+
+                <p class="inline-note">Tip: For colligative-property problems, always check (1) whether the solute is an electrolyte, (2) the value of i, and (3) whether the formula requires <strong>molality</strong> (m) or <strong>molarity</strong> (M).</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="section-13-6" class="section-card" data-title="13.6 colloids Tyndall effect hydrophilic hydrophobic adsorption emulsions">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span class="code">13.6</span>
+              <span>Colloids</span>
+            </h2>
+            <div class="card-meta">
+              <span class="tag">Particles</span>
+              <span>Tyndall effect, hydrophilic, hydrophobic</span>
+            </div>
+          </div>
+
+          <div class="nodes">
+            <div class="node" data-open="true">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Roots</span>
+                  Core ideas &amp; definitions
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>What is a colloid?</strong></p>
+                <ul>
+                  <li>A <strong>colloid</strong> is a dispersion with particle sizes between those in true solutions and suspensions.</li>
+                  <li>Particles are large enough to scatter light but small enough not to settle quickly under gravity.</li>
+                  <li>Examples: milk (fat in water), fog (liquid droplets in gas), smoke (solids in gas).</li>
+                </ul>
+
+                <p><strong>Tyndall effect</strong></p>
+                <ul>
+                  <li>Colloidal particles scatter light, making a beam visible as it passes through the mixture.</li>
+                  <li>This scattering is called the <strong>Tyndall effect</strong> and explains why some colloids look cloudy.</li>
+                </ul>
+
+                <p><strong>Hydrophilic vs hydrophobic colloids</strong></p>
+                <ul>
+                  <li><strong>Hydrophilic (“water-loving”)</strong>: particles have polar or charged surface groups that interact strongly with water (e.g., proteins, enzymes).</li>
+                  <li><strong>Hydrophobic (“water-fearing”)</strong>: particles have little affinity for water (e.g., many organic droplets) and tend to aggregate unless stabilized.</li>
+                </ul>
+
+                <p><strong>Adsorption vs absorption</strong></p>
+                <ul>
+                  <li><strong>Adsorption</strong>: molecules or ions adhere to the surface of a particle.</li>
+                  <li><strong>Absorption</strong>: molecules penetrate into the interior (like water absorbed by a sponge).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Trunk</span>
+                  Stabilization mechanisms
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Stabilizing hydrophilic colloids</strong></p>
+                <ul>
+                  <li>Large biomolecules (proteins, enzymes) often fold so that:
+                    <ul class="tip-list">
+                      <li>Hydrophobic parts are tucked inside.</li>
+                      <li>Hydrophilic groups (polar, charged) are exposed on the surface.</li>
+                    </ul>
+                  </li>
+                  <li>These surface groups hydrogen-bond or ionically interact with water, keeping the particles dispersed.</li>
+                </ul>
+
+                <p><strong>Stabilizing hydrophobic colloids</strong></p>
+                <ul>
+                  <li><strong>Adsorbing ions</strong>:
+                    <ul class="tip-list">
+                      <li>Ions (like anions) adhere to the particle surface.</li>
+                      <li>This gives all particles similar charge, causing electrostatic repulsion that prevents them from clumping.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Using amphiphilic molecules</strong> (like soaps or detergents):
+                    <ul class="tip-list">
+                      <li>They have a hydrophobic tail and a hydrophilic head.</li>
+                      <li>The tail embeds in the hydrophobic droplet; the head sticks out into water, making the droplet surface water-friendly and charged.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" data-open="false">
+              <button class="node-header" type="button">
+                <span class="node-label">
+                  <span class="node-chip">Leaves</span>
+                  Examples, tips &amp; interpretations
+                </span>
+                <span class="node-toggle">▾</span>
+              </button>
+              <div class="node-body">
+                <p><strong>Example: Tyndall effect in the lab</strong></p>
+                <ul>
+                  <li>Shine a laser pointer through a beaker of a clear solution (like salt water): the beam is hardly visible.</li>
+                  <li>Shine the same beam through a colloidal dispersion (like diluted milk): the beam path lights up because colloidal particles scatter light.</li>
+                </ul>
+
+                <p><strong>Example: oil, water, and soap</strong></p>
+                <ul>
+                  <li>Oil and water are immiscible; oil droplets coalesce and float.</li>
+                  <li>Adding soap (e.g., sodium stearate) creates an <strong>emulsion</strong>:
+                    <ul class="tip-list">
+                      <li>Stearate’s hydrophobic tail embeds in oil droplets.</li>
+                      <li>Its hydrophilic, charged head stays in the water.</li>
+                      <li>Oil droplets now carry a charge and hydrophilic shell, so they repel each other and remain dispersed as a stable hydrophobic colloid.</li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <p><strong>Biological example: proteins in blood</strong></p>
+                <ul>
+                  <li>Proteins like hemoglobin remain dispersed in blood plasma because their hydrophilic surface groups interact with water.</li>
+                  <li>Changes in pH, ionic strength, or protein structure can reduce solubility and cause aggregation or crystallization (as in sickle-cell disease).</li>
+                </ul>
+
+                <p class="inline-note">Tip: When you see cloudy but non-settling mixtures, think “<strong>colloid</strong>” and ask: what is the dispersing medium, what is the dispersed phase, and which stabilization mechanism is likely at work?</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite" data-visible="false">
+    <span class="icon">✓</span>
+    <span class="toast-message">Copied to clipboard</span>
+  </div>
+
+  <script>
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+      const cards = Array.from(document.querySelectorAll(".section-card"));
+      const searchInput = document.getElementById("search");
+      const toast = document.getElementById("toast");
+      let toastTimer = null;
+
+      function showToast(message) {
+        if (!toast) return;
+        const msgSpan = toast.querySelector(".toast-message");
+        if (msgSpan) msgSpan.textContent = message;
+        toast.setAttribute("data-visible", "true");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.setAttribute("data-visible", "false");
+        }, 1800);
+      }
+
+      function smoothScrollTo(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      navLinks.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-target");
+          navLinks.forEach((b) => b.classList.toggle("is-active", b === btn));
+          if (target) {
+            smoothScrollTo(target);
+          }
+        });
+      });
+
+      document.querySelectorAll(".node").forEach((node) => {
+        const header = node.querySelector(".node-header");
+        if (!header) return;
+        header.addEventListener("click", () => {
+          const isOpen = node.getAttribute("data-open") !== "false";
+          node.setAttribute("data-open", isOpen ? "false" : "true");
+        });
+      });
+
+      function applyFilter(query) {
+        const normalized = query.trim().toLowerCase();
+        if (!normalized) {
+          cards.forEach((card) => card.classList.remove("is-filtered-out"));
+          return;
+        }
+        cards.forEach((card) => {
+          const title = (card.getAttribute("data-title") || "").toLowerCase();
+          const text = card.textContent.toLowerCase();
+          const matches = title.includes(normalized) || text.includes(normalized);
+          card.classList.toggle("is-filtered-out", !matches);
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          applyFilter(e.target.value || "");
+        });
+      }
+
+      function copyText(text) {
+        if (!text) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(
+            () => showToast("Copied to clipboard"),
+            () => fallbackCopy(text)
+          );
+        } else {
+          fallbackCopy(text);
+        }
+      }
+
+      function fallbackCopy(text) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.top = "-1000px";
+        ta.style.left = "-1000px";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          document.execCommand("copy");
+          showToast("Copied to clipboard");
+        } catch (e) {
+          showToast("Unable to copy");
+        }
+        document.body.removeChild(ta);
+      }
+
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const formulaEl = btn.previousElementSibling;
+          let text = "";
+          if (formulaEl && formulaEl.dataset.copyText) {
+            text = formulaEl.dataset.copyText;
+          } else if (formulaEl) {
+            text = formulaEl.textContent;
+          }
+          copyText(text.trim());
+        });
+      });
+
+      document.addEventListener("dblclick", (event) => {
+        let selected = "";
+        const selection = window.getSelection && window.getSelection();
+        if (selection && selection.toString().trim()) {
+          selected = selection.toString().trim();
+        }
+
+        if (!selected) {
+          const target = event.target;
+          const copyTarget =
+            target.closest(".formula") ||
+            target.closest(".node-body") ||
+            target.closest(".section-card");
+          if (copyTarget) {
+            selected = copyTarget.innerText.trim();
+          } else if (target && target.textContent) {
+            selected = target.textContent.trim();
+          }
+        }
+
+        if (selected) {
+          copyText(selected);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

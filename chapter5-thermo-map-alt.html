@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chem 123 – Chapter 5 Thermochemistry Concept Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-body: #020617;
+      --bg-panel: #020617;
+      --bg-sidebar: #020617;
+      --bg-node: #020617;
+      --border-soft: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.2);
+      --accent-strong: rgba(56, 189, 248, 0.35);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #fb7185;
+      --radius-card: 0.85rem;
+      --radius-node: 0.6rem;
+      --shadow-card: 0 24px 60px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 14px 35px rgba(15, 23, 42, 0.65);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(circle at top, #020617 0, #000 55%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .app-shell {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      width: 260px;
+      padding: 1.1rem 1.25rem 1.25rem;
+      background: radial-gradient(circle at top left, #020617 0, #020617 45%, #020617 90%);
+      border-right: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      max-height: 100vh;
+      overflow-y: auto;
+      box-shadow: 6px 0 28px rgba(15, 23, 42, 0.65);
+      z-index: 5;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 0.25rem;
+    }
+
+    .sidebar-subtitle {
+      margin: 0 0 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 1.0rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.5rem 2.0rem 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-soft);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.55);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      pointer-events: none;
+    }
+
+    .sidebar-section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+
+    .section-list-item {
+      margin: 0.05rem 0;
+    }
+
+    .section-link {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      padding: 0.4rem 0.35rem;
+      border-radius: 0.5rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .section-link span.code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .section-link:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      transform: translateX(1px);
+    }
+
+    .section-link.active {
+      background: rgba(56,189,248,0.12);
+      color: var(--text-main);
+    }
+
+    .sidebar-hint {
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: var(--text-soft);
+    }
+
+    .sidebar-hint code {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      background: rgba(15,23,42,0.9);
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--accent);
+    }
+
+    .main {
+      flex: 1;
+      padding: 1.2rem 1.4rem 1.6rem;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .main-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      margin-bottom: 1.2rem;
+    }
+
+    .page-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin: 0;
+      color: #e5e7eb;
+    }
+
+    .page-subtitle {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .cards-grid {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(15,23,42,0.9) 0, #020617 50%, #020617 100%);
+      border-radius: var(--radius-card);
+      padding: 0.9rem 1.1rem 1.1rem;
+      border: 1px solid rgba(31,41,55,0.95);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 5% 0, rgba(56,189,248,0.07) 0, transparent 50%),
+        radial-gradient(circle at 95% 0, rgba(248,250,252,0.03) 0, transparent 55%);
+      opacity: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title-left {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-code {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--accent);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .section-heading {
+      font-size: 1.0rem;
+      font-weight: 600;
+      margin: 0;
+      color: #f9fafb;
+    }
+
+    .section-chip {
+      font-size: 0.74rem;
+      border-radius: 999px;
+      padding: 0.12rem 0.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-soft);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .section-summary {
+      margin: 0.1rem 0 0.4rem;
+      font-size: 0.83rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .nodes-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.2rem;
+    }
+
+    .node {
+      border-radius: var(--radius-node);
+      background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,1));
+      border: 1px solid rgba(31,41,55,0.95);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+      transition: border-color var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), transform var(--transition-fast);
+    }
+
+    .node.open {
+      border-color: var(--accent);
+      box-shadow: 0 18px 50px rgba(8,47,73,0.85);
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.09) 0, #020617 42%);
+      transform: translateY(-1px);
+    }
+
+    .node-header {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+
+    .node-header-main {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+    }
+
+    .node-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .node-title {
+      font-size: 0.86rem;
+      color: var(--text-main);
+    }
+
+    .node-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+    }
+
+    .node-pill {
+      padding: 0.06rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.7rem;
+    }
+
+    .node-chevron {
+      font-size: 0.8rem;
+      transition: transform var(--transition-med), color var(--transition-med);
+    }
+
+    .node.open .node-chevron {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
+    .node-body {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 0.75rem;
+      transition: max-height var(--transition-med), padding-top var(--transition-med), padding-bottom var(--transition-med);
+    }
+
+    .node.open .node-body {
+      padding-top: 0.35rem;
+      padding-bottom: 0.7rem;
+      max-height: 1100px;
+    }
+
+    .node-body p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0.2rem 0;
+    }
+
+    .node-body ul {
+      margin: 0.25rem 0 0.25rem 1.1rem;
+      padding: 0;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .node-body li {
+      margin: 0.12rem 0;
+    }
+
+    .node-body strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .node-body em {
+      color: #e5e7eb;
+    }
+
+    .formula-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0.18rem 0;
+    }
+
+    code.formula {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.45);
+      color: #f9fafb;
+      white-space: nowrap;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.74rem;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.65);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-soft);
+      cursor: pointer;
+      outline: none;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      background: rgba(15,23,42,1);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.35);
+      transform: translateY(-0.5px);
+    }
+
+    .copy-btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.78rem;
+    }
+
+    .tiny-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    .example-block {
+      margin: 0.25rem 0;
+      padding: 0.3rem 0.55rem;
+      border-radius: 0.5rem;
+      background: rgba(15,23,42,0.85);
+      border: 1px dashed rgba(148,163,184,0.55);
+    }
+
+    .example-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin: 0 0 0.1rem;
+    }
+
+    .example-block p {
+      margin-top: 0.1rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 0.08rem 0.45rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-soft);
+      background: rgba(15,23,42,0.85);
+    }
+
+    .hidden-card {
+      display: none !important;
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 0.9rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.98);
+      border: 1px solid rgba(56,189,248,0.8);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-family: var(--font-sans);
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.95);
+      transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+      z-index: 20;
+      white-space: nowrap;
+    }
+
+    #copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .page-title {
+        font-size: 1.4rem;
+      }
+      .section-card {
+        padding: 0.85rem 0.9rem 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .app-shell {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-soft);
+        box-shadow: 0 10px 30px rgba(15,23,42,0.7);
+      }
+      .main {
+        padding: 0.9rem 0.85rem 1.4rem;
+      }
+      .section-header-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1 class="sidebar-title">Chapter 5 Map</h1>
+      <p class="sidebar-subtitle">Thermochemistry · Chem&nbsp;123</p>
+
+      <div class="search-box">
+        <input id="search-input" class="search-input" type="search" placeholder="Filter sections by keyword…">
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <p class="sidebar-section-label">Sections</p>
+      <ul class="section-list">
+        <li class="section-list-item"><a class="section-link" href="#sec-5-1"><span class="code">5.1</span><span>The Nature of Chemical Energy</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-2"><span class="code">5.2</span><span>The First Law of Thermodynamics</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-3"><span class="code">5.3</span><span>Enthalpy</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-4"><span class="code">5.4</span><span>Enthalpies of Reaction</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-5"><span class="code">5.5</span><span>Calorimetry</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-6"><span class="code">5.6</span><span>Hess’s Law</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-7"><span class="code">5.7</span><span>Enthalpies of Formation</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-8"><span class="code">5.8</span><span>Bond Enthalpies</span></a></li>
+        <li class="section-list-item"><a class="section-link" href="#sec-5-9"><span class="code">5.9</span><span>Foods and Fuels</span></a></li>
+      </ul>
+
+      <p class="sidebar-hint">
+        Tip: use the search box to focus on terms like <code>enthalpy</code>, <code>calorimetry</code>, or <code>bond</code>.
+        Double‑click any text to copy it.
+      </p>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+        <header class="page-header">
+          <div class="page-kicker">Chem 123 · Chapter 5</div>
+          <h2 class="page-title">Thermochemistry – Interactive Concept Map</h2>
+          <p class="page-subtitle">
+            Each section card shows Roots (core ideas &amp; definitions), Trunk (formulas &amp; rules), and Leaves (examples &amp; tips).
+            Click any node to expand or collapse. Use 📋 to copy formulas.
+          </p>
+        </header>
+
+        <div class="cards-grid">
+
+          <!-- 5.1 -->
+          <article id="sec-5-1" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.1</span>
+                  <h3 class="section-heading">The Nature of Chemical Energy</h3>
+                </div>
+                <span class="section-chip">Energy, bonds, &amp; electrostatics</span>
+              </div>
+              <p class="section-summary">
+                Energy in chemical systems comes mainly from changes in electrostatic potential energy when bonds break and form.
+                Thermochemistry focuses on how this energy is transferred as heat and work.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Core ideas &amp; definitions</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Energy &amp; bonding</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      <strong>Thermodynamics</strong> is the study of energy and its transformations; the part that focuses on
+                      heat changes in chemical reactions is called <strong>thermochemistry</strong>.
+                    </p>
+                    <p>
+                      <strong>Energy</strong> is the capacity to do work or transfer heat.
+                      <strong>Work</strong> is energy transfer when a force causes motion, and <strong>heat</strong> is energy transfer
+                      driven by temperature differences.
+                    </p>
+                    <p>
+                      All forms of energy are either <strong>kinetic</strong> (energy of motion) or <strong>potential</strong> (stored energy due
+                      to position or composition. In chemistry, potential energy is largely <strong>electrostatic</strong>, arising from
+                      attractions and repulsions between charged particles.
+                    </p>
+                    <p>
+                      When ions or atoms form bonds, they move to arrangements with <strong>lower</strong> electrostatic potential energy.
+                      When bonds break, potential energy <strong>increases</strong> and must be supplied from some other source.
+                    </p>
+                    <p>
+                      A key thermochemical principle is:
+                      <strong>forming bonds releases energy; breaking bonds consumes energy</strong>.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Formulas &amp; rules</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">w, E<sub>el</sub></span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Work as force through distance</p>
+                    <div class="formula-row">
+                      <code id="f-5-1-w" class="formula">w = F × d</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-1-w"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Here <code>w</code> is work (J), <code>F</code> is force (N), and <code>d</code> is distance (m).
+                      Work measures energy transfer when a force causes motion. In chemistry, expanding gases can do mechanical
+                      work by pushing on a piston.
+                    </p>
+
+                    <p class="tiny-label">Electrostatic potential energy</p>
+                    <div class="formula-row">
+                      <code id="f-5-1-eel" class="formula">E<sub>el</sub> = k Q₁ Q₂ / d</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-1-eel"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      <code>E<sub>el</sub></code> is electrostatic potential energy (J), <code>Q₁</code> and <code>Q₂</code> are charges (C),
+                      <code>d</code> is the distance between them (m), and <code>k</code> is a constant (≈ 8.99×10⁹ J·m·C⁻²).
+                    </p>
+                    <ul>
+                      <li>Like charges (<code>Q₁Q₂ &gt; 0</code>) give <code>E<sub>el</sub> &gt; 0</code> and repel; moving them closer raises potential energy.</li>
+                      <li>Opposite charges (<code>Q₁Q₂ &lt; 0</code>) give <code>E<sub>el</sub> &lt; 0</code> and attract; moving them closer lowers potential energy.</li>
+                      <li>As <code>d → ∞</code>, <code>E<sub>el</sub> → 0</code>, which defines the zero of potential energy.</li>
+                    </ul>
+                    <p>
+                      Ionic solids like NaCl(s) are low in energy because oppositely charged ions are close together, so
+                      <code>E<sub>el</sub></code> is very negative. Separating the ions raises <code>E<sub>el</sub></code> and requires energy input.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; interpretations</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Bond energy in NaCl</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Ionic attraction</div>
+                      <p>
+                        Consider Na⁺ and Cl⁻ ions starting far apart in the gas phase. As they move closer, the product
+                        <code>Q₁Q₂</code> is negative, so <code>E<sub>el</sub></code> becomes more negative (lower potential energy).
+                        Energy is released as the ions form a strong ionic bond in NaCl(s).
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Mechanical work</div>
+                      <p>
+                        A gas pushes a piston with a 20 N force through 0.10 m. The work done is
+                        <code>w = F × d = (20 N)(0.10 m) = 2.0 J</code>, meaning 2.0 J of energy was transferred from the gas
+                        to the surroundings as mechanical work.
+                      </p>
+                    </div>
+                    <div class="tag-row">
+                      <span class="tag">electrostatic energy</span>
+                      <span class="tag">bond formation</span>
+                      <span class="tag">work as energy transfer</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.2 -->
+          <article id="sec-5-2" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.2</span>
+                  <h3 class="section-heading">The First Law of Thermodynamics</h3>
+                </div>
+                <span class="section-chip">Internal energy, q, and w</span>
+              </div>
+              <p class="section-summary">
+                The first law states that the change in a system’s internal energy equals the heat exchanged plus the work done.
+                Sign conventions are defined from the system’s point of view.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">System, surroundings &amp; ΔE</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Conservation of energy</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      We split the universe into a <strong>system</strong> (the part we study, such as reactants and products in a flask)
+                      and the <strong>surroundings</strong> (everything else: container, lab, air, us).
+                    </p>
+                    <p>
+                      A system can be <strong>open</strong> (exchanges matter and energy), <strong>closed</strong> (exchanges energy but not matter),
+                      or ideally <strong>isolated</strong> (exchanges neither).
+                    </p>
+                    <p>
+                      The system’s <strong>internal energy</strong>, <code>E</code>, is the total of all kinetic and potential energies of its particles.
+                      We usually cannot know its absolute value, but we can measure the change <code>ΔE</code> during a process.
+                    </p>
+                    <p>
+                      The <strong>first law of thermodynamics</strong> is energy conservation:
+                      energy may change form and move between system and surroundings, but the
+                      total energy of the system plus surroundings remains constant.
+                    </p>
+                    <p>
+                      Heat (<code>q</code>) and work (<code>w</code>) are the two ways energy flows across the system boundary.
+                      The sign of <code>q</code> and <code>w</code> is defined from the system’s perspective.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">ΔE, q, w &amp; P–V work</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">ΔE = q + w</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Change in internal energy</p>
+                    <div class="formula-row">
+                      <code id="f-5-2-de" class="formula">ΔE = E<sub>final</sub> − E<sub>initial</sub></code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-2-de"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      <code>ΔE &gt; 0</code> means the system has gained energy from the surroundings; <code>ΔE &lt; 0</code> means it has lost energy.
+                    </p>
+
+                    <p class="tiny-label">First law of thermodynamics</p>
+                    <div class="formula-row">
+                      <code id="f-5-2-firstlaw" class="formula">ΔE = q + w</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-2-firstlaw"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <ul>
+                      <li><code>q &gt; 0</code>: heat flows into the system; <code>q &lt; 0</code>: heat flows out.</li>
+                      <li><code>w &gt; 0</code>: work done on the system; <code>w &lt; 0</code>: work done by the system.</li>
+                      <li>
+                        Think of <code>ΔE</code> as the system’s energy bank: <code>q</code> and <code>w</code> are deposits or withdrawals.
+                      </li>
+                    </ul>
+
+                    <p class="tiny-label">Pressure–volume work</p>
+                    <div class="formula-row">
+                      <code id="f-5-2-pv" class="formula">w = −P ΔV</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-2-pv"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      When a gas expands (<code>ΔV &gt; 0</code>), <code>w &lt; 0</code>: the system does work on the surroundings.
+                      When compressed (<code>ΔV &lt; 0</code>), <code>w &gt; 0</code>: the surroundings do work on the system.
+                    </p>
+                    <p>
+                      Combining with the first law (assuming only P–V work):
+                      <code>ΔE = q − PΔV</code>. At constant volume (<code>ΔV = 0</code>), <code>ΔE = q<sub>V</sub></code>.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; pitfalls</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Sign conventions</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Using ΔE = q + w</div>
+                      <p>
+                        A system absorbs 150 J of heat (<code>q = +150 J</code>) and does 75 J of work on the surroundings
+                        (<code>w = −75 J</code>). Then <code>ΔE = 150 + (−75) = +75 J</code>:
+                        the system’s internal energy increases by 75 J overall.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Expansion work</div>
+                      <p>
+                        A gas expands from 2.0 L to 5.0 L against 1.00 atm:
+                        <code>ΔV = 3.0 L</code>, so <code>w = −(1.00 atm)(3.0 L) = −3.0 L·atm</code>
+                        ≈ −304 J. The gas has transferred 304 J to the surroundings as mechanical work.
+                      </p>
+                    </div>
+                    <p>
+                      <strong>Common pitfall:</strong> forgetting that the signs of <code>q</code> and <code>w</code> are always from the system’s
+                      point of view. Ask yourself, “Is the system gaining or losing energy?” before assigning the sign.
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">system vs surroundings</span>
+                      <span class="tag">energy bookkeeping</span>
+                      <span class="tag">P–V work</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.3 -->
+          <article id="sec-5-3" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.3</span>
+                  <h3 class="section-heading">Enthalpy</h3>
+                </div>
+                <span class="section-chip">Heat at constant pressure</span>
+              </div>
+              <p class="section-summary">
+                Enthalpy is a state function that conveniently tracks heat flow at constant pressure. Exothermic processes
+                release heat (ΔH &lt; 0), whereas endothermic ones absorb heat (ΔH &gt; 0).
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Definition &amp; interpretation</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">State function</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      <strong>Enthalpy</strong>, <code>H</code>, is defined so that changes in <code>H</code> at constant pressure correspond
+                      to the heat exchanged with the surroundings.
+                    </p>
+                    <p>
+                      The <strong>enthalpy change</strong> <code>ΔH</code> depends only on the initial and final states of the system,
+                      not on the path between them, because <code>H</code> is a <strong>state function</strong>.
+                    </p>
+                    <p>
+                      At constant pressure, <code>ΔH = q<sub>P</sub></code>:
+                      the heat absorbed or released by the system equals the change in enthalpy.
+                    </p>
+                    <p>
+                      Sign convention:
+                      <strong>exothermic</strong> processes have <code>ΔH &lt; 0</code> and warm the surroundings;
+                      <strong>endothermic</strong> processes have <code>ΔH &gt; 0</code> and cool the surroundings.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Formulas &amp; relationships</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">H, ΔH, q<sub>P</sub></span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Definition of enthalpy</p>
+                    <div class="formula-row">
+                      <code id="f-5-3-def" class="formula">H = E + PV</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-3-def"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Here <code>E</code> is internal energy, <code>P</code> is pressure, and <code>V</code> is volume. This definition
+                      makes it convenient to relate <code>ΔH</code> to heat flow at constant pressure.
+                    </p>
+
+                    <p class="tiny-label">Enthalpy change</p>
+                    <div class="formula-row">
+                      <code id="f-5-3-dh" class="formula">ΔH = H<sub>final</sub> − H<sub>initial</sub></code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-3-dh"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      For a reaction,
+                      <code>ΔH = H<sub>products</sub> − H<sub>reactants</sub></code>.
+                      A negative <code>ΔH</code> means products have lower enthalpy than reactants and energy has been
+                      released to the surroundings.
+                    </p>
+
+                    <p class="tiny-label">Link to heat and ΔE</p>
+                    <div class="formula-row">
+                      <code id="f-5-3-qp" class="formula">ΔH = q<sub>P</sub></code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-3-qp"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <div class="formula-row">
+                      <code id="f-5-3-de" class="formula">ΔH = ΔE + PΔV</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-3-de"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      At constant pressure, the heat flow <code>q<sub>P</sub></code> equals <code>ΔH</code>. The difference between
+                      <code>ΔH</code> and <code>ΔE</code> arises from P–V work:
+                      if the volume change is small, <code>ΔH ≈ ΔE</code>.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; intuition</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Endo vs. exo</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Melting ice</div>
+                      <p>
+                        When ice melts to liquid water, the system (ice) absorbs heat from the surroundings:
+                        <code>ΔH &gt; 0</code>, so the process is endothermic. The container feels cold because heat is leaving your hand
+                        and entering the system.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Burned fuel</div>
+                      <p>
+                        Burning butane in oxygen to form CO₂ and H₂O releases heat; <code>ΔH &lt; 0</code> and the process is exothermic.
+                        Chemical potential energy stored in bonds is converted into thermal energy of the surroundings.
+                      </p>
+                    </div>
+                    <p>
+                      If a reaction at constant pressure releases 100.0 kJ of heat and does 2.0 kJ of expansion work,
+                      <code>ΔH = −100.0 kJ</code> but <code>ΔE = −102.0 kJ</code>.
+                      Most of the energy change shows up as heat; a small part is P–V work.
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">enthalpy vs energy</span>
+                      <span class="tag">constant pressure</span>
+                      <span class="tag">state function</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.4 -->
+          <article id="sec-5-4" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.4</span>
+                  <h3 class="section-heading">Enthalpies of Reaction</h3>
+                </div>
+                <span class="section-chip">Thermochemical equations</span>
+              </div>
+              <p class="section-summary">
+                The enthalpy of reaction ΔH<sub>rxn</sub> is tied to a balanced chemical equation. It is extensive, changes sign
+                when the reaction is reversed, and depends on the physical states of reactants and products.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Thermochemical equations</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">ΔH<sub>rxn</sub></span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      A <strong>thermochemical equation</strong> is a balanced chemical equation that includes the enthalpy change
+                      <code>ΔH</code> for the reaction.
+                    </p>
+                    <p>
+                      The coefficients represent the <strong>number of moles</strong> of each substance corresponding to the reported
+                      enthalpy change. <code>ΔH</code> is therefore an <strong>extensive property</strong>: it scales with the amount of substance.
+                    </p>
+                    <p>
+                      Reversing a reaction reverses the sign of <code>ΔH</code> but not its magnitude. Multiplying a reaction by a factor
+                      multiplies <code>ΔH</code> by the same factor.
+                    </p>
+                    <p>
+                      <code>ΔH</code> depends on the <strong>physical states</strong> (s, l, g, aq) of reactants and products because those states
+                      have different enthalpies.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Formulas &amp; patterns</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">ΔH &amp; scaling</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Reaction enthalpy as products − reactants</p>
+                    <div class="formula-row">
+                      <code id="f-5-4-rxn" class="formula">ΔH<sub>rxn</sub> = H<sub>products</sub> − H<sub>reactants</sub></code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-4-rxn"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      For a given thermochemical equation, this is the enthalpy change when reactants fully convert to products in
+                      the specified amounts and states.
+                    </p>
+
+                    <p class="tiny-label">Example thermochemical equation</p>
+                    <div class="formula-row">
+                      <code id="f-5-4-ch4" class="formula">CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l); ΔH = −890 kJ</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-4-ch4"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <ul>
+                      <li>Burning 1 mol CH₄ releases 890 kJ of heat at constant pressure.</li>
+                      <li>Burning 2 mol CH₄ (with 4 mol O₂) releases 2 × 890 = 1780 kJ.</li>
+                      <li>Reversing the reaction changes ΔH to +890 kJ.</li>
+                    </ul>
+
+                    <p class="tiny-label">Effect of physical state</p>
+                    <p>
+                      If the products include water vapor instead of liquid water, the enthalpy change becomes less negative because
+                      energy must be supplied to vaporize water:
+                    </p>
+                    <div class="formula-row">
+                      <code id="f-5-4-h2o" class="formula">2 H₂O(l) → 2 H₂O(g); ΔH = +88 kJ</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-4-h2o"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Worked example</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Scaling ΔH</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Burning 4.50 g CH₄</div>
+                      <p>
+                        Given <code>CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l); ΔH = −890 kJ</code>, how much heat is released by 4.50 g CH₄?
+                      </p>
+                      <p>
+                        Moles of CH₄: <code>n = 4.50 g ÷ 16.0 g·mol⁻¹ = 0.281 mol</code>. Heat released:
+                        <code>q = 0.281 mol × (−890 kJ·mol⁻¹) ≈ −250 kJ</code>.
+                      </p>
+                      <p>
+                        Interpretation: burning 4.50 g of methane releases about 2.5×10² kJ of heat to the surroundings.
+                      </p>
+                    </div>
+                    <p>
+                      Always tie the numerical <code>ΔH</code> to the specific balanced equation; changing coefficients or states requires
+                      adjusting <code>ΔH</code> accordingly.
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">thermochemical equation</span>
+                      <span class="tag">extensive quantity</span>
+                      <span class="tag">state matters</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.5 -->
+          <article id="sec-5-5" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.5</span>
+                  <h3 class="section-heading">Calorimetry</h3>
+                </div>
+                <span class="section-chip">Measuring heat</span>
+              </div>
+              <p class="section-summary">
+                Calorimetry uses temperature changes and heat capacities to determine heat flows. Coffee‑cup calorimeters
+                operate at constant pressure, whereas bomb calorimeters operate at constant volume.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Concept &amp; devices</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Heat from ΔT</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      <strong>Calorimetry</strong> is the measurement of heat transfer by observing temperature changes
+                      in a calibrated system.
+                    </p>
+                    <p>
+                      The <strong>heat capacity</strong>, <code>C</code>, of an object is the heat required to raise its temperature by 1 K.
+                      The <strong>specific heat</strong>, <code>c</code>, is the heat required to raise 1 g of a substance by 1 K.
+                    </p>
+                    <p>
+                      A simple <strong>coffee‑cup calorimeter</strong> operates at (approximately) constant pressure and is used
+                      for reactions in solution, giving access to <code>ΔH</code>.
+                    </p>
+                    <p>
+                      A <strong>bomb calorimeter</strong> operates at constant volume, so the measured heat corresponds to <code>ΔE</code>.
+                      It is commonly used to study combustion of fuels and foods.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Key relationships</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">c, q, &amp; calorimeters</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Specific heat &amp; heat capacity</p>
+                    <div class="formula-row">
+                      <code id="f-5-5-c" class="formula">c = q / (m ΔT)</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-c"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <div class="formula-row">
+                      <code id="f-5-5-q" class="formula">q = c m ΔT</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-q"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      <code>c</code> is specific heat (J·g⁻¹·K⁻¹), <code>m</code> is mass (g), <code>ΔT</code> is temperature change (K or °C),
+                      and <code>q</code> is heat in joules.
+                    </p>
+
+                    <p class="tiny-label">Coffee‑cup calorimetry</p>
+                    <div class="formula-row">
+                      <code id="f-5-5-soln" class="formula">q<sub>soln</sub> = c<sub>soln</sub> m<sub>soln</sub> ΔT</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-soln"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <div class="formula-row">
+                      <code id="f-5-5-rxn" class="formula">q<sub>rxn</sub> = −q<sub>soln</sub></code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-rxn"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      For dilute aqueous solutions, we often approximate <code>c<sub>soln</sub> ≈ 4.18 J·g⁻¹·K⁻¹</code> and
+                      <code>m<sub>soln</sub></code> by assuming a density of 1.0 g·mL⁻¹.
+                    </p>
+
+                    <p class="tiny-label">Bomb calorimetry</p>
+                    <div class="formula-row">
+                      <code id="f-5-5-bomb" class="formula">q<sub>cal</sub> = C<sub>cal</sub> ΔT</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-bomb"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <div class="formula-row">
+                      <code id="f-5-5-bomb2" class="formula">q<sub>rxn</sub> = −q<sub>cal</sub> = ΔE (constant V)</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-5-bomb2"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      <code>C<sub>cal</sub></code> is the calorimeter’s heat capacity. The minus sign reflects that if the calorimeter warms,
+                      the reaction must have released that energy.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; practice</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Specific heat &amp; neutralization</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Heating water</div>
+                      <p>
+                        To warm 250 g of water from 22 °C to 98 °C:
+                        <code>ΔT = 76 K</code>, so
+                        <code>q = (4.18 J·g⁻¹·K⁻¹)(250 g)(76 K) ≈ 7.9 × 10⁴ J</code>.
+                        About 79 kJ of heat is required.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Coffee‑cup neutralization</div>
+                      <p>
+                        Mixing 50.0 mL of 1.0 M HCl with 50.0 mL of 1.0 M NaOH raises the solution temperature from 21.0 °C to 27.5 °C.
+                        Assuming a mass of 100 g and <code>c = 4.18 J·g⁻¹·K⁻¹</code>:
+                        <code>q<sub>soln</sub> ≈ (4.18)(100)(6.5) ≈ 2.7 × 10³ J</code>, so
+                        <code>q<sub>rxn</sub> ≈ −2.7 × 10³ J</code>. Per mole of HCl, <code>ΔH ≈ −54 kJ·mol⁻¹</code>.
+                      </p>
+                    </div>
+                    <p>
+                      <strong>Tip:</strong> always keep track of which sign belongs to the reaction
+                      (<code>q<sub>rxn</sub></code>) versus the calorimeter or solution (<code>q<sub>soln</sub></code> or <code>q<sub>cal</sub></code>).
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">ΔT → q</span>
+                      <span class="tag">constant pressure</span>
+                      <span class="tag">constant volume</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.6 -->
+          <article id="sec-5-6" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.6</span>
+                  <h3 class="section-heading">Hess’s Law</h3>
+                </div>
+                <span class="section-chip">Adding enthalpy changes</span>
+              </div>
+              <p class="section-summary">
+                Because enthalpy is a state function, the enthalpy change for an overall process equals the sum of the enthalpy
+                changes for any sequence of steps that leads from the same initial to the same final state.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">State function logic</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Paths vs. endpoints</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      <strong>Hess’s law</strong> states that if a reaction can be expressed as the sum of two or more reactions,
+                      the overall enthalpy change is the sum of their enthalpy changes.
+                    </p>
+                    <p>
+                      This follows from <strong>H</strong> being a state function: only the initial and final states matter, not the path.
+                    </p>
+                    <p>
+                      Hess’s law lets us build up enthalpy changes for difficult reactions using tabulated enthalpies for other,
+                      more convenient reactions.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Manipulating equations</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Reverse, scale, add</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      If
+                      <code>A → B; ΔH₁</code> and <code>B → C; ΔH₂</code>,
+                      then <code>A → C</code> has
+                      <code>ΔH = ΔH₁ + ΔH₂</code>.
+                    </p>
+                    <p>
+                      When using Hess’s law:
+                    </p>
+                    <ul>
+                      <li>Reverse a reaction → reverse the sign of <code>ΔH</code>.</li>
+                      <li>Multiply a reaction by a factor → multiply <code>ΔH</code> by the same factor.</li>
+                      <li>Add reactions → add their <code>ΔH</code> values.</li>
+                    </ul>
+                    <p>
+                      An enthalpy diagram shows that any multistep route connecting the same reactants and products has the same
+                      overall <code>ΔH</code>, even if the intermediate steps differ.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Worked example</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">C to CO</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Carbon to carbon monoxide</div>
+                      <p>Given:</p>
+                      <ul>
+                        <li><code>C(s) + O₂(g) → CO₂(g); ΔH₁ = −393.5 kJ</code></li>
+                        <li><code>CO(g) + ½ O₂(g) → CO₂(g); ΔH₂ = −283.0 kJ</code></li>
+                      </ul>
+                      <p>Find <code>ΔH</code> for: <code>C(s) + ½ O₂(g) → CO(g)</code>.</p>
+                      <p>
+                        Reverse the second equation:
+                        <code>CO₂(g) → CO(g) + ½ O₂(g); ΔH = +283.0 kJ</code>.
+                        Add to the first equation; CO₂ cancels, leaving
+                        <code>C(s) + ½ O₂(g) → CO(g)</code> with
+                        <code>ΔH = −393.5 + 283.0 = −110.5 kJ</code>.
+                      </p>
+                    </div>
+                    <p>
+                      <strong>Key skill:</strong> match each species in the target equation by rearranging and scaling known equations,
+                      then add them so unwanted intermediates cancel.
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">enthalpy diagram</span>
+                      <span class="tag">sum of steps</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.7 -->
+          <article id="sec-5-7" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.7</span>
+                  <h3 class="section-heading">Enthalpies of Formation</h3>
+                </div>
+                <span class="section-chip">ΔH°<sub>f</sub> &amp; standard states</span>
+              </div>
+              <p class="section-summary">
+                Standard enthalpies of formation describe forming one mole of a compound from its elements in their standard states.
+                Using tabulated ΔH°<sub>f</sub> values, we can calculate standard reaction enthalpies for many reactions.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Standard states &amp; ΔH°<sub>f</sub></span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Reference enthalpies</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      The <strong>standard state</strong> of a substance is its pure form at 1 bar (approximately 1 atm) and a specified
+                      temperature, usually 298 K (25 °C).
+                    </p>
+                    <p>
+                      The <strong>standard enthalpy of formation</strong>, <code>ΔH°<sub>f</sub></code>, is the enthalpy change for forming
+                      <strong>1 mol</strong> of a compound from its elements in their standard states.
+                    </p>
+                    <p>
+                      By convention, <code>ΔH°<sub>f</sub></code> of any element in its standard state is <strong>zero</strong>
+                      (for example, O₂(g), N₂(g), C(graphite)).
+                    </p>
+                    <p>
+                      Large tables of <code>ΔH°<sub>f</sub></code> values allow us to compute enthalpy changes for many reactions
+                      without doing calorimetry each time.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Product − reactant formula</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">ΔH°<sub>rxn</sub></span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Standard enthalpy of reaction</p>
+                    <div class="formula-row">
+                      <code id="f-5-7-master" class="formula">ΔH°<sub>rxn</sub> = Σ nΔH°<sub>f</sub>(products) − Σ mΔH°<sub>f</sub>(reactants)</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-7-master"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Here, <code>n</code> and <code>m</code> are stoichiometric coefficients in the balanced chemical equation.
+                      Remember that <code>ΔH°<sub>f</sub></code> for elements in their standard states is zero.
+                    </p>
+
+                    <p class="tiny-label">Examples of formation reactions</p>
+                    <div class="formula-row">
+                      <code id="f-5-7-h2o" class="formula">½ O₂(g) + H₂(g) → H₂O(l); ΔH°<sub>f</sub> = −285.8 kJ·mol⁻¹</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-7-h2o"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <div class="formula-row">
+                      <code id="f-5-7-co2" class="formula">C(graphite) + O₂(g) → CO₂(g); ΔH°<sub>f</sub> = −393.5 kJ·mol⁻¹</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-7-co2"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Each equation forms exactly 1 mol of the compound on the right from elements in their standard states.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; reverse problems</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Propane &amp; CaCO₃</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Propane combustion</div>
+                      <p>
+                        For <code>C₃H₈(g) + 5 O₂(g) → 3 CO₂(g) + 4 H₂O(l)</code>, use
+                        <code>ΔH°<sub>f</sub>(C₃H₈) ≈ −104 kJ·mol⁻¹</code>,
+                        <code>ΔH°<sub>f</sub>(CO₂) = −393.5</code>, and
+                        <code>ΔH°<sub>f</sub>(H₂O(l)) = −285.8</code>.
+                      </p>
+                      <p>
+                        Then
+                        <code>ΔH°<sub>rxn</sub> = [3(−393.5) + 4(−285.8)] − [−104 + 5(0)] ≈ −2220 kJ</code>.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Finding ΔH°<sub>f</sub> for CaCO₃(s)</div>
+                      <p>
+                        For <code>CaCO₃(s) → CaO(s) + CO₂(g); ΔH°<sub>rxn</sub> = +178.1 kJ</code>, and known
+                        <code>ΔH°<sub>f</sub>(CaO) = −635.5 kJ·mol⁻¹</code>,
+                        <code>ΔH°<sub>f</sub>(CO₂) = −393.5 kJ·mol⁻¹</code>,
+                        use
+                        <code>ΔH°<sub>rxn</sub> = [ΔH°<sub>f</sub>(CaO) + ΔH°<sub>f</sub>(CO₂)] − ΔH°<sub>f</sub>(CaCO₃)</code>
+                        to solve for
+                        <code>ΔH°<sub>f</sub>(CaCO₃)</code> (about −1.21×10³ kJ·mol⁻¹).
+                      </p>
+                    </div>
+                    <div class="tag-row">
+                      <span class="tag">standard state</span>
+                      <span class="tag">tables &amp; data</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.8 -->
+          <article id="sec-5-8" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.8</span>
+                  <h3 class="section-heading">Bond Enthalpies</h3>
+                </div>
+                <span class="section-chip">Estimating ΔH from bonds</span>
+              </div>
+              <p class="section-summary">
+                Average bond enthalpies give approximate energies for breaking particular bonds in the gas phase. By summing
+                energies for bonds broken and formed, we can estimate reaction enthalpies.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Bond enthalpy basics</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Breaking vs. forming</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      A <strong>bond enthalpy</strong> (bond dissociation energy) is the enthalpy change for breaking 1 mol of a bond
+                      in the gas phase.
+                    </p>
+                    <p>
+                      Because bond strengths vary slightly from molecule to molecule, we often use <strong>average bond enthalpies</strong>,
+                      averaged over many compounds.
+                    </p>
+                    <p>
+                      Breaking bonds is <strong>endothermic</strong> (requires energy); forming bonds is <strong>exothermic</strong> (releases energy).
+                    </p>
+                    <p>
+                      Bond enthalpy methods give approximate values and work best for gas‑phase reactions where all molecules are
+                      well separated.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Bond-based ΔH estimate</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Broken − formed</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Master relationship</p>
+                    <div class="formula-row">
+                      <code id="f-5-8-bonds" class="formula">ΔH<sub>rxn</sub> ≈ Σ D(bonds broken) − Σ D(bonds formed)</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-8-bonds"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      You add the energies of all bonds you must break in the reactants and subtract the energies of all bonds you
+                      form in the products.
+                    </p>
+                    <p>
+                      If the total energy of bonds formed is larger, <code>ΔH<sub>rxn</sub></code> is negative and the reaction is exothermic.
+                      If bonds broken require more energy than is released upon bond formation, the reaction is endothermic.
+                    </p>
+                    <p>
+                      Because we ignore intermolecular forces, this method is only approximate, especially for reactions involving
+                      liquids, solids, or solutions.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; checks</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">CH₄ + Cl₂ &amp; combustion</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Chlorination of methane</div>
+                      <p>
+                        For <code>CH₄(g) + Cl₂(g) → CH₃Cl(g) + HCl(g)</code>, the bonds broken are C–H and Cl–Cl; the bonds formed
+                        are C–Cl and H–Cl.
+                      </p>
+                      <p>
+                        Using typical values in kJ·mol⁻¹:
+                        <code>D(C–H) = 413</code>, <code>D(Cl–Cl) = 242</code>,
+                        <code>D(C–Cl) = 328</code>, <code>D(H–Cl) = 431</code>.
+                      </p>
+                      <p>
+                        Then <code>ΔH ≈ (413 + 242) − (328 + 431) = 655 − 759 = −104 kJ</code>, indicating an exothermic reaction.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Combustion check</div>
+                      <p>
+                        Using average bond enthalpies to estimate ΔH for combustion of a hydrocarbon generally gives a large negative
+                        value, consistent with the strong exothermic nature of combustion.
+                      </p>
+                      <p>
+                        Comparison with ΔH values from ΔH°<sub>f</sub> tables often shows small differences, illustrating that bond
+                        enthalpies are approximate averages rather than exact values.
+                      </p>
+                    </div>
+                    <div class="tag-row">
+                      <span class="tag">gas phase reactions</span>
+                      <span class="tag">approximate method</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5.9 -->
+          <article id="sec-5-9" class="section-card">
+            <div class="section-card-inner">
+              <div class="section-header-row">
+                <div class="section-title-left">
+                  <span class="section-code">5.9</span>
+                  <h3 class="section-heading">Foods and Fuels</h3>
+                </div>
+                <span class="section-chip">Energy in chemistry &amp; biology</span>
+              </div>
+              <p class="section-summary">
+                Food and fuels store chemical energy that is released mainly through combustion or metabolic oxidation.
+                Fuel values (kJ·g⁻¹) allow comparison of how much energy different substances provide per gram.
+              </p>
+
+              <div class="nodes-row">
+                <!-- Roots -->
+                <section class="node open" data-default-open="true">
+                  <button class="node-header" type="button" aria-expanded="true">
+                    <div class="node-header-main">
+                      <span class="node-label">Roots</span>
+                      <span class="node-title">Fuel values &amp; metabolism</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Energy per gram</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p>
+                      The <strong>fuel value</strong> of a substance is the energy released as heat when 1 g of it is completely combusted.
+                    </p>
+                    <p>
+                      Our bodies obtain energy mainly from <strong>carbohydrates</strong>, <strong>fats</strong>, and <strong>proteins</strong>.
+                      Their metabolic oxidation releases energy that is used for work (movement, biosynthesis) and maintaining
+                      body temperature.
+                    </p>
+                    <p>
+                      Typical fuel values:
+                    </p>
+                    <ul>
+                      <li>Carbohydrates: ~17 kJ·g⁻¹</li>
+                      <li>Proteins: ~17 kJ·g⁻¹</li>
+                      <li>Fats: ~38 kJ·g⁻¹</li>
+                    </ul>
+                    <p>
+                      Fats are more energy‑dense and water‑insoluble, making them efficient long‑term energy stores.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Trunk -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Trunk</span>
+                      <span class="node-title">Key reactions &amp; biofuels</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Glucose, fats, ethanol</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <p class="tiny-label">Combustion of glucose</p>
+                    <div class="formula-row">
+                      <code id="f-5-9-glucose" class="formula">C₆H₁₂O₆(s) + 6 O₂(g) → 6 CO₂(g) + 6 H₂O(l); ΔH° ≈ −2803 kJ</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-9-glucose"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      This reaction models how the body oxidizes glucose to release energy. Per gram, glucose provides about
+                      17 kJ·g⁻¹.
+                    </p>
+
+                    <p class="tiny-label">Combustion of fats</p>
+                    <div class="formula-row">
+                      <code id="f-5-9-fat" class="formula">2 C₅₇H₁₁₀O₆(s) + 163 O₂(g) → 114 CO₂(g) + 110 H₂O(l)</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-9-fat"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Fats such as tristearin have high fuel values (~38 kJ·g⁻¹), explaining why they serve as compact energy reserves.
+                    </p>
+
+                    <p class="tiny-label">Fermentation to bioethanol</p>
+                    <div class="formula-row">
+                      <code id="f-5-9-ethanol" class="formula">C₆H₁₂O₆(s) → 2 C₂H₅OH(l) + 2 CO₂(g); ΔH ≈ +15.8 kJ</code>
+                      <button class="copy-btn" type="button" data-copy="#f-5-9-ethanol"><span class="icon">📋</span><span>copy</span></button>
+                    </div>
+                    <p>
+                      Bioethanol, produced from plant carbohydrates like corn or sugarcane, can be used as a fuel. It raises questions
+                      about energy efficiency and competition between food and fuel uses of crops.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Leaves -->
+                <section class="node">
+                  <button class="node-header" type="button" aria-expanded="false">
+                    <div class="node-header-main">
+                      <span class="node-label">Leaves</span>
+                      <span class="node-title">Examples &amp; context</span>
+                    </div>
+                    <div class="node-header-meta">
+                      <span class="node-pill">Food labels &amp; fuel choices</span>
+                      <span class="node-chevron">▶</span>
+                    </div>
+                  </button>
+                  <div class="node-body">
+                    <div class="example-block">
+                      <div class="example-title">Example – Estimating snack energy</div>
+                      <p>
+                        A snack has 20 g carbohydrate, 10 g fat, and 5 g protein. Energy contribution:
+                        20×17 ≈ 340 kJ (carbs), 10×38 ≈ 380 kJ (fat), 5×17 ≈ 85 kJ (protein).
+                        Total ≈ 805 kJ, about 190 food “Calories”.
+                      </p>
+                    </div>
+                    <div class="example-block">
+                      <div class="example-title">Example – Comparing fuels</div>
+                      <p>
+                        Burning 1.00 g of carbohydrate yields ~17 kJ, whereas 1.00 g of fat yields ~38 kJ.
+                        For the same mass, fat provides more than twice the energy, making it a more compact energy source.
+                      </p>
+                    </div>
+                    <p>
+                      <strong>Big picture:</strong> the same thermochemical ideas used to analyze combustion in engines also apply to
+                      metabolism in living organisms and to the design of sustainable biofuels.
+                    </p>
+                    <div class="tag-row">
+                      <span class="tag">nutrition</span>
+                      <span class="tag">bioethanol</span>
+                      <span class="tag">global energy</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="copy-toast" role="status" aria-live="polite">Copied</div>
+
+  <script>
+    (function() {
+      const cards = Array.from(document.querySelectorAll('.section-card'));
+      const links = Array.from(document.querySelectorAll('.section-link'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+      let toastTimeoutId = null;
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        if (toastTimeoutId) {
+          clearTimeout(toastTimeoutId);
+        }
+        toastTimeoutId = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1300);
+      }
+
+      // Collapsible nodes
+      document.querySelectorAll('.node').forEach(node => {
+        const header = node.querySelector('.node-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          const isOpen = node.classList.toggle('open');
+          header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      });
+
+      // Copy buttons
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          let text = btn.getAttribute('data-text') || '';
+          if (!text && selector) {
+            const el = document.querySelector(selector);
+            if (el) {
+              text = el.innerText.trim();
+            }
+          }
+          if (!text) return;
+
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              const temp = document.createElement('textarea');
+              temp.value = text;
+              temp.style.position = 'fixed';
+              temp.style.opacity = '0';
+              document.body.appendChild(temp);
+              temp.select();
+              document.execCommand('copy');
+              document.body.removeChild(temp);
+            }
+            showToast('Copied to clipboard');
+          } catch (err) {
+            console.error('Clipboard copy failed', err);
+            showToast('Copy failed');
+          }
+        });
+      });
+
+      // Double-click to copy selection
+      document.addEventListener('dblclick', async () => {
+        const selection = window.getSelection ? window.getSelection() : null;
+        const text = selection ? selection.toString().trim() : '';
+        if (!text) return;
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            temp.style.position = 'fixed';
+            temp.style.opacity = '0';
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+          }
+          showToast('Selection copied');
+        } catch (err) {
+          console.error('Selection copy failed', err);
+          showToast('Copy failed');
+        }
+      });
+
+      // Search / filter cards
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const term = searchInput.value.trim().toLowerCase();
+          cards.forEach(card => {
+            if (!term) {
+              card.classList.remove('hidden-card');
+              return;
+            }
+            const text = card.innerText.toLowerCase();
+            const match = text.includes(term);
+            if (match) {
+              card.classList.remove('hidden-card');
+            } else {
+              card.classList.add('hidden-card');
+            }
+          });
+        });
+      }
+
+      // Simple scroll-spy to highlight active section in sidebar
+      const sectionOffsets = cards.map(card => ({
+        id: card.id,
+        top: 0
+      }));
+
+      function updateOffsets() {
+        sectionOffsets.forEach(entry => {
+          const el = document.getElementById(entry.id);
+          entry.top = el ? el.getBoundingClientRect().top + window.scrollY : 0;
+        });
+      }
+
+      function updateActiveLink() {
+        const scrollPos = window.scrollY + 120;
+        let currentId = null;
+        for (let i = 0; i < sectionOffsets.length; i++) {
+          const { id, top } = sectionOffsets[i];
+          if (scrollPos >= top) {
+            currentId = id;
+          }
+        }
+        if (!currentId) return;
+        links.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + currentId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        updateOffsets();
+        updateActiveLink();
+      });
+
+      window.addEventListener('scroll', () => {
+        updateActiveLink();
+      });
+
+      // Initial setup
+      updateOffsets();
+      updateActiveLink();
+    })();
+  </script>
+</body>
+</html>
+

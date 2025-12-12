@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 10 Concept Map – Gases</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050816;
+      --bg-elevated: #0f172a;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.16);
+      --accent-strong: rgba(56, 189, 248, 0.7);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+      --transition-fast: 150ms ease-out;
+      --transition-med: 200ms ease-out;
+      --sidebar-width: 280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0b1120 0%, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      display: flex;
+      flex: 1 1 auto;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 var(--sidebar-width);
+      max-width: var(--sidebar-width);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: sticky;
+      top: 1rem;
+      align-self: flex-start;
+      backdrop-filter: blur(18px);
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .title-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .title-main {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .title-sub {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 0.35rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 2.1rem 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-soft);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+      transform: translateY(-0.5px);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      margin-top: 0.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.55rem;
+    }
+
+    .section-list-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .section-link {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.82rem;
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .section-link span.code {
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .section-link span.label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .section-link:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #f9fafb;
+      transform: translateY(-0.5px);
+    }
+
+    .section-link.active {
+      border-color: rgba(56, 189, 248, 0.85);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.95));
+      color: #f9fafb;
+    }
+
+    .sidebar-note {
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.5rem;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .sidebar-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.97));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.3rem;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .intro-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.3rem 0.75rem;
+      align-items: center;
+    }
+
+    .intro-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5f0ff;
+    }
+
+    .intro-tags {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .intro-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .intro-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 0.9rem;
+      align-items: stretch;
+    }
+
+    .concept-card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+    }
+
+    .concept-card.hidden-by-filter {
+      display: none;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .card-title-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .card-section-code {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+
+    .card-section-label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .card-chip {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      overflow: hidden;
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+      padding: 0.45rem 0.55rem 0.4rem;
+      cursor: pointer;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      transition: background var(--transition-med), border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    .node-pill {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      flex-shrink: 0;
+    }
+
+    .node-label-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      min-width: 0;
+    }
+
+    .node-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .node-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .node-chevron {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      transition: transform var(--transition-med), color var(--transition-med);
+      flex-shrink: 0;
+    }
+
+    .node[aria-expanded="true"] .node-chevron {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
+    .node[aria-expanded="true"] .node-header {
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.7));
+      border-bottom: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.65rem 0.5rem;
+      display: none;
+    }
+
+    .node[aria-expanded="true"] .node-content {
+      display: block;
+    }
+
+    .node-content p {
+      margin: 0 0 0.4rem;
+    }
+
+    .node-content ul {
+      margin: 0 0 0.4rem 1.1rem;
+      padding: 0;
+    }
+
+    .node-content li {
+      margin-bottom: 0.2rem;
+    }
+
+    .formula-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    code.formula {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      padding: 0.06rem 0.3rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+      white-space: nowrap;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-soft);
+      border-radius: 999px;
+      padding: 0.08rem 0.4rem;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      border-color: rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
+      color: var(--accent);
+      transform: translateY(-0.25px);
+    }
+
+    .copy-btn span.emoji {
+      font-size: 0.78rem;
+    }
+
+    .tagline-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    .tag-pill {
+      padding: 0.06rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      white-space: nowrap;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.15rem;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: #e5f0ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms ease-out, opacity 180ms ease-out;
+      z-index: 40;
+    }
+
+    .toast.visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .toast-message {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 960px) {
+      .page-shell {
+        flex-direction: column;
+        padding: 0.75rem;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .intro-banner {
+        padding: 0.9rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-shell {
+        padding: 0.6rem;
+      }
+
+      .sidebar {
+        padding: 0.9rem;
+      }
+
+      .title-main {
+        font-size: 1rem;
+      }
+
+      .concept-card {
+        padding: 0.8rem 0.85rem;
+      }
+
+      .intro-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="title-kicker">Chem 123 – Chapter 10</div>
+        <div class="title-main">Gases</div>
+        <div class="title-sub">Concept map for gas laws, kinetic theory, and real gases.</div>
+      </div>
+
+      <div class="search-box">
+        <input id="search-input" class="search-input" type="search" placeholder="Filter sections by keyword…">
+        <div class="search-icon">🔍</div>
+      </div>
+
+      <div class="sidebar-section-list">
+        <div class="section-list-title">Jump to section</div>
+        <ul class="section-link-list">
+          <li><a href="#sec-10-1" class="section-link" data-section="10.1"><span class="code">10.1</span><span class="label">Characteristics of gases</span></a></li>
+          <li><a href="#sec-10-2" class="section-link" data-section="10.2"><span class="code">10.2</span><span class="label">Pressure</span></a></li>
+          <li><a href="#sec-10-3" class="section-link" data-section="10.3"><span class="code">10.3</span><span class="label">Gas laws</span></a></li>
+          <li><a href="#sec-10-4" class="section-link" data-section="10.4"><span class="code">10.4</span><span class="label">Ideal gas equation</span></a></li>
+          <li><a href="#sec-10-5" class="section-link" data-section="10.5"><span class="code">10.5</span><span class="label">Gas mixtures &amp; partial pressures</span></a></li>
+          <li><a href="#sec-10-6" class="section-link" data-section="10.6"><span class="code">10.6</span><span class="label">Kinetic-molecular theory</span></a></li>
+          <li><a href="#sec-10-7" class="section-link" data-section="10.7"><span class="code">10.7</span><span class="label">Effusion &amp; diffusion</span></a></li>
+          <li><a href="#sec-10-8" class="section-link" data-section="10.8"><span class="code">10.8</span><span class="label">Real gases &amp; van der Waals</span></a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-note">
+        <strong>Hint</strong>: Double-click any text to copy it. Use the 📋 buttons to copy formulas or snippets for your notes or problem sets.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title-row">
+          <div class="intro-title">Conceptual Overview</div>
+          <div class="intro-tags">
+            <span class="intro-tag">roots</span>
+            <span class="intro-tag">trunk</span>
+            <span class="intro-tag">leaves</span>
+          </div>
+        </div>
+        <div class="intro-body">
+          This chapter’s map organizes the gas content like a tree: <strong>roots</strong> capture foundational ideas
+          (what pressure is, how gases behave), the <strong>trunk</strong> collects the key equations and patterns (gas laws,
+          PV = nRT, kinetic formulas, van der Waals), and the <strong>leaves</strong> include examples, tips, and interpretations
+          that show how to apply these ideas to real calculations and conceptual questions.
+        </div>
+      </section>
+
+      <section class="cards-grid">
+
+        <article id="sec-10-1" class="concept-card" data-keywords="10.1 characteristics gases expand compressible homogeneous mixtures vapors spacing">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.1</div>
+              <div class="card-section-label">Characteristics of Gases</div>
+            </div>
+            <div class="card-chip">Macroscopic behavior</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Core ideas</div>
+                    <div class="node-subtitle">How gases differ from liquids and solids.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>Gases expand spontaneously to fill any container; their volume equals the container’s volume.</li>
+                  <li>Gases are highly compressible: applying pressure greatly reduces volume, unlike most liquids and solids.</li>
+                  <li>Different gases mix completely to form homogeneous mixtures regardless of identity or proportion (e.g., air is mostly N₂ and O₂).</li>
+                  <li>Gas molecules are far apart; only a tiny fraction of the total volume is actually occupied by particles, so each molecule behaves almost independently.</li>
+                  <li>Substances that are liquids or solids at room conditions can appear as vapors (gaseous form) at higher temperature or lower pressure (e.g., water vapor).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Conceptual links</div>
+                    <div class="node-subtitle">Why gases share similar physical laws.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  Because gas molecules are so widely spaced and interactions are weak, the detailed chemical identity
+                  of a gas matters much less for its bulk physical behavior. As a result:
+                </p>
+                <ul>
+                  <li>Very different gases (N₂ vs O₂ vs CO₂) obey the same simple PV–T–n relationships under similar conditions.</li>
+                  <li>We can describe generic “ideal gas” behavior and then treat most real gases as approximately ideal, especially at low pressure and moderate temperature.</li>
+                  <li>Large intermolecular distances are the root of high compressibility, full-container expansion, and easy mixing.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; interpretation</div>
+                    <div class="node-subtitle">Air as a mixture; vapors vs gases.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Air as an almost ideal gas</strong></p>
+                <p>
+                  Although O₂ supports life and combustion and N₂ is relatively inert, their molecular masses and sizes are similar and their intermolecular
+                  forces are weak. Physically, they behave so similarly that we can treat “air” as a single ideal gas in many calculations.
+                </p>
+
+                <p><strong>Example – Vapor vs gas</strong></p>
+                <p>
+                  Water is often a liquid at room conditions, but water molecules in the gas phase are called water vapor. The same thermodynamic
+                  ideas apply: water vapor expands to fill its container and mixes uniformly with other gases, but we keep the term “vapor” to remind ourselves
+                  that the substance is normally liquid or solid at that temperature.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">expansion &amp; compressibility</span>
+              <span class="tag-pill">molecular spacing</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-2" class="concept-card" data-keywords="10.2 pressure P = F/A atmospheric barometer manometer hydrostatic P = d h g units atm Pa torr psi">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.2</div>
+              <div class="card-section-label">Pressure</div>
+            </div>
+            <div class="card-chip">Forces &amp; units</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Definition &amp; atmospheric pressure</div>
+                    <div class="node-subtitle">P = F/A and what “1 atm” means physically.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Pressure</strong> is the force per unit area on a surface: many tiny molecular impacts summed over that area.</li>
+                  <li>Atmospheric pressure comes from the weight of the air column above a point on Earth’s surface.</li>
+                  <li>Near sea level, atmospheric pressure is about 1.0 × 10⁵ Pa = 1 bar ≈ 14.7 psi.</li>
+                  <li>A <strong>barometer</strong> uses a column of mercury supported by atmospheric pressure; the height of the column (≈760 mm at standard conditions) measures the pressure.</li>
+                  <li>A <strong>manometer</strong> compares gas pressure to atmospheric pressure using mercury in a U‑tube; the height difference h tells you how much higher or lower the gas pressure is than atmospheric.</li>
+                  <li>Common pressure units include Pa, kPa, bar, atm, mm Hg, torr, and psi; 1 atm = 760 torr = 101.325 kPa ≈ 1.01325 bar.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Key pressure equations</div>
+                    <div class="node-subtitle">P = F/A and hydrostatic pressure P = d h g.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Definition of pressure</strong></p>
+                <div class="formula-row">
+                  <code class="formula">P = F / A</code>
+                  <button class="copy-btn" data-copy="P = F / A"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>P = pressure (Pa), F = force (N), A = area (m²).</li>
+                  <li>Same force over smaller area → larger pressure; this is why sharp objects cut more easily.</li>
+                </ul>
+
+                <p><strong>Hydrostatic pressure in a fluid</strong></p>
+                <div class="formula-row">
+                  <code class="formula">P = d h g</code>
+                  <button class="copy-btn" data-copy="P = d h g"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>d = density of fluid (kg/m³), h = height of fluid column (m), g = 9.81 m/s².</li>
+                  <li>Used to estimate the pressure due to a column of water or mercury, and to analyze barometers and divers’ depths.</li>
+                </ul>
+
+                <p><strong>Standard pressure equivalents</strong></p>
+                <div class="formula-row">
+                  <code class="formula">1 atm = 760 torr = 1.01325×10⁵ Pa ≈ 101.325 kPa</code>
+                  <button class="copy-btn" data-copy="1 atm = 760 torr = 1.01325×10^5 Pa ≈ 101.325 kPa"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Knowing these equivalences lets you convert any given pressure into convenient units for calculations.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; intuition</div>
+                    <div class="node-subtitle">Divers, bottles collapsing, and manometer readings.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Diver at depth</strong></p>
+                <p>
+                  A diver 31 m below the surface experiences water pressure of roughly d h g = (1000 kg/m³)(31 m)(9.81 m/s²) ≈ 3.0×10⁵ Pa,
+                  in addition to 98 kPa atmospheric pressure, for a total of ≈398 kPa (~4 atm). This shows how quickly pressure rises with depth.
+                </p>
+
+                <p><strong>Example – Plastic bottle and atmospheric pressure</strong></p>
+                <p>
+                  When you suck some air out of a sealed plastic bottle, the air pressure inside drops. Atmospheric pressure on the outside is now larger,
+                  so the bottle gets pushed inward and collapses until pressures rebalance.
+                </p>
+
+                <p><strong>Example – Manometer and gas pressure</strong></p>
+                <p>
+                  If the mercury level on the gas side is lower than on the open side by 32.6 mm, then P_gas exceeds atmospheric pressure by 32.6 torr.
+                  Adding that difference to the atmospheric value yields the gas’s absolute pressure.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">P = F / A</span>
+              <span class="tag-pill">barometer &amp; manometer</span>
+              <span class="tag-pill">hydrostatic pressure</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-3" class="concept-card" data-keywords="10.3 gas laws Boyle Charles Avogadro combined P1V1 P2V2 V/T V/n breathing hot air balloon">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.3</div>
+              <div class="card-section-label">The Gas Laws</div>
+            </div>
+            <div class="card-chip">Boyle, Charles, Avogadro</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Basic relationships</div>
+                    <div class="node-subtitle">P–V, V–T, and V–n for a fixed amount of gas.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Boyle’s law</strong>: at constant temperature and amount, gas volume decreases when pressure increases (inverse relationship).</li>
+                  <li><strong>Charles’s law</strong>: at constant pressure and amount, gas volume increases when absolute temperature increases (direct relationship).</li>
+                  <li><strong>Avogadro’s law</strong>: at constant temperature and pressure, gas volume is proportional to the number of moles.</li>
+                  <li>These laws each describe a slice of gas behavior when two of the four variables (P, V, n, T) are held constant.</li>
+                  <li>Gay-Lussac’s law of combining volumes showed that gaseous reactants and products often combine in simple volume ratios, motivating Avogadro’s hypothesis that equal volumes at the same T and P contain equal numbers of molecules.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Gas law equations</div>
+                    <div class="node-subtitle">Boyle, Charles, Avogadro, and combined gas law.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Boyle’s law (constant n, T)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">P₁V₁ = P₂V₂</code>
+                  <button class="copy-btn" data-copy="P1V1 = P2V2"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Inversely proportional: doubling the pressure halves the volume.</li>
+                </ul>
+
+                <p><strong>Charles’s law (constant n, P)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">V₁/T₁ = V₂/T₂</code>
+                  <button class="copy-btn" data-copy="V1/T1 = V2/T2"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Temperatures must be in K: T(K) = T(°C) + 273.15.</li>
+                  <li>Directly proportional: higher T (in K) means larger V.</li>
+                </ul>
+
+                <p><strong>Avogadro’s law (constant T, P)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">V ∝ n</code>
+                  <button class="copy-btn" data-copy="V ∝ n"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Equal volumes at the same T and P contain equal numbers of molecules, regardless of identity.</li>
+                </ul>
+
+                <p><strong>Combined gas law (constant n)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">P₁V₁/T₁ = P₂V₂/T₂</code>
+                  <button class="copy-btn" data-copy="P1V1/T1 = P2V2/T2"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Used when P, V, and T all change for the same sample of gas.</li>
+                  <li>Comes directly from the ideal gas equation by holding n constant.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; intuition</div>
+                    <div class="node-subtitle">Breathing, balloons, and volume ratios in reactions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Breathing and Boyle’s law</strong></p>
+                <p>
+                  When you inhale, your chest expands and lung volume increases. At roughly constant temperature, this increase in V reduces the gas pressure
+                  in your lungs below atmospheric pressure, and air flows in. Exhalation reverses this cycle, neatly illustrating P–V inverse proportionality.
+                </p>
+
+                <p><strong>Example – Hot air balloons (Charles + density)</strong></p>
+                <p>
+                  Heating the air in a balloon at essentially constant pressure causes the air’s volume to expand, lowering its density. The lower density
+                  makes the balloon buoyant, so it rises relative to the cooler, denser surrounding air.
+                </p>
+
+                <p><strong>Example – Combining volumes in reactions</strong></p>
+                <p>
+                  In reactions like 2 H₂(g) + O₂(g) → 2 H₂O(g), Gay-Lussac observed that gases combine in simple volume ratios (2 volumes of H₂ with 1 volume of O₂)
+                  at the same T and P. Avogadro’s hypothesis explains this: equal volumes contain equal numbers of molecules, so volume ratios reflect mole ratios.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">P–V, V–T, V–n</span>
+              <span class="tag-pill">combined gas law</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-4" class="concept-card" data-keywords="10.4 ideal gas equation PV = nRT STP density d = PM/(RT) molar mass M = dRT/P gas stoichiometry">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.4</div>
+              <div class="card-section-label">The Ideal Gas Equation</div>
+            </div>
+            <div class="card-chip">PV = nRT &amp; consequences</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – PV = nRT</div>
+                    <div class="node-subtitle">Connecting P, V, n, and T for an ideal gas.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  The three simple gas laws (Boyle, Charles, Avogadro) combine into one powerful relationship: the ideal gas equation.
+                  It assumes that gas molecules have negligible volume and no intermolecular forces, which is a good approximation under many conditions.
+                </p>
+                <div class="formula-row">
+                  <code class="formula">PV = nRT</code>
+                  <button class="copy-btn" data-copy="PV = nRT"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>P = pressure, V = volume, n = moles, T = temperature in K, R = gas constant.</li>
+                  <li>Explains Boyle’s law (holding n, T constant), Charles’s law (holding n, P constant), and Avogadro’s law (holding P, T constant).</li>
+                  <li>Defines molar volume at STP: ~22.4 L/mol for an ideal gas at 0 °C and 1 atm.</li>
+                  <li>Is the foundation for gas stoichiometry, gas-density calculations, and many thermodynamic estimates.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Rearrangements &amp; density formulas</div>
+                    <div class="node-subtitle">Solving for P, V, n, T and for d, M.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Ideal gas equation variations</strong></p>
+                <div class="formula-row">
+                  <code class="formula">P = nRT / V</code>
+                  <button class="copy-btn" data-copy="P = nRT / V"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula">V = nRT / P</code>
+                  <button class="copy-btn" data-copy="V = nRT / P"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula">n = PV / RT</code>
+                  <button class="copy-btn" data-copy="n = PV / RT"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula">T = PV / (nR)</code>
+                  <button class="copy-btn" data-copy="T = PV / (nR)"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+
+                <p><strong>Density and molar mass of a gas</strong></p>
+                <div class="formula-row">
+                  <code class="formula">d = P M / (R T)</code>
+                  <button class="copy-btn" data-copy="d = P M / (R T)"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula">M = d R T / P</code>
+                  <button class="copy-btn" data-copy="M = d R T / P"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>d = density (e.g., g/L), M = molar mass (g/mol), P, T, R as usual.</li>
+                  <li>Higher M or P increase d; higher T decreases d (hot gases are less dense).</li>
+                  <li>Measuring d at known P and T gives M, which can help identify an unknown gas.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Worked interpretations</div>
+                    <div class="node-subtitle">Finding moles, mass, and molar mass from gas data.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Moles of CO₂ from P, V, T</strong></p>
+                <p>
+                  CO₂ collected in a 0.250 L flask at 131.7 kPa and 31 °C has n = PV/RT ≈ 0.013 mol.
+                  Each symbol has a clear physical meaning: P measures collision frequency and strength, V is the container size,
+                  and T controls molecular energy and speed.
+                </p>
+
+                <p><strong>Example – Molar mass from density</strong></p>
+                <p>
+                  Given density 3.09 g/L at 31 °C and 97.99 kPa, we use M = dRT/P to find M ≈ 80 g/mol.
+                  This method is powerful for identifying unknown gases based on simple measurements of mass, volume, T, and P.
+                </p>
+
+                <p><strong>Example – Airbag gas generation</strong></p>
+                <p>
+                  In NaN₃ decomposition, PV = nRT gives the moles of N₂ needed to fill an airbag to a given P, V, and T.
+                  Stoichiometry then tells how many moles (and grams) of NaN₃ must decompose.
+                  This connects macroscopic safety design (airbag size, inflation pressure) to microscopic chemical amounts.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">ideal gas model</span>
+              <span class="tag-pill">density &amp; molar mass</span>
+              <span class="tag-pill">gas stoichiometry</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-5" class="concept-card" data-keywords="10.5 gas mixtures partial pressures Dalton Pt = ΣPi mole fraction Xi Pi = Xi Pt">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.5</div>
+              <div class="card-section-label">Gas Mixtures and Partial Pressures</div>
+            </div>
+            <div class="card-chip">Dalton &amp; mole fractions</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Independent behavior of gases in a mixture</div>
+                    <div class="node-subtitle">Partial pressure concept.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>In an ideal gas mixture, each gas behaves as if the others were absent; it “sees” the full container volume and temperature.</li>
+                  <li>The pressure that an individual gas would exert alone in the container at the same T is its <strong>partial pressure</strong>.</li>
+                  <li>The total pressure is just the sum of these partial pressures, because each gas’s collisions add to the total forces on the walls.</li>
+                  <li>Dalton’s law of partial pressures provides the macroscopic statement of this microscopic independence.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Dalton’s law &amp; mole fraction</div>
+                    <div class="node-subtitle">Pₜ = ΣPᵢ and Pᵢ = Xᵢ Pₜ.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Dalton’s law of partial pressures</strong></p>
+                <div class="formula-row">
+                  <code class="formula">Pₜ = P₁ + P₂ + P₃ + …</code>
+                  <button class="copy-btn" data-copy="Pt = P1 + P2 + P3 + …"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Pₜ = total pressure, P₁, P₂, … = partial pressures of individual gases.</li>
+                  <li>Each Pᵢ can be found with Pᵢ = nᵢRT/V if the gas is ideal.</li>
+                </ul>
+
+                <p><strong>Mole fraction and partial pressure</strong></p>
+                <div class="formula-row">
+                  <code class="formula">Xᵢ = nᵢ / nₜ</code>
+                  <button class="copy-btn" data-copy="Xi = ni / nt"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <div class="formula-row">
+                  <code class="formula">Pᵢ = Xᵢ Pₜ</code>
+                  <button class="copy-btn" data-copy="Pi = Xi Pt"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Xᵢ is dimensionless; the sum of all Xᵢ equals 1.</li>
+                  <li>If a gas accounts for 20% of the moles in a mixture, it contributes 20% of the total pressure (under ideal conditions).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; practice links</div>
+                    <div class="node-subtitle">Mixture pressures and oxygen fractions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – O₂ in a synthetic atmosphere</strong></p>
+                <p>
+                  Suppose a plant-growth chamber atmosphere is 18.0 mol% O₂ (X(O₂) = 0.180), 1.5 mol% CO₂, and 80.5 mol% Ar,
+                  with total pressure Pₜ = 99.33 kPa. Then:
+                  P(O₂) = X(O₂) Pₜ = 0.180 × 99.33 ≈ 17.9 kPa.
+                </p>
+                <p>
+                  This partial pressure is what matters for biological functions like respiration, not just the overall percentage, because it reflects the actual O₂ “availability.”
+                </p>
+
+                <p><strong>Example – Air composition and N₂ partial pressure</strong></p>
+                <p>
+                  Air’s mole fraction of N₂ is ~0.78. At sea level (Pₜ ≈ 101.3 kPa), P(N₂) ≈ 0.78 × 101.3 ≈ 79 kPa.
+                  Dalton’s law clarifies why the bulk of air’s pressure comes from N₂ collisions even though O₂ is chemically more important for breathing.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">Dalton’s law</span>
+              <span class="tag-pill">mole fractions</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-6" class="concept-card" data-keywords="10.6 kinetic molecular theory postulates average kinetic energy proportional to T urms = sqrt(3RT/M) speed distributions">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.6</div>
+              <div class="card-section-label">The Kinetic-Molecular Theory of Gases</div>
+            </div>
+            <div class="card-chip">Microscopic model</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Postulates of the theory</div>
+                    <div class="node-subtitle">Random motion, negligible volume, elastic collisions, and energy–temperature link.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Gases are made of many tiny particles</strong> (molecules or atoms) in continuous, random motion.</li>
+                  <li><strong>Particle volumes are negligible</strong> compared with container volume for an ideal gas.</li>
+                  <li><strong>No intermolecular forces</strong> are assumed except during collisions, which are perfectly elastic (no kinetic-energy loss in collisions).</li>
+                  <li><strong>Average kinetic energy is proportional to absolute temperature</strong>:
+                    at the same T, all gases have the same average kinetic energy, even though their masses and speeds differ.</li>
+                  <li>
+                    These postulates explain the gas laws:
+                    more collisions per area or harder impacts (from higher speed) give higher pressure;
+                    increasing T increases average kinetic energy and thus pressure at fixed volume.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Speed formulas</div>
+                    <div class="node-subtitle">Average KE, u_rms, and u_mp.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Average kinetic energy per mole</strong></p>
+                <div class="formula-row">
+                  <code class="formula">KĒ = (3/2) R T</code>
+                  <button class="copy-btn" data-copy="KĒ = (3/2) R T"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>R = gas constant, T = temperature in K.</li>
+                  <li>Shows that temperature is a direct measure of average molecular kinetic energy.</li>
+                </ul>
+
+                <p><strong>Root-mean-square speed u_rms</strong></p>
+                <div class="formula-row">
+                  <code class="formula">u_rms = √(3 R T / M)</code>
+                  <button class="copy-btn" data-copy="urms = √(3 R T / M)"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>u_rms in m/s if M in kg/mol and R in J·mol⁻¹·K⁻¹.</li>
+                  <li>Lighter molecules (smaller M) have higher u_rms at the same T.</li>
+                </ul>
+
+                <p><strong>Most probable speed u_mp</strong></p>
+                <div class="formula-row">
+                  <code class="formula">u_mp = √(2 R T / M)</code>
+                  <button class="copy-btn" data-copy="ump = √(2 R T / M)"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>u_mp is the speed at which the Maxwell–Boltzmann distribution of molecular speeds reaches its peak.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; conceptual checks</div>
+                    <div class="node-subtitle">Comparing speeds and relating to gas laws.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Comparing molecular speeds at 298 K</strong></p>
+                <p>
+                  At 298 K, lighter gases (like H₂ or He) have significantly higher u_rms than heavier ones (like Kr or Xe), but average kinetic energies are equal.
+                  This explains why lighter gases diffuse and effuse faster, even though all gases share the same temperature.
+                </p>
+
+                <p><strong>Example – Compression at constant T</strong></p>
+                <p>
+                  When a gas is compressed at constant temperature, average kinetic energy and u_rms do not change.
+                  However, molecules strike the walls more often because they have less space, increasing the collision rate and thus the pressure,
+                  consistent with Boyle’s law.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">temperature ↔ kinetic energy</span>
+              <span class="tag-pill">Maxwell–Boltzmann speeds</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-7" class="concept-card" data-keywords="10.7 effusion diffusion Graham's law r1/r2 = √(M2/M1) mean free path">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.7</div>
+              <div class="card-section-label">Molecular Effusion and Diffusion</div>
+            </div>
+            <div class="card-chip">Rates &amp; molar mass</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Effusion vs diffusion</div>
+                    <div class="node-subtitle">Two ways gases spread out.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Effusion</strong> is the passage of gas molecules through a tiny hole into vacuum or low-pressure region; collisions near the hole are negligible.</li>
+                  <li><strong>Diffusion</strong> is the spread of a gas throughout another substance or space, driven by random thermal motion and concentration gradients.</li>
+                  <li>At the same temperature, lighter molecules move faster on average (higher u_rms) and thus effuse and idealize diffuse faster than heavier molecules.</li>
+                  <li>Real diffusion is slower than molecular speeds suggest because frequent collisions (mean free path effects) interrupt straight-line motion.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Graham’s law of effusion</div>
+                    <div class="node-subtitle">Rate ratios and molar masses.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  Graham’s law relates the effusion rates of two gases to their molar masses when T and P are the same:
+                </p>
+                <div class="formula-row">
+                  <code class="formula">r₁ / r₂ = √(M₂ / M₁)</code>
+                  <button class="copy-btn" data-copy="r1 / r2 = √(M2 / M1)"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>r₁, r₂ = effusion rates (e.g., volume or moles per unit time).</li>
+                  <li>M₁, M₂ = molar masses (same units for both gases).</li>
+                  <li>The lighter gas (smaller M) has the larger effusion rate.</li>
+                </ul>
+
+                <p>
+                  Since u_rms ∝ 1/√M, we can view Graham’s law as saying that effusion rate is proportional to the average molecular speed.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; applications</div>
+                    <div class="node-subtitle">Helium balloons and isotope separation.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Helium vs O₂ effusion rate</strong></p>
+                <p>
+                  Using Graham’s law, helium (M ≈ 4 g/mol) effuses roughly √(32/4) = √8 ≈ 2.8 times faster than O₂ (M ≈ 32 g/mol).
+                  This explains why helium escapes from balloons much more rapidly than air.
+                </p>
+
+                <p><strong>Example – Uranium enrichment via gaseous diffusion</strong></p>
+                <p>
+                  For UF₆ containing ²³⁵U vs ²³⁸U, the molar mass difference is small, but ²³⁵UF₆ effuses just slightly faster.
+                  By passing UF₆ through many stages of porous barriers, one can gradually enrich the fraction of ²³⁵U, illustrating the practical power of small effusion-rate differences.
+                </p>
+
+                <p><strong>Mean free path analogy</strong></p>
+                <p>
+                  The mean free path (average distance a molecule travels between collisions) is short at sea-level pressures but much longer at high altitudes.
+                  You can picture walking through a crowded mall (short mean free path) versus an empty hallway (long mean free path) as a macroscopic analogy.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">effusion vs diffusion</span>
+              <span class="tag-pill">Graham’s law</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-10-8" class="concept-card" data-keywords="10.8 real gases deviations ideal PV/RT van der Waals (P + a n^2/V^2)(V - nb) = nRT high pressure low temperature">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">10.8</div>
+              <div class="card-section-label">Real Gases: Deviations from Ideal Behavior</div>
+            </div>
+            <div class="card-chip">van der Waals corrections</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – When and why gases are nonideal</div>
+                    <div class="node-subtitle">High P, low T, finite size, and attractions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>For 1 mol of ideal gas, PV/RT = 1 at any pressure and temperature.</li>
+                  <li>For real gases:
+                    <ul>
+                      <li>At moderate pressures, PV/RT often dips below 1 due to attractive forces lowering the effective pressure.</li>
+                      <li>At high pressures, PV/RT rises above 1 because the finite volume of molecules makes the gas occupy more space than ideal theory predicts.</li>
+                    </ul>
+                  </li>
+                  <li>Real gases approach ideal behavior:
+                    <ul>
+                      <li>At low pressures (molecules far apart; volume and attractions less important).</li>
+                      <li>At high temperatures (molecules move fast enough that attractions matter less).</li>
+                    </ul>
+                  </li>
+                  <li>Kinetic-molecular theory assumptions (point particles, no forces) break down under crowded or cold conditions, leading to deviations.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – van der Waals equation</div>
+                    <div class="node-subtitle">Correcting PV = nRT for real gases.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  The van der Waals equation modifies the ideal gas equation by correcting both pressure and volume:
+                </p>
+                <div class="formula-row">
+                  <code class="formula">(P + n² a / V²)(V − n b) = n R T</code>
+                  <button class="copy-btn" data-copy="(P + n² a / V²)(V − n b) = n R T"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>a</strong> corrects for attractions:
+                    <ul>
+                      <li>Attractive forces reduce the measured pressure; adding n²a/V² approximates the “lost” pressure due to attractions.</li>
+                      <li>Larger a means stronger attractions.</li>
+                    </ul>
+                  </li>
+                  <li><strong>b</strong> corrects for finite molecule volume:
+                    <ul>
+                      <li>nb approximates the volume actually occupied by molecules.</li>
+                      <li>Subtracting nb gives the free volume available for molecular motion.</li>
+                      <li>Larger b means larger molecular size.</li>
+                    </ul>
+                  </li>
+                  <li>a and b are experimentally determined and increase roughly with molar mass and molecular size (heavier, bulkier molecules have larger a and b).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; qualitative behavior</div>
+                    <div class="node-subtitle">PV/RT plots and van der Waals corrections.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – PV/RT vs P for N₂</strong></p>
+                <p>
+                  For 1 mol N₂ at 300 K, PV/RT ≈ 1 at low pressure. As P rises, PV/RT dips below 1 because attractions lower the effective pressure.
+                  At still higher P, PV/RT rises above 1 as finite molecular volume dominates. This non-monotonic behavior reflects the competing
+                  influences of attractions (lowering PV/RT) and repulsive size effects (raising PV/RT).
+                </p>
+
+                <p><strong>Example – Using van der Waals for Cl₂</strong></p>
+                <p>
+                  For 10 mol Cl₂ in 22.41 L at 0 °C, the ideal gas equation predicts P ≈ 1.013 MPa.
+                  The van der Waals equation accounts for Cl₂’s relatively large a and b values and predicts a somewhat different pressure (~0.91 MPa).
+                  The difference represents how much real Cl₂ molecules attract each other and how much volume they actually occupy compared to idealized points.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">PV/RT diagnostics</span>
+              <span class="tag-pill">attractions vs size</span>
+              <span class="tag-pill">van der Waals</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite">
+    <div class="toast-icon">✅</div>
+    <div class="toast-message">Copied to clipboard</div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const cards = Array.from(document.querySelectorAll('.concept-card'));
+    const sectionLinks = Array.from(document.querySelectorAll('.section-link'));
+    const toast = document.getElementById('toast');
+    let toastTimeoutId = null;
+
+    const showToast = (message) => {
+      if (!toast) return;
+      const msgEl = toast.querySelector('.toast-message');
+      if (msgEl) {
+        msgEl.textContent = message;
+      }
+      toast.classList.add('visible');
+      if (toastTimeoutId) {
+        clearTimeout(toastTimeoutId);
+      }
+      toastTimeoutId = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 1500);
+    };
+
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('.copy-btn');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy') || '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Formula copied');
+        }).catch(() => {
+          showToast('Unable to copy');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Formula copied');
+        } catch {
+          showToast('Unable to copy');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('dblclick', () => {
+      const selection = window.getSelection ? window.getSelection() : null;
+      const text = selection ? selection.toString().trim() : '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Text copied');
+        }).catch(() => {
+          showToast('Unable to copy text');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Text copied');
+        } catch {
+          showToast('Unable to copy text');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const header = event.target.closest('.node-header');
+      if (!header) return;
+      const node = header.closest('.node');
+      if (!node) return;
+      const expanded = node.getAttribute('aria-expanded') === 'true';
+      node.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+
+    const applyFilter = (query) => {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        cards.forEach(card => card.classList.remove('hidden-by-filter'));
+        return;
+      }
+      cards.forEach(card => {
+        const text = (card.textContent || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        if (text.includes(q) || keywords.includes(q)) {
+          card.classList.remove('hidden-by-filter');
+        } else {
+          card.classList.add('hidden-by-filter');
+        }
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        applyFilter(event.target.value);
+      });
+    }
+
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href');
+        if (!targetId) return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+        sectionLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const rect = targetEl.getBoundingClientRect();
+        const absoluteY = rect.top + window.scrollY - 16;
+        window.scrollTo({
+          top: absoluteY,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id) return;
+        sectionLinks.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+    }, {
+      root: null,
+      threshold: 0.3
+    });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>

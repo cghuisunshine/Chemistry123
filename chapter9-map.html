@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 9 Concept Map – Molecular Geometry and Bonding Theories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050816;
+      --bg-elevated: #0f172a;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.16);
+      --accent-strong: rgba(56, 189, 248, 0.7);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+      --transition-fast: 150ms ease-out;
+      --transition-med: 200ms ease-out;
+      --sidebar-width: 280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0b1120 0%, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      display: flex;
+      flex: 1 1 auto;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 var(--sidebar-width);
+      max-width: var(--sidebar-width);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: sticky;
+      top: 1rem;
+      align-self: flex-start;
+      backdrop-filter: blur(18px);
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .title-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .title-main {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .title-sub {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 0.35rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 2.1rem 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-soft);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+      transform: translateY(-0.5px);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      margin-top: 0.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.55rem;
+    }
+
+    .section-list-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .section-link {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.82rem;
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .section-link span.code {
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .section-link span.label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .section-link:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #f9fafb;
+      transform: translateY(-0.5px);
+    }
+
+    .section-link.active {
+      border-color: rgba(56, 189, 248, 0.85);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.95));
+      color: #f9fafb;
+    }
+
+    .sidebar-note {
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.5rem;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .sidebar-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.97));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.3rem;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .intro-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.3rem 0.75rem;
+      align-items: center;
+    }
+
+    .intro-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5f0ff;
+    }
+
+    .intro-tags {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .intro-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .intro-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 0.9rem;
+      align-items: stretch;
+    }
+
+    .concept-card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+    }
+
+    .concept-card.hidden-by-filter {
+      display: none;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .card-title-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .card-section-code {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+
+    .card-section-label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .card-chip {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      overflow: hidden;
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+      padding: 0.45rem 0.55rem 0.4rem;
+      cursor: pointer;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      transition: background var(--transition-med), border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    .node-pill {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      flex-shrink: 0;
+    }
+
+    .node-label-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      min-width: 0;
+    }
+
+    .node-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .node-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .node-chevron {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      transition: transform var(--transition-med), color var(--transition-med);
+      flex-shrink: 0;
+    }
+
+    .node[aria-expanded="true"] .node-chevron {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
+    .node[aria-expanded="true"] .node-header {
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.7));
+      border-bottom: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.65rem 0.5rem;
+      display: none;
+    }
+
+    .node[aria-expanded="true"] .node-content {
+      display: block;
+    }
+
+    .node-content p {
+      margin: 0 0 0.4rem;
+    }
+
+    .node-content ul {
+      margin: 0 0 0.4rem 1.1rem;
+      padding: 0;
+    }
+
+    .node-content li {
+      margin-bottom: 0.2rem;
+    }
+
+    .formula-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    code.formula {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      padding: 0.06rem 0.3rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+      white-space: nowrap;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-soft);
+      border-radius: 999px;
+      padding: 0.08rem 0.4rem;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      border-color: rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
+      color: var(--accent);
+      transform: translateY(-0.25px);
+    }
+
+    .copy-btn span.emoji {
+      font-size: 0.78rem;
+    }
+
+    .tagline-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    .tag-pill {
+      padding: 0.06rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      white-space: nowrap;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.15rem;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: #e5f0ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms ease-out, opacity 180ms ease-out;
+      z-index: 40;
+    }
+
+    .toast.visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .toast-message {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 960px) {
+      .page-shell {
+        flex-direction: column;
+        padding: 0.75rem;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .intro-banner {
+        padding: 0.9rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-shell {
+        padding: 0.6rem;
+      }
+
+      .sidebar {
+        padding: 0.9rem;
+      }
+
+      .title-main {
+        font-size: 1rem;
+      }
+
+      .concept-card {
+        padding: 0.8rem 0.85rem;
+      }
+
+      .intro-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="title-kicker">Chem 123 – Chapter 9</div>
+        <div class="title-main">Molecular Geometry &amp; Bonding</div>
+        <div class="title-sub">Shapes, hybridization, and molecular orbitals in one map.</div>
+      </div>
+
+      <div class="search-box">
+        <input id="search-input" class="search-input" type="search" placeholder="Filter sections by keyword…">
+        <div class="search-icon">🔍</div>
+      </div>
+
+      <div class="sidebar-section-list">
+        <div class="section-list-title">Jump to section</div>
+        <ul class="section-link-list">
+          <li><a href="#sec-9-1" class="section-link" data-section="9.1"><span class="code">9.1</span><span class="label">Molecular shapes</span></a></li>
+          <li><a href="#sec-9-2" class="section-link" data-section="9.2"><span class="code">9.2</span><span class="label">VSEPR model</span></a></li>
+          <li><a href="#sec-9-3" class="section-link" data-section="9.3"><span class="code">9.3</span><span class="label">Shape &amp; polarity</span></a></li>
+          <li><a href="#sec-9-4" class="section-link" data-section="9.4"><span class="code">9.4</span><span class="label">Orbital overlap</span></a></li>
+          <li><a href="#sec-9-5" class="section-link" data-section="9.5"><span class="code">9.5</span><span class="label">Hybrid orbitals</span></a></li>
+          <li><a href="#sec-9-6" class="section-link" data-section="9.6"><span class="code">9.6</span><span class="label">Multiple &amp; delocalized bonds</span></a></li>
+          <li><a href="#sec-9-7" class="section-link" data-section="9.7"><span class="code">9.7</span><span class="label">Molecular orbitals</span></a></li>
+          <li><a href="#sec-9-8" class="section-link" data-section="9.8"><span class="code">9.8</span><span class="label">Period 2 diatomics</span></a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-note">
+        <strong>Hint</strong>: Double-click any text to copy it. Use the 📋 buttons to copy key formulas or short “code-like” snippets for quick recall.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title-row">
+          <div class="intro-title">Conceptual Overview</div>
+          <div class="intro-tags">
+            <span class="intro-tag">roots</span>
+            <span class="intro-tag">trunk</span>
+            <span class="intro-tag">leaves</span>
+          </div>
+        </div>
+        <div class="intro-body">
+          This map turns Chapter 9 into a navigable tree: <strong>roots</strong> lay out the core geometry and bonding ideas,
+          the <strong>trunk</strong> collects formulas and rules (VSEPR, hybridization, MO bond order), and the <strong>leaves</strong>
+          gather examples, tips, and interpretations that show how structure, polarity, and bonding models connect to real
+          molecular behavior.
+        </div>
+      </section>
+
+      <section class="cards-grid">
+
+        <!-- 9.1 -->
+        <article id="sec-9-1" class="concept-card" data-keywords="9.1 molecular shapes ABn tetrahedral trigonal planar linear bent trigonal pyramidal T-shaped octahedral">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.1</div>
+              <div class="card-section-label">Molecular Shapes</div>
+            </div>
+            <div class="card-chip">Geometry basics</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – From Lewis to 3D</div>
+                    <div class="node-subtitle">ABₙ patterns and characteristic bond angles.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>Lewis structures are flat; **molecular shapes** are defined by 3D bond angles and lengths.</li>
+                  <li>For molecules of the form **ABₙ**:
+                    <ul>
+                      <li>AB₂: linear (180°) or bent (B–A–B &lt; 180°).</li>
+                      <li>AB₃: trigonal planar (120°), trigonal pyramidal, or T-shaped.</li>
+                      <li>AB₄: tetrahedral; derivatives include trigonal pyramidal (3 B + 1 lone pair) and bent (2 B + 2 lone pairs).</li>
+                      <li>AB₅: trigonal bipyramidal; derivatives include seesaw, T-shaped, and linear.</li>
+                      <li>AB₆: octahedral; derivatives include square pyramidal and square planar.</li>
+                    </ul>
+                  </li>
+                  <li>Five symmetric arrangements of electron domains around A are the “parents” of most shapes: linear, trigonal planar, tetrahedral, trigonal bipyramidal, and octahedral.</li>
+                  <li>Removing one or more outer atoms from these arrangements gives the common derived shapes seen in real molecules (for example, bent, trigonal pyramidal, square planar).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Typical bond angles</div>
+                    <div class="node-subtitle">Key values to anchor shape recognition.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>Common ideal bond angles that correspond to parent shapes:</p>
+                <ul>
+                  <li><strong>Linear</strong> (AB₂): 180°.</li>
+                  <li><strong>Trigonal planar</strong> (AB₃): 120°.</li>
+                  <li><strong>Tetrahedral</strong> (AB₄): 109.5°.</li>
+                  <li><strong>Trigonal bipyramidal</strong> (AB₅):
+                    <ul>
+                      <li>Equatorial–equatorial: 120°.</li>
+                      <li>Axial–equatorial: 90°.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Octahedral</strong> (AB₆): 90° between all neighboring positions.</li>
+                </ul>
+                <p>
+                  Real molecules deviate slightly from these angles due to lone pairs and multiple bonds, but these values are the geometric “targets” to compare to.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; analogies</div>
+                    <div class="node-subtitle">CCl₄, CO₂ vs H₂O, and derived shapes.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – CCl₄</strong></p>
+                <p>
+                  Lewis shows C with 4 C–Cl bonds drawn in a plane, but in 3D CCl₄ is **tetrahedral**: all Cl–C–Cl angles ~109.5°, all C–Cl bond lengths equal.
+                  Wedge–dash notation is used to show bonds coming out of or going behind the page.
+                </p>
+
+                <p><strong>Example – CO₂ vs H₂O</strong></p>
+                <p>
+                  CO₂: O=C=O is linear with 180° bond angle.  
+                  H₂O: oxygen with two O–H bonds and two lone pairs gives a bent shape with ~104.5° angle, a derivative of tetrahedral.
+                </p>
+
+                <p><strong>Example – From octahedral to square planar</strong></p>
+                <p>
+                  Starting from an AB₆ octahedral shape, removing two opposite B atoms leads to AB₄ with a **square planar** molecular geometry (B atoms at the corners of a square, A at the center).
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">ABₙ shapes</span>
+              <span class="tag-pill">bond angles</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.2 -->
+        <article id="sec-9-2" class="concept-card" data-keywords="9.2 VSEPR electron domains electron-domain geometry molecular geometry lone pairs trigonal bipyramidal octahedral seesaw square planar">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.2</div>
+              <div class="card-section-label">The VSEPR Model</div>
+            </div>
+            <div class="card-chip">Electron-domain repulsions</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Electron domains &amp; repulsions</div>
+                    <div class="node-subtitle">From domains to shapes.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>Each **electron domain** is a region of high electron density around a central atom:
+                    <ul>
+                      <li>Lone pair (nonbonding pair).</li>
+                      <li>Single bond.</li>
+                      <li>Double or triple bond (counts as one domain for shape).</li>
+                    </ul>
+                  </li>
+                  <li>VSEPR principle:
+                    <strong>electron domains repel each other and arrange to minimize repulsions</strong>, like inflated balloons tied to a central point.</li>
+                  <li>Two geometries:
+                    <ul>
+                      <li><strong>Electron-domain geometry</strong>: arrangement of all domains (bonds + lone pairs).</li>
+                      <li><strong>Molecular geometry</strong>: arrangement of only the atoms (bonding domains) around the central atom.</li>
+                    </ul>
+                  </li>
+                  <li>When all domains are bonds, electron-domain and molecular geometries are the same; with lone pairs, they differ.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – VSEPR algorithm &amp; effects of lone pairs</div>
+                    <div class="node-subtitle">Stepwise prediction &amp; angle distortions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Three-step VSEPR process</strong></p>
+                <ul>
+                  <li>1. Draw a correct Lewis structure; count electron domains around the central atom.</li>
+                  <li>2. Use the number of domains to assign the **electron-domain geometry** (Table: 2 → linear, 3 → trigonal planar, 4 → tetrahedral, 5 → trigonal bipyramidal, 6 → octahedral).</li>
+                  <li>3. Use how many domains are lone pairs vs bonds to name the **molecular geometry**.</li>
+                </ul>
+
+                <p><strong>Relative “size” of domains</strong></p>
+                <ul>
+                  <li>Lone pairs occupy more space than bonding pairs, pushing bonds closer together (reducing bond angles).</li>
+                  <li>Multiple bonds behave like “fatter” domains and also compress adjacent bond angles slightly.</li>
+                  <li>Typical example:
+                    CH₄ (109.5°) → NH₃ (~107°) → H₂O (~104.5°) as lone pairs increase from 0 to 1 to 2.</li>
+                </ul>
+
+                <p><strong>Trigonal bipyramidal and octahedral cases</strong></p>
+                <ul>
+                  <li>Trigonal bipyramidal: two distinct sets of positions:
+                    <ul>
+                      <li>Axial (aligned vertically).</li>
+                      <li>Equatorial (form an equilateral triangle in a plane).</li>
+                    </ul>
+                    Lone pairs occupy equatorial positions to minimize 90° repulsions.</li>
+                  <li>Octahedral: all positions equivalent; lone pairs go opposite each other for maximum separation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Worked shape predictions</div>
+                    <div class="node-subtitle">NH₃, CO₂, SF₄, XeF₄.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – NH₃</strong></p>
+                <p>
+                  Lewis: N with three N–H bonds and one lone pair.  
+                  4 electron domains → tetrahedral electron-domain geometry.  
+                  One domain is lone pair → **trigonal pyramidal** molecular geometry.  
+                  Bond angles slightly less than 109.5° due to lone-pair repulsion.
+                </p>
+
+                <p><strong>Example – CO₂</strong></p>
+                <p>
+                  Lewis: O=C=O; each double bond counts as one domain.  
+                  2 domains → linear electron-domain geometry → **linear** molecular geometry.  
+                  B–A–B angle = 180°.
+                </p>
+
+                <p><strong>Example – SF₄</strong></p>
+                <p>
+                  5 electron domains: 4 S–F bonds + 1 lone pair → trigonal bipyramidal domain geometry.  
+                  Lone pair occupies equatorial position; atoms occupy remaining positions → **seesaw** molecular geometry.
+                </p>
+
+                <p><strong>Example – XeF₄</strong></p>
+                <p>
+                  6 domains: 4 bonding + 2 lone pairs → octahedral domain geometry.  
+                  Lone pairs occupy opposite positions; 4 F atoms in a plane → **square planar** molecule.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">VSEPR steps</span>
+              <span class="tag-pill">lone-pair effects</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.3 -->
+        <article id="sec-9-3" class="concept-card" data-keywords="9.3 molecular polarity dipole moment bond dipole vector sum CO2 H2O BF3 NH3 CCl4 CH3Cl">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.3</div>
+              <div class="card-section-label">Molecular Shape and Molecular Polarity</div>
+            </div>
+            <div class="card-chip">Dipoles &amp; symmetry</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Bond dipoles vs molecular dipole</div>
+                    <div class="node-subtitle">Geometry controls cancellation or reinforcement.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>A **bond dipole** arises when a bond connects atoms of different electronegativities; electrons are pulled toward the more electronegative atom.</li>
+                  <li>The **molecular dipole moment** is the vector sum of all bond dipoles in the molecule.</li>
+                  <li>Whether a molecule is polar or nonpolar depends on:
+                    <ul>
+                      <li>Bond polarities (differences in electronegativity).</li>
+                      <li>3D arrangement of bonds (molecular geometry).</li>
+                    </ul>
+                  </li>
+                  <li>In symmetric shapes with identical surrounding atoms (linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral), bond dipoles can cancel → nonpolar molecule.</li>
+                  <li>If geometry is unsymmetric (lone pairs, mixed substituents) or dipoles do not cancel, the molecule is polar.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Vector picture of polarity</div>
+                    <div class="node-subtitle">Adding bond dipoles qualitatively.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>We can think of each bond dipole as an arrow (vector) pointing from δ⁺ to δ⁻. For an ABₙ molecule:</p>
+                <ul>
+                  <li>If the vectors add to zero (perfect head-to-tail cancellation), the molecule has **no net dipole** (nonpolar).</li>
+                  <li>If the vectors add to a nonzero resultant, the molecule has a **net dipole** (polar).</li>
+                </ul>
+                <p>
+                  There is no simple algebra formula students need to apply; we combine the **geometry from VSEPR** with **electronegativity differences** to reason about vector addition qualitatively.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; symmetry tests</div>
+                    <div class="node-subtitle">CO₂, H₂O, BF₃, NH₃, CCl₄, CH₃Cl.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – CO₂: nonpolar despite polar bonds</strong></p>
+                <p>
+                  Each C=O bond dipole points toward O and has the same magnitude. In linear O=C=O, the two dipoles oppose each other exactly and cancel → μ = 0 → nonpolar molecule.
+                </p>
+
+                <p><strong>Example – H₂O: polar</strong></p>
+                <p>
+                  H₂O has a bent geometry with two O–H bond dipoles pointing toward O. These do not cancel; their vector sum forms a net dipole toward O → polar molecule with μ ≈ 1.85 D.
+                </p>
+
+                <p><strong>Example – BF₃ vs NH₃</strong></p>
+                <p>
+                  BF₃: trigonal planar with three identical B–F dipoles symmetrically arranged; vector sum is zero → nonpolar.  
+                  NH₃: trigonal pyramidal; N–H dipoles have a net component along the “axis” of the pyramid; vector sum ≠ 0 → polar.
+                </p>
+
+                <p><strong>Example – CCl₄ vs CH₃Cl</strong></p>
+                <p>
+                  CCl₄: tetrahedral with four equivalent C–Cl bonds; dipoles cancel → nonpolar.  
+                  CH₃Cl: one C–Cl and three C–H bonds; symmetry is broken; net dipole points roughly from H₃C side toward Cl → polar.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">dipole vectors</span>
+              <span class="tag-pill">shape &amp; polarity</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.4 -->
+        <article id="sec-9-4" class="concept-card" data-keywords="9.4 covalent bonding valence bond theory orbital overlap sigma pi bonds H2 HCl Cl2">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.4</div>
+              <div class="card-section-label">Covalent Bonding and Orbital Overlap</div>
+            </div>
+            <div class="card-chip">Valence-bond viewpoint</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Valence-bond (VB) picture</div>
+                    <div class="node-subtitle">Overlap of atomic orbitals forms bonds.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>In **valence-bond theory**, a covalent bond is formed when atomic orbitals on two atoms overlap and share a pair of electrons.</li>
+                  <li>The shared electron pair is concentrated in the region of overlap and attracts both nuclei, lowering the energy.</li>
+                  <li>The amount and orientation of overlap help determine bond strength, bond length, and molecular shape.</li>
+                  <li>Two broad types of overlaps:
+                    <ul>
+                      <li>Head-on (end-to-end) → σ bond.</li>
+                      <li>Side-by-side → π bond.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – σ bonds and orbital types</div>
+                    <div class="node-subtitle">Where σ bonds come from.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>σ bonds arise when orbitals overlap along the internuclear axis:</p>
+                <ul>
+                  <li>s–s overlap (e.g., H₂).</li>
+                  <li>s–p overlap (e.g., HCl: H 1s with Cl 3p).</li>
+                  <li>p–p head-on overlap (e.g., in F₂).</li>
+                </ul>
+                <p>
+                  In each case, electron density is highest directly between the nuclei, which is an efficient way to hold atoms together. VB theory focuses on these localized overlaps to explain bonding patterns and shapes.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Simple VB examples</div>
+                    <div class="node-subtitle">H₂, HCl, Cl₂ in overlap language.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – H₂</strong></p>
+                <p>
+                  Two H atoms each contribute a 1s orbital with one electron. These orbitals overlap head-on to form one σ bond with electron density between the nuclei, lowering energy relative to separated atoms.
+                </p>
+
+                <p><strong>Example – HCl</strong></p>
+                <p>
+                  H 1s overlaps with a Cl 3p orbital that points along the H–Cl axis. The resulting σ bond has electron density skewed toward Cl due to its higher electronegativity, making the bond polar.
+                </p>
+
+                <p><strong>Example – Cl₂</strong></p>
+                <p>
+                  Two Cl atoms each have a half-filled 3p orbital oriented along the internuclear axis. These overlap head-on to form a σ(3p–3p) bond, with shared electron density between the Cl nuclei.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">orbital overlap</span>
+              <span class="tag-pill">σ vs π</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.5 -->
+        <article id="sec-9-5" class="concept-card" data-keywords="9.5 hybrid orbitals sp sp2 sp3 BeF2 BF3 CH4 NH3 H2O electron-domain geometry">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.5</div>
+              <div class="card-section-label">Hybrid Orbitals</div>
+            </div>
+            <div class="card-chip">VB meets VSEPR</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Why hybrid orbitals</div>
+                    <div class="node-subtitle">Matching VB bonding to observed shapes.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>Hybridization is the mixing of atomic orbitals on a central atom (e.g., s and p) to form new, equivalent hybrid orbitals.</li>
+                  <li>The number of hybrid orbitals formed equals the number of atomic orbitals mixed.</li>
+                  <li>Hybrids point toward directions that match VSEPR electron-domain geometries, allowing equivalent σ bonds and consistent shapes.</li>
+                  <li>Common hybrid sets in organic/general chemistry:
+                    <ul>
+                      <li>sp: 2 hybrids → linear.</li>
+                      <li>sp²: 3 hybrids → trigonal planar.</li>
+                      <li>sp³: 4 hybrids → tetrahedral.</li>
+                    </ul>
+                  </li>
+                  <li>Hybrid orbitals house σ bonds and lone pairs, while unhybridized p orbitals (if any) are available for π bonding.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Mapping domains to hybrid sets</div>
+                    <div class="node-subtitle">Electron-domain count → hybridization.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>Given a central atom:</p>
+                <ul>
+                  <li><strong>2 electron domains</strong> → linear → sp hybridization.</li>
+                  <li><strong>3 electron domains</strong> → trigonal planar → sp² hybridization.</li>
+                  <li><strong>4 electron domains</strong> → tetrahedral → sp³ hybridization.</li>
+                </ul>
+                <p>
+                  These domain counts can include bonds and lone pairs; hybrid orbitals are used for all σ bonds and lone pairs on the central atom.
+                </p>
+                <div class="formula-row">
+                  <code class="formula">domains 2 → sp; 3 → sp²; 4 → sp³</code>
+                  <button class="copy-btn" data-copy="domains 2 → sp; 3 → sp²; 4 → sp³"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <p>
+                  The hybridization model works especially well for second-row (period 2) atoms with octet-compatible electron-domain geometries.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Hybridization examples</div>
+                    <div class="node-subtitle">BeF₂, BF₃, CH₄, NH₃, H₂O.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – BeF₂ (sp)</strong></p>
+                <p>
+                  VSEPR: 2 bonding domains on Be → linear geometry.  
+                  Hybridization: Be mixes one 2s and one 2p orbital to form two sp hybrids pointing 180° apart. Each overlaps with an F orbital to give two equivalent σ Be–F bonds.
+                </p>
+
+                <p><strong>Example – BF₃ (sp²)</strong></p>
+                <p>
+                  3 domains around B → trigonal planar geometry.  
+                  Hybridization: B uses three sp² hybrids arranged 120° apart to form three σ B–F bonds; left-over p orbital is perpendicular to the plane and can participate in π bonding if needed.
+                </p>
+
+                <p><strong>Example – CH₄, NH₃, H₂O (sp³)</strong></p>
+                <p>
+                  CH₄: 4 bonding domains, 0 lone pairs → sp³; 4 equivalent σ C–H bonds; tetrahedral shape.  
+                  NH₃: 3 bonds + 1 lone pair → sp³; 3 σ N–H bonds + 1 lone pair; trigonal pyramidal shape.  
+                  H₂O: 2 bonds + 2 lone pairs → sp³; 2 σ O–H bonds + 2 lone pairs; bent shape.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">VB + VSEPR</span>
+              <span class="tag-pill">sp, sp², sp³</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.6 -->
+        <article id="sec-9-6" class="concept-card" data-keywords="9.6 multiple bonds double triple sigma pi ethene ethyne benzene delocalization resonance">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.6</div>
+              <div class="card-section-label">Multiple Bonds</div>
+            </div>
+            <div class="card-chip">σ and π, localized &amp; delocalized</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – σ vs π content</div>
+                    <div class="node-subtitle">What single, double, and triple bonds contain.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>A **single bond** is always one σ bond.</li>
+                  <li>A **double bond** consists of 1 σ + 1 π bond.</li>
+                  <li>A **triple bond** consists of 1 σ + 2 π bonds.</li>
+                  <li>σ bonds result from overlap of hybrid (or unhybridized) orbitals along the internuclear axis.</li>
+                  <li>π bonds result from sideways overlap of unhybridized p orbitals, with electron density above and below (or in front of and behind) the σ bond axis.</li>
+                  <li>π bonds require unhybridized p orbitals, so they are commonly found with sp or sp² hybridized atoms.</li>
+                  <li>Multiple bonds restrict rotation and often impose planarity in their local region because p orbitals must stay aligned for good overlap.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Localized vs delocalized π systems</div>
+                    <div class="node-subtitle">Resonance and π-electron spreading.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Localized π bond</strong></p>
+                <ul>
+                  <li>π electrons are shared between just two atoms (like the simple double bond in ethene).</li>
+                </ul>
+
+                <p><strong>Delocalized π system</strong></p>
+                <ul>
+                  <li>π electrons are spread over three or more atoms (often associated with resonance structures).</li>
+                  <li>Delocalization lowers energy and often makes all related bonds equivalent in length and strength.</li>
+                  <li>Typical in benzene (C₆H₆) and in ions like CO₃²⁻ and NO₂⁻.</li>
+                </ul>
+
+                <p>
+                  When resonance structures show double bonds in different positions, the real molecule often has π electrons delocalized across all those positions rather than any single localized double bond.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Ethene, ethyne, benzene</div>
+                    <div class="node-subtitle">Multiple bond &amp; delocalization examples.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Ethene (C₂H₄)</strong></p>
+                <p>
+                  Each carbon is sp² hybridized (three domains). Three sp² hybrids form σ bonds (one C–C and two C–H per carbon).
+                  The remaining p orbital on each carbon overlaps sideways to form a π bond. The C=C bond is therefore 1 σ + 1 π; all six atoms lie in a plane, and rotation about C=C is restricted.
+                </p>
+
+                <p><strong>Example – Ethyne (C₂H₂)</strong></p>
+                <p>
+                  Each carbon is sp hybridized (two domains). Two sp hybrids form σ bonds (C–C and C–H).
+                  Two unhybridized p orbitals per carbon overlap to form two π bonds. The C≡C bond is 1 σ + 2 π; the molecule is linear.
+                </p>
+
+                <p><strong>Example – Benzene (C₆H₆)</strong></p>
+                <p>
+                  Each carbon is sp² hybridized, forming a hexagonal ring of σ bonds. The remaining six p orbitals overlap to form a delocalized π system with six π electrons spread around the ring.
+                  All C–C bonds have equal lengths, intermediate between single and double bonds, consistent with delocalization rather than alternating single/double bonds.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">σ + π content</span>
+              <span class="tag-pill">delocalized π systems</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.7 -->
+        <article id="sec-9-7" class="concept-card" data-keywords="9.7 molecular orbitals bonding antibonding sigma sigma* pi bond order paramagnetism diamagnetism H2 He2 O2">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.7</div>
+              <div class="card-section-label">Molecular Orbitals</div>
+            </div>
+            <div class="card-chip">Bonding as electron waves</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Bonding &amp; antibonding MOs</div>
+                    <div class="node-subtitle">Constructive vs destructive combinations.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>Molecular orbitals (MOs) arise from combining atomic orbitals; each MO can hold 2 electrons with opposite spins.</li>
+                  <li>Two atomic orbitals combine to give:
+                    <ul>
+                      <li>One **bonding MO**: lower energy, electron density between nuclei.</li>
+                      <li>One **antibonding MO**: higher energy, with a nodal plane between nuclei (region of zero electron density).</li>
+                    </ul>
+                  </li>
+                  <li>Constructive combination of wave functions → bonding MO; destructive combination → antibonding MO.</li>
+                  <li>MOs that have electron density along the internuclear axis are **σ MOs** (σ, σ*), while those with density above and below the axis are **π MOs** (π, π*).</li>
+                  <li>Electrons fill MOs starting from lowest energy, obeying Pauli exclusion and Hund’s rule, just like atomic orbitals.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Bond order in MO theory</div>
+                    <div class="node-subtitle">Net bonding vs antibonding electrons.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  Bond strength and existence in MO theory are captured by **bond order**, which compares bonding and antibonding electrons:
+                </p>
+                <div class="formula-row">
+                  <code class="formula">bond order = (N_bonding − N_antibonding) / 2</code>
+                  <button class="copy-btn" data-copy="bond order = (N_bonding − N_antibonding) / 2"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Higher bond order → stronger, shorter bond.</li>
+                  <li>Bond order 0 → no net bonding; the species is not stable as a bound molecule.</li>
+                  <li>Half-integer bond orders arise naturally when there are unpaired electrons (e.g., bond order 1/2, 3/2, 5/2).</li>
+                </ul>
+                <p>Magnetic behavior from MO theory:</p>
+                <ul>
+                  <li>Unpaired electrons → **paramagnetic** (attracted to external magnetic fields).</li>
+                  <li>All electrons paired → **diamagnetic** (weakly repelled by magnetic fields).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – H₂, He₂, and O₂ in MO language</div>
+                    <div class="node-subtitle">Bond orders and magnetism.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – H₂ vs He₂</strong></p>
+                <p>
+                  H₂: 2 electrons. They both occupy the bonding σ(1s) MO; none in σ*(1s).
+                  Bond order = (2 − 0)/2 = 1 → stable single bond. Diamagnetic (all electrons paired).
+                </p>
+                <p>
+                  He₂: 4 electrons. σ(1s) receives 2, σ*(1s) receives 2. Bond order = (2 − 2)/2 = 0 → no net bond, so He₂ is not a stable molecule.
+                </p>
+
+                <p><strong>Example – O₂ paramagnetism</strong></p>
+                <p>
+                  MO diagram for O₂ shows 12 valence electrons filling MOs. Two electrons occupy degenerate π* antibonding orbitals with parallel spins (Hund’s rule), resulting in two unpaired electrons.
+                </p>
+                <p>
+                  Bond order of O₂ = 2, consistent with a double bond; presence of unpaired electrons predicts **paramagnetism**. Experimentally, liquid O₂ is strongly attracted into a magnetic field, confirming the MO picture and going beyond what a simple Lewis structure can show.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">bond order</span>
+              <span class="tag-pill">σ/σ* &amp; π/π*</span>
+              <span class="tag-pill">paramagnetism vs diamagnetism</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9.8 -->
+        <article id="sec-9-8" class="concept-card" data-keywords="9.8 Period 2 diatomic molecules B2 C2 N2 O2 F2 Ne2 MO diagrams 2s-2p mixing bond order">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">9.8</div>
+              <div class="card-section-label">Bonding in Period 2 Diatomic Molecules</div>
+            </div>
+            <div class="card-chip">B₂ → Ne₂</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – 2s and 2p MOs</div>
+                    <div class="node-subtitle">Building MO diagrams for B₂–Ne₂.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>For homonuclear diatomic molecules from B₂ to Ne₂, valence MOs are built from **2s and 2p atomic orbitals** on each atom.</li>
+                  <li>2s orbitals form σ(2s) bonding and σ*(2s) antibonding MOs; 2p orbitals form σ(2p), π(2p), π*(2p), and σ*(2p) MOs.</li>
+                  <li>The relative ordering of σ(2p) and π(2p) depends on 2s–2p mixing:
+                    <ul>
+                      <li>B₂, C₂, N₂: π(2p) is lower in energy than σ(2p) (strong mixing).</li>
+                      <li>O₂, F₂, Ne₂: σ(2p) lies below π(2p) (weaker mixing).</li>
+                    </ul>
+                  </li>
+                  <li>Filling these MOs with the correct number of electrons and using the bond-order formula predicts bond strength, bond length trends, and magnetic properties.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Bond order trend &amp; magnetism</div>
+                    <div class="node-subtitle">From B₂ to Ne₂ in one picture.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <div class="formula-row">
+                  <code class="formula">bond order = (bonding e⁻ − antibonding e⁻) / 2</code>
+                  <button class="copy-btn" data-copy="bond order = (bonding e⁻ − antibonding e⁻) / 2"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <p>Key results for Period 2 diatomics:</p>
+                <ul>
+                  <li><strong>B₂</strong>: bond order = 1; 2 unpaired electrons → paramagnetic.</li>
+                  <li><strong>C₂</strong>: bond order = 2; all electrons paired → diamagnetic.</li>
+                  <li><strong>N₂</strong>: bond order = 3; very short, strong triple bond; diamagnetic; chemically inert.</li>
+                  <li><strong>O₂</strong>: bond order = 2; 2 unpaired electrons → paramagnetic; bond consistent with double bond but with special magnetic properties.</li>
+                  <li><strong>F₂</strong>: bond order = 1; diamagnetic; relatively weak single bond compared with N₂ or O₂.</li>
+                  <li><strong>Ne₂</strong>: bond order = 0; all bonding and antibonding MOs filled; no stable Ne₂ molecule.</li>
+                </ul>
+                <p>
+                  As bond order increases, bond length generally decreases and bond enthalpy (strength) increases, though exact values also depend on other factors like nuclear charge and orbital overlap.
+                </p>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Interpreting MO predictions</div>
+                    <div class="node-subtitle">Comparing Lewis vs MO predictions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – N₂ stability</strong></p>
+                <p>
+                  MO theory gives bond order 3, consistent with a very strong triple bond, short bond length, and high bond enthalpy. This explains why N₂ is very stable and relatively inert.
+                </p>
+
+                <p><strong>Example – O₂ paramagnetism revisited</strong></p>
+                <p>
+                  Lewis structure suggests all electrons paired, but MO theory correctly predicts two unpaired electrons in π* orbitals. The paramagnetic behavior of O₂ (attracted to a magnet) is a direct experimental confirmation of the MO description.
+                </p>
+
+                <p><strong>Example – Why Ne₂ doesn’t exist</strong></p>
+                <p>
+                  In Ne₂, all bonding and antibonding MOs are filled, giving bond order 0. There is no net energy gain from forming a bond, so Ne₂ is not a stable molecule under normal conditions.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">B₂–Ne₂ overview</span>
+              <span class="tag-pill">bond order trend</span>
+              <span class="tag-pill">magnetic properties</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite">
+    <div class="toast-icon">✅</div>
+    <div class="toast-message">Copied to clipboard</div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const cards = Array.from(document.querySelectorAll('.concept-card'));
+    const sectionLinks = Array.from(document.querySelectorAll('.section-link'));
+    const toast = document.getElementById('toast');
+    let toastTimeoutId = null;
+
+    const showToast = (message) => {
+      if (!toast) return;
+      const msgEl = toast.querySelector('.toast-message');
+      if (msgEl) {
+        msgEl.textContent = message;
+      }
+      toast.classList.add('visible');
+      if (toastTimeoutId) {
+        clearTimeout(toastTimeoutId);
+      }
+      toastTimeoutId = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 1500);
+    };
+
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('.copy-btn');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy') || '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Copied');
+        }).catch(() => {
+          showToast('Unable to copy');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Copied');
+        } catch {
+          showToast('Unable to copy');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('dblclick', () => {
+      const selection = window.getSelection ? window.getSelection() : null;
+      const text = selection ? selection.toString().trim() : '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Text copied');
+        }).catch(() => {
+          showToast('Unable to copy text');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Text copied');
+        } catch {
+          showToast('Unable to copy text');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const header = event.target.closest('.node-header');
+      if (!header) return;
+      const node = header.closest('.node');
+      if (!node) return;
+      const expanded = node.getAttribute('aria-expanded') === 'true';
+      node.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+
+    const applyFilter = (query) => {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        cards.forEach(card => card.classList.remove('hidden-by-filter'));
+        return;
+      }
+      cards.forEach(card => {
+        const text = (card.textContent || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        if (text.includes(q) || keywords.includes(q)) {
+          card.classList.remove('hidden-by-filter');
+        } else {
+          card.classList.add('hidden-by-filter');
+        }
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        applyFilter(event.target.value);
+      });
+    }
+
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href');
+        if (!targetId) return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+        sectionLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const rect = targetEl.getBoundingClientRect();
+        const absoluteY = rect.top + window.scrollY - 16;
+        window.scrollTo({
+          top: absoluteY,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id) return;
+        sectionLinks.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+    }, {
+      root: null,
+      threshold: 0.3
+    });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>

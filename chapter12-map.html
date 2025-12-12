@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 12 Concept Map – Solids and Modern Materials</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #ffca28;
+      --accent-soft: rgba(255, 202, 40, 0.18);
+      --accent-strong: #ffd54f;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(255, 202, 40, 0.08);
+      border-color: rgba(255, 202, 40, 0.3);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(255, 202, 40, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 202, 40, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 202, 40, 0.5);
+      background: rgba(255, 202, 40, 0.12);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(255, 202, 40, 0.5);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(255, 202, 40, 0.7);
+      background: rgba(255, 202, 40, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 202, 40, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 12 · Solids and Modern Materials</h1>
+      <p>Interactive concept map – roots (types of solids and bonding), trunk (unit cells, density, band theory, polymers, nanoscale), leaves (examples, tips, and interpretations).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list">
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-1">
+              <span class="badge">12.1</span>
+              <span class="label">Classification of Solids</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-2">
+              <span class="badge">12.2</span>
+              <span class="label">Metallic Solids</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-3">
+              <span class="badge">12.3</span>
+              <span class="label">Ionic Solids</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-4">
+              <span class="badge">12.4</span>
+              <span class="label">Covalent Solids</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-5">
+              <span class="badge">12.5</span>
+              <span class="label">Polymers</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c12-sec-6">
+              <span class="badge">12.6</span>
+              <span class="label">Nanomaterials</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>This chapter connects microscopic bonding and structure in solids to their macroscopic properties and modern applications. It classifies solids by bonding, shows how unit cells build crystals and determine density, introduces band theory for metals and semiconductors, and explores polymers and nanomaterials used in technology.</p>
+          <ul>
+            <li>Classify solids as metallic, ionic, molecular, covalent-network, polymers, or nanomaterials and relate bonding to properties.</li>
+            <li>Describe crystalline vs amorphous solids, unit cells, and crystal lattices and how X-ray diffraction reveals structure.</li>
+            <li>Use unit cell geometry to count atoms and estimate density for metallic and ionic solids.</li>
+            <li>Explain band theory qualitatively for metals, insulators, and semiconductors, including n‑ and p‑type doping.</li>
+            <li>Relate polymer structure to properties and explain why nanomaterials show size‑dependent behavior.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: 12.1 Classification of Solids -->
+        <section class="card" id="c12-sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.1 Classification of Solids</h3>
+              <p class="card-subtitle">Bonding types, crystalline vs amorphous, and how X-ray diffraction reveals structure.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">metallic, ionic, molecular, network</span>
+            <span class="pill">crystalline vs amorphous</span>
+            <span class="pill">unit cells &amp; lattices</span>
+            <span class="pill">Bragg’s law</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Bonding-based classes and crystal vs glassy solids</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Solids are grouped by how their particles are bonded together, because bonding controls hardness, melting point, conductivity, and mechanical behavior.</p>
+              <ul>
+                <li><strong>Metallic solids:</strong> metal atoms in a lattice, with valence electrons delocalized in a shared “sea.” This explains high electrical and thermal conductivity, metallic luster, and malleability.</li>
+                <li><strong>Ionic solids:</strong> cations and anions held by strong electrostatic attractions. They are hard, have high melting points, and conduct only when molten or dissolved (ions must move).</li>
+                <li><strong>Covalent-network solids:</strong> atoms linked in an extended 2D or 3D network of covalent bonds, as in diamond or quartz. These solids are typically very hard and have very high melting points.</li>
+                <li><strong>Molecular solids:</strong> discrete molecules held together by intermolecular forces (dispersion, dipole–dipole, hydrogen bonding). They tend to have lower melting points and are often softer.</li>
+                <li><strong>Polymers:</strong> long covalent chains (usually carbon-based) with weaker forces between chains. They are generally tougher and more flexible than small‑molecule molecular solids.</li>
+                <li><strong>Nanomaterials:</strong> conventional materials reduced to particle sizes of about 1–100 nm. At this scale, surface and quantum effects change properties.</li>
+              </ul>
+              <p>Solids also differ in the arrangement of their particles:</p>
+              <ul>
+                <li><strong>Crystalline solids:</strong> atoms, ions, or molecules arranged in a repeating pattern in all three dimensions. This regularity leads to flat faces and definite angles, as seen in quartz or salt crystals.</li>
+                <li><strong>Amorphous solids:</strong> lack long‑range order. Their local structure resembles a frozen liquid, but particles are locked in place. Glass and many polymers are amorphous.</li>
+              </ul>
+              <p>In crystalline solids, the repeating pattern is captured in a <strong>unit cell</strong> (the smallest repeating “box”). Stacking unit cells (like identical bricks) builds up the entire crystal lattice, which is a 3D grid of lattice points. There are only five possible 2D lattice shapes and seven 3D primitive lattices that can tile space without gaps.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">X-ray diffraction and Bragg’s law</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Because atomic layers in crystals are spaced about 0.1–1 nm apart (similar to X-ray wavelengths), crystals diffract X-rays much like a diffraction grating diffracts light. This lets us “see” inside a crystal by measuring how X-rays scatter.</p>
+              <p>The key relationship is <strong>Bragg’s law</strong>:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-bragg">nλ = 2d sinθ</code>
+                <button class="copy-btn" data-copy="#f12-bragg">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li><strong>n</strong> is the diffraction order (1, 2, 3, …).</li>
+                <li><strong>λ</strong> is the X-ray wavelength.</li>
+                <li><strong>d</strong> is the spacing between parallel planes of atoms.</li>
+                <li><strong>θ</strong> is the angle between the X-ray beam and the atomic planes.</li>
+              </ul>
+              <p>Constructive interference (bright spots on the detector) occurs only for angles that satisfy Bragg’s law. By measuring θ at known λ, we can calculate d. From many such distances and intensities, we reconstruct the full arrangement of atoms in the unit cell.</p>
+              <p>This technique, X-ray crystallography, underlies our knowledge of structures ranging from metals and ceramics to complex biological molecules like proteins and DNA.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples: classifying solids and interpreting Bragg’s law</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Classifying by bonding:</strong></p>
+              <ul>
+                <li>NaCl(s): ions in a 3D lattice, high melting point, brittle, conducts when molten → <strong>ionic solid</strong>.</li>
+                <li>Diamond: each C covalently bonded to 4 others in a 3D network, extremely hard → <strong>covalent-network solid</strong>.</li>
+                <li>Solid CO₂ (dry ice): discrete CO₂ molecules held by dispersion forces, sublimates at low temperatures → <strong>molecular solid</strong>.</li>
+                <li>Copper metal: excellent conductor, malleable, ductile → <strong>metallic solid</strong>.</li>
+              </ul>
+              <p><strong>Crystalline vs amorphous:</strong></p>
+              <ul>
+                <li>Quartz: shows flat faces and characteristic angles; X-ray diffraction gives sharp spots → <strong>crystalline</strong>.</li>
+                <li>Glass: lacks sharp faces; X-ray pattern is diffuse → <strong>amorphous</strong>.</li>
+              </ul>
+              <p><strong>Bragg’s law picture:</strong> In an X-ray experiment, a monochromatic beam shines on a single crystal. The outgoing spots on the detector form a pattern that encodes the distances between atomic planes (via nλ = 2d sinθ) and the symmetry of the crystal. By analyzing many such patterns at different orientations, you can determine the unit-cell size and where the atoms sit inside it.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: 12.2 Metallic Solids -->
+        <section class="card" id="c12-sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.2 Metallic Solids</h3>
+              <p class="card-subtitle">Metallic bonding, cubic metallic structures, close packing, and density from the unit cell.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">“sea” of electrons</span>
+            <span class="pill">SC, BCC, FCC</span>
+            <span class="pill">density from unit cell</span>
+            <span class="pill">alloys</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Metallic bonding and typical properties</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>In metallic solids, atoms are arranged in a regular lattice and share a “sea” of delocalized valence electrons. The positively charged metal ion cores sit at lattice points, and the electrons move relatively freely throughout the solid.</p>
+              <p>This bonding picture explains key properties of metals:</p>
+              <ul>
+                <li><strong>Electrical conductivity:</strong> mobile electrons carry current easily when an electric field is applied.</li>
+                <li><strong>Thermal conductivity:</strong> electrons and lattice vibrations both carry heat, so metals feel “cold” to the touch as they rapidly conduct heat away from your hand.</li>
+                <li><strong>Malleability and ductility:</strong> layers of metal atoms can slide over each other without breaking the metallic bond, allowing metals to be hammered into sheets or drawn into wires.</li>
+                <li><strong>Luster:</strong> the sea of electrons can absorb and re-emit photons, giving metals their shiny appearance.</li>
+              </ul>
+              <p>Metals often adopt simple 3D arrangements (cubic lattices), especially simple cubic (rare), body-centered cubic (BCC), and face-centered cubic (FCC). These maximize packing efficiency and help stabilize the metallic bonding.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Cubic metallic structures and density formula</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Atoms per unit cell:</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f12-structures">SC: n = 1; BCC: n = 2; FCC: n = 4</code>
+                <button class="copy-btn" data-copy="#f12-structures">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li>SC: 8 corners × 1/8 = 1 atom per unit cell (rare in metals).</li>
+                <li>BCC: 8 corners × 1/8 + 1 body‑center atom = 2 atoms per unit cell.</li>
+                <li>FCC: 8 corners × 1/8 + 6 faces × 1/2 = 4 atoms per unit cell.</li>
+              </ul>
+              <p><strong>Geometric relations between atomic radius and edge length:</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f12-sc">SC: a = 2r</code>
+                <button class="copy-btn" data-copy="#f12-sc">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f12-bcc">BCC: √3 · a = 4r ⇒ r = (√3/4)·a</code>
+                <button class="copy-btn" data-copy="#f12-bcc">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f12-fcc">FCC: √2 · a = 4r ⇒ r = (√2/4)·a</code>
+                <button class="copy-btn" data-copy="#f12-fcc">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here <strong>a</strong> is the unit-cell edge length and <strong>r</strong> is the atomic radius. These relations arise from where atoms touch (edges, face diagonals, or body diagonals).</p>
+              <p><strong>Density from the unit cell:</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f12-density-metal">ρ = (n · M) / (N_A · a³)</code>
+                <button class="copy-btn" data-copy="#f12-density-metal">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li><strong>ρ</strong> is density (g·cm⁻³ if you use cm for a and g for mass).</li>
+                <li><strong>n</strong> is atoms per unit cell (1, 2, or 4 for SC, BCC, FCC).</li>
+                <li><strong>M</strong> is molar mass (g·mol⁻¹).</li>
+                <li><strong>N_A</strong> is Avogadro’s number.</li>
+                <li><strong>a</strong> is the edge length of the cubic cell (cm).</li>
+              </ul>
+              <p>This equation connects macroscopic density to atomic-scale structure and is central to many solid-state calculations.</p>
+              <p><strong>Alloys:</strong> In substitutional alloys (e.g., brass, Cu–Zn), different metal atoms occupy the same lattice sites. In interstitial alloys (e.g., steel, Fe–C), small atoms occupy holes between metal atoms. These changes can strengthen materials or adjust conductivity and other properties.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: density from an FCC unit cell & alloy insights</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Density of a hypothetical FCC metal</strong></p>
+              <p>Suppose a metal has an FCC structure, molar mass M = 63.5 g·mol⁻¹, and unit-cell edge a = 4.05 × 10⁻⁸ cm. Estimate its density.</p>
+              <ol>
+                <li>FCC has n = 4 atoms per unit cell.</li>
+                <li>Mass per unit cell: mass = (4 × 63.5 g·mol⁻¹) / (6.022 × 10²³ mol⁻¹) ≈ 4.22 × 10⁻²² g.</li>
+                <li>Volume per unit cell: V = a³ = (4.05 × 10⁻⁸ cm)³ ≈ 6.64 × 10⁻²³ cm³.</li>
+                <li>Density: ρ = mass / V ≈ (4.22 × 10⁻²² g)/(6.64 × 10⁻²³ cm³) ≈ 6.35 g·cm⁻³.</li>
+              </ol>
+              <p>Even if the numbers are approximate, the method illustrates how lattice type and unit-cell size determine density.</p>
+              <p><strong>Alloy insight:</strong> Adding small atoms like C into interstitial holes of BCC iron distorts the lattice and prevents layers of Fe atoms from sliding easily. This gives steel much higher strength than pure iron, demonstrating how small structural changes at the atomic level dramatically affect bulk mechanical properties.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: 12.3 Ionic Solids -->
+        <section class="card" id="c12-sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.3 Ionic Solids</h3>
+              <p class="card-subtitle">Cation–anion packing, coordination numbers, common structures, and density calculations.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">electrostatic attractions</span>
+            <span class="pill">coordination number</span>
+            <span class="pill">NaCl, CsCl, ZnS, CaF₂</span>
+            <span class="pill">ρ from ions per unit cell</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Structure and properties of ionic crystals</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Ionic solids consist of positively charged cations and negatively charged anions. The arrangement of ions is chosen to maximize attractive forces and minimize repulsive forces while obeying overall charge neutrality.</p>
+              <p>Key structural ideas:</p>
+              <ul>
+                <li><strong>Coordination number (CN):</strong> the number of nearest neighbors of opposite charge around an ion. For example, in NaCl each Na⁺ has six Cl⁻ neighbors (CN = 6), and each Cl⁻ has six Na⁺ neighbors (also CN = 6).</li>
+                <li>Common coordination patterns include 4:4 (tetrahedral), 6:6 (octahedral), and 8:8 (cubic).</li>
+                <li>The relative sizes of cations and anions (radius ratios) influence which coordination pattern is stable.</li>
+              </ul>
+              <p>Typical properties of ionic solids:</p>
+              <ul>
+                <li>High melting points due to strong electrostatic attractions.</li>
+                <li>Hard and brittle; when layers shift so like charges line up, the crystal breaks rather than deforming.</li>
+                <li>Poor electrical conductors as solids, but good conductors when melted or dissolved, because ions are free to move.</li>
+              </ul>
+              <p>Structure types like NaCl, CsCl, ZnS, and CaF₂ show different ways cations and anions pack into 3D arrays, all designed to balance charge and optimize attraction.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Counting ions and using geometry to find density</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Counting ions in the unit cell:</strong> Just as in metals, ions on corners, edges, and faces are shared among neighboring cells. You sum their contributions to get the total number of cations and anions per unit cell and then check that charge balance is satisfied.</p>
+              <p><strong>General density expression for ionic crystals:</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f12-density-ionic">ρ = (n₊M₊ + n₋M₋) / (N_A · a³)</code>
+                <button class="copy-btn" data-copy="#f12-density-ionic">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li><strong>n₊</strong>, <strong>n₋</strong>: number of cations and anions per unit cell.</li>
+                <li><strong>M₊</strong>, <strong>M₋</strong>: molar masses of cation and anion (g·mol⁻¹).</li>
+                <li><strong>N_A</strong>: Avogadro’s number.</li>
+                <li><strong>a</strong>: edge length (cm) for cubic structures.</li>
+              </ul>
+              <p>You often estimate <strong>a</strong> from ionic radii using contact relations. For example, in NaCl-type structures, cations and anions touch along the edge, so approximating in 1D gives:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-nacl-edge">a ≈ 2(r₊ + r₋)</code>
+                <button class="copy-btn" data-copy="#f12-nacl-edge">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>In CsCl-type structures, ions touch along the body diagonal, so with body diagonal length √3 · a:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-cscl">√3 · a ≈ 2(r₊ + r₋)</code>
+                <button class="copy-btn" data-copy="#f12-cscl">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>These approximate geometric relations, together with ionic radii and stoichiometry, allow you to connect microscopic geometry to bulk density and vice versa.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: density of RbI and coordination numbers</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Estimating density of RbI with NaCl structure</strong></p>
+              <p>Rubidium iodide crystallizes like NaCl. Ionic radii: r(Rb⁺) ≈ 166 pm, r(I⁻) ≈ 206 pm. Molar masses: M_Rb = 85.47 g·mol⁻¹, M_I = 126.90 g·mol⁻¹.</p>
+              <ol>
+                <li>Count ions per cell: NaCl-type has 4 cations and 4 anions per unit cell (n₊ = n₋ = 4), consistent with the 1:1 stoichiometry and charge balance.</li>
+                <li>Estimate a: in NaCl-type, ions touch along the edge, so a ≈ 2(r₊ + r₋). Using the radii: a ≈ 2(166 pm + 206 pm) = 744 pm = 7.44 × 10⁻⁸ cm.</li>
+                <li>Compute volume: V = a³ = (7.44 × 10⁻⁸ cm)³ ≈ 4.12 × 10⁻²² cm³.</li>
+                <li>Mass per cell: there are 4 formula units per cell, so mass = (4M_Rb + 4M_I)/N_A ≈ 1.41 × 10⁻²¹ g.</li>
+                <li>Density: ρ = mass/V ≈ 3.4 g·cm⁻³.</li>
+              </ol>
+              <p><strong>Coordination number insight:</strong> In NaCl, each Na⁺ is surrounded by 6 Cl⁻ neighbors (octahedral environment), and each Cl⁻ is surrounded by 6 Na⁺. In CsCl, each Cs⁺ has 8 Cl⁻ neighbors and vice versa. This difference arises largely from the relative sizes of the ions: larger cations can fit more neighbors around them, leading to higher coordination numbers.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: 12.4 Covalent Solids -->
+        <section class="card" id="c12-sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.4 Covalent Solids</h3>
+              <p class="card-subtitle">Network covalent structures, graphite vs diamond, and band theory for semiconductors.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">network covalent bonding</span>
+            <span class="pill">diamond, graphite, Si, SiC</span>
+            <span class="pill">band gap</span>
+            <span class="pill">n- and p-type doping</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Network covalent solids and their properties</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Covalent-network solids are built from atoms joined in continuous 2D or 3D covalent-bond networks. Unlike molecular solids, there are no discrete molecules; breaking the solid means breaking covalent bonds.</p>
+              <p>Important examples:</p>
+              <ul>
+                <li><strong>Diamond (C):</strong> each carbon is sp³‑hybridized and bonded tetrahedrally to 4 other carbons in 3D. This structure gives diamond extreme hardness and a very high melting point.</li>
+                <li><strong>Quartz (SiO₂):</strong> Si atoms are tetrahedrally coordinated by O, and each O bridges between two Si atoms. This forms a 3D network responsible for quartz’s hardness and thermal stability.</li>
+                <li><strong>Silicon (Si):</strong> same structure as diamond but with Si atoms. It is a key semiconductor for electronics.</li>
+                <li><strong>Silicon carbide (SiC), boron nitride (BN):</strong> network covalent solids with very high thermal stability and hardness.</li>
+                <li><strong>Graphite:</strong> composed of layers of hexagonally arranged carbon atoms. Each carbon forms three bonds in a plane (sp²). Strong C–C bonds within sheets, weak forces between sheets make graphite soft and a good lubricant.</li>
+              </ul>
+              <p>These solids are often insulators or semiconductors because electrons are localized in covalent bonds or require energy to move into conduction bands.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Band theory and semiconductors (n- and p-type)</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>In solids, individual atomic orbitals combine into bands with many closely spaced energy levels. For valence electrons, two bands are crucial:</p>
+              <ul>
+                <li><strong>Valence band:</strong> highest occupied (or nearly occupied) band at low temperature.</li>
+                <li><strong>Conduction band:</strong> higher‑energy band where electrons can move more freely and conduct.</li>
+              </ul>
+              <p>The <strong>band gap</strong> is:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-eg">E<sub>g</sub> = E<sub>conduction bottom</sub> − E<sub>valence top</sub></code>
+                <button class="copy-btn" data-copy="#f12-eg">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li>If E<sub>g</sub> is very small or bands overlap, electrons can move easily → <strong>metal</strong>.</li>
+                <li>If E<sub>g</sub> is large, few electrons can be promoted at moderate temperature → <strong>insulator</strong>.</li>
+                <li>If E<sub>g</sub> is modest (~1 eV), some electrons can be thermally excited → <strong>semiconductor</strong>.</li>
+              </ul>
+              <p>For semiconductors, conductivity increases with temperature because more electrons gain enough energy to cross the band gap. A simplified relationship is:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-sigma">σ ∝ e^(−E<sub>g</sub> / (2k<sub>B</sub>T))</code>
+                <button class="copy-btn" data-copy="#f12-sigma">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here σ is conductivity, k<sub>B</sub> is Boltzmann’s constant, and T is temperature.</p>
+              <p><strong>Doping</strong> modifies band structure to create extra charge carriers:</p>
+              <ul>
+                <li><strong>n-type:</strong> dope with an element having more valence electrons (e.g., P in Si). Extra electrons go into states near the conduction band edge, increasing negative charge carriers.</li>
+                <li><strong>p-type:</strong> dope with fewer valence electrons (e.g., B in Si). This creates holes (empty states) in the valence band that act like positive charge carriers.</li>
+              </ul>
+              <p>By combining n‑ and p‑type regions in one crystal, we build diodes, transistors, and other semiconductor devices central to modern electronics.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples: diamond vs graphite and doped silicon</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Diamond vs graphite:</strong></p>
+              <ul>
+                <li>In diamond, each C is bonded tetrahedrally to 4 neighbors by strong σ bonds. Breaking the crystal requires breaking many strong bonds simultaneously → extreme hardness, electrical insulation.</li>
+                <li>In graphite, each C forms 3 bonds in a plane, leaving a delocalized electron system across each sheet. Sheets are held together only by weak forces, so they slide easily → soft and flaky. The delocalized electrons along sheets provide electrical conductivity within planes.</li>
+              </ul>
+              <p><strong>n‑ and p‑type silicon:</strong></p>
+              <ul>
+                <li>Pure Si has a small band gap. Doping with P (5 valence electrons) introduces extra electrons that can occupy states near the conduction band, making the solid n‑type.</li>
+                <li>Doping with B (3 valence electrons) leaves “holes” in the valence band. Electrons can hop between these empty states, so the holes act as positive carriers → p‑type.</li>
+                <li>These doped covalent-network solids are the basis of integrated circuits, solar cells, and LEDs.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 5: 12.5 Polymers -->
+        <section class="card" id="c12-sec-5">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.5 Polymers</h3>
+              <p class="card-subtitle">Monomers, addition vs condensation polymerization, and structure–property relationships.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">monomer → polymer</span>
+            <span class="pill">addition vs condensation</span>
+            <span class="pill">LDPE vs HDPE</span>
+            <span class="pill">structure–property link</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What polymers are and how they form</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Polymers</strong> are long-chain molecules built from many repeating units called <strong>monomers</strong>. Typically, the backbone is a carbon chain, with side groups and cross-links controlling properties.</p>
+              <p>Two major polymerization types:</p>
+              <ul>
+                <li><strong>Addition (chain-growth) polymerization:</strong> monomers with double bonds (like alkenes) add to one another without loss of atoms. The double bond opens and links monomers end‑to‑end.</li>
+                <li><strong>Condensation (step-growth) polymerization:</strong> monomers with two or more functional groups react and small molecules (like H₂O or HCl) are eliminated when each new bond forms. Many polyesters and polyamides (nylons) form this way.</li>
+              </ul>
+              <p>Polymer properties depend strongly on chain length, branching, cross-linking, and the nature of the side groups. This is why plastics can range from stretchy and soft to rigid and strong, even when made from similar elements.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Polymerization patterns and structural formulas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Addition polymerization example – polyethylene:</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f12-polymerization">n CH₂=CH₂ → (–CH₂–CH₂–)ₙ</code>
+                <button class="copy-btn" data-copy="#f12-polymerization">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <ul>
+                <li>Monomer: ethene (CH₂=CH₂) with a C=C double bond.</li>
+                <li>Polymer: polyethylene, represented by a repeating –CH₂–CH₂– unit.</li>
+                <li><strong>n</strong> is the number of repeating units, often thousands or more.</li>
+              </ul>
+              <p><strong>Condensation polymerization example – nylon 6,6 (polyamide):</strong></p>
+              <p>Nylon 6,6 forms from a diamine and a diacid (hexamethylenediamine and adipic acid). Each linkage creates an amide bond and eliminates water. The repeating unit contains –NH–(CH₂)₆–NH– and –CO–(CH₂)₄–CO– segments connected by amide linkages.</p>
+              <p><strong>Structure–property relationships:</strong></p>
+              <ul>
+                <li><strong>Branching:</strong> branched chains pack less efficiently and form fewer crystalline regions → lower density, softer materials (LDPE).</li>
+                <li><strong>Linear chains:</strong> pack closely, forming more crystalline regions → higher density and stiffness (HDPE).</li>
+                <li><strong>Cross-linking:</strong> covalent links between chains restrict motion, making materials harder and more rigid (e.g., vulcanized rubber).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: LDPE vs HDPE and Teflon</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>LDPE vs HDPE:</strong></p>
+              <ul>
+                <li>Both start from ethene monomers, but LDPE has more branching. The branches prevent chains from aligning and packing tightly, giving a material with density &lt; 0.94 g·cm⁻³ that is flexible and used for films and bags.</li>
+                <li>HDPE chains are mostly linear and align to form crystalline regions. This tighter packing yields densities ≥ 0.94 g·cm⁻³ and materials that are stronger and more rigid, suitable for bottles and piping.</li>
+              </ul>
+              <p><strong>Teflon (PTFE):</strong></p>
+              <p>Teflon is formed by addition polymerization of tetrafluoroethene, CF₂=CF₂, giving a polymer with repeating –CF₂–CF₂– units. The strong C–F bonds and symmetry give Teflon its chemical inertness and low friction, making it useful as a non-stick coating.</p>
+              <p>These examples illustrate how choice of monomer and polymerization pathway, plus chain architecture, determine the mechanical and chemical behavior of polymer materials.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 6: 12.6 Nanomaterials -->
+        <section class="card" id="c12-sec-6">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">12.6 Nanomaterials</h3>
+              <p class="card-subtitle">How shrinking to the nanoscale changes surface area, electronic structure, and properties.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">1–100 nm</span>
+            <span class="pill">surface area ↑</span>
+            <span class="pill">quantum size effects</span>
+            <span class="pill">nanoparticles &amp; quantum dots</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Defining nanomaterials and why scale matters</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Nanomaterials</strong> are materials in which at least one dimension of the structural units (particles, grains, or features) lies roughly between 1 and 100 nm (1 nm = 1 × 10⁻⁹ m). At this scale, materials can behave differently from bulk samples of the same composition.</p>
+              <p>Two main reasons for new behavior:</p>
+              <ul>
+                <li><strong>High surface area-to-volume ratio:</strong> as particle size decreases, the fraction of atoms at the surface increases dramatically. Surface atoms experience different bonding than atoms in the interior, which affects reactivity, melting point, and mechanical properties.</li>
+                <li><strong>Quantum confinement:</strong> for very small particles, electron motion is confined to a tiny region, leading to discrete energy levels and size-dependent band gaps. This is particularly important in semiconductor nanocrystals (quantum dots).</li>
+              </ul>
+              <p>Nanomaterials can be made from metals, semiconductors, oxides, polymers, and more, and are used in fields ranging from medicine to electronics and catalysis.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Surface area scaling and quantum size effects</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Surface area scaling:</strong> Consider a large cube of material with edge length L, subdivided into smaller cubes with edge length d.</p>
+              <ul>
+                <li>Total volume stays L³ regardless of particle size.</li>
+                <li>Number of small cubes: (L/d)³.</li>
+                <li>Surface area of each small cube: 6d², so total surface area = (L/d)³ · 6d² = 6L³/d.</li>
+              </ul>
+              <p>This shows that as d decreases (smaller particles), total surface area increases like 1/d. Nanoparticles (very small d) thus have enormous surface area per gram, which explains why they are often more reactive and better catalysts.</p>
+              <p><strong>Quantum size effects in semiconductors:</strong> In bulk semiconductors, the band gap E<sub>g</sub> is fixed. But in very small crystals (2–10 nm), electron and hole motion becomes confined, raising the effective band gap. Qualitatively:</p>
+              <div class="formula-row">
+                <code class="formula" id="f12-qdot">smaller particle size → larger effective E<sub>g</sub> → higher-energy (bluer) light emission</code>
+                <button class="copy-btn" data-copy="#f12-qdot">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>This explains why quantum dots of the same material can emit different colors depending solely on their size.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples: gold nanoparticles and quantum dot LEDs</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Gold nanoparticles:</strong></p>
+              <ul>
+                <li>Bulk gold is yellow and opaque. But gold nanoparticles suspended in a liquid can appear red, purple, or other vivid colors depending on size.</li>
+                <li>This arises from surface plasmon resonances (collective oscillations of conduction electrons at the surface) and quantum effects that shift how the particles absorb and scatter light.</li>
+              </ul>
+              <p><strong>Quantum dot LEDs (QLEDs):</strong></p>
+              <ul>
+                <li>CdSe or InP quantum dots are semiconductor nanocrystals that emit light when excited.</li>
+                <li>By controlling particle size, manufacturers tune the emission color: smaller dots emit blue light (larger band gap), whereas larger dots emit red light (smaller band gap).</li>
+                <li>All dots can have the same composition; size alone controls the color, a clear demonstration of quantum confinement in nanomaterials.</li>
+              </ul>
+              <p>These examples show how shrinking materials to the nanoscale opens up new optical and electronic behaviors that bulk materials do not exhibit.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Copied to clipboard');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

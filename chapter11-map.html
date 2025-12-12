@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 11 Concept Map – Liquids and Intermolecular Forces</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050816;
+      --bg-elevated: #0f172a;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.16);
+      --accent-strong: rgba(56, 189, 248, 0.7);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+      --transition-fast: 150ms ease-out;
+      --transition-med: 200ms ease-out;
+      --sidebar-width: 280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0b1120 0%, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      display: flex;
+      flex: 1 1 auto;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      flex: 0 0 var(--sidebar-width);
+      max-width: var(--sidebar-width);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: sticky;
+      top: 1rem;
+      align-self: flex-start;
+      backdrop-filter: blur(18px);
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .title-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .title-main {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .title-sub {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .search-box {
+      position: relative;
+      margin-top: 0.35rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.45rem 2.1rem 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-soft);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+      transform: translateY(-0.5px);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      margin-top: 0.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.55rem;
+    }
+
+    .section-list-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .section-link {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.82rem;
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .section-link span.code {
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .section-link span.label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .section-link:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #f9fafb;
+      transform: translateY(-0.5px);
+    }
+
+    .section-link.active {
+      border-color: rgba(56, 189, 248, 0.85);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.95));
+      color: #f9fafb;
+    }
+
+    .sidebar-note {
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.5rem;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .sidebar-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .intro-banner {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.97));
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.3rem;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .intro-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.3rem 0.75rem;
+      align-items: center;
+    }
+
+    .intro-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5f0ff;
+    }
+
+    .intro-tags {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .intro-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .intro-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 0.9rem;
+      align-items: stretch;
+    }
+
+    .concept-card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem 1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+    }
+
+    .concept-card.hidden-by-filter {
+      display: none;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .card-title-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .card-section-code {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+
+    .card-section-label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .card-chip {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .node {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      overflow: hidden;
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+      padding: 0.45rem 0.55rem 0.4rem;
+      cursor: pointer;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      transition: background var(--transition-med), border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .node-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    .node-pill {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.95);
+      flex-shrink: 0;
+    }
+
+    .node-label-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+      min-width: 0;
+    }
+
+    .node-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .node-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .node-chevron {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      transition: transform var(--transition-med), color var(--transition-med);
+      flex-shrink: 0;
+    }
+
+    .node[aria-expanded="true"] .node-chevron {
+      transform: rotate(90deg);
+      color: var(--accent);
+    }
+
+    .node[aria-expanded="true"] .node-header {
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.7));
+      border-bottom: 1px solid rgba(56, 189, 248, 0.55);
+    }
+
+    .node-content {
+      padding: 0.45rem 0.65rem 0.5rem;
+      display: none;
+    }
+
+    .node[aria-expanded="true"] .node-content {
+      display: block;
+    }
+
+    .node-content p {
+      margin: 0 0 0.4rem;
+    }
+
+    .node-content ul {
+      margin: 0 0 0.4rem 1.1rem;
+      padding: 0;
+    }
+
+    .node-content li {
+      margin-bottom: 0.2rem;
+    }
+
+    .formula-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    code.formula {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      padding: 0.06rem 0.3rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+      white-space: nowrap;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-soft);
+      border-radius: 999px;
+      padding: 0.08rem 0.4rem;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      border-color: rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
+      color: var(--accent);
+      transform: translateY(-0.25px);
+    }
+
+    .copy-btn span.emoji {
+      font-size: 0.78rem;
+    }
+
+    .tagline-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    .tag-pill {
+      padding: 0.06rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      white-space: nowrap;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.15rem;
+      transform: translateX(-50%) translateY(120%);
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      color: #e5f0ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms ease-out, opacity 180ms ease-out;
+      z-index: 40;
+    }
+
+    .toast.visible {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .toast-message {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 960px) {
+      .page-shell {
+        flex-direction: column;
+        padding: 0.75rem;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+      }
+
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .intro-banner {
+        padding: 0.9rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-shell {
+        padding: 0.6rem;
+      }
+
+      .sidebar {
+        padding: 0.9rem;
+      }
+
+      .title-main {
+        font-size: 1rem;
+      }
+
+      .concept-card {
+        padding: 0.8rem 0.85rem;
+      }
+
+      .intro-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="title-kicker">Chem 123 – Chapter 11</div>
+        <div class="title-main">Liquids &amp; Intermolecular Forces</div>
+        <div class="title-sub">Interactive concept map with copyable formulas and examples.</div>
+      </div>
+
+      <div class="search-box">
+        <input id="search-input" class="search-input" type="search" placeholder="Filter sections by keyword…">
+        <div class="search-icon">🔍</div>
+      </div>
+
+      <div class="sidebar-section-list">
+        <div class="section-list-title">Jump to section</div>
+        <ul class="section-link-list">
+          <li><a href="#sec-11-1" class="section-link" data-section="11.1"><span class="code">11.1</span><span class="label">States of matter</span></a></li>
+          <li><a href="#sec-11-2" class="section-link" data-section="11.2"><span class="code">11.2</span><span class="label">Intermolecular forces</span></a></li>
+          <li><a href="#sec-11-3" class="section-link" data-section="11.3"><span class="code">11.3</span><span class="label">Properties of liquids</span></a></li>
+          <li><a href="#sec-11-4" class="section-link" data-section="11.4"><span class="code">11.4</span><span class="label">Phase changes &amp; energy</span></a></li>
+          <li><a href="#sec-11-5" class="section-link" data-section="11.5"><span class="code">11.5</span><span class="label">Vapor pressure</span></a></li>
+          <li><a href="#sec-11-6" class="section-link" data-section="11.6"><span class="code">11.6</span><span class="label">Phase diagrams</span></a></li>
+          <li><a href="#sec-11-7" class="section-link" data-section="11.7"><span class="code">11.7</span><span class="label">Liquid crystals</span></a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-note">
+        <strong>Hint</strong>: Double-click any text to copy it. Use the 📋 buttons to copy key formulas for practice or notes.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="intro-banner">
+        <div class="intro-title-row">
+          <div class="intro-title">Conceptual Overview</div>
+          <div class="intro-tags">
+            <span class="intro-tag">roots</span>
+            <span class="intro-tag">trunk</span>
+            <span class="intro-tag">leaves</span>
+          </div>
+        </div>
+        <div class="intro-body">
+          This map turns Chapter 11 into a mini-textbook organized as a “tree”:
+          <strong>roots</strong> hold the core definitions and ideas, the <strong>trunk</strong> collects the
+          main formulas and rules connecting those ideas, and the <strong>leaves</strong> give you short
+          examples, tips, and interpretations that show how the ideas play out in real situations.
+        </div>
+      </section>
+
+      <section class="cards-grid">
+
+        <article id="sec-11-1" class="concept-card" data-keywords="11.1 states of matter gas liquid solid density compressible condensed phases kinetic energy intermolecular attractions">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.1</div>
+              <div class="card-section-label">A Molecular Comparison of Gases, Liquids, and Solids</div>
+            </div>
+            <div class="card-chip">States of matter</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Core ideas &amp; definitions</div>
+                    <div class="node-subtitle">How kinetic energy competes with intermolecular attractions.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  The physical state of a substance is controlled by a balance between the kinetic energy of its
+                  particles and the intermolecular attractions holding them together.
+                </p>
+                <ul>
+                  <li><strong>Gases</strong>: molecules are far apart, move freely and randomly, and have kinetic energies much larger than intermolecular attractions. They fill the container, are highly compressible, have low densities, and diffuse rapidly.</li>
+                  <li><strong>Liquids</strong>: molecules are close together but can slide past one another. Intermolecular forces are strong enough to give a definite volume and low compressibility, but not strong enough to lock molecules in place. Liquids flow and diffuse slowly.</li>
+                  <li><strong>Solids</strong>: molecules, ions, or atoms are packed closely into fixed positions with only vibrational motion. Intermolecular attractions dominate, giving a rigid shape, definite volume, very low compressibility, and extremely slow diffusion.</li>
+                  <li><strong>Condensed phases</strong>: liquids and solids are both considered condensed phases because their particles are close together compared with gases.</li>
+                  <li>Changing temperature or pressure can shift the balance between kinetic energy and attractions, driving changes between gas, liquid, and solid.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Key relationships &amp; formulas</div>
+                    <div class="node-subtitle">Density and macroscopic behavior.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>Density is a convenient way to compare how “packed” the particles are in different phases.</p>
+                <div class="formula-row">
+                  <code class="formula">ρ = m / V</code>
+                  <button class="copy-btn" data-copy="ρ = m / V"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>ρ</strong> (rho) = density, typically in g/mL (liquids, solids) or g/L (gases).</li>
+                  <li><strong>m</strong> = mass of the sample.</li>
+                  <li><strong>V</strong> = volume the sample occupies.</li>
+                  <li>Gases have densities roughly a thousand times smaller than liquids or solids, reflecting their large intermolecular separations.</li>
+                  <li>Liquids usually have densities similar to, or slightly less than, their corresponding solids (with water as a key exception discussed later).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; interpretations</div>
+                    <div class="node-subtitle">Connecting phase descriptions to numbers.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Which state from density?</strong></p>
+                <p>
+                  Suppose a substance has a density around 1 g/L under everyday conditions. A density that low is
+                  characteristic of gases, because liquids are typically near 1 g/mL and solids are often even denser.
+                  This means the particles must be very far apart compared with those in a liquid or solid.
+                </p>
+                <p>
+                  Thinking this way—relating density to spacing and compressibility—helps you picture where a substance sits
+                  on the spectrum from “loosely held together” gas to “tightly packed” solid.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">states &amp; particle pictures</span>
+              <span class="tag-pill">kinetic vs potential energy</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-2" class="concept-card" data-keywords="11.2 intermolecular forces dispersion dipole hydrogen bonding ion-dipole polarizability boiling point water ice density">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.2</div>
+              <div class="card-section-label">Intermolecular Forces</div>
+            </div>
+            <div class="card-chip">IMFs &amp; structure–property links</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Core ideas &amp; definitions</div>
+                    <div class="node-subtitle">Types of intermolecular forces and their origin.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Intermolecular forces (IMFs)</strong> are attractions between separate molecules; they are much weaker than the covalent or ionic bonds within molecules.</li>
+                  <li>All IMFs are ultimately <strong>electrostatic</strong>—they involve attractions between positive and negative charges or partial charges.</li>
+                  <li><strong>Dispersion forces</strong> (London forces) arise from temporary distortions of electron clouds that create instantaneous dipoles and induce dipoles in neighbors. They operate in <em>all</em> molecules and atoms.</li>
+                  <li><strong>Polarizability</strong> measures how easily a cloud of electrons can be distorted. More electrons and more diffuse electron clouds mean higher polarizability and stronger dispersion forces.</li>
+                  <li><strong>Dipole–dipole interactions</strong> occur between polar molecules with permanent dipole moments; δ⁺ on one molecule attracts δ⁻ on another.</li>
+                  <li><strong>Hydrogen bonding</strong> is a strong special case of dipole–dipole attraction when H is bonded to N, O, or F and a nearby N, O, or F has a lone pair.</li>
+                  <li><strong>Ion–dipole forces</strong> are attractions between ions and polar molecules, crucial for dissolving ionic compounds in polar solvents.</li>
+                  <li>For molecules with similar sizes, the ordering of IMF strength is roughly: dispersion &lt; dipole–dipole &lt; hydrogen bonding; ion–dipole forces can be stronger still.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Formulas, trends &amp; rules</div>
+                    <div class="node-subtitle">How charge and distance control IMF strength.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  Intermolecular forces are weaker than ionic or covalent bonds because the interacting charges are smaller
+                  and spaced further apart, but the same basic electrostatic idea applies.
+                </p>
+                <div class="formula-row">
+                  <code class="formula">E ∝ (q₁ q₂) / r</code>
+                  <button class="copy-btn" data-copy="E ∝ (q1 q2) / r"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>E</strong> is the electrostatic potential energy (more negative = stronger attraction).</li>
+                  <li><strong>q₁</strong>, <strong>q₂</strong> are interacting charges (full ionic charges in salts, small partial charges in molecular dipoles).</li>
+                  <li><strong>r</strong> is the distance between charges.</li>
+                  <li>In IMFs, |q| is small and r is relatively large, so E is modest compared with ionic bonds—but still large enough to control boiling and melting points.</li>
+                  <li><strong>Practical rules</strong>:
+                    <ul>
+                      <li>For molecules of similar size and shape, stronger polarity and hydrogen bonding → higher boiling point and melting point.</li>
+                      <li>For molecules with very different molar masses but similar polarity (or both nonpolar), the heavier one usually has stronger IMFs because dispersion dominates.</li>
+                    </ul>
+                  </li>
+                  <li>Boiling point trends for halogens (F₂, Cl₂, Br₂, I₂) and noble gases (Ne, Ar, Kr, Xe) track increasing molar mass because dispersion forces strengthen down the group.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples, tips &amp; pitfalls</div>
+                    <div class="node-subtitle">Boiling point comparisons and water’s anomalies.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example 1 – Dispersion and molecular shape</strong></p>
+                <p>
+                  n‑Pentane and neopentane both have formula C₅H₁₂, but n‑pentane has a higher boiling point. The long, linear
+                  shape of n‑pentane allows more surface contact between molecules, strengthening dispersion forces, while neopentane is compact and nearly spherical, reducing contact area.
+                </p>
+
+                <p><strong>Example 2 – Hydrogen bonding and anomalous boiling points</strong></p>
+                <p>
+                  For group 14 hydrides (CH₄ → SnH₄), boiling points increase smoothly with molar mass. For group 15–17 hydrides,
+                  the heavier members follow a similar trend, but NH₃, H₂O, and HF are far above the pattern. Their hydrogen bonding
+                  is much stronger than ordinary dipole–dipole and dominates the boiling behavior.
+                </p>
+
+                <p><strong>Example 3 – Ice vs liquid water density</strong></p>
+                <p>
+                  In ice, each H₂O forms four hydrogen bonds in an open, hexagonal network with significant empty space. When ice melts,
+                  this network collapses somewhat and molecules pack more closely even though hydrogen bonding is still present.
+                  That is why liquid water at 0 °C is denser than ice and why ice floats.
+                </p>
+
+                <p><strong>Tip</strong>: Any neutral molecule always has dispersion forces. Only add “dipole–dipole” or “hydrogen bonding” labels after you decide whether the molecule is polar and whether it has N–H, O–H, or F–H bonds.</p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">dispersion vs dipole</span>
+              <span class="tag-pill">hydrogen bonds</span>
+              <span class="tag-pill">structure → boiling point</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-3" class="concept-card" data-keywords="11.3 viscosity surface tension capillary action cohesive adhesive meniscus hydrogen bonding ionic liquids">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.3</div>
+              <div class="card-section-label">Select Properties of Liquids</div>
+            </div>
+            <div class="card-chip">Viscosity, surface tension, capillarity</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Key properties</div>
+                    <div class="node-subtitle">Viscosity, surface tension, cohesive vs adhesive forces.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Viscosity</strong> is a liquid’s resistance to flow. Thick liquids like honey or motor oil have high viscosity; water and gasoline have low viscosity.</li>
+                  <li>Viscosity increases with stronger intermolecular forces and with longer, more flexible molecules that can tangle.</li>
+                  <li>Viscosity decreases as temperature increases because particles move faster and can overcome attractions more easily.</li>
+                  <li><strong>Surface tension</strong> is the energy required to increase a liquid’s surface area by a unit amount. It reflects the net inward pull experienced by surface molecules.</li>
+                  <li>Stronger IMFs (especially hydrogen bonding) give larger surface tension. Water’s surface tension is high; mercury’s is even higher.</li>
+                  <li><strong>Cohesive forces</strong> are IMFs between molecules of the same substance. <strong>Adhesive forces</strong> are attractions between a liquid and another surface.</li>
+                  <li>If adhesion &gt; cohesion, the liquid wets and climbs the surface (concave meniscus, like water in glass). If cohesion &gt; adhesion, the liquid beads up (convex meniscus, like mercury in glass).</li>
+                  <li>Competition between adhesion, cohesion, and gravity produces <strong>capillary action</strong>, where liquids rise or fall in narrow tubes.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Quantities &amp; trends</div>
+                    <div class="node-subtitle">How we measure viscosity and surface tension.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Viscosity (η)</strong></p>
+                <ul>
+                  <li>Measured in SI units of kg·m⁻¹·s⁻¹ (equivalently Pa·s).</li>
+                  <li>Practically, we often compare liquids by how fast they flow through a narrow tube or how quickly steel balls fall through them.</li>
+                  <li>Within a homologous series (like straight-chain alkanes), viscosity increases with molar mass because longer chains mean stronger dispersion and more entanglement.</li>
+                </ul>
+
+                <p><strong>Surface tension (γ)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">γ = energy / area</code>
+                  <button class="copy-btn" data-copy="γ = energy / area"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Units: J/m² (or N/m).</li>
+                  <li>Water at 20 °C has γ ≈ 7.29 × 10⁻² J/m²; mercury’s is much larger due to strong metallic bonding.</li>
+                  <li>Surface tension generally decreases with increasing temperature, because thermal motion disrupts the ordered surface layer.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; applications</div>
+                    <div class="node-subtitle">Honey, water striders, and capillary rise.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example 1 – Viscosity in a hydrocarbon series</strong></p>
+                <p>
+                  At 20 °C, hexane, heptane, octane, nonane, and decane show steadily increasing viscosities.
+                  Each step adds CH₂ units, increasing molar mass and surface area. Stronger dispersion forces and greater
+                  “spaghetti-like” tangling of chains slow flow, so viscosity rises.
+                </p>
+
+                <p><strong>Example 2 – Surface tension and insects on water</strong></p>
+                <p>
+                  Water striders can stand on ponds because water’s surface behaves like a stretched elastic film. Surface molecules
+                  are pulled inward by neighbors, and the insect’s mass is not enough to break those hydrogen-bond-supported forces.
+                </p>
+
+                <p><strong>Example 3 – Capillary action in everyday life</strong></p>
+                <p>
+                  In a narrow glass capillary, water rises above the bulk level: adhesion between water and glass plus surface tension
+                  pulls the liquid up until gravity balances the upward force. This same process allows paper towels and technical wicking
+                  fabrics to draw moisture away from surfaces.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">viscosity ↔ IMF strength</span>
+              <span class="tag-pill">surface energy</span>
+              <span class="tag-pill">capillary action</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-4" class="concept-card" data-keywords="11.4 phase changes heating curve fusion vaporization sublimation deposition enthalpy critical temperature pressure supercritical fluid q = m c ΔT">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.4</div>
+              <div class="card-section-label">Phase Changes</div>
+            </div>
+            <div class="card-chip">Energy &amp; state changes</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Names &amp; energy directions</div>
+                    <div class="node-subtitle">Melting, freezing, vaporization, condensation, sublimation, deposition.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Melting (fusion)</strong>: solid → liquid; endothermic (system absorbs heat to allow particles to move more freely).</li>
+                  <li><strong>Freezing</strong>: liquid → solid; exothermic (system releases heat as particles lock into place).</li>
+                  <li><strong>Vaporization</strong>: liquid → gas; endothermic (particles must break most intermolecular attractions).</li>
+                  <li><strong>Condensation</strong>: gas → liquid; exothermic (particles form attractions and release energy).</li>
+                  <li><strong>Sublimation</strong>: solid → gas; endothermic (solid skips the liquid stage and directly forms gas).</li>
+                  <li><strong>Deposition</strong>: gas → solid; exothermic (gas directly forms solid).</li>
+                  <li>
+                    On a <strong>heating curve</strong>, temperatures rise with added heat until a phase-change temperature is reached.
+                    During the phase change, temperature stays constant while energy goes into changing the arrangement of particles, not their average kinetic energy.
+                  </li>
+                  <li><strong>Critical temperature (T<sub>c</sub>)</strong>: highest T at which a liquid can exist; above T<sub>c</sub>, no amount of pressure produces a separate liquid phase.</li>
+                  <li><strong>Critical pressure (P<sub>c</sub>)</strong>: pressure needed to liquefy a gas at T<sub>c</sub>.</li>
+                  <li>Above T<sub>c</sub> and P<sub>c</sub>, the substance is a <strong>supercritical fluid</strong>, with no distinct boundary between liquid and gas.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Energy equations</div>
+                    <div class="node-subtitle">q = m c ΔT and phase enthalpies.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Temperature changes (no phase change)</strong></p>
+                <div class="formula-row">
+                  <code class="formula">q = m c ΔT</code>
+                  <button class="copy-btn" data-copy="q = m c ΔT"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>q</strong> = heat absorbed (+) or released (–), in J.</li>
+                  <li><strong>m</strong> = mass, often in g.</li>
+                  <li><strong>c</strong> = specific heat capacity (J·g⁻¹·K⁻¹).</li>
+                  <li><strong>ΔT</strong> = T<sub>final</sub> – T<sub>initial</sub> in K or °C (same difference). Positive ΔT means warming, negative means cooling.</li>
+                </ul>
+
+                <p><strong>Phase changes at constant temperature</strong></p>
+                <div class="formula-row">
+                  <code class="formula">q = n ΔH</code>
+                  <button class="copy-btn" data-copy="q = n ΔH"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>n</strong> = moles of substance.</li>
+                  <li><strong>ΔH</strong> = molar enthalpy of the phase change: ΔH<sub>fus</sub>, ΔH<sub>vap</sub>, or ΔH<sub>sub</sub>, usually in kJ/mol.</li>
+                  <li>Signs: ΔH is positive for melting, vaporization, and sublimation; negative for freezing, condensation, and deposition (if you imagine the reverse direction).</li>
+                </ul>
+
+                <p><strong>Relationship between enthalpies</strong></p>
+                <div class="formula-row">
+                  <code class="formula">ΔHsub = ΔHfus + ΔHvap</code>
+                  <button class="copy-btn" data-copy="ΔHsub = ΔHfus + ΔHvap"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li>Solid → gas can be viewed as solid → liquid (fusion) then liquid → gas (vaporization).</li>
+                  <li>ΔH<sub>sub</sub> is the sum of ΔH<sub>fus</sub> and ΔH<sub>vap</sub> for a given substance.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Example &amp; interpretation</div>
+                    <div class="node-subtitle">Heating ice to steam and critical behavior.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example – Energy to convert ice at –25 °C to steam at 125 °C</strong></p>
+                <p>
+                  For 1.00 mol H₂O, we add heat in five steps: warm ice to 0 °C, melt ice, warm liquid water to 100 °C, vaporize water,
+                  then warm steam to 125 °C. Using specific heats for each phase and ΔH<sub>fus</sub>, ΔH<sub>vap</sub>, the total q is about 56 kJ.
+                  This illustrates how multiple <code class="formula">q = m c ΔT</code> and <code class="formula">q = n ΔH</code> segments combine on a heating curve.
+                </p>
+
+                <p><strong>Example – Why a critical temperature exists</strong></p>
+                <p>
+                  At temperatures above T<sub>c</sub>, molecules move so energetically that even very high pressures cannot pull them into
+                  a separate liquid; instead, the system becomes a dense supercritical fluid. Substances with stronger IMFs (like water and ammonia) have higher T<sub>c</sub> and P<sub>c</sub> than weakly interacting gases (like nitrogen or methane).
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">heating curves</span>
+              <span class="tag-pill">endothermic vs exothermic</span>
+              <span class="tag-pill">critical point</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-5" class="concept-card" data-keywords="11.5 vapor pressure volatility boiling point Clausius-Clapeyron equation ln P = -ΔHvap / (R T) + C pressure cooker altitude">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.5</div>
+              <div class="card-section-label">Vapor Pressure</div>
+            </div>
+            <div class="card-chip">Volatility &amp; boiling</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – Vapor–liquid equilibrium</div>
+                    <div class="node-subtitle">Evaporation, condensation, and volatility.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Evaporation</strong>: molecules at the surface of a liquid that have enough kinetic energy escape into the gas phase.</li>
+                  <li><strong>Condensation</strong>: gas molecules lose energy and return to the liquid phase.</li>
+                  <li>In a closed container, these processes reach <strong>dynamic equilibrium</strong> where rates of evaporation and condensation are equal.</li>
+                  <li>The pressure of the vapor at this equilibrium is the liquid’s <strong>vapor pressure</strong> at that temperature.</li>
+                  <li>A liquid with a high vapor pressure at a given temperature is called <strong>volatile</strong>; it evaporates readily.</li>
+                  <li><strong>Stronger IMFs</strong> hold molecules in the liquid more tightly, giving a lower vapor pressure; <strong>weaker IMFs</strong> give a higher vapor pressure.</li>
+                  <li>Vapor pressure increases rapidly with temperature because more molecules have energies above the escape threshold.</li>
+                  <li><strong>Boiling point</strong>: the temperature at which the vapor pressure equals the external pressure acting on the liquid.</li>
+                  <li><strong>Normal boiling point</strong>: boiling point at 101.3 kPa (1 atm). Changing external pressure changes the boiling point.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Clausius–Clapeyron equation</div>
+                    <div class="node-subtitle">Quantifying how vapor pressure depends on temperature.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  The Clausius–Clapeyron equation describes how the equilibrium vapor pressure of a liquid varies with temperature.
+                </p>
+                <div class="formula-row">
+                  <code class="formula">ln P = -ΔHvap / (R T) + C</code>
+                  <button class="copy-btn" data-copy="ln P = -ΔHvap / (R T) + C"><span class="emoji">📋</span><span>Copy</span></button>
+                </div>
+                <ul>
+                  <li><strong>P</strong> = vapor pressure at temperature T.</li>
+                  <li><strong>T</strong> = absolute temperature in K.</li>
+                  <li><strong>ΔH<sub>vap</sub></strong> = molar enthalpy of vaporization (J/mol).</li>
+                  <li><strong>R</strong> = gas constant, 8.314 J·mol⁻¹·K⁻¹.</li>
+                  <li><strong>C</strong> = constant for a given substance.</li>
+                  <li>Graphing ln P vs 1/T gives a straight line whose slope is –ΔH<sub>vap</sub>/R, so the slope’s magnitude tells you the enthalpy of vaporization.</li>
+                  <li>A steeper negative slope means a larger ΔH<sub>vap</sub> and stronger intermolecular forces (vapor pressure rises more slowly with temperature).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; everyday links</div>
+                    <div class="node-subtitle">Pressure cookers, mountains, and volatility.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example 1 – Pressure cookers</strong></p>
+                <p>
+                  In a pressure cooker, steam is trapped so that the pressure above boiling water rises above 1 atm. The higher pressure
+                  shifts the boiling point upward, so the water can reach temperatures above 100 °C. Food cooks faster because chemical
+                  reactions run more quickly at higher temperature.
+                </p>
+
+                <p><strong>Example 2 – High-altitude cooking</strong></p>
+                <p>
+                  At high elevations, atmospheric pressure is below 101.3 kPa. Water’s vapor pressure equals the lower external pressure
+                  at a temperature below 100 °C, so water boils at a lower temperature. That means boiling water is not as hot and
+                  cooking times for foods like pasta or potatoes must be longer.
+                </p>
+
+                <p><strong>Example 3 – Comparing volatility: CCl₄ vs CBr₄</strong></p>
+                <p>
+                  At 25 °C, both CCl₄ and CBr₄ are nonpolar, so dispersion forces dominate. CBr₄ has more electrons and is more
+                  polarizable, giving stronger dispersion forces and lower vapor pressure. CCl₄ is therefore more volatile at 25 °C.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">dynamic equilibrium</span>
+              <span class="tag-pill">volatility</span>
+              <span class="tag-pill">ln P vs 1/T</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-6" class="concept-card" data-keywords="11.6 phase diagram triple point critical point sublimation fusion vaporization solid liquid gas CO2 water CH4">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.6</div>
+              <div class="card-section-label">Phase Diagrams</div>
+            </div>
+            <div class="card-chip">T–P maps</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – What a phase diagram shows</div>
+                    <div class="node-subtitle">Regions, curves, triple point, critical point.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li>A <strong>phase diagram</strong> plots pressure vs temperature and shows which phase (solid, liquid, gas, supercritical fluid) is stable under each combination.</li>
+                  <li>The diagram includes three key curves:
+                    <ul>
+                      <li><strong>Sublimation curve</strong>: boundary between solid and gas where these phases are in equilibrium.</li>
+                      <li><strong>Fusion (melting) curve</strong>: boundary between solid and liquid.</li>
+                      <li><strong>Vaporization curve</strong>: boundary between liquid and gas (this is essentially the vapor pressure curve).</li>
+                    </ul>
+                  </li>
+                  <li>The <strong>triple point</strong> is the unique combination of T and P where solid, liquid, and gas coexist in equilibrium.</li>
+                  <li>The <strong>critical point</strong> marks the end of the liquid–gas boundary; at and above this point, the substance is a supercritical fluid with no distinct liquid or gas phases.</li>
+                  <li>For most substances, the fusion curve slopes upward (melting point increases with pressure), reflecting solids being denser than liquids.</li>
+                  <li>Water is unusual: its fusion curve slopes slightly downward because ice is less dense than liquid water, so increasing pressure favors the liquid phase.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – How to read and use the diagram</div>
+                    <div class="node-subtitle">Paths in T–P space and phase changes.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p>
+                  To use a phase diagram, treat (T, P) as a point moving around on the map:
+                </p>
+                <ul>
+                  <li>Find the point corresponding to the current conditions; whichever region it lies in tells you the phase.</li>
+                  <li>Moving horizontally (changing T at fixed P) or vertically (changing P at fixed T) can cross boundaries; each crossing corresponds to a phase change.</li>
+                  <li>At pressures below the triple point pressure, heating a solid can only make it sublime (solid → gas); a liquid phase is not stable.</li>
+                  <li>If you compress a gas at a temperature below T<sub>c</sub>, you eventually hit the vaporization curve and liquefy the gas. Above T<sub>c</sub>, compression just gives a denser gas-like supercritical fluid.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; special cases</div>
+                    <div class="node-subtitle">CO₂, methane, and water.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example 1 – CO₂ and dry ice</strong></p>
+                <p>
+                  In the CO₂ phase diagram, the triple point is at a pressure well above 1 atm. At 1 atm, the fusion curve is not accessible, so solid CO₂ cannot melt—it sublimes directly at about –78.5 °C. That is why dry ice goes straight from solid to gas at room pressure.
+                </p>
+
+                <p><strong>Example 2 – Methane phase changes</strong></p>
+                <p>
+                  At 100 kPa and 0 °C, methane lies in the gas region. If you start with solid methane at 100 kPa and heat it, the trajectory crosses the solid–liquid boundary (melting) and then the liquid–gas boundary (vaporization). If instead you compress methane at 0 °C to above the critical pressure, you obtain a supercritical fluid without a distinct boiling transition.
+                </p>
+
+                <p><strong>Example 3 – Water and pressure-induced melting</strong></p>
+                <p>
+                  Because ice is less dense than liquid water, increasing pressure at temperatures near 0 °C slightly favors melting. This contributes to phenomena like ice skating, where high pressure under a blade promotes a thin film of liquid water that reduces friction, although other factors (like frictional heating) also play roles.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">triple point</span>
+              <span class="tag-pill">critical region</span>
+              <span class="tag-pill">supercritical fluids</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="sec-11-7" class="concept-card" data-keywords="11.7 liquid crystals nematic smectic cholesteric LCD displays rod-shaped molecules polar groups">
+          <header class="card-header">
+            <div class="card-title-main">
+              <div class="card-section-code">11.7</div>
+              <div class="card-section-label">Liquid Crystals</div>
+            </div>
+            <div class="card-chip">Intermediate phases</div>
+          </header>
+          <div class="card-body">
+            <div class="node" aria-expanded="true">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">R</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Roots – What liquid crystals are</div>
+                    <div class="node-subtitle">Between solid and liquid, with partial order.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Liquid crystals</strong> are phases that have some order like a solid but flow like a liquid; they occur over limited temperature ranges between the solid and liquid phases.</li>
+                  <li>They often appear as viscous, milky liquids in the liquid crystalline region and clear liquids above it.</li>
+                  <li>Molecules that form liquid crystals are usually <strong>rod‑shaped</strong> and somewhat rigid (e.g., multiple double bonds and benzene rings), with polar groups that promote alignment.</li>
+                  <li>Because the intermolecular forces organizing the molecules are relatively weak, modest changes in temperature, pressure, or electric field can reorient them and change the material’s optical properties.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">T</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Trunk – Types of liquid crystal order</div>
+                    <div class="node-subtitle">Nematic, smectic, and cholesteric phases.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <ul>
+                  <li><strong>Liquid phase</strong>: molecules are arranged randomly in position and orientation.</li>
+                  <li><strong>Nematic liquid crystal</strong>:
+                    <ul>
+                      <li>Long axes of molecules tend to point in the same direction (“director”), but molecule positions are not layered.</li>
+                      <li>Molecules can flow and rotate around their long axes.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Smectic A and C liquid crystals</strong>:
+                    <ul>
+                      <li>Molecules maintain nematic-like alignment but also organize into layers.</li>
+                      <li>Smectic A: long axes are perpendicular to the layer planes.</li>
+                      <li>Smectic C: long axes are tilted relative to the layer planes.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Cholesteric (chiral nematic) liquid crystals</strong>:
+                    <ul>
+                      <li>Form layers where the orientation of molecules twists from one layer to the next, creating a helical structure.</li>
+                      <li>This periodic structure interacts with light, often producing vivid colors that change with temperature or viewing angle.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="node" aria-expanded="false">
+              <div class="node-header">
+                <div class="node-header-left">
+                  <div class="node-pill">L</div>
+                  <div class="node-label-block">
+                    <div class="node-title">Leaves – Examples &amp; technology</div>
+                    <div class="node-subtitle">From cholesteryl benzoate to LCDs and e-paper.</div>
+                  </div>
+                </div>
+                <div class="node-chevron">▶</div>
+              </div>
+              <div class="node-content">
+                <p><strong>Example 1 – Cholesteryl benzoate</strong></p>
+                <p>
+                  Cholesteryl benzoate melts from a solid to a milky, viscous liquid-crystalline phase at an intermediate temperature, and then
+                  becomes a clear liquid at a higher temperature. On cooling, it retraces these transitions in reverse. This behavior revealed
+                  the existence of liquid crystalline phases distinct from both solid and ordinary liquid states.
+                </p>
+
+                <p><strong>Example 2 – Twisted nematic LCDs</strong></p>
+                <p>
+                  In a twisted nematic display, a layer of nematic liquid crystal sits between two polarizers oriented at right angles. With no voltage,
+                  the liquid crystal twists the polarization of light so it passes both polarizers and is reflected, making the pixel appear bright.
+                  When a voltage is applied, the molecules align with the electric field and no longer twist the light, so the second polarizer blocks it
+                  and the pixel appears dark.
+                </p>
+
+                <p><strong>Example 3 – Cholesteric liquid crystals and e-paper</strong></p>
+                <p>
+                  Cholesteric liquid crystals reflect particular wavelengths of light depending on their pitch (twist period) and orientation. Small changes
+                  in temperature or electric fields can tune these properties. This makes them useful for temperature sensors, skin thermometers, and
+                  low-power “electronic paper” displays that can hold text or images with very little energy.
+                </p>
+              </div>
+            </div>
+
+            <div class="tagline-row">
+              <span class="tag-pill">partial order</span>
+              <span class="tag-pill">optical properties</span>
+              <span class="tag-pill">display technology</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite">
+    <div class="toast-icon">✅</div>
+    <div class="toast-message">Copied to clipboard</div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const cards = Array.from(document.querySelectorAll('.concept-card'));
+    const sectionLinks = Array.from(document.querySelectorAll('.section-link'));
+    const toast = document.getElementById('toast');
+    let toastTimeoutId = null;
+
+    const showToast = (message) => {
+      if (!toast) return;
+      const msgEl = toast.querySelector('.toast-message');
+      if (msgEl) {
+        msgEl.textContent = message;
+      }
+      toast.classList.add('visible');
+      if (toastTimeoutId) {
+        clearTimeout(toastTimeoutId);
+      }
+      toastTimeoutId = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 1500);
+    };
+
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('.copy-btn');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy') || '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Formula copied');
+        }).catch(() => {
+          showToast('Unable to copy');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Formula copied');
+        } catch {
+          showToast('Unable to copy');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('dblclick', () => {
+      const selection = window.getSelection ? window.getSelection() : null;
+      const text = selection ? selection.toString().trim() : '';
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Text copied');
+        }).catch(() => {
+          showToast('Unable to copy text');
+        });
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast('Text copied');
+        } catch {
+          showToast('Unable to copy text');
+        }
+        document.body.removeChild(temp);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const header = event.target.closest('.node-header');
+      if (!header) return;
+      const node = header.closest('.node');
+      if (!node) return;
+      const expanded = node.getAttribute('aria-expanded') === 'true';
+      node.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+
+    const applyFilter = (query) => {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        cards.forEach(card => card.classList.remove('hidden-by-filter'));
+        return;
+      }
+      cards.forEach(card => {
+        const text = (card.textContent || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        if (text.includes(q) || keywords.includes(q)) {
+          card.classList.remove('hidden-by-filter');
+        } else {
+          card.classList.add('hidden-by-filter');
+        }
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        applyFilter(event.target.value);
+      });
+    }
+
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href');
+        if (!targetId) return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+        sectionLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        const rect = targetEl.getBoundingClientRect();
+        const absoluteY = rect.top + window.scrollY - 16;
+        window.scrollTo({
+          top: absoluteY,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id) return;
+        sectionLinks.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+    }, {
+      root: null,
+      threshold: 0.3
+    });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>
