@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 4 Concept Map – Reactions in Aqueous Solution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #4fc3f7;
+      --accent-soft: rgba(79, 195, 247, 0.15);
+      --accent-strong: #80d8ff;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: rgba(79, 195, 247, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(79, 195, 247, 0.1);
+      border-color: rgba(79, 195, 247, 0.25);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(79, 195, 247, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79, 195, 247, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 195, 247, 0.35);
+      background: rgba(79, 195, 247, 0.08);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(79, 195, 247, 0.4);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(79, 195, 247, 0.7);
+      background: rgba(79, 195, 247, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(79, 195, 247, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #9ea3c8;
+      margin-top: 0.2rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 4 · Reactions in Aqueous Solution</h1>
+      <p>Interactive concept map – roots (solutions), trunk (ionic &amp; acid–base patterns), leaves (stoichiometry &amp; redox).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list">
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-1">
+              <span class="badge">1</span>
+              <span class="label">Aqueous Solutions &amp; Electrolytes</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-2">
+              <span class="badge">2</span>
+              <span class="label">Ionic &amp; Net Ionic Equations</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-3">
+              <span class="badge">3</span>
+              <span class="label">Precipitation &amp; Solubility</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-4">
+              <span class="badge">4</span>
+              <span class="label">Acid–Base &amp; Neutralization</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-5">
+              <span class="badge">5</span>
+              <span class="label">Redox Reactions</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c4-sec-6">
+              <span class="badge">6</span>
+              <span class="label">Molarity, Dilution &amp; Solution Stoichiometry</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>This chapter focuses on reactions that occur in water: how substances dissolve, when ions form precipitates, how acids and bases neutralize each other, and how electrons move in redox reactions. It also shows how to do calculations using molarity and solution stoichiometry.</p>
+          <ul>
+            <li>Describe aqueous solutions, electrolytes, and nonelectrolytes.</li>
+            <li>Write molecular, complete ionic, and net ionic equations.</li>
+            <li>Predict precipitation, acid–base, and redox reactions in water.</li>
+            <li>Use molarity and dilution formulas to solve quantitative problems.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: Aqueous solutions & electrolytes -->
+        <section class="card" id="c4-sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">1. Aqueous Solutions and Electrolytes</h3>
+              <p class="card-subtitle">How ionic and molecular substances behave in water.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">solvent &amp; solute</span>
+            <span class="pill">electrolytes</span>
+            <span class="pill pill-muted">strong vs. weak</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core definitions</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>aqueous solution</strong> is a homogeneous mixture with water as the solvent. The <strong>solute</strong> is the substance being dissolved; the <strong>solvent</strong> is the dissolving medium (water).</p>
+              <p>An <strong>electrolyte</strong> is a substance that forms ions in water and conducts electricity. A <strong>nonelectrolyte</strong> dissolves but does not form ions; it does not conduct electricity.</p>
+              <p>Electrolytes can be:</p>
+              <ul>
+                <li><strong>Strong</strong>: almost completely ionized (strong acids, soluble ionic salts).</li>
+                <li><strong>Weak</strong>: only partially ionized (weak acids, weak bases).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Dissociation &amp; ionization patterns</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Typical behaviors in water:</p>
+              <ul>
+                <li>Ionic compounds often <strong>dissociate</strong> into ions, e.g., NaCl(s) → Na⁺(aq) + Cl⁻(aq).</li>
+                <li>Strong acids like HCl fully ionize: HCl(aq) → H⁺(aq) + Cl⁻(aq).</li>
+                <li>Weak bases partially ionize: NH₃(aq) ⇌ NH₄⁺(aq) + OH⁻(aq).</li>
+                <li>Molecular nonelectrolytes like glucose stay as intact molecules in solution.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples & classification</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Typical examples</strong></p>
+              <ul>
+                <li>NaCl(s) → Na⁺(aq) + Cl⁻(aq): strong electrolyte (soluble ionic salt).</li>
+                <li>HCl(aq) → H⁺(aq) + Cl⁻(aq): strong electrolyte (strong acid).</li>
+                <li>NH₃(aq) ⇌ NH₄⁺(aq) + OH⁻(aq): weak electrolyte (weak base).</li>
+                <li>C₆H₁₂O₆(aq) (glucose) stays as molecules: nonelectrolyte.</li>
+              </ul>
+              <p class="hint">Light‑bulb conductivity demos: bright = strong electrolyte, dim = weak, off = nonelectrolyte.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: Molecular, complete ionic, net ionic -->
+        <section class="card" id="c4-sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">2. Molecular, Complete Ionic, and Net Ionic Equations</h3>
+              <p class="card-subtitle">Different ways to represent the same reaction in solution.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">molecular equation</span>
+            <span class="pill">net ionic</span>
+            <span class="pill pill-muted">spectator ions</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Three views of a reaction</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <ul>
+                <li><strong>Molecular equation</strong>: shows all substances as intact compounds (e.g., Na₂SO₄(aq)).</li>
+                <li><strong>Complete ionic equation</strong>: shows all strong electrolytes as ions.</li>
+                <li><strong>Net ionic equation</strong>: shows only species that actually change; spectator ions are removed.</li>
+              </ul>
+              <p><strong>Spectator ions</strong> are ions that appear unchanged on both sides of the complete ionic equation.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">How to go from molecular to net ionic</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Procedure:</p>
+              <ol>
+                <li>Write the balanced <strong>molecular equation</strong>.</li>
+                <li>Identify strong electrolytes (soluble ionic compounds, strong acids/bases) and split them into ions → <strong>complete ionic equation</strong>.</li>
+                <li>Cancel spectator ions on both sides → <strong>net ionic equation</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: precipitation of BaSO₄</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Mixing sodium sulfate and barium chloride</strong></p>
+              <ol>
+                <li><strong>Molecular equation</strong><br>Na₂SO₄(aq) + BaCl₂(aq) → BaSO₄(s) + 2 NaCl(aq)</li>
+                <li><strong>Complete ionic equation</strong><br>2 Na⁺(aq) + SO₄²⁻(aq) + Ba²⁺(aq) + 2 Cl⁻(aq) → BaSO₄(s) + 2 Na⁺(aq) + 2 Cl⁻(aq)</li>
+                <li><strong>Net ionic equation</strong> (cancel 2 Na⁺, 2 Cl⁻)<br>Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)</li>
+              </ol>
+              <p class="hint">Net ionic equations highlight the actual chemical change: in this case, formation of an insoluble BaSO₄ solid.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: Precipitation & solubility -->
+        <section class="card" id="c4-sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Precipitation Reactions and Solubility</h3>
+              <p class="card-subtitle">When mixing two solutions makes a solid.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">precipitate</span>
+            <span class="pill pill-muted">solubility rules</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What a precipitation reaction is</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>A <strong>precipitation reaction</strong> occurs when two aqueous solutions are mixed and an <strong>insoluble ionic solid</strong> (a precipitate) forms.</p>
+              <p>Solubility rules help predict whether a particular ionic compound will be soluble (aq) or form a solid (s).</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Useful solubility guidelines</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Key simplified rules:</p>
+              <ul>
+                <li>Most nitrates (NO₃⁻) and acetates (CH₃COO⁻) are soluble.</li>
+                <li>Most alkali metal (Li⁺, Na⁺, K⁺) and NH₄⁺ salts are soluble.</li>
+                <li>Most chlorides, bromides, and iodides are soluble except with Ag⁺, Pb²⁺, and Hg₂²⁺.</li>
+                <li>Many sulfates are soluble, but BaSO₄, PbSO₄, and CaSO₄ are notable insoluble or slightly soluble exceptions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: PbI₂ precipitation</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>When KI(aq) is mixed with Pb(NO₃)₂(aq):</p>
+              <ol>
+                <li>Molecular equation:<br>2 KI(aq) + Pb(NO₃)₂(aq) → PbI₂(s) + 2 KNO₃(aq)</li>
+                <li>Complete ionic equation:<br>2 K⁺ + 2 I⁻ + Pb²⁺ + 2 NO₃⁻ → PbI₂(s) + 2 K⁺ + 2 NO₃⁻</li>
+                <li>Net ionic equation:<br>Pb²⁺(aq) + 2 I⁻(aq) → PbI₂(s)</li>
+              </ol>
+              <p class="hint">Always check solubility rules to determine which product (if any) forms a precipitate.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: Acid–base reactions -->
+        <section class="card" id="c4-sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">4. Acid–Base Reactions (Neutralization)</h3>
+              <p class="card-subtitle">Strong and weak acids and bases reacting in water.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">neutralization</span>
+            <span class="pill pill-muted">titration stoichiometry</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Arrhenius definitions &amp; patterns</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Arrhenius acids</strong> produce H⁺ in water; <strong>Arrhenius bases</strong> produce OH⁻ in water.</p>
+              <p><strong>Neutralization</strong> is the reaction of an acid with a base to give a salt and water.</p>
+              <p>For strong acid + strong base, the net ionic equation is almost always</p>
+              <div class="formula-row">
+                <code class="formula" id="f-hoh">H⁺(aq) + OH⁻(aq) → H₂O(l)</code>
+                <button class="copy-btn" data-copy="#f-hoh">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Stoichiometry of neutralization</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Neutralization problems combine:</p>
+              <ul>
+                <li>Molarity relationships (M = n/V) to convert between volume and moles.</li>
+                <li>Balanced acid–base equations to get mole ratios of acid to base.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: titration stoichiometry</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Volume of NaOH to neutralize H₂SO₄</strong></p>
+              <p>What volume of 0.200 M NaOH is required to neutralize 25.0 mL of 0.100 M H₂SO₄?</p>
+              <ol>
+                <li>Reaction: H₂SO₄(aq) + 2 NaOH(aq) → Na₂SO₄(aq) + 2 H₂O(l)</li>
+                <li>Moles H₂SO₄: n = 0.100 M × 0.0250 L = 2.50 × 10⁻³ mol.</li>
+                <li>Stoichiometry: 1 mol H₂SO₄ needs 2 mol NaOH → n(NaOH) = 2 × 2.50 × 10⁻³ = 5.00 × 10⁻³ mol.</li>
+                <li>Volume NaOH: V = n/M = (5.00 × 10⁻³ mol)/(0.200 mol·L⁻¹) = 0.0250 L = 25.0 mL.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 5: Redox reactions -->
+        <section class="card" id="c4-sec-5">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">5. Oxidation–Reduction (Redox) Reactions</h3>
+              <p class="card-subtitle">Electron transfer and oxidation numbers.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">oxidation numbers</span>
+            <span class="pill pill-muted">oxidizing &amp; reducing agents</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Definitions &amp; roles</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <ul>
+                <li><strong>Oxidation</strong>: loss of electrons; oxidation state increases.</li>
+                <li><strong>Reduction</strong>: gain of electrons; oxidation state decreases.</li>
+                <li><strong>Oxidizing agent</strong>: gets reduced (gains electrons).</li>
+                <li><strong>Reducing agent</strong>: gets oxidized (loses electrons).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Rules for oxidation numbers</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Simple rules:</p>
+              <ul>
+                <li>Free elements: oxidation number = 0 (Zn(s), O₂(g)).</li>
+                <li>Monatomic ions: equals the ion charge (Na⁺ → +1, Cl⁻ → −1).</li>
+                <li>Oxygen: usually −2 in compounds (except peroxides).</li>
+                <li>Hydrogen: +1 with nonmetals, −1 with metals.</li>
+                <li>Sum of oxidation numbers = overall charge of the species.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: Zn + Cu²⁺ redox</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Reaction: Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)</p>
+              <p>Net ionic: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)</p>
+              <ul>
+                <li>Zn: 0 → +2 (loses electrons) → oxidized, reducing agent.</li>
+                <li>Cu²⁺: +2 → 0 (gains electrons) → reduced, oxidizing agent.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 6: Molarity, dilution, solution stoichiometry -->
+        <section class="card" id="c4-sec-6">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">6. Concentration, Dilution, and Solution Stoichiometry</h3>
+              <p class="card-subtitle">Using molarity in calculations and reactions in solution.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">molarity</span>
+            <span class="pill">M₁V₁ = M₂V₂</span>
+            <span class="pill pill-muted">solution stoichiometry</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Definitions &amp; core formulas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Molarity</strong> M is moles of solute per liter of solution:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-m">M = n / V</code>
+                <button class="copy-btn" data-copy="#f-m">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Rearranged:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-n-mv">n = M × V</code>
+                <button class="copy-btn" data-copy="#f-n-mv">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>For dilutions (adding solvent, no reaction):</p>
+              <div class="formula-row">
+                <code class="formula" id="f-dil">M₁V₁ = M₂V₂</code>
+                <button class="copy-btn" data-copy="#f-dil">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Solution stoichiometry pattern</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>For reactions in solution:</p>
+              <ol>
+                <li>Use volume and molarity to find moles (<code>n = MV</code>).</li>
+                <li>Use balanced equation to convert moles of one species to another.</li>
+                <li>Convert moles to grams, volume, or molarity as needed.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples & practice</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Molarity from mass</strong></p>
+              <p>Prepare 250.0 mL of 0.500 M NaCl solution. How many grams of NaCl?</p>
+              <ol>
+                <li>Moles needed: n = 0.500 mol·L⁻¹ × 0.2500 L = 0.125 mol.</li>
+                <li>Mass: 0.125 mol × 58.44 g·mol⁻¹ ≈ 7.30 g.</li>
+              </ol>
+              <p><strong>Example – Dilution</strong></p>
+              <p>How many mL of 1.00 M HCl are needed to make 500.0 mL of 0.100 M HCl?</p>
+              <p>Use M₁V₁ = M₂V₂: 1.00 × V₁ = 0.100 × 0.500 → V₁ = 0.0500 L = 50.0 mL.</p>
+              <p><strong>Example – Precipitation stoichiometry</strong></p>
+              <p>Mass of BaSO₄ formed when 50.0 mL of 0.200 M BaCl₂ is mixed with excess Na₂SO₄:</p>
+              <ol>
+                <li>Reaction: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2 NaCl(aq).</li>
+                <li>Moles BaCl₂: n = 0.200 × 0.0500 = 0.0100 mol.</li>
+                <li>Mole ratio BaCl₂:BaSO₄ = 1:1 → n(BaSO₄) = 0.0100 mol.</li>
+                <li>Mass BaSO₄: 0.0100 mol × 233.4 g·mol⁻¹ ≈ 2.33 g.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Formula copied');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Text copied');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

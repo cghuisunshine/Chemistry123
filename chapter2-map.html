@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 2 Concept Map – Atoms, Molecules, and Ions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #4fc3f7;
+      --accent-soft: rgba(79, 195, 247, 0.15);
+      --accent-strong: #80d8ff;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Sidebar */
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: rgba(79, 195, 247, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(79, 195, 247, 0.1);
+      border-color: rgba(79, 195, 247, 0.25);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(79, 195, 247, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    /* Content area */
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Cards */
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79, 195, 247, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 195, 247, 0.35);
+      background: rgba(79, 195, 247, 0.08);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    /* Nodes */
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    /* Formulas & copy buttons */
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(79, 195, 247, 0.4);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(79, 195, 247, 0.7);
+      background: rgba(79, 195, 247, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(79, 195, 247, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #9ea3c8;
+      margin-top: 0.2rem;
+    }
+
+    /* Toast */
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 2 · Atoms, Molecules, and Ions</h1>
+      <p>Interactive concept map – roots (structure), trunk (formulas), leaves (examples &amp; naming).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list" id="sidebar-list">
+          <li>
+            <button class="sidebar-link" data-target="#sec-1">
+              <span class="badge">1</span>
+              <span class="label">Subatomic Particles &amp; Isotopes</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-2">
+              <span class="badge">2</span>
+              <span class="label">Average Atomic Mass</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-3">
+              <span class="badge">3</span>
+              <span class="label">Periodic Table &amp; Charges</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-4">
+              <span class="badge">4</span>
+              <span class="label">Molecular vs Ionic Compounds</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content" id="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>This chapter builds the microscopic picture of matter: how atoms are built from subatomic particles, how isotopes and average atomic mass arise, how the periodic table predicts ionic charges, and how that leads to ionic and molecular compounds.</p>
+          <ul>
+            <li>Describe protons, neutrons, and electrons and use atomic number and mass number to count them.</li>
+            <li>Explain isotopes and interpret average atomic masses.</li>
+            <li>Use periodic table patterns to predict common ionic charges.</li>
+            <li>Distinguish ionic vs molecular compounds and connect structure to properties.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: Subatomic particles & isotopes -->
+        <section class="card" id="sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">1. Subatomic Particles and Isotopes</h3>
+              <p class="card-subtitle">How protons, neutrons, and electrons build atoms, and how isotopes differ.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">protons, neutrons, electrons</span>
+            <span class="pill">atomic number Z</span>
+            <span class="pill pill-muted">mass number A</span>
+            <span class="pill pill-muted">isotopes</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core structure & notation</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>atom</strong> is the smallest unit of an element that retains its chemical identity. It consists of:</p>
+              <ul>
+                <li><strong>Protons</strong>: charge +1, mass ≈ 1 amu, located in the nucleus.</li>
+                <li><strong>Neutrons</strong>: charge 0, mass ≈ 1 amu, located in the nucleus.</li>
+                <li><strong>Electrons</strong>: charge −1, mass ≈ 1/1836 amu, moving in the space around the nucleus.</li>
+              </ul>
+              <p>The <strong>atomic number</strong> <code>Z</code> is the number of protons in the nucleus and defines the element (for example, Z = 17 is chlorine).</p>
+              <p>The <strong>mass number</strong> <code>A</code> is the total number of protons + neutrons in the nucleus.</p>
+              <p>Isotopes of an element have the same <code>Z</code> but different <code>A</code>, because they have different numbers of neutrons.</p>
+              <p>Isotopes are written using atomic notation such as <code><sup>A</sup><sub>Z</sub>X</code>, where X is the element symbol.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Counting p, n, and e⁻</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Key relationships for any isotope <code><sup>A</sup><sub>Z</sub>X</code>:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-z">number of protons = Z</code>
+                <button class="copy-btn" data-copy="#f-z">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f-a">number of neutrons = A − Z</code>
+                <button class="copy-btn" data-copy="#f-a">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f-e-neutral">neutral atom: electrons = Z</code>
+                <button class="copy-btn" data-copy="#f-e-neutral">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f-e-ion">ion: electrons = Z − (charge)</code>
+                <button class="copy-btn" data-copy="#f-e-ion">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>For an anion (negative charge), the ion has more electrons than protons; for a cation (positive charge), it has fewer electrons than protons.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: chlorine isotopes</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Counting protons, neutrons, and electrons</strong></p>
+              <p>For <code><sup>35</sup><sub>17</sub>Cl</code>, <code><sup>37</sup><sub>17</sub>Cl</code>, and Cl<sup>−</sup>, find p, n, and e⁻.</p>
+              <ol>
+                <li><code><sup>35</sup><sub>17</sub>Cl</code>:
+                  <ul>
+                    <li>p = 17 (atomic number).</li>
+                    <li>n = 35 − 17 = 18.</li>
+                    <li>e⁻ (neutral) = 17.</li>
+                  </ul>
+                </li>
+                <li><code><sup>37</sup><sub>17</sub>Cl</code>:
+                  <ul>
+                    <li>p = 17.</li>
+                    <li>n = 37 − 17 = 20.</li>
+                    <li>e⁻ (neutral) = 17.</li>
+                  </ul>
+                </li>
+                <li>Cl<sup>−</sup> (any isotope):
+                  <ul>
+                    <li>p = 17 (unchanged).</li>
+                    <li>e⁻ = 18 (one extra electron for the −1 charge).</li>
+                  </ul>
+                </li>
+              </ol>
+              <p class="hint">Isotopes differ only in neutron number; ions differ in electron number. The number of protons defines the element and never changes in normal chemistry.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: Average atomic mass -->
+        <section class="card" id="sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">2. Average Atomic Mass</h3>
+              <p class="card-subtitle">How isotopes combine to give the atomic mass listed on the periodic table.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">isotopic masses</span>
+            <span class="pill">abundances</span>
+            <span class="pill pill-muted">weighted average</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Meaning of atomic mass</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>atomic mass</strong> printed on the periodic table for an element is not usually a whole number like 35 or 37. Instead, it is a <strong>weighted average</strong> of the masses of all naturally occurring isotopes of that element.</p>
+              <p>Each isotope has:</p>
+              <ul>
+                <li>its own <strong>isotopic mass</strong> (in amu), and</li>
+                <li>a <strong>fractional abundance</strong> in nature (for example, 0.75 or 75%).</li>
+              </ul>
+              <p>Heavier isotopes “pull” the average mass up more if they are abundant; lighter isotopes pull it down more if they are abundant.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Weighted average formula</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The atomic mass is calculated using:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-avg-mass">average mass = Σ(fractional abundance × isotopic mass)</code>
+                <button class="copy-btn" data-copy="#f-avg-mass">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Here:</p>
+              <ul>
+                <li><code>fractional abundance</code> is the fraction of atoms of that isotope (e.g., 0.750 for 75%).</li>
+                <li><code>isotopic mass</code> is the mass of that isotope in amu.</li>
+              </ul>
+              <p>Each isotope contributes its mass multiplied by how common it is, and we sum over all isotopes to get the average.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: chlorine average mass</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Why Cl has an average mass of about 35.45 amu</strong></p>
+              <p>Chlorine has two main isotopes: approximately 75% <code><sup>35</sup>Cl</code> and 25% <code><sup>37</sup>Cl</code>.</p>
+              <ol>
+                <li>The average atomic mass must lie between 35 and 37 amu because these are the isotope masses.</li>
+                <li>Since <code><sup>35</sup>Cl</code> is about three times as abundant as <code><sup>37</sup>Cl</code>, the weighted average is pulled closer to 35 than to 37.</li>
+                <li>The resulting average mass is ≈ 35.45 amu, which is what appears on the periodic table.</li>
+              </ol>
+              <p class="hint">If one isotope is much more abundant than the others, the average atomic mass will be very close to that isotope’s mass.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: Periodic table & ionic charges -->
+        <section class="card" id="sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Periodic Table and Ionic Charges</h3>
+              <p class="card-subtitle">Using group patterns to predict common cation and anion charges.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">ions</span>
+            <span class="pill">cations &amp; anions</span>
+            <span class="pill pill-muted">group trends</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Ion types & definitions</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>An <strong>ion</strong> is a charged particle formed when atoms gain or lose electrons.</p>
+              <ul>
+                <li><strong>Cation</strong>: positively charged ion (formed when atoms lose electrons).</li>
+                <li><strong>Anion</strong>: negatively charged ion (formed when atoms gain electrons).</li>
+                <li><strong>Polyatomic ion</strong>: charged group of covalently bonded atoms (e.g., NO₃⁻, SO₄²⁻).</li>
+              </ul>
+              <p>The periodic table helps predict likely charges for many main‑group elements.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Charge patterns by group</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Common patterns for main‑group elements:</p>
+              <ul>
+                <li><strong>Group 1 metals</strong> (alkali metals): typically form <strong>1+</strong> cations (Na⁺, K⁺).</li>
+                <li><strong>Group 2 metals</strong>: typically form <strong>2+</strong> cations (Mg²⁺, Ca²⁺).</li>
+                <li><strong>Group 17</strong> (halogens): typically form <strong>1−</strong> anions (Cl⁻, Br⁻).</li>
+                <li><strong>Group 16 nonmetals</strong>: typically form <strong>2−</strong> anions (O²⁻, S²⁻).</li>
+              </ul>
+              <p>Metals tend to lose electrons to reach a noble gas configuration, becoming cations; nonmetals tend to gain electrons, becoming anions.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: predicting charges</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Likely ionic charges for Na, O, and Al</strong></p>
+              <ol>
+                <li><strong>Na</strong> is in Group 1 → tends to lose 1 e⁻ → Na⁺.</li>
+                <li><strong>O</strong> is in Group 16 → tends to gain 2 e⁻ → O²⁻.</li>
+                <li><strong>Al</strong> is in Group 13 → tends to lose 3 e⁻ → Al³⁺.</li>
+              </ol>
+              <p class="hint">Think in terms of “how many electrons to reach the nearest noble gas?” That often matches the common ionic charge.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: Molecular vs ionic compounds -->
+        <section class="card" id="sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">4. Molecular vs Ionic Compounds</h3>
+              <p class="card-subtitle">How atoms assemble into neutral ionic lattices or discrete molecules.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">ionic lattice</span>
+            <span class="pill">molecules</span>
+            <span class="pill pill-muted">properties &amp; naming</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What makes ionic vs molecular</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Ionic compounds</strong>:</p>
+              <ul>
+                <li>Formed between metals and nonmetals (or involving polyatomic ions).</li>
+                <li>Consist of a 3D lattice of cations and anions arranged so the overall compound is electrically neutral.</li>
+                <li>Often have high melting points; conduct electricity when molten or dissolved in water (because ions can move).</li>
+              </ul>
+              <p><strong>Molecular (covalent) compounds</strong>:</p>
+              <ul>
+                <li>Formed between nonmetals.</li>
+                <li>Consist of discrete molecules held together by covalent bonds (shared electrons).</li>
+                <li>Often have lower melting/boiling points than ionic solids; usually do not conduct electricity as pure substances.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Patterns in formulas & naming</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Some structural patterns:</p>
+              <ul>
+                <li><strong>Ionic</strong>: metal cation + nonmetal anion (or polyatomic), e.g., NaCl, MgCl₂, CaCO₃.</li>
+                <li><strong>Molecular</strong>: nonmetal + nonmetal, e.g., H₂O, CO₂, NH₃.</li>
+              </ul>
+              <p>In ionic formulas, the total positive charge must balance the total negative charge. For example, Mg²⁺ and Cl⁻ combine as MgCl₂ so that 2(+1) + (−2) = 0 overall.</p>
+              <p>Molecular formulas give the actual number of atoms in each molecule (e.g., CO₂ has one C and two O atoms).</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples & tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Examples</strong></p>
+              <ul>
+                <li>NaCl: sodium (metal) + chlorine (nonmetal) → ionic compound; formula unit reflects charge balance Na⁺ + Cl⁻.</li>
+                <li>H₂O: hydrogen (nonmetal) + oxygen (nonmetal) → molecular compound with discrete H₂O molecules.</li>
+                <li>CaCO₃: Ca²⁺ and the polyatomic ion CO₃²⁻ (carbonate); charges balance to 0 → ionic compound.</li>
+              </ul>
+              <p class="hint">Quick test: metal + nonmetal → think ionic; nonmetal + nonmetal → think molecular. Exceptions exist, but this pattern works well for most introductory problems.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      // Collapsible nodes
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      // Copy buttons
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Formula copied');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      // Search/filter cards by keyword
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      // Double‑click to copy text
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Text copied');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

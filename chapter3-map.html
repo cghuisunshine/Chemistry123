@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 3 Concept Map – Chemical Reactions and Stoichiometry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #4fc3f7;
+      --accent-soft: rgba(79, 195, 247, 0.15);
+      --accent-strong: #80d8ff;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: rgba(79, 195, 247, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(79, 195, 247, 0.1);
+      border-color: rgba(79, 195, 247, 0.25);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(79, 195, 247, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79, 195, 247, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 195, 247, 0.35);
+      background: rgba(79, 195, 247, 0.08);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(79, 195, 247, 0.4);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(79, 195, 247, 0.7);
+      background: rgba(79, 195, 247, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(79, 195, 247, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #9ea3c8;
+      margin-top: 0.2rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 3 · Chemical Reactions and Stoichiometry</h1>
+      <p>Interactive concept map – roots (equations), trunk (mole ratios), leaves (worked examples).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list">
+          <li>
+            <button class="sidebar-link" data-target="#c3-sec-1">
+              <span class="badge">1</span>
+              <span class="label">Balancing Equations</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c3-sec-2">
+              <span class="badge">2</span>
+              <span class="label">Moles, Masses &amp; Particles</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c3-sec-3">
+              <span class="badge">3</span>
+              <span class="label">Stoichiometric Calculations</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c3-sec-4">
+              <span class="badge">4</span>
+              <span class="label">Limiting Reactant &amp; Yield</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#c3-sec-5">
+              <span class="badge">5</span>
+              <span class="label">Practice &amp; Interpretation</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>This chapter connects symbolic chemical equations to real‑world quantities like grams and liters. It shows how to balance equations, convert between mass, moles, and particles, and use mole ratios to predict how much product forms.</p>
+          <ul>
+            <li>Balance chemical equations using conservation of mass.</li>
+            <li>Convert between mass, moles, and number of particles using molar mass and Avogadro’s number.</li>
+            <li>Carry out stoichiometric calculations and identify limiting reactants.</li>
+            <li>Compute theoretical, actual, and percent yields and interpret reaction efficiency.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: Balancing equations -->
+        <section class="card" id="c3-sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">1. Balancing Chemical Equations</h3>
+              <p class="card-subtitle">Using coefficients to enforce conservation of atoms.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">conservation of mass</span>
+            <span class="pill pill-muted">coefficients &amp; states</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What a balanced equation means</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>A chemical equation describes a reaction using formulas and coefficients. A <strong>balanced equation</strong> obeys the law of conservation of mass: the total number of each type of atom is the same on both sides.</p>
+              <p><strong>Coefficients</strong> in a balanced equation tell us <em>relative numbers</em> of molecules or moles, not masses.</p>
+              <p>Physical states (s, l, g, aq) give context but do not affect balancing.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Balancing strategy</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>General steps:</p>
+              <ol>
+                <li>Write correct formulas for reactants and products.</li>
+                <li>Count atoms of each element on both sides.</li>
+                <li>Change <strong>coefficients</strong> (never subscripts) to make atoms match, often starting with the most complex substance.</li>
+                <li>Recheck atom counts for all elements and simplify coefficients to the smallest whole‑number ratio.</li>
+              </ol>
+              <p>Balancing ensures the mole ratios you use in stoichiometry reflect what actually happens at the particle level.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: combustion of propane</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Balancing C₃H₈ combustion</strong></p>
+              <p>Balance: C₃H₈(g) + O₂(g) → CO₂(g) + H₂O(l)</p>
+              <ol>
+                <li>Balance C: 3 C in C₃H₈ → put 3 in front of CO₂: C₃H₈ + O₂ → 3 CO₂ + H₂O.</li>
+                <li>Balance H: 8 H in C₃H₈ → need 4 H₂O (4 × 2 = 8): C₃H₈ + O₂ → 3 CO₂ + 4 H₂O.</li>
+                <li>Balance O: right side has 3×2 + 4×1 = 10 O atoms → need 5 O₂ on left.</li>
+              </ol>
+              <p>Balanced equation: C₃H₈(g) + 5 O₂(g) → 3 CO₂(g) + 4 H₂O(l).</p>
+              <p class="hint">Use the balanced coefficients (1:5:3:4) as mole ratios for reaction calculations.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: Moles, masses, particles -->
+        <section class="card" id="c3-sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">2. Moles, Masses, and Particles</h3>
+              <p class="card-subtitle">Using molar mass and Avogadro’s number as conversion bridges.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">molar mass</span>
+            <span class="pill">Avogadro’s number</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Mole as counting unit</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>mole</strong> is a counting unit: 1 mol = 6.022 × 10²³ entities (Avogadro’s number). It relates microscopic counts of atoms or molecules to macroscopic masses.</p>
+              <p>The <strong>molar mass</strong> of a substance is the mass of 1 mol, in g·mol⁻¹, and is numerically equal to the average atomic or formula mass in amu.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Core conversion formulas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Key relationships:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-n-m">n = m / M</code>
+                <button class="copy-btn" data-copy="#f-n-m">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>where <code>n</code> is moles, <code>m</code> is mass (g), and <code>M</code> is molar mass (g·mol⁻¹).</p>
+              <div class="formula-row">
+                <code class="formula" id="f-particles">number of particles = n × N_A</code>
+                <button class="copy-btn" data-copy="#f-particles">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>where <code>N_A</code> is Avogadro’s number (≈ 6.022 × 10²³ mol⁻¹). These act as conversion factors in dimensional analysis.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: oxygen atoms in water</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – How many O atoms in 18.0 g of H₂O?</strong></p>
+              <ol>
+                <li>Molar mass H₂O ≈ 18.0 g·mol⁻¹.</li>
+                <li>Moles of H₂O: 18.0 g ÷ 18.0 g·mol⁻¹ = 1.00 mol.</li>
+                <li>Each molecule has 1 O atom → 1 mol H₂O contains 1 mol O atoms.</li>
+                <li>Number of O atoms: 1.00 mol × 6.022 × 10²³ ≈ 6.02 × 10²³ O atoms.</li>
+              </ol>
+              <p class="hint">Use molar mass to go between mass and moles; use Avogadro’s number to go between moles and particles.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: Stoichiometric calculations -->
+        <section class="card" id="c3-sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Stoichiometric Calculations</h3>
+              <p class="card-subtitle">Mass–mass and related conversions using mole ratios.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">mole ratios</span>
+            <span class="pill pill-muted">mass–mass problems</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">General problem pattern</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Stoichiometry</strong> studies the quantitative relationships between reactants and products. In mass–mass problems, the pattern is:</p>
+              <ol>
+                <li>Write and balance the chemical equation.</li>
+                <li>Convert the given mass to moles (using molar mass).</li>
+                <li>Use the balanced equation’s <strong>mole ratio</strong> to find moles of the desired substance.</li>
+                <li>Convert those moles to the requested units (mass, volume, etc.).</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Stoichiometry as a chain of conversions</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>You can visualize mass–mass stoichiometry as a chain:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-stoich">mass (A) → moles (A) → moles (B) → mass (B)</code>
+                <button class="copy-btn" data-copy="#f-stoich">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Each arrow represents a conversion factor: molar mass or a mole ratio from the balanced equation.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: Na to NaCl</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Mass of NaCl from 10.0 g Na</strong></p>
+              <p>Reaction: 2 Na + Cl₂ → 2 NaCl</p>
+              <ol>
+                <li>Moles of Na: 10.0 g ÷ 22.99 g·mol⁻¹ ≈ 0.435 mol.</li>
+                <li>Mole ratio 2 Na → 2 NaCl ⇒ 1:1, so n(NaCl) ≈ 0.435 mol.</li>
+                <li>Mass NaCl: 0.435 mol × 58.44 g·mol⁻¹ ≈ 25.4 g (3 sig figs).</li>
+              </ol>
+              <p class="hint">Always base the amount of product on moles and mole ratios, never on grams directly.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: Limiting reactant & yields -->
+        <section class="card" id="c3-sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">4. Limiting Reactant and Yields</h3>
+              <p class="card-subtitle">Which reactant runs out first, and how efficient the reaction is.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">limiting reactant</span>
+            <span class="pill">percent yield</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Limiting vs excess & yields</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The <strong>limiting reactant</strong> is the reactant that is completely consumed first; it controls the maximum amount of product that can form.</p>
+              <p>An <strong>excess reactant</strong> is present in more than enough quantity; some of it remains unused.</p>
+              <p><strong>Theoretical yield</strong> is the maximum amount of product predicted from the limiting reactant. <strong>Actual yield</strong> is what you really obtain in the lab. <strong>Percent yield</strong> compares them.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Finding the limiting reactant & percent yield</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>To find the limiting reactant:</strong></p>
+              <ol>
+                <li>Convert each reactant amount to moles.</li>
+                <li>Use mole ratios to find how many moles of product each could produce.</li>
+                <li>The reactant that gives fewer moles of product is limiting.</li>
+              </ol>
+              <p><strong>Percent yield</strong> is given by</p>
+              <div class="formula-row">
+                <code class="formula" id="f-py">percent yield = (actual / theoretical) × 100%</code>
+                <button class="copy-btn" data-copy="#f-py">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Example: limiting reactant in NH₃ synthesis</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Limiting reactant in N₂ + 3 H₂ → 2 NH₃</strong></p>
+              <p>If 5.0 g N₂ react with 5.0 g H₂, which is limiting?</p>
+              <ol>
+                <li>Moles N₂: 5.0 g ÷ 28.0 g·mol⁻¹ ≈ 0.179 mol.</li>
+                <li>Moles H₂: 5.0 g ÷ 2.0 g·mol⁻¹ = 2.5 mol.</li>
+                <li>From N₂: 0.179 mol N₂ → 0.358 mol NH₃ (by 1:2 ratio).</li>
+                <li>From H₂: 2.5 mol H₂ × (2 mol NH₃ / 3 mol H₂) ≈ 1.67 mol NH₃.</li>
+                <li>N₂ produces less NH₃, so N₂ is the limiting reactant.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 5: Practice & interpretation -->
+        <section class="card" id="c3-sec-5">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">5. Practice Problems (Self-Check)</h3>
+              <p class="card-subtitle">Consolidating ideas about reactions and stoichiometry.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">self‑check</span>
+            <span class="pill pill-muted">reaction types</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">What to be able to do</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>You should be comfortable with:</p>
+              <ul>
+                <li>Balancing equations and recognizing common reaction types (e.g., combustion, acid–base).</li>
+                <li>Using molar mass and mole ratios to connect masses of reactants and products.</li>
+                <li>Identifying limiting reactants and computing theoretical and percent yields.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Suggested practice questions</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Try these problems (from the tutorial text) without notes, then check with solutions or a tutor:</p>
+              <ol>
+                <li>Balance each equation and classify the reaction: (a) Fe + O₂ → Fe₂O₃; (b) HCl + NaOH → NaCl + H₂O.</li>
+                <li>How many moles of CO₂ are produced when 0.750 mol of propane (C₃H₈) burns in excess oxygen?</li>
+                <li>Calculate the mass of CO₂ formed when 15.0 g of C₃H₈ combust completely.</li>
+                <li>In 2 Al + 3 Cl₂ → 2 AlCl₃, if 10.0 g Al react with 35.0 g Cl₂, identify the limiting reactant and determine the theoretical yield of AlCl₃.</li>
+                <li>A reaction has a theoretical yield of 12.0 g and an actual yield of 9.0 g. Calculate the percent yield and interpret reaction efficiency.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Formula copied');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Text copied');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

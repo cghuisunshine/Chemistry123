@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 Concept Map – Matter, Energy, and Measurement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0d1122;
+      --bg-card: #151b33;
+      --accent: #4fc3f7;
+      --accent-soft: rgba(79, 195, 247, 0.15);
+      --accent-strong: #80d8ff;
+      --text: #f5f7ff;
+      --text-dim: #c3c7e6;
+      --border-subtle: #252b47;
+      --danger: #ff8a80;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #151b33 0, #050814 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 20, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Sidebar */
+
+    .sidebar {
+      flex: 0 0 260px;
+      max-width: 260px;
+      background: rgba(9, 14, 35, 0.96);
+      border-radius: 0.75rem;
+      padding: 0.9rem 0.9rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      align-self: flex-start;
+      position: sticky;
+      top: 4.2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.6rem;
+      color: var(--text-dim);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.1rem 0.5rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(10, 16, 35, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .search-box input::placeholder {
+      color: #7f86aa;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #7f86aa;
+      pointer-events: none;
+    }
+
+    .sidebar-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.55rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sidebar-link span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      padding: 0 0.15rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: rgba(79, 195, 247, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-link span.label {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(79, 195, 247, 0.1);
+      border-color: rgba(79, 195, 247, 0.25);
+      color: var(--text);
+    }
+
+    .sidebar-link.active {
+      background: rgba(79, 195, 247, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    .sidebar-footer {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #8c93ba;
+    }
+
+    .sidebar-footer strong {
+      color: var(--accent-strong);
+    }
+
+    /* Content area */
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chapter-intro {
+      margin-bottom: 1rem;
+      padding: 0.9rem 1rem;
+      background: rgba(12, 16, 38, 0.95);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chapter-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .chapter-intro p {
+      margin: 0.1rem 0;
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    .chapter-intro ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Cards */
+
+    .card {
+      background: rgba(20, 26, 56, 0.96);
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem 0.9rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79, 195, 247, 0.55);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .card-subtitle {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 0.83rem;
+      color: var(--text-dim);
+    }
+
+    .pill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.73rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 195, 247, 0.35);
+      background: rgba(79, 195, 247, 0.08);
+      color: var(--accent-strong);
+    }
+
+    .pill.pill-muted {
+      border-color: rgba(141, 150, 190, 0.5);
+      background: rgba(141, 150, 190, 0.08);
+      color: var(--text-dim);
+    }
+
+    /* Nodes */
+
+    .node {
+      border-radius: 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(9, 13, 32, 0.96);
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+
+    .node-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.7rem;
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+      border: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .node-header.root {
+      background: linear-gradient(90deg, rgba(129, 199, 132, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.trunk {
+      background: linear-gradient(90deg, rgba(79, 195, 247, 0.28), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header.leaf {
+      background: linear-gradient(90deg, rgba(255, 241, 118, 0.3), rgba(21, 27, 51, 0.9));
+    }
+
+    .node-header span.label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .node-header span.role {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.24);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+    }
+
+    .node-header span.title {
+      font-weight: 600;
+    }
+
+    .node-header span.icon {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      transition: transform 0.16s ease;
+    }
+
+    .node-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .node-body {
+      padding: 0.55rem 0.75rem 0.7rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      display: none;
+    }
+
+    .node-body.open {
+      display: block;
+    }
+
+    .node-body p {
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-body ul,
+    .node-body ol {
+      margin: 0.2rem 0 0.35rem;
+      padding-left: 1.1rem;
+    }
+
+    .node-body li {
+      margin-bottom: 0.1rem;
+    }
+
+    /* Formulas & copy buttons */
+
+    code.formula {
+      font-family: var(--font-mono);
+      background: rgba(5, 11, 31, 0.95);
+      border-radius: 0.35rem;
+      padding: 0.12rem 0.4rem;
+      border: 1px solid rgba(79, 195, 247, 0.4);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+    }
+
+    .copy-btn {
+      border: 1px solid rgba(79, 195, 247, 0.7);
+      background: rgba(79, 195, 247, 0.12);
+      border-radius: 999px;
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      padding: 0.12rem 0.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .copy-btn:hover {
+      background: rgba(79, 195, 247, 0.22);
+    }
+
+    .copy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .copy-btn span.label {
+      font-size: 0.78rem;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #9ea3c8;
+      margin-top: 0.2rem;
+    }
+
+    /* Toast */
+
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 26, 56, 0.98);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 50;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 100%;
+        width: 100%;
+        order: -1;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 0.75rem 0.7rem 1rem;
+      }
+
+      .card {
+        padding: 0.8rem 0.85rem 0.75rem;
+      }
+
+      .sidebar {
+        padding: 0.75rem 0.75rem 0.7rem;
+      }
+
+      .card-title {
+        font-size: 0.98rem;
+      }
+
+      .chapter-intro h2 {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Chapter 1 · Matter, Energy, and Measurement</h1>
+      <p>Interactive concept map – roots (ideas), trunk (formulas), leaves (examples &amp; tips).</p>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <div class="search-box">
+          <input id="search-input" type="text" placeholder="Filter cards by keyword…">
+          <span class="search-icon">🔍</span>
+        </div>
+        <ul class="sidebar-section-list" id="sidebar-list">
+          <li>
+            <button class="sidebar-link" data-target="#sec-1">
+              <span class="badge">1</span>
+              <span class="label">Classification of Matter</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-2">
+              <span class="badge">2</span>
+              <span class="label">Properties, Changes &amp; Energy</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-3">
+              <span class="badge">3</span>
+              <span class="label">Measurement &amp; Units</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-4">
+              <span class="badge">4</span>
+              <span class="label">Significant Figures</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-5">
+              <span class="badge">5</span>
+              <span class="label">Dimensional Analysis &amp; Density</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-link" data-target="#sec-6">
+              <span class="badge">6</span>
+              <span class="label">Pitfalls &amp; Practice</span>
+            </button>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <strong>Hint:</strong> double‑click any text to copy it, or tap on formulas’ 📋 buttons.
+        </div>
+      </aside>
+
+      <section class="content" id="content">
+        <section class="chapter-intro">
+          <h2>Overview: What this chapter is about</h2>
+          <p>This chapter introduces how chemists describe and measure the physical world: how we classify matter, how we distinguish physical and chemical change, and how we make and interpret measurements with the right units and significant figures.</p>
+          <ul>
+            <li>Understand how <strong>matter</strong> is classified by state and composition.</li>
+            <li>Differentiate <strong>physical vs. chemical</strong> properties and changes.</li>
+            <li>Use <strong>SI units</strong>, <strong>metric prefixes</strong>, and <strong>temperature scales</strong> correctly.</li>
+            <li>Apply <strong>significant-figure rules</strong> and <strong>dimensional analysis</strong>, especially with <strong>density</strong>.</li>
+          </ul>
+        </section>
+
+        <!-- Card 1: Classification of matter -->
+        <section class="card" id="sec-1">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">1. Classification of Matter</h3>
+              <p class="card-subtitle">States of matter and how we sort elements, compounds, and mixtures.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">matter</span>
+            <span class="pill">elements &amp; compounds</span>
+            <span class="pill pill-muted">homogeneous vs. heterogeneous</span>
+            <span class="pill pill-muted">classification rules</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core definitions &amp; ideas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Matter</strong> is anything that has mass and occupies space. Every object you can weigh and that takes up room in a container counts as matter.</p>
+              <p>Matter can be described by its <strong>state</strong>:</p>
+              <ul>
+                <li><strong>Solid</strong>: particles are packed closely; solids have a fixed shape and volume and are not easily compressed.</li>
+                <li><strong>Liquid</strong>: particles are close but able to move past each other; liquids have a fixed volume but take the shape of their container.</li>
+                <li><strong>Gas</strong>: particles are far apart and move freely; gases have neither fixed shape nor fixed volume and are highly compressible.</li>
+              </ul>
+              <p>We also classify matter by <strong>composition</strong>:</p>
+              <ul>
+                <li><strong>Pure substances</strong> have a constant composition.
+                  <ul>
+                    <li><strong>Element</strong>: a substance that cannot be broken down into simpler substances by chemical means (e.g., O₂, Cu).</li>
+                    <li><strong>Compound</strong>: a substance made from two or more elements in a fixed ratio (e.g., H₂O, NaCl).</li>
+                  </ul>
+                </li>
+                <li><strong>Mixtures</strong> have variable composition.
+                  <ul>
+                    <li><strong>Homogeneous mixture (solution)</strong>: uniform throughout, with no visible boundaries (e.g., saltwater, air).</li>
+                    <li><strong>Heterogeneous mixture</strong>: non‑uniform, with visible pieces or phases (e.g., oil and water, salad).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Sorting rules &amp; decision patterns</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The “rules” for classifying matter act like a decision tree:</p>
+              <ul>
+                <li><strong>Pure substance vs. mixture</strong>:
+                  <ul>
+                    <li>If the composition is the same everywhere and the components cannot be separated by physical methods like filtration, you are likely dealing with a <strong>pure substance</strong>.</li>
+                    <li>If you can separate components physically or samples vary in composition, you have a <strong>mixture</strong>.</li>
+                  </ul>
+                </li>
+                <li><strong>Element vs. compound</strong>:
+                  <ul>
+                    <li>A substance made of just one type of atom is an <strong>element</strong>.</li>
+                    <li>A substance that can be decomposed into simpler substances by chemical means and contains two or more elements in a fixed ratio is a <strong>compound</strong>.</li>
+                  </ul>
+                </li>
+                <li><strong>Homogeneous vs. heterogeneous mixture</strong>:
+                  <ul>
+                    <li>If a mixture looks uniform and the same throughout, it is <strong>homogeneous</strong>.</li>
+                    <li>If you can see different parts or phases, it is <strong>heterogeneous</strong>.</li>
+                  </ul>
+                </li>
+              </ul>
+              <p>Students should interpret these as practical classification patterns: observe the sample, think about uniformity, and consider whether physical separation is possible.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples, applications &amp; tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Classifying common substances</strong></p>
+              <ol>
+                <li><strong>Sugar (sucrose)</strong> has a fixed composition of C, H, and O; it can only be broken down chemically. → <strong>Compound</strong>.</li>
+                <li><strong>Brass</strong> is a uniform solid solution of copper and zinc; it looks the same throughout. → <strong>Homogeneous mixture</strong>.</li>
+                <li><strong>Orange juice with pulp</strong> has visible pulp pieces suspended in liquid. → <strong>Heterogeneous mixture</strong>.</li>
+                <li><strong>Oxygen gas, O₂</strong>, consists of one type of atom in diatomic molecules. → <strong>Element</strong>.</li>
+              </ol>
+              <p class="hint">Tip: when in doubt, imagine zooming in under a microscope. If every tiny region looks identical, think “pure substance” or “homogeneous mixture”; if not, it is likely heterogeneous.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: Properties, changes, energy -->
+        <section class="card" id="sec-2">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">2. Properties, Changes, and Energy</h3>
+              <p class="card-subtitle">Physical vs. chemical change and how energy fits in.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">physical vs. chemical</span>
+            <span class="pill pill-muted">potential &amp; kinetic energy</span>
+            <span class="pill pill-muted">system &amp; surroundings</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core definitions &amp; ideas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Physical properties</strong> are characteristics that can be observed without changing a substance’s composition (e.g., color, density, melting point, boiling point).</p>
+              <p><strong>Chemical properties</strong> describe how a substance behaves in chemical reactions and forms new substances (e.g., flammability, ability to rust, reactivity with acids).</p>
+              <p><strong>Physical changes</strong> leave the substance itself unchanged—only its form or appearance changes (melting ice, boiling water, dissolving sugar in water).</p>
+              <p><strong>Chemical changes</strong> produce new substances with different compositions and properties (burning, rusting, digestion, gas formation in reactions).</p>
+              <p><strong>Energy</strong> can appear as:</p>
+              <ul>
+                <li><strong>Potential energy</strong>: stored due to position or composition (e.g., energy stored in chemical bonds).</li>
+                <li><strong>Kinetic energy</strong>: energy of motion (e.g., moving particles in a gas).</li>
+              </ul>
+              <p>Chemical processes almost always involve <strong>energy transfer</strong> between the reacting system and its surroundings, often in the form of heat being absorbed or released.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Patterns in change &amp; energy flow</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Although this section has no new numeric formulas, it emphasizes recurring patterns:</p>
+              <ul>
+                <li><strong>Physical change pattern</strong>: same particles, new arrangement. Ice melting, water freezing, and water boiling all involve H₂O molecules, just in different arrangements and distances.</li>
+                <li><strong>Chemical change pattern</strong>: particles themselves change identity. For example, when iron rusts, Fe atoms combine with O atoms to form new compounds (iron oxides).</li>
+                <li><strong>Energy in change</strong>: chemical changes usually involve changes in <strong>potential energy</strong> stored in bonds. When these changes happen, energy is transferred as heat or work to or from the surroundings.</li>
+              </ul>
+              <p>Students should always ask: “Are the particles themselves changing into new substances, or are they just moving or rearranging?” This question is central to deciding whether a change is physical or chemical.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples, applications &amp; tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Examples – Physical vs. chemical change</strong></p>
+              <ul>
+                <li><strong>Melting ice</strong>: solid water turns into liquid water; the molecules are still H₂O. → <strong>Physical change</strong>.</li>
+                <li><strong>Boiling water</strong>: liquid water becomes water vapor; again, still H₂O. → <strong>Physical change</strong>.</li>
+                <li><strong>Burning paper</strong>: cellulose reacts with oxygen to form CO₂, H₂O, and ash—new substances. → <strong>Chemical change</strong>.</li>
+                <li><strong>Rusting iron</strong>: iron reacts with oxygen and water to form iron oxides (rust). → <strong>Chemical change</strong>.</li>
+              </ul>
+              <p class="hint">Tip: look for clues of chemical change such as unexpected color changes, gas formation (bubbles not caused by boiling), formation of a solid (precipitate), or large heat effects.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3: Measurement & units -->
+        <section class="card" id="sec-3">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">3. Measurement, SI Units, and Prefixes</h3>
+              <p class="card-subtitle">How chemists describe quantities with units, prefixes, and temperature scales.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">SI base units</span>
+            <span class="pill">metric prefixes</span>
+            <span class="pill pill-muted">temperature scales</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core definitions &amp; units</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Every measurement combines a <strong>number</strong> with a <strong>unit</strong>. The unit tells you what the number counts or measures.</p>
+              <p>Chemistry uses the <strong>SI (International System of Units)</strong>. Key base units include:</p>
+              <ul>
+                <li><strong>Length</strong>: meter (<code>m</code>).</li>
+                <li><strong>Mass</strong>: kilogram (<code>kg</code>); in the lab we often use grams (<code>g</code>).</li>
+                <li><strong>Time</strong>: second (<code>s</code>).</li>
+                <li><strong>Temperature</strong>: kelvin (<code>K</code>), with degrees Celsius (<code>°C</code>) commonly used in lab.</li>
+                <li><strong>Amount of substance</strong>: mole (<code>mol</code>).</li>
+              </ul>
+              <p><strong>Metric prefixes</strong> help express very large or very small quantities without awkward numbers:</p>
+              <ul>
+                <li><strong>kilo</strong> (<code>k</code>): <code>10³</code></li>
+                <li><strong>centi</strong> (<code>c</code>): <code>10⁻²</code></li>
+                <li><strong>milli</strong> (<code>m</code>): <code>10⁻³</code></li>
+                <li><strong>micro</strong> (<code>µ</code>): <code>10⁻⁶</code></li>
+                <li><strong>nano</strong> (<code>n</code>): <code>10⁻⁹</code></li>
+              </ul>
+              <p>Good measurement practice means choosing units that keep numbers in a convenient range and being consistent throughout a problem.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Key conversion formulas &amp; meanings</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Metric prefix relationships</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f-metric-1">1 km = 10³ m</code>
+                <button class="copy-btn" data-copy="#f-metric-1">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f-metric-2">1 m = 10² cm</code>
+                <button class="copy-btn" data-copy="#f-metric-2">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>These equalities mean that a kilometer is 1000 meters and a meter is 100 centimeters. More generally,</p>
+              <div class="formula-row">
+                <code class="formula" id="f-metric-3">1 (prefix-unit) = 10ⁿ (base-unit)</code>
+                <button class="copy-btn" data-copy="#f-metric-3">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>where <code>n</code> depends on the prefix. The exponent tells you how many times to multiply or divide by 10 when converting.</p>
+
+              <p><strong>Temperature conversion: Celsius to kelvin</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f-temp-k">T(K) = T(°C) + 273.15</code>
+                <button class="copy-btn" data-copy="#f-temp-k">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>This formula shifts from the Celsius scale to the <em>absolute</em> temperature scale, kelvin. The size of a degree is the same in °C and K; only the zero point differs.</p>
+
+              <p><strong>Temperature conversion: Celsius to Fahrenheit</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f-temp-f">T(°F) = (9/5)·T(°C) + 32</code>
+                <button class="copy-btn" data-copy="#f-temp-f">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>The factor <code>9/5</code> changes the “size” of a degree, and <code>+ 32</code> shifts the zero point. Start with T in °C, multiply by 1.8, then add 32 to get °F.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples, applications &amp; tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Metric prefix conversion</strong></p>
+              <p>Convert <strong>3.45 km</strong> to meters and centimeters.</p>
+              <ol>
+                <li>Use conversion factors <code>1 km = 1000 m</code> and <code>1 m = 100 cm</code>.</li>
+                <li>To meters: <code>3.45 km × (1000 m / 1 km) = 3.45 × 10³ m = 3450 m</code>.</li>
+                <li>To centimeters: <code>3.45 × 10³ m × (100 cm / 1 m) = 3.45 × 10⁵ cm</code>.</li>
+              </ol>
+              <p><strong>Example – Temperature conversions at room temperature</strong></p>
+              <p>Room temperature ≈ 25.0 °C.</p>
+              <ul>
+                <li>To kelvin: <code>T(K) = 25.0 + 273.15 = 298.15 K</code>.</li>
+                <li>To Fahrenheit: <code>T(°F) = (9/5)·25.0 + 32 = 45.0 + 32 = 77.0 °F</code>.</li>
+              </ul>
+              <p class="hint">Tip: write the temperature scale as part of the symbol (e.g., T(°C), T(K)) so you do not accidentally plug a kelvin value into the Celsius–Fahrenheit formula.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4: Significant figures -->
+        <section class="card" id="sec-4">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">4. Significant Figures and Scientific Notation</h3>
+              <p class="card-subtitle">How measurement precision controls the digits you are allowed to keep.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">sig fig rules</span>
+            <span class="pill">addition &amp; multiplication</span>
+            <span class="pill pill-muted">scientific notation</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core definitions &amp; concepts</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Significant figures</strong> (sig figs) are the digits in a measurement that are known with certainty plus one final estimated digit.</p>
+              <p><strong>Accuracy</strong> describes how close a measurement is to the true value, while <strong>precision</strong> describes how close repeated measurements are to each other.</p>
+              <p>Counting significant figures follows standard rules:</p>
+              <ul>
+                <li>All nonzero digits are significant.</li>
+                <li>Zeros between nonzero digits are significant (e.g., 101 has three sig figs).</li>
+                <li>Leading zeros (before the first nonzero digit) are not significant (e.g., 0.0032 has two sig figs).</li>
+                <li>Trailing zeros after a decimal point are significant (e.g., 2.300 has four sig figs).</li>
+              </ul>
+              <p>We use significant figures to make sure our reported results reflect the precision of the measurements we started with.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Arithmetic rules &amp; notation patterns</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>For addition and subtraction</strong>:</p>
+              <p>The result must have the same number of <strong>decimal places</strong> as the measurement with the fewest decimal places.</p>
+              <p><strong>For multiplication and division</strong>:</p>
+              <p>The result must have the same number of <strong>significant figures</strong> as the measurement with the fewest significant figures.</p>
+              <p><strong>Scientific notation</strong> writes numbers as</p>
+              <div class="formula-row">
+                <code class="formula" id="f-sci">a × 10ⁿ</code>
+                <button class="copy-btn" data-copy="#f-sci">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>where <code>1 ≤ |a| &lt; 10</code> and <code>n</code> is an integer. The coefficient <code>a</code> carries the significant figures, and the power of ten shifts the decimal point.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples, applications &amp; tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Combining sig fig rules</strong></p>
+              <p>Compute <strong>(12.53 g + 1.8 g) / 0.055 g</strong> with correct significant figures.</p>
+              <ol>
+                <li><strong>Add the masses</strong>:
+                  <ul>
+                    <li>Raw sum: <code>12.53 g + 1.8 g = 14.33 g</code>.</li>
+                    <li>1.8 g has one decimal place, so the sum should be rounded to one decimal place: <strong>14.3 g</strong>.</li>
+                  </ul>
+                </li>
+                <li><strong>Divide</strong>:
+                  <ul>
+                    <li><code>14.3 g / 0.055 g ≈ 259.09</code> (dimensionless).</li>
+                    <li>14.3 has 3 sig figs; 0.055 has 2 sig figs → final answer must have 2 sig figs.</li>
+                  </ul>
+                </li>
+                <li><strong>Express in scientific notation</strong>: <strong>2.6 × 10²</strong>.</li>
+              </ol>
+              <p class="hint">Tip: do not round too early. Carry extra digits through intermediate steps, then apply the significant‑figure rules at the end.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 5: Dimensional analysis & density -->
+        <section class="card" id="sec-5">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">5. Dimensional Analysis and Density</h3>
+              <p class="card-subtitle">Using units as a roadmap, and linking mass to volume with density.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">factor‑label method</span>
+            <span class="pill">density</span>
+            <span class="pill pill-muted">geometry &amp; volume</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Core ideas &amp; strategy</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Dimensional analysis</strong> (factor‑label method) is a systematic way to solve problems by treating units like algebraic quantities that can cancel.</p>
+              <p>The general strategy is:</p>
+              <ol>
+                <li>Write down the <strong>starting quantity</strong> with its units.</li>
+                <li>Multiply by one or more <strong>conversion factors</strong> so that units cancel step by step.</li>
+                <li>Stop when you reach the <strong>desired units</strong>.</li>
+                <li>Apply significant‑figure rules and check whether the answer is reasonable.</li>
+              </ol>
+              <p><strong>Density</strong> is a key relationship that links mass and volume and is widely used in chemistry.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Density &amp; volume formulas</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Density</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f-density">ρ = m / V</code>
+                <button class="copy-btn" data-copy="#f-density">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>Density <code>ρ</code> tells you how much mass is contained in each unit of volume. Higher density means more mass packed into the same space.</p>
+              <ul>
+                <li><code>ρ</code> = density, often in <code>g/mL</code> or <code>g/cm³</code> in lab, <code>kg/m³</code> in SI.</li>
+                <li><code>m</code> = mass, in grams or kilograms.</li>
+                <li><code>V</code> = volume, in milliliters, cubic centimeters, or liters.</li>
+              </ul>
+              <p>Rearranging the formula gives two very useful relationships:</p>
+              <div class="formula-row">
+                <code class="formula" id="f-density-m">m = ρV</code>
+                <button class="copy-btn" data-copy="#f-density-m">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <div class="formula-row">
+                <code class="formula" id="f-density-v">V = m / ρ</code>
+                <button class="copy-btn" data-copy="#f-density-v">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p><strong>Volume of a rectangular solid</strong></p>
+              <div class="formula-row">
+                <code class="formula" id="f-rect-v">V = l × w × h</code>
+                <button class="copy-btn" data-copy="#f-rect-v">
+                  <span class="icon">📋</span><span class="label">copy</span>
+                </button>
+              </div>
+              <p>For a block with length <code>l</code>, width <code>w</code>, and height <code>h</code> (all in the same units), the volume is the product of the three dimensions, usually in <code>cm³</code> or <code>m³</code>.</p>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Examples, applications &amp; tips</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p><strong>Example – Using density to identify a metal</strong></p>
+              <p>A metal sample has mass 12.8 g and volume 4.00 mL. Calculate its density and suggest a possible identity.</p>
+              <ol>
+                <li>Use <code>ρ = m / V</code>: <code>ρ = 12.8 g / 4.00 mL = 3.20 g·mL⁻¹</code>.</li>
+                <li>12.8 g and 4.00 mL each have three significant figures, so the density should have three significant figures: <strong>3.20 g·mL⁻¹</strong>.</li>
+                <li>Compare this value with a density table (in your textbook or lab manual) to suggest which metal it might be.</li>
+              </ol>
+              <p><strong>Example – Dimensional analysis with mass units</strong></p>
+              <p>Convert <strong>6.50 × 10² mg</strong> to grams and kilograms.</p>
+              <ol>
+                <li>Use <code>1 g = 1000 mg</code> and <code>1 kg = 1000 g</code>.</li>
+                <li>To grams: <code>(6.50 × 10² mg) × (1 g / 1000 mg) = 0.650 g</code>.</li>
+                <li>To kilograms: <code>0.650 g × (1 kg / 1000 g) = 6.50 × 10⁻⁴ kg</code>.</li>
+              </ol>
+              <p class="hint">Tip: always keep track of units in every step. If units do not cancel the way you expect, the conversion factor is probably upside down.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 6: Pitfalls & practice -->
+        <section class="card" id="sec-6">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">6. Common Pitfalls and Practice</h3>
+              <p class="card-subtitle">Avoiding common errors and tying everything together.</p>
+            </div>
+          </div>
+          <div class="pill-strip">
+            <span class="pill">study tips</span>
+            <span class="pill pill-muted">self‑check problems</span>
+          </div>
+
+          <div class="node">
+            <button class="node-header root">
+              <span class="label">
+                <span class="role">Roots</span>
+                <span class="title">Key habits to build</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Most mistakes in this chapter come from:</p>
+              <ul>
+                <li>Forgetting or mis‑writing <strong>units</strong>.</li>
+                <li>Misapplying <strong>significant‑figure</strong> rules.</li>
+                <li>Misreading what the question is asking (missing the target quantity).</li>
+              </ul>
+              <p>Good habits include:</p>
+              <ul>
+                <li>Writing units on every number in your work.</li>
+                <li>Underlining or circling the <strong>given</strong> and the <strong>target</strong> quantity before starting.</li>
+                <li>Checking if your final answer is reasonable in size, sign, and units.</li>
+                <li>Practicing key conversions (°C ↔ K, g ↔ kg, mL ↔ L) until they feel automatic.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header trunk">
+              <span class="label">
+                <span class="role">Trunk</span>
+                <span class="title">Formulas most often misused</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>The formulas most often used incorrectly in early problems are:</p>
+              <ul>
+                <li><strong>Temperature conversions</strong>:
+                  <ul>
+                    <li><code>T(K) = T(°C) + 273.15</code></li>
+                    <li><code>T(°F) = (9/5)·T(°C) + 32</code></li>
+                  </ul>
+                  Students sometimes plug a kelvin value into the °C–°F formula or forget the +32.
+                </li>
+                <li><strong>Density</strong>:
+                  <ul>
+                    <li><code>ρ = m / V</code> and its rearrangements, making sure mass and volume units are compatible.</li>
+                  </ul>
+                </li>
+                <li><strong>Significant‑figure rules</strong>:
+                  <ul>
+                    <li>Using decimal‑place rules for multiplication/division, or vice versa, can give the wrong number of digits.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="node">
+            <button class="node-header leaf">
+              <span class="label">
+                <span class="role">Leaves</span>
+                <span class="title">Practice problems &amp; interpretation</span>
+              </span>
+              <span class="icon">▸</span>
+            </button>
+            <div class="node-body">
+              <p>Use these practice problems to self‑check your understanding:</p>
+              <ol>
+                <li><strong>Classification</strong>: Classify each as an element, compound, homogeneous mixture, or heterogeneous mixture: air, NaCl(s), brass, granite, blood.</li>
+                <li><strong>Physical vs. chemical change</strong>: Identify each as primarily physical or chemical: boiling water, burning paper, dissolving sugar, rusting iron, shredding paper.</li>
+                <li><strong>Metric conversions</strong>: Convert <code>6.50 × 10² mg</code> to grams and kilograms, showing unit cancellation.</li>
+                <li><strong>Density and sig figs</strong>: A student measures the mass of a liquid as 15.2 g and its volume as 12.3 mL. Calculate the density and express your answer with correct significant figures.</li>
+                <li><strong>Temperature conversions</strong>: Room temperature is 25.0 °C. Express this temperature in kelvin and in degrees Fahrenheit.</li>
+                <li><strong>Geometry + density</strong>: A block of metal has dimensions 2.40 cm × 1.80 cm × 0.500 cm and mass 21.6 g.
+                  <ul>
+                    <li>(a) Calculate its volume using <code>V = l × w × h</code>.</li>
+                    <li>(b) Determine its density using <code>ρ = m / V</code>.</li>
+                    <li>(c) Suggest a possible metal by comparing your density to a table.</li>
+                  </ul>
+                </li>
+              </ol>
+              <p class="hint">Tip: after solving, explain your reasoning out loud in everyday language—this helps solidify the “why” behind each step, not just the “how”.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="copy-toast">Copied to clipboard</div>
+  </div>
+
+  <script>
+    (function () {
+      const sidebarLinks = Array.from(document.querySelectorAll('.sidebar-link'));
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const searchInput = document.getElementById('search-input');
+      const toast = document.getElementById('copy-toast');
+
+      function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast._timeoutId);
+        showToast._timeoutId = window.setTimeout(() => {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const absoluteY = window.scrollY + rect.top - 70;
+        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+      }
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const target = link.getAttribute('data-target');
+          smoothScrollTo(target);
+        });
+      });
+
+      function updateActiveSidebar() {
+        const scrollPos = window.scrollY;
+        let activeId = null;
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const offsetTop = scrollPos + rect.top;
+          if (scrollPos + 120 >= offsetTop) {
+            activeId = '#' + card.id;
+          }
+        });
+        sidebarLinks.forEach(link => {
+          const target = link.getAttribute('data-target');
+          link.classList.toggle('active', target === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveSidebar);
+      updateActiveSidebar();
+
+      // Collapsible nodes
+      const nodeHeaders = Array.from(document.querySelectorAll('.node-header'));
+      nodeHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          const body = header.nextElementSibling;
+          if (!body) return;
+          body.classList.toggle('open');
+        });
+      });
+
+      // Copy buttons
+      const copyButtons = Array.from(document.querySelectorAll('.copy-btn'));
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const selector = btn.getAttribute('data-copy');
+          const target = selector ? document.querySelector(selector) : null;
+          const text = target ? target.innerText.trim() : '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast('Formula copied');
+          } catch (err) {
+            showToast('Unable to copy');
+          }
+        });
+      });
+
+      // Search/filter cards by keyword
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            const matches = !query || text.includes(query);
+            card.style.display = matches ? '' : 'none';
+          });
+        });
+      }
+
+      // Double‑click to copy text
+      document.addEventListener('dblclick', async (event) => {
+        const selection = window.getSelection();
+        let text = selection && selection.toString().trim();
+        if (!text) {
+          const target = event.target;
+          if (target.closest('button')) return;
+          text = (target.innerText || '').trim();
+        }
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Text copied');
+        } catch (err) {
+          showToast('Unable to copy');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
