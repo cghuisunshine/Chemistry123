@@ -11,163 +11,191 @@
       margin: 2rem;
       max-width: 900px;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #12345f;
+      margin-bottom: 0.5rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h3 {
+      color: #1d4c6f;
+      margin-bottom: 0.25rem;
     }
-    ul, ol {
+    .section {
+      margin-bottom: 2rem;
+    }
+    ul {
       margin-left: 1.5rem;
+    }
+    .formula {
+      background: #f3f4f6;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .example {
+      background: #eef6ff;
+      padding: 0.6rem;
+      border-left: 4px solid #60a5fa;
+      border-radius: 4px;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 2: Atoms, Molecules, and Ions</h1>
-
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Describe the structure of the atom in terms of protons, neutrons, and electrons.</li>
-    <li>Use atomic number and mass number to determine the number of subatomic particles in an atom or ion.</li>
-    <li>Explain what isotopes are and how they lead to average atomic masses on the periodic table.</li>
-    <li>Distinguish between molecular and ionic substances and relate this to their formulas.</li>
-    <li>Write and name simple ionic and molecular compounds, including those that contain common polyatomic ions.</li>
-  </ul>
-
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Atom</strong>: smallest unit of an element that retains its chemical identity.</li>
-    <li><strong>Atomic number (Z)</strong>: number of protons in the nucleus; defines the element.</li>
-    <li><strong>Mass number (A)</strong>: total number of protons + neutrons in the nucleus.</li>
-    <li><strong>Isotopes</strong>: atoms of the same element (same Z) with different numbers of neutrons (different A).</li>
-    <li><strong>Ion</strong>: charged particle formed when atoms gain or lose electrons.</li>
-    <li><strong>Cation</strong>: positively charged ion (loss of electrons).</li>
-    <li><strong>Anion</strong>: negatively charged ion (gain of electrons).</li>
-    <li><strong>Polyatomic ion</strong>: charged group of covalently bonded atoms (for example, NO<sub>3</sub><sup>&minus;</sup>, SO<sub>4</sub><sup>2&minus;</sup>).</li>
-    <li><strong>Molecule</strong>: a group of atoms held together by covalent bonds.</li>
-  </ul>
-
-  <h2>1. Subatomic Particles and Isotopes</h2>
-  <h3>Building Blocks of Atoms</h3>
-  <ul>
-    <li>Protons: charge +1, mass &approx; 1 amu, located in the nucleus.</li>
-    <li>Neutrons: charge 0, mass &approx; 1 amu, located in the nucleus.</li>
-    <li>Electrons: charge &minus;1, mass &approx; 1/1836 amu, move in the space around the nucleus.</li>
-  </ul>
-
-  <h3>Atomic Notation and Counting Particles</h3>
-  <p>Isotopes are written using mass number and atomic number, for example <code><sup>A</sup><sub>Z</sub>X</code>.</p>
-  <ul>
-    <li>Number of protons = Z.</li>
-    <li>Number of neutrons = A &minus; Z.</li>
-    <li>Number of electrons in a neutral atom = Z; in an ion adjust for the charge.</li>
-  </ul>
-
-  <h3>Worked Example 1 &ndash; Counting Protons, Neutrons, Electrons</h3>
-  <p>For <code><sup>35</sup><sub>17</sub>Cl</code> and <code><sup>37</sup><sub>17</sub>Cl</code>, and the ion Cl<sup>&minus;</sup>, find p, n, and e<sup>&minus;</sup>.</p>
-  <ol>
-    <li><code><sup>35</sup><sub>17</sub>Cl</code>: p = 17, n = 35 &minus; 17 = 18, e<sup>&minus;</sup> (neutral) = 17.</li>
-    <li><code><sup>37</sup><sub>17</sub>Cl</code>: p = 17, n = 37 &minus; 17 = 20, e<sup>&minus;</sup> (neutral) = 17.</li>
-    <li>Cl<sup>&minus;</sup> (any isotope): protons do not change (still 17), electrons = 18 (one extra for the &minus;1 charge).</li>
-  </ol>
-
-  <h2>2. Average Atomic Mass</h2>
-  <p>The atomic mass shown on the periodic table is a weighted average of the masses of all naturally occurring isotopes:</p>
-  <p><code>average mass = Σ(fractional abundance × isotopic mass)</code></p>
-
-  <h3>Worked Example 2 &ndash; Interpreting Average Atomic Mass</h3>
-  <p>Chlorine has two main isotopes: about 75% <code><sup>35</sup>Cl</code> and 25% <code><sup>37</sup>Cl</code>. Explain why the average atomic mass (≈ 35.45 amu) lies between 35 and 37, but closer to 35.</p>
-  <ol>
-    <li>The average is weighted toward more abundant isotopes.</li>
-    <li>Since 35Cl is three times as abundant as 37Cl, the average is pulled closer to 35 amu.</li>
-  </ol>
-
-  <h2>3. Periodic Table and Ionic Charges</h2>
-  <ul>
-    <li>Group 1 metals (alkali metals) commonly form 1+ cations (Na<sup>+</sup>, K<sup>+</sup>).</li>
-    <li>Group 2 metals form 2+ cations (Mg<sup>2+</sup>, Ca<sup>2+</sup>).</li>
-    <li>Group 17 (halogens) often form 1&minus; anions (Cl<sup>&minus;</sup>, Br<sup>&minus;</sup>).</li>
-    <li>Group 16 nonmetals often form 2&minus; anions (O<sup>2&minus;</sup>, S<sup>2&minus;</sup>).</li>
-  </ul>
-
-  <h3>Worked Example 3 &ndash; Predicting Ion Charges</h3>
-  <p>Predict likely ionic charges for Na, O, and Al in simple binary ionic compounds.</p>
-  <ol>
-    <li>Na is in Group 1 → tends to lose 1 e<sup>&minus;</sup> → Na<sup>+</sup>.</li>
-    <li>O is in Group 16 → tends to gain 2 e<sup>&minus;</sup> → O<sup>2&minus;</sup>.</li>
-    <li>Al is in Group 13 → tends to lose 3 e<sup>&minus;</sup> → Al<sup>3+</sup>.</li>
-  </ol>
-
-  <h2>4. Molecular vs Ionic Compounds</h2>
-  <ul>
-    <li><strong>Ionic compounds</strong>:
-      <ul>
-        <li>Formed between metals and nonmetals (or with polyatomic ions).</li>
-        <li>Composed of ions in a 3D lattice; overall electrically neutral.</li>
-        <li>High melting points; conduct electricity when molten or dissolved.</li>
-      </ul>
-    </li>
-    <li><strong>Molecular (covalent) compounds</strong>:
-      <ul>
-        <li>Formed between nonmetals.</li>
-        <li>Discrete molecules held together by covalent bonds.</li>
-        <li>Often lower melting/boiling points; do not conduct electricity as pure substances.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h2>5. Formulas and Naming</h2>
-  <h3>Ionic Compounds</h3>
-  <ul>
-    <li>Formula shows the smallest whole-number ratio of ions so that total positive and negative charges balance.</li>
-    <li>For a metal with a fixed charge (main-group metals):
-      <ul>
-        <li>Name = metal name + nonmetal with -ide ending (for example, NaCl: sodium chloride).</li>
-      </ul>
-    </li>
-    <li>For transition metals with variable charge:
-      <ul>
-        <li>Use a Roman numeral in parentheses for the metal charge (for example, FeCl<sub>3</sub>: iron(III) chloride).</li>
-      </ul>
-    </li>
-    <li>Polyatomic ions keep their names: NaNO<sub>3</sub> is sodium nitrate; (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> is ammonium sulfate.</li>
-  </ul>
-
-  <h3>Molecular Compounds</h3>
-  <ul>
-    <li>Use Greek prefixes for the number of each atom: mono-, di-, tri-, tetra-, penta-, etc.</li>
-    <li>Example: CO = carbon monoxide; CO<sub>2</sub> = carbon dioxide; N<sub>2</sub>O<sub>5</sub> = dinitrogen pentoxide.</li>
-  </ul>
-
-  <h3>Worked Example 4 &ndash; Writing Formulas from Names</h3>
-  <p>Write the formulas for: (a) calcium nitrate, (b) ammonium sulfate, (c) dinitrogen tetroxide.</p>
-  <ol>
-    <li>Calcium nitrate: Ca<sup>2+</sup> and NO<sub>3</sub><sup>&minus;</sup> → Ca(NO<sub>3</sub>)<sub>2</sub>.</li>
-    <li>Ammonium sulfate: NH<sub>4</sub><sup>+</sup> and SO<sub>4</sub><sup>2&minus;</sup> → (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>.</li>
-    <li>Dinitrogen tetroxide: two N atoms and four O atoms → N<sub>2</sub>O<sub>4</sub>.</li>
-  </ol>
-
-  <h2>6. Common Polyatomic Ions (Selected)</h2>
-  <ul>
-    <li>Nitrate: NO<sub>3</sub><sup>&minus;</sup>; nitrite: NO<sub>2</sub><sup>&minus;</sup>.</li>
-    <li>Sulfate: SO<sub>4</sub><sup>2&minus;</sup>; sulfite: SO<sub>3</sub><sup>2&minus;</sup>.</li>
-    <li>Carbonate: CO<sub>3</sub><sup>2&minus;</sup>; bicarbonate (hydrogen carbonate): HCO<sub>3</sub><sup>&minus;</sup>.</li>
-    <li>Phosphate: PO<sub>4</sub><sup>3&minus;</sup>.</li>
-    <li>Hydroxide: OH<sup>&minus;</sup>; ammonium: NH<sub>4</sub><sup>+</sup>.</li>
-  </ul>
-
-  <h2>7. Practice Problems (Self-Check)</h2>
-  <p>Work these without looking up the answers first; then check your textbook or solutions.</p>
-  <ol>
-    <li>For each, give Z, A, p, n, and e<sup>&minus;</sup> in the neutral atom: <code><sup>24</sup><sub>12</sub>Mg</code>, <code><sup>56</sup><sub>26</sub>Fe</code>.</li>
-    <li>Write electron counts for: Na<sup>+</sup>, Mg<sup>2+</sup>, O<sup>2&minus;</sup>, and Cl<sup>&minus;</sup>. Which of these ions are isoelectronic with Ne?</li>
-    <li>Predict the simplest formula for the ionic compound formed between: (a) Al and O; (b) Ca and N; (c) Mg and Cl.</li>
-    <li>Name the following compounds: FeBr<sub>2</sub>, Na<sub>2</sub>CO<sub>3</sub>, NH<sub>4</sub>Cl, N<sub>2</sub>O<sub>5</sub>.</li>
-    <li>Write formulas for: iron(III) oxide, potassium phosphate, sodium hydrogen carbonate (sodium bicarbonate), and sulfur dioxide.</li>
-  </ol>
+  <section class="section" id="section-2-1">
+    <h2>2.1 The Atomic Theory of Matter</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Dalton’s atomic theory explains the laws of chemical combination by asserting that each element consists of tiny, indivisible atoms and that compounds form when atoms combine in fixed ratios.</li>
+      <li>The law of constant composition says that a given compound always contains the same relative numbers of atoms (and therefore the same mass proportions).</li>
+      <li>The law of multiple proportions states that when the same two elements form different compounds, the masses of one element that combine with a fixed mass of the other are whole-number multiples.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Law of multiple proportions</strong> <code>mass of B in compound 1 ÷ mass of B in compound 2 = whole-number ratio</code>
+      <p>When hydrogen and oxygen form water and hydrogen peroxide, the mass of oxygen per gram of hydrogen is 8.0 in H<sub>2</sub>O and 16.0 in H<sub>2</sub>O<sub>2</sub>, so the ratio 16.0/8.0 = 2 is a small whole number. This pattern arises because atoms combine in simple numerical ratios, reinforcing Dalton’s postulates.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Water (H<sub>2</sub>O) and hydrogen peroxide (H<sub>2</sub>O<sub>2</sub>) both contain hydrogen and oxygen, yet their masses of oxygen per gram of hydrogen differ by a factor of two, showing that atoms pack in distinct whole-number ratios.</p>
+  </section>
+  <section class="section" id="section-2-2">
+    <h2>2.2 The Discovery of Atomic Structure</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Cathode-ray experiments revealed negatively charged electrons, showing atoms contain smaller particles.</li>
+      <li>Millikan’s oil-drop experiment measured the charge of a single electron, which allowed the charge-to-mass ratio to yield the electron’s mass.</li>
+      <li>Alpha-particle scattering led Rutherford to conclude that an atom’s mass and positive charge are concentrated in a tiny nucleus surrounded by mostly empty space.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Charge-to-mass for the electron</strong> <code>e/m = 1.76 × 10<sup>8</sup> C/g</code>
+      <p>Thomson measured the ratio of the electron’s charge <em>e</em> to its mass <em>m</em> by deflecting cathode rays with electric and magnetic fields. Because the ratio is known and Millikan later measured <em>e</em>, we can compute the tiny mass of the electron, confirming that atoms contain extremely lightweight particles.</p>
+    </div>
+    <div class="formula">
+      <strong>Coulomb’s law</strong> <code>F = k Q<sub>1</sub> Q<sub>2</sub> / d<sup>2</sup></code>
+      <p>The force <em>F</em> between two charges is proportional to the product of the charges and inversely proportional to the square of the distance between them. Here <em>k</em> ≈ 8.99 × 10<sup>9</sup> N·m²/C², Q<sub>1</sub> and Q<sub>2</sub> are charges in coulombs, and <em>d</em> is separation in meters. Coulomb’s law explains why electrons cluster around a positive nucleus and why opposite charges attract.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Millikan found that oil drops carried charges that were always multiples of 1.602 × 10<sup>−19</sup> C. Knowing this fundamental charge and Thomson’s charge-to-mass ratio let scientists deduce that an electron has mass ≈ 9.11 × 10<sup>−31</sup> kg.</p>
+  </section>
+  <section class="section" id="section-2-3">
+    <h2>2.3 The Modern View of Atomic Structure</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Atoms have a tiny, massive nucleus containing protons and neutrons, while electrons occupy the surrounding space.</li>
+      <li>Atomic number (Z) counts protons and fixes the element; mass number (A) equals protons plus neutrons and defines the isotope.</li>
+      <li>Atoms are electrically neutral because the number of electrons equals the number of protons.</li>
+      <li>Isotopes are atoms of the same element with different numbers of neutrons; they may differ in stability but share chemical behavior.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Mass number</strong> <code>A = Z + N</code>
+      <p>The mass number <em>A</em> equals the number of protons <em>Z</em> plus neutrons <em>N</em>. It appears as the superscript in isotopic notation (e.g., <sup>35</sup>Cl). This lets you identify which isotope you are using when calculating average atomic masses.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Titanium with 22 protons and 26 neutrons has mass number 48 and is written as <sup>48</sup>Ti. If that ion carries a 3+ charge (three fewer electrons), its symbol becomes <sup>48</sup>Ti³⁺, which is critical when writing formulas for ionic compounds.</p>
+  </section>
+  <section class="section" id="section-2-4">
+    <h2>2.4 Atomic Weights</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Atoms are assigned masses in atomic mass units (u), where 1 u = 1.66054 × 10<sup>−24</sup> g and <sup>12</sup>C is defined to weigh exactly 12 u.</li>
+      <li>Most elements consist of isotopic mixtures, so their reported atomic weight is an average weighted by isotopic abundance.</li>
+      <li>Mass spectrometers separate ions by mass-to-charge ratio, providing the precise isotope masses needed to compute atomic weights.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Atomic weight</strong> <code>Atomic weight = ∑ (isotope mass × fractional abundance)</code>
+      <p>This weighted average adds each isotope’s mass multiplied by its natural abundance (expressed as a decimal). Chlorine, for example, averages 0.7578 × 34.969 u + 0.2422 × 36.966 u = 35.45 u, which lies between the isotope masses.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Because chlorine is about 76% <sup>35</sup>Cl and 24% <sup>37</sup>Cl, its atomic weight is closer to 35 than 37. That average explains why chlorine’s periodic table entry lists 35.45 instead of a whole number.</p>
+  </section>
+  <section class="section" id="section-2-5">
+    <h2>2.5 The Periodic Table</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Elements are arranged by increasing atomic number; repeating patterns in properties define the periodic law.</li>
+      <li>Groups (vertical columns) contain elements with similar valence electron configurations and predictable chemistry.</li>
+      <li>The stepped line divides metals (left, often forming cations) from nonmetals (right, often forming anions).</li>
+      <li>Periods (rows) mark the filling of successive electron shells.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p>Section 2.5 explains the structure and predictive power of the periodic table rather than numerical formulas.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Lithium, sodium, and potassium sit just below the noble gases in each period and behave as soft, reactive metals. They all form 1+ cations and share similar reactivity patterns, which is why the periodic table groups them together.</p>
+  </section>
+  <section class="section" id="section-2-6">
+    <h2>2.6 Molecules and Molecular Compounds</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Molecular formulas show exact numbers of atoms, while empirical formulas show only the simplest ratios.</li>
+      <li>Structural, ball-and-stick, and space-filling models help visualize how atoms connect and how molecules pack.</li>
+      <li>Molecules composed purely of nonmetals are called molecular compounds, and some elements exist as diatomic molecules (H<sub>2</sub>, O<sub>2</sub>, N<sub>2</sub>, halogens).</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Empirical vs. molecular formulas</strong> <code>n = molar mass ÷ empirical formula mass</code>
+      <p>The molecular formula equals the empirical formula multiplied by an integer <em>n</em>. Determining <em>n</em> requires the molar mass (from experiments such as vapor density) divided by the empirical mass. For example, glucose has empirical formula CH<sub>2</sub>O and molar mass 180 g/mol, so n = 180 ÷ 30 = 6, giving the molecular formula C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">If an analysis yields an empirical formula HO (ratios 1:1) but the molar mass is already 34 g/mol (twice the empirical mass 17), then the molecular formula must be H<sub>2</sub>O<sub>2</sub>, not HO, showing why additional data beyond empirical formulas matters.</p>
+  </section>
+  <section class="section" id="section-2-7">
+    <h2>2.7 Ions and Ionic Compounds</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Ions form when atoms gain or lose electrons—metals tend to lose electrons (cations), nonmetals tend to gain them (anions).</li>
+      <li>Cations and anions combine so that total positive charge equals total negative charge, producing electrically neutral ionic compounds.</li>
+      <li>Polyatomic ions such as NH<sub>4</sub><sup>+</sup> and NO<sub>3</sub><sup>−</sup> behave as single charged units.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Charge balance rule</strong> <code>total positive charge = total negative charge</code>
+      <p>The subscripts in the empirical formula result from balancing charges. For Mg<sup>2+</sup> and N<sup>3−</sup>, you need three Mg<sup>2+</sup> ions (total +6) and two N<sup>3−</sup> ions (total −6), producing Mg<sub>3</sub>N<sub>2</sub> so the compound is neutral.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">NaCl forms by Na losing an electron to become Na<sup>+</sup> and Cl gaining one to become Cl<sup>−</sup>; their opposite charges attract and yield the ionic solid sodium chloride.</p>
+  </section>
+  <section class="section" id="section-2-8">
+    <h2>2.8 Naming Inorganic Compounds</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Cations usually take the metal name; transition metals with variable charges require Roman numerals (e.g., iron(III) for Fe<sup>3+</sup>).</li>
+      <li>Anions derived from single elements end with -ide (oxide, chloride); oxygen-containing anions end with -ate or -ite, and prefixes per-/hypo- adjust for extra or fewer oxygens.</li>
+      <li>Acid naming links to the anion: -ide becomes hydro-...-ic acid, -ate becomes ...-ic acid, -ite becomes ...-ous acid, and oxyanion prefixes stay with the acid name.</li>
+      <li>Binary molecular compounds use Greek prefixes (mono-, di-, tri-, etc.) to show atom counts; the more metallic element is named first.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p>This section covers nomenclature rules rather than numerical equations, but the rules themselves act like formulas for translating between names and formulas.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">K<sub>2</sub>SO<sub>4</sub> is potassium sulfate because the cation is potassium (K<sup>+</sup>) and the anion is sulfate (SO<sub>4</sub><sup>2−</sup>). HNO<sub>3</sub> is nitric acid because it derives from the nitrate ion (NO<sub>3</sub><sup>−</sup>), and COCl<sub>2</sub> becomes carbonyl dichloride using prefixes for the two chlorine atoms.</p>
+  </section>
+  <section class="section" id="section-2-9">
+    <h2>2.9 Some Simple Organic Compounds</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Organic chemistry studies carbon-containing compounds; hydrocarbons consist only of carbon and hydrogen.</li>
+      <li>Alkanes are saturated hydrocarbons where each carbon bonds to four atoms; their names end in -ane.</li>
+      <li>Alcohols are alcohols have an -OH functional group replacing a hydrogen; the location of the OH (1-propanol vs. 2-propanol) defines different isomers.</li>
+      <li>Isomers share the same molecular formula but differ in how atoms are connected, yielding distinct physical and chemical properties.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Alkane general formula</strong> <code>C<sub>n</sub>H<sub>2n+2</sub></code>
+      <p>For a straight-chain alkane with <em>n</em> carbon atoms, there are 2<em>n</em> + 2 hydrogens. Methane (n=1) is CH<sub>4</sub>, ethane (n=2) is C<sub>2</sub>H<sub>6</sub>, and pentane (n=5) is C<sub>5</sub>H<sub>12</sub>. This formula shows why increasing carbon length adds more hydrogen in a predictable way.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Replacing one hydrogen in propane (C<sub>3</sub>H<sub>8</sub>) with an OH group gives propanol. If the OH is on an end carbon, the compound is 1-propanol; if it’s on the middle carbon, it’s 2-propanol. These two molecules are structural isomers with identical formulas but different geometries and surface properties.</p>
+  </section>
 </body>
 </html>

@@ -10,109 +10,242 @@
       line-height: 1.6;
       margin: 2rem;
       max-width: 900px;
+      color: #0f172a;
     }
-    h1, h2, h3 {
-      color: #12345f;
+    h1 {
+      color: #0f4c81;
+      margin-bottom: 1rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h2 {
+      color: #0f4c81;
+      margin-bottom: 0.5rem;
     }
-    ul, ol {
+    h3 {
+      color: #1e3a8a;
+      margin-bottom: 0.25rem;
+    }
+    ul {
       margin-left: 1.5rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .formula {
+      background: #f8fafc;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid #2563eb;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #1d4ed8;
+    }
+    .example {
+      background: #ecfeff;
+      padding: 0.6rem;
+      border-left: 4px solid #06b6d4;
+      border-radius: 4px;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 7: Periodic Properties of the Elements</h1>
+  <section class="section" id="section-7-1">
+    <h2>7.1 Development of the Periodic Table</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>By 1869, chemists such as Mendeleev and Meyer noticed that arranging known elements by increasing atomic weight caused patterns in chemical and physical behavior to repeat periodically.</li>
+      <li>Mendeleev left blank spaces for undiscovered elements and predicted specific properties for eka-elements (e.g., eka-silicon) so that each column grouped similar elements together.</li>
+      <li>Moseley later tied the ordering to <strong>atomic number</strong>, the number of protons, which explains why elements such as Ar and K switch places compared to an atomic-weight sequence.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Modern periodic law</strong>
+      <code>Elements ordered by increasing Z display repeating patterns in their properties.</code>
+      <p>The atomic number Z is the count of protons, so arranging atoms by Z aligns families with the same electron configurations; the “periodicity” refers to the repeating rise and fall of properties such as reactivity, radii, and ionization energy.</p>
+    </div>
+    <div class="formula">
+      <strong>Atomic number</strong>
+      <code>Z = number of protons in the nucleus</code>
+      <p>Protons carry a +1 charge, so Z also equals the positive charge that holds the electrons in place; it is a dimensionless integer that uniquely identifies each element.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Mendeleev predicted an element below silicon (eka-silicon) with density ≈ 4.7 g/cm³ and oxide formulas XO₂ and XCl₄; when germanium was found, it matched his values closely. Ordering by Z also puts Ar (Z=18) among noble gases and K (Z=19) with the alkali metals, matching their observed chemistry.</p>
+  </section>
 
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Explain how electron configuration and effective nuclear charge lead to periodic trends.</li>
-    <li>Describe and compare trends in atomic radius, ionic radius, ionization energy, and electron affinity.</li>
-    <li>Recognize metallic vs nonmetallic behavior and how it changes across a period and down a group.</li>
-    <li>Use periodic trends to predict relative reactivity for selected families (alkali metals, halogens).</li>
-  </ul>
+  <section class="section" id="section-7-2">
+    <h2>7.2 Effective Nuclear Charge</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Each electron feels attraction from the positive nucleus and repulsion from the other electrons; repulsions act like a “screen” that weakens the pull.</li>
+      <li>The <strong>effective nuclear charge</strong> Zeff is the net positive pull a valence electron actually experiences after accounting for screening.</li>
+      <li>Zeff increases steadily across a period (more protons raise Z while shielding stays nearly constant) and rises only slightly down a group because extra shells add distance and additional screening.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Coulomb interaction (guiding idea)</strong>
+      <code>E = k Q₁ Q₂ / d</code>
+      <p>Energy E (in joules) is proportional to the product of charges Q₁ and Q₂ and inversely proportional to distance d between them; larger charge or shorter distance means a stronger attraction or repulsion, so electrons closer to a powerful nucleus bind more tightly.</p>
+    </div>
+    <div class="formula">
+      <strong>Effective nuclear charge</strong>
+      <code>Z<sub>eff</sub> = Z − S</code>
+      <p>Z is the actual nuclear charge (# of protons), and S is the shielding constant reflecting how much other electrons cancel the attraction. Both Z and S are dimensionless counts, so Zeff is also dimensionless. Core electrons screen almost fully (≈1.00 each), electrons in the same subshell screen partially (≈0.35 each), and electrons in the n−1 shell screen quite well (≈0.85 each) under Slater’s rules.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">In sodium, the 3s valence electron “sees” Z=11 and about S≈10 from the ten core electrons, so the simple Zeff estimate is 1. However, because the 3s orbital can spend some time near the core, the true S is closer to 8.5, giving Zeff≈2.5; this stronger pull explains why Na still binds its valence electron fairly tightly. Across a period (Na → Ar) cores stay the same while Z grows, so Zeff climbs and radii shrink.</p>
+  </section>
 
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Effective nuclear charge</strong> (Z<sub>eff</sub>): net positive charge experienced by valence electrons after accounting for shielding.</li>
-    <li><strong>Atomic radius</strong>: size of an atom, often defined as half the distance between two bonded nuclei.</li>
-    <li><strong>Ionic radius</strong>: size of an ion; cations are usually smaller than their parent atoms, anions larger.</li>
-    <li><strong>Ionization energy</strong> (IE): energy required to remove an electron from a gaseous atom or ion.</li>
-    <li><strong>Electron affinity</strong> (EA): energy change when a gaseous atom gains an electron.</li>
-    <li><strong>Isoelectronic series</strong>: atoms/ions with the same number of electrons but different nuclear charges.</li>
-  </ul>
+  <section class="section" id="section-7-3">
+    <h2>7.3 Sizes of Atoms and Ions</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The atomic radius is not a sharp edge; chemists define it by distances between nuclei: the bonding (covalent) radius is half a bond length, and the van der Waals radius is half the distance between nonbonded neighbors.</li>
+      <li>Atomic radius increases down a group because electrons occupy higher principal quantum numbers (n) and decreases across a period because rising Zeff pulls valence electrons closer.</li>
+      <li>Cations are smaller than their parent atoms (fewer electrons and stronger pull), and anions are larger (extra electrons push each other apart). Isoelectronic ions shrink as Z increases because the same electrons feel a stronger pull.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Bonding radius definition</strong>
+      <code>r(atom) ≈ ½ × d(<em>A</em>–<em>A</em> bond)</code>
+      <p>The distance d between two identical atoms forming a single bond is measured (often in picometers, pm); halving it gives an estimate of how close the electron cloud extends from the nucleus.</p>
+    </div>
+    <div class="formula">
+      <strong>Isoelectronic radius trend</strong>
+      <code>radius ∝ 1 / Z<sub>eff</sub> (for constant electron count)</code>
+      <p>When atoms or ions share the same number of electrons, increasing the nuclear charge Z increases Zeff, squeezing electrons in tighter and reducing the radius even though the electron count stays fixed.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Within Period 2, atomic radii shrink from N to O to F because more protons raise Zeff. In the isoelectronic series O²⁻, F⁻, Na⁺, Mg²⁺ (all 10 electrons), the radii drop as nuclear charge climbs from 8 to 12.</p>
+  </section>
 
-  <h2>1. Effective Nuclear Charge and Shielding</h2>
-  <ul>
-    <li>Core electrons “shield” valence electrons from the full nuclear charge.</li>
-    <li>Across a period, nuclear charge increases while shielding changes only slightly → Z<sub>eff</sub> increases → electrons pulled closer to nucleus.</li>
-    <li>Down a group, added shells increase distance and shielding → outer electrons feel weaker attraction on average.</li>
-  </ul>
+  <section class="section" id="section-7-4">
+    <h2>7.4 Ionization Energy</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The first ionization energy is the energy needed to remove one electron from a gaseous atom; each successive ionization energy removes another electron from an ever-more-positively charged ion and therefore requires more energy.</li>
+      <li>Ionization energy generally increases across a period (smaller radius and higher Zeff make electrons harder to remove) and decreases down a group as valence electrons are farther from the nucleus.</li>
+      <li>Subshell structure causes anomalies: removing a 3p electron from Al is slightly easier than removing a 3s electron from Mg even though Al lies to the right of Mg.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>First ionization</strong>
+      <code>X(g) → X⁺(g) + e⁻</code>
+      <p>The energy required (IE₁, in kilojoules per mole) is always positive because work must be done to overcome the attraction between the electron and the nucleus; X(g) is the neutral atom, and e⁻ is the removed electron.</p>
+    </div>
+    <div class="formula">
+      <strong>Successive ionization</strong>
+      <code>X⁺(g) → X²⁺(g) + e⁻</code>
+      <p>The second ionization energy IE₂ removes another electron from an already positive ion, so IE₂ &gt; IE₁. When IE jumps dramatically, it usually signals that the electron is being taken from a lower principal shell.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Magnesium has a higher IE₁ than aluminum because Mg removes a 3s electron (closer to the nucleus), while Al removes a more energetic 3p electron; the 3s orbital is held tighter despite Mg being left of Al.</p>
+  </section>
 
-  <h2>2. Trend: Atomic and Ionic Radius</h2>
-  <ul>
-    <li>Atomic radius <strong>decreases</strong> left → right across a period (increasing Z<sub>eff</sub>).</li>
-    <li>Atomic radius <strong>increases</strong> down a group (more shells, larger distance from nucleus).</li>
-    <li>Cations are smaller than corresponding neutral atoms (loss of electron shell and stronger pull on remaining electrons).</li>
-    <li>Anions are larger than neutral atoms (more electron–electron repulsion for same nucleus).</li>
-  </ul>
+  <section class="section" id="section-7-5">
+    <h2>7.5 Electron Affinity</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Electron affinity is the energy change when a gaseous atom accepts an electron; negative values mean energy is released, so the process is exothermic.</li>
+      <li>Affinity generally becomes more negative across a period because higher Zeff makes atoms more eager to gain another electron; it gets less negative down a group as atoms get larger and add electron repulsion.</li>
+      <li>Exceptions occur: Group 2 and noble gases have near-zero or positive affinities, and Group 15 atoms (like N) resist pairing electrons and therefore have less negative values.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Electron affinity process</strong>
+      <code>X(g) + e⁻ → X⁻(g)</code>
+      <p>EA (in kJ/mol) is the energy difference ΔE between the left and right sides. A negative EA means the atom releases energy when capturing an electron, while a positive EA means energy must be supplied.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Chlorine releases about −349 kJ/mol when it gains an electron because completing its 3p⁵ shell is stabilizing. Sulfur gains an electron less easily than expected because the added electron must pair up in a 3p orbital, increasing repulsion, so its EA is not as negative.</p>
+  </section>
 
-  <h3>Worked Example 1 – Comparing Radii</h3>
-  <p>Arrange N, O, and F in order of increasing atomic radius.</p>
-  <ol>
-    <li>All in period 2; Z increases from N (7) → O (8) → F (9).</li>
-    <li>Higher Z → higher Z<sub>eff</sub> → smaller radius.</li>
-    <li>Order: F &lt; O &lt; N (smallest to largest).</li>
-  </ol>
+  <section class="section" id="section-7-6">
+    <h2>7.6 Metals, Nonmetals, and Metalloids</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Metals (left side) are shiny, conductive, and form cations easily because they have low ionization energies; nonmetals (right side) gain electrons, form anions or covalent bonds, and their oxides tend to be acidic.</li>
+      <li>Metalloids sit along the diagonal and show mixed behavior; their bonding and conductivity place them between metals and nonmetals.</li>
+      <li>Metallic character increases down a group (electrons are lost more readily), and decreases across a period as Zeff tightens hold on the electrons.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Metal oxide + water</strong>
+      <code>M₂O(s) + H₂O(l) → 2MOH(aq)</code>
+      <p>Alkali and alkaline earth oxides dissolve to give hydroxides (strong bases) because metal cations disperse into solution and release OH⁻ ions.</p>
+    </div>
+    <div class="formula">
+      <strong>Nonmetal oxide + water</strong>
+      <code>SO₂(g) + H₂O(l) → H₂SO₃(aq)</code>
+      <p>Nonmetal oxides usually dissolve to form acidic solutions; additional oxidation (SO₃ + H₂O → H₂SO₄) yields stronger acids.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Sodium oxide dissolves to make NaOH, so sodium behaves as a metal with basic oxides. Sulfur dioxide forms sulfurous acid, illustrating how nonmetal oxides give acids.</p>
+  </section>
 
-  <h2>3. Trend: Ionization Energy and Electron Affinity</h2>
-  <ul>
-    <li>Ionization energy generally <strong>increases</strong> left → right (harder to remove electrons from smaller, tightly held orbitals).</li>
-    <li>Ionization energy <strong>decreases</strong> down a group (outer electrons farther from nucleus, more shielding).</li>
-    <li>Electron affinity often becomes more negative across a period (atoms more eager to gain electrons) with some irregularities.</li>
-  </ul>
+  <section class="section" id="section-7-7">
+    <h2>7.7 Trends for Group 1 and Group 2 Metals</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Group 1 (ns¹) and Group 2 (ns²) elements have low ionization energies and readily form M⁺ or M²⁺ ions to reach noble-gas configurations.</li>
+      <li>Reactivity increases down each group because valence electrons sit in larger, more shielded orbitals.</li>
+      <li>These metals react with water, halogens, and oxygen to form ionic compounds and release hydrogen, halide salts, or oxides.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Alkali metals + water</strong>
+      <code>2M(s) + 2H₂O(l) → 2MOH(aq) + H₂(g)</code>
+      <p>Each metal donates an electron to hydrogen, producing hydrogen gas and a soluble hydroxide.</p>
+    </div>
+    <div class="formula">
+      <strong>Alkaline earth + water</strong>
+      <code>M(s) + 2H₂O(l) → M(OH)₂(aq) + H₂(g)</code>
+      <p>Group 2 metals behave similarly but deliver two positive charges, so they form hydroxides with M²⁺.</p>
+    </div>
+    <div class="formula">
+      <strong>Metal + chlorine</strong>
+      <code>2M(s) + Cl₂(g) → 2MCl(s)</code>
+      <p>Halogens grab electrons easily, so the metals transfer electrons to form ionic chlorides (MCl₂ for alkaline earth metals uses the same idea with two electrons).</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Cesium reacts more violently with water than lithium because its valence electron sits farther from the nucleus (lower IE), so Cs loses it faster and releases more heat and hydrogen.</p>
+  </section>
 
-  <h3>Worked Example 2 – Comparing First Ionization Energies</h3>
-  <p>Which has the higher first ionization energy: Mg or Al?</p>
-  <ol>
-    <li>General trend would suggest Al (further right) has higher IE.</li>
-    <li>However, Al starts filling the 3p subshell, which is slightly higher in energy than 3s.</li>
-    <li>It is slightly easier to remove a 3p electron from Al than a 3s electron from Mg → Mg actually has the slightly higher IE.</li>
-  </ol>
-
-  <h2>4. Reactivity Patterns</h2>
-  <ul>
-    <li><strong>Alkali metals</strong> (Group 1): low IE, large radii → very reactive metals; reactivity increases down the group.</li>
-    <li><strong>Halogens</strong> (Group 17): high electron affinity, strong oxidizing agents; reactivity tends to decrease down the group as orbitals get larger.</li>
-  </ul>
-
-  <h3>Worked Example 3 – Reactivity Comparison</h3>
-  <p>Which metal is more reactive with water, Li or Cs?</p>
-  <ol>
-    <li>Down Group 1, IE decreases and radius increases.</li>
-    <li>Cs loses its valence electron more easily than Li.</li>
-    <li>Cs is therefore more reactive with water than Li.</li>
-  </ol>
-
-  <h2>5. Isoelectronic Series</h2>
-  <ul>
-    <li>Example: O<sup>2−</sup>, F<sup>−</sup>, Na<sup>+</sup>, Mg<sup>2+</sup> all have 10 electrons.</li>
-    <li>Nuclear charge increases from O (Z = 8) → Mg (Z = 12).</li>
-    <li>As Z increases for the same number of electrons, the radius decreases; O<sup>2−</sup> is largest, Mg<sup>2+</sup> smallest.</li>
-  </ul>
-
-  <h2>6. Practice Problems (Self-Check)</h2>
-  <ol>
-    <li>Arrange the following in order of increasing atomic radius: N, O, C, F, B.</li>
-    <li>Which atom in each pair has the higher first ionization energy? (a) Na or K; (b) Mg or Ca; (c) Cl or S.</li>
-    <li>Rank the ions O<sup>2−</sup>, F<sup>−</sup>, Na<sup>+</sup>, Mg<sup>2+</sup> in order of increasing radius. Explain your reasoning.</li>
-    <li>Explain why metals tend to form cations while nonmetals tend to form anions using periodic trends in IE and EA.</li>
-    <li>Predict qualitatively which is the stronger oxidizing agent, F<sub>2</sub> or Br<sub>2</sub>, and justify using periodic trends.</li>
-  </ol>
+  <section class="section" id="section-7-8">
+    <h2>7.8 Trends for Selected Nonmetals</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Hydrogen has a 1s¹ configuration like alkali metals but usually behaves as a nonmetal, forming covalent bonds or serving as a proton (H⁺) when paired with very electronegative atoms.</li>
+      <li>Group 16 (ns²np⁴) starts with strongly nonmetallic oxygen and shifts toward metalloid and metallic behavior (tellurium, polonium) as atoms grow larger and less electronegative.</li>
+      <li>Nonmetal oxides and hydrides often form acids or share electrons to make covalent molecules.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Hydrogen chloride formation</strong>
+      <code>H₂(g) + Cl₂(g) → 2HCl(g)</code>
+      <p>The atoms share electrons in a polar covalent bond; the resulting molecule can dissolve in water.</p>
+    </div>
+    <div class="formula">
+      <strong>Acid dissociation</strong>
+      <code>HCl(g) → H⁺(aq) + Cl⁻(aq)</code>
+      <p>In water, the bond polarizes so HCl releases a proton, behaving as a strong acid.</p>
+    </div>
+    <div class="formula">
+      <strong>Sulfur oxides + water</strong>
+      <code>SO₂(g) + H₂O(l) → H₂SO₃(aq)</code>
+      <p>SO₂ forms sulfurous acid, while SO₃ + H₂O → H₂SO₄ gives sulfuric acid; heavier chalcogens follow similar patterns with less acidic oxides.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Sodium plus chlorine makes ionic NaCl, while hydrogen plus chlorine gives covalent HCl, showing hydrogen’s nonmetallic character. Burning sulfur in oxygen gives SO₂, which dissolves to form acids that contribute to acid rain.</p>
+  </section>
 </body>
 </html>

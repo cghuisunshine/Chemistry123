@@ -11,128 +11,172 @@
       margin: 2rem;
       max-width: 900px;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #12345f;
+      margin-bottom: 0.5rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h3 {
+      color: #1d4c6f;
+      margin-bottom: 0.25rem;
     }
-    ul, ol {
+    ul {
       margin-left: 1.5rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .formula {
+      background: #f3f4f6;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .example {
+      background: #eef6ff;
+      padding: 0.6rem;
+      border-left: 4px solid #60a5fa;
+      border-radius: 4px;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 3: Chemical Reactions and Stoichiometry</h1>
-
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Interpret and balance chemical equations, including physical states.</li>
-    <li>Classify common types of reactions (combination, decomposition, combustion, displacement, acid–base, precipitation).</li>
-    <li>Use molar mass and Avogadro’s number to convert between mass, moles, and number of particles.</li>
-    <li>Carry out stoichiometric calculations using balanced equations.</li>
-    <li>Identify the limiting reactant and compute theoretical, actual, and percent yields.</li>
-  </ul>
-
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Stoichiometry</strong>: quantitative relationship between reactants and products in a chemical reaction.</li>
-    <li><strong>Mole</strong>: 6.022 × 10<sup>23</sup> entities (Avogadro’s number).</li>
-    <li><strong>Molar mass</strong>: mass of 1 mol of a substance (g·mol<sup>−1</sup>).</li>
-    <li><strong>Limiting reactant</strong>: reactant that is completely consumed; determines the maximum amount of product.</li>
-    <li><strong>Excess reactant</strong>: present in more than enough quantity to react with the limiting reactant.</li>
-    <li><strong>Theoretical yield</strong>: maximum amount of product predicted by stoichiometry from the limiting reactant.</li>
-    <li><strong>Actual yield</strong>: amount of product actually obtained in an experiment.</li>
-    <li><strong>Percent yield</strong>: <code>(actual / theoretical) × 100%</code>.</li>
-  </ul>
-
-  <h2>1. Balancing Chemical Equations</h2>
-  <ul>
-    <li>Coefficients in a balanced equation show relative numbers of molecules or moles, not masses.</li>
-    <li>Law of conservation of mass: total number of each type of atom must be the same on both sides.</li>
-  </ul>
-
-  <h3>Worked Example 1 – Balancing Combustion of Propane</h3>
-  <p>Balance: C<sub>3</sub>H<sub>8</sub>(g) + O<sub>2</sub>(g) → CO<sub>2</sub>(g) + H<sub>2</sub>O(l).</p>
-  <ol>
-    <li>Balance C: 3 C on left → put 3 in front of CO<sub>2</sub>: C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → 3 CO<sub>2</sub> + H<sub>2</sub>O.</li>
-    <li>Balance H: 8 H on left → need 4 H<sub>2</sub>O on right (4 × 2 = 8): C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O.</li>
-    <li>Balance O: right side has 3×2 + 4×1 = 10 O atoms → need 5 O<sub>2</sub> on left: C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O.</li>
-  </ol>
-
-  <h2>2. Moles, Masses, and Particles</h2>
-  <ul>
-    <li>Conversions often go through moles:
-      <ul>
-        <li>Mass → moles: <code>n = m / M<sub>r</sub></code>.</li>
-        <li>Moles → particles: <code>particles = n × N<sub>A</sub></code>.</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h3>Worked Example 2 – Mass to Mole to Atoms</h3>
-  <p>How many oxygen atoms are in 18.0 g of H<sub>2</sub>O?</p>
-  <ol>
-    <li>Molar mass H<sub>2</sub>O ≈ 18.0 g·mol<sup>−1</sup>.</li>
-    <li>Moles of H<sub>2</sub>O: 18.0 g ÷ 18.0 g·mol<sup>−1</sup> = 1.00 mol.</li>
-    <li>Each molecule has 1 O atom → 1 mol H<sub>2</sub>O contains 1 mol O atoms.</li>
-    <li>Number of O atoms: 1.00 mol × 6.022 × 10<sup>23</sup> ≈ 6.02 × 10<sup>23</sup> O atoms.</li>
-  </ol>
-
-  <h2>3. Stoichiometric Calculations</h2>
-  <p>General strategy for a mass–mass stoichiometry problem:</p>
-  <ol>
-    <li>Write and balance the chemical equation.</li>
-    <li>Convert given mass to moles.</li>
-    <li>Use mole ratio from the balanced equation to find moles of desired substance.</li>
-    <li>Convert moles of desired substance to requested units (mass, volume, etc.).</li>
-  </ol>
-
-  <h3>Worked Example 3 – Mass–Mass Stoichiometry</h3>
-  <p>How many grams of NaCl can be produced from 10.0 g of Na reacting with excess Cl<sub>2</sub>?</p>
-  <ol>
-    <li>Balanced equation: 2 Na + Cl<sub>2</sub> → 2 NaCl.</li>
-    <li>Moles of Na: 10.0 g ÷ 22.99 g·mol<sup>−1</sup> ≈ 0.435 mol.</li>
-    <li>Mole ratio: 2 mol Na → 2 mol NaCl (1:1), so n(NaCl) ≈ 0.435 mol.</li>
-    <li>Mass NaCl: 0.435 mol × 58.44 g·mol<sup>−1</sup> ≈ 25.4 g (3 significant figures).</li>
-  </ol>
-
-  <h2>4. Limiting Reactant and Yields</h2>
-  <h3>Identifying the Limiting Reactant</h3>
-  <ol>
-    <li>Convert each reactant amount to moles.</li>
-    <li>Use stoichiometric ratios to compute how many moles of product each reactant could produce.</li>
-    <li>The reactant that gives fewer moles of product is the limiting reactant.</li>
-  </ol>
-
-  <h3>Worked Example 4 – Limiting Reactant</h3>
-  <p>For N<sub>2</sub> + 3 H<sub>2</sub> → 2 NH<sub>3</sub>, if 5.0 g N<sub>2</sub> react with 5.0 g H<sub>2</sub>, which reactant is limiting?</p>
-  <ol>
-    <li>Moles N<sub>2</sub>: 5.0 g ÷ 28.0 g·mol<sup>−1</sup> ≈ 0.179 mol.</li>
-    <li>Moles H<sub>2</sub>: 5.0 g ÷ 2.0 g·mol<sup>−1</sup> = 2.5 mol.</li>
-    <li>Based on N<sub>2</sub>: 0.179 mol N<sub>2</sub> → 2 × 0.179 = 0.358 mol NH<sub>3</sub>.</li>
-    <li>Based on H<sub>2</sub>: 2.5 mol H<sub>2</sub> × (2 mol NH<sub>3</sub>/3 mol H<sub>2</sub>) ≈ 1.67 mol NH<sub>3</sub>.</li>
-    <li>N<sub>2</sub> produces less NH<sub>3</sub> → N<sub>2</sub> is the limiting reactant.</li>
-  </ol>
-
-  <h3>Theoretical, Actual, and Percent Yield</h3>
-  <ul>
-    <li>Theoretical yield: amount of product predicted from the limiting reactant.</li>
-    <li>Actual yield: amount produced in the lab (measured).</li>
-    <li>Percent yield: <code>(actual / theoretical) × 100%</code>.</li>
-  </ul>
-
-  <h2>5. Practice Problems (Self-Check)</h2>
-  <ol>
-    <li>Balance each equation and classify the reaction type: (a) Fe + O<sub>2</sub> → Fe<sub>2</sub>O<sub>3</sub>; (b) HCl + NaOH → NaCl + H<sub>2</sub>O.</li>
-    <li>How many moles of CO<sub>2</sub> are produced when 0.750 mol of propane (C<sub>3</sub>H<sub>8</sub>) burns in excess oxygen?</li>
-    <li>Calculate the mass of CO<sub>2</sub> formed when 15.0 g of C<sub>3</sub>H<sub>8</sub> combust completely.</li>
-    <li>In the reaction 2 Al + 3 Cl<sub>2</sub> → 2 AlCl<sub>3</sub>, if 10.0 g Al react with 35.0 g Cl<sub>2</sub>, identify the limiting reactant and determine the theoretical yield of AlCl<sub>3</sub>.</li>
-    <li>A reaction has a theoretical yield of 12.0 g but an actual yield of 9.0 g. Calculate the percent yield and interpret what it tells you about the efficiency of the reaction.</li>
-  </ol>
+  <section class="section" id="section-3-1">
+    <h2>3.1 The Conservation of Mass, Chemical Equations, and Stoichiometry</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The law of conservation of mass means atoms are neither created nor destroyed; every balanced equation simply rearranges the same atoms.</li>
+      <li>Chemical equations list reactants on the left, products on the right, and coefficients that reflect relative quantities of molecules or moles in the reaction.</li>
+      <li>Stoichiometry is the study of these numerical relationships so we can predict how much of each substance is consumed or produced.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>General balanced equation</strong> <code>a A + b B → c C + d D</code>
+      <p>Coefficients <em>a</em>, <em>b</em>, <em>c</em>, and <em>d</em> show how many formula units (and thus how many moles) of each substance participate. Keeping the same number of atoms of each element on both sides keeps mass conserved. The numbers are kept as the smallest whole-number set so the equation stays meaningful.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Burning methane: <code>CH4 + 2 O2 → CO2 + 2 H2O</code>. Carbon and hydrogen atoms are balanced (1 C, 4 H) and oxygen atoms total four on each side (2 O2 => 4 O, CO2+2 H2O => 4 O), so the equation obeys conservation of mass.</p>
+  </section>
+  <section class="section" id="section-3-2">
+    <h2>3.2 Simple Patterns of Chemical Reactivity</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Combination reactions merge two or more reactants to form a single product.</li>
+      <li>Decomposition reactions split a single reactant into two or more products, often after heating.</li>
+      <li>Combustion reactions use O<sub>2</sub> to oxidize hydrocarbons (and their derivatives), producing CO<sub>2</sub>, H<sub>2</sub>O, and heat.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Combination</strong> <code>A + B → C</code>
+      <p>Two substances combine to make one product. Coefficients must match charges (for ionic solids) or molecular counts so mass is conserved. Example: <code>2 Mg + O2 → 2 MgO</code> demonstrates a metal and nonmetal forming an ionic solid.</p>
+    </div>
+    <div class="formula">
+      <strong>Decomposition</strong> <code>C → A + B</code>
+      <p>One reactant breaks apart into two or more products. The total number of each atom appearing in the products equals the count in the original reactant. Example: <code>2 NaN3 → 2 Na + 3 N2</code> is used in airbags; each NaN<sub>3</sub> yields one Na atom and 1.5 N<sub>2</sub> molecules.</p>
+    </div>
+    <div class="formula">
+      <strong>Combustion</strong> <code>Hydrocarbon + O2 → CO2 + H2O</code>
+      <p>A hydrocarbon or oxygenated fuel reacts with O<sub>2</sub>, always forming carbon dioxide and water. The coefficients reflect the composition of the fuel, e.g., <code>C3H8 + 5 O2 → 3 CO2 + 4 H2O</code>.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Propane combustion (C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O) powers stoves and furnaces. Both reactant and product oxygen counts match (10 O on each side), so the flame obeys stoichiometry.</p>
+  </section>
+  <section class="section" id="section-3-3">
+    <h2>3.3 Formula Weights and Elemental Compositions</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The formula weight adds the atomic weights of all atoms in the formula unit (molecular or ionic).</li>
+      <li>Formula weights allow chemists to link a formula to a measurable mass and to compute percent elemental composition.</li>
+      <li>Compositional analysis reveals what fraction of a compound’s mass comes from each element, which helps identify unknowns.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Formula weight</strong> <code>FW = Σ (number of atoms × atomic weight)</code>
+      <p>Add the atomic weight of each atom in the formula. Units are atomic mass units (amu). The FW of H<sub>2</sub>SO<sub>4</sub> is 2×1.0 + 32.1 + 4×16.0 = 98.1 amu. For ionic solids (like CaCl<sub>2</sub>), use the empirical formula instead.</p>
+    </div>
+    <div class="formula">
+      <strong>Percent mass composition</strong> <code>% element = (atoms × atomic weight / formula weight) × 100%</code></div>
+    <p>Shows what percent of the total mass each element contributes. In H<sub>2</sub>SO<sub>4</sub>, sulfur contributes (32.1 / 98.1)×100 ≈ 32.7% because one sulfur atom carries 32.1 amu of the 98.1 amu total.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Sucrose (C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>) has FW = 12×12.0 + 22×1.0 + 11×16.0 = 342.0 amu. The percent hydrogen is (22×1.0 / 342.0)×100 ≈ 6.4%, while oxygen contributes ≈ 51.5%.</p>
+  </section>
+  <section class="section" id="section-3-4">
+    <h2>3.4 Avogadro’s Number and the Mole; Molar Mass</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The mole is a counting unit of 6.02×10<sup>23</sup> entities (Avogadro’s number), defined so that 1 mol of <sup>12</sup>C atoms weighs 12 g.</li>
+      <li>The molar mass (g/mol) equals the formula weight (amu) expressed in grams per mole; it tells the mass of Avogadro’s number of formula units.</li>
+      <li>Mole conversions link measurable masses, microscopic particles, and macroscopic amounts.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Moles from mass</strong> <code>mol = mass (g) / molar mass (g/mol)</code>
+      <p>Divide a sample’s mass by the molar mass to find how many moles it contains. The units cancel to leave mol. Example: 5.38 g C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> ÷ 180 g/mol ≈ 0.0299 mol.</p>
+    </div>
+    <div class="formula">
+      <strong>Particles from moles</strong> <code>particles = mol × N<sub>A</sub></code>
+      <p>Multiply mol by Avogadro’s number (6.02×10<sup>23</sup> mol<sup>-1</sup>) to get atoms, molecules, or formula units. A 3 g copper penny (molar mass ≈ 63.5 g/mol) holds (3/63.5)×6.02×10<sup>23</sup> ≈ 3.0×10<sup>22</sup> atoms.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">0.433 mol Ca(NO<sub>3</sub>)<sub>2</sub> weighs 0.433×164.1 g/mol ≈ 71.1 g because the molar mass equals the formula weight of 164.1 amu expressed in g/mol.</p>
+  </section>
+  <section class="section" id="section-3-5">
+    <h2>3.5 Empirical and Molecular Formulas</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Empirical formulas give the simplest whole-number ratios of atoms; molecular formulas are whole-number multiples of them.</li>
+      <li>Percent composition data (mass %) can be converted to mole ratios by assuming a 100 g sample.</li>
+      <li>Combustion analysis (CO<sub>2</sub> and H<sub>2</sub>O produced) determines how many moles of C and H were present originally, letting you deduce the empirical formula even with oxygen.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Whole-number multiple</strong> <code>n = molecular weight / empirical formula weight</code>
+      <p>Divide the measured molecular weight (from experimentation) by the empirical formula weight; the result must be a whole number. Multiply each empirical subscript by this number to retrieve the molecular formula. Ascorbic acid (empirical C<sub>3</sub>H<sub>4</sub>O<sub>3</sub>, weight 88.0 amu) has molecular weight 176 amu, so n=2 and the molecular formula is C<sub>6</sub>H<sub>8</sub>O<sub>6</sub>.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Analyzing ascorbic acid: 40.92% C, 4.58% H, 54.50% O gives mole ratios ≈ 3.41 mol C : 4.54 mol H : 3.41 mol O ⇒ empirical C<sub>3</sub>H<sub>4</sub>O<sub>3</sub>. Because the molecular weight is 176 amu, the molecular formula is double that: C<sub>6</sub>H<sub>8</sub>O<sub>6</sub>.</p>
+  </section>
+  <section class="section" id="section-3-6">
+    <h2>3.6 Reaction Stoichiometry</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>With a balanced equation, coefficients give stoichiometric equivalents for both molecules and moles.</li>
+      <li>Dimensional analysis converts grams of a reactant to moles, uses mole ratios to get moles of a product (or other reactant), then converts back to grams.</li>
+      <li>Every conversion step preserves units, so checking units is a convenient error check.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Stoichiometric chain</strong> <code>grams A → mol A → mol B → grams B</code>
+      <p>Use the molar mass of A to convert grams to moles, then apply the mole ratio (from coefficients) to convert to B, then use B’s molar mass to return to grams. All masses are in grams and moles in mol.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Burning 1.00 g of butane (molar mass 58.0 g/mol) gives 3.03 g CO<sub>2</sub>. Convert 1.00 g C<sub>4</sub>H<sub>10</sub> to mol (1/58), use the 2:8 mole ratio to get CO<sub>2</sub> mol (×8/2), then multiply by 44.0 g/mol to reach 3.03 g CO<sub>2</sub>.</p>
+  </section>
+  <section class="section" id="section-3-7">
+    <h2>3.7 Limiting Reactants and Reaction Yields</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>When reactants are not provided in stoichiometric ratios, the reactant that runs out first—the limiting reactant—determines how much product can form.</li>
+      <li>Excess reactants remain after the limiting reactant is consumed, and you can calculate their leftover amounts using mole ratios.</li>
+      <li>Theoretical yield is what you calculate from the limiting reactant, the actual yield is what you physically collect, and percent yield compares them.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Percent yield</strong> <code>percent yield = (actual yield / theoretical yield) × 100%</code>
+      <p>Actual yield (in grams or moles) comes from the experiment. The theoretical yield is computed assuming the limiting reactant fully converts. Percent yield stays below 100% and tells you how much product you recovered compared to the ideal.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">With 3.0 mol N<sub>2</sub> and 6.0 mol H<sub>2</sub>, combustion of ammonia uses H<sub>2</sub> as the limiting reactant (needs 3 mol H<sub>2</sub> for every mol N<sub>2</sub> but only 6 mol H<sub>2</sub> is available). The balanced equation gives 2 mol NH<sub>3</sub> per 3 mol H<sub>2</sub>, so you get 4.0 mol NH<sub>3</sub>. If only 3.5 mol is collected, percent yield is (3.5 / 4.0)×100% = 87.5%.</p>
+  </section>
 </body>
 </html>

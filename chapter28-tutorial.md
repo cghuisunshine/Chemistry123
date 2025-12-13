@@ -1,0 +1,75 @@
+# Chapter 28 Tutorial — Aldehydes, Ketones, and Carbohydrates
+
+## 28.1 Aldehydes, Ketones, and the Carbonyl Group
+
+### Key ideas
+- The carbonyl group (C=O) is planar with sp2-hybridized C and O; the bond is shorter, stronger, and much more polarized than a C=C bond, so the carbon carries a partial positive charge and becomes an electrophile.
+- Aldehydes place the CHO group at the end of a hydrocarbon chain, so the carbonyl carbon is always C-1; the parent alkane is renamed by replacing the final -ane with -al, and the group outcompetes alkenes or alkynes when numbering.
+- Ketones embed the carbonyl within the chain, so numbering is required to locate the C=O; the suffix -one replaces -ane, and many natural solvents and hormones (e.g., acetone, camphor, testosterone) are ketones.
+
+### Important formulas & their meaning
+- **Carbonyl geometry:** `C=O` has a bond length of ~123 pm and a bond enthalpy of ~745 kJ/mol versus 134 pm and 611 kJ/mol for C=C, which tells a Grade 11-12 student that the oxygen pulls more electron density, making the carbonyl carbon electrophilic and ready for nucleophilic attack.
+- **Aldehyde functional group:** An aldehyde fits the pattern `R-CHO`, where the carbonyl carbon is bonded to a hydrogen and the rest of the chain; the group always sits at the terminus (no numbering) and keeps the H to demonstrate that it is easier to oxidize than a ketone (e.g., pentanal is CH3CH2CH2CH2CHO).
+- **Ketone functional group:** A ketone follows `R-CO-R'`, where both groups attached to the carbonyl are carbons; when n > 4 you must number the carbonyl position (e.g., butan-2-one and butan-3-one represent the same molecular formula but different positions of the C=O). This internal placement and resonance stabilization explain why ketones are typically less reactive than aldehydes.
+
+### Short example(s)
+- The molecules with formula C5H10O include pentanal (an aldehyde), 2-pentanone, and 3-pentanone; naming them systematically illustrates the need for numbering in ketones and the default C-1 placement in aldehydes.
+- Pentan-1-ol oxidizes to pentanal and acetone (propanone) dissolves a wide range of organics because its carbonyl is flanked by methyl groups, which keeps the molecule symmetrical and stable.
+
+## 28.2 Preparation of Aldehydes and Ketones
+
+### Key ideas
+- Oxidation of primary alcohols yields aldehydes or, under stronger oxidants, carboxylic acids; PCC and similar mild reagents stop at the aldehyde, while dichromate/chromic acid push all the way to the acid.
+- Secondary alcohols oxidized with the same agents give ketones, while tertiary alcohols resist oxidation because it would require breaking a C-C bond.
+- Cleaving alkenes with ozone followed by reduction with dimethyl sulfide gives aldehydes and/or ketones depending on the substitution of the double bond, so ozonolysis is a strategic way to prepare carbonyls from unsaturated precursors.
+
+### Important formulas & their meaning
+- **Primary oxidation to aldehyde:** `RCH2OH + [O] -> RCHO + H2O`. Here `[O]` stands for the oxidizing agent (e.g., PCC), and the students should interpret it as adding one equivalent of oxygen to a primary alcohol to make an aldehyde, with water as the extra product.
+- **Primary oxidation to acid:** `RCHO + [O] -> RCOOH` (or `RCH2OH + 2[O] -> RCOOH + H2O`). Strong oxidants keep adding oxygen, so a beginner understands that stopping at an aldehyde takes a milder reagent.
+- **Secondary oxidation to ketone:** `R1R2CHOH + [O] -> R1R2C=O + H2O`. Because the carbonyl carbon already has two alkyl groups, the oxidation can only go as far as the ketone, explaining why no numbering is necessary for molecules like acetone.
+- **Ozonolysis:** `R-CH=CH-R' + O3 + (CH3)2S -> R-CHO + R'-CHO` (or a ketone if one side is disubstituted). The ozone cleaves the double bond and dimethyl sulfide acts as a reductant so each fragment becomes a carbonyl, with the substitution pattern determining whether each piece is an aldehyde or ketone.
+
+### Short example(s)
+- PCC oxidizes pentan-1-ol to pentanal without further oxidation, whereas potassium dichromate in acid would continue to pentanoic acid, illustrating the need to choose oxidants carefully.
+- Ozonolysis of 1-methylcyclohexene with O3/(CH3)2S breaks the double bond to give cyclohexanone plus formaldehyde, showing how the degree of substitution dictates whether an aldehyde or ketone (or both) forms.
+
+## 28.3 Reactions of Aldehydes and Ketones
+
+### Key ideas
+- The polarized carbonyl carbon accepts nucleophiles to form a tetrahedral alkoxide intermediate; the final step is protonation to give an alcohol or related compound.
+- Carbon nucleophiles such as Grignard reagents build new C-C bonds, while hydride donors (NaBH4, LiAlH4) reduce the C=O to alcohols without touching alkenes.
+- Nucleophiles bearing heteroatoms (CN-, amines, alcohols) give cyanohydrins, imines, and hemiacetals/acetal/glycoside scaffolds, all of which play roles in synthesis and carbohydrate chemistry.
+- Tautomerism between the keto and enol forms makes the alpha-hydrogen acidic (pKa ~9-13), enabling alpha-substitution reactions such as halogenation via the transient enol/enolate.
+
+### Important formulas & their meaning
+- **General nucleophilic addition:** `R-CO-R' + Nu- -> R-C(Nu)O- -> (H+) -> R-C(Nu)(OH)-R'`. The formula shows that the Nu- adds to the electrophilic carbon, giving an alkoxide that is protonated to form an alcohol; the intermediate is key to understanding most carbonyl reactions.
+- **Grignard addition:** `R"MgX + R-CO-R' -> R-C(OMgX)-R" -> H3O+ -> R-C(OH)-R'-R"`. Grignard reagents behave like carbanions that add to carbonyls in ether solvents, and the acidic workup protonates the alkoxide to complete the new carbon-carbon bond formation.
+- **Hydride reduction:** `R-CHO + H- -> R-CH2O- -> H3O+ -> RCH2OH` (and similarly for ketones). NaBH4 or LiAlH4 deliver hydride ions that attack the carbonyl, so students can think of the hydride as stepping in for a negative H and giving a stable alcohol.
+- **Cyanohydrin formation:** `R-CO-R' + CN- + H+ -> R-C(OH)(CN)-R'`. Cyanide is both a strong nucleophile and a base; the resulting alpha-hydroxynitrile adds another handle for building molecules while showing how carbonyls accept new C-C bonds.
+- **Keto-enol tautomerism:** `R-CO-CH2-R' <-> R-C(OH)=CH-R'`. The equilibrium favors the keto form, but the enol form is accessible through acid-catalyzed proton transfers, explains the acidity of the alpha-hydrogens and sets up alpha-substitution chemistry.
+- **alpha-Halogenation:** `R-CO-CH2-R' + X2 -> R-CO-CHX-R' + HX` (via the enol/enolate). The enol attacks halogen, the oxonium intermediate rearranges, and a proton is lost to regenerate the carbonyl with a halogen at the alpha-carbon.
+- **Imine (Schiff base) formation:** `R-CO-R' + R"NH2 <-> R-C=NR" + H2O`. This equilibrium under acid shows how amines replace the carbonyl oxygen with nitrogen, generating structures relevant to amino acid and cofactor chemistry.
+- **Acetal formation:** `R-CHO + 2 R'OH <-> R-CH(OR')2 + H2O` via the hemiacetal intermediate. Acetals are stable under basic conditions, so they are commonly used to protect carbonyls during multistep synthesis as well as to lock the anomeric carbon in carbohydrates.
+
+### Short example(s)
+- NaBH4 reduces ethanal to ethanol while leaving an alkene intact, because the hydride attacks the carbonyl carbon selectively and the acid workup protonates the alkoxide.
+- Bromination of 2-pentanone under acidic conditions first converts a tiny amount of enol into a bromonium-like intermediate, which after deprotonation gives the alpha-bromoketone, demonstrating how enolization guides substitution.
+- Condensing propanamine with propanone under acid produces an imine (C=NR), and reacting acetaldehyde with methanol twice yields an acetal, illustrating how carbonyls connect to heteroatom nucleophiles.
+
+## 28.4 Carbohydrates
+
+### Key ideas
+- Monosaccharides are polyhydroxy aldehydes or ketones with general formula CnH2nOn (n = 3-8), classified as aldoses or ketoses by the carbonyl type and by the number of carbons (triose, tetrose, pentose, hexose, etc.).
+- Fischer projections place the most oxidized carbon at the top, and a D-configuration results when the hydroxyl on the penultimate carbon sits on the right; converting to a Haworth projection (furanose or pyranose) shows the cyclic hemiacetal and defines the alpha/beta anomers based on the orientation of the anomeric OH relative to CH2OH.
+- Glycosidic bonds link monosaccharides through the anomeric carbon, forming disaccharides (like lactose and sucrose), glycosides, and polysaccharides; alpha vs beta linkages (for example, alpha-1,4 in starch versus beta-1,4 in cellulose) change the overall shape, bonding, and solubility.
+
+### Important formulas & their meaning
+- **Monosaccharide formula:** `CnH2nOn` with n between 3 and 8. This tells students that each sugar contains one carbonyl plus equivalent hydroxyl groups, so glucose (C6H12O6) is simply a hexose version of that pattern.
+- **Fischer-to-Haworth rule:** If the OH on the highest-numbered chiral center (penultimate carbon) is on the right in Fischer form, the sugar is in the D family, and when the ring closes the CH2OH group sits above the plane; the anomeric OH pointing down means alpha, up means beta in a pyranose (e.g., alpha-d-glucopyranose vs beta-d-glucopyranose), explaining mutarotation.
+- **Glycosidic bond notation:** `alpha-1,4` or `beta-1,4` describes which anomeric carbon (C-1) connects to which carbon (C-4) on the next sugar and whether the anomeric OH is axial (alpha) or equatorial (beta); starch and glycogen use alpha-1,4 (plus alpha-1,6 branches) so they coil and are water-soluble, whereas cellulose uses beta-1,4, making straight chains that hydrogen-bond tightly and resist digestion.
+- **Mutarotation ratio:** The equilibrium mixture of alpha and beta anomers (for example, d-galactose equilibrates to a 72:28 alpha:beta ratio) explains to students that the cyclic hemiacetal is in equilibrium with the open chain and that optical rotation changes as the mixture forms.
+
+### Short example(s)
+- Glucose, an aldose with six carbons, forms alpha- and beta-d-glucopyranose by cyclizing into a six-membered ring; when dissolved in water, the sample shows mutarotation as the alpha and beta anomers interconvert.
+- Lactose is a disaccharide and a glycoside because its bond links the anomeric carbon of galactose to the C-4 of glucose via a beta-1,4-glycosidic bond, so it does not mutarotate until the glycosidic bond is hydrolyzed.
+- Starch (alpha-1,4/alpha-1,6) and glycogen (alpha-1,4/alpha-1,6) pack glucose into digestible storage helices, while cellulose (beta-1,4) forms extended sheets with hydrogen bonds, explaining why humans can break down starch but not cellulose.

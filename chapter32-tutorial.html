@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chapter 32 Tutorial — Solving Molecular Structure</title>
+  </head>
+  <body>
+    <h1>Chapter 32 Tutorial — Solving Molecular Structure</h1>
+    <section>
+      <h2>32.1 The Electromagnetic Spectrum</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The electromagnetic spectrum covers all photon energies: the UV-visible region excites electrons, IR induces vibrational transitions, and the radio-frequency region accesses nuclear spin states; chemists exploit different regions for different molecular information.</li>
+        <li>A photon’s energy depends on frequency and wavelength (<code>E = hc/λ</code>), so higher-frequency (shorter wavelength) radiation carries more energy—a UV photon can promote an electron, while lower-energy IR photons stretch bonds.</li>
+        <li>Choosing the appropriate region focuses on the physical process of interest: π-conjugated/aromatic systems respond in the UV-visible, functional groups show signature absorptions in the IR, and nuclei give NMR signals at radio frequencies.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Photon energy:</strong> <code>E = hc/λ</code>. <code>h</code> is Planck’s constant and <code>c</code> is the speed of light, so a shorter wavelength (λ) increases the energy—this explains why UV light (λ ~ 200–400 nm) can excite electrons but IR (λ ~ 700 nm to 1 mm) cannot.</li>
+        <li><strong>Frequency-wavelength relation:</strong> <code>c = λν</code>. The speed of light is constant, so choosing either λ or frequency ν describes the same radiation; spectroscopy interprets molecular absorptions in whichever units are most convenient for the region.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>UV-visible spectroscopy reveals the conjugated π-system in benzene derivatives because their electron transitions absorb violet/UV light, while saturated hydrocarbons remain transparent at those wavelengths.</li>
+        <li>Infrared spectroscopy targets bond vibrations (Section 32.2), so an O–H stretch absorbs around 3200–3600 cm⁻¹ and proves a hydroxyl group is present without breaking the molecule.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>32.2 Infrared (IR) Spectroscopy</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>IR radiation does not ionize molecules but excites molecular vibrations; each functional group (C=O, O–H, N–H, C≡C) absorbs at characteristic energies (wavenumbers), providing a molecular fingerprint.</li>
+        <li>The wavenumber (cm⁻¹) is the reciprocal of wavelength and represents the number of waves in a centimeter; higher wavenumbers correspond to higher energy vibrations (e.g., stronger or lighter bonds).</li>
+        <li>Bond vibrations follow Hooke’s law (<code>ν = (1/2π)√(k/m)</code>), where <code>k</code> is bond stiffness and <code>m</code> is reduced mass; stiffer or lighter atom pairs vibrate at higher frequencies, which is why triple bonds appear above 2100 cm⁻¹ while single C–C stretches sit below 1500 cm⁻¹.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Wavenumber:</strong> <code>ṽ = ν/c</code> (true frequency divided by speed of light), measured in cm⁻¹; this is the x-axis on most IR spectra, so a band at 1700 cm⁻¹ indicates a carbonyl.</li>
+        <li><strong>Absorbance relation:</strong> <code>A = -log10(T)</code> where <code>T</code> is transmittance, letting students convert the percentage of light that passes into an absorbance value that more directly reflects concentration.</li>
+        <li><strong>Hooke’s law frequency:</strong> <code>ν = (1/2π)√(k/m)</code>. The bond acts like a spring, so heavier atoms (higher <code>m</code>) or weaker bonds (lower <code>k</code>) give lower ν, helping students predict which region (high vs low wavenumber) a given functional group will appear.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>The C=O stretch in an aldehyde or ketone shows a strong absorption near 1700 cm⁻¹, while the fingerprint region (300–1400 cm⁻¹) contains complex bending vibrations used to validate a suspected identity.</li>
+        <li>A broad band at 3200–3600 cm⁻¹ signals an O–H stretch, which distinguishes between alcohols and ethers in an IR spectrum.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>32.3 Nuclear Magnetic Resonance (NMR) Spectroscopy</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>NMR observes nuclear spin transitions in a magnetic field; each nucleus experiences a slightly different local field due to shielding by electrons, giving rise to unique chemical shifts measured in parts per million (ppm) relative to a reference (TMS).</li>
+        <li>The spectrum carries three structural clues: chemical shift (δ) reveals the chemical environment, integration shows how many hydrogens contribute to each signal, and coupling (J, in Hz) produces splitting patterns that reflect neighboring hydrogens (the n + 1 rule for spin-½ nuclei).</li>
+        <li>Shielding/deshielding effects dictate δ: electron-rich groups push signals upfield (lower δ), while electronegative neighbors or π-systems pull them downfield (higher δ), providing diagnostic evidence of functional groups.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Chemical shift:</strong> <code>δ = (νsample - νreference)/νspectrometer × 10⁶</code>. Because δ is normalized to the spectrometer frequency, it is instrument-independent and always reported in ppm.</li>
+        <li><strong>n + 1 rule:</strong> A proton with <code>n</code> equivalent hydrogens on adjacent atoms splits into <code>n + 1</code> peaks (doublet, triplet, quartet, etc.), so students count neighbors to anticipate signal multiplicity and deduce connectivity.</li>
+        <li><strong>Coupling constant (J):</strong> The spacing between split peaks, measured in hertz, is constant for a coupled set; identical J values across two signals signify they belong to the same spin system, guiding molecule assembly.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>In diethyl ether’s ¹H NMR, the CH₂ groups adjacent to oxygen appear as quartet/triplet patterns because each CH₂ sees three hydrogens on the neighboring CH₃ and vice versa, illustrating coupling with J ~ 7 Hz.</li>
+        <li>A vinyl proton next to a carbonyl appears at δ ~ 6–7 ppm (deshielded) due to both the π-system and the electron-withdrawing C=O, while an aliphatic methyl resonates near δ ~ 0.9 ppm, showing how δ differentiates functional groups.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>32.4 Mass Spectrometry</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Mass spectrometry (MS) ionizes a tiny sample, often by electron impact (EI), and measures the mass-to-charge ratio (m/z) of the resulting ions to determine molecular mass and fragmentation patterns.</li>
+        <li>The spectrum displays the molecular ion peak ([M]•⁺) for the intact molecule, the base peak (most intense signal) for the most stable fragment, and additional peaks that reveal how the molecule breaks apart.</li>
+        <li>Isotopic patterns (e.g., Cl has [M] and [M + 2] peaks at ~3:1, Br at 1:1) provide unmistakable signatures for certain elements, while suites of fragments indicate functional groups or even straight-chain lengths.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Mass-to-charge ratio:</strong> <code>m/z</code>, with <code>z</code> usually 1 for EI spectra, equals the mass of the ion; students read the x-axis to find the molecular ion and deduce the molecular weight directly from <code>m/z</code>.</li>
+        <li><strong>Relative abundance:</strong> Intensities are expressed relative to the base peak (set at 100%), so comparing peaks (e.g., [M] vs [M − 15]) helps spot logical fragments and the stability of cations.</li>
+        <li><strong>Isotopic fingerprint:</strong> Recognizing that chlorine (³⁵Cl/³⁷Cl) or bromine (⁷⁹Br/⁸¹Br) create characteristic <code>M:M+2</code> ratios lets students confirm halogenated structures even before other spectra are consulted.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>The EI mass spectrum of an alcohol often shows a base peak at [M − 18] due to loss of H₂O, whereas the molecular ion peak at <code>m/z</code> equal to the molecular weight confirms the parent formula.</li>
+        <li>A compound with chlorine shows two intense peaks separated by 2 units with relative intensities ~3:1, so seeing <code>m/z</code> 98 and 100 at that ratio signals a Cl atom in the molecule.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>32.5 Compound Identification Using Spectra</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Structure elucidation uses a combination of data: IR for functional groups, NMR for connectivity and proton count, MS for mass/formula, plus chemical observations to narrow possibilities.</li>
+        <li>The workflow starts with an educated guess (“first skim”), then iteratively checks each spectrum to accept, reject, or refine the proposed structure until all evidence aligns.</li>
+        <li>Practicing pattern recognition (e.g., IR peaks for carbonyls, NMR splitting/δ for specific environments, MS fragments) builds intuition so you can match spectra to unknowns quickly.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Degree of unsaturation (DU):</strong> <code>DU = C – H/2 + N/2 + 1</code> (adjusted for halogens/oxygen) helps predict rings/pi bonds from molecular formula obtained via MS; combined with IR/NMR data, it reveals whether the compound is aromatic, cyclic, or saturated.</li>
+        <li><strong>Spectroscopic triangulation:</strong> Use IR to flag functional groups, MS to fix the molecular weight, and NMR (chemical shift + integration + coupling) to assign each atom—multiple clues reduce ambiguity and confirm the structure.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>If MS gives a molecular weight of 150, IR shows a strong carbonyl at 1715 cm⁻¹, and NMR shows a singlet integrating to three hydrogens at δ ~2.1 ppm plus a quartet at δ ~4.1 ppm, you can piece together ethyl acetate confidently.</li>
+        <li>A forensic chemist combines NMR integrations to determine the number of each hydrogen type, uses IR to confirm functional groups, and matches MS fragments to a suspected drug, illustrating the iterative identification strategy.</li>
+      </ul>
+    </section>
+  </body>
+</html>

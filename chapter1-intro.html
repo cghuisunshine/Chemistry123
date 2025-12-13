@@ -11,185 +11,174 @@
       margin: 2rem;
       max-width: 900px;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #12345f;
+      margin-bottom: 0.5rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h3 {
+      color: #1d4c6f;
+      margin-bottom: 0.25rem;
     }
-    ul, ol {
+    ul {
       margin-left: 1.5rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .formula {
+      background: #f3f4f6;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .example {
+      background: #eef6ff;
+      padding: 0.6rem;
+      border-left: 4px solid #60a5fa;
+      border-radius: 4px;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 1: Introduction, Matter, Energy, and Measurement</h1>
-
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Describe how chemistry fits within the scientific method and why measurement is central to the subject.</li>
-    <li>Classify matter by state (solid, liquid, gas) and by composition (element, compound, homogeneous mixture, heterogeneous mixture).</li>
-    <li>Distinguish clearly between physical vs. chemical properties and changes, using everyday examples.</li>
-    <li>Use SI units and metric prefixes correctly, converting between common length, mass, volume, and temperature units.</li>
-    <li>Apply significant‑figure rules to measurements, calculated answers, and scientific notation.</li>
-    <li>Use dimensional analysis systematically to set up and solve multistep unit‑conversion problems, including density.</li>
-  </ul>
-
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Matter</strong>: anything that has mass and occupies space.</li>
-    <li><strong>Element</strong>: substance that cannot be broken down into simpler substances by chemical means.</li>
-    <li><strong>Compound</strong>: substance composed of two or more elements in a fixed ratio.</li>
-    <li><strong>Mixture</strong>: physical combination of two or more substances; composition may vary.</li>
-    <li><strong>Physical property</strong>: can be observed without changing composition (for example, color, melting point).</li>
-    <li><strong>Chemical property</strong>: describes how a substance reacts to form new substances (for example, flammability).</li>
-    <li><strong>Accuracy</strong>: closeness of a measurement to the true value.</li>
-    <li><strong>Precision</strong>: closeness of repeated measurements to each other.</li>
-    <li><strong>Significant figures</strong>: digits in a reported value that are known with certainty plus one final estimated digit.</li>
-    <li><strong>Density</strong>: mass per unit volume, <code>&rho; = m/V</code>.</li>
-  </ul>
-
-  <h2>1. Classification of Matter</h2>
-  <h3>States of Matter</h3>
-  <ul>
-    <li><strong>Solids</strong>: particles packed closely; fixed shape and volume; low compressibility.</li>
-    <li><strong>Liquids</strong>: particles still close but able to flow; fixed volume but assume shape of container.</li>
-    <li><strong>Gases</strong>: particles far apart; neither fixed shape nor fixed volume; highly compressible.</li>
-  </ul>
-
-  <h3>Pure Substances vs Mixtures</h3>
-  <ul>
-    <li><strong>Pure substances</strong> have constant composition:
-      <ul>
-        <li>Elements (for example, O<sub>2</sub>, Cu).</li>
-        <li>Compounds (for example, H<sub>2</sub>O, NaCl) with definite ratios.</li>
-      </ul>
-    </li>
-    <li><strong>Mixtures</strong> have variable composition:
-      <ul>
-        <li>Homogeneous (solutions): uniform throughout (saltwater, air).</li>
-        <li>Heterogeneous: non‑uniform (oil and water, salad).</li>
-      </ul>
-    </li>
-  </ul>
-
-  <h3>Worked Example 1 – Classifying Matter</h3>
-  <p>Classify each as element, compound, homogeneous mixture, or heterogeneous mixture: sugar, brass, orange juice with pulp, oxygen gas.</p>
-  <ol>
-    <li>Sugar (table sugar, sucrose) has fixed composition (C, H, O in a fixed ratio) → <strong>compound</strong>.</li>
-    <li>Brass is a uniform solid solution of Cu and Zn → <strong>homogeneous mixture</strong>.</li>
-    <li>Orange juice with pulp has visible solid pieces suspended in liquid → <strong>heterogeneous mixture</strong>.</li>
-    <li>Oxygen gas (O<sub>2</sub>) is a single element → <strong>element</strong>.</li>
-  </ol>
-
-  <h2>2. Properties, Changes, and Energy</h2>
-  <h3>Physical vs Chemical Changes</h3>
-  <ul>
-    <li><strong>Physical changes</strong>: same substance before and after (melting ice, boiling water, dissolving salt in water).</li>
-    <li><strong>Chemical changes</strong>: new substances formed (burning, rusting, digestion, gas formation in a reaction).</li>
-  </ul>
-
-  <h3>Energy in Physical and Chemical Processes</h3>
-  <ul>
-    <li>Energy can be stored as potential energy (position, composition) or kinetic energy (motion).</li>
-    <li>Chemical reactions often involve exchange of energy with surroundings in the form of heat.</li>
-  </ul>
-
-  <h2>3. Measurement, SI Units, and Prefixes</h2>
-  <ul>
-    <li>Base SI units used in general chemistry:
-      <ul>
-        <li>Length: meter (m).</li>
-        <li>Mass: kilogram (kg); in the lab we often use grams (g).</li>
-        <li>Time: second (s).</li>
-        <li>Temperature: kelvin (K); Celsius (°C) is common in lab.</li>
-        <li>Amount of substance: mole (mol).</li>
-      </ul>
-    </li>
-    <li>Common prefixes: kilo (k, 10<sup>3</sup>), centi (c, 10<sup>−2</sup>), milli (m, 10<sup>−3</sup>), micro (µ, 10<sup>−6</sup>), nano (n, 10<sup>−9</sup>).</li>
-  </ul>
-
-  <h3>Worked Example 2 – Unit Prefix Conversion</h3>
-  <p>Convert 3.45 km to meters and centimeters.</p>
-  <ol>
-    <li>Write conversion factors: 1 km = 1000 m; 1 m = 100 cm.</li>
-    <li>Convert to meters: <code>3.45 km × (1000 m / 1 km) = 3.45 × 10<sup>3</sup> m</code>.</li>
-    <li>Convert to centimeters: <code>3.45 × 10<sup>3</sup> m × (100 cm / 1 m) = 3.45 × 10<sup>5</sup> cm</code>.</li>
-  </ol>
-
-  <h2>4. Significant Figures and Scientific Notation</h2>
-  <ul>
-    <li><strong>Counting significant figures</strong>:
-      <ul>
-        <li>All nonzero digits are significant.</li>
-        <li>Zeros between nonzero digits are significant (for example, 101 has three sig figs).</li>
-        <li>Leading zeros are never significant (0.0032 has two sig figs).</li>
-        <li>Trailing zeros after a decimal point are significant (2.300 has four sig figs).</li>
-      </ul>
-    </li>
-    <li><strong>Calculations</strong>:
-      <ul>
-        <li>Add/subtract: answer has same number of decimal places as the measurement with the fewest decimal places.</li>
-        <li>Multiply/divide: answer has same number of significant figures as the measurement with the fewest significant figures.</li>
-      </ul>
-    </li>
-    <li>Use scientific notation to express very large or small numbers clearly and to match the correct sig figs.</li>
-  </ul>
-
-  <h3>Worked Example 3 – Significant Figures</h3>
-  <p>Compute (12.53 g + 1.8 g) / 0.055 g and report with correct significant figures.</p>
-  <ol>
-    <li>Add masses: 12.53 g + 1.8 g = 14.33 g → round to 14.3 g (one decimal place, limited by 1.8 g).</li>
-    <li>Divide: 14.3 g / 0.055 g ≈ 259.09 (dimensionless).</li>
-    <li>Sig figs: 14.3 has three sig figs; 0.055 has two sig figs → answer should have two sig figs.</li>
-    <li>Final answer: 2.6 × 10<sup>2</sup>.</li>
-  </ol>
-
-  <h2>5. Dimensional Analysis and Density</h2>
-  <p>Dimensional analysis (factor‑label method) is the default tool for almost every numerical chemistry problem.</p>
-
-  <h3>General Strategy</h3>
-  <ol>
-    <li>Write down the starting quantity with its units.</li>
-    <li>Multiply by conversion factors so units cancel, leaving desired units.</li>
-    <li>Keep track of significant figures and check if the answer is reasonable.</li>
-  </ol>
-
-  <h3>Density as a Conversion Factor</h3>
-  <ul>
-    <li>Density links mass and volume: <code>&rho; = m/V</code>.</li>
-    <li>Use density to convert between mass and volume when doing mixture or solution problems later in the course.</li>
-  </ul>
-
-  <h3>Worked Example 4 – Using Density</h3>
-  <p>A metal sample has mass 12.8 g and volume 4.00 mL. Calculate its density and comment on possible identity.</p>
-  <ol>
-    <li>Compute density: <code>&rho; = m/V = 12.8 g / 4.00 mL = 3.20 g·mL<sup>−1</sup></code>.</li>
-    <li>Sig figs: 12.8 (three), 4.00 (three) → density has three sig figs (3.20 g·mL<sup>−1</sup>).</li>
-    <li>Compare with tabulated densities (from your text or lab manual) to suggest a plausible metal.</li>
-  </ol>
-
-  <h2>6. Common Pitfalls and Study Tips</h2>
-  <ul>
-    <li>Always write units in every step; most mistakes are unit mistakes.</li>
-    <li>Underline or circle the <em>given</em> and the <em>target</em> quantity before starting a calculation.</li>
-    <li>Check whether your final answer makes sense (for example, size, sign, order of magnitude).</li>
-    <li>Practice converting between °C and K, and between grams/milliliters and kilograms/liters, until it feels automatic.</li>
-  </ul>
-
-  <h2>7. Practice Problems (Self-Check)</h2>
-  <p>Try these without looking at your notes, then compare with solutions in your textbook or with a tutor.</p>
-  <ol>
-    <li>Classify each of the following as an element, compound, homogeneous mixture, or heterogeneous mixture: air, NaCl(s), brass, granite, blood.</li>
-    <li>Identify each change as primarily physical or chemical: boiling water, burning paper, dissolving sugar, rusting iron, shredding paper.</li>
-    <li>Convert 6.50 × 10<sup>2</sup> mg to grams and kilograms using dimensional analysis; show all unit‑cancellation steps.</li>
-    <li>A student measures the mass of a liquid as 15.2 g and its volume as 12.3 mL. Calculate the density and express your answer with the correct significant figures.</li>
-    <li>Room temperature is often approximated as 25.0 °C. Express this temperature in kelvin and in degrees Fahrenheit.</li>
-    <li>A block of metal has dimensions 2.40 cm × 1.80 cm × 0.500 cm and mass 21.6 g. (a) Calculate its volume. (b) Determine its density. (c) Suggest a possible identity based on a density table.</li>
-  </ol>
+  <section class="section" id="section-1-1">
+    <h2>1.1 The Study of Chemistry</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li><strong>Chemistry</strong> is the study of matter, its properties, and the changes it undergoes. It explains how a substance’s composition and structure control its observable features.</li>
+      <li><strong>Matter</strong> is any physical material that has mass and occupies space; its <strong>properties</strong> are the characteristics we use to recognize and distinguish samples.</li>
+      <li><strong>Elements</strong> are substances composed of only one kind of atom, while <strong>molecules</strong> are specific arrangements of two or more atoms bonded together.</li>
+      <li><strong>Mixtures</strong> combine different substances without a fixed composition, so their properties vary with the relative amounts of each component.</li>
+      <li>Chemists work in three realms: macroscopic observations, microscopic atoms/molecules, and symbolic representations such as chemical formulas.</li>
+      <li>The <strong>scientific method</strong> progresses from observations to hypotheses, experiments, theories, and, eventually, scientific laws that summarize consistent behavior.</li>
+      <li>Fundamental chemical work includes creating new materials, measuring their properties, and developing models to explain or predict their behavior.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p>Section 1.1 focuses on concepts, definitions, and the scientific method rather than numerical formulas.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Ethanol and ethylene glycol are chemically similar on the surface, but ethanol contains one oxygen atom while ethylene glycol contains two. That subtle compositional/structural difference makes ethanol safe for drinks and ethylene glycol toxic, showing why chemists care about composition and arrangement.</p>
+  </section>
+  <section class="section" id="section-1-2">
+    <h2>1.2 Classifications of Matter</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li><strong>States of matter</strong>: gases have no fixed shape or volume and are compressible; liquids have fixed volume and take the shape of their container; solids have both fixed shape and volume.</li>
+      <li><strong>Pure substances</strong> maintain a constant composition. <strong>Elements</strong> contain one type of atom; <strong>compounds</strong> contain two or more elements in fixed ratios.</li>
+      <li><strong>Mixtures</strong> have variable compositions. <strong>Homogeneous mixtures</strong> (solutions) are uniform, while <strong>heterogeneous mixtures</strong> show distinct regions.</li>
+      <li>The <strong>law of constant composition</strong> (definite proportions) states that a pure compound always has the same elemental makeup regardless of the sample source.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p>This section provides organizational rules (states, pure vs. mixtures) but no numerical formulas.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Sugar (sucrose) is a compound with a fixed ratio of C, H, and O atoms, brass is a homogeneous mixture (solid solution) of Cu and Zn, orange juice with pulp is a heterogeneous mixture, and oxygen gas (O<sub>2</sub>) is an element.</p>
+  </section>
+  <section class="section" id="section-1-3">
+    <h2>1.3 Properties of Matter</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li><strong>Physical properties</strong> describe observable traits without changing composition (color, melting point, density).</li>
+      <li><strong>Chemical properties</strong> describe how a substance reacts or transforms into new substances.</li>
+      <li><strong>Physical changes</strong> (melting, boiling, dissolving) preserve composition, whereas <strong>chemical changes</strong> (burning, rusting) form new substances.</li>
+      <li><strong>Intensive properties</strong> (density, temperature) do not depend on sample size; <strong>extensive properties</strong> (mass, volume) scale with the amount of matter.</li>
+      <li>Physical vs. chemical properties are used to separate and identify substances.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p>No new equations appear here; instead focus on distinguishing physical vs. chemical behavior and identifying intensive/extensive clues.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Melting ice into water is a physical change because the composition stays H<sub>2</sub>O, while burning paper is a chemical change since new substances (ash, gas) form. Intensive properties like density help identify substances even when the amount changes.</p>
+  </section>
+  <section class="section" id="section-1-4">
+    <h2>1.4 The Nature of Energy</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li><strong>Energy</strong> is the capacity to do work or transfer heat, and it exists as <strong>kinetic energy</strong> (motion) or <strong>potential energy</strong> (stored by position or bonds).</li>
+      <li>Gain in temperature means molecules have gained kinetic energy, while chemical reactions exchange potential energy stored in bonds.</li>
+      <li>Electrostatic potential energy between charges depends on their magnitudes and separation; creating bonds releases energy as more stable arrangements.</li>
+      <li>Work and energy interconvert: moving a force through a distance changes the energy stored in or transferred by a system.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Work</strong> <code>w = F * d</code>
+      <p>Work is the energy transferred when a force <em>F</em> (Newtons) moves an object through a displacement <em>d</em> (meters) in the same direction. The unit is joules (1 J = 1 N·m). If you push a cart with 50 N for 5 m, you do 250 J of work on it, the same amount of energy transferred from your muscles to the cart.</p>
+    </div>
+    <div class="formula">
+      <strong>Kinetic energy</strong> <code>E<sub>k</sub> = ½ m v<sup>2</sup></code>
+      <p>A moving object has kinetic energy proportional to its mass <em>m</em> (kg) and the square of its speed <em>v</em> (m/s). The unit is joules. A 2 kg mass moving at 3 m/s thus holds ½ · 2 · 3² = 9 J of energy—the faster or heavier it is, the more energy it carries.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Propane combustion releases chemical potential energy as heat. Burning 9.0 kg of propane (46 kJ per gram) outputs about 4.1 × 10⁸ J, which is why such fuels can power grills or engines. Pumping an equivalent amount of energy into water (w = F·d) would require lifting roughly 5.6 × 10⁵ kg of water 75 m.</p>
+  </section>
+  <section class="section" id="section-1-5">
+    <h2>1.5 Units of Measurement</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Scientific measurements always pair numbers with units, and chemistry relies on the metric (SI) system.</li>
+      <li>SI base units include the meter (m) for length, kilogram (kg) for mass, kelvin (K) for temperature, second (s) for time, mole (mol) for amount, ampere (A) for current, and candela (cd) for luminous intensity.</li>
+      <li>Prefixes (kilo-, centi-, milli-, micro-, nano-, etc.) scale units by powers of ten; e.g., 1 nm = 10⁻⁹ m.</li>
+      <li>Derived units, such as speed (m/s) or volume (m³), arise from combining base units.</li>
+      <li>Common volume units in chemistry include liters, where 1 L = 1 dm³ = 1000 cm³ = 1000 mL.</li>
+      <li>Energy is measured in joules (1 J = 1 kg·m²/s²), with kilojoules and calories also used in chemistry and nutrition.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Celsius to Kelvin</strong> <code>K = °C + 273.15</code>
+      <p>This formula converts a Celsius temperature into kelvins by adding 273.15. The kelvin has no degree symbol and shares the same sized increment as the Celsius degree, so 31 °C equals 304 K, which is the absolute scale used in SI calculations.</p>
+    </div>
+    <div class="formula">
+      <strong>Density</strong> <code>density = mass ÷ volume</code>
+      <p>Density relates how much mass (in grams or kilograms) fits inside a given volume (cubic centimeters, milliliters, etc.). Common units are g/cm³ or g/mL. For example, 100 g of mercury occupying 7.36 cm³ yields a density of 13.6 g/cm³, helping identify the substance.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">A forecast of 31 °C is 304 K, so chemists working in SI units record that temperature in kelvins. For density, 65.0 g of methanol at 0.791 g/mL occupies about 82.2 mL (mass ÷ density), which is vital when measuring liquids in volumetric glassware.</p>
+  </section>
+  <section class="section" id="section-1-6">
+    <h2>1.6 Uncertainty in Measurement</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li><strong>Exact numbers</strong> have no uncertainty (counted objects or defined constants), while <strong>measured quantities</strong> always include some uncertainty from instruments and human reading.</li>
+      <li><strong>Precision</strong> gauges how close repeated measurements are to one another; <strong>accuracy</strong> measures how close they are to the true value.</li>
+      <li><strong>Significant figures</strong> list all certain digits plus one estimated digit; they represent the uncertainty in a measurement.</li>
+      <li>Zeros between nonzero digits are significant, leading zeros are not, and trailing zeros are only significant if a decimal point or exponential notation is present.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Addition/subtraction rule</strong>
+      <p>The result should be rounded to the same number of decimal places as the number with the fewest decimal places. For example, adding 20.42 (two decimals), 1.322 (three decimals), and 83.1 (one decimal) yields 104.842, which we round to 104.8 to keep one decimal place.</p>
+    </div>
+    <div class="formula">
+      <strong>Multiplication/division rule</strong>
+      <p>The final answer keeps the same number of significant figures as the least precise measurement. Multiplying 6.221 cm (four sig figs) by 5.2 cm (two sig figs) gives 32.3492 cm², so report 32 cm² to match the two significant figures.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Determining gas density from container mass differences yields results with only three significant figures even though the individual masses had five. This happens because subtraction inherits the least precise decimal places and division inherits the least precise significant figures.</p>
+  </section>
+  <section class="section" id="section-1-7">
+    <h2>1.7 Dimensional Analysis</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Dimensional analysis treats units like algebra: multiply or divide with units and cancel them just as you do with numbers.</li>
+      <li><strong>Conversion factors</strong> are ratios equating the same quantity in different units (e.g., 2.54 cm = 1 in); multiplying by them changes units while keeping the value the same.</li>
+      <li>Unit tracking catches errors and guides the setup: if the final units do not match the desired ones, re-check the conversion chain.</li>
+      <li>Complex conversions often use multiple steps—meters to centimeters to inches, or meters per second to miles per hour—by chaining conversion factors.</li>
+      <li>Density can serve as a conversion factor between mass and volume when units differ.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>General conversion setup</strong>
+      <p>The desired quantity equals the given quantity multiplied by one or more conversion factors whose numerators hold the desired units and whose denominators hold the given units. Each step cancels unwanted units, leaving the correct target unit while preserving the intrinsic value.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">To convert 115 lb to grams, multiply by 453.6 g/1 lb and cancel the pounds: 115 × 453.6 = 5.22 × 10⁴ g. To turn 8.00 m into inches, first use 100 cm/1 m, then 1 in/2.54 cm, giving 8.00 × (100 cm/1 m) × (1 in/2.54 cm) ≈ 315 in.</p>
+  </section>
 </body>
 </html>

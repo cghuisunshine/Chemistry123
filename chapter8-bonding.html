@@ -10,106 +10,256 @@
       line-height: 1.6;
       margin: 2rem;
       max-width: 900px;
+      color: #0f172a;
     }
-    h1, h2, h3 {
-      color: #12345f;
+    h1 {
+      color: #0f4c81;
+      margin-bottom: 1rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h2 {
+      color: #0f4c81;
+      margin-bottom: 0.5rem;
     }
-    ul, ol {
+    h3 {
+      color: #1e3a8a;
+      margin-bottom: 0.25rem;
+    }
+    ul {
       margin-left: 1.5rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .formula {
+      background: #f8fafc;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid #2563eb;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #1d4ed8;
+    }
+    .example {
+      background: #ecfeff;
+      padding: 0.6rem;
+      border-left: 4px solid #06b6d4;
+      border-radius: 4px;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 8: Basic Concepts of Chemical Bonding</h1>
 
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Distinguish ionic, covalent, and polar covalent bonding in terms of electron transfer or sharing.</li>
-    <li>Use electronegativity differences to estimate bond polarity and classify bonds.</li>
-    <li>Draw Lewis structures, including resonance forms, and evaluate formal charges.</li>
-    <li>Relate bond strength and bond length to bond order and bond energies.</li>
-  </ul>
+  <section class="section" id="section-8-0">
+    <h2>8.0 Overview — Basic Concepts of Chemical Bonding</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Valence electrons drive all bonding: electron transfer gives ionic solids, sharing gives covalent molecules, and delocalization gives metallic bonding.</li>
+      <li>Lewis symbols expose which electrons sit in the outer shell, and the octet rule explains why many atoms aim for eight surrounding electrons.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Valence electrons</strong>
+      <code>Valence electrons = group number (main-group)</code>
+      <p>Counting valence electrons is always the first step before drawing Lewis symbols or structures; it is unaffected by where the electrons “come from.”</p>
+    </div>
+    <div class="formula">
+      <strong>Octet goal</strong>
+      <code>Octet = 8 electrons (full s + p)</code>
+      <p>The octet rule represents the noble-gas configuration that atoms strive for through ionic or covalent bonding.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Metals paired with nonmetals form ionic lattices; nonmetals sharing electrons form molecular covalent compounds. Recognizing which electrons participate is the first move.</p>
+  </section>
 
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Ionic bond</strong>: electrostatic attraction between oppositely charged ions.</li>
-    <li><strong>Covalent bond</strong>: sharing of electron pairs between atoms.</li>
-    <li><strong>Polar covalent bond</strong>: unequal sharing of electrons due to electronegativity differences.</li>
-    <li><strong>Electronegativity</strong>: ability of an atom to attract electrons in a bond.</li>
-    <li><strong>Lewis structure</strong>: 2D representation showing valence electrons and bonding pairs.</li>
-    <li><strong>Resonance</strong>: multiple valid Lewis structures that differ only in electron placement.</li>
-    <li><strong>Formal charge</strong>: bookkeeping charge assigned to atoms in a Lewis structure.</li>
-    <li><strong>Bond energy</strong>: energy required to break one mole of bonds in the gas phase.</li>
-  </ul>
+  <section class="section" id="section-8-1">
+    <h2>8.1 Lewis Symbols and the Octet Rule</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Lewis symbols place a dot for each valence electron around the element symbol so you can see how electron pairs might form.</li>
+      <li>Most s- and p-block atoms reach stability by ending up with eight valence electrons; this is the octet rule.</li>
+      <li>Main-group atoms usually have as many valence electrons as their group number; subtract 10 for p-block nonmetals to find the electrons outside the noble-gas core.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Valence electron count</strong>
+      <code>Valence = group number (main-group); p-block: group number - 10</code>
+      <p>This tells you how many dots to place when drawing Lewis symbols; e.g., Group 16 gives six dots because 16 - 10 = 6.</p>
+    </div>
+    <div class="formula">
+      <strong>Octet guideline</strong>
+      <code>Octet = 8 electrons (full s + p)</code>
+      <p>An octet completes the valence s and p orbitals, which is why atoms often gain, lose, or share electrons to achieve this number.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Sulfur (Group 16) uses six dots in its Lewis symbol; when it forms SO₂ it shares electron pairs until each atom reaches an octet.</p>
+  </section>
 
-  <h2>1. Types of Bonds and Electronegativity</h2>
-  <ul>
-    <li>Large electronegativity difference (metal + nonmetal) → largely ionic bonding.</li>
-    <li>Moderate difference (nonmetal + nonmetal) → polar covalent bonding.</li>
-    <li>Very small difference → nonpolar covalent bonding (for example, Cl–Cl).</li>
-  </ul>
+  <section class="section" id="section-8-2">
+    <h2>8.2 Ionic Bonding</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Ionic bonds form when a metal donates electrons to a nonmetal, producing cations and anions that assemble into a lattice.</li>
+      <li>Lattice energy captures the stabilization when gaseous ions come together and offsets the endothermic ionization steps.</li>
+      <li>Born–Haber cycles sum atomization, ionization, electron affinity, and lattice formation to compute lattice energies.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Formation of NaCl</strong>
+      <code>Na(s) + ½Cl₂(g) → NaCl(s) ΔHf° = -410.9 kJ/mol</code>
+      <p>The strongly negative enthalpy reflects the large energy release when the ionic lattice forms.</p>
+    </div>
+    <div class="formula">
+      <strong>Lattice energy</strong>
+      <code>NaCl(s) → Na⁺(g) + Cl⁻(g) ΔHlattice = +788 kJ/mol</code>
+      <p>Lattice energy is the energy needed to separate a solid into gaseous ions, so its magnitude equals the stabilization gained when the lattice forms.</p>
+    </div>
+    <div class="formula">
+      <strong>Coulombic trend</strong>
+      <code>E = k Q₁ Q₂ / d</code>
+      <p>This shows the electrostatic energy increases with ionic charge magnitudes and decreases with distance, so CaO (2+ &amp; 2−) has a larger lattice energy than NaCl.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Ordering CsI &lt; NaF &lt; CaO by lattice energy demonstrates how increased ionic charge and smaller radii raise the stabilization of the lattice.</p>
+  </section>
 
-  <h3>Worked Example 1 – Classifying Bonds</h3>
-  <p>Classify each bond as mostly ionic, polar covalent, or nonpolar covalent: Na–Cl, C–H, O–H, Cl–Cl.</p>
-  <ol>
-    <li>Na–Cl: metal + nonmetal, large electronegativity difference → mostly ionic.</li>
-    <li>C–H: small difference → essentially nonpolar covalent.</li>
-    <li>O–H: O more electronegative than H → polar covalent (δ− on O, δ+ on H).</li>
-    <li>Cl–Cl: same element → nonpolar covalent.</li>
-  </ol>
+  <section class="section" id="section-8-3">
+    <h2>8.3 Covalent Bonding</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Covalent bonds form when atoms share electron pairs; each shared pair contributes to the octet of both atoms (hydrogen only needs two electrons).</li>
+      <li>Lewis structures show shared pairs as lines and lone pairs as dots, making it easy to track bonding.</li>
+      <li>Group trends predict typical bonds: Group 17 elements usually bond once, Group 16 twice, Group 15 three times, and Group 14 four times.</li>
+      <li>Higher bond order (more shared pairs) pulls atoms closer and strengthens the bond.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Bond order</strong>
+      <code>Bond order = number of shared electron pairs</code>
+      <p>A single bond (order 1) shares one pair; increasing to double or triple bonds raises the bond order, making the bond shorter and stronger.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">CO₂ features two C=O double bonds so each atom has an octet; N₂ has a triple bond (bond order 3) giving a short 110 pm length and inertness.</p>
+  </section>
 
-  <h2>2. Lewis Structures and the Octet Rule</h2>
-  <ol>
-    <li>Count total valence electrons (sum from periodic table, adjust for charges).</li>
-    <li>Write skeletal structure; connect atoms with single bonds.</li>
-    <li>Complete octets on outer atoms, then on central atom if possible.</li>
-    <li>Use multiple bonds if needed to satisfy octets and match electron count.</li>
-  </ol>
+  <section class="section" id="section-8-4">
+    <h2>8.4 Bond Polarity and Electronegativity</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Atoms differ in electronegativity, so shared electrons shift toward the more electronegative atom and create partial charges (δ⁻ on the stronger puller, δ⁺ on the other).</li>
+      <li>Electronegativity generally increases across a period and decreases down a group; fluorine is the most electronegative element.</li>
+      <li>Dipole moments (in Debye) quantify how much charge separation exists in a bond.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Electronegativity difference</strong>
+      <code>Δχ = |χ_A - χ_B|</code>
+      <p>Use Δχ to classify bonds: &lt;0.4 is nonpolar covalent, 0.4–2 polar covalent, and &gt;2 behaves mostly as ionic.</p>
+    </div>
+    <div class="formula">
+      <strong>Dipole moment</strong>
+      <code>μ = Q × r</code>
+      <p>μ equals the separated charge Q times the distance r between them; a larger μ means greater polarity.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">HF has a large Δχ (~1.9) and strong dipole, HCl (Δχ ≈ 0.9) is moderately polar (μ ≈ 1.08 D), and LiF (Δχ &gt; 3) behaves like an ionic solid with virtually full charge separation.</p>
+  </section>
 
-  <h3>Formal Charge</h3>
-  <p><code>Formal charge = (valence e<sup>−</sup>) − (nonbonding e<sup>−</sup>) − (bonding e<sup>−</sup>/2)</code></p>
-  <ul>
-    <li>Good Lewis structures minimize formal charges and place negative charge on more electronegative atoms.</li>
-  </ul>
+  <section class="section" id="section-8-5">
+    <h2>8.5 Drawing Lewis Structures</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Count total valence electrons (adjusting for charges), place atoms (central atom usually least electronegative), and connect them with single bonds.</li>
+      <li>Complete octets on surrounding atoms, place remaining electrons on the center, and add multiple bonds if the central atom still lacks eight.</li>
+      <li>Use formal charges to choose the best structure: the lowest absolute charges, with negative values on more electronegative atoms, dominate.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Total valence electrons</strong>
+      <code>Total = Σ group numbers ± charge</code>
+      <p>Add one electron per negative charge, subtract one per positive charge; later you will place these electrons in bonds and lone pairs.</p>
+    </div>
+    <div class="formula">
+      <strong>Formal charge</strong>
+      <code>FC = valence - (nonbonding + ½ bonding)</code>
+      <p>FC estimates the charge on each atom; the structure with the least total FC magnitude and negative FC on electronegative atoms is best.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">COCl₂’s favored Lewis structure uses a C=O double bond and two C–Cl single bonds because this arrangement yields zero formal charge on every atom.</p>
+  </section>
 
-  <h3>Worked Example 2 – Lewis Structure and Formal Charge for CO<sub>2</sub></h3>
-  <p>Draw a Lewis structure for CO<sub>2</sub> and compute formal charges.</p>
-  <ol>
-    <li>Total valence electrons: C (4) + 2 × O (6) = 16 e<sup>−</sup>.</li>
-    <li>Skeletal structure: O–C–O.</li>
-    <li>Try double bonds: O = C = O uses 4 e<sup>−</sup> in bonds, leaving 12 for lone pairs (3 pairs on each O).</li>
-    <li>Formal charges: each O: 6 − 4 (lone pairs) − 2 (bonding/2) = 0; C: 4 − 0 − 4 = 0. All zeros → good structure.</li>
-  </ol>
+  <section class="section" id="section-8-6">
+    <h2>8.6 Resonance Structures</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>When a molecule cannot be described by a single Lewis structure (e.g., because bonds are equivalent), draw all valid resonance structures.</li>
+      <li>Atom connectivity must stay constant; only electron placements differ. The molecule is a resonance hybrid—an average of the contributors.</li>
+      <li>Dominant contributors have smaller formal charges; equivalent structures contribute equally.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Resonance hybrid concept</strong>
+      <code>Resonance hybrid ≈ average of dominant contributors</code>
+      <p>The actual molecule reflects a weighted average of resonance forms, so measurable properties (bond length, energy) match the hybrid.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Ozone has two resonance structures; both O–O bonds measure ≈127.8 pm. Benzene’s two Kekulé structures average to six identical C–C bonds of 140 pm and give aromatic stability.</p>
+  </section>
 
-  <h2>3. Resonance and Delocalization</h2>
-  <ul>
-    <li>When more than one valid Lewis structure exists (same connectivity, different electron placement), the real structure is a resonance hybrid.</li>
-    <li>Electrons are delocalized across the molecule, often stabilizing it.</li>
-  </ul>
+  <section class="section" id="section-8-7">
+    <h2>8.7 Exceptions to the Octet Rule</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Some species have an odd number of electrons (NO, ClO₂) so not every atom can have an octet.</li>
+      <li>Electron-deficient molecules (BF₃, BeH₂) are stable with fewer than eight electrons around the central atom.</li>
+      <li>Hypervalent species (PF₅, SF₆, ICl₄⁻) have more than eight electrons around a Period 3 or heavier atom because of their large size.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Exception check</strong>
+      <code>Total valence = Σ group numbers ± charge</code>
+      <p>If the total cannot give every atom eight electrons, the molecule may be electron-deficient or needs resonance/multiple bonds.</p>
+    </div>
+    <div class="formula">
+      <strong>Hypervalent rule of thumb</strong>
+      <code>Central atoms from Period 3 onward can comfortably hold &gt;8 electrons</code>
+      <p>Large atoms can bond to more partners without extreme repulsion, which explains PF₅ and SF₆’s stability.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">BF₃ remains electron-deficient and accepts lone pairs; NO has an unpaired electron; PF₅ hosts ten electrons because phosphorus is large enough to accommodate five bonds.</p>
+  </section>
 
-  <h3>Worked Example 3 – Resonance in NO<sub>3</sub><sup>−</sup></h3>
-  <p>NO<sub>3</sub><sup>−</sup> has three equivalent resonance forms with a double bond to each O in turn. Actual N–O bond lengths are equal and intermediate between single and double bonds.</p>
-
-  <h2>4. Bond Lengths and Energies</h2>
-  <ul>
-    <li>Single bonds are longer and weaker; double bonds are shorter and stronger; triple bonds shorter and stronger still.</li>
-    <li>Average bond energies can estimate ΔH for a reaction by “bonds broken − bonds formed.”</li>
-  </ul>
-
-  <h2>5. Practice Problems (Self-Check)</h2>
-  <ol>
-    <li>Classify each bond as mostly ionic, polar covalent, or nonpolar covalent: K–Br, H–F, C–Cl, N≡N.</li>
-    <li>Draw Lewis structures (with formal charges) for CO<sub>2</sub>, NO<sub>3</sub><sup>−</sup>, and SO<sub>3</sub><sup>2−</sup>. Indicate any resonance.</li>
-    <li>Explain why the O–H bond in water is polar and how this polarity helps water dissolve ionic compounds.</li>
-    <li>Compare bond length and bond energy qualitatively for C–C, C=C, and C≡C bonds.</li>
-    <li>Using average bond energies (from your text), estimate ΔH for the combustion of methane: CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O, and comment on why the reaction is exothermic.</li>
-  </ol>
+  <section class="section" id="section-8-8">
+    <h2>8.8 Strengths and Lengths of Covalent Bonds</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Average bond enthalpies measure the energy required to break a bond; higher bond order increases bond enthalpy.</li>
+      <li>Bond length decreases as bond order increases (single &gt; double &gt; triple) because more shared pairs pull the atoms closer.</li>
+      <li>Estimate reaction enthalpies by adding bond enthalpies for bonds broken and subtracting those formed.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Bond order trends</strong>
+      <code>C−C: 154 pm, 348 kJ/mol; C=C: 134 pm, 614 kJ/mol; C≡C: 120 pm, 839 kJ/mol</code>
+      <p>As bond order rises, length shrinks and strength grows. The pattern holds for many atom pairs.</p>
+    </div>
+    <div class="formula">
+      <strong>Reaction enthalpy approximation</strong>
+      <code>ΔH ≈ ΣD(bonds broken) − ΣD(bonds formed)</code>
+      <p>Adding the energies for bonds you break and subtracting the energies of bonds you form gives a quick estimate for ΔH.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Forming COCl₂ from CO and Cl₂ breaks a C≡O and a Cl–Cl bond while forming a C=O and two C–Cl bonds; using averaged D values yields ΔH ≈ −141 kJ/mol, so the reaction is exothermic.</p>
+  </section>
 </body>
 </html>

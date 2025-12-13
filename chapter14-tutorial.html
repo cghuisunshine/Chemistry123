@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chapter 14 Tutorial — Chemical Kinetics</title>
+  </head>
+  <body>
+    <h1>Chapter 14 Tutorial — Chemical Kinetics</h1>
+
+    <section>
+      <h2>14.1 Factors That Affect Reaction Rates</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Reaction rate measures how fast product forms or reactant disappears; it increases when molecules collide more often and with sufficient energy.</li>
+        <li>Physical state, concentration, temperature, and catalysts are the main levers chemists use to control rates.</li>
+        <li>More surface area or higher concentration increases collision frequency; higher temperature raises kinetic energy; catalysts provide lower-energy pathways.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Rate ∝ collisions:</strong> Raising temperature/concentration increases the number of effective collisions, so rates rise.</li>
+        <li><strong>Catalyst effect:</strong> Catalysts lower the activation energy <code>E_a</code>, increasing the rate constant <code>k</code> without being consumed.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>Steel wool burns sluggishly in air (20% O₂) but vigorously in pure O₂ because higher oxygen concentration increases collision frequency.</p>
+    </section>
+
+    <section>
+      <h2>14.2 Reaction Rates</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Reaction rate is the change in molar concentration per unit time, e.g., <code>rate = −Δ[A]/Δt</code> or <code>+Δ[B]/Δt</code>.</li>
+        <li>Rates may be averaged over an interval or taken instantaneously via tangents on concentration vs time plots.</li>
+        <li>Stoichiometry lets you convert rates between species in a balanced equation.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Rate definition:</strong> <code>rate = Δ[product]/Δt</code> (Equation 14.1) or with reactants include a negative sign because their concentration decreases.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>If [A] drops from 1.00 M to 0.54 M in 20 s, the average rate is 0.023 M/s.</p>
+    </section>
+
+    <section>
+      <h2>14.3 Concentration and Rate Laws</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Rate laws connect the rate to reactant concentrations: <code>rate = k[A]^m[B]^n</code>, where exponents are determined experimentally.</li>
+        <li>The overall reaction order is the sum of the individual orders and reveals how sensitive rate is to concentration changes.</li>
+        <li>The rate constant <code>k</code> depends on temperature and activation energy.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Rate law:</strong> <code>rate = k[A]^m[B]^n</code>; if doubling [A] quadruples the rate, m = 2.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>For `rate = k[NO]^2[Cl₂]`, doubling [NO] quadruples rate while doubling [Cl₂] doubles it.</p>
+    </section>
+
+    <section>
+      <h2>14.4 The Change of Concentration with Time</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Integrated rate laws describe concentration profiles: zero-order decreases linearly, first-order exponentially, second-order hyperbolically.</li>
+        <li>Plotting appropriate functions (e.g., ln[A] vs t for first-order) tests the order and yields <code>k</code>.</li>
+        <li>Half-life `t_½ = 0.693/k` for first-order reactions is constant and independent of initial concentration.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>First-order:</strong> <code>[A]_t = [A]_0 e^{−kt}</code>. The slope of `ln[A]` vs `t` is `−k`.</li>
+        <li><strong>Half-life:</strong> <code>t_½ = 0.693/k</code> for first-order, making it easy to compare rates from experimental half-lives.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>If `[A]_0 = 1.00 M` and `k = 0.0496 s⁻¹`, the concentration after 28 s is 0.25 M.</p>
+    </section>
+
+    <section>
+      <h2>14.5 Temperature and Rate</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Temperature affects the rate constant `k` via the Arrhenius equation; raising T accelerates reactions by populating higher-energy collisions.</li>
+        <li>The Arrhenius plot (`ln k` vs `1/T`) is linear, and the slope yields the activation energy `E_a`.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Arrhenius equation:</strong> <code>k = A e^{−E_a/(RT)}</code> (Equation 14.2). Higher `E_a` values make `k` more sensitive to temperature.</li>
+        <li><strong>Two-temperature form:</strong> <code>ln(k₂/k₁) = −E_a/R · (1/T₂ − 1/T₁)</code>, allowing calculation of activation energy from rate constants at two temperatures.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>If heating doubles the rate constant, solving the Arrhenius relationship gives `E_a ≈ 50 kJ/mol`.</p>
+    </section>
+
+    <section>
+      <h2>14.6 Reaction Mechanisms</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>A mechanism is a sequence of elementary steps whose sum matches the overall stoichiometry.</li>
+        <li>The slowest step is rate-determining and establishes the observed rate law; intermediates appear in steps but not in the overall equation.</li>
+        <li>Pre-equilibrium and steady-state approaches allow elimination of intermediates when deriving rate laws.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Rate law from mechanism:</strong> Derived from the rate-determining step; e.g., if it’s `NO + NO₃ → products`, `rate ∝ [NO][NO₃]`.</li>
+        <li><strong>Pre-equilibrium substitution:</strong> When `NO₂ + NO₂ ⇌ NO₃ + NO` is fast, use the equilibrium expression for `[NO₃]` in the slow step’s rate law.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>A mechanism with a fast equilibrium followed by a slow step yields a rate law involving the reactants only once the intermediate concentration is replaced.</p>
+    </section>
+
+    <section>
+      <h2>14.7 Catalysis</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Catalysts provide alternate low-activation-energy pathways and are unchanged after the reaction;</li>
+        <li>Homogeneous catalysts share phase with reactants, while heterogeneous catalysts offer surface sites, and enzymes are biological catalysts with highly specific active sites.</li>
+        <li>Inhibitors and poisons block catalysts by occupying active sites or altering their structure.</li>
+      </ul>
+      <h3>Important formulas &amp; their meaning</h3>
+      <ul>
+        <li><strong>Arrhenius effect:</strong> Lower `E_a` increases `k` exponentially (`k = A e^{−E_a/(RT)}`).</li>
+        <li><strong>Turnover number (qualitative):</strong> The number of catalytic cycles per unit time; large numbers indicate efficient catalysis.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <p>Platinum catalyzes hydrogen dissociation on fuel-cell surfaces, and enzyme sucrase dramatically lowers the activation energy for sucrose hydrolysis in the gut.</p>
+    </section>
+  </body>
+</html>

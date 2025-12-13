@@ -581,857 +581,538 @@
       </nav>
 
       <main class="content">
-        <!-- 8.0 Overview -->
-        <section class="section-card" id="sec-8-0" data-keywords="overview bond types valence electrons ionic covalent metallic">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.0</span>
-                <span class="section-title-text">Overview &mdash; Chemical Bonds and Valence Electrons</span>
-              </h2>
-              <div class="section-meta">Big picture: what bonds are & which electrons matter</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Core ideas & definitions</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>Whenever atoms or ions are held together strongly, we say there is a chemical bond between them. The three main bonding “flavors” are:</p>
-                  <ul>
-                    <li><strong>Ionic bonds</strong>: electrostatic attractions between positive and negative ions, usually a metal cation and a nonmetal anion, arranged in a repeating ionic lattice.</li>
-                    <li><strong>Covalent bonds</strong>: two nonmetal atoms share one or more pairs of electrons, forming discrete molecules like H₂O or CO₂.</li>
-                    <li><strong>Metallic bonds</strong>: many metal atoms share a “sea of electrons” that can move throughout the solid, explaining properties like conductivity and malleability.</li>
-                  </ul>
-                  <p>The electrons that matter most for bonding are the <strong>valence electrons</strong>, which are in the outermost occupied shell. These determine how an atom will bond and what ions or molecules it tends to form.</p>
-                  <p class="hint">Think: “core electrons stay home; valence electrons go out to bond.”</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Patterns & classifications</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>Common bonding patterns in main-group chemistry:</p>
-                  <ul>
-                    <li><strong>Metal + nonmetal</strong> → often forms an <strong>ionic</strong> compound with cations (from metal) and anions (from nonmetal).</li>
-                    <li><strong>Nonmetal + nonmetal</strong> → usually forms <strong>covalent</strong> molecules by sharing electron pairs.</li>
-                    <li><strong>Metal + metal</strong> in bulk → <strong>metallic</strong> bonding with delocalized electrons, giving high electrical and thermal conductivity.</li>
-                  </ul>
-                  <p>As you move through the chapter, you’ll repeatedly connect these three patterns back to the same basic idea: valence electrons either transfer, share locally, or delocalize.</p>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Examples & interpretations</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Salt in water.</strong> Sodium chloride (NaCl) contains Na⁺ and Cl⁻ ions held in an ionic lattice. When you put it in water, the polar water molecules surround and separate the ions.</p>
-                  <p><strong>Water in a glass.</strong> H₂O has covalent bonds between H and O. The molecules attract each other through weaker intermolecular forces, not ionic bonds.</p>
-                  <p><strong>Metal spoon.</strong> In stainless steel, metal atoms are packed together and share delocalized electrons. This “sea” can carry charge and heat, unlike in ionic or molecular solids.</p>
-                  <p class="hint">Use these familiar items to anchor your intuition: salt = ionic, water = covalent, metal = metallic.</p>
-                </div>
-              </article>
-            </div>
+  <section class="section-card" id="sec-8-0" data-keywords="overview bonds ionic covalent metallic valence electrons octet">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.0</span>
+          <span class="section-title-text">Overview &mdash; Basic Concepts of Chemical Bonding</span>
+        </h2>
+        <div class="section-meta">Valence electrons, bond types, and why the octet matters</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Core concepts</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Chemical bonds arise from valence electrons seeking stable configurations: electron transfer gives ionic solids, electron sharing gives covalent molecules, and delocalized electrons give metallic bonding.</p>
+            <p>Lewis symbols expose the valence shell, while the octet rule explains why s- and p-block elements prefer eight electrons around them.</p>
           </div>
-        </section>
-
-        <!-- 8.1 Lewis Symbols & Octet Rule -->
-        <section class="section-card" id="sec-8-1" data-keywords="8.1 lewis symbols octet rule valence electrons noble gas configuration">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.1</span>
-                <span class="section-title-text">Lewis Symbols and the Octet Rule</span>
-              </h2>
-              <div class="section-meta">Representing valence electrons & why “8” is special</div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Unifying equations</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Valence electrons = group number (main-group)</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Valence electrons</strong> are the outermost electrons and are responsible for bonding. For most main-group elements, they are the electrons in the highest principal energy level (n).</p>
-                  <p>A <strong>Lewis symbol</strong> represents an atom’s valence electrons as dots drawn around the element symbol. Each dot is one valence electron.</p>
-                  <ul>
-                    <li>Dots are placed on four sides of the symbol; each side can hold up to two dots.</li>
-                    <li>Dots are spread out as much as possible before pairing them.</li>
-                    <li>The number of dots equals the number of valence electrons.</li>
-                  </ul>
-                  <p>The <strong>octet rule</strong> says that atoms tend to gain, lose, or share electrons until they are surrounded by eight valence electrons, like the noble gases (except He, which is stable with two).</p>
-                  <p class="hint">Group number tells valence electrons: Group 1 → 1, Group 16 → 6, Group 17 → 7, etc., for main-group elements.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Formulas, rules & patterns</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <div class="formula-line">
-                    <code>Lewis symbol: element symbol + 1 dot per valence e⁻</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
-                  </div>
-                  <p>This is a simple bookkeeping tool: it tracks only valence electrons, which are the ones that will be lost, gained, or shared in bonding.</p>
-
-                  <div class="formula-line">
-                    <code>Octet rule: atoms gain, lose, or share e⁻ until they have 8 valence e⁻</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
-                  </div>
-                  <p>The octet corresponds to filled s and p subshells (ns²np⁶). Atoms that reach a noble-gas configuration are generally low in energy and relatively stable.</p>
-
-                  <p>For <strong>main-group elements</strong> (representative elements):</p>
-                  <ul>
-                    <li>Group 1 → 1 valence electron (e.g., Li, Na).</li>
-                    <li>Group 2 → 2 valence electrons (e.g., Be, Mg).</li>
-                    <li>Group 13 → 3 valence electrons, …, Group 18 → 8 (except He).</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example 1: Lewis symbol for oxygen.</strong></p>
-                  <ul>
-                    <li>O is in Group 16 → 6 valence electrons.</li>
-                    <li>Draw O with 6 dots around it. Spread them out: one on each side first, then pair.</li>
-                  </ul>
-
-                  <p><strong>Example 2: Na and Cl obey the octet rule in NaCl.</strong></p>
-                  <ul>
-                    <li>Na: [Ne]3s¹ → loses 1 electron → Na⁺ has [Ne] (8 valence electrons) configuration.</li>
-                    <li>Cl: [Ne]3s²3p⁵ → gains 1 electron → Cl⁻ has [Ar]-like configuration (octet).</li>
-                    <li>Both ions reach noble-gas electron counts, explaining the stability of NaCl.</li>
-                  </ul>
-
-                  <p class="hint">When in doubt, sketch the Lewis symbol and count dots: 8 dots around an atom (or 2 for H/He) usually signals “happy, stable” in main-group chemistry.</p>
-                </div>
-              </article>
+            <p>Counting valence electrons is the first step whether you are writing Lewis symbols, drawing structures, or predicting bonds.</p>
+            <div class="formula-line">
+              <code>Octet = 8 valence electrons (full s + p)</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
+            <p>The octet rule defines the goal: ionic, covalent, and many resonance structures exist so every atom reaches a noble-gas configuration.</p>
           </div>
-        </section>
-
-        <!-- 8.2 Ionic Bonding -->
-        <section class="section-card" id="sec-8-2" data-keywords="8.2 ionic bonding lattice energy coulomb born haber cations anions">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.2</span>
-                <span class="section-title-text">Ionic Bonding</span>
-              </h2>
-              <div class="section-meta">Electron transfer, ionic lattices, and lattice energy</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>An <strong>ionic bond</strong> results from electron transfer from one atom to another, forming positively charged cations and negatively charged anions that attract each other strongly.</p>
-                  <p>Ionic substances typically form when:</p>
-                  <ul>
-                    <li>A <strong>metal</strong> with low ionization energy loses electron(s) to become a cation.</li>
-                    <li>A <strong>nonmetal</strong> with high electron affinity gains electron(s) to become an anion.</li>
-                  </ul>
-                  <p>In the solid, ions are arranged in a three-dimensional <strong>ionic lattice</strong>, not as separate molecules. This lattice leads to properties such as high melting points, brittleness, and crystalline structure.</p>
-                  <p><strong>Lattice energy</strong> is the energy required to completely separate 1 mol of an ionic solid into its gaseous ions; it reflects how strongly the ions attract one another.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Formulas, rules & patterns</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <div class="formula-line">
-                    <code>Na(s) + ½Cl₂(g) → NaCl(s)</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
-                  </div>
-                  <p>This reaction is strongly exothermic: Na(s) loses an electron to form Na⁺, Cl₂ gains electrons to form Cl⁻, and the resulting ions pack into an ionic solid.</p>
-
-                  <div class="formula-line">
-                    <code>NaCl(s) → Na⁺(g) + Cl⁻(g)   ΔH = +ΔHₗₐₜₜᵢcₑ</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
-                  </div>
-                  <p><strong>Lattice energy</strong> (ΔHₗₐₜₜᵢcₑ) is defined for breaking the solid into gas-phase ions; forming the solid releases the same magnitude of energy.</p>
-
-                  <div class="formula-line">
-                    <code>Eₑₗ = kQ₁Q₂ / d</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy Eel</span></button>
-                  </div>
-                  <p><strong>Coulomb’s law</strong> expresses the electrostatic potential energy between two charges:</p>
-                  <ul>
-                    <li><code>Q₁</code> and <code>Q₂</code> are the charges (in C) with their signs.</li>
-                    <li><code>d</code> is the distance between charge centers (in m).</li>
-                    <li><code>k</code> is a constant (≈ 8.99×10⁹ J·m·C⁻²).</li>
-                    <li>For opposite charges (e.g. + and −), <code>Q₁Q₂ &lt; 0</code>, so <code>Eₑₗ</code> is negative (attractive).</li>
-                  </ul>
-                  <p>This tells us that lattice energy is larger when ion charges are larger and when ions are smaller (so <code>d</code> is smaller).</p>
-
-                  <p><strong>Charge trends for main-group ions:</strong></p>
-                  <ul>
-                    <li>Group 1 → +1; Group 2 → +2; Group 13 → +3.</li>
-                    <li>Group 15 → −3; Group 16 → −2; Group 17 → −1.</li>
-                  </ul>
-
-                  <p><strong>Born–Haber cycle (concept):</strong> use Hess’s law to sum steps like sublimation, ionization energy, bond breaking, electron affinity, and lattice formation to solve for ΔHₗₐₜₜᵢcₑ.</p>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: ordering lattice energies (NaF, CsI, CaO).</strong></p>
-                  <ul>
-                    <li>NaF: 1⁺/1⁻ ions, relatively small → fairly large lattice energy.</li>
-                    <li>CsI: 1⁺/1⁻ ions, larger ions → smaller lattice energy than NaF.</li>
-                    <li>CaO: 2⁺/2⁻ ions → very large charge product; lattice energy much larger than 1⁺/1⁻ salts.</li>
-                    <li>Order (increasing lattice energy): CsI &lt; NaF &lt; CaO.</li>
-                  </ul>
-
-                  <p><strong>Why Na²⁺ and Cl²⁻ don’t form in typical ionic solids.</strong></p>
-                  <ul>
-                    <li>Removing a second electron from Na would come from an inner shell → extremely high ionization energy.</li>
-                    <li>Adding a second electron to Cl to make Cl²⁻ would force it into a higher shell → very unfavorable.</li>
-                    <li>Even strong lattice energy cannot compensate for such huge energy costs.</li>
-                  </ul>
-
-                  <p class="hint">When predicting formulas and charges, combine the octet rule with the idea that removing or adding inner-shell electrons is almost never worth the energy cost.</p>
-                </div>
-              </article>
-            </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Tips</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Remember: metals + nonmetals → ionic; nonmetals sharing electrons → covalent; tune your picture using Lewis symbols, formal charges, or lattice energetics.</p>
           </div>
-        </section>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        <!-- 8.3 Covalent Bonding -->
-        <section class="section-card" id="sec-8-3" data-keywords="8.3 covalent bonding single double triple bond order">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.3</span>
-                <span class="section-title-text">Covalent Bonding</span>
-              </h2>
-              <div class="section-meta">Sharing electrons & how many bonds atoms like to make</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>In a <strong>covalent bond</strong>, two atoms share one or more pairs of electrons. This sharing allows each atom to reach a more stable electron configuration, often an octet.</p>
-                  <ul>
-                    <li><strong>Single bond</strong>: one shared pair of electrons between two atoms.</li>
-                    <li><strong>Double bond</strong>: two shared pairs (four electrons) between the same two atoms.</li>
-                    <li><strong>Triple bond</strong>: three shared pairs (six electrons) between the same two atoms.</li>
-                  </ul>
-                  <p>Multiple bonds (double or triple) generally make the atoms closer together and the bond stronger than a single bond between the same atoms.</p>
-                  <p>Typical bonding patterns for second-row nonmetals:</p>
-                  <ul>
-                    <li>Group 17 (F, Cl) → 1 bond.</li>
-                    <li>Group 16 (O, S) → 2 bonds.</li>
-                    <li>Group 15 (N, P) → 3 bonds.</li>
-                    <li>Group 14 (C, Si) → 4 bonds.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Patterns & bond order</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <div class="formula-line">
-                    <code>Bond order: single = 1, double = 2, triple = 3</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
-                  </div>
-                  <p>For a given pair of atoms (for example, C–C), a higher bond order means more electron density between the nuclei, resulting in a shorter, stronger bond.</p>
-
-                  <p>Second-row nonmetals often follow “default” valence expectations when neutral:</p>
-                  <ul>
-                    <li>C tends to form 4 covalent bonds.</li>
-                    <li>N tends to form 3 covalent bonds and 1 lone pair.</li>
-                    <li>O tends to form 2 bonds and 2 lone pairs.</li>
-                    <li>F tends to form 1 bond and 3 lone pairs.</li>
-                  </ul>
-
-                  <p>These patterns connect directly to their valence electron counts and the octet rule.</p>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: H₂.</strong></p>
-                  <ul>
-                    <li>Each H has 1 valence electron.</li>
-                    <li>Sharing a pair of electrons gives each H access to 2 electrons, like He.</li>
-                    <li>The Lewis structure is H–H.</li>
-                  </ul>
-
-                  <p><strong>Example: Cl₂.</strong></p>
-                  <ul>
-                    <li>Each Cl has 7 valence electrons.</li>
-                    <li>Each shares 1 electron to form a single bond; each now has 8 electrons around it (octet).</li>
-                    <li>Structure: Cl–Cl, each Cl with 3 lone pairs.</li>
-                  </ul>
-
-                  <p><strong>Multiple bonding examples.</strong></p>
-                  <ul>
-                    <li>CO₂: O=C=O. C forms two double bonds (4 pairs shared); each O forms one double bond plus two lone pairs.</li>
-                    <li>N₂: N≡N. Each N shares three pairs; the triple bond is short and strong, explaining why N₂ is very stable and relatively inert.</li>
-                  </ul>
-
-                  <p class="hint">If a neutral C, N, or O appears with “too few” bonds in your drawing, check whether a multiple bond is needed to give octets.</p>
-                </div>
-              </article>
-            </div>
+  <section class="section-card" id="sec-8-1" data-keywords="8.1 lewis symbols octet valence group number">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.1</span>
+          <span class="section-title-text">Lewis Symbols and the Octet Rule</span>
+        </h2>
+        <div class="section-meta">Counting valence electrons and aiming for eight</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Definitions</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Lewis symbols place a dot for each valence electron around the elemental symbol, showing how electrons might pair when atoms bond.</p>
+            <p>The octet rule says that s- and p-block atoms usually surround themselves with eight electrons (or two electrons for hydrogen) to mimic noble gases.</p>
           </div>
-        </section>
-
-        <!-- 8.4 Bond Polarity & Electronegativity -->
-        <section class="section-card" id="sec-8-4" data-keywords="8.4 bond polarity electronegativity dipole moment debeye nonpolar polar ionic">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.4</span>
-                <span class="section-title-text">Bond Polarity and Electronegativity</span>
-              </h2>
-              <div class="section-meta">How unequally shared electrons produce dipoles</div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Counting rules</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Valence = group number (main-group); p-block: group number - 10</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Bond polarity</strong> describes how equally or unequally the electrons in a bond are shared.</p>
-                  <ul>
-                    <li><strong>Nonpolar covalent bond</strong>: electrons shared equally (e.g., H₂, Cl₂, N₂).</li>
-                    <li><strong>Polar covalent bond</strong>: electrons shared unequally; one atom pulls electron density more strongly (e.g., H–F, H–Cl).</li>
-                    <li><strong>Ionic bond</strong>: extreme case where electron transfer is nearly complete (e.g., NaCl).</li>
-                  </ul>
-                  <p><strong>Electronegativity</strong> (EN) is the ability of an atom in a molecule to attract electrons to itself.</p>
-                  <ul>
-                    <li>EN generally increases from left to right across a period and decreases down a group.</li>
-                    <li>Fluorine is the most electronegative element (EN ≈ 4.0); Cs is among the least (EN ≈ 0.7).</li>
-                  </ul>
-                  <p>A <strong>polar molecule</strong> has centers of positive and negative charge that do not coincide, giving it a net dipole moment.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Formulas & classification rules</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Electronegativity difference and bond type (approximate):</strong></p>
-                  <ul>
-                    <li>ΔEN ≈ 0–0.4 → mostly nonpolar covalent.</li>
-                    <li>ΔEN ≈ 0.4–2 → polar covalent.</li>
-                    <li>ΔEN ≳ 2 → very polar / ionic character.</li>
-                  </ul>
-
-                  <div class="formula-line">
-                    <code>μ = Q · r</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy μ</span></button>
-                  </div>
-                  <p>The <strong>dipole moment</strong> μ is the product of the separated charge and the distance between charges:</p>
-                  <ul>
-                    <li><code>μ</code>: dipole moment (C·m) or in debye (D).</li>
-                    <li><code>Q</code>: magnitude of the charge separation (C) or in units of e.</li>
-                    <li><code>r</code>: distance between charges (m).</li>
-                    <li>1 D = 3.34×10⁻³⁰ C·m.</li>
-                  </ul>
-
-                  <p>For a given bond, μ increases when either the charge separation increases (more ionic character) or the bond length increases, but in real molecules changes in EN often dominate over small changes in bond length.</p>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: polarity trend in hydrogen halides.</strong></p>
-                  <ul>
-                    <li>HF has the largest EN difference and the largest dipole moment (≈ 1.82 D).</li>
-                    <li>Going down the group to HCl, HBr, HI, the EN difference shrinks.</li>
-                    <li>Bond length gets longer, but the decreasing ΔEN dominates, so μ decreases from HF → HI.</li>
-                  </ul>
-
-                  <p><strong>Example: hypothetical “fully ionic” dipole.</strong></p>
-                  <ul>
-                    <li>Imagine a full +e and −e separated by 100 pm.</li>
-                    <li>Using <code>μ = Qr</code>, you get μ ≈ 4.8 D.</li>
-                    <li>Real polar covalent bonds, like HCl, have smaller μ values (≈ 1 D), indicating only partial charge separation.</li>
-                  </ul>
-
-                  <p><strong>Molecule vs bond polarity.</strong></p>
-                  <ul>
-                    <li>HF: one polar bond and asymmetry → polar molecule.</li>
-                    <li>CO₂: two polar C=O bonds but linear and symmetric → bond dipoles cancel, giving a nonpolar molecule.</li>
-                  </ul>
-
-                  <p class="hint">Decision tree: find ΔEN to guess bond polarity, then look at molecular shape to decide if the dipoles cancel or reinforce.</p>
-                </div>
-              </article>
+            <p>This is why Group 16 elements like S have six valence electrons (16 - 10 = 6) and why halogens have seven.</p>
+            <div class="formula-line">
+              <code>Octet = 8 valence electrons</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
+            <p>Eight electrons fill the s and p orbitals, so drawing Lewis dots that sum to eight captures the target configuration.</p>
           </div>
-        </section>
-
-        <!-- 8.5 Drawing Lewis Structures -->
-        <section class="section-card" id="sec-8-5" data-keywords="8.5 lewis structures formal charge octet drawing steps">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.5</span>
-                <span class="section-title-text">Drawing Lewis Structures & Formal Charge</span>
-              </h2>
-              <div class="section-meta">Systematic drawing + choosing the best structure</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>A <strong>Lewis structure</strong> shows which atoms are bonded, how many bonds there are, and where lone pairs are placed. It encodes the valence electron picture of a molecule or polyatomic ion.</p>
-                  <p>General procedure for drawing a Lewis structure:</p>
-                  <ol>
-                    <li><strong>Count valence electrons</strong> for all atoms; adjust for overall charge (add electrons for negative charge; subtract for positive).</li>
-                    <li><strong>Choose a central atom</strong> (often the least electronegative, not H) and connect surrounding atoms with single bonds.</li>
-                    <li><strong>Complete octets</strong> for outer atoms by adding lone pairs.</li>
-                    <li><strong>Place remaining electrons</strong> on the central atom.</li>
-                    <li>If the central atom still lacks an octet, <strong>form multiple bonds</strong> by converting lone pairs on surrounding atoms into bonding pairs.</li>
-                  </ol>
-                  <p><strong>Formal charge</strong> helps you choose the most reasonable structure when more than one satisfies the octet rule.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Formal charge formula & rules</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <div class="formula-line">
-                    <code>Formal charge = valence e⁻ − ½(bonding e⁻) − (nonbonding e⁻)</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy FC</span></button>
-                  </div>
-                  <p>To compute formal charge for an atom in a Lewis structure:</p>
-                  <ul>
-                    <li>Count all its lone-pair electrons (nonbonding).</li>
-                    <li>Add half of the bonding electrons (or simply count bonds and multiply by 1).</li>
-                    <li>Subtract that total from the valence electrons of the neutral atom (from the periodic table).</li>
-                  </ul>
-
-                  <p><strong>Guidelines for choosing the dominant Lewis structure:</strong></p>
-                  <ul>
-                    <li>Prefer structures where formal charges are small in magnitude (0, ±1).</li>
-                    <li>When negative formal charges are unavoidable, they should reside on more electronegative atoms.</li>
-                    <li>The sum of all formal charges must equal the overall charge on the molecule/ion.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: PCl₃.</strong></p>
-                  <ul>
-                    <li>Valence electrons: P (5) + 3×Cl (3×7) = 26 e⁻.</li>
-                    <li>Skeleton: Cl–P–Cl–Cl with three P–Cl single bonds → 6 e⁻ used.</li>
-                    <li>Complete Cl octets (3×6 = 18 e⁻) → total 24 used.</li>
-                    <li>Remaining 2 e⁻ go as a lone pair on P, giving P eight electrons.</li>
-                    <li>Formal charges: all atoms 0 → this is the preferred structure.</li>
-                  </ul>
-
-                  <p><strong>Example: HCN.</strong></p>
-                  <ul>
-                    <li>Valence electrons: H (1) + C (4) + N (5) = 10 e⁻.</li>
-                    <li>Skeleton: H–C–N → 4 e⁻ in bonds.</li>
-                    <li>Place remaining electrons to satisfy octets; you find C needs more bonds.</li>
-                    <li>Convert lone pairs on N into bonding pairs until C has an octet → H–C≡N.</li>
-                    <li>Final structure has a triple bond (C≡N) and satisfies the octet rule for C and N.</li>
-                  </ul>
-
-                  <p class="hint">If you have a valid Lewis structure but high formal charges or negative charge on an atom that’s not very electronegative, look for an alternative with multiple bonds and better formal charges.</p>
-                </div>
-              </article>
-            </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Sulfur’s Lewis symbol—S with six dots—shows the six valence electrons; when sulfur forms SO₂ it shares electron pairs until it reaches an octet on each atom.</p>
           </div>
-        </section>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        <!-- 8.6 Resonance Structures -->
-        <section class="section-card" id="sec-8-6" data-keywords="8.6 resonance structures hybrid ozone nitrate benzene">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.6</span>
-                <span class="section-title-text">Resonance Structures</span>
-              </h2>
-              <div class="section-meta">Blending multiple valid Lewis pictures</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>Sometimes a single Lewis structure cannot explain the experimentally observed structure of a molecule or ion. In these cases, we use <strong>resonance structures</strong>.</p>
-                  <p><strong>Resonance structures</strong> are multiple valid Lewis structures that:</p>
-                  <ul>
-                    <li>Have the same arrangement of atoms.</li>
-                    <li>Differ only in the placement of electrons (bonds and lone pairs).</li>
-                  </ul>
-                  <p>The actual molecule is a <strong>resonance hybrid</strong>, a blend of all significant resonance structures. It does not flip back and forth between them; instead, its true electron distribution is intermediate.</p>
-                  <p>Resonance often leads to bonds that are all the same length, intermediate between single and double bonds, and to extra stability (as in benzene).</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Rules & bond order ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Rules for drawing resonance structures:</strong></p>
-                  <ul>
-                    <li>Keep atom positions fixed; only move electrons.</li>
-                    <li>Preserve the overall number of electrons and the overall charge.</li>
-                    <li>Each resonance structure should satisfy the octet rule as much as possible and have reasonable formal charges.</li>
-                  </ul>
-
-                  <p><strong>Effective bond order in resonance hybrids:</strong></p>
-                  <ul>
-                    <li>If two equivalent resonance structures place a double bond in different positions, each of those bonds in the hybrid has bond order between 1 and 2.</li>
-                    <li>Example: in ozone (O₃), the two O–O bonds have an effective bond order of about 1.5 each.</li>
-                    <li>In NO₃⁻, three equivalent resonance structures lead to three equal N–O bonds with bond order between 1 and 2.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: Ozone, O₃.</strong></p>
-                  <ul>
-                    <li>Lewis structures: one with double bond on the left, one with double bond on the right.</li>
-                    <li>Experiments show two identical O–O bond lengths, both intermediate between a single and a double bond.</li>
-                    <li>Conclusion: the real molecule is the resonance hybrid of both structures.</li>
-                  </ul>
-
-                  <p><strong>Example: Nitrate ion, NO₃⁻.</strong></p>
-                  <ul>
-                    <li>Three equivalent structures, each with one N=O and two N–O single bonds, but with the double bond in a different place.</li>
-                    <li>All N–O bonds are experimentally equal and intermediate in length.</li>
-                    <li>The negative charge is delocalized over the three oxygens, lowering the energy and stabilizing the ion.</li>
-                  </ul>
-
-                  <p><strong>Example: Benzene, C₆H₆.</strong></p>
-                  <ul>
-                    <li>Two structures with alternating single and double C–C bonds arranged in a hexagon.</li>
-                    <li>Experimentally, all C–C bonds are the same length, between a single and a double bond.</li>
-                    <li>This resonance leads to special stability characteristic of aromatic compounds.</li>
-                  </ul>
-
-                  <p class="hint">If your Lewis structure predicts different bond lengths for a molecule that experimentally has identical bonds, think “resonance.”</p>
-                </div>
-              </article>
-            </div>
+  <section class="section-card" id="sec-8-2" data-keywords="8.2 ionic bonding lattice energy born haber coulomb">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.2</span>
+          <span class="section-title-text">Ionic Bonding</span>
+        </h2>
+        <div class="section-meta">Electron transfer and lattice stabilization</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Key ideas</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Ionic solids form when a metal donates electrons to a nonmetal, creating cations and anions that assemble into a crystal lattice held together by electrostatic attraction.</p>
+            <p>Lattice energy quantifies the stabilization of bringing gaseous ions together, and Born–Haber cycles use Hess’s law to compute it from known steps.</p>
           </div>
-        </section>
-
-        <!-- 8.7 Exceptions to the Octet Rule -->
-        <section class="section-card" id="sec-8-7" data-keywords="8.7 exceptions octet rule odd electrons incomplete octet expanded hypervalent bf3 pf5">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.7</span>
-                <span class="section-title-text">Exceptions to the Octet Rule</span>
-              </h2>
-              <div class="section-meta">When atoms don’t follow “8 electrons” exactly</div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Equations</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Na(s) + ½Cl₂(g) → NaCl(s) ΔHf° = -410.9 kJ/mol</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p>The octet rule works for many main-group molecules, but there are important exceptions. They fall into three main categories:</p>
-                  <ol>
-                    <li><strong>Odd-electron species</strong>: molecules or ions with an odd number of total valence electrons. An octet cannot be given to every atom.</li>
-                    <li><strong>Incomplete octet (electron-deficient)</strong>: the central atom has fewer than eight valence electrons (common for B and Be).</li>
-                    <li><strong>Expanded octet (hypervalent)</strong>: the central atom has more than eight valence electrons (10, 12, etc.), possible only for atoms in period 3 or below.</li>
-                  </ol>
-                  <p>Hypervalent molecules are more common when a large central atom is surrounded by several small, very electronegative atoms such as F or Cl.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Classification & reasoning</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Odd-electron species.</strong></p>
-                  <ul>
-                    <li>Total valence electrons are odd (e.g., 11, 17).</li>
-                    <li>Examples: NO, NO₂, ClO₂, O₂⁻.</li>
-                    <li>These molecules often contain an unpaired electron and are radicals, usually quite reactive.</li>
-                  </ul>
-
-                  <p><strong>Incomplete octet (electron-deficient).</strong></p>
-                  <ul>
-                    <li>Central atom has less than 8 electrons, often 6.</li>
-                    <li>Common elements: B, Be.</li>
-                    <li>Sometimes giving them an octet creates unfavorable formal charges (e.g., putting positive charge on a very electronegative atom), so the electron-deficient structure is actually preferred.</li>
-                  </ul>
-
-                  <p><strong>Expanded octet (hypervalent).</strong></p>
-                  <ul>
-                    <li>Central atom has more than 8 electrons (10, 12, etc.).</li>
-                    <li>Only atoms from period 3 onward (e.g., P, S, Cl, Br, I) can do this, because they are larger.</li>
-                    <li>The main reason is spatial: a larger atom can accommodate more bonded atoms around it without severe crowding.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: odd-electron NO.</strong></p>
-                  <ul>
-                    <li>N (5 e⁻) + O (6 e⁻) = 11 valence electrons.</li>
-                    <li>Any reasonable Lewis structure ends up with one unpaired electron.</li>
-                    <li>NO is a radical and relatively reactive.</li>
-                  </ul>
-
-                  <p><strong>Example: incomplete octet in BF₃.</strong></p>
-                  <ul>
-                    <li>Total valence electrons: B (3) + 3×F (3×7) = 24 e⁻.</li>
-                    <li>Simple structure: B with three B–F single bonds and three lone pairs on each F.</li>
-                    <li>B has only 6 electrons; F atoms have octets.</li>
-                    <li>Alternative structures with B=F double bonds give B⁻ and F⁺, placing positive charge on highly electronegative F → disfavored.</li>
-                    <li>Conclusion: the electron-deficient 6-electron B structure is dominant.</li>
-                  </ul>
-
-                  <p><strong>Example: expanded octet in PF₅.</strong></p>
-                  <ul>
-                    <li>Valence electrons: P (5) + 5×F (5×7) = 40 e⁻.</li>
-                    <li>Lewis structure: central P with five P–F single bonds and no lone pairs.</li>
-                    <li>P has 10 electrons around it (expanded octet), which is allowed because P is a third-period element.</li>
-                    <li>An analogous NCl₅ would require N (a second-period element) to hold 10 electrons; this doesn’t occur under normal conditions.</li>
-                  </ul>
-
-                  <p class="hint">When an atom from period 3 or lower is surrounded by five or six small, electronegative atoms, suspect a stable expanded-octet structure.</p>
-                </div>
-              </article>
+            <div class="formula-line">
+              <code>NaCl(s) → Na⁺(g) + Cl⁻(g) ΔHlattice = +788 kJ/mol</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
             </div>
+            <div class="formula-line">
+              <code>E = k Q₁ Q₂ / d</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>The Coulombic energy increases with higher ionic charges and smaller separation d, explaining why lattice energies are huge and ionic crystals are hard.</p>
           </div>
-        </section>
-
-        <!-- 8.8 Bond Strengths & Lengths -->
-        <section class="section-card" id="sec-8-8" data-keywords="8.8 bond enthalpy strength length single double triple">
-          <div class="section-inner">
-            <div class="section-header-row">
-              <h2 class="section-title">
-                <span class="section-title-code">8.8</span>
-                <span class="section-title-text">Strengths and Lengths of Covalent Bonds</span>
-              </h2>
-              <div class="section-meta">Relating bond order, bond energy, and bond length</div>
-            </div>
-            <div class="nodes-row">
-              <article class="node roots">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type roots">Roots</span>
-                    <span class="node-header-pill">Key ideas</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Bond enthalpy</strong> (bond energy) is the energy required to break one mole of a given bond in the gas phase. It is always positive because breaking bonds requires energy.</p>
-                  <p><strong>Bond length</strong> is the distance between the nuclei of two bonded atoms, usually measured in picometers (pm, 10⁻¹² m).</p>
-                  <p>For a given pair of atoms:</p>
-                  <ul>
-                    <li>Single bond → longest and weakest.</li>
-                    <li>Double bond → shorter and stronger.</li>
-                    <li>Triple bond → shortest and strongest.</li>
-                  </ul>
-                  <p>Average bond enthalpies and bond lengths can be used to estimate reaction enthalpies by summing the energies for bonds broken and formed.</p>
-                </div>
-              </article>
-
-              <article class="node trunk collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type trunk">Trunk</span>
-                    <span class="node-header-pill">Data patterns & ΔH estimate rule</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example bond data (C–C bonds):</strong></p>
-                  <ul>
-                    <li>C–C single: length ≈ 154 pm, bond enthalpy ≈ 348 kJ/mol.</li>
-                    <li>C=C double: length ≈ 134 pm, bond enthalpy ≈ 614 kJ/mol.</li>
-                    <li>C≡C triple: length ≈ 120 pm, bond enthalpy ≈ 839 kJ/mol.</li>
-                  </ul>
-                  <p>The pattern:</p>
-                  <ul>
-                    <li>Higher bond order → shorter bond length.</li>
-                    <li>Higher bond order → higher bond enthalpy (stronger bond).</li>
-                  </ul>
-
-                  <div class="formula-line">
-                    <code>ΔHᵣₓₙ ≈ Σ(bond enthalpies of bonds broken) − Σ(bond enthalpies of bonds formed)</code>
-                    <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy ΔH</span></button>
-                  </div>
-                  <p>This approximate rule treats bond enthalpies like “costs” for breaking and “rebates” for forming bonds. If forming bonds releases more energy than breaking bonds costs, the reaction is exothermic (ΔHᵣₓₙ &lt; 0).</p>
-                </div>
-              </article>
-
-              <article class="node leaves collapsed">
-                <button class="node-header" type="button">
-                  <span class="node-header-label">
-                    <span class="node-header-node-type leaves">Leaves</span>
-                    <span class="node-header-pill">Short examples & tips</span>
-                  </span>
-                  <span class="node-chevron">▾</span>
-                </button>
-                <div class="node-body">
-                  <p><strong>Example: N–N bonds.</strong></p>
-                  <ul>
-                    <li>N–N single bond: relatively long and weak.</li>
-                    <li>N=N double bond: shorter and stronger.</li>
-                    <li>N≡N triple bond in N₂: very short and very strong, explaining why N₂ is so stable and why reactions that break N≡N (like forming NO) require significant energy input.</li>
-                  </ul>
-
-                  <p><strong>Example: O₃ bond enthalpy (qualitative).</strong></p>
-                  <ul>
-                    <li>O–O single and O=O double bonds have different bond enthalpies.</li>
-                    <li>In ozone, O–O bond length is between typical single and double bond lengths.</li>
-                    <li>Thus, each O–O bond in O₃ has a bond enthalpy between that of a single and a double bond, consistent with its resonance description.</li>
-                  </ul>
-
-                  <p class="hint">If you see a resonance hybrid with bond lengths between typical single and double bonds, expect bond energies to also be intermediate.</p>
-                </div>
-              </article>
-            </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Comparing CsI, NaF, and CaO shows lattice energies rise with ionic charge and fall with ion size: Cs⁺ and I⁻ are huge so CsI is weakest, whereas Ca²⁺/O²⁻ combine to give the strongest lattice.</p>
           </div>
-        </section>
-      </main>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-3" data-keywords="8.3 covalent bonding lewis multiple bonds bond order">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.3</span>
+          <span class="section-title-text">Covalent Bonding</span>
+        </h2>
+        <div class="section-meta">Sharing electrons, Lewis structures, and bond order</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Planetary view</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Atoms can share electron pairs to form single, double, or triple bonds, and these shared pairs provide the “glue” that holds molecules together.</p>
+            <p>Lewis structures show bonding pairs as lines and lone pairs as dots, revealing how many electrons each atom contributes or keeps private.</p>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Bond order</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Bond order = number of shared electron pairs</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>Increasing bond order pulls atoms closer and strengthens the bond, so double and triple bonds are shorter and harder to break than singles.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>NF₃ features three single N–F bonds covering nitrogen’s octet, whereas CO₂ has two C=O double bonds. The triple bond in N₂ is responsible for its short 110 pm length and inertness.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-4" data-keywords="8.4 bond polarity electronegativity dipole moment partial charge">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.4</span>
+          <span class="section-title-text">Bond Polarity and Electronegativity</span>
+        </h2>
+        <div class="section-meta">Unequal sharing and measurable dipoles</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Core ideas</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Atoms differ in electronegativity; the larger the difference, the more the shared electron density shifts toward the larger χ, creating partial charges δ⁻ and δ⁺.</p>
+            <p>Dipole moments quantify that shift—the bigger the separation and partial charge, the larger μ in Debye.</p>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Key formulas</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Δχ = |χ_A - χ_B|</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>Δχ helps classify bonds: &lt;0.4 is nonpolar covalent, 0.4–2 polar covalent, and &gt;2 signals mostly ionic bonding.</p>
+            <div class="formula-line">
+              <code>μ = Q × r</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>μ (Debye) equals the separated charge Q times the bond length r; measuring μ reveals how much charge has shifted.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>HF has a very large Δχ (~1.9) and a large dipole, HCl is moderately polar (Δχ ≈ 0.9, μ ≈ 1.08 D), while LiF (Δχ &gt; 3) behaves like an ionic crystal.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-5" data-keywords="8.5 drawing lewis formal charge steps procedure">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.5</span>
+          <span class="section-title-text">Drawing Lewis Structures</span>
+        </h2>
+        <div class="section-meta">Step-by-step recipe plus formal charge</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Steps</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <ul>
+              <li>Count total valence electrons (add/subtract for ions).</li>
+              <li>Arrange atoms (central atom is usually least electronegative) and draw single bonds.</li>
+              <li>Complete octets on surrounding atoms, place leftovers on the center, and add multiples if needed.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Counting formulas</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Total valence = Σ group numbers ± charge</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <div class="formula-line">
+              <code>Formal charge = valence - (nonbonding + ½ bonding)</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>Use formal charges to decide between structures; the best structure has small formal charges and places negative values on the more electronegative atoms.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>The dominant Lewis structure of COCl₂ places a double bond to one oxygen and single bonds to chlorines; the resulting formal charges are zero, showing no need for resonance contributors.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-6" data-keywords="8.6 resonance ozone benzene hybrid">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.6</span>
+          <span class="section-title-text">Resonance Structures</span>
+        </h2>
+        <div class="section-meta">Blending equivalent Lewis structures</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Key idea</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>When no single Lewis structure captures identical bond lengths or charge distributions, we draw all the valid resonance structures and treat the real molecule as a resonance hybrid.</p>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Hybrid concept</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Resonance hybrid ≈ average of all dominant contributors</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>Equivalent structures contribute equally; when some structures have smaller formal charges, they contribute more strongly to the hybrid.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Ozone has two resonance forms, so both O–O bonds share the same length (~127.8 pm). Benzene’s two Kekulé structures give six identical C–C bonds of 140 pm and special aromatic stability.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-7" data-keywords="8.7 exceptions odd electrons bf3 pf5 hypervalent">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.7</span>
+          <span class="section-title-text">Exceptions to the Octet Rule</span>
+        </h2>
+        <div class="section-meta">Odd electrons, deficiencies, and hypervalency</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">Limits of octet</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Some molecules have an odd total of electrons (NO, ClO₂), others stop short of eight electrons (BF₃), and heavy central atoms can exceed eight electrons (PF₅, SF₆) because their larger orbitals can accommodate more bonding pairs.</p>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Trunk</span>
+              <span class="node-header-pill">Counting signals</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>Total valence = Σ group numbers ± charge (e.g., BF₃ has 24 electrons)</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <div class="formula-line">
+              <code>Hypervalent atoms ≥ period 3 can comfortably host >8 electrons</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>Large atoms can bond to more than four partners without undue steric strain; the availability of d orbitals in older models only supplements the real size argument.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>BF₃ stays electron-deficient and accepts lone pairs, NO has an unpaired electron, and PF₅ comfortably accommodates ten electrons because phosphorus sits in Period 3.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card" id="sec-8-8" data-keywords="8.8 bond strength length enthalpy phosgene">
+    <div class="section-inner">
+      <div class="section-header-row">
+        <h2 class="section-title">
+          <span class="section-title-code">8.8</span>
+          <span class="section-title-text">Strengths and Lengths of Covalent Bonds</span>
+        </h2>
+        <div class="section-meta">Bond order controls length and enthalpy</div>
+      </div>
+      <div class="nodes-row">
+        <article class="node roots">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type roots">Roots</span>
+              <span class="node-header-pill">General trend</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Average bond enthalpies quantify how much energy is needed to break a bond; stronger bonds store more energy and are harder to sever.</p>
+            <p>Bond lengths shrink as bond order climbs: single &gt; double &gt; triple, which explains why substances with multiple bonds are more stable.</p>
+          </div>
+        </article>
+        <article class="node trunk collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type trunk">Formulas</span>
+              <span class="node-header-pill">Energy bookkeeping</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <div class="formula-line">
+              <code>C¬C: 154 pm, 348 kJ/mol; C=C: 134 pm, 614 kJ/mol; C≡C: 120 pm, 839 kJ/mol</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <div class="formula-line">
+              <code>ΔH ≈ ΣD(bonds broken) - ΣD(bonds formed)</code>
+              <button class="copy-btn" type="button"><span class="icon">📋</span><span class="label">Copy</span></button>
+            </div>
+            <p>This approximate bond-energy approach gives a quick estimate of the reaction’s enthalpy in kJ/mol.</p>
+          </div>
+        </article>
+        <article class="node leaves collapsed">
+          <button class="node-header" type="button">
+            <span class="node-header-label">
+              <span class="node-header-node-type leaves">Leaves</span>
+              <span class="node-header-pill">Examples</span>
+            </span>
+            <span class="node-chevron">▾</span>
+          </button>
+          <div class="node-body">
+            <p>Forming COCl₂ from CO and Cl₂ breaks a C≡O and a Cl–Cl bond while making one C=O and two C–Cl bonds; plugging in D values gives ΔH ≈ -141 kJ/mol, showing the reaction is exothermic.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>

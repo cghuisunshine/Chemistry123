@@ -11,122 +11,189 @@
       margin: 2rem;
       max-width: 900px;
     }
-    h1, h2, h3 {
+    h1, h2 {
       color: #12345f;
+      margin-bottom: 0.5rem;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    h3 {
+      color: #1d4c6f;
+      margin-bottom: 0.25rem;
     }
-    ul, ol {
+    ul {
       margin-left: 1.5rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .formula {
+      background: #f3f4f6;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .formula strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .example {
+      background: #eef6ff;
+      padding: 0.6rem;
+      border-left: 4px solid #60a5fa;
+      border-radius: 4px;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Chapter 6: Electronic Structure of Atoms</h1>
-
-  <h2>Learning Objectives</h2>
-  <p>By the end of this tutorial, you should be able to:</p>
-  <ul>
-    <li>Describe the wave–particle duality of light and how it leads to quantized energy levels.</li>
-    <li>Explain the Bohr model for hydrogen and its limitations.</li>
-    <li>Define and assign the four quantum numbers (<em>n</em>, <em>l</em>, <em>m</em><sub>l</sub>, <em>m</em><sub>s</sub>).</li>
-    <li>Sketch and interpret simple s, p, and d orbitals qualitatively.</li>
-    <li>Write ground‑state electron configurations using the Aufbau principle, Pauli exclusion, and Hund’s rule.</li>
-  </ul>
-
-  <h2>Key Vocabulary</h2>
-  <ul>
-    <li><strong>Photon</strong>: packet (quantum) of electromagnetic radiation with energy <code>E = hν</code>.</li>
-    <li><strong>Quantization</strong>: restriction of a quantity (such as energy) to discrete values.</li>
-    <li><strong>Orbital</strong>: region in space where there is a high probability of finding an electron.</li>
-    <li><strong>Principal quantum number</strong> (<em>n</em>): energy level (1, 2, 3, …); larger <em>n</em> → higher energy and larger orbital.</li>
-    <li><strong>Angular momentum quantum number</strong> (<em>l</em>): shape of orbital (0 = s, 1 = p, 2 = d, 3 = f).</li>
-    <li><strong>Magnetic quantum number</strong> (<em>m</em><sub>l</sub>): orientation of an orbital (−<em>l</em> … 0 … +<em>l</em>).</li>
-    <li><strong>Spin quantum number</strong> (<em>m</em><sub>s</sub>): electron spin (+1/2 or −1/2).</li>
-    <li><strong>Aufbau principle</strong>: electrons fill lowest‑energy orbitals first.</li>
-    <li><strong>Hund’s rule</strong>: electrons fill degenerate orbitals singly with parallel spins before pairing.</li>
-  </ul>
-
-  <h2>1. Light, Energy, and the Bohr Model</h2>
-  <h3>Wave–Particle Duality</h3>
-  <ul>
-    <li>Light behaves like a wave (wavelength λ, frequency ν) and like a particle (photon with energy <code>E = hν</code>).</li>
-    <li>Relationship between wavelength and frequency: <code>c = λν</code>, where <code>c</code> is speed of light.</li>
-  </ul>
-
-  <h3>Bohr Model for Hydrogen</h3>
-  <ul>
-    <li>Electrons move in circular orbits with specific radii; each orbit corresponds to a quantized energy.</li>
-    <li>Transitions between orbits emit or absorb photons with energy equal to the difference in energy levels.</li>
-    <li>Bohr model explains the line spectrum of hydrogen but fails for multi‑electron atoms.</li>
-  </ul>
-
-  <h2>2. Quantum Numbers and Orbitals</h2>
-  <ul>
-    <li>Each electron is described by a unique set of four quantum numbers (<em>n</em>, <em>l</em>, <em>m</em><sub>l</sub>, <em>m</em><sub>s</sub>).</li>
-    <li>Allowed combinations:
-      <ul>
-        <li><em>n</em> = 1, 2, 3, …</li>
-        <li><em>l</em> = 0, 1, …, <em>n</em> − 1.</li>
-        <li><em>m</em><sub>l</sub> = −<em>l</em>, …, 0, …, +<em>l</em>.</li>
-        <li><em>m</em><sub>s</sub> = +1/2 or −1/2.</li>
-      </ul>
-    </li>
-    <li>Pauli exclusion principle: no two electrons in an atom can have the same set of four quantum numbers.</li>
-  </ul>
-
-  <h3>Shapes of Orbitals (Qualitative)</h3>
-  <ul>
-    <li>s orbitals (l = 0): spherical, centered at the nucleus.</li>
-    <li>p orbitals (l = 1): dumbbell‑shaped, oriented along x, y, or z axes.</li>
-    <li>d orbitals (l = 2): more complex shapes (cloverleaf, etc.).</li>
-  </ul>
-
-  <h2>3. Electron Configurations</h2>
-  <h3>Orbital Energy Ordering</h3>
-  <p>Approximate order of filling:</p>
-  <p><code>1s &lt; 2s &lt; 2p &lt; 3s &lt; 3p &lt; 4s &lt; 3d &lt; 4p &lt; 5s &lt; 4d &lt; 5p &lt; 6s &lt; 4f …</code></p>
-
-  <h3>Writing Configurations</h3>
-  <ul>
-    <li>Follow Aufbau: fill from lowest to highest energy.</li>
-    <li>Apply Hund’s rule in p, d, f subshells: put one electron in each orbital with parallel spins before pairing.</li>
-    <li>Use noble‑gas shorthand: start from closest noble gas then add remaining electrons (for example, [Ne] 3s<sup>2</sup> 3p<sup>5</sup> for Cl).</li>
-  </ul>
-
-  <h3>Worked Example 1 – Electron Configuration of Oxygen</h3>
-  <p>Write the ground‑state electron configuration for O (Z = 8).</p>
-  <ol>
-    <li>Order of filling: 1s, 2s, 2p.</li>
-    <li>Place electrons: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>4</sup> (total 8).</li>
-    <li>Noble‑gas shorthand: [He] 2s<sup>2</sup> 2p<sup>4</sup>.</li>
-  </ol>
-
-  <h3>Worked Example 2 – Electron Configuration of Fe</h3>
-  <p>Write the ground‑state electron configuration and count unpaired electrons for Fe (Z = 26).</p>
-  <ol>
-    <li>Shorthand: [Ar] 4s<sup>2</sup> 3d<sup>6</sup>.</li>
-    <li>In 3d<sup>6</sup>, follow Hund’s rule: five d orbitals → fill each singly before pairing; 3d<sup>6</sup> has four unpaired electrons.</li>
-  </ol>
-
-  <h2>4. Core and Valence Electrons; Periodic Trends</h2>
-  <ul>
-    <li><strong>Core electrons</strong>: inner electrons, not involved directly in bonding.</li>
-    <li><strong>Valence electrons</strong>: outer electrons; largely determine chemical behavior.</li>
-    <li>Elements in the same group have similar valence configurations and similar chemistry.</li>
-  </ul>
-
-  <h2>5. Practice Problems (Self-Check)</h2>
-  <ol>
-    <li>For each set of quantum numbers, state whether the combination is allowed: (a) n = 2, l = 1, m<sub>l</sub> = 0, m<sub>s</sub> = +1/2; (b) n = 3, l = 3, m<sub>l</sub> = 0, m<sub>s</sub> = −1/2.</li>
-    <li>List all possible quantum numbers (<em>n</em>, <em>l</em>, <em>m</em><sub>l</sub>) for the 3p subshell.</li>
-    <li>Write full and noble‑gas electron configurations for: N, Cl, and Br.</li>
-    <li>How many unpaired electrons are present in the ground‑state electron configuration of: N, O, Fe?</li>
-    <li>Explain qualitatively why 4s fills before 3d but 4s electrons are often removed first when transition metals form cations.</li>
-  </ol>
+  <section class="section" id="section-6-1">
+    <h2>6.1 The Wave Nature of Light</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Electromagnetic radiation behaves as a wave with a wavelength λ and frequency ν, and all types travel at the speed of light, c.</li>
+      <li>Wavelength and frequency are inversely related: longer λ means lower ν, and vice versa.</li>
+      <li>Different regions of the electromagnetic spectrum have vastly different wavelengths—γ rays are very short; radio waves are very long, with visible light a narrow slice in between.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Wave relation</strong> <code>ν = c / λ</code>
+      <p>The frequency ν (cycles per second) equals the speed of light c (≈ 3.00×10⁸ m/s) divided by the wavelength λ (meters). Fixing c ensures that shorter wavelengths correspond to higher frequencies.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">Blue light has λ ≈ 450 nm. Dividing c by 450×10⁻⁹ m gives ν ≈ 6.7×10¹⁴ s⁻¹, a much higher frequency than red light (around 4.0×10¹⁴ s⁻¹).</p>
+  </section>
+  <section class="section" id="section-6-2">
+    <h2>6.2 Quantized Energy and Photons</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Planck proposed that radiant energy is delivered in packets called quanta; the energy of each quantum is proportional to the frequency of the radiation.</li>
+      <li>Einstein extended this idea to light itself, treating electromagnetic waves as photons with particle-like behavior.</li>
+      <li>Electrons in atoms absorb or emit photons only in discrete amounts, so energy changes are quantized.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Photon energy</strong> <code>E = h ν</code>
+      <p>The energy E of a photon equals Planck’s constant h (6.626×10⁻³⁴ J·s) times the frequency ν. Higher-frequency light carries more energy per photon.</p>
+    </div>
+    <div class="formula">
+      <strong>Photon energy via wavelength</strong> <code>E = h c / λ</code>
+      <p>Substituting ν = c/λ yields this form, showing that shorter wavelengths have higher-energy photons.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">A UV photon with λ = 250 nm has energy E = (6.626×10⁻³⁴ J·s)(3.00×10⁸ m/s)/(250×10⁻⁹ m) ≈ 7.95×10⁻¹⁹ J, about five times the energy of a visible photon.</p>
+  </section>
+  <section class="section" id="section-6-3">
+    <h2>6.3 Line Spectra and the Bohr Model</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Atoms emit or absorb radiation only at certain wavelengths, giving rise to line spectra that reflect quantized energy differences.</li>
+      <li>Bohr modeled the hydrogen atom with electrons restricted to circular orbits; energy differences between orbits correspond to photon energies.</li>
+      <li>The Rydberg formula and Bohr energies explain observed wavelengths in hydrogen’s emission spectrum.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Energy levels for hydrogen</strong> <code>E<sub>n</sub> = -2.18×10⁻¹⁸ J (Z² / n²)</code>
+      <p>Each level n has energy inversely proportional to n²; Z is the nuclear charge (1 for hydrogen). Lower n values have more negative (lower) energy.</p>
+    </div>
+    <div class="formula">
+      <strong>Photon energy from Bohr</strong> <code>ΔE = E<sub>final</sub> - E<sub>initial</sub> = h ν</code>
+      <p>A photon is emitted if ΔE is negative (electron drops to lower n) and absorbed if ΔE is positive. The Bohr model shows only certain ΔE values are allowed.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">The Balmer series lines arise when electrons fall to n=2 from higher levels. For n=3→2, ΔE corresponds to λ ≈ 656 nm, giving the familiar red line.</p>
+  </section>
+  <section class="section" id="section-6-4">
+    <h2>6.4 The Wave Behavior of Matter</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>De Broglie proposed that matter has wave properties with wavelengths inversely proportional to momentum.</li>
+      <li>Electron diffraction experiments confirmed the wave nature of particles, so electrons cannot be described only as point particles.</li>
+      <li>The dual wave-particle behavior introduces fundamental limits on simultaneously knowing position and momentum (Heisenberg uncertainty).</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>de Broglie wavelength</strong> <code>λ = h / (m v)</code>
+      <p>Any particle of mass m moving at speed v has an associated wavelength λ. For macroscopic objects the wavelength is vanishingly small, but for electrons it is comparable to atomic dimensions.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">An electron moving at 1.0×10⁶ m/s has λ = (6.626×10⁻³⁴)/(9.11×10⁻³¹×1.0×10⁶) ≈ 0.73 nm, about the size of atoms, demonstrating why electrons behave as waves near atoms.</p>
+  </section>
+  <section class="section" id="section-6-5">
+    <h2>6.5 Quantum Mechanics and Atomic Orbitals</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The Schrödinger equation describes electrons as wavefunctions ψ whose squared magnitude gives probability densities.</li>
+      <li>Quantum numbers (n, l, m<sub>l</sub>, m<sub>s</sub>) label allowed orbitals and states: principal, angular momentum, magnetic, and spin.</li>
+      <li>Atomic orbitals are stationary states with characteristic energies and shapes; nodes represent regions of zero probability.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <div class="formula">
+      <strong>Schrödinger equation (symbolic)</strong> <code>Ĥ ψ = E ψ</code>
+      <p>The Hamiltonian operator Ĥ (kinetic plus potential energy) acting on the wavefunction ψ yields the energy eigenvalue E. Solutions produce orbitals labeled by n, l, and m<sub>l</sub>.</p>
+    </div>
+    <h3>Short example(s)</h3>
+    <p class="example">The 1s orbital (n=1, l=0) has a spherical probability density with no nodes, while the 2p orbitals (n=2, l=1) are dumbbell-shaped along different axes.</p>
+  </section>
+  <section class="section" id="section-6-6">
+    <h2>6.6 Representations of Orbitals</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Orbital representations include contour surfaces showing where electron probability is high and cross-sections showing nodal structure.</li>
+      <li>s orbitals are spherical, p orbitals have two lobes separated by a nodal plane, and d orbitals show more complex shapes with angular nodes.</li>
+      <li>Radial distribution diagrams help visualize how electron probability changes with distance from the nucleus.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p class="formula"><strong>Orbitals are labeled by</strong> <code>n</code>, <code>l</code>, and <code>m<sub>l</sub></code></p>
+    <p>The principal quantum number <em>n</em> sets the energy and size; <em>l</em> determines the shape (0=s, 1=p, 2=d, 3=f); <em>m<sub>l</sub></em> determines orientation. Each spherical surface has an electron density defined by |ψ|².</p>
+    <h3>Short example(s)</h3>
+    <p class="example">A 3d orbital has l=2 and shows four lobes or a donut-plus-lobes pattern, each corresponding to a different m<sub>l</sub> value, while the 3s orbital has two radial nodes.</p>
+  </section>
+  <section class="section" id="section-6-7">
+    <h2>6.7 Many-Electron Atoms</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Electron-electron repulsions split orbital energies in atoms beyond hydrogen, so orbitals with the same n are no longer degenerate.</li>
+      <li>Shielding and penetration modify the effective nuclear charge felt by electrons; electrons in inner orbitals shield outer ones.</li>
+      <li>Orbital energies increase with n, but subshell ordering (e.g., 4s before 3d) reflects a balance between penetration and shielding.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p class="formula"><strong>Effective nuclear charge</strong> <code>Z<sub>eff</sub> ≈ Z - S</code></p>
+    <p>An electron experiences an effective nuclear charge <em>Z<sub>eff</sub></em> equal to the actual nuclear charge <em>Z</em> minus the shielding constant <em>S</em> from other electrons. Higher <em>Z<sub>eff</sub></em> means tighter binding.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">In sodium, the 3s electron feels more nuclear charge than the 3p electron because the 3s orbital penetrates closer to the nucleus, making 3s lower in energy than 3p despite sharing n=3.</p>
+  </section>
+  <section class="section" id="section-6-8">
+    <h2>6.8 Electron Configurations</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>Electron configurations list occupied orbitals using the Aufbau principle, Hund’s rule, and the Pauli exclusion principle.</li>
+      <li>Orbitals fill in order of increasing energy (n + l rule) and accommodate two electrons with opposite spins.</li>
+      <li>Ionic states and excited states can rearrange electron configurations when energy ordering shifts (e.g., Cu and Cr anomalies).</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p class="formula"><strong>Electron capacity</strong> <code>max = 2(2l + 1)</code></p>
+    <p>Each subshell of angular momentum <em>l</em> contains 2(2l + 1) orbitals, each holding two electrons, so s holds 2, p holds 6, d holds 10, and f holds 14 electrons.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Elemental chromium uses an unexpected configuration [Ar] 3d⁵ 4s¹ because half-filled d subshells are especially stable, illustrating that actual order may deviate slightly from a naive Aufbau list.</p>
+  </section>
+  <section class="section" id="section-6-9">
+    <h2>6.9 Electron Configurations and the Periodic Table</h2>
+    <h3>Key ideas</h3>
+    <ul>
+      <li>The periodic table reflects electron configurations: s-block elements fill s orbitals, p-block fill p, and d-block fill d orbitals.</li>
+      <li>Periodic trends (ionization energy, atomic radius) arise from how orbitals fill and how <em>Z<sub>eff</sub></em> changes across periods and down groups.</li>
+      <li>Electron configurations help identify valence electrons, which determine chemical reactivity and oxidation states.</li>
+    </ul>
+    <h3>Important formulas &amp; their meaning</h3>
+    <p class="formula"><strong>Valence electrons</strong> <code>Valence = electrons in highest n shell</code></p>
+    <p>The outermost shell electrons contribute to bonding. For sodium [Ne] 3s¹, the single valence electron is why Na⁺ forms and the element is highly reactive.</p>
+    <h3>Short example(s)</h3>
+    <p class="example">Transition metals can lose different numbers of d electrons, which explains why Fe can form Fe²⁺ and Fe³⁺; these multiple oxidation states reflect the energetic accessibility of d orbitals near the valence shell.</p>
+  </section>
 </body>
 </html>
