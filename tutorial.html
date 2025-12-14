@@ -899,7 +899,8 @@
             // Traverse up to find the anchor tag if clicked on a child element
             const target = e.target.closest('a');
             
-            if (target && target.href && target.href.startsWith('file://')) {
+            // Check for file:// protocol AND .pdf extension
+            if (target && target.href && target.href.startsWith('file://') && target.href.toLowerCase().includes('.pdf')) {
                 e.preventDefault();
                 copyLinkInput.value = target.href;
                 copyBtn.textContent = 'Copy'; // Reset text
