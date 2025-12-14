@@ -901,10 +901,22 @@
             
             // Check for file:// protocol AND .pdf extension
             if (target && target.href && target.href.startsWith('file://') && target.href.toLowerCase().includes('.pdf')) {
-                e.preventDefault();
+                // Prepare modal content
                 copyLinkInput.value = target.href;
-                copyBtn.textContent = 'Copy'; // Reset text
-                copyLinkModal.style.display = 'block';
+                copyBtn.textContent = 'Copy'; 
+
+                // If on http/s, browser DEFINITELY blocks local file access -> Block and show modal.
+                if (window.location.protocol.startsWith('http')) {
+                    e.preventDefault();
+                    copyLinkModal.style.display = 'block';
+                } else {
+                    // If on file://, browser MIGHT allow it.
+                    // Try to open (allow default).
+                    // Fallback: Show modal after short delay in case likely blocked or user needs path.
+                    setTimeout(() => {
+                        copyLinkModal.style.display = 'block';
+                    }, 500);
+                }
             }
         });
 
