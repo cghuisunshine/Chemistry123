@@ -28,10 +28,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>Water autoionizes: <code>2 H₂O ⇌ H₃O⁺ + OH⁻</code>, establishing baseline hydronium and hydroxide concentrations.</li>
+        <li><code>K_w</code> depends on temperature, so “neutral pH” is not always exactly 7.00 except at 25 °C.</li>
+        <li>In any aqueous solution, if you know <code>[H₃O⁺]</code> you can find <code>[OH⁻]</code> from <code>K_w</code> (and vice versa).</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Ion-product constant:</strong> <code>K_w = [H₃O⁺][OH⁻] ≈ 1.0 × 10⁻¹⁴</code> at 25 °C.</li>
+        <li><strong>Neutral condition:</strong> In pure water, <code>[H₃O⁺] = [OH⁻]</code>, so each equals <code>√K_w</code> (at 25 °C that’s <code>1.0×10⁻⁷ M</code>).</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>Neutral water has <code>[H₃O⁺] = [OH⁻] = 1.0 × 10⁻⁷ M</code>, leading to pH 7.</p>
@@ -43,10 +46,12 @@
       <ul>
         <li>pH measures acidity: <code>pH = −log[H₃O⁺]</code>, and <code>pOH = −log[OH⁻]</code>.</li>
         <li>At 25 °C, <code>pH + pOH = 14</code>, so knowing one fixes the other.</li>
+        <li>Because pH is logarithmic, it is best treated with significant figures: the number of decimal places in pH matches the number of significant figures in <code>[H₃O⁺]</code>.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Relationship:</strong> <code>[H₃O⁺] = 10^{-pH}</code>; a change of 1 pH unit equals a tenfold change in [H₃O⁺].</li>
+        <li><strong>Convert via <code>K_w</code>:</strong> <code>[OH⁻] = K_w/[H₃O⁺]</code> (useful when you find one ion concentration first).</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>A solution with <code>[H₃O⁺] = 1 × 10⁻³</code> M has pH 3 and is acidic.</p>
@@ -57,10 +62,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>Strong acids/bases dissociate completely, so equilibrium lies nearly all the way to products.</li>
+        <li>For strong acids, treat <code>[H₃O⁺]</code> as the analytical concentration after dilution/mixing; for strong bases, treat <code>[OH⁻]</code> similarly.</li>
+        <li>In very dilute solutions, water’s own <code>1.0×10⁻⁷ M</code> contribution can matter; otherwise it is negligible.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Strong acid:</strong> <code>[H₃O⁺] ≈ [acid]_initial</code>, so pH is calculated directly from concentration.</li>
+        <li><strong>Strong base:</strong> <code>[OH⁻] ≈ [base]_initial</code>, then <code>pOH = −log[OH⁻]</code> and <code>pH = 14 − pOH</code> at 25 °C.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>0.10 M HNO₃ gives pH 1.</p>
@@ -71,10 +79,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>Weak acids partially dissociate; equilibrium constants and ICE tables determine [H⁺].</li>
+        <li>The weaker the acid (smaller <code>K_a</code>), the smaller the fraction that ionizes, so pH stays closer to neutral for the same formal concentration.</li>
+        <li>Always check the “small‑x” assumption (percent ionization); if it’s not small, solve the quadratic.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Weak acid:</strong> <code>K_a = x²/([HA]_0 − x)</code>; with small <code>K_a</code>, approximate <code>x ≪ [HA]_0</code> to get <code>[H₃O⁺] ≈ √(K_a·[HA]_0)</code>.</li>
+        <li><strong>Percent ionization:</strong> <code>% ionization = ([H₃O⁺]_eq/[HA]_0)×100%</code>; a quick diagnostic for approximation validity.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>0.10 M acetic acid (`K_a ≈ 1.8 × 10⁻⁵`) gives [H⁺] ≈ 1.34 × 10⁻³ M and pH ≈ 2.87.</p>
@@ -84,11 +95,14 @@
       <h2>16.6 Weak Bases</h2>
       <h3>Key ideas</h3>
       <ul>
-        <li>Weak bases partially hydrolyze; treat analogously to weak acids but use `K_b` and solve for [OH⁻].</li>
+        <li>Weak bases partially hydrolyze; treat analogously to weak acids but use <code>K_b</code> and solve for <code>[OH⁻]</code>.</li>
+        <li>After you find <code>[OH⁻]</code>, convert to pOH then pH using <code>pH + pOH = 14</code> (at 25 °C).</li>
+        <li>Conjugate relationships connect acid and base strength: weak bases have strong conjugate acids and vice versa.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
-        <li><strong>Weak base:</strong> <code>K_b = x²/([B]_0 − x)</code>; for small `K_b`, take <code>[OH⁻] ≈ √(K_b·[B]_0)</code>.</li>
+        <li><strong>Weak base:</strong> <code>K_b = x²/([B]_0 − x)</code>; for small <code>K_b</code>, take <code>[OH⁻] ≈ √(K_b·[B]_0)</code>.</li>
+        <li><strong>Conjugates:</strong> <code>K_aK_b = K_w</code> for a conjugate acid–base pair at the same temperature.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>0.10 M NH₃ (`K_b ≈ 1.8×10⁻⁵`) yields [OH⁻] ≈ 1.34×10⁻³ M, pOH ≈ 2.87, and pH ≈ 11.13.</p>
@@ -99,10 +113,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>Salts of strong acid + strong base are neutral; weak component salts hydrolyze to produce acidic/basic solutions.</li>
+        <li>Identify whether the ions are conjugates of weak acids/bases: conjugate bases of weak acids make solutions basic; conjugate acids of weak bases make solutions acidic.</li>
+        <li>Polyprotic ions (like <code>HCO₃⁻</code> or <code>HPO₄²⁻</code>) can be amphiprotic, acting as either acid or base depending on what they encounter.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
-        <li><strong>Hydrolysis:</strong> For NH₄Cl, `NH₄⁺ ⇌ NH₃ + H⁺` with `K_a` corresponding to the conjugate acid.</li>
+        <li><strong>Hydrolysis:</strong> For NH₄Cl, <code>NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</code> with <code>K_a</code> corresponding to the conjugate acid.</li>
+        <li><strong>Conjugate link:</strong> If you know <code>K_a</code> for HA, then <code>K_b = K_w/K_a</code> for A⁻ (useful for basic salts like acetate).</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>NaCH₃COO solution is basic because CH₃COO⁻ reacts with water to produce OH⁻.</p>
@@ -113,10 +130,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>Acid strength depends on bond strength/polarity and conjugate-base stability (resonance, inductive effects).</li>
+        <li>Across a period, acidity of H–X tends to increase with electronegativity (more stable conjugate base); down a group, acidity can increase as H–X bonds weaken.</li>
+        <li>For oxyacids, adding electronegative atoms (like O) and electron-withdrawing substituents stabilizes the conjugate base, increasing acidity.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Structural rules:</strong> Weaker H–X bond and better charge delocalization in the conjugate base increase acidity.</li>
+        <li><strong>Resonance effect (pattern):</strong> More resonance forms for the conjugate base generally means lower energy and therefore a stronger acid.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>HCl is stronger than HF because H–Cl is weaker (longer) and Cl⁻ is better stabilized by larger size.</p>

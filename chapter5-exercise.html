@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrostatic Potential Energy & First Law – Q5.1 to Q5.10 (Solutions)</title>
+
+  <!-- MathJax for clean equation rendering -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root{
+      --bg:#f5f5f7;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+      padding:24px;
+    }
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 20px 28px;
+    }
+    header{
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    h1{
+      margin:0 0 6px;
+      font-size: 1.5rem;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+    .grid{
+      display:grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 14px 10px;
+      background: #fff;
+    }
+    .qhead{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom: 8px;
+    }
+    .tag{
+      display:inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(37,99,235,.25);
+      background: rgba(37,99,235,.07);
+      color: var(--accent);
+      font-weight: 650;
+      font-size: .86rem;
+      white-space:nowrap;
+    }
+    h2{
+      margin:0;
+      font-size: 1.15rem;
+    }
+    details{
+      margin-top: 10px;
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:650;
+      color: #111827;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .summaryRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .hint{
+      color:var(--muted);
+      font-weight:600;
+      font-size:.92rem;
+    }
+    .block{
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fafafa;
+    }
+    .block h3{
+      margin:0 0 6px;
+      font-size: 1.02rem;
+    }
+    .block p{
+      margin: 6px 0;
+    }
+    ul{margin:8px 0 0 18px}
+    .answer{
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(16,185,129,.25);
+      background: rgba(16,185,129,.06);
+    }
+    .answer strong{
+      color:#065f46;
+    }
+    .math{
+      overflow-x:auto;
+      padding: 6px 0;
+    }
+    .foot{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .93rem;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .92em;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    /* Loading state */
+    #loading{
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      display: none; 
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Electrostatic Potential Energy – Solutions</h1>
+      <p class="sub">Questions 5.1 through 5.10 combined into one page (with explanations after each answer).</p>
+    </header>
+
+    <div id="loading">Loading questions...</div>
+    
+    <section class="grid" id="questions-container">
+       <!-- Questions will be injected here -->
+    </section>
+
+    <p class="foot">
+      Tip: If MathJax doesn’t load (offline), the page will still show the text, but equations may not render nicely.
+    </p>
+  </main>
+
+  <script>
+    // Embedded JSON data to avoid CORS issues with local file access
+    const questionsData = [
+      {
+        "id": "q51",
+        "tag": "Question 5.1",
+        "question": "Which solid would have the lower (more negative) potential energy?",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "Given choices",
+            "content": "<ul><li>(a) NaCl</li><li>(b) CaO</li></ul>"
+          },
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+            "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p><strong>Answer:</strong> <span class=\"kbd\">(b) CaO</span> has the lower (more negative) potential energy.</p></div><div class=\"block\"><h3>Key idea: “More negative” means stronger attraction</h3><p>In an ionic solid, the “potential energy” mainly refers to how strongly the ions attract each other in the crystal(often discussed as <em>lattice energy</em>). Stronger electrostatic attraction makes the potential energy <em>more negative</em>.</p></div><div class=\"block\"><h3>University-level reasoning (Coulomb’s law trend)</h3><p class=\"math\">\\[ U \\propto \\frac{q_1 q_2}{r} \\]</p><ul><li><strong>Bigger charges</strong> (\\(q_1, q_2\\)) → much stronger attraction → \\(U\\) becomes more negative.</li><li><strong>Smaller ionic distance</strong> (\\(r\\)) → stronger attraction → \\(U\\) becomes more negative.</li></ul></div><div class=\"block\"><h3>Compare NaCl vs CaO</h3><ul><li><strong>NaCl:</strong> \\( \\text{Na}^+ \\) and \\( \\text{Cl}^- \\) (charges \\(+1\\) and \\(-1\\))</li><li><strong>CaO:</strong> \\( \\text{Ca}^{2+} \\) and \\( \\text{O}^{2-} \\) (charges \\(+2\\) and \\(-2\\))</li></ul><p>Because CaO has <strong>double</strong> the charge on each ion, the product \\(q_1 q_2\\) is about <strong>four times larger in magnitude</strong> than in NaCl, making the attraction significantly stronger and the potential energy more negative.</p></div><div class=\"block\"><h3>Final takeaway</h3><p><strong>CaO</strong> has stronger ionic attraction than <strong>NaCl</strong> → therefore it has a <strong>lower (more negative)</strong> electrostatic potential energy in the solid.</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "q52",
+        "tag": "Question 5.2",
+        "question": "(a) Find the electrostatic potential energy between an electron and a proton separated by 230 pm. <br/>(b) Find the change in potential energy if the distance increases to 1.0 nm. <br/>(c) Does the potential energy increase or decrease when distance increases to 1.0 nm?",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "Formula and constants",
+            "content": "<p class=\"math\">\\[ U = \\frac{k q_1 q_2}{r} \\]</p><ul><li>\\(k = 8.99 \\times 10^9 \\ \\text{N·m}^2/\\text{C}^2\\)</li><li>electron charge: \\(q_e = -1.602 \\times 10^{-19}\\ \\text{C}\\)</li><li>proton charge: \\(q_p = +1.602 \\times 10^{-19}\\ \\text{C}\\)</li></ul>"
+          },
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+            "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p><strong>(a) Answer:</strong> \\(U(230\\,\\text{pm}) \\approx \\boxed{-1.0 \\times 10^{-18}\\ \\text{J}}\\) </p><p><strong>(b) Answer:</strong> \\(\\Delta U = U(1.0\\,\\text{nm}) - U(230\\,\\text{pm}) \\approx \\boxed{+7.7 \\times 10^{-19}\\ \\text{J}}\\) </p><p><strong>(c) Answer:</strong> The potential energy <strong>increases</strong> (it becomes <strong>less negative</strong>).</p></div><div class=\"block\"><h3>Step 1: Compute \\(q_1 q_2\\)</h3><p class=\"math\">\\[ q_1 q_2 = (-1.602\\times10^{-19})(+1.602\\times10^{-19}) = - (1.602\\times10^{-19})^2 = -2.566\\times10^{-38}\\ \\text{C}^2 \\]</p><p>The product is <strong>negative</strong> because opposite charges attract → so \\(U\\) will be negative.</p></div><div class=\"block\"><h3>(a) Potential energy at 230 pm</h3><p>Convert distance:</p><p class=\"math\">\\[ 230\\ \\text{pm} = 230\\times10^{-12}\\ \\text{m} = 2.30\\times10^{-10}\\ \\text{m} \\]</p><p>Plug into \\(U = \\dfrac{kq_1q_2}{r}\\):</p><p class=\"math\">\\[ U = \\frac{(8.99\\times10^9)(-2.566\\times10^{-38})}{2.30\\times10^{-10}} \\approx -1.00\\times10^{-18}\\ \\text{J} \\]</p></div><div class=\"block\"><h3>(b) New potential energy at 1.0 nm, then compute \\(\\Delta U\\)</h3><p>Convert distance:</p><p class=\"math\">\\[ 1.0\\ \\text{nm} = 1.0\\times10^{-9}\\ \\text{m} \\]</p><p>Compute \\(U\\) at 1.0 nm:</p><p class=\"math\">\\[ U_{1.0\\text{ nm}} = \\frac{(8.99\\times10^9)(-2.566\\times10^{-38})}{1.0\\times10^{-9}} \\approx -2.31\\times10^{-19}\\ \\text{J} \\]</p><p>Change in potential energy:</p><p class=\"math\">\\[ \\Delta U = U_{\\text{final}} - U_{\\text{initial}} = (-2.31\\times10^{-19}) - (-1.00\\times10^{-18}) \\approx +7.7\\times10^{-19}\\ \\text{J} \\]</p></div><div class=\"block\"><h3>(c) Increase or decrease when distance increases?</h3><p>When \\(r\\) increases, the attraction weakens and the potential energy moves <strong>upward toward 0</strong>. Since it starts negative, moving toward 0 means it becomes <strong>less negative</strong>. That is an <strong>increase</strong> in potential energy.</p><p class=\"math\">\\[ -1.00\\times10^{-18}\\ \\text{J} \\ \\to\\ -2.31\\times10^{-19}\\ \\text{J} \\quad(\\text{closer to }0) \\]</p></div><div class=\"block\"><h3>Physical meaning (important intuition)</h3><ul><li>Negative \\(U\\) = the two particles are in a “bound” attractive situation.</li><li>Increasing \\(r\\) requires energy input (you are pulling them apart).</li><li>So \\(\\Delta U > 0\\) when you separate opposite charges.</li></ul></div>"
+          }
+        ]
+      },
+      {
+        "id": "q53",
+        "tag": "Question 5.3",
+        "question": "A sodium ion, Na⁺, with a charge of \\(1.6 \\times 10^{-19}\\,\\text{C}\\) and a chloride ion, Cl⁻, with charge of \\(-1.6 \\times 10^{-19}\\,\\text{C}\\), are separated by a distance of 0.50 nm. How much work would be required to increase the separation of the two ions to an infinite distance?",
+        "blocks": [
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+            "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p class=\"math\">\\[ W = 4.6 \\times 10^{-19}\\ \\text{J} \\]</p></div><div class=\"block\"><h3>Explanation</h3><p>Oppositely charged ions attract, so their electrostatic potential energy is negative at finite separation. At infinite separation, the potential energy is zero. The work required to separate the ions to infinity equals the increase in potential energy, which is the magnitude of the initial electrostatic potential energy.</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "q54",
+        "tag": "Question 5.4",
+        "question": "Identify the force present and explain whether work is being performed in the following cases:",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) You lift a book off the top of a desk.",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> An upward applied force by the hand and a downward gravitational force act on the book. Work is performed by the applied force.</p></div><div class=\"block\"><h3>Explanation</h3><p>Work is done when a force causes displacement in its direction. The applied force and the displacement of the book are both upward, so positive work is done on the book, increasing its gravitational potential energy.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) Air is compressed in a bicycle pump.",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> An applied force compresses the air against its internal pressure. Work is done on the air.</p></div><div class=\"block\"><h3>Explanation</h3><p>During compression, the applied force causes a decrease in volume. This is pressure–volume work done on the gas, increasing its internal energy.</p></div></details>"
+          }
+        ]
+      },
+      {
+        "id": "q55",
+        "tag": "Question 5.5",
+        "question": "An aluminum can of a soft drink is placed in a freezer. Later, you find that the can is split open and its contents have frozen. Work was done on the can in splitting it open. Where did the energy for this work come from?",
+        "blocks": [
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+             "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p><strong>Answer:</strong> The energy came from the freezing of the water.</p></div><div class=\"block\"><h3>Explanation</h3><p>When water freezes, its internal energy decreases and latent heat is released. Water also expands upon freezing, generating pressure on the can. This expansion does mechanical work on the aluminum can, causing it to split. The freezer removes energy but does not provide it.</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "q56",
+        "tag": "Question 5.6",
+        "question": "Thermodynamic Systems",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) Which of the following cannot leave or enter a closed system: heat, work, or matter?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Matter cannot leave or enter a closed system.</p></div><div class=\"block\"><h3>Explanation</h3><p>A closed system can exchange energy (heat and/or work) with its surroundings, but mass remains fixed.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) Which cannot leave or enter an isolated system?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Heat, work, and matter cannot leave or enter an isolated system.</p></div><div class=\"block\"><h3>Explanation</h3><p>An isolated system has no interaction of any kind with its surroundings, so neither energy nor matter can cross its boundary.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(c) What do we call the part of the universe that is not part of the system?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> The surroundings.</p></div><div class=\"block\"><h3>Explanation</h3><p>In thermodynamics, the universe is divided into the system of interest and everything else, called the surroundings.</p></div></details>"
+          }
+        ]
+      },
+      {
+        "id": "q57",
+        "tag": "Question 5.7",
+        "question": "First Law of Thermodynamics",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) According to the first law of thermodynamics, what quantity is conserved?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Energy is conserved.</p></div><div class=\"block\"><h3>Explanation</h3><p>The first law states that energy cannot be created or destroyed, only transferred or converted between forms.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) What is meant by the internal energy of a system?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Internal energy is the total microscopic kinetic and potential energy of the particles in a system.</p></div><div class=\"block\"><h3>Explanation</h3><p>It includes molecular motion and intermolecular interactions, but excludes macroscopic motion or position of the system as a whole.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(c) By what means can the internal energy of a closed system increase?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> By absorbing heat and/or by having work done on the system.</p></div><div class=\"block\"><h3>Explanation</h3><p>For a closed system, energy can cross the boundary only as heat or work, according to <p class=\"math\">\\[ \\Delta E = q + w \\]</p></p></div></details>"
+          }
+        ]
+      },
+      {
+        "id": "q58",
+        "tag": "Question 5.8",
+        "question": "Calculate \\(\\Delta E\\) and determine whether the process is endothermic or exothermic for the following cases:",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) \\(q = 0.763\\ \\text{kJ}\\) and \\(w = -840\\ \\text{J}\\).",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p class=\"math\">\\[ \\Delta E = -0.077\\ \\text{kJ} \\]</p><p>The process is <strong>endothermic</strong>.</p></div><div class=\"block\"><h3>Explanation</h3><p>Although \\(\\Delta E\\) is negative, the sign of \\(q\\) determines endothermic vs exothermic behavior. Since \\(q > 0\\), heat is absorbed by the system, making the process endothermic.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) A system releases 66.1 kJ of heat to its surroundings while the surroundings do 44.0 kJ of work on the system.",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p class=\"math\">\\[ \\Delta E = -22.1\\ \\text{kJ} \\]</p><p>The process is <strong>exothermic</strong>.</p></div><div class=\"block\"><h3>Explanation</h3><p>Releasing heat means \\(q < 0\\). Even though work is done on the system, the net energy change is negative and the process is classified as exothermic.</p></div></details>"
+          }
+        ]
+      },
+      {
+        "id": "q59",
+        "tag": "Question 5.9",
+        "question": "A gas is confined to a cylinder fitted with a piston and an electrical heater, as shown here. Suppose that current is supplied to the heater so that 100 J of energy is added. Consider two different situations. In case (1) the piston is allowed to move as the energy is added. In case (2) the piston is fixed so that it cannot move.",
+        "blocks": [
+          {
+            "type": "block",
+            "content": "<h3>(a) In which case does the gas have the higher temperature after addition of the electrical energy?</h3><h3>(b) Identify the sign (positive, negative, or zero) of \\(q\\) and \\(w\\) in each case.</h3><h3>(c) In which case is \\(\\Delta E\\) for the system (the gas in the cylinder) larger?</h3>"
+          },
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+             "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p><strong>Answer:</strong></p><p>(a) Case (2), when the piston is fixed.</p><p>(b) In both cases, \\(w > 0\\) due to electrical work; if the system is insulated, \\(q = 0\\).</p><p>(c) \\(\\Delta E\\) is larger in case (2).</p></div><div class=\"block\"><h3>Explanation</h3><p>When the piston is allowed to move, some of the added energy is used to do expansion work, reducing the temperature rise. When the piston is fixed, no expansion work occurs, so all the added energy increases internal energy.</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "q510",
+        "tag": "Question 5.10",
+        "question": "State Functions",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) What is meant by the term <em>state function</em>?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> A state function depends only on the current state of the system and not on the path taken.</p></div><div class=\"block\"><h3>Explanation</h3><p>State functions are determined solely by variables such as pressure, volume, temperature, and composition.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) Give an example of a quantity that is a state function and one that is not.",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Internal energy is a state function; heat is not.</p></div><div class=\"block\"><h3>Explanation</h3><p>Heat depends on the process path, while internal energy depends only on the system’s state.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(c) Is the volume of a system a state function? Why or why not?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Yes. Volume is a state function.</p></div><div class=\"block\"><h3>Explanation</h3><p>The volume of a system depends only on its current state and not on how that state was achieved.</p></div></details>"
+          }
+        ]
+      },
+      {
+        "id": "q511",
+        "tag": "Question 5.11",
+        "question": "Enthalpy can be measured from heat flow under which of the following conditions?<br>(a) constant pressure<br>(b) constant volume",
+        "blocks": [
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+            "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p><strong>Answer:</strong> <span class=\"kbd\">(a) constant pressure</span></p></div><div class=\"block\"><h3>Explanation</h3><p>Enthalpy (H) is defined as: <p class=\"math\">\\[ H = E + PV \\]</p></p><p>For a process occurring at <strong>constant pressure</strong>, the change in enthalpy is equal to the heat exchanged with the surroundings: <p class=\"math\">\\[ \\Delta H = q_p \\]</p></p><p>This means that under constant-pressure conditions (such as reactions occurring in open containers or atmospheric pressure), the <strong>measured heat flow directly equals the enthalpy change</strong>.</p><p>At <strong>constant volume</strong>, no pressure–volume work is done, and the heat flow corresponds to the change in internal energy: <p class=\"math\">\\[ q_v = \\Delta E \\]</p> not \\(\\Delta H\\).</p></div><div class=\"block\"><h3>Key takeaway (exam-style)</h3><blockquote>Enthalpy changes are measured from heat flow only at <strong>constant pressure</strong>, whereas constant-volume heat flow measures changes in internal energy.</blockquote></div>"
+          }
+        ]
+      },
+      {
+        "id": "q512",
+        "tag": "Question 5.12",
+        "question": "During a deep breath, our lungs expand about 2.0 L against an external pressure of 101.3 kPa. How much work is involved in this process (in J)?",
+        "blocks": [
+          {
+            "type": "details",
+            "summary": "Answer & Explanation",
+            "hint": "click to reveal",
+            "content": "<div class=\"answer\"><p class=\"math\">\\[ w = -2.03 \\times 10^{2}\\ \\text{J} \\]</p></div><div class=\"block\"><h3>Explanation</h3><p>Work done during volume change against an external pressure is given by: <p class=\"math\">\\[ w = -P_{\\text{ext}} \\Delta V \\]</p></p><p>Convert units:<br> \\(\\Delta V = 2.0\\ \\text{L} = 2.0 \\times 10^{-3}\\ \\text{m}^3\\) <br> \\(P_{\\text{ext}} = 101.3\\ \\text{kPa} = 1.013 \\times 10^{5}\\ \\text{Pa}\\)</p><p>Substitute: <p class=\"math\">\\[ w = -(1.013 \\times 10^{5})(2.0 \\times 10^{-3}) \\approx -2.03 \\times 10^{2}\\ \\text{J} \\]</p></p><p>The work is <strong>negative</strong> because the lungs expand and do work on the surroundings.</p></div>"
+          }
+        ]
+      },
+      {
+        "id": "q513",
+        "tag": "Question 5.13",
+        "question": "Enthalpy and Internal Energy",
+        "blocks": [
+          {
+            "type": "block",
+            "title": "(a) Why is the change in internal energy (\\(\\Delta E\\)) usually harder to measure than the change in enthalpy (\\(\\Delta H\\))?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Because \\(\\Delta E\\) includes both heat and work contributions, whereas \\(\\Delta H\\) can be measured directly from heat flow at constant pressure.</p></div><div class=\"block\"><h3>Explanation</h3><p>Internal energy change is defined as: <p class=\"math\">\\[ \\Delta E = q + w \\]</p></p><p>To determine \\(\\Delta E\\), both heat and work must be measured accurately, which is often difficult. In contrast, for constant-pressure processes: <p class=\"math\">\\[ \\Delta H = q_p \\]</p> so calorimetric measurements directly yield \\(\\Delta H\\), making it easier to measure experimentally.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(b) \\(E\\) is a state function, but \\(q\\) is not a state function. Explain.",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> Internal energy (\\(E\\)) depends only on the state of the system, whereas heat (\\(q\\)) depends on the path taken between states.</p></div><div class=\"block\"><h3>Explanation</h3><p>A state function depends only on the initial and final states, not on how the process occurs. Internal energy is fixed for a given state. Heat, however, varies depending on the process conditions (e.g., constant pressure vs constant volume), so it is a path function.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "(c) For a given process at constant pressure, \\(\\Delta H\\) is negative. Is the process endothermic or exothermic?",
+            "content": "<details><summary>Answer & Explanation</summary><div class=\"answer\"><p><strong>Answer:</strong> The process is <strong>exothermic</strong>.</p></div><div class=\"block\"><h3>Explanation</h3><p>At constant pressure: <p class=\"math\">\\[ \\Delta H = q_p \\]</p></p><p>If \\(\\Delta H < 0\\), then \\(q_p < 0\\), meaning heat is released by the system to the surroundings. Releasing heat corresponds to an exothermic process.</p></div></details>"
+          },
+          {
+            "type": "block",
+            "title": "Key takeaways",
+            "content": "<ul><li>Lung expansion does <strong>negative PV work</strong></li><li>\\(\\Delta H\\) is easier to measure because \\(q_p = \\Delta H\\)</li><li>\\(E\\) is a state function; \\(q\\) is a path function</li><li>\\(\\Delta H < 0\\) at constant pressure ⇒ <strong>exothermic</strong></li></ul>"
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('questions-container');
+      
+      // Clear loading
+      document.getElementById('loading').style.display = 'none';
+
+      // Render items
+      questionsData.forEach(item => {
+        const article = document.createElement('article');
+        article.className = 'card';
+        if (item.id) article.id = item.id;
+        
+        // Header
+        let headerHtml = `
+          <div class="qhead">
+             <div>
+               <span class="tag">${item.tag || 'Question'}</span>
+                <h2>${item.question}</h2>
+             </div>
+          </div>
+        `;
+        
+        let contentHtml = '';
+        
+        if (item.blocks && Array.isArray(item.blocks)) {
+         item.blocks.forEach(block => {
+           if (block.type === 'block') {
+             contentHtml += `<div class="block">`;
+             if (block.title) {
+               contentHtml += `<h3>${block.title}</h3>`;
+             }
+             if (block.content) {
+               contentHtml += block.content;
+             }
+             contentHtml += `</div>`;
+             
+           } else if (block.type === 'details') {
+             contentHtml += `<details>`;
+             contentHtml += `<summary>`;
+             
+             if (block.hint) {
+                contentHtml += `
+                 <div class="summaryRow">
+                   <span>${block.summary || 'Answer'}</span>
+                   <span class="hint">${block.hint}</span>
+                 </div>
+                `;
+             } else {
+                contentHtml += block.summary || 'Answer';
+             }
+             
+             contentHtml += `</summary>`;
+             
+             if (block.content) {
+               contentHtml += block.content;
+             }
+             contentHtml += `</details>`;
+           }
+         });
+        }
+        
+        article.innerHTML = headerHtml + contentHtml;
+        container.appendChild(article);
+      });
+      
+      container.style.display = 'grid';
+
+      // Re-trigger MathJax
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise().catch(err => console.log('MathJax error:', err));
+      }
+    });
+  </script>
+</body>
+</html>

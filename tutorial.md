@@ -141,6 +141,7 @@ This tutorial guide maps the 12-week course schedule to detailed content from *C
 - **Reaction rate**: Change in concentration per unit time
 - **Rate = −Δ[A]/Δt** for reactants, **+Δ[B]/Δt** for products
 - **Rate law**: rate = k[A]^m[B]^n
+- **Reaction order**: Exponents (m, n); overall order = m + n, and the units of k depend on the overall order
 - Orders (m, n) determined experimentally, not from coefficients
 - **Method of initial rates**: Compare experiments to find orders
 
@@ -170,6 +171,7 @@ This tutorial guide maps the 12-week course schedule to detailed content from *C
 #### 14.6 Reaction Mechanisms
 - **Mechanism**: Sequence of elementary steps
 - **Elementary reactions**: Unimolecular (A → products), bimolecular (A + B → products)
+- **Overall reaction**: Add the elementary steps; intermediates cancel to give the net equation
 - **Intermediates**: Appear in mechanism but not overall equation
 - **Rate-determining step**: Slowest step controls observed rate law
 - **Reaction coordinate diagrams**: Energy vs. reaction progress
@@ -270,6 +272,8 @@ This tutorial guide maps the 12-week course schedule to detailed content from *C
 ### Chapter References
 - [Chapter 8: Basic Concepts of Chemical Bonding](https://cghuisunshine.github.io/Chemistry123/chapter8-bonding.html)
 - [Chapter 24: The Chemistry of Organic Compounds](https://cghuisunshine.github.io/Chemistry123/chapter24-tutorial.html)
+- [Chapter 26: Chemistry of Alkenes and Alkynes](https://cghuisunshine.github.io/Chemistry123/chapter26-tutorial.html)
+- [Chapter 16: Acid–Base Equilibria](https://cghuisunshine.github.io/Chemistry123/chapter16-tutorial.html)
 
 ### Key Topics
 
@@ -437,6 +441,11 @@ This tutorial guide maps the 12-week course schedule to detailed content from *C
 - **Enantiomeric excess (ee)**: Measures optical purity
   - ee = |([R] − [S])/([R] + [S])| × 100%
 
+#### Properties of Chiral Compounds
+- **Enantiomers**: Same physical properties in achiral environments (mp/bp, IR/NMR), but opposite optical rotation
+- **Diastereomers**: Different physical properties and often different reactivity
+- **Chiral environments**: Enantiomers can behave differently with other chiral molecules (enzymes, receptors, chiral catalysts)
+
 #### Fischer Projections
 - **Convention**: 2D representation of 3D molecules
 - **Horizontal lines**: Bonds coming out of page (wedges)
@@ -457,6 +466,7 @@ This tutorial guide maps the 12-week course schedule to detailed content from *C
 ### Chapter References
 - [Chapter 25: Stereochemistry of Organic Compounds](https://cghuisunshine.github.io/Chemistry123/chapter25-tutorial.html)
 - [Chapter 27: Alcohols, Haloalkanes, and Ethers](https://cghuisunshine.github.io/Chemistry123/chapter27-tutorial.html)
+- [Chapter 28: Aldehydes, Ketones, and Carbohydrates](https://cghuisunshine.github.io/Chemistry123/chapter28-tutorial.html)
 
 ### Key Topics
 

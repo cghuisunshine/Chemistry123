@@ -62,10 +62,12 @@
       <ul>
         <li>Reaction entropy `ΔS°_rxn = Σ n_p S°_p − Σ n_r S°_r` quantifies disorder change.</li>
         <li>Gases contribute large positive entropy terms; solids/liquids smaller ones.</li>
+        <li>Entropy changes are often predicted by counting “freedom”: more moles of gas or more dispersed particles usually means larger <code>ΔS</code>.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Entropy change:</strong> Use tabulated standard molar entropies to compute `ΔS°_rxn`.</li>
+        <li><strong>Units:</strong> Standard molar entropies <code>S°</code> and <code>ΔS°</code> are typically in <code>J·mol⁻¹·K⁻¹</code>, so keep temperatures in Kelvin.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>A decomposition that produces more gas molecules increases entropy (positive `ΔS`).</p>
@@ -75,12 +77,17 @@
       <h2>19.5 Gibbs Free Energy</h2>
       <h3>Key ideas</h3>
       <ul>
-        <li>Gibbs free energy `G = H − TS` determines spontaneity at constant T and P; `ΔG < 0` means spontaneous.</li>
-        <li>`ΔG` combines enthalpy and entropy influences.</li>
+        <li>Gibbs free energy <code>G = H − TS</code> determines spontaneity at constant T and P; <code>ΔG &lt; 0</code> means spontaneous.</li>
+        <li><code>ΔG</code> combines the “heat” tendency (<code>ΔH</code>) and the “dispersal” tendency (<code>ΔS</code>) into one criterion.</li>
+        <li><code>ΔG</code> is a state function, so only initial and final states matter (not the path).</li>
+        <li><strong>Second-law connection:</strong> At constant T and P, the Gibbs criterion is just the second law rewritten: <code>ΔG = −TΔS_univ</code>, so <code>ΔG &lt; 0</code> is equivalent to <code>ΔS_univ &gt; 0</code>.</li>
+        <li>For a step-by-step derivation and intuition (including temperature’s entropy meaning), see <a href="gibbs.html">gibbs.html</a>.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
-        <li><strong>Gibbs equation:</strong> `ΔG = ΔH − TΔS`.
+        <li><strong>Gibbs equation:</strong> <code>ΔG = ΔH − TΔS</code>. Use <code>T</code> in Kelvin; <code>ΔH</code> is typically in kJ/mol and <code>ΔS</code> in J·mol⁻¹·K⁻¹, so convert units before combining.</li>
+        <li><strong>Sign test:</strong> If <code>ΔH &lt; 0</code> and <code>ΔS &gt; 0</code>, then <code>ΔG</code> is negative at all temperatures (always spontaneous under constant T,P conditions).</li>
+        <li><strong>Derived from the Second Law (constant T, P):</strong> Start with <code>ΔS_univ = ΔS_sys + ΔS_surr</code> and use <code>ΔS_surr = −ΔH_sys/T</code>. Then <code>ΔS_univ = ΔS_sys − ΔH_sys/T</code>. Multiply by <code>−T</code> to get <code>−TΔS_univ = ΔH_sys − TΔS_sys</code>, which is <code>ΔG</code>.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>An endothermic dissolution may become spontaneous at high temperature if `TΔS > ΔH`.</p>
@@ -91,10 +98,13 @@
       <h3>Key ideas</h3>
       <ul>
         <li>The temperature dependence of `ΔG = ΔH − TΔS` allows prediction of temperatures where a reaction switches from nonspontaneous to spontaneous.</li>
+        <li>When <code>ΔH</code> and <code>ΔS</code> are approximately constant over a temperature range, <code>ΔG</code> varies roughly linearly with <code>T</code>.</li>
+        <li>The “crossover temperature” where spontaneity changes is found by setting <code>ΔG = 0</code>.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li>The slope of `ΔG` vs `T` is `−ΔS`, while the intercept at `T=0` is `ΔH`.</li>
+        <li><strong>Crossover temperature (when applicable):</strong> If <code>ΔH</code> and <code>ΔS</code> are both nonzero, <code>ΔG=0</code> occurs near <code>T = ΔH/ΔS</code> (use consistent units).</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>For a reaction with positive `ΔH` but larger `ΔS`, `ΔG` becomes negative above `T = ΔH/ΔS`.</p>
@@ -106,11 +116,13 @@
       <ul>
         <li>`ΔG° = −RT ln K` links standard free energy to equilibrium constants, so `ΔG° < 0` implies `K > 1`.</li>
         <li>Nonstandard conditions use `ΔG = ΔG° + RT ln Q` to determine spontaneity before equilibrium.</li>
+        <li>At equilibrium, <code>ΔG = 0</code> and <code>Q = K</code>, which ties “direction” (spontaneity) to “position” (equilibrium composition).</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
       <ul>
         <li><strong>Equilibrium form:</strong> `K = e^{−ΔG°/(RT)}`.</li>
         <li><strong>Reaction quotient:</strong> `ΔG = ΔG° + RT ln Q`, so if `Q < K`, `ΔG < 0` and reaction proceeds forward.</li>
+        <li><strong>Units note:</strong> In thermodynamics, <code>K</code> is treated as dimensionless (built from activities relative to standard states), which is why it can appear inside <code>ln</code>.</li>
       </ul>
       <h3>Short example(s)</h3>
       <p>For `ΔG° = −40 kJ/mol` at 298 K, `K ≈ e^{+16} ≈ 9 × 10⁶`, so products dominate at equilibrium.</p>

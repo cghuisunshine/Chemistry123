@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>gibbs.html — Gibbs Free Energy as the Second Law (Constant T,P)</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --text:#e9eefc;
+      --muted:#b8c3e6;
+      --line:rgba(233,238,252,.12);
+      --accent:#78a6ff;
+      --accent2:#7dffb2;
+      --warn:#ffd37d;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 10% 10%, rgba(120,166,255,.12), transparent 60%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(125,255,178,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family:var(--sans);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 80px;}
+    header{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(17,26,51,.92), rgba(17,26,51,.72));
+      border-radius:18px;
+      padding:22px 22px 18px;
+      box-shadow:0 10px 35px rgba(0,0,0,.25);
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(1.4rem, 2.6vw, 2.2rem);
+      letter-spacing:.2px;
+    }
+    .subtitle{margin:0; color:var(--muted); font-size:1.02rem;}
+    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+    .badge{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      padding:6px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    main{margin-top:18px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    @media (min-width: 920px){
+      .grid{grid-template-columns: 2fr 1fr;}
+    }
+    section{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(17,26,51,.86), rgba(17,26,51,.62));
+      border-radius:18px;
+      padding:18px 18px 14px;
+    }
+    h2{margin:0 0 10px; font-size:1.25rem;}
+    h3{margin:14px 0 8px; font-size:1.05rem; color:var(--text);}
+    p{margin:10px 0; color:var(--text);}
+    ul{margin:8px 0 10px 22px; color:var(--text);}
+    li{margin:6px 0;}
+    .muted{color:var(--muted);}
+    .eq{
+      margin:10px 0;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px dashed rgba(120,166,255,.35);
+      background:rgba(120,166,255,.08);
+      font-family:var(--mono);
+      font-size:.98rem;
+      overflow-x:auto;
+      white-space:pre;
+    }
+    .eq .tag{color:var(--accent2);}
+    .callout{
+      margin:12px 0;
+      border:1px solid rgba(255,211,125,.35);
+      background:rgba(255,211,125,.08);
+      border-radius:16px;
+      padding:12px 12px;
+      color:var(--text);
+    }
+    .callout strong{color:var(--warn);}
+    .mini{
+      font-family:var(--mono);
+      font-size:.92rem;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      margin-top:12px;
+      padding-top:10px;
+    }
+    .toc a{display:block; padding:6px 8px; border-radius:10px;}
+    .toc a:hover{background:rgba(120,166,255,.10);}
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+      opacity:.95;
+    }
+    code{
+      font-family:var(--mono);
+      font-size:.95em;
+      background:rgba(0,0,0,.22);
+      border:1px solid var(--line);
+      padding:2px 6px;
+      border-radius:10px;
+    }
+    .hr{height:1px; background:var(--line); margin:14px 0;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Gibbs Free Energy as the Second Law (Constant <span class="muted">T</span>, <span class="muted">P</span>)</h1>
+      <p class="subtitle">
+        A step-by-step derivation showing why the criterion <code>ΔG &lt; 0</code> is just the Second Law rewritten for common chemistry conditions.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Key result: <strong>ΔG = −TΔS<sub>univ</sub></strong></div>
+        <div class="badge">Conditions: constant <strong>T</strong>, constant <strong>P</strong>, only <strong>PV</strong> work</div>
+        <div class="badge">Spontaneous ⇔ <strong>ΔG &lt; 0</strong></div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Main content -->
+      <div>
+        <section id="big-picture">
+          <h2>Big picture</h2>
+          <p>
+            The Second Law is the fundamental “direction” law:
+            nature proceeds in the direction that increases the entropy of the universe.
+            Gibbs free energy is not a separate law—it's a convenient quantity that packages the Second Law into something
+            you can compute using only <em>system</em> properties under constant temperature and pressure.
+          </p>
+
+          <div class="eq"><span class="tag">Second Law</span>
+ΔS_univ = ΔS_sys + ΔS_surr  ≥  0</div>
+
+          <p class="muted">
+            The difficulty: calculating <code>ΔS_univ</code> directly is inconvenient because it includes the surroundings.
+            So we rewrite <code>ΔS_surr</code> in terms of measurable energy changes of the system.
+          </p>
+        </section>
+
+        <section id="step1">
+          <h2>Step 1 — Make the surroundings computable (thermal reservoir)</h2>
+          <h3>Key idea</h3>
+          <p>
+            Assume the surroundings behave like a <strong>thermal reservoir</strong> (huge heat capacity) at constant temperature <code>T</code>.
+            For a reservoir, temperature is effectively constant during the heat exchange.
+          </p>
+
+          <h3>Important formulas & their meaning</h3>
+          <div class="eq"><span class="tag">Entropy definition (state function)</span>
+ΔS = ∫ (δq_rev / T)</div>
+
+          <p>
+            Because entropy is a state function, we can compute <code>ΔS</code> using a reversible path even if the real process is irreversible.
+            For a reservoir with constant <code>T</code>:
+          </p>
+
+          <div class="eq"><span class="tag">Reservoir entropy change</span>
+ΔS_surr = (1/T) ∫ δq_rev,surr = q_surr / T</div>
+
+          <p>
+            Heat conservation between system and surroundings:
+          </p>
+
+          <div class="eq"><span class="tag">Heat exchanged</span>
+q_surr = − q_sys</div>
+
+          <p>So we get the working expression:</p>
+
+          <div class="eq"><span class="tag">Key bridge</span>
+ΔS_surr = − q_sys / T</div>
+
+          <div class="callout">
+            <strong>Interpretation:</strong> If the system releases heat (<code>q_sys &lt; 0</code>), the surroundings gain heat
+            (<code>q_surr &gt; 0</code>) and the surroundings entropy increases.
+          </div>
+        </section>
+
+        <section id="step2">
+          <h2>Step 2 — Replace heat with enthalpy at constant pressure (<span class="muted">q<sub>p</sub> = ΔH</span>)</h2>
+          <h3>Key idea</h3>
+          <p>
+            Most chemistry is done at ~constant pressure (open to the atmosphere) and typically only <strong>PV work</strong> is involved.
+            Under these conditions, the heat flow at constant pressure equals the enthalpy change.
+          </p>
+
+          <h3>Important formulas & their meaning</h3>
+          <div class="eq"><span class="tag">First Law</span>
+ΔU = q + w</div>
+
+          <p>With only PV work:</p>
+
+          <div class="eq"><span class="tag">PV work</span>
+w = −P_ext ΔV</div>
+
+          <p>At constant external pressure (<code>P_ext = P</code>):</p>
+
+          <div class="eq"><span class="tag">Constant-pressure heat</span>
+ΔU = q_p − PΔV   ⇒   q_p = ΔU + PΔV</div>
+
+          <p>Define enthalpy (this is a definition, not a law):</p>
+
+          <div class="eq"><span class="tag">Enthalpy</span>
+H ≡ U + PV</div>
+
+          <p>Take changes at constant pressure:</p>
+
+          <div class="eq"><span class="tag">At constant P</span>
+ΔH = ΔU + Δ(PV) = ΔU + PΔV</div>
+
+          <p>Compare the last two equations:</p>
+
+          <div class="eq"><span class="tag">Result</span>
+q_p = ΔH</div>
+
+          <div class="callout">
+            <strong>Interpretation:</strong> At constant pressure, heat flow includes not only changing the system’s internal energy
+            but also the energy needed to “push back” the atmosphere as volume changes. Enthalpy packages that together.
+          </div>
+        </section>
+
+        <section id="step3">
+          <h2>Step 3 — Substitute into the Second Law</h2>
+          <h3>Key idea</h3>
+          <p>
+            Combine Step 1 and Step 2 to eliminate the surroundings and express the Second Law using system quantities.
+          </p>
+
+          <h3>Important formulas & their meaning</h3>
+          <p>From Step 1:</p>
+          <div class="eq"><span class="tag">From reservoir</span>
+ΔS_surr = − q_sys / T</div>
+
+          <p>From Step 2 (constant pressure, only PV work):</p>
+          <div class="eq"><span class="tag">Replace heat</span>
+q_sys = q_p = ΔH_sys</div>
+
+          <p>So:</p>
+          <div class="eq"><span class="tag">Surroundings entropy (system enthalpy)</span>
+ΔS_surr = − ΔH_sys / T</div>
+
+          <p>Put into the Second Law:</p>
+          <div class="eq"><span class="tag">Second Law rewritten</span>
+ΔS_univ = ΔS_sys + ΔS_surr
+        = ΔS_sys − (ΔH_sys / T)</div>
+
+          <p>Multiply both sides by <code>−T</code> (with <code>T &gt; 0</code>):</p>
+          <div class="eq"><span class="tag">Multiply by −T</span>
+−TΔS_univ = ΔH_sys − TΔS_sys</div>
+        </section>
+
+        <section id="temperature-entropy">
+          <h2>How temperature <span class="muted">T</span> is related to entropy <span class="muted">S</span></h2>
+
+          <p>
+            Temperature is fundamentally defined through entropy, not through thermometers.
+            In thermodynamics, <strong>temperature measures how energy changes with entropy</strong>.
+          </p>
+
+          <div class="eq"><span class="tag">Fundamental definition</span>
+1 / T ≡ (∂S / ∂E)<sub>V,N</sub>
+T ≡ (∂E / ∂S)<sub>V,N</sub></div>
+
+          <p>
+            This means temperature tells us how much energy must be added to produce a given increase in entropy.
+          </p>
+
+          <div class="callout">
+            <strong>Low T:</strong> adding energy greatly increases entropy<br/>
+            <strong>High T:</strong> adding energy barely increases entropy
+          </div>
+
+          <p>
+            From this definition, reversible heat transfer satisfies:
+          </p>
+
+          <div class="eq"><span class="tag">Reversible energy–entropy relation</span>
+dS = dE / T</div>
+
+          <p>
+            This directly explains why heat flows from higher temperature to lower temperature:
+            doing so increases total entropy, satisfying the Second Law.
+          </p>
+
+          <div class="eq"><span class="tag">Thermal equilibrium</span>
+T<sub>A</sub> = T<sub>B</sub> ⇔ (∂S/∂E)<sub>A</sub> = (∂S/∂E)<sub>B</sub></div>
+
+          <p class="muted">
+            This entropy-based definition of temperature is why the product <code>TS</code> appears naturally in Gibbs free energy.
+          </p>
+        </section>
+
+        <section id="step4">
+          <h2>Step 4 — Gibbs free energy emerges</h2>
+          <h3>Key idea</h3>
+          <p>
+            Define a new thermodynamic potential that matches the right-hand side:
+          </p>
+
+          <div class="eq"><span class="tag">Definition</span>
+G ≡ H − TS</div>
+
+          <p>
+            At constant temperature <code>T</code>, its finite change is:
+          </p>
+
+          <div class="eq"><span class="tag">At constant T</span>
+ΔG = ΔH − TΔS</div>
+
+          <p>
+            Compare with the result from Step 3:
+          </p>
+
+          <div class="eq"><span class="tag">Core identity (constant T,P)</span>
+ΔG = −TΔS_univ</div>
+
+          <div class="callout">
+            <strong>What this proves:</strong> Under constant <code>T</code> and <code>P</code> (and only PV work),
+            Gibbs free energy is exactly the Second Law expressed as a system-only quantity.
+          </div>
+        </section>
+
+        <section id="criterion">
+          <h2>Spontaneity criterion (why chemists love ΔG)</h2>
+          <p>
+            The Second Law says <code>ΔS_univ ≥ 0</code>. With <code>ΔG = −TΔS_univ</code> and <code>T &gt; 0</code>:
+          </p>
+
+          <div class="eq"><span class="tag">Spontaneity table</span>
+ΔS_univ  &gt;  0   ⇔   ΔG  &lt;  0   (spontaneous)
+ΔS_univ  =  0   ⇔   ΔG  =  0   (equilibrium)
+ΔS_univ  &lt;  0   ⇔   ΔG  &gt;  0   (non-spontaneous)</div>
+
+          <p class="muted">
+            This is why it’s fair to say “Gibbs is the Second Law” — but only under the stated conditions.
+          </p>
+        </section>
+
+        <section id="boundaries">
+          <h2>When the shortcut needs care (boundaries of the derivation)</h2>
+          <ul>
+            <li><strong>Not constant pressure:</strong> you can’t replace <code>q</code> by <code>ΔH</code> so simply.</li>
+            <li><strong>Non-PV work present</strong> (electrical/shaft/etc.): energy bookkeeping changes; the neat “only ΔH” step needs modification.</li>
+            <li><strong>Surroundings not a reservoir / T not constant:</strong> <code>ΔS_surr = q_surr/T</code> with a single T may fail.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Still true:</strong> The Second Law <code>ΔS_univ ≥ 0</code> is always the fundamental rule.
+            <br/>
+            <strong>Derived convenience:</strong> Gibbs free energy is the “constant T,P” package of that rule.
+          </div>
+        </section>
+
+        <section id="one-line">
+          <h2>One-line exam summary</h2>
+          <div class="eq"><span class="tag">Memorize this</span>
+At constant T and P (PV work only):  ΔG = −TΔS_univ  ⇒  ΔG &lt; 0 means spontaneous.</div>
+          <p class="mini">
+            Symbols: <strong>G</strong> Gibbs free energy, <strong>H</strong> enthalpy, <strong>S</strong> entropy, <strong>U</strong> internal energy,
+            <strong>q</strong> heat, <strong>w</strong> work, <strong>P</strong> pressure, <strong>V</strong> volume, <strong>T</strong> temperature.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <section class="toc">
+          <h2>On this page</h2>
+          <a href="#big-picture">Big picture</a>
+          <a href="#step1">Step 1 — Reservoir entropy</a>
+          <a href="#step2">Step 2 — Why q<sub>p</sub> = ΔH</a>
+          <a href="#step3">Step 3 — Substitute into Second Law</a>
+          <a href="#temperature-entropy">Temperature ↔ entropy</a>
+          <a href="#step4">Step 4 — Define G and connect to ΔS<sub>univ</sub></a>
+          <a href="#criterion">Spontaneity criterion</a>
+          <a href="#boundaries">Boundaries / assumptions</a>
+          <a href="#one-line">One-line summary</a>
+
+          <div class="hr"></div>
+          <h3>Assumptions (must list)</h3>
+          <ul class="muted">
+            <li>Surroundings are a heat bath (constant <code>T</code>)</li>
+            <li>System at constant <code>P</code></li>
+            <li>Only <code>PV</code> work</li>
+          </ul>
+
+          <div class="hr"></div>
+          <p class="muted">
+            Tip: If any assumption breaks, go back to <code>ΔS_univ ≥ 0</code> and rebuild with the correct constraints.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="muted">Save this file as <code>gibbs.html</code>. Open in your browser.</div>
+    </footer>
+  </div>
+</body>
+</html>
