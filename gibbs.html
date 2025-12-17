@@ -21,28 +21,116 @@
       </ul>
     </section>
 
-    <section>
-      <h2>Step 1 — Make the surroundings computable (thermal reservoir)</h2>
-      <h3>Key ideas</h3>
-      <ul>
-        <li>Treat the surroundings as a huge heat bath at constant temperature <code>T</code> (a thermal reservoir).</li>
-        <li>Because entropy is a state function, you can use a reversible heat transfer to compute entropy changes even if the real process is irreversible.</li>
-      </ul>
-      <h3>Important formulas &amp; their meaning</h3>
-      <ul>
-        <li><strong>Entropy definition:</strong> <code>ΔS = ∫(δq_rev/T)</code>. Entropy change depends on reversible heat flow divided by temperature.</li>
-        <li><strong>Reservoir entropy change:</strong> at constant <code>T</code>, <code>ΔS_surr = q_surr/T</code>.</li>
-        <li><strong>Heat balance:</strong> <code>q_surr = −q_sys</code>, so <code>ΔS_surr = −q_sys/T</code>.</li>
-      </ul>
-      <h3>Short example(s)</h3>
-      <p><strong>Interpretation:</strong> if the system releases heat (<code>q_sys &lt; 0</code>), the surroundings gain heat and <code>ΔS_surr</code> increases.</p>
-    </section>
+	    <section>
+	      <h2>Step 1 — Make the surroundings computable (thermal reservoir)</h2>
+	      <h3>Key ideas</h3>
+	      <ul>
+	        <li>Treat the surroundings as a huge heat bath at constant temperature <code>T</code> (a thermal reservoir).</li>
+	        <li>Because entropy is a state function, you can use a reversible heat transfer to compute entropy changes even if the real process is irreversible.</li>
+	      </ul>
+	      <h3>Important formulas &amp; their meaning</h3>
+	      <ul>
+	        <li><strong>Entropy definition:</strong> <code>ΔS = ∫(δq_rev/T)</code>. Entropy change depends on reversible heat flow divided by temperature.</li>
+	        <li><strong>Reservoir entropy change:</strong> at constant <code>T</code>, <code>ΔS_surr = q_surr/T</code>.</li>
+	        <li><strong>Heat balance:</strong> <code>q_surr = −q_sys</code>, so <code>ΔS_surr = −q_sys/T</code>.</li>
+	      </ul>
+	      <h3>Short example(s)</h3>
+	      <p><strong>Interpretation:</strong> if the system releases heat (<code>q_sys &lt; 0</code>), the surroundings gain heat and <code>ΔS_surr</code> increases.</p>
+	    </section>
 
-    <section>
-      <h2>Step 2 — Replace heat with enthalpy at constant pressure (q<sub>p</sub> = ΔH)</h2>
-      <h3>Key ideas</h3>
-      <ul>
-        <li>Most chemistry happens at (approximately) constant pressure, often with only <code>PV</code> work.</li>
+	    <section>
+	      <h2>Deep dive — Proving ΔS<sub>surr</sub> = −q<sub>sys</sub>/T (surroundings at constant T)</h2>
+	      <p>This is the core subtle point: we will prove <em>only</em> the statement <code>ΔS_surr = −q_sys/T</code> when the surroundings stay at constant <code>T</code>. No Gibbs yet, no shortcuts.</p>
+	      <p><strong>Goal:</strong> <code>ΔS_surr = −q_sys/T</code> (surroundings at constant <code>T</code>).</p>
+
+	      <h3>Step 1 — What entropy means (the only definition used)</h3>
+	      <p><strong>Clausius definition:</strong> <code>ΔS ≡ ∫(δq_rev/T)</code></p>
+	      <ul>
+	        <li>Entropy is a <strong>state function</strong>.</li>
+	        <li>You may compute <code>ΔS</code> using <strong>any reversible path</strong> between the same initial and final states.</li>
+	        <li>The actual process does <strong>not</strong> have to be reversible.</li>
+	      </ul>
+
+	      <h3>Step 2 — What “surroundings at constant T” really means</h3>
+	      <p>Model the surroundings as a <strong>thermal reservoir</strong>:</p>
+	      <ul>
+	        <li>Extremely large heat capacity.</li>
+	        <li>Exchanging heat does <strong>not</strong> change its temperature.</li>
+	        <li>So during the entire process, <code>T_surr</code> is constant.</li>
+	      </ul>
+
+	      <h3>Step 3 — Apply the entropy definition to the surroundings</h3>
+	      <p>Start from the definition applied to the surroundings:</p>
+	      <p><code>ΔS_surr = ∫(δq_rev,surr/T_surr)</code></p>
+	      <p>Because <code>T_surr</code> is constant, pull it outside the integral:</p>
+	      <p><code>ΔS_surr = (1/T_surr) ∫ δq_rev,surr</code></p>
+	      <p>The integral of heat over the process is the total heat absorbed:</p>
+	      <p><code>∫ δq_rev,surr = q_surr</code></p>
+	      <p>So:</p>
+	      <p><strong>Reservoir entropy change:</strong> <code>ΔS_surr = q_surr/T_surr</code></p>
+	      <p>This uses only the entropy definition + constant temperature.</p>
+
+	      <h3>Step 4 — Relate surroundings heat to system heat (energy conservation)</h3>
+	      <p><strong>Heat bookkeeping:</strong> <code>q_surr = −q_sys</code></p>
+	      <ul>
+	        <li>If the system loses heat, the surroundings gain the same amount.</li>
+	        <li>If the system gains heat, the surroundings lose the same amount.</li>
+	      </ul>
+	      <p>This is not thermodynamics; it’s basic bookkeeping.</p>
+
+	      <h3>Step 5 — Combine the results</h3>
+	      <p>Substitute <code>q_surr = −q_sys</code> into <code>ΔS_surr = q_surr/T_surr</code>:</p>
+	      <p><strong>Claim proved:</strong> <code>ΔS_surr = −q_sys/T</code></p>
+
+	      <h3>Why this is valid even if the heat flow is irreversible</h3>
+	      <ul>
+	        <li>The actual heat flow can be irreversible (finite temperature difference).</li>
+	        <li>Entropy is still computed using a reversible path between the same initial and final states.</li>
+	        <li>For a reservoir, such a reversible path always exists (imagine transferring the same heat through an infinitesimal temperature difference).</li>
+	        <li>Because the reservoir’s temperature does not change, the result is always exactly <code>q/T</code>.</li>
+	      </ul>
+	      <p>So the formula is exact, not an approximation.</p>
+
+	      <h3>Sign check (intuition)</h3>
+	      <table>
+	        <thead>
+	          <tr>
+	            <th>Situation</th>
+	            <th><code>q_sys</code></th>
+	            <th><code>ΔS_surr</code></th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <tr>
+	            <td>System releases heat</td>
+	            <td>&lt; 0</td>
+	            <td>&gt; 0</td>
+	          </tr>
+	          <tr>
+	            <td>System absorbs heat</td>
+	            <td>&gt; 0</td>
+	            <td>&lt; 0</td>
+	          </tr>
+	        </tbody>
+	      </table>
+
+	      <h3>One-line takeaway</h3>
+	      <blockquote>
+	        <p>Because entropy is defined as <code>ΔS = ∫(δq_rev/T)</code>, and a thermal reservoir has constant temperature, its entropy change is exactly the heat it absorbs divided by <code>T</code>; energy conservation then gives <code>ΔS_surr = −q_sys/T</code>.</p>
+	      </blockquote>
+	      <p>If you want, next we can:</p>
+	      <ul>
+	        <li>Show why this fails if the surroundings are not a reservoir.</li>
+	        <li>Connect this step directly to why Gibbs free energy works.</li>
+	        <li>Redo this with a concrete numerical example.</li>
+	      </ul>
+	    </section>
+
+	    <section>
+	      <h2>Step 2 — Replace heat with enthalpy at constant pressure (q<sub>p</sub> = ΔH)</h2>
+	      <h3>Key ideas</h3>
+	      <ul>
+	        <li>Most chemistry happens at (approximately) constant pressure, often with only <code>PV</code> work.</li>
         <li>Under constant pressure and <code>PV</code>-only work, the heat exchanged by the system equals the enthalpy change.</li>
       </ul>
       <h3>Important formulas &amp; their meaning</h3>
