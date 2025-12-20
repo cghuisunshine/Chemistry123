@@ -43,6 +43,8 @@
 - Injecting gas into a sealed cylinder at constant T and V increases pressure because the number of moles goes up while volume stays fixed (Sample Exercise 10.3).
 
 ## 10.4 The Ideal Gas Equation
+Interactive: [Ideal Gas Equation tool](ideal_gas.html)
+
 ### Key ideas
 - The ideal gas equation `PV = nRT` combines Boyle’s, Charles’s, and Avogadro’s laws by introducing the gas constant R and tying pressure, volume, temperature, and amount together.
 - Deviations from the ideal relation are usually tiny at moderate pressures, but engineers must account for real-gas behavior when pressures climb above ~1 MPa.

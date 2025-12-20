@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Newton’s Laws → Temperature (Entropy) → Ideal Gas Law (PV = nRT)</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --ink:#eaf0ff;
+      --muted:#b9c5ff;
+      --accent:#7aa2ff;
+      --accent2:#67e8f9;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: radial-gradient(1000px 600px at 15% 10%, rgba(122,162,255,.18), transparent 60%),
+                  radial-gradient(800px 500px at 85% 15%, rgba(103,232,249,.12), transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.55;
+    }
+    header{
+      padding: 42px 18px 18px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 2.7vw, 2.35rem);
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      color: var(--muted);
+      max-width: 72ch;
+      margin: 0 0 18px;
+    }
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:12px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.9rem;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+    }
+
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 8px 18px 50px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 900px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+      }
+      .wide{ grid-column: 1 / -1; }
+    }
+    section{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .sec-h{
+      padding: 14px 16px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border-bottom:1px solid var(--border);
+      background: linear-gradient(90deg, rgba(122,162,255,.12), rgba(103,232,249,.06));
+    }
+    .badge{
+      flex: 0 0 auto;
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+    h2{
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .sec-b{
+      padding: 14px 16px 16px;
+      color: var(--ink);
+    }
+    .muted{ color: var(--muted); }
+    .kicker{
+      font-size:.95rem;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    ul{ margin: 8px 0 0 18px; }
+    li{ margin: 6px 0; }
+
+    .eq{
+      font-family: var(--mono);
+      background: rgba(0,0,0,.25);
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 12px;
+      overflow:auto;
+      margin: 10px 0;
+      line-height: 1.85;
+      white-space: nowrap;
+    }
+    .eq sup,
+    .eq sub{
+      font-size: .8em;
+    }
+    .eq sup{ vertical-align: super; }
+    .eq sub{ vertical-align: sub; }
+    .eq b{ color: var(--accent2); }
+    .vec{
+      position: relative;
+      display: inline-block;
+      padding-top: .18em;
+    }
+    .vec::after{
+      content: "→";
+      position: absolute;
+      left: 50%;
+      top: -0.55em;
+      transform: translateX(-50%);
+      font-size: .75em;
+      line-height: 1;
+      opacity: .85;
+      pointer-events: none;
+    }
+    .callout{
+      border-left: 4px solid var(--accent2);
+      background: rgba(103,232,249,.08);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin: 10px 0;
+      color: var(--ink);
+    }
+    .warn{
+      border-left: 4px solid #fbbf24;
+      background: rgba(251,191,36,.10);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin: 10px 0;
+    }
+    details{
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,.03);
+      margin: 10px 0 0;
+    }
+    summary{
+      cursor:pointer;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .chain{
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border:1px dashed rgba(122,162,255,.35);
+      background: rgba(122,162,255,.08);
+      font-family: var(--mono);
+      overflow:auto;
+      white-space: pre-wrap;
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 18px 40px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .tiny{ font-size: .9rem; }
+    .kbd{
+      font-family: var(--mono);
+      padding: 1px 6px;
+      border:1px solid var(--border);
+      border-bottom-width: 2px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.04);
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Newton’s Laws → Temperature (Entropy) → Ideal Gas Law</h1>
+    <p class="subtitle">
+      A physics-style derivation that explicitly starts from <span class="kbd">Newton’s 2nd law</span> (impulse–momentum),
+      builds a pressure formula from molecular collisions, then introduces the thermodynamic definition of temperature
+      <span class="kbd">1/T = (∂S/∂E)<sub>V,N</sub></span>, and finishes at <span class="kbd">PV = nRT</span>.
+    </p>
+    <div class="pillrow">
+      <div class="pill">Mechanics: impulse & momentum</div>
+      <div class="pill">Statistics: isotropy averages</div>
+      <div class="pill">Thermo: temperature from entropy slope</div>
+      <div class="pill">Result: PV = NkT = nRT</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <!-- 0 -->
+      <section class="wide">
+        <div class="sec-h">
+          <div class="badge">0</div>
+          <div>
+            <h2>The model (what we assume and what we “model”)</h2>
+            <div class="kicker">Ideal-gas kinetic theory setup</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p class="muted">
+            We model a gas as <b>N</b> identical particles in a container of volume <b>V</b>.
+            The goal is to compute pressure from mechanics, then connect it to temperature using entropy.
+          </p>
+          <ul>
+            <li>Particles have mass <b>m</b>, positions <b><span class="vec">r</span></b>, velocities <b><span class="vec">v</span></b>.</li>
+            <li>Between collisions, particles move freely (no forces in the bulk).</li>
+            <li>Collisions with walls are <b>elastic</b>.</li>
+            <li>Velocities are random and isotropic (no preferred direction).</li>
+            <li>(Ideal gas) Intermolecular forces are negligible.</li>
+          </ul>
+          <div class="callout">
+            <b>Key idea:</b> Pressure is not “mystical”—it is the average force from momentum transfer to the walls.
+          </div>
+        </div>
+      </section>
+
+      <!-- 1 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">1</div>
+          <div>
+            <h2>Newton’s 2nd law → impulse–momentum</h2>
+            <div class="kicker">Start from F = dp/dt</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>Newton’s second law:</p>
+          <div class="eq"><b><span class="vec">F</span> = d <span class="vec">p</span> / dt</b></div>
+          <p>Integrate over the short collision time:</p>
+          <div class="eq"><b>∫<span class="vec">F</span> dt = Δ<span class="vec">p</span></b>  (impulse–momentum theorem)</div>
+          <p class="muted">
+            This is the mechanical foundation: collisions cause momentum changes, and momentum change per time is force.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">2</div>
+          <div>
+            <h2>Single molecule collision with a wall</h2>
+            <div class="kicker">Compute Δp for an elastic bounce</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>Take a wall perpendicular to the x-axis. For one molecule:</p>
+          <div class="eq">Before: p<sub>x</sub> = m v<sub>x</sub></div>
+          <div class="eq">After (elastic): p′<sub>x</sub> = −m v<sub>x</sub></div>
+          <div class="eq"><b>Δp<sub>x</sub> = p′<sub>x</sub> − p<sub>x</sub> = −2 m v<sub>x</sub></b></div>
+          <div class="callout">
+            <b>Breaking it down:</b> The wall reverses the x-momentum, so the magnitude of momentum transfer per hit is 2mv<sub>x</sub>.
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">3</div>
+          <div>
+            <h2>Average force from repeated collisions</h2>
+            <div class="kicker">Force = momentum transfer rate</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>In a cube of side length L, time between hits on the same wall:</p>
+          <div class="eq">Δt = 2L / |v<sub>x</sub>|</div>
+          <p>Average force on the wall from this one particle:</p>
+          <div class="eq"><b>F<sub>1</sub> = (2m v<sub>x</sub>) / (2L / v<sub>x</sub>) = m v<sub>x</sub><sup>2</sup> / L</b></div>
+          <p class="muted">
+            This is Newton’s law in action: same momentum per hit, hits per second depends on speed and box size.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">4</div>
+          <div>
+            <h2>Pressure from one particle → many particles</h2>
+            <div class="kicker">P = F/A and isotropic averaging</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>Wall area A = L<sup>2</sup>, volume V = L<sup>3</sup>.</p>
+          <div class="eq">P<sub>1</sub> = F<sub>1</sub>/A = (m v<sub>x</sub><sup>2</sup>/L) / L<sup>2</sup> = m v<sub>x</sub><sup>2</sup> / V</div>
+          <p>Sum over N particles:</p>
+          <div class="eq">P = (m/V) Σ v<sub>x,i</sub><sup>2</sup></div>
+          <p>Isotropy gives ⟨v<sub>x</sub><sup>2</sup>⟩ = ⟨v<sub>y</sub><sup>2</sup>⟩ = ⟨v<sub>z</sub><sup>2</sup>⟩ = (1/3)⟨v<sup>2</sup>⟩.</p>
+          <div class="eq"><b>P = (1/3) (N m ⟨v<sup>2</sup>⟩) / V</b></div>
+          <div class="eq"><b>PV = (1/3) N m ⟨v<sup>2</sup>⟩</b></div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">5</div>
+          <div>
+            <h2>Rewrite using average kinetic energy</h2>
+            <div class="kicker">Mechanics result before introducing temperature</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>Define average translational kinetic energy per particle:</p>
+          <div class="eq">⟨KE⟩ = (1/2) m ⟨v<sup>2</sup>⟩</div>
+          <p>Substitute into the pressure result:</p>
+          <div class="eq"><b>PV = (2/3) N ⟨KE⟩</b></div>
+          <div class="callout">
+            <b>Important:</b> Up to here we have not used temperature. This is purely Newton + averaging.
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">6</div>
+          <div>
+            <h2>Thermodynamic definition of temperature</h2>
+            <div class="kicker">Temperature as an entropy slope</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <div class="eq"><b>1/T ≡ (∂S/∂E)<sub>V,N</sub></b></div>
+          <p class="muted">
+            Meaning: temperature measures how fast entropy increases as you add energy (at fixed V and N).
+          </p>
+          <div class="warn">
+            <b>Key point:</b> In fundamental thermodynamics, <b>T is defined by entropy</b>, not by kinetic energy.
+            The KE–T relation will be derived next for an ideal gas.
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section>
+        <div class="sec-h">
+          <div class="badge">7</div>
+          <div>
+            <h2>Ideal-gas entropy → KE–T relation</h2>
+            <div class="kicker">Stat mech input + differentiate</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>For a monatomic ideal gas, entropy has the form (constants omitted):</p>
+          <div class="eq">S(E,V,N) = Nk ln[ (V/N) (E/N)<sup>3/2</sup> ] + const</div>
+          <p>Differentiate at fixed V, N:</p>
+          <div class="eq">(∂S/∂E)<sub>V,N</sub> = 3Nk / (2E)</div>
+          <p>Use the definition 1/T = ∂S/∂E:</p>
+          <div class="eq"><b>1/T = 3Nk / (2E)  ⇒  E = (3/2)NkT</b></div>
+          <p>Since E = N⟨KE⟩ for a monatomic ideal gas:</p>
+          <div class="eq"><b>⟨KE⟩ = E/N = (3/2)kT</b></div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="wide">
+        <div class="sec-h">
+          <div class="badge">8</div>
+          <div>
+            <h2>Finish: combine with the Newton-derived pressure equation</h2>
+            <div class="kicker">PV = (2/3)N⟨KE⟩ → PV = NkT → PV = nRT</div>
+          </div>
+        </div>
+        <div class="sec-b">
+          <p>Start from the mechanics result:</p>
+          <div class="eq">PV = (2/3)N⟨KE⟩</div>
+          <p>Insert ⟨KE⟩ = (3/2)kT:</p>
+          <div class="eq"><b>PV = NkT</b></div>
+          <p>Convert particle number to moles:</p>
+          <div class="eq">N = nN<sub>A</sub>  and  R = N<sub>A</sub>k</div>
+          <div class="eq"><b>PV = nRT</b></div>
+
+          <details>
+            <summary>Show the whole chain in one line (click)</summary>
+            <div class="chain">
+Newton: F = dp/dt → impulse Δp per collision
+→ P from momentum transfer → PV = (2/3)N⟨KE⟩
+Thermo: 1/T = (∂S/∂E)<sub>V,N</sub>
+Stat mech (ideal gas S): ⇒ E = (3/2)NkT ⇒ ⟨KE⟩ = (3/2)kT
+Combine: PV = NkT = nRT
+            </div>
+          </details>
+
+          <div class="callout">
+            <b>Takeaway:</b> The ideal gas law is the macroscopic shadow of Newton’s laws
+            plus the entropy-based definition of temperature.
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="tiny">
+      Notes:
+      <br/>• This derivation is cleanest for a <b>monatomic</b> ideal gas (only translational KE).
+      <br/>• Real gases deviate at high pressure / low temperature due to finite molecular volume and intermolecular forces.
+      <br/>• Kelvin is required because the entropy definition produces an absolute temperature scale.
+    </p>
+  </footer>
+</body>
+</html>
