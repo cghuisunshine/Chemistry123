@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chapter 23 Tutorial — The kinetics of complex reactions</title>
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.5; max-width: 980px; margin: 0 auto; padding: 24px 16px; background: #fff; color: #111; }
+      a { color: #0645ad; }
+      a:hover { text-decoration: underline; }
+      nav { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
+      nav a { text-decoration: none; padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 10px; color: #0645ad; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95em; background: #f6f8fa; border: 1px solid #d0d7de; padding: 0.1em 0.3em; border-radius: 6px; }
+      h1 { margin: 0 0 12px; }
+      section { border-top: 1px solid #d0d7de; padding-top: 16px; margin-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <nav><a href="index.html">Index</a><a href="ch22-the-rates-of-chemical-reactions.html">← Prev</a><a href="ch24-molecular-reaction-dynamics.html">Next →</a></nav>
+    <h1>Chapter 23 Tutorial — The kinetics of complex reactions</h1>
+    <p>23 The kinetics of complex reactions Chain reactions This chapter extends the material introduced in Chapter 22 by showing how to deal with complex reaction mechanisms. First, we consider chain reactions and see that either com- plicated or simple rate laws can be obtained, depending on the conditions.</p>
+    <section>
+      <h2>23.1 The Rate Laws Of Chain Reactions</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The chain carriers ·CH3 and ·CHO are formed initially in the initiation step.</li>
+        <li>To test the proposed mechanism we need to show that it leads to the observed rate law.</li>
+        <li>In many cases, a chain reaction leads to a complicated rate law.</li>
+        <li>An example is the hydrogen–bromine reaction: d[HBr] k[H2][Br2]3/2 HBr H2(g) + Br2(g) → 2 HBr(g) = (23.4) dt [Br2] + k′[HBr] Propagation The following mechanism has been proposed to account for this rate law (Fig.</li>
+        <li>23.1): Br2 Initiation: Br2 + M → Br· + Br· + M v = k i[Br2][M] Initiation Br2 where M is either Br2 or H2.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>= k i[CH3CHO] − k p[·CH3][CH3CHO] + k′p[CH3CO·] − 2k t[·CH3]2 = 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= k p[·CH3][CH3CHO] − k′p[CH3CO·] = 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>ki[CH3CHO] − 2k t[·CH3]2 = 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>[·CH3] = [CH3CHO]1/2 (23.2)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= kp[·CH3][CH3CHO] = k p [CH3CHO]3/2 (23.3)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>H2(g) + Br2(g) → 2 HBr(g) = (23.4)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>To test the proposed mechanism we need to show that it leads to the observed</li>
+        <li>Example 23.1 Deriving the rate equation of a chain reaction</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.2 Explosions</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>A thermal explosion is a very rapid reaction arising from a rapid increase of reaction rate with increasing temperature.</li>
+        <li>An example of both types of explosion is the reaction between hydrogen and oxygen: 2 H2(g) + O2(g) → 2 H2O(g) Although the net reaction is very simple, the mechanism is very complex and has not yet been fully elucidated.</li>
+        <li>A chain reaction is involved, and the chain carriers include H·, ·O·, and ·OH.</li>
+        <li>The same is true of an O2 molecule, with 12 valence electrons and a ground-state conﬁguration 1σ g21σ u2 2σ g21π 4u1π g2.</li>
+        <li>The occurrence of an explosion depends on the temperature and pressure of the system, and the explosion regions for the reaction, the conditions under which explosion occurs, are shown in Fig.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>Initiation: H2 → H· + H· v = constant (vinit)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Propagation: H2 + ·OH → ·H + H2O v = k p[H2][·OH]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Branching: ·O2· + ·H → ·O· + ·OH v = k b[·O2·][H·]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>·O· + H2 → ·OH + ·H v = k′b[·O·][H2]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Termination: H· + wall → –12 H2 v = k t[H·]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>H· + O2 + M → HO2· + M* v = k′t[H·][O2][M]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Example 23.2 Examining the explosion behaviour of a chain reaction</li>
+        <li>For the reaction of hydrogen and oxygen described above, show that an explosion T /K</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.3 Stepwise Polymerization</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Polymerization kinetics In stepwise polymerization any two monomers present in the reaction mixture can link together at any time and growth of the polymer is not conﬁned to chains that are already forming (Fig.</li>
+        <li>As a result, monomers are removed early in the reaction and, as we shall see, the average molar mass of the product grows with time.</li>
+        <li>The monomer is used up as it becomes linked to the growing chains (Fig.</li>
+        <li>High polymers are formed rapidly and only the yield, not the average molar mass, of the polymer is increased by allowing long reaction times.</li>
+        <li>23.3 Stepwise polymerization Stepwise polymerization commonly proceeds by a condensation reaction, in which a small molecule (typically H2O) is eliminated in each step.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>→ H2N(CH2)6NHCO(CH2)4COOH + H2O</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>→ H-[NH(CH2)6NHCO(CH2)4CO]n-OH</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= −k[OH][A] (23.5a)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= −k[A]2 (23.5b)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>[A] = (23.6)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>p= = (23.7)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Next, we calculate the degree of polymerization, which is deﬁned as the average</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.4 Chain polymerization</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>We have shown a reaction in which a radical is produced, but in some polymeriza- tions the initiation step leads to the formation of an ionic chain carrier.</li>
+        <li>The rate- determining step is the formation of the radicals R· by homolysis of the initiator, so the rate of initiation is equal to the vi given above.</li>
+        <li>Consequently, for suﬃciently large chains, the rate of propagation is equal to the overall rate of polymerization.</li>
+        <li>Because this chain of reactions propagates quickly, the rate at which the total con- centration of radicals grows is equal to the rate of the rate-determining initiation step.</li>
+        <li>It follows that A d[·M] D B E = 2fki[I] (23.10) C dt F production where f is the fraction of radicals R· that successfully initiate a chain.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>-CH2CHX· + CH2 =CHX → -CH2CHXCH2CHX·</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>v = k[I]1/2[M] (23.9)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>I → R· + R· vi = ki[I]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>M + R· → ·M1 (fast)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>M + ·M1 → ·M2</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>M + ·M2 → ·M3</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>(No explicit worked example detected on these pages; try turning a self-test or end-of-section question into a worked example.)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.5 Features Of Homogeneous Catalysis</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Homogeneous catalysis Ea(uncatalysed) A catalyst is a substance that accelerates a reaction but undergoes no net chemical Potential energy change.</li>
+        <li>Catalysts can be very eﬀective; for instance, the activation energy for the decomposition of hydrogen peroxide in solution is 76 kJ mol−1, and the reaction is slow at room temperature.</li>
+        <li>When a little iodide ion is added, the activation energy falls to 57 kJ mol−1 and the rate constant increases by a factor of 2000.</li>
+        <li>Enzymes, which are biological catalysts, are very speciﬁc and can have a dramatic eﬀect on the reactions Products they control.</li>
+        <li>A homogeneous catalyst is a catalyst in the same phase as the reaction mixture.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>H3O+ + H2O2 5 H3O +2 + H2O K=</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>H3O+2 + Br− → HOBr + H2O v = k[H3O+2 ][Br−]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>HOBr + H2O2 → H3O+ + O2 + Br− (fast)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= keﬀ[H2O2][H3O+][Br−]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>with keﬀ = kK, in agreement with the observed dependence of the rate on the Br− con-</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>X + HA → HX+ + A− HX+ → products</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>example, the decomposition of hydrogen peroxide in aqueous solution is catalysed by</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.6 Enzymes</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>S S Enzymes are homogeneous biological catalysts.</li>
+        <li>These ubiquitous compounds are Active special proteins or nucleic acids that contain an active site, which is responsible for site binding the substrates, the reactants, and processing them into products.</li>
+        <li>As is true of any catalyst, the active site returns to its original state after the products are released.</li>
+        <li>A very important example of a ribozyme is the ribo- and fit some, a large assembly of proteins and catalytically active RNA molecules responsible key for the synthesis of proteins in the cell.</li>
+        <li>Enzyme-catalysed reactions are prone to inhibition by molecules that interfere In the induced ﬁt model, binding of the with the formation of product.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>ES → P kb</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>v= (23.17)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>where KM = (k′a + k b)/ka is the Michaelis constant, characteristic of a given enzyme</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>v = k b[ES] (23.18)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= ka[E][S] − k′a[ES] − k b[ES] = 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>[ES] = B E [E][S] (23.19) vmax</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>We show in the following Justiﬁcation that this mechanism leads to the Michaelis–</li>
+        <li>Example 23.3 Determining the catalytic efﬁciency of an enzyme</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.7 Kinetics Of Photophysical And Photochemical Processes</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>In uncompetitive inhibition the inhibitor binds to a site of the enzyme that is removed from the active site, but only if the substrate is already present.</li>
+        <li>The most important of all are the photochemical processes that capture the radiant energy of the Sun.</li>
+        <li>23.7 Kinetics of photophysical and photochemical processes Photochemical processes are initiated by the absorption of radiation by at least one component of a reaction mixture.</li>
+        <li>In a primary process, products are formed directly from the excited state of a reactant.</li>
+        <li>Prod- ucts of a secondary process originate from intermediates that are formed directly from the excited state of a reactant.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>uninhibited enzyme (α = α ′ = 1). The y-intercept does not change as a result of com-</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>the active type of complex. In this case α = 1 (because EI does not form) and α ′ &gt; 1.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>the special case of KI = K I′ and α = α ′, which results in intersection of the lines at the</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Ionization A* → A+ + e− NO* –134</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>→ NO+ + e−</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Electron transfer A* + B → A + B or A + B 3 ]* + Fe –––––→ Ru(bpy)3 + Fe</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Illustration 23.1 Exploring the photochemical roles of excited singlet and triplet states</li>
+        <li>and chemical processes determine the yield of product in a photochemical reaction.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>23.8 Complex photochemical processes</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>In a chain reaction, Φ may be very large, and values of about 104 are common.</li>
+        <li>What is the quantum yield for the formation of ethene?</li>
+        <li>We are assuming a 860 23 THE KINETICS OF COMPLEX REACTIONS primary quantum yield of unity for the photodissociation of Br2.</li>
+        <li>An example of this photosensitization is the reaction used to generate excited state O2 in a type of treatment known as photo- dynamic therapy (Impact I23.3).</li>
+        <li>Another example is the reaction used to generate atomic hydrogen, the irradiation of hydrogen gas containing a trace of mercury vapour using radiation of wavelength 254 nm from a mercury discharge lamp.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>HI + hν → H· + I·</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>H· + HI → H2 + I·</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>I· + I· + M → I2 + M*</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>n=</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Φ= =</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>=</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Example 23.5 Determining the quantum yield of a photochemical reaction</li>
+        <li>Method First, calculate the amount of photons generated in an interval ∆t: see</li>
+      </ul>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chapter 16 Tutorial — Statistical thermodynamics 1 the concepts</title>
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.5; max-width: 980px; margin: 0 auto; padding: 24px 16px; background: #fff; color: #111; }
+      a { color: #0645ad; }
+      a:hover { text-decoration: underline; }
+      nav { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
+      nav a { text-decoration: none; padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 10px; color: #0645ad; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95em; background: #f6f8fa; border: 1px solid #d0d7de; padding: 0.1em 0.3em; border-radius: 6px; }
+      h1 { margin: 0 0 12px; }
+      section { border-top: 1px solid #d0d7de; padding-top: 16px; margin-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <nav><a href="index.html">Index</a><a href="ch15-molecular-spectroscopy-3-magnetic-resonance.html">← Prev</a><a href="ch17-statistical-thermodynamics-2-applications.html">Next →</a></nav>
+    <h1>Chapter 16 Tutorial — Statistical thermodynamics 1 the concepts</h1>
+    <p>16 Statistical thermodynamics 1: the concepts The distribution of molecular Statistical thermodynamics provides the link between the microscopic properties of matter states and its bulk properties. Two key ideas are introduced in this chapter.</p>
+    <section>
+      <h2>16.1 Configurations And Weights</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Although the total energy is constant at E, it is not possible to be deﬁnite about how that energy is shared between the molecules.</li>
+        <li>The problem we address in this section is the calculation of the populations of states for any type of molecule in any mode of motion at any temperature.</li>
+        <li>The only restric- tion is that the molecules should be independent, in the sense that the total energy of the system is a sum of their individual energies.</li>
+        <li>We are discounting (at this stage) the possibility that in a real system a contribution to the total energy may arise from interactions between molecules.</li>
+        <li>We also adopt the principle of equal a priori prob- abilities, the assumption that all possibilities for the distribution of energy are equally probable.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>take ε0, the lowest state, as the zero of energy (ε0 = 0), and measure all other energies</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Fig. 16.2 The 18 molecules shown here can N = 18</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>multinomial coeﬃcient (see Appendix 2). W= (16.1)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>0! = 1. the conﬁguration {N − 2,2,0, . . . }.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>N(N − 1) . . . 1 = N! ways of selecting the balls for distribution over the bins.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>N = 20; therefore the weight is</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>between the two conﬁgurations would show properties characteristic almost exclus-</li>
+        <li>Illustration 16.1 Calculating the weight of a distribution</li>
+      </ul>
+    </section>
+    <section>
+      <h2>16.2 The molecular partition function</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Whenever calculating a partition function, the energies of the levels are expressed relative to 0 for the state of lowest energy.</li>
+        <li>Answer From eqn 13.31, the energy levels of a linear rotor are hcBJ(J + 1), with J = 0, 1, 2, .</li>
+        <li>Therefore, gJ εJ ∞ 5 6 7 5 6 7 q= ∑ (2J + 1)e −βhcBJ(J+1) J=0 The sum can be evaluated numerically by supplying the value of B (from spectro- scopy or calculation) and the temperature.</li>
+        <li>[q = 1 + 2e−βε] (a) An interpretation of the partition function 3e Some insight into the signiﬁcance of a partition function can be obtained by con- 2e sidering how q depends on the temperature.</li>
+        <li>When T is close to zero, the parameter e β = 1/kT is close to inﬁnity.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>pi = (16.7)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>q= ∑ e−βε i</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>q= ∑ gi e−βε i</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>J = 0, 1, 2, . . . . The state of lowest energy has zero energy, so no adjustment need</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>q= ∑ (2J + 1)e −βhcBJ(J+1)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>J=0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Example 16.1 Writing a partition function</li>
+        <li>Self-test 16.2 Write the partition function for a two-level system, the lower state</li>
+      </ul>
+    </section>
+    <section>
+      <h2>16.3 The Internal Energy</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The internal energy and the entropy The importance of the molecular partition function is that it contains all the informa- tion needed to calculate the thermodynamic properties of a system of independent particles.</li>
+        <li>In this respect, q plays a role in statistical thermodynamics very similar to that played by the wavefunction in quantum mechanics: q is a kind of thermal wavefunction.</li>
+        <li>16.11 The total energy of a two-level This function is plotted in Fig.</li>
+        <li>The graph at the top shows the slow rise away from zero energy at low temperatures; the slope of the graph There are several points in relation to eqn 16.29 that need to be made.</li>
+        <li>Because at T = 0 is 0 (that is, the heat capacity is ε0 = 0 (remember that we measure all energies from the lowest available level), zero at T = 0).</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>E= ∑ ni εi (16.27)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>E=</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>εi e−βεi = − e−βεi</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>∑ dβ e−βε = − q dβ ∑ e−βε = − q dβ</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>E=− i i</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>From the two-level partition function q = 1 + e−βε, we can deduce that the total</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>tion needed to calculate the thermodynamic properties of a system of independent</li>
+        <li>Illustration 16.4 The energy of a two-level system</li>
+      </ul>
+    </section>
+    <section>
+      <h2>16.4 The Statistical Entropy</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>16.4 The statistical entropy If it is true that the partition function contains all thermodynamic information, then it must be possible to use it to calculate the entropy as well as the internal energy.</li>
+        <li>Thus, as the temperature is lowered, the value of W, and hence of S, decreases because fewer conﬁgurations are compatible with the total energy.</li>
+        <li>In the limit T → 0, W = 1, so ln W = 0, because only one conﬁguration (every molecule in the lowest level) is compatible with E = 0.</li>
+        <li>It follows that S → 0 as T → 0, which is compatible with the Third Law of thermodynamics, that the entropies of all perfect crystals approach the same value as T → 0 (Section 3.4).</li>
+        <li>Is there a Self-test 16.6 Evaluate the molar entropy of N two-level systems and plot the temperature at which this coeﬃcient passes through a maximum?</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>U = U(0) − N B E B − E = U(0) +</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>S = k ln W [16.34]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>because fewer conﬁgurations are compatible with the total energy. In the limit T → 0,</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>W = 1, so ln W = 0, because only one conﬁguration (every molecule in the lowest level)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>is compatible with E = 0. It follows that S → 0 as T → 0, which is compatible with the</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>same value as T → 0 (Section 3.4).</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>it must be possible to use it to calculate the entropy as well as the internal energy.</li>
+        <li>Calculate the entropy of a collection of N independent harmonic oscillators, and</li>
+      </ul>
+    </section>
+    <section>
+      <h2>16.5 The Canonical Ensemble</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>N, V, 16.5 The canonical ensemble T The crucial new concept we need when treating systems of interacting particles is the ‘ensemble’.</li>
+        <li>All the identical closed 20 systems are regarded as being in thermal contact with one another, so they can exchange energy.</li>
+        <li>The total energy of all the systems is L and, because they are in thermal equilibrium with one another, they all have the same temperature, T.</li>
+        <li>This imaginary collection of replications of the actual system with a common temperature is called the canonical ensemble.</li>
+        <li>16.14 A representation of the canonical The word ‘canon’ means ‘according to a rule’.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>single, most probable, conﬁguration. In the thermodynamic limit of Ñ → ∞, this</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>M= (16.36)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>=</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Q= ∑ e−βE</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>of a member is E = L/Ñ. We use this quantity to calculate the internal energy of the sys-</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>U = U(0) + E = U(0) + L/Ñ as Ñ→∞ (16.38)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>example, in a gas the identities of the molecules moving slowly or quickly can change</li>
+        <li>of a member is E = L/Ñ. We use this quantity to calculate the internal energy of the sys-</li>
+      </ul>
+    </section>
+    <section>
+      <h2>16.7 Independent Molecules</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Therefore, instead of summing over the states i of the system, we can sum over all the individual states i of molecule 1, all the states i of molecule 2, and so on.</li>
+        <li>Suppose that molecule 1 is in some state a, molecule 2 is in b, and molecule 3 is in c, then one member of the ensemble has an energy E = εa + εb + εc.</li>
+        <li>This member, however, is indistinguishable from one formed by putting molecule 1 in state b, molecule 2 in state c, and molecule 3 in state a, or some other permutation.</li>
+        <li>There are six such permutations in all, and N!</li>
+        <li>The detailed argument is quite involved, but at all except very low temperatures it turns out that the correction factor is 1/N!.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>U = U(0) − = U(0) − (16.41)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>weight W of each member of the ensemble, M = W Ñ. Hence, we can calculate S from</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>S = k ln W = k ln M 1/Ñ = ln M (16.42)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>S= + k ln Q (16.43)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Q = qN (16.44)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>Ei = εi(1) + εi(2) + · · · + εi(N)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>weight W of each member of the ensemble, M = W Ñ. Hence, we can calculate S from</li>
+      </ul>
+    </section>
+  </body>
+</html>

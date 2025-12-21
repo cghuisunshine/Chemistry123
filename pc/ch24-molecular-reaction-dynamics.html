@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chapter 24 Tutorial — Molecular reaction dynamics</title>
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.5; max-width: 980px; margin: 0 auto; padding: 24px 16px; background: #fff; color: #111; }
+      a { color: #0645ad; }
+      a:hover { text-decoration: underline; }
+      nav { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
+      nav a { text-decoration: none; padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 10px; color: #0645ad; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95em; background: #f6f8fa; border: 1px solid #d0d7de; padding: 0.1em 0.3em; border-radius: 6px; }
+      h1 { margin: 0 0 12px; }
+      section { border-top: 1px solid #d0d7de; padding-top: 16px; margin-top: 16px; }
+    </style>
+  </head>
+  <body>
+    <nav><a href="index.html">Index</a><a href="ch23-the-kinetics-of-complex-reactions.html">← Prev</a><a href="ch25-processes-at-solid-surfaces.html">Next →</a></nav>
+    <h1>Chapter 24 Tutorial — Molecular reaction dynamics</h1>
+    <p>Molecular reaction dynamics 24 The simplest quantitative account of reaction rates is in terms of collision theory, which can Reactive encounters be used only for the discussion of reactions between simple species in the gas phase.</p>
+    <section>
+      <h2>24.1 Collision theory</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Reactions in solution are classiﬁed into two types: diffusion-controlled and activation- controlled.</li>
+        <li>The former can be expressed quantitatively in terms of the diffusion equation.</li>
+        <li>In 24.2 Diffusion-controlled reactions transition state theory, it is assumed that the reactant molecules form a complex that can be discussed in terms of the population of its energy levels.</li>
+        <li>Transition state theory inspires 24.3 The material balance a thermodynamic approach to reaction rates, in which the rate constant is expressed in equation terms of thermodynamic parameters.</li>
+        <li>This approach is useful for parametrizing the rates Transition state theory of reactions in solution.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>A+B→P v = k2[A][B] (24.1)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>ZAB = σ N A2 [A][B] (24.3a)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>within which the projectile molecule σ = πd 2 d = –12 (dA + dB) (24.3b)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>and dB, the radius of the target area is µ= (24.3c)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>d = –12 (dA + dB) and the cross-section is πd 2. mA + mB</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>ZAA = σ N A2 [A]2 (24.4)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>where P denotes products, and aim to calculate the second-order rate constant k2.</li>
+        <li>Now suppose that the reactive collision cross-section is zero below εa. We show in</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.2 Diffusion-controlled reactions</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Reactant molecules have to jostle their way through the solvent, so their encounter frequency is considerably less than in a gas.</li>
+        <li>This linger- ing of one molecule near another on account of the hindering presence of solvent molecules is called the cage eﬀect.</li>
+        <li>This expression solves to kd[A][B] [AB] = (24.22) ka + k′d The rate of formation of products is therefore d[P] kakd ≈ ka[AB] = k2[A][B] k2 = (24.23) dt ka + k′d Two limits can now be distinguished.</li>
+        <li>kakd k2 ≈ = kd (24.24) ka In this diﬀusion-controlled limit, the rate of reaction is governed by the rate at which the reactant molecules diﬀuse through the solvent.</li>
+        <li>An indication that a reaction is diﬀusion-controlled is that its rate constant is of the order of 109 dm3 mol−1 s−1 or greater.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>A + B → AB v = kd[A][B] (24.20a)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>AB → A + B v = kd′[AB] (24.20b)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>AB → P v = ka[AB] (24.20c)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= kd[A][B] − k d′[AB] − ka[AB] ≈ 0 (24.21)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>[AB] = (24.22)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>≈ ka[AB] = k2[A][B] k2 = (24.23)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>(No explicit worked example detected on these pages; try turning a self-test or end-of-section question into a worked example.)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.3 The Material Balance Equation</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The experimental value is 1.3 × 1010 dm3 mol−1 s−1, so the agreement is very good considering the approximations involved.</li>
+        <li>(a) The formulation of the equation Consider a small volume element in a chemical reactor (or a biological cell).</li>
+        <li>Therefore, the overall rate of change of the concentration of J is ∂[J] ∂2[J] ∂[J] =D −v − k[J] (24.38) ∂t ∂x 2 ∂x !</li>
+        <li>@ Loss 1 2 3 1 2 3 Spread due to Change due to non-uniform due to reaction concentration convection Equation 24.38 is called the material balance equation.</li>
+        <li>If the rate constant is large, then [J] will decline rapidly.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>viscosity of the solvent is 0.326 cP (with 1 P = 10−1 kg m−1 s−1) is</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>kd = = 2.0 × 107 m3 mol−1 s−1</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>where we have used 1 J = 1 kg m2 s−2. Because 1 m3 = 103 dm3, this result corres-</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>=D −v (24.36)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= −k[J] (24.37)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>=D −v − k[J] (24.38)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Illustration 24.1 Estimating a diffusional rate constant</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.4 The Eyring Equation</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The horizontal then the frequency with which the cluster of atoms forming the complex approaches axis is the reaction coordinate, and the the transition state is also ν.</li>
+        <li>However, it is possible that not every oscillation along the vertical axis is potential energy.</li>
+        <li>In the absence of information to the contrary, κ is assumed to be about 1.</li>
+        <li>Note that the units of NA and the qJ are mol−1, so K ‡ is dimensionless (as is appropriate for Fig.</li>
+        <li>The partition function for harmonically and almost classically in this vibration is this well.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>C‡ → P v = k ‡[C‡] (24.44)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>v = k2[A][B] k2 = kK (24.45)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>k‡ = κν (24.46)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>K‡ = e−∆E0 /RT (24.47)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>where p7 = 1 bar and</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>∆E0 = E 0(C‡) − E 0(A) − E 0(B) (24.48)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Our task is to calculate the unimolecular rate constant k ‡ and the equilibrium con-</li>
+        <li>We saw in Section 17.8 how to calculate equilibrium constants from structural data.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.5 Thermodynamic Aspects</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>reaction coordinate and therefore does not appear in ’C‡.</li>
+        <li>24.5 Thermodynamic aspects The statistical thermodynamic version of transition state theory rapidly runs into diﬃculties because only in some cases is anything known about the structure of the activated complex.</li>
+        <li>However, if there is a reduction in entropy below what would be expected for the simple encounter of A and B, then A will be smaller than that expected on the basis of simple collision theory.</li>
+        <li>Reaction coordinate Gibbs energies, enthalpies, entropies, volumes, and heat capacities of activation are widely used to report experimental reaction rates, especially for organic reactions in Fig.</li>
+        <li>The approximate linear many cases the correlation is linear, signifying that, as the reaction becomes thermo- correlation between ∆‡G and ∆rG 7 is the dynamically more favourable, its rate constant increases (Fig.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>q C7 ‡ = (24.55)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>The moment of inertia of a diatomic molecule of bond length r is µr 2, where µ =</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>k2 = κ e 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>=κ NA e 0</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= κ NA πr 2e−∆E0 /RT (24.56)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>∆‡G = −RT ln I ‡ [24.57]</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Example 24.3 Analysing the kinetic salt effect 2</li>
+        <li>Self-test 24.3 An ion of charge number +1 is known to be involved in the activated</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.6 Reactive collisions</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Source 2 One method for examining the energy distribution in the products is infrared chemiluminescence, in which vibrationally excited molecules emit infrared radiation Fig.</li>
+        <li>By studying the intensities of the infrared emis- state-selected molecules are generated in sion spectrum, the populations of the vibrational states may be determined (Fig.</li>
+        <li>two separate sources, and are directed Another method makes use of laser-induced ﬂuorescence.</li>
+        <li>Multiphoton ioniza- tion (MPI) techniques are also good alternatives for the study of weakly ﬂuorescing v molecules.</li>
+        <li>In MPI, the absorption of several photons by a molecule results in ioniza- 7 tion if the total photon energy is greater than the ionization energy of the molecule.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>and the radiative relaxation to equilibrium. k2 = σ vrelNA (24.70)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>states, and can be used to determine the states of the products of a reactive collision.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.7 Potential Energy Surfaces</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Techniques that incor- RAB porate electron correlation are very time-consuming and, consequently, only reac- tions between relatively small particles, such as the reactions H + H2 → H2 + H and Fig.</li>
+        <li>24.14 The potential energy surface for H + H2O → OH + H2, are amenable to this type of theoretical treatment.</li>
+        <li>An alternative the H + H2 → H2 + H reaction when the is to use semi-empirical methods, in which results of calculations and experimental atoms are constrained to be collinear.</li>
+        <li>parameters are used to construct the potential energy surface.</li>
+        <li>Two para- meters are required to deﬁne the nuclear separations: one is the HA-HB separation RAB, and the other is the HB-HC separation RBC.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>knn′ = σnn′vrelNA (24.71)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>k2 = ∑ knn′(T)fn(T) (24.72)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>determine or calculate the state-to-state cross-sections for a wide range of approach</li>
+        <li>between an H atom and an H2 molecule. Detailed calculations show that the approach</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.8 Some results from experiments and calculations</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>For example, one question that can be answered is whether it is better to smash the reactants together with a lot Fig.</li>
+        <li>24.17 The transition state is a set of of translational kinetic energy or to ensure instead that they approach in highly conﬁgurations (here, marked by the line excited vibrational states.</li>
+        <li>which the total energy is the same but has a high translational kinetic energy?</li>
+        <li>The potential barrier is least for collinear attack, as we assumed earlier.</li>
+        <li>(But we must be aware that other lines of attack are feasible and contribute to the overall rate.) In contrast, Fig.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>→ HCl + Cl reaction, for instance.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>atoms in the reaction H + H2 → H2 + H, the horizontal coordinate now being time and RAB</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>period. The reaction in the illustration is the exchange reaction KCl + NaBr → KBr +</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>For example, the process H 2* + OH → H2 + (OH)*, where the asterisk denotes an excited</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>→ H2O + H represents a chemical reaction. What complicates a quantum mechanical</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>N(E) = ∑ Pij(E) (24.73)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>example, most of the products are thrown oﬀ in the forward direction. This product encounters occur only when Cl approaches</li>
+        <li>calculate the trajectories of the atoms taking place in a reaction from a set of initial</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.9 The investigation of reaction dynamics with ultrafast</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>The frequency of the second pulse is set at an absorption of one of the free fragmentation products, so its absorption is a measure of the abundance of the dissociation product.</li>
+        <li>A short laser pulse is composed of a wide range of frequencies, which excite many vibrational Na  I states of NaI simultaneously.</li>
+        <li>However, not every outward-going swing leads to dissociation because there is a chance that the I atom can be harpooned again, in which case it fails to make good its escape.</li>
+        <li>24.25 Excitation of the ion pair Na+I− the system is probed by a second laser pulse with a frequency that corresponds to the forms an excited state with covalent character.</li>
+        <li>Also shown is movement absorption frequency of the free Na product or to the frequency at which Na absorbs between a ‘covalent’ surface (in green) and when it is a part of the complex.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>H + CO2 → [HOCO]‡ → HO + CO Fig. 24.26 Femtosecond spectroscopic</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>length that excites the H-OD stretching mode from the v = 0 to the v = 4 energy level.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>On the other hand, when the same stretching mode is excited to the v = 5 energy level,</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>transition states. Consider the reaction I2 + Xe → XeI* + I, which occurs via a harpoon</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>(No explicit worked example detected on these pages; try turning a self-test or end-of-section question into a worked example.)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.10 The rates of electron transfer processes</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Next, electron transfer occurs within the DA complex to yield D+A−: DA → D+A− vet = ket[DA] (24.76b) where ket is the ﬁrst-order rate constant for the forward electron transfer step.</li>
+        <li>It follows that 1 1 A k′a D ≈ 1+ kobs ka C ket F When ket >> k′a, we see that kobs ≈ ka and the rate of product formation is controlled by diﬀusion of D and A in solution, which fosters formation of the DA complex.</li>
+        <li>When ket << k′a, we see that kobs ≈ (ka /k′a )ket or, after using eqn 24.76a, kobs ≈ KDAket (24.78) and the process is controlled by the activation energy of electron transfer in the DA complex.</li>
+        <li>Our ﬁrst task is to write theoretical expressions for κν and ∆‡G by describ- ing the motions of electrons and nuclei mathematically.</li>
+        <li>Consider electron transfer from a donor species D to an acceptor species A in solution.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>D + A → D+ + A− v = kobs[D][A] K= (24.75)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>D + A 5 DA KDA = = (24.76a)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>DA → D+A− vet = ket[DA] (24.76b)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>D+A− → DA vr = k r[D+A−] (24.76c)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>D+A− → D+ + A− vd = kd[D+A−] (24.76d)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>= + 1+ (24.77)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>We show in the following Justiﬁcation that</li>
+        <li>To gain insight into eqn 24.77 and the factors that determine the rate of electron</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.11 Theory of electron transfer processes</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>Dogonadze: DA 1 Electrons are transferred by tunnelling through a potential energy barrier, the  DA  height of which is partly determined by the ionization energies of the DA and D+A− Gibbs energy complexes.</li>
+        <li>Therefore, electron transfer can occur only after thermal ﬂuc- parabolas occur, respectively.</li>
+        <li>Initially, the elec-  DA  tron to be transferred occupies the HOMO of D, and the overall energy of DA is lower than that of D+A− (Fig.</li>
+        <li>Over reasonably short distances r, the main mechanism of elec- tron transfer is tunnelling through the potential energy barrier depicted in Fig.</li>
+        <li>As shown in the illustration, now the energy of D+A− is lower than that of DA, reﬂecting the thermo- V Energy dynamic tendency for A to remain reduced and for D to remain oxidized.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>parabolas intersect at q = q*. The plots also</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>HDA = ψA@DAψBdτ</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>HDA2 = H DA (24.80) Electronic Nuclear</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>ket = (24.81) by an unﬁlled circle) is of too high an</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>∆‡G = (24.82) the barrier of height V and width r, the</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>surrounding DA. Equation 24.82 shows that ∆‡G = 0, with the implication that the R.A. Marcus and N. Sutin, Biochim.</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>rangements and the standard reaction Gibbs energy determine ∆‡G.</li>
+        <li>illustration, now the energy of D+A− is lower than that of DA, reﬂecting the thermo- V</li>
+      </ul>
+    </section>
+    <section>
+      <h2>24.12 Experimental results</h2>
+      <h3>Key ideas</h3>
+      <ul>
+        <li>It is diﬃcult to measure the distance dependence of ket when the reactants are ions or molecules that are free to move in solution.</li>
+        <li>In such cases, electron transfer occurs after a donor–acceptor complex forms and it is not possible to exert control over r, the edge-to-edge distance.</li>
+        <li>The value of β depends on the medium through which the electron must travel from donor to acceptor.</li>
+        <li>In a vacuum, 28 nm−1 < β < 35 nm−1, whereas β ≈ 9 nm−1 when the intervening medium is a molecular link between donor and acceptor.</li>
+        <li>The dependence of ket on the standard reaction Gibbs energy has been investigated in systems where the edge-to-edge distance, the reorganization energy, and κν are constant for a series of reactions.</li>
+      </ul>
+      <h3>Important formulas & their meaning</h3>
+      <ul>
+        <li><strong>Formula:</strong> <code>ln ket = −βr + constant (24.83)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>ln ket = − − –12 + constant (24.84)</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>decreases but only up to −∆ rG 7 = λ. Beyond that, the reaction enters the inverted</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>occurs when −∆rG 7 = λ. Finally, Fig. 24.30c shows that, as the process becomes even</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>kobs = Ze−∆ G/RT</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+        <li><strong>Formula:</strong> <code>where Z = KDAκν. It is diﬃcult to estimate kobs because we often lack knowledge of β,</code>. This relation links the quantities shown; treat it as a compact statement of how changing one variable constrains the others.</li>
+      </ul>
+      <h3>Short example(s)</h3>
+      <ul>
+        <li>Example 24.4 Using the Marcus cross-relation</li>
+        <li>(E 7 = E R7 − E L7) to calculate the equilibrium constant K. Then, we use eqn 24.86, the</li>
+      </ul>
+    </section>
+  </body>
+</html>
