@@ -112,44 +112,44 @@
     ul{ margin: 8px 0 0 18px; }
     li{ margin: 6px 0; }
 
-    .eq{
-      font-family: var(--mono);
-      background: rgba(0,0,0,.25);
-      border:1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 12px;
-      overflow:auto;
-      margin: 10px 0;
-      line-height: 1.85;
-      white-space: nowrap;
-    }
-    .eq sup,
-    .eq sub{
-      font-size: .8em;
-    }
-    .eq sup{ vertical-align: super; }
-    .eq sub{ vertical-align: sub; }
-    .eq b{ color: var(--accent2); }
-    .vec{
-      position: relative;
-      display: inline-block;
-      padding-top: .18em;
-    }
-    .vec::after{
-      content: "→";
-      position: absolute;
-      left: 50%;
-      top: -0.55em;
-      transform: translateX(-50%);
-      font-size: .75em;
-      line-height: 1;
-      opacity: .85;
-      pointer-events: none;
-    }
-    .callout{
-      border-left: 4px solid var(--accent2);
-      background: rgba(103,232,249,.08);
-      padding: 10px 12px;
+	    .eq{
+	      font-family: var(--mono);
+	      background: rgba(0,0,0,.25);
+	      border:1px solid var(--border);
+	      border-radius: 12px;
+	      padding: 10px 12px;
+	      overflow:auto;
+	      margin: 10px 0;
+	      line-height: 1.85;
+	      white-space: nowrap;
+	    }
+	    .eq sup,
+	    .eq sub{
+	      font-size: .8em;
+	    }
+	    .eq sup{ vertical-align: super; }
+	    .eq sub{ vertical-align: sub; }
+	    .eq b{ color: var(--accent2); }
+	    .vec{
+	      position: relative;
+	      display: inline-block;
+	      padding-top: .18em;
+	    }
+	    .vec::after{
+	      content: "→";
+	      position: absolute;
+	      left: 50%;
+	      top: -0.55em;
+	      transform: translateX(-50%);
+	      font-size: .75em;
+	      line-height: 1;
+	      opacity: .85;
+	      pointer-events: none;
+	    }
+	    .callout{
+	      border-left: 4px solid var(--accent2);
+	      background: rgba(103,232,249,.08);
+	      padding: 10px 12px;
       border-radius: 12px;
       margin: 10px 0;
       color: var(--ink);
@@ -182,6 +182,26 @@
       font-family: var(--mono);
       overflow:auto;
       white-space: pre-wrap;
+    }
+
+    /* Proof section styling */
+    .proof{
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border:1px dashed rgba(103,232,249,.40);
+      background: rgba(103,232,249,.07);
+    }
+    .proof h3{
+      margin: 4px 0 8px;
+      font-size: 1.02rem;
+    }
+    .proof .eq{
+      background: rgba(0,0,0,.22);
+    }
+    .small{
+      font-size: .95rem;
+      color: var(--muted);
     }
     footer{
       max-width: 980px;
@@ -234,16 +254,16 @@
           <p class="muted">
             We model a gas as <b>N</b> identical particles in a container of volume <b>V</b>.
             The goal is to compute pressure from mechanics, then connect it to temperature using entropy.
-          </p>
-          <ul>
-            <li>Particles have mass <b>m</b>, positions <b><span class="vec">r</span></b>, velocities <b><span class="vec">v</span></b>.</li>
-            <li>Between collisions, particles move freely (no forces in the bulk).</li>
-            <li>Collisions with walls are <b>elastic</b>.</li>
-            <li>Velocities are random and isotropic (no preferred direction).</li>
-            <li>(Ideal gas) Intermolecular forces are negligible.</li>
+	          </p>
+	          <ul>
+	            <li>Particles have mass <b>m</b>, positions <b><span class="vec">r</span></b>, velocities <b><span class="vec">v</span></b>.</li>
+	            <li>Between collisions, particles move freely (no forces in the bulk).</li>
+	            <li>Collisions with walls are <b>elastic</b>.</li>
+	            <li>Velocities are random and isotropic (no preferred direction).</li>
+	            <li>(Ideal gas) Intermolecular forces are negligible.</li>
           </ul>
           <div class="callout">
-            <b>Key idea:</b> Pressure is not “mystical”—it is the average force from momentum transfer to the walls.
+            <b>Key idea:</b> Pressure is the average force from momentum transfer to the walls.
           </div>
         </div>
       </section>
@@ -256,17 +276,17 @@
             <h2>Newton’s 2nd law → impulse–momentum</h2>
             <div class="kicker">Start from F = dp/dt</div>
           </div>
-        </div>
-        <div class="sec-b">
-          <p>Newton’s second law:</p>
-          <div class="eq"><b><span class="vec">F</span> = d <span class="vec">p</span> / dt</b></div>
-          <p>Integrate over the short collision time:</p>
-          <div class="eq"><b>∫<span class="vec">F</span> dt = Δ<span class="vec">p</span></b>  (impulse–momentum theorem)</div>
-          <p class="muted">
-            This is the mechanical foundation: collisions cause momentum changes, and momentum change per time is force.
-          </p>
-        </div>
-      </section>
+	        </div>
+	        <div class="sec-b">
+	          <p>Newton’s second law:</p>
+	          <div class="eq"><b><span class="vec">F</span> = d <span class="vec">p</span> / dt</b></div>
+	          <p>Integrate over the short collision time:</p>
+	          <div class="eq"><b>∫<span class="vec">F</span> dt = Δ<span class="vec">p</span></b>  (impulse–momentum theorem)</div>
+	          <p class="muted">
+	            Collisions cause momentum changes; momentum change per time is force.
+	          </p>
+	        </div>
+	      </section>
 
       <!-- 2 -->
       <section>
@@ -283,7 +303,7 @@
           <div class="eq">After (elastic): p′<sub>x</sub> = −m v<sub>x</sub></div>
           <div class="eq"><b>Δp<sub>x</sub> = p′<sub>x</sub> − p<sub>x</sub> = −2 m v<sub>x</sub></b></div>
           <div class="callout">
-            <b>Breaking it down:</b> The wall reverses the x-momentum, so the magnitude of momentum transfer per hit is 2mv<sub>x</sub>.
+            <b>Interpretation:</b> the wall reverses the x-momentum, so the momentum transfer per hit is 2mv<sub>x</sub>.
           </div>
         </div>
       </section>
@@ -303,7 +323,7 @@
           <p>Average force on the wall from this one particle:</p>
           <div class="eq"><b>F<sub>1</sub> = (2m v<sub>x</sub>) / (2L / v<sub>x</sub>) = m v<sub>x</sub><sup>2</sup> / L</b></div>
           <p class="muted">
-            This is Newton’s law in action: same momentum per hit, hits per second depends on speed and box size.
+            Hits per second depends on speed and box size.
           </p>
         </div>
       </section>
@@ -322,7 +342,7 @@
           <div class="eq">P<sub>1</sub> = F<sub>1</sub>/A = (m v<sub>x</sub><sup>2</sup>/L) / L<sup>2</sup> = m v<sub>x</sub><sup>2</sup> / V</div>
           <p>Sum over N particles:</p>
           <div class="eq">P = (m/V) Σ v<sub>x,i</sub><sup>2</sup></div>
-          <p>Isotropy gives ⟨v<sub>x</sub><sup>2</sup>⟩ = ⟨v<sub>y</sub><sup>2</sup>⟩ = ⟨v<sub>z</sub><sup>2</sup>⟩ = (1/3)⟨v<sup>2</sup>⟩.</p>
+          <p>Isotropy gives ⟨v<sub>x</sub><sup>2</sup>⟩ = (1/3)⟨v<sup>2</sup>⟩.</p>
           <div class="eq"><b>P = (1/3) (N m ⟨v<sup>2</sup>⟩) / V</b></div>
           <div class="eq"><b>PV = (1/3) N m ⟨v<sup>2</sup>⟩</b></div>
         </div>
@@ -343,7 +363,7 @@
           <p>Substitute into the pressure result:</p>
           <div class="eq"><b>PV = (2/3) N ⟨KE⟩</b></div>
           <div class="callout">
-            <b>Important:</b> Up to here we have not used temperature. This is purely Newton + averaging.
+            <b>Important:</b> Up to here we have not used temperature. This is Newton + averaging.
           </div>
         </div>
       </section>
@@ -364,13 +384,12 @@
           </p>
           <div class="warn">
             <b>Key point:</b> In fundamental thermodynamics, <b>T is defined by entropy</b>, not by kinetic energy.
-            The KE–T relation will be derived next for an ideal gas.
           </div>
         </div>
       </section>
 
       <!-- 7 -->
-      <section>
+      <section class="wide">
         <div class="sec-h">
           <div class="badge">7</div>
           <div>
@@ -381,6 +400,62 @@
         <div class="sec-b">
           <p>For a monatomic ideal gas, entropy has the form (constants omitted):</p>
           <div class="eq">S(E,V,N) = Nk ln[ (V/N) (E/N)<sup>3/2</sup> ] + const</div>
+
+          <!-- ✅ Collapsible proof section added here -->
+          <details>
+            <summary>Proof sketch: why S(E,V,N) ∝ Nk ln[(V/N)(E/N)<sup>3/2</sup>]?</summary>
+            <div class="proof">
+              <h3>Goal</h3>
+              <p class="small">
+                Explain why an ideal gas has entropy of the form
+                <span class="kbd">S = Nk ln[(V/N)(E/N)<sup>3/2</sup>] + const</span>,
+                by counting microstates in phase space.
+              </p>
+
+              <h3>Step 1 — Start from the entropy definition</h3>
+              <div class="eq"><b>S = k ln W</b></div>
+              <p class="muted">
+                A microstate is one point in phase space: for each particle you need 3 position coordinates and 3 momentum
+                coordinates. Total dimension is 6N.
+              </p>
+
+              <h3>Step 2 — Position part gives V<sup>N</sup></h3>
+              <p class="muted">
+                Each particle can be located anywhere in the container (volume V). For N particles:
+              </p>
+              <div class="eq"><b>W<sub>pos</sub> ∝ V<sup>N</sup></b></div>
+
+              <h3>Step 3 — Momentum part gives E<sup>3N/2</sup></h3>
+              <p class="muted">
+                For an ideal gas the energy is kinetic:
+                <span class="kbd">E = Σ p<sub>i</sub><sup>2</sup>/(2m)</span>.
+                In 3N-dimensional momentum space, fixed energy corresponds to a hypersphere of radius ∝ √E.
+                The volume of a d-dimensional sphere scales like R<sup>d</sup>. Here d = 3N, so:
+              </p>
+              <div class="eq"><b>W<sub>mom</sub> ∝ (√E)<sup>3N</sup> = E<sup>3N/2</sup></b></div>
+
+              <h3>Step 4 — Combine position × momentum</h3>
+              <div class="eq"><b>W ∝ V<sup>N</sup> E<sup>3N/2</sup></b></div>
+              <p class="muted">Taking logs gives:</p>
+              <div class="eq">ln W = N ln V + (3N/2) ln E + const</div>
+              <div class="eq"><b>S = k ln W = Nk ln V + (3Nk/2) ln E + const</b></div>
+
+              <h3>Step 5 — Why divide by N inside the log?</h3>
+              <p class="muted">
+                Entropy must be <b>extensive</b> (scale linearly with system size). Also, particles are indistinguishable,
+                which introduces a factor 1/N! in W. Using Stirling’s approximation (ln N! ≈ N ln N − N) turns
+                ln V and ln E into ln(V/N) and ln(E/N). This yields the per-particle structure:
+              </p>
+              <div class="eq"><b>S(E,V,N)=Nk ln[ (V/N) (E/N)<sup>3/2</sup> ] + const</b></div>
+
+              <div class="callout">
+                <b>Intuition:</b> phase space grows like V in position and like E<sup>3/2</sup> in momentum (per particle),
+                so entropy (a log-count) becomes ln V + (3/2) ln E per particle.
+              </div>
+            </div>
+          </details>
+          <!-- ✅ End proof -->
+
           <p>Differentiate at fixed V, N:</p>
           <div class="eq">(∂S/∂E)<sub>V,N</sub> = 3Nk / (2E)</div>
           <p>Use the definition 1/T = ∂S/∂E:</p>
@@ -408,16 +483,16 @@
           <div class="eq">N = nN<sub>A</sub>  and  R = N<sub>A</sub>k</div>
           <div class="eq"><b>PV = nRT</b></div>
 
-          <details>
-            <summary>Show the whole chain in one line (click)</summary>
-            <div class="chain">
+	          <details>
+	            <summary>Show the whole chain in one line (click)</summary>
+	            <div class="chain">
 Newton: F = dp/dt → impulse Δp per collision
 → P from momentum transfer → PV = (2/3)N⟨KE⟩
 Thermo: 1/T = (∂S/∂E)<sub>V,N</sub>
 Stat mech (ideal gas S): ⇒ E = (3/2)NkT ⇒ ⟨KE⟩ = (3/2)kT
 Combine: PV = NkT = nRT
-            </div>
-          </details>
+	            </div>
+	          </details>
 
           <div class="callout">
             <b>Takeaway:</b> The ideal gas law is the macroscopic shadow of Newton’s laws
