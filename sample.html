@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chemistry123 — Sample Page</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b1220;
+        --card: #121c33;
+        --text: #e6eefc;
+        --muted: #a7b3cc;
+        --accent: #66e3ff;
+        --accent2: #8bff9a;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(1200px 800px at 20% 10%, rgba(102, 227, 255, 0.18), transparent 60%),
+          radial-gradient(1200px 800px at 80% 20%, rgba(139, 255, 154, 0.14), transparent 55%),
+          linear-gradient(180deg, var(--bg), #050814 65%);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 56px 20px;
+      }
+
+      .card {
+        border: 1px solid rgba(102, 227, 255, 0.18);
+        background: color-mix(in srgb, var(--card) 92%, transparent);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 34px;
+        letter-spacing: 0.2px;
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin-top: 22px;
+      }
+
+      .tile {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .tile h2 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        color: var(--text);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--text);
+        background: rgba(102, 227, 255, 0.12);
+        border: 1px solid rgba(102, 227, 255, 0.22);
+        padding: 6px 10px;
+        border-radius: 999px;
+        margin-top: 10px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.95em;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>Chemistry123</h1>
+        <p>
+          This is a sample HTML page added via the GitHub MCP writer. Use it as a starting point for simple
+          documentation, demos, or GitHub Pages.
+        </p>
+        <div class="badge"><span class="dot" aria-hidden="true"></span><span>Sample · Static HTML</span></div>
+
+        <div class="grid" role="list">
+          <div class="tile" role="listitem">
+            <h2>Quick edit</h2>
+            <p>Replace this content with your project intro, links, or lab notes.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h2>Local preview</h2>
+            <p>Open <code>sample.html</code> in a browser to view.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h2>Deploy</h2>
+            <p>Enable GitHub Pages and point it at the repo root (or move this into <code>docs/</code>).</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Tip: if you want this to be the default page for GitHub Pages, rename it to <code>index.html</code>.
+          Learn more in the <a href="https://docs.github.com/pages">GitHub Pages docs</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
