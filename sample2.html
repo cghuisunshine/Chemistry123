@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chemistry123 — Sample 2</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #071018;
+        --card: #0d1b2a;
+        --text: #e6eefc;
+        --muted: #a7b3cc;
+        --accent: #66e3ff;
+        --accent2: #8bff9a;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(900px 650px at 15% 15%, rgba(102, 227, 255, 0.16), transparent 60%),
+          radial-gradient(900px 650px at 85% 20%, rgba(139, 255, 154, 0.12), transparent 55%),
+          linear-gradient(180deg, var(--bg), #04070f 70%);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 56px 20px;
+      }
+
+      .card {
+        border: 1px solid rgba(102, 227, 255, 0.18);
+        background: color-mix(in srgb, var(--card) 92%, transparent);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 34px;
+        letter-spacing: 0.2px;
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--text);
+        background: rgba(102, 227, 255, 0.12);
+        border: 1px solid rgba(102, 227, 255, 0.22);
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-top: 22px;
+      }
+
+      .tile {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .tile h2 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        color: var(--text);
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.95em;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>Chemistry123</h1>
+        <p>
+          Sample 2 page for quick links and bite-size notes. Edit this file freely and link it from
+          <code>index.html</code> or <code>content.html</code>.
+        </p>
+
+        <div class="row" aria-label="Tags">
+          <span class="pill"><span class="dot" aria-hidden="true"></span>Static HTML</span>
+          <span class="pill"><span class="dot" aria-hidden="true"></span>GitHub Pages</span>
+          <span class="pill"><span class="dot" aria-hidden="true"></span>Chem Notes</span>
+        </div>
+
+        <div class="grid" role="list">
+          <div class="tile" role="listitem">
+            <h2>Stoichiometry</h2>
+            <p>Track units, balance equations, then convert using molar ratios.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h2>Acid–base</h2>
+            <p>Remember: strong acids/bases fully dissociate; use <code>K<sub>a</sub></code> / <code>K<sub>b</sub></code> otherwise.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h2>Thermo</h2>
+            <p>Sign check: <code>ΔH</code> &lt; 0 is exothermic; <code>ΔG</code> &lt; 0 is spontaneous.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Want a landing page? Point your links here from <a href="index.html">index.html</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
