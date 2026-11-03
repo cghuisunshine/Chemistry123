@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="What physical model gives −dc/dt = kc?">
+  <title>Why does first-order decay give an exponential? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#first-order">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">First-order decay and half-life</a><span class="sep">›</span><b>Why does first-order decay give an exponential?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>What physical model gives −dc/dt = kc?</q></div><h1>Why does first-order decay give an exponential?</h1><p class="subtitle">What physical model gives −dc/dt = kc?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Assume a constant probability per surviving molecule</h2>
+<p>Suppose each surviving A has probability k dt + o(dt) of disappearing during a short interval dt, independent of its age and of the number of other A molecules. This constant-hazard assumption is a model for unimolecular decay, not a consequence of stoichiometry.</p>
+<div class="text-equation">N(t + dt) − N(t) = −kN(t) dt
+dN/dt = −kN</div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Convert molecule count into concentration</h2>
+<p>At fixed volume, c = N/(N<sub>A</sub>V), so c obeys the same equation. The survival probability f(t) obeys df/dt = −kf with f(0) = 1, giving f(t) = e<sup>−kt</sup>.</p>
+<div class="text-equation">f(t + s) = f(t)f(s)</div>
+<p>This multiplicative property means that equal time intervals remove equal fractions of what remains, rather than equal absolute amounts.</p>
+<div class="branch-location" id="branch-changing-volume">
+  <a class="branch-card" href="changing-volume.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Why insist on fixed volume?</em></span>
+    <strong>What if the reacting volume changes?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="section-3">
+    <h2>An observed first-order law need not be elementary</h2>
+<p>A bimolecular rate k₂[A][B] behaves approximately as k<sub>obs</sub>[A] if B is in such large excess that [B] barely changes; k<sub>obs</sub> = k₂[B]<sub>excess</sub>. This is pseudo-first-order kinetics. The exponential holds only while that approximation and the temperature remain adequate.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-constant-hazard">← Return to the exact statement: What physical model gives −dc/dt = kc?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">First-order decay and half-life</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>Why does first-order decay give an exponential?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#first-order">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

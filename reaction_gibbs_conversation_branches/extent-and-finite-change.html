@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Is ΔᵣG the energy change of the whole reaction?">
+  <title>Why is reaction Gibbs energy a derivative? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#reaction-gibbs">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Reaction Gibbs energy and Q</a><span class="sep">›</span><b>Why is reaction Gibbs energy a derivative?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Is ΔᵣG the energy change of the whole reaction?</q></div><h1>Why is reaction Gibbs energy a derivative?</h1><p class="subtitle">Is ΔᵣG the energy change of the whole reaction?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Parameterize composition with one coordinate</h2>
+<p>For A ⇌ 2B, define a reaction extent ξ in moles of reaction. Then n<sub>A</sub> = n<sub>A,0</sub> − ξ and n<sub>B</sub> = n<sub>B,0</sub> + 2ξ. This is a stoichiometric coordinate, not a new conservation law.</p>
+<div class="text-equation">dG = μ<sub>A</sub>(−dξ) + μ<sub>B</sub>(2dξ)
+ΔᵣG = dG/dξ = 2μ<sub>B</sub> − μ<sub>A</sub></div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Follow the slope as composition changes</h2>
+<p>At fixed T and P the chemical potentials change as the mixture reacts. Consequently the slope ΔᵣG is not generally constant. The total Gibbs change over a finite reaction interval is:</p>
+<div class="text-equation">G(ξ₂) − G(ξ₁) = ∫<sub>ξ₁</sub><sup>ξ₂</sup> ΔᵣG(ξ) dξ</div>
+<p>Replacing this integral by ΔᵣG at the initial state times the full extent would freeze the composition dependence incorrectly.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Use the sign locally</h2>
+<div class="text-equation">ΔᵣG &lt; 0: forward infinitesimal change lowers G
+ΔᵣG &gt; 0: reverse infinitesimal change lowers G</div>
+<p>At an interior equilibrium the slope is zero. The standard slope ΔᵣG° need not be zero because the actual mixture generally has Q different from 1.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-extent-and-finite-change">← Return to the exact statement: Is ΔᵣG the energy change of the whole reaction?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Reaction Gibbs energy and Q</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>Why is reaction Gibbs energy a derivative?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#reaction-gibbs">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

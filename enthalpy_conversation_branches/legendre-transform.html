@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Is H = U + PV just a convenient trick?">
+  <title>Why is enthalpy natural at fixed pressure? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#enthalpy">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Why qₚ equals ΔH</a><span class="sep">›</span><a href="energy-accounting.html">What does enthalpy add to internal energy?</a><span class="sep">›</span><b>Why is enthalpy natural at fixed pressure?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Is H = U + PV just a convenient trick?</q></div><h1>Why is enthalpy natural at fixed pressure?</h1><p class="subtitle">Is H = U + PV just a convenient trick?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Start with the fundamental thermodynamic relation</h2>
+<p>For a simple compressible system of fixed composition, the equilibrium differential of internal energy is dU = T dS − P dV. This combines the reversible definitions of temperature and pressure with the first law.</p>
+<div class="text-equation">dH = d(U + PV) = T dS + V dP</div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Exchange a natural variable</h2>
+<p>U is naturally expressed as U(S,V); its V derivative is −P. Adding PV cancels the dV term and replaces volume with pressure as an independent variable. This operation is a Legendre transform, familiar from switching variables in analytical mechanics.</p>
+<div class="text-equation">T = (∂H/∂S)<sub>P</sub>,  V = (∂H/∂P)<sub>S</sub></div>
+<p>The transform does not add an energy source. It changes which controlled variables appear directly in the differential.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Connect to heat capacity</h2>
+<p>At fixed P and fixed composition, the heat needed for an infinitesimal reversible temperature increase is dH. Consequently Cₚ = (∂H/∂T)<sub>P</sub>. By contrast, holding V fixed makes dU the corresponding heat, giving Cᵥ = (∂U/∂T)<sub>V</sub>.</p>
+<p>Neither derivative requires heat capacity to be independent of temperature.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="energy-accounting.html#branch-legendre-transform">← Return to the exact statement: Is H = U + PV just a convenient trick?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Why qₚ equals ΔH</a></span></div>
+<div class="history-row"><span class="circle">2</span><span><a href="energy-accounting.html">What does enthalpy add to internal energy?</a></span></div>
+<div class="history-row current"><span class="circle">3</span><span>Why is enthalpy natural at fixed pressure?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#enthalpy">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

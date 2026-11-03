@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Where did that derivative identity come from?">
+  <title>Derive the internal-energy volume identity · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#cp-cv">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Why Cₚ − Cᵥ equals nR</a><span class="sep">›</span><a href="ideal-internal-energy.html">Why does an ideal gas have U = U(T)?</a><span class="sep">›</span><b>Derive the internal-energy volume identity</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Where did that derivative identity come from?</q></div><h1>Derive the internal-energy volume identity</h1><p class="subtitle">Where did that derivative identity come from?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Use the Helmholtz free energy</h2>
+<p>Define A = U − TS for a fixed-composition simple compressible equilibrium system. Then dA = −S dT − P dV. Equality of mixed partial derivatives of the smooth state function A(T,V) gives a Maxwell relation.</p>
+<div class="text-equation">(∂S/∂V)<sub>T</sub> = (∂P/∂T)<sub>V</sub></div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Differentiate U while holding T fixed</h2>
+<p>Along a constant-temperature variation, the fundamental relation dU = T dS − P dV has coefficient T(∂S/∂V)<sub>T</sub> − P in front of dV. Substitution proves the identity.</p>
+<div class="text-equation">(∂U/∂V)<sub>T</sub> = T(∂S/∂V)<sub>T</sub> − P
+= T(∂P/∂T)<sub>V</sub> − P</div>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Test a nonideal model</h2>
+<p>For the molar van der Waals equation P = RT/(v − b) − a/v² with constant a and b, the identity gives (∂u/∂v)<sub>T</sub> = a/v². Integration at fixed T yields u(T,v) = f(T) − a/v. Expansion reduces the magnitude of the attractive potential energy and raises u at fixed T.</p>
+<p>The ideal-gas limit a = b = 0 returns zero volume dependence. This is a consistency calculation within that equation-of-state model.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="ideal-internal-energy.html#branch-maxwell-identity">← Return to the exact statement: Where did that derivative identity come from?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Why Cₚ − Cᵥ equals nR</a></span></div>
+<div class="history-row"><span class="circle">2</span><span><a href="ideal-internal-energy.html">Why does an ideal gas have U = U(T)?</a></span></div>
+<div class="history-row current"><span class="circle">3</span><span>Derive the internal-energy volume identity</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#cp-cv">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

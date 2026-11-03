@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>Why does the exponential appear? · Physics Inquiry</title><meta name="description" content="A conversation-led derivation of the ideal gas law; branches open at the exact questions that prompted them."><link rel="stylesheet" href="assets/site.css"></head>
+<body><header class="site-header"><div class="head-inner"><a class="wordmark" href="index.html"><i>∑</i> Physics Inquiry</a><span class="head-tag">Follow the question · not a syllabus</span></div></header>
+<div class="wrapper"><nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="index.html">PV = nRT</a><span class="sep">›</span><a href="newton.html">Collisions</a><span class="sep">›</span><a href="equipartition.html">Average energy</a><span class="sep">›</span><a href="counting.html">State counting</a><span class="sep">›</span><b>Why does the exponential appear?</b></nav><div class="layout"><main class="document" id="main"><div class="hero"><div class="question">You asked <q>why</q></div><h1>Why does the exponential appear?</h1><p class="subtitle">Unpack the logarithm, temperature derivative, and Boltzmann factor.</p></div><article class="article">
+<section class="section"><h2>1. Why can entropy replace a state count?</h2>
+<p>Boltzmann's entropy relation states:</p>
+<figure class="equation"><img src="assets/eq/fd19455fd8a6.svg" alt="S equals k B times natural logarithm of omega" loading="lazy"></figure>
+<p>Divide both sides by <i>k<sub>B</sub></i> and exponentiate. This is just algebra:</p>
+<div class="text-equation" aria-label="Omega equals exponential of S over k B">S / k<sub>B</sub> = ln Ω &nbsp; ⟹ &nbsp; <strong>Ω = e<sup>S/k<sub>B</sub></sup></strong></div>
+<p>So replacing <i>Ω</i> with <i>e<sup>S/k<sub>B</sub></sup></i> does not add another physical assumption beyond the entropy relation itself.</p></section>
+<section class="section"><h2>2. Why a logarithm in the first place?</h2>
+<p>For independent systems A and B, each state of A can be paired with every state of B. Their state counts therefore <strong>multiply</strong>:</p>
+<figure class="equation"><img src="assets/eq/07ca9ea62d5a.svg" alt="Combined state count is the product of independent state counts" loading="lazy"></figure>
+<p>But thermodynamic entropies of independent systems <strong>add</strong>:</p>
+<figure class="equation"><img src="assets/eq/d87443af74a9.svg" alt="Entropy of two independent systems adds" loading="lazy"></figure>
+<p>A continuous, increasing function that turns products into sums is a logarithm. That motivates <i>S = C ln Ω</i>; identifying its thermodynamic scale gives <i>C = k<sub>B</sub></i>.</p>
+<div class="note"><b>Why this is not circular</b><p>Counting motivates the logarithm because it makes entropy extensive. Matching the statistical definition to thermodynamic temperature fixes the constant and links the microscopic and macroscopic descriptions.</p></div>
+</section>
+<section class="section"><h2>3. Why does the derivative equal 1/T?</h2>
+<p>The thermodynamic definition of entropy for reversible heat transfer is <i>dS = δQ<sub>rev</sub>/T</i>. At fixed volume and particle number, where only pressure–volume work is considered, the first law gives <i>δQ<sub>rev</sub> = dE</i>.</p>
+<figure class="equation"><img src="assets/eq/9030f5e2ffb1.svg" alt="Entropy differential at constant volume and number equals dE divided by T" loading="lazy"></figure>
+<figure class="equation"><img src="assets/eq/72e318cc8106.svg" alt="Partial derivative of entropy with energy equals reciprocal temperature" loading="lazy"></figure>
+<p>It also explains thermal equilibrium: energy tends to be distributed so that total entropy is maximal. At its maximum, the two subsystems have equal <i>∂S/∂E</i>, hence equal temperature.</p></section>
+<section class="section"><h2>4. Why does an exponential probability appear?</h2>
+<p>Let a molecule take energy <i>ε</i> from a huge thermal reservoir. The reservoir's energy decreases by <i>ε</i>, so its entropy decreases approximately by <i>ε/T</i>.</p>
+<figure class="equation"><img src="assets/eq/84925bb16e5a.svg" alt="Reservoir entropy decreases by epsilon over temperature" loading="lazy"></figure>
+<p>We now convert entropy back into a count. The constant part of the exponent only changes the overall normalization:</p>
+<figure class="equation"><img src="assets/eq/453c9136cabc.svg" alt="Reservoir state count proportional to Boltzmann factor" loading="lazy"></figure>
+<p>Because a molecular microstate’s probability is proportional to the number of compatible reservoir states:</p>
+<figure class="equation"><img src="assets/eq/0b46b075a16e.svg" alt="Probability proportional to exponential of minus epsilon divided by k B T" loading="lazy"></figure>
+<p><strong>Physical meaning:</strong> at positive temperature, a molecule with more energy leaves less energy to the reservoir. The reservoir generally has fewer compatible states, so that particular high-energy molecular microstate is less probable.</p></section>
+<section class="section"><h2>What has been established?</h2>
+<p>We have traced the exponential weight back through (i) compatible-state counting, (ii) the logarithmic entropy relation, and (iii) the thermodynamic temperature derivative. The algebra is exact within the large-reservoir approximation, while the physical framework still relies on equilibrium statistical mechanics.</p>
+</section></article><a class="return-link" href="counting.html#branch-entropy">← Return to the exact statement: The entropy substitution</a><nav aria-label="Equation library" style="font-size:13px;margin:20px 0"><a href="../derivation-tutorials.html">← All equation tutorials</a> · <a href="../derivation-practice.html#ideal-gas">Practice this derivation →</a></nav><p class="footer">Physics Inquiry · Follow-up questions are linked where they arose in the explanation.</p></main><aside class="side"><div class="side-card"><div class="side-label">Your conversation so far</div><div class="history-row "><span class="circle">1</span><span><a href=index.html>PV = nRT</a></span></div><div class="history-row "><span class="circle">2</span><span><a href=newton.html>Go ahead</a></span></div><div class="history-row "><span class="circle">3</span><span><a href=equipartition.html>derive it</a></span></div><div class="history-row "><span class="circle">4</span><span><a href=counting.html>prove that</a></span></div><div class="history-row current"><span class="circle">5</span><span>why</span></div></div><div class="side-card"><div class="side-label">How branching works</div><p>Read the explanation in order. A blue indented branch appears at the precise statement you asked about.</p><p>Open it to explore the proof, then use the return link to come back to the same spot.</p></div></aside></div></div></body></html>

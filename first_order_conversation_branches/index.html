@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Integrate a first-order disappearance law, then derive its half-life.">
+  <title>First-order decay and half-life · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#first-order">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>First-order decay and half-life</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>[A]ₜ = [A]₀ exp(−kt)</q></div><h1>First-order decay and half-life</h1><p class="subtitle">Integrate a first-order disappearance law, then derive its half-life.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">[A]ₜ = [A]₀ exp(−kt)
+t½ = ln 2/k</div><p>Integrate a first-order disappearance law, then derive its half-life.</p><p class="symbols"><b>Symbols and units.</b> [A]: concentration (mol L⁻¹); k: inverse time (s⁻¹ if t is in seconds); t and t½: time. The logarithm uses [A]ₜ/[A]₀, a dimensionless ratio.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Empirical law.</b> Assume the measured disappearance law is −d[A]/dt = k[A].</li><li><b>Calculus.</b> For x &gt; 0, ∫ dx/x gives a logarithmic ratio between limits.</li><li><b>Definition.</b> Half-life is the time when [A]ₜ = [A]₀/2.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Separate the variables</h2>
+<p>Move every concentration factor to the left and time to the right.</p><div class="text-equation">d[A]/[A] = −k dt</div><p>The negative sign ensures the concentration decreases for k &gt; 0.</p><div class="branch-location" id="branch-constant-hazard">
+  <a class="branch-card" href="constant-hazard.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What physical model gives −dc/dt = kc?</em></span>
+    <strong>Why does first-order decay give an exponential?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Integrate with limits</h2>
+<p>Integrate from [A]₀ to [A]ₜ and from 0 to t.</p><div class="text-equation">ln([A]ₜ/[A]₀) = −kt</div><p>The ratio inside ln is dimensionless, and kt is also dimensionless.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Solve for concentration</h2>
+<p>Exponentiate both sides and isolate [A]ₜ.</p><div class="text-equation">[A]ₜ = [A]₀ exp(−kt)</div><p>The concentration drops by the same fraction in each equal time interval.</p><div class="branch-location" id="branch-diagnosing-first-order">
+  <a class="branch-card" href="diagnosing-first-order.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What does a straight logarithmic plot establish?</em></span>
+    <strong>How do data test a first-order model?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. Derive the half-life</h2>
+<p>Set [A]ₜ/[A]₀ = 1/2 and solve for t.</p><div class="text-equation">−ln 2 = −kt½
+t½ = ln 2/k</div><p>The initial concentration cancels, so first-order half-life does not depend on [A]₀.</p>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The disappearance law is first order in A over the interval.</li><li>k is constant and volume is fixed, with no competing source of A.</li></ul><p>The kinetic law is an explicit experimental/model premise. Energy conservation and stoichiometry alone do not determine it.</p><div class="note"><b>Common misconception</b><p>A reaction is first order whenever its balanced equation has one A.</p><p>Overall reaction order is measured or justified by a mechanism. It is not inferred from an overall balanced equation.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>A straight line of ln([A]ₜ/[A]₀) versus t has slope −k. A concentration-versus-time line would not be straight for first-order decay.</p><details class="checkpoint"><summary>If k = 0.100 s⁻¹, what fraction of A remains after 13.86 s?</summary><p>t½ = 0.693/0.100 = 6.93 s. After two half-lives, (1/2)² = 1/4 remains.</p></details><p><a href="../derivation-practice.html#first-order">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>First-order decay and half-life</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#first-order">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

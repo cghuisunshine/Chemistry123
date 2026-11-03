@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Is every second-order integrated law the same?">
+  <title>Why does k[A][B] require another formula? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#second-order">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Second-order decay and half-life</a><span class="sep">›</span><b>Why does k[A][B] require another formula?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Is every second-order integrated law the same?</q></div><h1>Why does k[A][B] require another formula?</h1><p class="subtitle">Is every second-order integrated law the same?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Use stoichiometry to keep one independent variable</h2>
+<p>For A + B → products at fixed volume, let initial concentrations be a and b and let x be the reacted concentration. Then [A] = a − x, [B] = b − x, and dx/dt = k(a − x)(b − x).</p>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Integrate for unequal initial concentrations</h2>
+<div class="text-equation">1/[(a − x)(b − x)]
+= [1/(a − x) − 1/(b − x)]/(b − a)
+kt = [1/(b − a)] ln{a(b − x)/[b(a − x)]}</div>
+<p>The logarithm compares dimensionless ratios. This formula is valid for a ≠ b while both reactant concentrations remain positive. Substituting x = 0 gives zero elapsed time.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Recover the familiar special cases</h2>
+<p>If a = b, the concentrations remain equal and the law becomes −d[A]/dt = k[A]², giving the reciprocal formula. If b is much larger than a and barely depleted, the approximate law is first order in A with k<sub>obs</sub> = kb.</p>
+<p>Reaction order specifies the total concentration power; it does not uniquely specify the integral when multiple concentrations vary.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-two-reactants">← Return to the exact statement: Is every second-order integrated law the same?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Second-order decay and half-life</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>Why does k[A][B] require another formula?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#second-order">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

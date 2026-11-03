@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Show why an ideal gas needs more heat per degree at constant pressure than at constant volume.">
+  <title>Why Cₚ − Cᵥ equals nR · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#cp-cv">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Why Cₚ − Cᵥ equals nR</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>Cₚ − Cᵥ = nR</q></div><h1>Why Cₚ − Cᵥ equals nR</h1><p class="subtitle">Show why an ideal gas needs more heat per degree at constant pressure than at constant volume.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">Cₚ − Cᵥ = nR
+Molar form: Cₚ,ₘ − Cᵥ,ₘ = R</div><p>Show why an ideal gas needs more heat per degree at constant pressure than at constant volume.</p><p class="symbols"><b>Symbols and units.</b> Cₚ, Cᵥ: sample heat capacities (J K⁻¹); Cₚ,ₘ, Cᵥ,ₘ: molar heat capacities (J mol⁻¹ K⁻¹); n: mol.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Definition.</b> H = U + PV.</li><li><b>Model.</b> For an ideal gas, PV = nRT and U depends only on T at fixed amount.</li><li><b>Definition.</b> Cᵥ = (∂U/∂T)ᵥ and Cₚ = (∂H/∂T)ₚ for a fixed amount.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Rewrite H using the gas model</h2>
+<p>Replace PV in the enthalpy definition.</p><div class="text-equation">H(T) = U(T) + nRT</div><p>For this model, both U and H depend only on temperature for fixed n and composition.</p><div class="branch-location" id="branch-ideal-internal-energy">
+  <a class="branch-card" href="ideal-internal-energy.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Can PV = nRT justify this extra premise?</em></span>
+    <strong>Why does an ideal gas have U = U(T)?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Differentiate with respect to T</h2>
+<p>Hold n fixed and differentiate the entire equation.</p><div class="text-equation">dH/dT = dU/dT + nR</div><p>Because U and H depend only on T, these derivatives are the relevant constant-volume and constant-pressure heat capacities.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Identify the heat capacities</h2>
+<p>Replace derivatives by Cₚ and Cᵥ; then divide by n for the molar result.</p><div class="text-equation">Cₚ = Cᵥ + nR
+Cₚ,ₘ − Cᵥ,ₘ = R</div><p>At constant pressure the gas expands as it warms. Extra heat supplies that expansion work.</p><div class="branch-location" id="branch-general-capacity-gap">
+  <a class="branch-card" href="general-capacity-gap.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>How special is the ideal-gas result?</em></span>
+    <strong>What replaces Cₚ − Cᵥ = nR for a real fluid?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The amount and chemical composition of the gas are fixed.</li><li>The gas obeys the ideal-gas model, including U = U(T).</li></ul><p>Capital C here is the heat capacity of the whole sample (J K⁻¹). The difference is R only for molar heat capacities.</p><div class="note"><b>Common misconception</b><p>The gas must be monatomic.</p><p>The heat capacities depend on molecular degrees of freedom, but their difference is nR for any fixed-composition ideal gas.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For a monatomic ideal gas, Cᵥ,ₘ = 3R/2 and Cₚ,ₘ = 5R/2. Their difference is R.</p><details class="checkpoint"><summary>For 2.00 mol of ideal gas, what is Cₚ − Cᵥ for the entire sample?</summary><p>The sample difference is nR = 2.00 × 8.314 = 16.63 J K⁻¹. The molar difference is R.</p></details><p><a href="../derivation-practice.html#cp-cv">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Why Cₚ − Cᵥ equals nR</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#cp-cv">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

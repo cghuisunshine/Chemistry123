@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Derive a system-only spontaneity test from the entropy change of the system plus its surroundings.">
+  <title>Gibbs energy from the second law · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#gibbs">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Gibbs energy from the second law</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>ΔG = ΔH − TΔS_sys = −TΔS_univ</q></div><h1>Gibbs energy from the second law</h1><p class="subtitle">Derive a system-only spontaneity test from the entropy change of the system plus its surroundings.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">ΔG = ΔH − TΔS<sub>sys</sub> = −TΔS<sub>univ</sub>
+At fixed T and P: spontaneous change has ΔG &lt; 0</div><p>Derive a system-only spontaneity test from the entropy change of the system plus its surroundings.</p><p class="symbols"><b>Symbols and units.</b> G, H: J (or consistently kJ); S: J K⁻¹; T: K &gt; 0. Keep ΔH and TΔS in the same energy units.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Second law.</b> ΔS_univ = ΔS_sys + ΔS_surr ≥ 0 for an allowed process of the isolated composite.</li><li><b>Reservoir.</b> For a thermal reservoir at T, ΔS_surr = q_surr/T and q_surr = −q_sys.</li><li><b>Definition.</b> G = H − TS; at constant pressure with only PV work, q_sys = ΔH_sys.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Express surroundings entropy</h2>
+<p>Combine reservoir entropy with heat conservation.</p><div class="text-equation">ΔS<sub>surr</sub> = −q<sub>sys</sub>/T</div><p>Use the reservoir temperature. The actual system need not follow a reversible path.</p><div class="branch-location" id="branch-reservoir-entropy">
+  <a class="branch-card" href="reservoir-entropy.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>May we use q/T for an irreversible process?</em></span>
+    <strong>Why is surroundings entropy −q/T?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Replace heat by a state-function change</h2>
+<p>Use constant pressure and only PV work, then form ΔS_univ.</p><div class="text-equation">ΔS<sub>univ</sub> = ΔS<sub>sys</sub> − ΔH<sub>sys</sub>/T</div><p>The surroundings contribution is now expressed using system quantities.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Multiply by −T</h2>
+<p>Rearrange the entropy sum into an energy quantity. What happens to the inequality?</p><div class="text-equation">−TΔS<sub>univ</sub> = ΔH<sub>sys</sub> − TΔS<sub>sys</sub> ≤ 0</div><p>An increase in total entropy corresponds to a decrease in this system energy combination.</p>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. Identify the Gibbs change</h2>
+<p>Use G = H − TS at constant T. State the spontaneity and equilibrium criteria.</p><div class="text-equation">ΔG = −TΔS<sub>univ</sub>
+Spontaneous: ΔG &lt; 0; equilibrium: ΔG = 0</div><p>A negative Gibbs change is the second-law test under the stated constraints, not an extra law.</p><div class="branch-location" id="branch-gibbs-work">
+  <a class="branch-card" href="gibbs-work.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What changes if the system delivers electricity?</em></span>
+    <strong>How is Gibbs energy related to useful work?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The system has constant T and P and exchanges heat with a reservoir at that same T.</li><li>The closed system does only PV work; all surroundings entropy exchange is accounted for.</li></ul><p>ΔG = ΔH − TΔS for a finite change requires constant T. If T changes, use ΔG = ΔH − Δ(TS). Non-PV work needs an additional work term.</p><div class="note"><b>Common misconception</b><p>The system entropy must increase.</p><p>The second law concerns system plus surroundings. A decrease in system entropy can be outweighed by an increase in surroundings entropy.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>An endothermic process can be spontaneous if TΔS_sys exceeds ΔH. Always check the stated temperature and constraints.</p><details class="checkpoint"><summary>At 300 K, a process has ΔH = +6.0 kJ and ΔS_sys = +30 J K⁻¹. Is the direction spontaneous at fixed T and P with only PV work?</summary><p>TΔS = 300 × 30 J = 9.0 kJ. ΔG = 6.0 − 9.0 = −3.0 kJ. ΔS_univ = 10 J K⁻¹.</p></details><p><a href="../derivation-practice.html#gibbs">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Gibbs energy from the second law</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#gibbs">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

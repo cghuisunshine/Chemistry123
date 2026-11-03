@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practice deriving chemistry equations from laws, definitions, and explicit assumptions. An offline Chem 123 workbook with hints and worked reasoning.">
+  <title>Chemistry 123 | Derivation Practice</title>
+  <style>
+    :root { color-scheme:light; --ink:#182f40; --muted:#526675; --paper:#f5f4ef; --white:#fff; --line:#dbe3e3; --teal:#076c68; --soft:#edf6f3; --gold:#c07b28; --navy:#142e40; --blue:#245fa6; --red:#a43e35; --accent:var(--teal); --warm:#80541d; --bad:var(--red); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:110px; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    button,input,select,textarea { font:inherit; }
+    button,a,input,select,textarea,summary { -webkit-tap-highlight-color:transparent; }
+    button,summary { cursor:pointer; }
+    button:disabled { opacity:.45; cursor:default; }
+    a { color:var(--teal); text-underline-offset:4px; }
+    :focus-visible { outline:3px solid #2376bf; outline-offset:4px; }
+    .skip { position:absolute; top:-100px; left:15px; z-index:50; background:white; padding:10px; }
+    .skip:focus { top:8px; }
+    .wrap { max-width:1320px; margin:auto; padding-inline:32px; }
+    .topbar { background:var(--navy); color:#f6f8f8; }
+    .topbar-inner { min-height:64px; display:flex; justify-content:space-between; gap:18px; align-items:center; }
+    .brand { font-weight:800; letter-spacing:.12em; font-size:13px; color:white; text-decoration:none; }
+    .brand span { color:#9fcebd; font-weight:500; margin-left:12px; letter-spacing:0; }
+    .topbar a.source { color:#d6e7e3; font-size:13px; }
+    .eyebrow { color:var(--teal); text-transform:uppercase; font-size:12px; font-weight:800; letter-spacing:.16em; }
+    .muted { color:var(--muted); }
+    .small { font-size:13px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(46px,6.2vw,78px); line-height:1.06; letter-spacing:-.055em; margin:12px 0 20px; font-weight:750; }
+    h1 em { color:var(--teal); font-style:normal; }
+    h2 { font-size:24px; line-height:1.3; letter-spacing:-.025em; margin-bottom:10px; }
+    h3 { font-size:17px; line-height:1.4; letter-spacing:-.01em; margin-bottom:8px; }
+    p { margin-bottom:15px; }
+    .hero { display:grid; grid-template-columns:1fr 300px; gap:50px; align-items:center; padding-block:52px 38px; }
+    .hero p { max-width:760px; color:var(--muted); font-size:17px; margin:8px 0; }
+    .hero-art { width:100%; height:auto; }
+    .hero-art text { font:12px system-ui,sans-serif; fill:var(--muted); }
+    .stats { display:flex; flex-wrap:wrap; gap:8px; margin-top:23px; }
+    .stats span { border:1px solid #d6dfd8; background:#eaf0e9; padding:4px 12px; border-radius:20px; font-size:12px; }
+    .method { display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:12px; color:var(--muted); padding-bottom:30px; }
+    .method .method-item { background:white; border:1px solid var(--line); border-radius:6px; padding:5px 10px; }
+    .method b { color:var(--teal); font-weight:750; margin-right:4px; }
+    .toolbar { position:sticky; top:0; z-index:10; background:#f5f4eff5; border-block:1px solid var(--line); backdrop-filter:blur(12px); }
+    .toolbar-inner { display:flex; gap:12px; align-items:center; min-height:76px; padding-block:12px; }
+    .search-wrap { flex:1; min-width:160px; }
+    .sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+    .search,.filter { border:1px solid var(--line); color:var(--ink); border-radius:8px; background:white; padding:9px 12px; font-size:14px; }
+    .search { display:block; width:100%; max-width:390px; }
+    .filter { min-width:155px; max-width:190px; font-size:13px; padding:8px; }
+    .segmented { display:flex; background:#e4ebe7; border-radius:8px; padding:3px; flex-shrink:0; }
+    .segmented button { border:0; border-radius:6px; background:none; color:var(--ink); padding:6px 12px; font-size:13px; white-space:nowrap; }
+    .segmented button[aria-pressed="true"] { background:white; box-shadow:0 1px 4px #18342714; color:var(--teal); font-weight:750; }
+    .button { border:1px solid var(--line); background:white; color:var(--ink); border-radius:8px; padding:7px 13px; font-size:13px; line-height:1.6; }
+    .button:hover { background:var(--soft); }
+    .button.primary { background:var(--teal); color:white; border-color:var(--teal); font-weight:650; }
+    .button.primary:hover { background:#055b58; }
+    .button.danger { color:var(--red); }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .toolbar .actions { flex-shrink:0; }
+    #nav-toggle { display:none; }
+    .layout { display:grid; grid-template-columns:250px minmax(0,1fr); gap:38px; margin-block:30px 70px; }
+    aside { min-width:0; }
+    .sidebar-inner { position:sticky; top:105px; max-height:calc(100vh - 125px); overflow:auto; scrollbar-width:thin; padding-right:12px; }
+    .side-heading { font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); font-weight:800; margin:0 8px 14px; }
+    #exercise-list { display:flex; flex-direction:column; gap:2px; }
+    .exercise-link { width:100%; display:flex; gap:9px; align-items:flex-start; text-align:left; padding:8px 9px; border:0; border-left:2px solid transparent; border-radius:0; color:var(--muted); background:transparent; line-height:1.45; font-size:12px; }
+    .exercise-link:hover,.exercise-link[aria-current="true"] { background:#e7f1ec; border-left-color:var(--teal); color:var(--teal); }
+    .exercise-num { min-width:21px; color:var(--teal); font-variant-numeric:tabular-nums; }
+    .exercise-title { flex:1; }
+    .done-dot { min-width:14px; font-weight:800; color:var(--teal); }
+    .sidebar-footer { margin-top:18px; padding:14px 9px 0; border-top:1px solid var(--line); }
+    .sidebar-footer .small { font-size:11px; }
+    .sidebar-footer .button { font-size:11px; padding:5px 8px; }
+    progress { accent-color:var(--teal); display:block; width:100%; height:6px; margin:8px 0 12px; }
+    main { min-width:0; }
+    #exercise-title { scroll-margin-top:125px; }
+    .exercise-header { display:flex; gap:18px; align-items:flex-start; background:linear-gradient(120deg,#fff,#fafcf9); border:1px solid var(--line); border-radius:14px; padding:25px 30px 22px; }
+    .chapter-no { font:400 43px/1 Georgia,serif; letter-spacing:-.04em; color:#a1b6a5; min-width:49px; padding-top:3px; }
+    .exercise-heading { flex:1; min-width:0; }
+    .exercise-header h2 { margin:4px 0 9px; }
+    .exercise-header p { font-size:14px; margin:0; }
+    .meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+    .meta .eyebrow,.meta .pill,.meta .small { font-size:10px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); }
+    .pill { font-size:11px; color:var(--muted); }
+    .target { margin:14px 0 0; }
+    .equation { padding:14px 17px; border:1px solid #d6e8df; border-left:3px solid var(--teal); background:var(--soft); border-radius:0 7px 7px 0; font:15px/1.8 "Cambria Math",Georgia,"Times New Roman",serif; white-space:pre-wrap; overflow-wrap:anywhere; color:#16483e; }
+    .target .equation { margin-top:12px; }
+    summary { color:var(--teal); font-size:12px; font-weight:750; }
+    .panel { border:1px solid var(--line); border-radius:12px; padding:22px 30px; background:white; margin-top:22px; }
+    .panel-title { display:flex; gap:12px; align-items:baseline; margin-bottom:12px; }
+    .section-no { color:var(--teal); font-size:11px; font-weight:750; letter-spacing:.08em; }
+    .panel-title h2 { font-size:19px; margin:0; }
+    .premises { display:grid; gap:10px; margin:16px 0; }
+    .premise { display:grid; grid-template-columns:90px 1fr; gap:12px; padding:12px 14px; border-left:2px solid #acbfc7; background:#f6f9f5; font-size:14px; line-height:1.85; }
+    .premise span:first-child { font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); font-weight:750; padding-top:3px; }
+    .boundary { padding:12px 16px; background:#fff7e9; color:#7c4e18; border-left:3px solid var(--gold); font-size:12px; line-height:1.8; margin-top:18px; }
+    .check-option { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; margin-top:8px; cursor:pointer; font-size:13px; line-height:1.7; background:white; }
+    .check-option:hover { background:var(--soft); }
+    .check-option:has(input:checked) { background:#edf4fb; border-color:var(--blue); }
+    input[type="checkbox"],input[type="radio"] { accent-color:var(--teal); margin-top:4px; flex-shrink:0; width:16px; height:16px; }
+    fieldset { padding:0; border:0; margin:14px 0; min-width:0; }
+    legend { font-weight:600; font-size:14px; margin-bottom:4px; }
+    .feedback { font-size:13px; padding:12px 14px; background:#f0f5f1; border-radius:6px; margin-top:12px; }
+    .feedback.good { color:var(--teal); }
+    .feedback.retry { color:#80541d; background:#fff4e8; }
+    .step { margin-top:18px; padding:22px 30px; border:1px solid var(--line); border-radius:12px; background:white; }
+    .step-top { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+    .step-index { display:grid; place-items:center; width:29px; height:29px; flex-shrink:0; background:#edf3ed; color:var(--teal); border:1px solid #d6e8df; border-radius:50%; font-size:12px; }
+    .step h3 { margin:0; }
+    .step p { color:var(--muted); font-size:14px; line-height:1.85; }
+    textarea { width:100%; display:block; resize:vertical; min-height:110px; background:#fff; border:1px solid #c9d5d6; color:var(--ink); border-radius:8px; padding:13px; line-height:1.8; font-size:15px; }
+    textarea::placeholder { color:#6d7c85; }
+    .step-tools { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .step-tools .button { color:var(--teal); border-color:#a6c8ba; font-size:12px; border-radius:6px; padding:6px 12px; font-weight:650; }
+    .hint { color:#80541d; font-size:13px; padding:12px 16px; margin-top:12px; border-left:3px solid var(--gold); background:#fff7e9; }
+    .solution { background:#faf9f3; border:1px solid #e6e1ce; padding:18px 20px; border-radius:10px; margin-top:16px; }
+    .solution p { color:var(--muted); margin:10px 0 0; }
+    .self-check { display:flex; align-items:flex-start; gap:9px; font-size:12px; color:var(--muted); margin-top:16px; cursor:pointer; }
+    .step-verified { border-color:#a6c8ba; }
+    .step-verified .step-index { color:var(--teal); background:#e7f1ec; border-color:#a6c8ba; }
+    .step-verified .self-check { color:var(--teal); }
+    .symbols { font-size:13px; margin:16px 0; }
+    .symbols dt { font-weight:750; color:var(--teal); margin-bottom:4px; }
+    .symbols dd { margin:0 0 14px; color:var(--muted); line-height:1.85; }
+    .finish { margin-top:22px; padding:18px 22px; border:1px solid #bbd4ca; border-radius:10px; background:#f3f8f4; }
+    .finish h3 { font-size:15px; color:var(--teal); }
+    .bottom-nav { display:flex; justify-content:space-between; gap:12px; margin-top:24px; }
+    .no-results { padding:12px; font-size:13px; color:var(--muted); }
+    .scratch { min-height:320px; margin-top:12px; }
+    .full-step { padding:18px 0; border-bottom:1px solid var(--line); }
+    .full-step:last-child { border:0; }
+    .full-step p { font-size:14px; line-height:1.85; color:var(--muted); margin:10px 0 0; }
+    .storage-status { margin-top:24px; font-size:11px; color:var(--muted); }
+    #notice { min-height:24px; font-size:13px; color:var(--teal); margin-top:12px; }
+    footer { border-top:1px solid var(--line); padding-block:24px 40px; color:var(--muted); font-size:11px; }
+    footer p { max-width:1000px; }
+    .print-only { display:none; }
+    [hidden] { display:none !important; }
+    @media (min-width:1250px) { .reference-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:24px; } }
+    @media (max-width:1100px) { .toolbar-inner { gap:8px; } .toolbar .button,.segmented button { padding-inline:9px; font-size:12px; } .filter { min-width:135px; max-width:155px; } }
+    @media (max-width:1050px) { .wrap { padding-inline:22px; } .layout { grid-template-columns:210px minmax(0,1fr); gap:24px; } .hero { grid-template-columns:1fr 230px; gap:20px; } .exercise-header,.panel,.step { padding-inline:24px; } }
+    @media (max-width:800px) { html { scroll-padding-top:155px; } .wrap { padding-inline:16px; } .topbar-inner { min-height:58px; } .brand span { display:none; } .topbar a.source { font-size:11px; } .hero { padding-block:32px 25px; grid-template-columns:1fr 150px; } .hero p { font-size:15px; } .method { padding-bottom:22px; font-size:11px; } .toolbar-inner { flex-wrap:wrap; min-height:110px; } .search-wrap { flex-basis:calc(100% - 175px); } .search { max-width:none; } .filter { max-width:160px; } .segmented { margin-right:auto; } #nav-toggle { display:block; } .layout { display:block; margin-top:22px; } aside { display:none; border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:20px; background:white; } body[data-nav="open"] aside { display:block; } .sidebar-inner { position:static; max-height:340px; padding:0; } .sidebar-footer { display:none; } #exercise-title { scroll-margin-top:160px; } .exercise-header h2 { font-size:22px; } .exercise-header { gap:12px; } .chapter-no { font-size:36px; min-width:39px; } }
+    @media (max-width:480px) { h1 { font-size:46px; } .hero { display:block; } .hero-art { display:none; } .brand { font-size:11px; } .stats span { font-size:10px; } .exercise-header { padding:20px 17px; gap:10px; } .exercise-header h2 { font-size:20px; } .chapter-no { font-size:32px; min-width:32px; } .panel,.step { padding:18px; } .meta .eyebrow,.meta .pill,.meta .small { font-size:9px; } .premise { grid-template-columns:1fr; gap:3px; } .solution { padding:14px; } .equation { padding:12px; font-size:14px; } .panel-title h2 { font-size:17px; } .bottom-nav { gap:6px; flex-wrap:wrap; } .bottom-nav .button { font-size:11px; padding:7px 9px; } .search { font-size:12px; } .toolbar .actions { gap:6px; } .toolbar .button,.segmented button { padding-inline:8px; font-size:11px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { body { background:white; font-size:11pt; } aside,.topbar,.hero,.method,.toolbar,.step-tools,.self-check,.bottom-nav,#notice,.storage-status,.no-print,textarea,#check-assumptions,#check-quiz,.finish,footer { display:none !important; } .wrap { max-width:none; padding:0; } .layout { display:block; margin:0; } .panel,.step,.exercise-header,.solution,.premise { background:white; } .equation { color:#172033; } .print-only { display:block; } .print-answer { white-space:pre-wrap; font-size:11pt; color:#172033; min-height:70px; border-bottom:1px solid #c8d0d9; margin:8px 0; } .boundary { background:white; color:#634900; } .feedback { background:white; } .step,.full-step { break-inside:avoid; } details { display:none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to practice</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">CHEMISTRY 123 <span>A derivation workbook</span></a>
+      <div class="actions"><a class="source" href="derivation-tutorials.html">Equation tutorials ↗</a><a class="source" href="index.html">Chem 123 study guide ↗</a></div>
+    </div>
+  </header>
+  <div class="wrap" id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">Chem 123 · Laws, models &amp; assumptions</div>
+        <h1 id="page-title">Derive it.<br><em>Understand it.</em></h1>
+        <p>Start with the basic laws. Choose your assumptions. Work through the maths, and explain why the equation makes sense.</p>
+        <div class="stats"><span>15 derivations</span><span>Explicit assumptions</span><span>Guided &amp; blank-page practice</span><span>Saved notes</span></div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 300 250" aria-hidden="true">
+        <circle cx="150" cy="125" r="95" fill="#e7eee6"/>
+        <g fill="none" stroke-width="1.5">
+          <ellipse cx="150" cy="125" rx="123" ry="45" stroke="#076c68" transform="rotate(-30 150 125)"/>
+          <ellipse cx="150" cy="125" rx="123" ry="45" stroke="#a7bcb0" transform="rotate(35 150 125)"/>
+          <ellipse cx="150" cy="125" rx="43" ry="114" stroke="#c07b28" transform="rotate(12 150 125)"/>
+        </g>
+        <circle cx="150" cy="125" r="12" fill="#076c68"/>
+        <circle cx="237" cy="60" r="7" fill="#c07b28"/>
+        <circle cx="61" cy="86" r="6" fill="#245fa6"/>
+        <circle cx="169" cy="218" r="6" fill="#076c68"/>
+        <text x="20" y="242">laws → assumptions → equations</text>
+      </svg>
+    </section>
+    <div class="method" aria-label="Practice sequence"><span class="method-item"><b>01</b> Foundations</span><span class="method-item"><b>02</b> Assumptions</span><span class="method-item"><b>03</b> Derivation</span><span class="method-item"><b>04</b> Reality check</span></div>
+  </div>
+  <div class="toolbar">
+    <div class="wrap toolbar-inner">
+      <div class="search-wrap">
+        <label class="sr-only" for="search">Find an equation</label>
+        <input class="search" id="search" type="search" placeholder="Search equations, concepts, or topics…">
+      </div>
+      <label class="sr-only" for="topic">Filter topic</label>
+      <select class="filter" id="topic"><option value="all">All topics</option></select>
+      <div class="segmented" role="group" aria-label="Practice mode">
+        <button id="guided-mode" aria-pressed="true">Guided steps</button>
+        <button id="blank-mode" aria-pressed="false">Blank page</button>
+      </div>
+      <button class="button" id="nav-toggle" aria-expanded="false" aria-controls="derivation-library">Exercises</button>
+      <div class="actions"><button class="button" id="export">Export notes</button><button class="button" id="print">Print / PDF</button></div>
+    </div>
+  </div>
+  <div class="wrap layout">
+    <aside id="derivation-library" aria-label="Derivation library">
+      <div class="sidebar-inner">
+        <h2 class="side-heading">Derivation library</h2>
+        <nav id="exercise-list" aria-label="Choose a derivation"></nav>
+        <div class="sidebar-footer">
+          <div class="small"><strong id="completed-count">0</strong><span class="muted"> derivations verified</span></div>
+          <progress id="overall-progress" max="15" value="0" aria-label="Verified derivations"></progress>
+          <p class="small muted">Progress combines your self-checks with assumption and concept questions.</p>
+          <button class="button text" id="pick-next">Choose an unfinished one →</button>
+        </div>
+      </div>
+    </aside>
+    <main id="main">
+      <article id="workbook" aria-label="Current exercise"></article>
+      <p class="storage-status" id="storage-status">Notes and self-checks save in this browser. Export notes to keep a portable copy.</p>
+      <div id="notice" role="status" aria-live="polite"></div>
+      <noscript><p>This practice workbook needs JavaScript enabled. It uses no network services or external libraries.</p></noscript>
+    </main>
+  </div>
+  <footer class="wrap"><p>Build each argument from its stated laws, definitions, and models. Check units, signs, and limiting cases before trusting a result.</p><p>Works offline. Your notes and progress stay in this browser. Export notes to keep a portable copy. <a href="#top">Back to top ↑</a></p></footer>
+  <script>
+    'use strict';
+    // Each starting point is explicitly classified: a model or empirical law is
+    // a premise, not something silently "proved" by rearranging another equation.
+    const step = (title, prompt, hint, equation, why) => ({ title, prompt, hint, equation, why });
+    const exercises = [
+      {
+        id:'pv-work', title:'Pressure–volume work', topic:'Gases & work', level:'Start here', time:'8 min',
+        goal:'Derive the work done on a gas when a piston moves against an external pressure.', target:'w = −∫[V₁→V₂] P_ext dV\nConstant P_ext: w = −P_ext(V₂ − V₁)',
+        roots:[['Definition','Work on a system is force dotted with the displacement of its boundary.'],['Definition','Pressure is normal force per area: P = F/A.'],['Geometry','For a piston of area A, a displacement dx changes volume by dV = A dx.']],
+        conditions:['Only pressure–volume work is included.','The external pressure is constant for the simplified finite formula.'], trap:'The gas must be ideal.', trapWhy:'The boundary-work argument does not need an ideal-gas equation of state.',
+        boundary:'Use external pressure for actual boundary work. Substitute the gas pressure only along a mechanically reversible path.',
+        symbols:'w: work on the system (J); P_ext: external pressure (Pa); V: volume (m³). 1 Pa·m³ = 1 J. Heat and work are positive when energy enters the system.',
+        steps:[
+          step('Fix the sign','For an outward piston displacement dx > 0, what direction does the external force point? Write the infinitesimal work on the gas.','The force on the gas opposes outward motion.','δw = −F_ext dx','Expansion transfers energy from the gas to its surroundings, so the work on the gas is negative.'),
+          step('Replace force and distance','Use pressure and piston geometry to eliminate F_ext and dx.','Replace F_ext by P_ext A and A dx by dV.','δw = −P_ext A dx = −P_ext dV','The piston area cancels. This is why pressure and volume alone describe this boundary work.'),
+          step('Add up the small changes','Write the general integral, then simplify only when external pressure is constant.','A constant may leave an integral; a variable pressure may not.','w = −∫[V₁→V₂] P_ext dV\nw = −P_ext(V₂ − V₁)  if P_ext is constant','The integral adds the work over the actual path. Work is a path quantity, not a state function.')
+        ],
+        quiz:{q:'A gas expands by 2.0 L against a constant 100 kPa. What is the work on the gas?',options:['−200 J','+200 J','0 J'],answer:0,why:'2.0 L = 0.0020 m³, so w = −100000 × 0.0020 = −200 J. Expansion makes w negative.'}, example:'At zero external pressure (free expansion), PV work is zero even if the volume increases.'
+      },
+      {
+        id:'ideal-gas', title:'The ideal-gas equation', topic:'Gases & work', level:'Foundation', time:'8 min',
+        goal:'Combine the empirical gas-law proportionalities and identify the model behind PV = nRT.', target:'PV = nRT',
+        roots:[['Empirical law','Boyle: V ∝ 1/P at fixed n and T.'],['Empirical law','Charles: V ∝ T at fixed n and P.'],['Empirical law','Avogadro: V ∝ n at fixed P and T.']],
+        conditions:['Temperature is measured on the absolute Kelvin scale.','The gas is in the ideal regime, with negligible molecular volume and intermolecular effects.'],trap:'The pressure must stay constant throughout every process.',trapWhy:'Constant pressure isolates Charles’s proportionality. The combined equation relates equilibrium states with different pressures.',
+        boundary:'This combines experimentally established proportionalities. It does not derive an equation of state from energy conservation alone. Real gases deviate, especially near condensation.',
+        symbols:'P: pressure (Pa); V: volume (m³); n: amount (mol); T: absolute temperature (K); R = 8.314 J mol⁻¹ K⁻¹. Use consistent units.',
+        steps:[
+          step('Combine the proportionalities','How must volume scale with n, T, and P together?','Put directly proportional quantities in the numerator.','V ∝ nT/P','In the ideal regime, doubling n or T doubles V at the other fixed variables; doubling P halves V.'),
+          step('Introduce the proportionality constant','Replace the proportionality sign with an equality and name the constant.','The same limiting constant applies to ideal gases.','V = RnT/P','R is measured experimentally; it is not determined by the algebra.'),
+          step('Rearrange and check dimensions','Isolate PV. Verify that both sides have energy units.','A pascal times a cubic metre is a joule.','PV = nRT\nPa·m³ = mol × (J mol⁻¹ K⁻¹) × K = J','The unit check catches inconsistent pressure/volume units and using Celsius in place of Kelvin.')
+        ],
+        quiz:{q:'For a fixed amount of ideal gas at fixed volume, what happens to P when T rises from 300 K to 600 K?',options:['P doubles.','P stays constant.','P increases by a factor of 600/27.'],answer:0,why:'P = nRT/V, so P₂/P₁ = T₂/T₁ = 2. The temperature ratio must use Kelvin.'},example:'For 1.00 mol at 300 K and 100 kPa, V = 8.314 × 300/100000 = 0.0249 m³ = 24.9 L.'
+      },
+      {
+        id:'enthalpy', title:'Why qₚ equals ΔH', topic:'Thermodynamics', level:'Foundation', time:'10 min',
+        goal:'Use energy conservation and the definition of enthalpy to identify heat flow at constant pressure.',target:'qₚ = ΔH',
+        roots:[['First law','ΔU = q + w, with work positive when done on the system.'],['Definition','H = U + PV.'],['Work model','At constant external pressure, PV work is w = −P_ext ΔV.']],
+        conditions:['The system is closed and only PV work occurs.','Pressure is constant, with initial and final system pressures equal to the imposed external pressure.'],trap:'The process must be reversible.',trapWhy:'The finite energy balance does not require a reversible path when the stated pressure and work conditions hold.',
+        boundary:'Electrical or other non-PV work changes the heat balance. At constant volume with no other work, qᵥ = ΔU instead.',
+        symbols:'U: internal energy (J); H: enthalpy (J); qₚ: heat into the system at constant pressure (J); PΔV: pressure–volume energy (J).',
+        steps:[
+          step('Insert the work term','Substitute constant-pressure PV work into the first law and solve for q.','Move the negative PV-work term to the other side.','ΔU = qₚ − PΔV\nqₚ = ΔU + PΔV','Some heat changes internal energy; some supplies expansion work.'),
+          step('Take the change in enthalpy','Calculate ΔH from its definition. What does constant pressure let you simplify?','Δ(PV) = PΔV only when P is constant.','ΔH = ΔU + Δ(PV) = ΔU + PΔV','Enthalpy packages internal energy together with the PV term.'),
+          step('Compare the expressions','Which two quantities now have identical expressions? Explain the meaning of the equality.','Compare the right sides, including signs.','qₚ = ΔH','Under the listed conditions, the enthalpy change equals the heat absorbed. H is a state function; q is still path dependent in general.')
+        ],
+        quiz:{q:'At constant pressure, a closed system receives 50 J of heat and does 20 J of PV work. Find ΔU and ΔH.',options:['ΔU = 30 J; ΔH = 50 J','ΔU = 70 J; ΔH = 50 J','ΔU = 50 J; ΔH = 30 J'],answer:0,why:'Work on the system is −20 J, so ΔU = 50 − 20 = 30 J. With only PV work, ΔH = qₚ = 50 J.'},example:'An exothermic reaction in a constant-pressure calorimeter has q_system < 0 and ΔH < 0; the calorimeter gains heat.'
+      },
+      {
+        id:'cp-cv',title:'Why Cₚ − Cᵥ equals nR',topic:'Thermodynamics',level:'Build on enthalpy',time:'10 min',
+        goal:'Show why an ideal gas needs more heat per degree at constant pressure than at constant volume.',target:'Cₚ − Cᵥ = nR\nMolar form: Cₚ,ₘ − Cᵥ,ₘ = R',
+        roots:[['Definition','H = U + PV.'],['Model','For an ideal gas, PV = nRT and U depends only on T at fixed amount.'],['Definition','Cᵥ = (∂U/∂T)ᵥ and Cₚ = (∂H/∂T)ₚ for a fixed amount.']],
+        conditions:['The amount and chemical composition of the gas are fixed.','The gas obeys the ideal-gas model, including U = U(T).'],trap:'The gas must be monatomic.',trapWhy:'The heat capacities depend on molecular degrees of freedom, but their difference is nR for any fixed-composition ideal gas.',
+        boundary:'Capital C here is the heat capacity of the whole sample (J K⁻¹). The difference is R only for molar heat capacities.',symbols:'Cₚ, Cᵥ: sample heat capacities (J K⁻¹); Cₚ,ₘ, Cᵥ,ₘ: molar heat capacities (J mol⁻¹ K⁻¹); n: mol.',
+        steps:[
+          step('Rewrite H using the gas model','Replace PV in the enthalpy definition.','Use PV = nRT.','H(T) = U(T) + nRT','For this model, both U and H depend only on temperature for fixed n and composition.'),
+          step('Differentiate with respect to T','Hold n fixed and differentiate the entire equation.','The derivative of nRT is nR.','dH/dT = dU/dT + nR','Because U and H depend only on T, these derivatives are the relevant constant-volume and constant-pressure heat capacities.'),
+          step('Identify the heat capacities','Replace derivatives by Cₚ and Cᵥ; then divide by n for the molar result.','Cₚ,ₘ = Cₚ/n and Cᵥ,ₘ = Cᵥ/n.','Cₚ = Cᵥ + nR\nCₚ,ₘ − Cᵥ,ₘ = R','At constant pressure the gas expands as it warms. Extra heat supplies that expansion work.')
+        ],quiz:{q:'For 2.00 mol of ideal gas, what is Cₚ − Cᵥ for the entire sample?',options:['16.63 J K⁻¹','8.314 J K⁻¹','0 J K⁻¹'],answer:0,why:'The sample difference is nR = 2.00 × 8.314 = 16.63 J K⁻¹. The molar difference is R.'},example:'For a monatomic ideal gas, Cᵥ,ₘ = 3R/2 and Cₚ,ₘ = 5R/2. Their difference is R.'
+      },
+      {
+        id:'isothermal-work',title:'Reversible isothermal work',topic:'Gases & work',level:'Integration',time:'12 min',
+        goal:'Derive the logarithm in the reversible expansion work of an ideal gas.',target:'w_rev = −nRT ln(V₂/V₁)',
+        roots:[['Boundary work','δw = −P_ext dV.'],['Model','PV = nRT for an ideal gas.'],['Calculus','∫ dV/V = ln V + constant; use a dimensionless ratio in the final result.']],conditions:['The gas is ideal, with fixed n and constant T.','The path is mechanically reversible, so external pressure tracks gas pressure in the reversible limit.'],trap:'External pressure stays constant while volume changes.',trapWhy:'At constant T, ideal-gas pressure varies as 1/V along the reversible path.',boundary:'Free expansion and expansion against a fixed load have different work. This formula describes a specified reversible isothermal path.',symbols:'n: mol; R: J mol⁻¹ K⁻¹; T: K; V₂/V₁: dimensionless; w_rev: J.',
+        steps:[
+          step('Use reversibility','What does mechanical reversibility allow you to substitute for P_ext in the work integral?','Pressure imbalance approaches zero.','w_rev = −∫[V₁→V₂] P dV','Use the system pressure only because the path is mechanically reversible.'),
+          step('Insert the equation of state','Express P in terms of V and identify which factors are constant.','At fixed n and T, P = nRT/V.','w_rev = −nRT ∫[V₁→V₂] dV/V','The pressure decreases during expansion, so −PΔV with one fixed system pressure would be wrong.'),
+          step('Integrate and interpret the sign','Evaluate the integral. Is work on the gas positive or negative for expansion?','Subtract the logarithms at the two limits.','w_rev = −nRT ln(V₂/V₁)','Expansion gives V₂/V₁ > 1, a positive logarithm, and negative work on the system.'),
+          step('Connect heat to work','For an ideal gas at fixed T, what is ΔU? Use the first law to find q_rev.','U depends only on T for a fixed-composition ideal gas.','ΔU = 0\nq_rev = −w_rev = nRT ln(V₂/V₁)','Heat entering the gas replaces the energy transferred out through work.')
+        ],quiz:{q:'One mole expands reversibly at 300 K from V to 2V. Approximately what is w?',options:['−1.73 kJ','+1.73 kJ','−2.49 kJ'],answer:0,why:'w = −1 × 8.314 × 300 × ln 2 = −1729 J.'},example:'Reversing the path changes ln(V₂/V₁) to its negative, so reversible compression requires positive work on the gas.'
+      },
+      {
+        id:'gas-entropy',title:'Entropy change of an ideal gas',topic:'Thermodynamics',level:'Integration',time:'14 min',
+        goal:'Derive the entropy change between two ideal-gas states and see why the actual path need not be reversible.',target:'ΔS = nCᵥ,ₘ ln(T₂/T₁) + nR ln(V₂/V₁)',
+        roots:[['Definition','dS = δq_rev/T along a reversible path between equilibrium states.'],['First law','dU = δq_rev − P dV for a reversible path with only PV work.'],['Model','Ideal gas: P = nRT/V and dU = nCᵥ,ₘ dT at fixed composition.']],conditions:['The gas is ideal and its amount and composition are fixed.','Cᵥ,ₘ is constant over the temperature interval for the logarithmic temperature term.'],trap:'The actual process must be reversible.',trapWhy:'Entropy is a state function; evaluate it on an imagined reversible path connecting the same equilibrium endpoints.',boundary:'If Cᵥ,ₘ depends on temperature, retain n∫[T₁→T₂] Cᵥ,ₘ(T) dT/T. Never replace δq_rev by actual irreversible heat in the definition.',symbols:'S: entropy (J K⁻¹); Cᵥ,ₘ: molar heat capacity (J mol⁻¹ K⁻¹); T: K; both ratios inside ln are dimensionless.',
+        steps:[
+          step('Solve for reversible heat','Rearrange the first law to express δq_rev in terms of dU and dV.','Add P dV to both sides.','δq_rev = dU + P dV','This is an energy balance along the reversible calculation path.'),
+          step('Use the entropy definition','Divide by T, then substitute the ideal-gas expressions.','P/T = nR/V.','dS = nCᵥ,ₘ dT/T + nR dV/V','Temperature and volume contributions separate for an ideal gas.'),
+          step('Integrate between endpoint states','Integrate both terms with constant Cᵥ,ₘ.','Each term has the form ∫ dx/x.','ΔS = nCᵥ,ₘ ln(T₂/T₁) + nR ln(V₂/V₁)','Entropy depends on the endpoints, so this value also applies to an irreversible process between those same states.'),
+          step('Test a limiting case','What remains for an isothermal expansion? What is the sign?','Set T₂/T₁ = 1.','ΔS_isothermal = nR ln(V₂/V₁) > 0 for V₂ > V₁','An isolated ideal gas can gain entropy in free expansion even though q_actual = 0.')
+        ],quiz:{q:'An ideal gas freely expands into vacuum in an insulated rigid enclosure. Its equilibrium volume doubles. What is ΔS of the gas?',options:['nR ln 2','0 because q_actual = 0','−nR ln 2'],answer:0,why:'No heat or work crosses the gas boundary, so ΔU = 0 and its temperature is unchanged. A reversible isothermal calculation path gives ΔS = nR ln 2.'},example:'For 1.00 mol doubling its volume at fixed temperature, ΔS = 8.314 ln 2 = 5.76 J K⁻¹.'
+      },
+      {
+        id:'gibbs',title:'Gibbs energy from the second law',topic:'Thermodynamics',level:'Core connection',time:'14 min',
+        goal:'Derive a system-only spontaneity test from the entropy change of the system plus its surroundings.',target:'ΔG = ΔH − TΔS_sys = −TΔS_univ\nAt fixed T and P: spontaneous change has ΔG < 0',
+        roots:[['Second law','ΔS_univ = ΔS_sys + ΔS_surr ≥ 0 for an allowed process of the isolated composite.'],['Reservoir','For a thermal reservoir at T, ΔS_surr = q_surr/T and q_surr = −q_sys.'],['Definition','G = H − TS; at constant pressure with only PV work, q_sys = ΔH_sys.']],conditions:['The system has constant T and P and exchanges heat with a reservoir at that same T.','The closed system does only PV work; all surroundings entropy exchange is accounted for.'],trap:'The system entropy must increase.',trapWhy:'The second law concerns system plus surroundings. A decrease in system entropy can be outweighed by an increase in surroundings entropy.',boundary:'ΔG = ΔH − TΔS for a finite change requires constant T. If T changes, use ΔG = ΔH − Δ(TS). Non-PV work needs an additional work term.',symbols:'G, H: J (or consistently kJ); S: J K⁻¹; T: K > 0. Keep ΔH and TΔS in the same energy units.',
+        steps:[
+          step('Express surroundings entropy','Combine reservoir entropy with heat conservation.','Heat lost by the system is gained by the reservoir.','ΔS_surr = −q_sys/T','Use the reservoir temperature. The actual system need not follow a reversible path.'),
+          step('Replace heat by a state-function change','Use constant pressure and only PV work, then form ΔS_univ.','Under these conditions q_sys = ΔH_sys.','ΔS_univ = ΔS_sys − ΔH_sys/T','The surroundings contribution is now expressed using system quantities.'),
+          step('Multiply by −T','Rearrange the entropy sum into an energy quantity. What happens to the inequality?','T is positive; multiplying by −T reverses an inequality.','−TΔS_univ = ΔH_sys − TΔS_sys ≤ 0','An increase in total entropy corresponds to a decrease in this system energy combination.'),
+          step('Identify the Gibbs change','Use G = H − TS at constant T. State the spontaneity and equilibrium criteria.','At fixed T, Δ(TS) = TΔS.','ΔG = −TΔS_univ\nSpontaneous: ΔG < 0; equilibrium: ΔG = 0','A negative Gibbs change is the second-law test under the stated constraints, not an extra law.')
+        ],quiz:{q:'At 300 K, a process has ΔH = +6.0 kJ and ΔS_sys = +30 J K⁻¹. Is the direction spontaneous at fixed T and P with only PV work?',options:['Yes: ΔG = −3.0 kJ','No: ΔG = +5.991 kJ','No: positive ΔH always forbids it'],answer:0,why:'TΔS = 300 × 30 J = 9.0 kJ. ΔG = 6.0 − 9.0 = −3.0 kJ. ΔS_univ = 10 J K⁻¹.'},example:'An endothermic process can be spontaneous if TΔS_sys exceeds ΔH. Always check the stated temperature and constraints.'
+      },
+      {
+        id:'reaction-gibbs',title:'Reaction Gibbs energy and Q',topic:'Equilibrium',level:'Chemical potential',time:'14 min',
+        goal:'Show why chemical composition enters reaction Gibbs energy through a logarithm of the reaction quotient.',target:'ΔᵣG = ΔᵣG° + RT ln Q\nQ = ∏ aᵢ^νᵢ',
+        roots:[['Fundamental','dG = −S dT + V dP + Σ μᵢ dnᵢ; at fixed T,P, μᵢ is the partial molar Gibbs energy.'],['Definition','For extent ξ, dnᵢ = νᵢ dξ, with νᵢ positive for products and negative for reactants.'],['Activity','μᵢ = μᵢ° + RT ln aᵢ defines activity relative to a chosen standard state. Ideal gas: aᵢ = pᵢ/p°.']],conditions:['Temperature and pressure are fixed when defining the reaction derivative.','Q uses dimensionless activities and the same standard-state convention as ΔᵣG°.'],trap:'The mixture must already be at equilibrium.',trapWhy:'This relation describes a reaction mixture at any composition. At equilibrium a further condition, ΔᵣG = 0, applies.',boundary:'Here ΔᵣG is (∂G/∂ξ) at the current composition, not the total finite change in G over an entire reaction. The activity relation is an explicit thermodynamic starting point.',symbols:'μᵢ: J mol⁻¹; νᵢ: signed stoichiometric coefficient; ξ: mol of reaction; ΔᵣG: J mol⁻¹ of reaction; aᵢ and Q: dimensionless.',
+        steps:[
+          step('Introduce reaction extent','Substitute dnᵢ = νᵢ dξ into dG at fixed T and P, then divide by dξ.','ΔᵣG is the derivative of G with respect to reaction extent.','ΔᵣG = Σ νᵢ μᵢ','Stoichiometry weights the chemical potential contribution of each species.'),
+          step('Insert the activity relation','Replace each μᵢ and separate the standard and composition terms.','Distribute the sum across μᵢ° + RT ln aᵢ.','ΔᵣG = Σ νᵢ μᵢ° + RT Σ νᵢ ln aᵢ','At a common temperature, RT factors out of the composition sum.'),
+          step('Combine the logarithms','Use logarithm rules to turn the weighted sum into a product.','ν ln a = ln(a^ν); a sum of logs is a log of a product.','Σ νᵢ ln aᵢ = ln(∏ aᵢ^νᵢ) = ln Q','Negative reactant coefficients put their activities in the denominator.'),
+          step('Name the standard reaction change','Define ΔᵣG° and write the final result. For A ⇌ 2B, write Q.','The standard term is Σ νᵢ μᵢ°.','ΔᵣG = ΔᵣG° + RT ln Q\nFor A ⇌ 2B: Q = a_B²/a_A','Q changes as composition changes; the standard reaction Gibbs energy at fixed T is the reference value.')
+        ],quiz:{q:'For A ⇌ 2B, if a_A = 0.50 and a_B = 0.20, what is Q?',options:['0.080','0.40','2.5'],answer:0,why:'Q = a_B²/a_A = 0.20²/0.50 = 0.080. The product coefficient becomes an exponent.'},example:'For ideal gases use pᵢ/p°. For dilute solutions an approximation is aᵢ ≈ cᵢ/c°. Pure condensed phases have activity approximately 1 in their usual standard states.'
+      },
+      {
+        id:'equilibrium-k',title:'Why ΔᵣG° = −RT ln K',topic:'Equilibrium',level:'Core connection',time:'8 min',
+        goal:'Connect the equilibrium composition to standard reaction Gibbs energy without confusing ΔᵣG with ΔᵣG°.',target:'ΔᵣG° = −RT ln K\nK = exp(−ΔᵣG°/RT)',
+        roots:[['Thermodynamics','ΔᵣG = ΔᵣG° + RT ln Q, from chemical potentials and reaction stoichiometry.'],['Equilibrium','At fixed T,P, an interior chemical equilibrium has ΔᵣG = 0.'],['Definition','K is the activity-based reaction quotient evaluated at equilibrium.']],conditions:['The reaction is at chemical equilibrium at the specified temperature.','K uses dimensionless activities consistent with the standard Gibbs energy.'],trap:'ΔᵣG° must equal zero at equilibrium.',trapWhy:'The actual reaction Gibbs energy is zero. Its standard-state value is zero only if K = 1.',boundary:'K depends on the reaction as written. Reversing the reaction changes K to 1/K and changes the sign of ΔᵣG°.',symbols:'ΔᵣG°: J mol⁻¹ of reaction; R = 8.314 J mol⁻¹ K⁻¹; T: K; K: dimensionless thermodynamic equilibrium constant.',
+        steps:[
+          step('Apply equilibrium to the general relation','Insert both equilibrium conditions: one for ΔᵣG and one for Q.','Use ΔᵣG = 0 and Q = K, not ΔᵣG° = 0.','0 = ΔᵣG° + RT ln K','Equilibrium composition balances the standard and composition contributions.'),
+          step('Isolate the standard Gibbs energy','Rearrange the expression; check its sign if K > 1.','Move RT ln K to the left side.','ΔᵣG° = −RT ln K','If K > 1 then ln K > 0, so ΔᵣG° < 0. That does not mean the equilibrium mixture is still reacting forward spontaneously.'),
+          step('Solve for K','Divide by −RT and exponentiate.','ln K and exp are inverse functions.','K = exp(−ΔᵣG°/RT)','A modest standard energy difference can produce a large equilibrium ratio because of the exponential.')
+        ],quiz:{q:'At equilibrium, K = 100. Which statement is correct?',options:['ΔᵣG = 0 and ΔᵣG° < 0','ΔᵣG° = 0 and ΔᵣG < 0','Both are zero'],answer:0,why:'The actual reaction Gibbs energy is zero at equilibrium. Since ln 100 > 0, ΔᵣG° = −RT ln 100 is negative.'},example:'At 298 K and K = 10, ΔᵣG° = −8.314 × 298 × ln 10 = −5.70 kJ mol⁻¹.'
+      },
+      {
+        id:'vant-hoff',title:'Temperature dependence of K',topic:'Equilibrium',level:'Calculus challenge',time:'16 min',
+        goal:'Derive the van ’t Hoff equation, including the extra assumption needed for its two-temperature form.',target:'d ln K/dT = ΔᵣH°/(RT²)\nln(K₂/K₁) = −(ΔᵣH°/R)(1/T₂ − 1/T₁)',
+        roots:[['Equilibrium','ΔᵣG°/T = −R ln K.'],['Definition','ΔᵣG° = ΔᵣH° − TΔᵣS°.'],['Fundamental','At fixed standard pressure, d(ΔᵣG°)/dT = −ΔᵣS°, from dG = −S dT + V dP.']],conditions:['The same reaction and standard-state convention apply at both temperatures.','ΔᵣH° is approximately constant over the interval for the integrated two-temperature form.'],trap:'ΔᵣG° is independent of temperature.',trapWhy:'Its temperature derivative is −ΔᵣS°. Treating it as constant would discard the entropy contribution.',boundary:'The differential equation does not require constant ΔᵣH°. If it varies appreciably, integrate ΔᵣH°(T)/(RT²) instead of taking it outside the integral.',symbols:'K₁, K₂: equilibrium constants at T₁, T₂ (K); ΔᵣH°: J mol⁻¹; R: J mol⁻¹ K⁻¹.',
+        steps:[
+          step('Differentiate G°/T','Use the quotient rule and d(ΔᵣG°)/dT = −ΔᵣS°.','d(f/T)/dT = (T f′ − f)/T².','d(ΔᵣG°/T)/dT = (−TΔᵣS° − ΔᵣG°)/T²','The derivative acts on both the numerator and 1/T.'),
+          step('Eliminate entropy','Use ΔᵣG° = ΔᵣH° − TΔᵣS° in the numerator.','The two entropy terms cancel.','d(ΔᵣG°/T)/dT = −ΔᵣH°/T²','This is the Gibbs–Helmholtz relation for the reaction at fixed standard pressure.'),
+          step('Differentiate the K relation','Differentiate ΔᵣG°/T = −R ln K and compare.','Both derivatives describe the same left-hand side.','−R d ln K/dT = −ΔᵣH°/T²\nd ln K/dT = ΔᵣH°/(RT²)','Endothermic reactions have a positive derivative: their K increases as temperature rises.'),
+          step('Integrate with the additional approximation','Assume ΔᵣH° is constant between T₁ and T₂. Integrate both sides.','∫ T⁻² dT = −1/T.','ln(K₂/K₁) = −(ΔᵣH°/R)(1/T₂ − 1/T₁)','State the constant-enthalpy approximation explicitly rather than treating this integrated form as exact over every interval.')
+        ],quiz:{q:'For an endothermic reaction with ΔᵣH° > 0, how does K respond to increasing T?',options:['K increases.','K decreases.','K must stay constant.'],answer:0,why:'d ln K/dT = ΔᵣH°/(RT²) is positive. The conclusion concerns equilibrium, not how quickly the reaction runs.'},example:'With ΔᵣH° ≈ +40.0 kJ mol⁻¹ from 300 K to 310 K, ln(K₂/K₁) ≈ 0.517, so K₂/K₁ ≈ 1.68.'
+      },
+      {
+        id:'first-order',title:'First-order decay and half-life',topic:'Kinetics',level:'Separation of variables',time:'12 min',
+        goal:'Integrate a first-order disappearance law, then derive its half-life.',target:'[A]ₜ = [A]₀ exp(−kt)\nt½ = ln 2/k',
+        roots:[['Empirical law','Assume the measured disappearance law is −d[A]/dt = k[A].'],['Calculus','For x > 0, ∫ dx/x gives a logarithmic ratio between limits.'],['Definition','Half-life is the time when [A]ₜ = [A]₀/2.']],conditions:['The disappearance law is first order in A over the interval.','k is constant and volume is fixed, with no competing source of A.'],trap:'A reaction is first order whenever its balanced equation has one A.',trapWhy:'Overall reaction order is measured or justified by a mechanism. It is not inferred from an overall balanced equation.',boundary:'The kinetic law is an explicit experimental/model premise. Energy conservation and stoichiometry alone do not determine it.',symbols:'[A]: concentration (mol L⁻¹); k: inverse time (s⁻¹ if t is in seconds); t and t½: time. The logarithm uses [A]ₜ/[A]₀, a dimensionless ratio.',
+        steps:[
+          step('Separate the variables','Move every concentration factor to the left and time to the right.','Divide by [A] and multiply by dt.','d[A]/[A] = −k dt','The negative sign ensures the concentration decreases for k > 0.'),
+          step('Integrate with limits','Integrate from [A]₀ to [A]ₜ and from 0 to t.','The limits automatically supply the integration constant.','ln([A]ₜ/[A]₀) = −kt','The ratio inside ln is dimensionless, and kt is also dimensionless.'),
+          step('Solve for concentration','Exponentiate both sides and isolate [A]ₜ.','exp(ln x) = x.','[A]ₜ = [A]₀ exp(−kt)','The concentration drops by the same fraction in each equal time interval.'),
+          step('Derive the half-life','Set [A]ₜ/[A]₀ = 1/2 and solve for t.','ln(1/2) = −ln 2.','−ln 2 = −kt½\nt½ = ln 2/k','The initial concentration cancels, so first-order half-life does not depend on [A]₀.')
+        ],quiz:{q:'If k = 0.100 s⁻¹, what fraction of A remains after 13.86 s?',options:['About 1/4','About 1/2','About 1/8'],answer:0,why:'t½ = 0.693/0.100 = 6.93 s. After two half-lives, (1/2)² = 1/4 remains.'},example:'A straight line of ln([A]ₜ/[A]₀) versus t has slope −k. A concentration-versus-time line would not be straight for first-order decay.'
+      },
+      {
+        id:'second-order',title:'Second-order decay and half-life',topic:'Kinetics',level:'Separation of variables',time:'12 min',
+        goal:'Derive the integrated law for −d[A]/dt = k[A]² and explain why its half-life depends on initial concentration.',target:'1/[A]ₜ = 1/[A]₀ + kt\nt½ = 1/(k[A]₀)',
+        roots:[['Empirical law','Assume the disappearance law is −d[A]/dt = k[A]².'],['Calculus','∫ x⁻² dx = −1/x + constant.'],['Definition','At t½, [A]ₜ = [A]₀/2.']],conditions:['The stated disappearance law is proportional to [A]², with constant k.','The volume is fixed and there is no competing source of A.'],trap:'This formula applies to every reaction with overall order two, including k[A][B] with different starting concentrations.',trapWhy:'The derivation integrates one variable with a square. A two-reactant law can require a different integrated expression.',boundary:'Here k is defined by disappearance of A. If a reaction rate is defined as −(1/2)d[A]/dt, a factor of two must be handled consistently.',symbols:'[A]: mol L⁻¹; k: L mol⁻¹ s⁻¹ when t is in s; 1/[A]: L mol⁻¹; t½: s.',
+        steps:[
+          step('Separate concentration from time','Rearrange the differential rate law for integration.','Divide by [A]².','d[A]/[A]² = −k dt','Unlike first order, this integral involves [A]⁻² rather than [A]⁻¹.'),
+          step('Integrate with endpoint limits','Evaluate both definite integrals carefully, keeping the signs.','The antiderivative of [A]⁻² is −1/[A].','−1/[A]ₜ + 1/[A]₀ = −kt','Substitution of limits supplies the initial-condition term.'),
+          step('Rearrange into a line','Multiply by −1 and isolate 1/[A]ₜ.','The slope is positive for a disappearance process.','1/[A]ₜ = 1/[A]₀ + kt','A graph of 1/[A] versus t is linear with slope k.'),
+          step('Derive the half-life','Substitute [A]ₜ = [A]₀/2 and solve for t½.','1/([A]₀/2) = 2/[A]₀.','2/[A]₀ − 1/[A]₀ = kt½\nt½ = 1/(k[A]₀)','A larger starting concentration makes the initial disappearance faster and the half-life shorter.')
+        ],quiz:{q:'For this second-order law, what happens to t½ if [A]₀ is doubled and k stays fixed?',options:['It halves.','It stays the same.','It doubles.'],answer:0,why:'t½ = 1/(k[A]₀); doubling the denominator halves the time.'},example:'If k = 0.50 L mol⁻¹ s⁻¹ and [A]₀ = 0.20 mol L⁻¹, t½ = 10 s. The next halving takes 20 s.'
+      },
+      {
+        id:'buffer',title:'Henderson–Hasselbalch equation',topic:'Acids & bases',level:'Logarithms',time:'10 min',
+        goal:'Derive the buffer equation from acid equilibrium, then identify the approximation behind using mixing concentrations.',target:'pH = pKₐ + log₁₀(a_A⁻/a_HA)\nDilute approximation: pH ≈ pKₐ + log₁₀([A⁻]/[HA])',
+        roots:[['Equilibrium','For HA ⇌ H⁺ + A⁻, Kₐ = a_H⁺ a_A⁻ / a_HA (water treated as solvent).'],['Definition','pH = −log₁₀ a_H⁺ and pKₐ = −log₁₀ Kₐ.'],['Log rule','log(x/y) = log x − log y.']],conditions:['HA and its conjugate base A⁻ are at equilibrium.','To replace the activity ratio by a concentration ratio, activity-coefficient effects are negligible or cancel.'],trap:'Initial mixing amounts can always replace equilibrium concentrations, even after adding a large amount of strong acid.',trapWhy:'Use equilibrium concentrations. Initial amounts approximate them only after neutralization bookkeeping and when subsequent dissociation changes are small.',boundary:'The activity form is an algebraic rearrangement of Kₐ. The concentration form and the use of prepared amounts introduce separate approximations.',symbols:'a: dimensionless activity; Kₐ: dimensionless acid equilibrium constant; pH and pKₐ: dimensionless; [A⁻], [HA]: equilibrium concentrations in matching units.',
+        steps:[
+          step('Isolate hydrogen-ion activity','Rearrange the acid equilibrium expression to solve for a_H⁺.','Multiply by a_HA and divide by a_A⁻.','a_H⁺ = Kₐ a_HA/a_A⁻','Increasing conjugate base relative to acid lowers hydrogen-ion activity.'),
+          step('Take negative base-10 logarithms','Apply −log₁₀ to both sides and expand the product and ratio.','Keep the minus sign outside every logarithm until expansion is complete.','−log₁₀ a_H⁺ = −log₁₀ Kₐ − log₁₀(a_HA/a_A⁻)','The acid/base ratio will invert when its logarithm changes sign.'),
+          step('Introduce pH and pKₐ','Replace the definitions and reverse the ratio.','−log(x/y) = log(y/x).','pH = pKₐ + log₁₀(a_A⁻/a_HA)','Equal acid and conjugate-base activities give pH = pKₐ.'),
+          step('State the concentration approximation','When can you write the ratio as [A⁻]/[HA], and what extra care is needed with initial mixing amounts?','Activity aᵢ = γᵢ cᵢ/c°; the coefficient ratio must be near 1.','pH ≈ pKₐ + log₁₀([A⁻]/[HA])','Use equilibrium concentrations. For a prepared buffer, first account for any stoichiometric reaction with added strong acid or base.')
+        ],quiz:{q:'A dilute equilibrium buffer has [A⁻]/[HA] = 10. What is its pH?',options:['pKₐ + 1','pKₐ − 1','10 × pKₐ'],answer:0,why:'log₁₀ 10 = 1, so pH is one unit above pKₐ. More conjugate base gives a higher pH.'},example:'If pKₐ = 4.76 and [A⁻]/[HA] = 2.00, pH ≈ 4.76 + 0.301 = 5.06.'
+      },
+      {
+        id:'weak-acid',title:'Weak-acid square-root approximation',topic:'Acids & bases',level:'Check your approximation',time:'14 min',
+        goal:'Use equilibrium and material balance to derive [H⁺] ≈ √(Kₐc₀c°), and check when it is valid.',target:'x = (−κ + √(κ² + 4κc₀))/2, where κ = Kₐc°\nIf x ≪ c₀: [H⁺] ≈ √(Kₐc₀c°)',
+        roots:[['Equilibrium','Kₐ = a_H⁺ a_A⁻/a_HA; in an ideal dilute solution aᵢ ≈ [i]/c°, where c° = 1 mol L⁻¹.'],['Balance','For initially pure HA at analytical concentration c₀, dissociation changes [HA] by −x and [A⁻] by +x.'],['Charge','If water autoionization is negligible, [H⁺] = [A⁻] = x.']],conditions:['There is no added acid, base, or common ion; ideal dilute-solution activities are adequate.','Water autoionization is negligible, and x/c₀ is small for the square-root approximation.'],trap:'A small Kₐ guarantees the approximation at every concentration.',trapWhy:'The relative change depends on Kₐc°/c₀. Very dilute solutions can violate both the small-x and negligible-water assumptions.',boundary:'The quadratic is exact only within the stated dilute, negligible-water model. After solving, check x/c₀ and x ≫ √K_w c°; otherwise include the missing physics.',symbols:'c₀, x: mol L⁻¹; c° = 1 mol L⁻¹; Kₐ and K_w: dimensionless activity constants; κ = Kₐc° has concentration units.',
+        steps:[
+          step('Build the equilibrium concentrations','Write [HA], [A⁻], and [H⁺] using c₀ and x.','Each HA that dissociates supplies one A⁻ and one H⁺.','[HA] = c₀ − x; [A⁻] = x; [H⁺] ≈ x','The last equality neglects the H⁺ contribution associated with water autoionization.'),
+          step('Substitute into Kₐ','Include the standard concentration c° so Kₐ remains dimensionless.','Two concentration activities in the numerator and one in the denominator leave one c° factor.','Kₐ = x²/[c°(c₀ − x)]\nx² + κx − κc₀ = 0,  κ = Kₐc°','Mass balance provides c₀ − x rather than simply c₀ in the denominator.'),
+          step('Solve before approximating','Use the quadratic formula and select the physically meaningful root.','Concentrations cannot be negative.','x = (−κ + √(κ² + 4κc₀))/2','This is the positive root within this equilibrium model. It provides a comparison for the approximation.'),
+          step('Make and verify the small-x assumption','Assume x ≪ c₀, solve, and state two checks after calculating x.','Replace c₀ − x by c₀; then check that the neglected terms really are small.','x ≈ √(Kₐc₀c°)\nCheck x/c₀ ≲ 0.05 and x ≫ √K_w c°','The 5% rule is a practical tolerance for dissociation, not a fundamental law. The water check is separate.')
+        ],quiz:{q:'For Kₐ = 1.0 × 10⁻⁵ and c₀ = 0.10 mol L⁻¹, the square-root estimate is 0.0010 mol L⁻¹. What is x/c₀?',options:['1%: the small-x check passes.','10%: it fails.','0.001%: it passes.'],answer:0,why:'0.0010/0.10 = 0.010 = 1%. At 25 °C this x is also much larger than 10⁻⁷ mol L⁻¹, so neglecting water is reasonable.'},example:'For the stated example, pH ≈ −log₁₀(0.0010/1) = 3.00. At much lower c₀, repeat both validity checks.'
+      },
+      {
+        id:'nernst',title:'The Nernst equation',topic:'Electrochemistry',level:'Connect two subjects',time:'12 min',
+        goal:'Connect the electrical work of a reversible cell to the composition dependence of reaction Gibbs energy.',target:'E = E° − (RT/nF) ln Q\nAt 298.15 K: E = E° − (0.05916 V/n) log₁₀ Q',
+        roots:[['Electrical','For one mole of reaction transferring n moles of electrons, the charge magnitude is nF; reversible electrical work on the system is −nFE.'],['Thermodynamics','At fixed T,P, reversible non-PV work on a closed system equals its Gibbs change, giving ΔᵣG = −nFE.'],['Reaction','ΔᵣG = ΔᵣG° + RT ln Q; consistently, ΔᵣG° = −nFE°.']],conditions:['E is the reversible cell potential at the specified T, not a loaded voltage with irreversible losses.','The balanced cell reaction, electron number n, and dimensionless activity quotient Q use the same reaction direction.'],trap:'The cell must be at 25 °C for the general Nernst equation.',trapWhy:'The general equation uses RT/nF at any applicable temperature. Only the 0.05916 V coefficient assumes 298.15 K.',boundary:'A pure solid or liquid in its standard phase has activity approximately 1. At cell equilibrium E = 0 and Q = K, while E° can be nonzero.',symbols:'E, E°: V; n: moles of electrons per mole of reaction (stoichiometric number); F = 96485 C mol⁻¹; R: J mol⁻¹ K⁻¹; T: K; 1 V = 1 J C⁻¹.',
+        steps:[
+          step('Substitute the electrical relations','Replace ΔᵣG and ΔᵣG° in the reaction Gibbs relation.','Use the same n and sign convention in both energy terms.','−nFE = −nFE° + RT ln Q','Chemical free energy and electrical potential describe the same reversible driving force.'),
+          step('Solve for the cell potential','Divide every term by −nF, keeping the sign of the logarithmic term.','Dividing a positive RT ln Q by −nF gives a minus sign.','E = E° − (RT/nF) ln Q','As Q increases at fixed T, the potential for the written reaction decreases.'),
+          step('Convert to base-10 if useful','Use ln Q = (ln 10) log₁₀ Q and evaluate the coefficient at 298.15 K.','The factor ln 10 ≈ 2.302585 must be included.','E = E° − (2.302585 RT/nF) log₁₀ Q\nAt 298.15 K: 2.302585 RT/F = 0.05916 V','The familiar decimal coefficient has temperature and voltage units built into it.'),
+          step('Recover the equilibrium connection','Set E = 0 and Q = K. Solve for E°.','At equilibrium there is no net reversible cell driving force.','E° = (RT/nF) ln K','A positive E° corresponds to K > 1 for the written cell reaction, consistent with ΔᵣG° = −nFE°.')
+        ],quiz:{q:'At 298.15 K, n = 2 and Q = 100. What is E − E°?',options:['−0.05916 V','+0.05916 V','−0.11832 V'],answer:0,why:'E − E° = −(0.05916/2) log₁₀ 100 = −0.05916 V.'},example:'If E° = 1.10 V, n = 2, and Q = 100 at 298.15 K, the reversible potential is about 1.041 V.'
+      }
+    ];
+
+    const KEY = 'chem123-first-principles-v1';
+    const byId = id => document.getElementById(id);
+    const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    let saved = {};
+    let storageOK = true;
+    try { const parsed = JSON.parse(localStorage.getItem(KEY) || '{}'); if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) saved = parsed; } catch { storageOK = false; }
+    let currentId = exercises.some(e => e.id === location.hash.slice(1)) ? location.hash.slice(1) : (exercises.some(e => e.id === saved.currentId) ? saved.currentId : exercises[0].id);
+    let mode = saved.mode === 'blank' ? 'blank' : 'guided';
+    const current = () => exercises.find(e => e.id === currentId);
+    const state = id => {
+      if (!saved[id] || typeof saved[id] !== 'object' || Array.isArray(saved[id])) saved[id] = {};
+      const s = saved[id];
+      if (!Array.isArray(s.notes)) s.notes = [];
+      if (!Array.isArray(s.verified)) s.verified = [];
+      if (!Array.isArray(s.assumptions)) s.assumptions = [];
+      return s;
+    };
+    const complete = e => {
+      const s = state(e.id);
+      return e.steps.every((_, i) => s.verified[i] === true) && s.assumptionsOK === true && s.quizOK === true;
+    };
+    const save = () => {
+      saved.currentId = currentId;
+      saved.mode = mode;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch { storageOK = false; }
+      byId('storage-status').textContent = storageOK ? 'Notes and self-checks save in this browser. Export notes to keep a portable copy.' : 'Browser storage is unavailable. Your work remains in this open page; export notes before closing it.';
+    };
+    const assumptionChoices = e => {
+      const list = e.conditions.map((text, i) => ({text, key:i, correct:true}));
+      list.splice(exercises.indexOf(e) % (list.length + 1), 0, {text:e.trap,key:e.conditions.length,correct:false});
+      return list;
+    };
+    // Rotate checkpoint answers deterministically; the correct choice is not
+    // always the first option, and saved choices remain stable across reloads.
+    const quizChoices = e => {
+      const list = e.quiz.options.map((text, key) => ({text,key}));
+      const offset = exercises.indexOf(e) % list.length;
+      return list.slice(offset).concat(list.slice(0, offset));
+    };
+    const renderLibrary = () => {
+      const query = byId('search').value.trim().toLowerCase();
+      const topic = byId('topic').value;
+      const visible = exercises.filter(e => (topic === 'all' || e.topic === topic) && `${e.title} ${e.goal} ${e.target} ${e.topic} ${e.id}`.toLowerCase().includes(query));
+      byId('exercise-list').innerHTML = visible.length ? visible.map(e => `<button class="exercise-link" data-exercise="${e.id}" aria-current="${e.id === currentId}" aria-label="${esc(e.title)}${complete(e) ? ', verified' : ''}"><span class="exercise-num">${String(exercises.indexOf(e) + 1).padStart(2,'0')}</span><span class="exercise-title">${esc(e.title)}</span><span class="done-dot" aria-hidden="true">${complete(e) ? '✓' : '·'}</span></button>`).join('') : '<p class="no-results">No matching derivations. Try another term or select all topics.</p>';
+      const count = exercises.filter(complete).length;
+      byId('completed-count').textContent = `${count} / ${exercises.length}`;
+      byId('overall-progress').max = exercises.length;
+      byId('overall-progress').value = count;
+    };
+    const solutionHTML = t => `<div class="solution"><div class="equation">${esc(t.equation)}</div><p>${esc(t.why)}</p></div>`;
+    const renderStep = (t,i,s) => `<section class="step ${s.verified[i] ? 'step-verified' : ''}" id="step-${i}">
+      <div class="step-top"><span class="step-index">${i + 1}</span><h3>${esc(t.title)}</h3></div>
+      <p id="prompt-${i}">${esc(t.prompt)}</p>
+      <label class="small muted" for="note-${i}">Your equation and reasoning</label>
+      <textarea id="note-${i}" data-note="${i}" aria-describedby="prompt-${i}" placeholder="Write the equation, then explain why this step is valid…">${esc(s.notes[i] || '')}</textarea>
+      <div class="print-only print-answer">${esc(s.notes[i] || '')}</div>
+      <div class="step-tools"><button class="button text" data-hint="${i}" aria-expanded="false" aria-controls="hint-${i}">Get a hint</button><button class="button text" data-solution="${i}" aria-expanded="false" aria-controls="solution-${i}">Compare reasoning</button></div>
+      <div class="hint" id="hint-${i}" hidden>${esc(t.hint)}</div>
+      <div id="solution-${i}" hidden>${solutionHTML(t)}</div>
+      <label class="self-check"><input type="checkbox" data-verify="${i}" ${s.verified[i] ? 'checked' : ''}>I checked this step and can explain it without the solution.</label>
+    </section>`;
+    const render = () => {
+      const e = current(), s = state(e.id), index = exercises.indexOf(e);
+      byId('guided-mode').setAttribute('aria-pressed', String(mode === 'guided'));
+      byId('blank-mode').setAttribute('aria-pressed', String(mode === 'blank'));
+      byId('workbook').innerHTML = `
+        <header class="exercise-header">
+          <span class="chapter-no" aria-hidden="true">${String(index + 1).padStart(2,'0')}</span>
+          <div class="exercise-heading">
+          <div class="meta"><span class="eyebrow">Derivation ${String(index + 1).padStart(2,'0')} / ${exercises.length}</span><span class="pill">${esc(e.topic)}</span><span class="pill">${esc(e.level)}</span><span class="small muted">~${esc(e.time)}</span></div>
+          <h2 id="exercise-title" tabindex="-1">${esc(e.title)}</h2><p class="muted">${esc(e.goal)}</p>
+          <details class="target"><summary>Reveal the target equation</summary><div class="equation">${esc(e.target)}</div></details>
+          <p class="small" style="margin-top:12px"><a href="${e.id.replaceAll('-', '_')}_conversation_branches/index.html">Read the explanation and follow-up proofs →</a></p>
+          </div>
+        </header>
+        <section class="panel">
+          <div class="panel-title"><span class="section-no">01</span><h2>What are you allowed to start with?</h2></div>
+          <p class="small muted">These are the explicit starting points. A model or experimental law is a premise; the derivation shows what follows from it.</p>
+          <div class="reference-grid"><div class="premises">${e.roots.map(([kind,text]) => `<div class="premise"><span>${esc(kind)}</span><span>${esc(text)}</span></div>`).join('')}</div><dl class="symbols"><dt>Symbols & units</dt><dd>${esc(e.symbols)}</dd><dt>Meaning / quick example</dt><dd>${esc(e.example)}</dd></dl></div>
+          <div class="boundary">${esc(e.boundary)}</div>
+        </section>
+        <section class="panel">
+          <div class="panel-title"><span class="section-no">02</span><h2>Choose the conditions</h2></div>
+          <fieldset><legend>Select every condition needed for the stated result, including its simplified form.</legend>${assumptionChoices(e).map(c => `<label class="check-option"><input type="checkbox" name="assumption" value="${c.key}" ${s.assumptions.includes(c.key) ? 'checked' : ''}>${esc(c.text)}</label>`).join('')}</fieldset>
+          <button class="button" id="check-assumptions">Check assumptions</button><div id="assumption-feedback" role="status"></div>
+        </section>
+        <div class="panel-title" style="margin:25px 0 8px"><span class="section-no">03</span><h2>${mode === 'guided' ? 'Build the argument' : 'Derive it on a blank page'}</h2></div>
+        <p class="small muted">${mode === 'guided' ? 'Try each step before opening a hint. Compare equations and reasoning, then use the self-check honestly. Written answers are not automatically graded.' : 'Write a complete chain from the starting laws to the result. Name assumptions at the step where you use them. Your writing is saved separately from guided notes.'}</p>
+        ${mode === 'guided' ? `<div class="steps">${e.steps.map((t,i) => renderStep(t,i,s)).join('')}</div>` : `<section class="panel"><label for="scratch" class="small muted">Your complete derivation</label><textarea id="scratch" class="scratch" placeholder="1. Start from…\n2. Assume…\n3. Substitute…\n4. Integrate or rearrange…\n5. Check units, signs, and limits…">${esc(s.scratch || '')}</textarea><div class="print-only print-answer">${esc(s.scratch || '')}</div><label class="self-check"><input type="checkbox" id="verify-all" ${e.steps.every((_,i) => s.verified[i]) ? 'checked' : ''}>I compared every step with the worked argument and can explain it unaided.</label></section>`}
+        <section class="panel">
+          <div class="panel-title"><span class="section-no">04</span><h2>Does the result make sense?</h2></div>
+          <fieldset><legend>${esc(e.quiz.q)}</legend>${quizChoices(e).map(c => `<label class="check-option"><input type="radio" name="checkpoint" value="${c.key}" ${s.quizAnswer === c.key ? 'checked' : ''}>${esc(c.text)}</label>`).join('')}</fieldset>
+          <button class="button primary" id="check-quiz">Check reasoning</button><div id="quiz-feedback" role="status"></div>
+          <label for="reflection" class="small muted" style="display:block;margin-top:18px">Explain one unit check, sign check, or limiting case in your own words.</label>
+          <textarea id="reflection" placeholder="For example: when the two volumes are equal, the logarithm is zero, so…">${esc(s.reflection || '')}</textarea><div class="print-only print-answer">${esc(s.reflection || '')}</div>
+        </section>
+        <section class="panel no-print">
+          <details id="full-solution"><summary>Open the complete worked argument</summary><div style="padding-top:16px"><div class="equation">${esc(e.target)}</div>${e.steps.map((t,i) => `<div class="full-step"><h3>${i + 1}. ${esc(t.title)}</h3><div class="equation">${esc(t.equation)}</div><p>${esc(t.why)}</p></div>`).join('')}<div class="boundary">${esc(e.boundary)}</div></div></details>
+        </section>
+        <div class="finish" id="completion" role="status"></div>
+        <div class="bottom-nav"><button class="button text" id="previous" ${index === 0 ? 'disabled' : ''}>← Previous</button><button class="button danger" id="reset-exercise">Reset this exercise</button><button class="button" id="next" ${index === exercises.length - 1 ? 'disabled' : ''}>Next →</button></div>`;
+      renderLibrary();
+      updateCompletion();
+      if (s.assumptionsChecked) showAssumptionFeedback();
+      if (s.quizChecked) showQuizFeedback();
+      save();
+    };
+    const updateCompletion = () => {
+      const e = current(), s = state(e.id);
+      const n = e.steps.filter((_,i) => s.verified[i]).length;
+      byId('completion').innerHTML = complete(e) ? '<h3>Derivation verified ✓</h3><p class="small" style="margin:0">You self-checked every step and passed both concept checks. Try it again on a blank page tomorrow.</p>' : `<h3>Your practice progress</h3><p class="small" style="margin:0">${n}/${e.steps.length} steps self-checked · Assumptions ${s.assumptionsOK ? '✓' : 'pending'} · Reality check ${s.quizOK ? '✓' : 'pending'}</p><p class="small muted" style="margin:6px 0 0">Verification records your self-assessment plus the two concept checks. It does not grade your written algebra.</p>`;
+    };
+    const showAssumptionFeedback = () => {
+      const e = current(), s = state(e.id);
+      const required = e.conditions.map((_,i) => i);
+      s.assumptionsOK = s.assumptions.length === required.length && required.every(i => s.assumptions.includes(i));
+      byId('assumption-feedback').innerHTML = `<div class="feedback ${s.assumptionsOK ? 'good' : 'retry'}">${s.assumptionsOK ? 'Correct. These conditions support the stated result.' : `Review the conditions. ${esc(e.trapWhy)} Required: ${e.conditions.map(esc).join(' ')}`}</div>`;
+    };
+    const showQuizFeedback = () => {
+      const e = current(), s = state(e.id);
+      if (!Number.isInteger(s.quizAnswer)) { byId('quiz-feedback').innerHTML = '<div class="feedback retry">Choose an answer first.</div>'; return; }
+      s.quizOK = s.quizAnswer === e.quiz.answer;
+      byId('quiz-feedback').innerHTML = `<div class="feedback ${s.quizOK ? 'good' : 'retry'}">${s.quizOK ? 'Correct. ' : 'Try again. '}${esc(e.quiz.why)}</div>`;
+    };
+    const selectExercise = (id, focus = true) => {
+      if (!exercises.some(e => e.id === id)) return;
+      currentId = id;
+      document.body.dataset.nav = 'closed';
+      byId('nav-toggle').setAttribute('aria-expanded', 'false');
+      // replaceState may be unavailable for file URLs in some browser settings.
+      try { history.replaceState(null, '', `#${id}`); } catch { /* Selection still works without a URL update. */ }
+      byId('notice').textContent = '';
+      render();
+      if (focus) byId('exercise-title').focus({preventScroll:false});
+    };
+    byId('topic').insertAdjacentHTML('beforeend', [...new Set(exercises.map(e => e.topic))].map(t => `<option>${esc(t)}</option>`).join(''));
+    byId('search').addEventListener('input', renderLibrary);
+    byId('topic').addEventListener('change', renderLibrary);
+    byId('nav-toggle').addEventListener('click', () => {
+      const open = document.body.dataset.nav !== 'open';
+      document.body.dataset.nav = open ? 'open' : 'closed';
+      byId('nav-toggle').setAttribute('aria-expanded', String(open));
+    });
+    byId('exercise-list').addEventListener('click', event => {
+      const button = event.target.closest('[data-exercise]');
+      if (button) selectExercise(button.dataset.exercise);
+    });
+    byId('guided-mode').addEventListener('click', () => { mode = 'guided'; render(); });
+    byId('blank-mode').addEventListener('click', () => { mode = 'blank'; render(); });
+    byId('pick-next').addEventListener('click', () => {
+      const index = exercises.indexOf(current());
+      const next = [...exercises.slice(index + 1),...exercises.slice(0,index + 1)].find(e => !complete(e));
+      if (next) { byId('search').value = ''; byId('topic').value = 'all'; selectExercise(next.id); }
+      else byId('notice').textContent = 'All derivations are verified. Choose any exercise to revisit.';
+    });
+    byId('workbook').addEventListener('input', event => {
+      const el = event.target, s = state(currentId);
+      if (el.matches('[data-note]')) s.notes[Number(el.dataset.note)] = el.value;
+      else if (el.id === 'scratch') s.scratch = el.value;
+      else if (el.id === 'reflection') s.reflection = el.value;
+      else return;
+      save();
+    });
+    byId('workbook').addEventListener('change', event => {
+      const el = event.target, e = current(), s = state(e.id);
+      if (el.matches('[data-verify]')) {
+        const i = Number(el.dataset.verify);
+        s.verified[i] = el.checked;
+        byId(`step-${i}`).classList.toggle('step-verified',el.checked);
+      } else if (el.id === 'verify-all') s.verified = e.steps.map(() => el.checked);
+      else if (el.name === 'assumption') {
+        s.assumptions = [...document.querySelectorAll('input[name="assumption"]:checked')].map(x => Number(x.value));
+        s.assumptionsOK = false; s.assumptionsChecked = false;
+        byId('assumption-feedback').innerHTML = '';
+      } else if (el.name === 'checkpoint') {
+        s.quizAnswer = Number(el.value); s.quizOK = false; s.quizChecked = false;
+        byId('quiz-feedback').innerHTML = '';
+      } else return;
+      save(); updateCompletion(); renderLibrary();
+    });
+    byId('workbook').addEventListener('click', event => {
+      const el = event.target.closest('button');
+      if (!el) return;
+      const e = current(), s = state(e.id);
+      if (el.hasAttribute('data-hint') || el.hasAttribute('data-solution')) {
+        const isHint = el.hasAttribute('data-hint');
+        const panel = byId(`${isHint ? 'hint' : 'solution'}-${isHint ? el.dataset.hint : el.dataset.solution}`);
+        panel.hidden = !panel.hidden;
+        el.setAttribute('aria-expanded',String(!panel.hidden));
+        el.textContent = isHint ? (panel.hidden ? 'Get a hint' : 'Hide hint') : (panel.hidden ? 'Compare reasoning' : 'Hide comparison');
+      } else if (el.id === 'check-assumptions') { s.assumptionsChecked = true; showAssumptionFeedback(); }
+      else if (el.id === 'check-quiz') { s.quizChecked = true; showQuizFeedback(); }
+      else if (el.id === 'previous') { selectExercise(exercises[exercises.indexOf(e) - 1].id); return; }
+      else if (el.id === 'next') { selectExercise(exercises[exercises.indexOf(e) + 1].id); return; }
+      else if (el.id === 'reset-exercise') {
+        if (!window.confirm('Clear notes, answers, and self-checks for this exercise? Other exercises will be kept.')) return;
+        saved[e.id] = {}; render(); byId('notice').textContent = 'This exercise has been reset.'; return;
+      }
+      save(); updateCompletion(); renderLibrary();
+    });
+    byId('export').addEventListener('click', () => {
+      const lines = ['# First Principles — Chemistry derivation workbook','',`Exported ${new Date().toLocaleString()}`,'','Written derivations are self-assessed; assumption and concept questions are checked by the workbook.',''];
+      exercises.forEach(e => {
+        const s = state(e.id);
+        lines.push(`## ${e.title}`,e.goal,`Status: ${complete(e) ? 'verified' : 'in progress'}`,'',`Starting points:`,...e.roots.map(([kind,text]) => `- ${kind}: ${text}`),'',`Conditions:`,...e.conditions.map(text => `- ${text}`),'');
+        e.steps.forEach((t,i) => lines.push(`### ${i + 1}. ${t.title}`,t.prompt,`Self-checked: ${s.verified[i] ? 'yes' : 'no'}`,'',s.notes[i] || '(no guided notes)','','Worked comparison:',t.equation,t.why,''));
+        lines.push('### Blank-page derivation',s.scratch || '(no blank-page notes)','','### Reflection',s.reflection || '(no reflection)','','### Concept check',e.quiz.q,`Your answer: ${Number.isInteger(s.quizAnswer) ? e.quiz.options[s.quizAnswer] : '(not answered)'}`,e.quiz.why,'',`Validity: ${e.boundary}`,'','---','');
+      });
+      const url = URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/markdown;charset=utf-8'}));
+      const a = document.createElement('a'); a.href = url; a.download = 'chemistry-derivation-notes.md'; document.body.append(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url),1000);
+      byId('notice').textContent = 'Notes exported as chemistry-derivation-notes.md.';
+    });
+    byId('print').addEventListener('click', () => {
+      // Preserve current typed text in a printable block; textareas often clip
+      // long responses in browser print output.
+      document.querySelectorAll('#workbook textarea').forEach(el => {
+        const printed = el.nextElementSibling;
+        if (printed && printed.classList.contains('print-answer')) printed.textContent = el.value;
+      });
+      window.print();
+    });
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.slice(1);
+      if (exercises.some(e => e.id === id)) selectExercise(id);
+    });
+    render();
+  </script>
+</body>
+</html>

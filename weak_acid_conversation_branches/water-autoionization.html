@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Why can an extremely dilute acid not give alkaline pH?">
+  <title>What equation includes water autoionization? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#weak-acid">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Weak-acid square-root approximation</a><span class="sep">›</span><a href="balances.html">Where does the weak-acid quadratic come from?</a><span class="sep">›</span><b>What equation includes water autoionization?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Why can an extremely dilute acid not give alkaline pH?</q></div><h1>What equation includes water autoionization?</h1><p class="subtitle">Why can an extremely dilute acid not give alkaline pH?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Retain charge balance exactly within the ideal model</h2>
+<p>Let h = [H⁺], κ = Kₐc°, and W = K<sub>w</sub>(c°)². Water gives [OH⁻] = W/h. Acid equilibrium and mass balance give [A⁻] = κc₀/(h + κ).</p>
+<div class="text-equation">h = κc₀/(h + κ) + W/h</div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Obtain a single polynomial</h2>
+<div class="text-equation">h³ + κh² − (κc₀ + W)h − κW = 0</div>
+<p>The original charge-balance equation is often more convenient to solve numerically than the cubic. For h &gt; 0 its left-minus-right derivative is 1 + κc₀/(h + κ)² + W/h², which is positive. There is therefore a unique positive physical root.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Take the infinite-dilution limit</h2>
+<p>As c₀ tends to zero, the charge balance tends to h = W/h, giving h = √W = √K<sub>w</sub>c°. The pH approaches neutral water at the specified temperature. A pure acid solution in this model has h greater than √W, so it cannot become alkaline simply because its analytical acid concentration is small.</p>
+<p>Neutral pH is pK<sub>w</sub>/2; the number 7 applies only when pK<sub>w</sub> is approximately 14.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="balances.html#branch-water-autoionization">← Return to the exact statement: Why can an extremely dilute acid not give alkaline pH?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Weak-acid square-root approximation</a></span></div>
+<div class="history-row"><span class="circle">2</span><span><a href="balances.html">Where does the weak-acid quadratic come from?</a></span></div>
+<div class="history-row current"><span class="circle">3</span><span>What equation includes water autoionization?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#weak-acid">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

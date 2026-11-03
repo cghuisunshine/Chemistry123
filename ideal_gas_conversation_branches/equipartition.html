@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>Why is the average energy 3kBT/2? · Physics Inquiry</title><meta name="description" content="A conversation-led derivation of the ideal gas law; branches open at the exact questions that prompted them."><link rel="stylesheet" href="assets/site.css"></head>
+<body><header class="site-header"><div class="head-inner"><a class="wordmark" href="index.html"><i>∑</i> Physics Inquiry</a><span class="head-tag">Follow the question · not a syllabus</span></div></header>
+<div class="wrapper"><nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="index.html">PV = nRT</a><span class="sep">›</span><a href="newton.html">Collisions</a><span class="sep">›</span><b>Why 3/2 kBT?</b></nav><div class="layout"><main class="document" id="main"><div class="hero"><div class="question">You asked <q>derive it</q></div><h1>Why is the average energy 3kBT/2?</h1><p class="subtitle">Follow the statistical argument behind the energy–temperature relation.</p></div><article class="article">
+<section class="section"><h2>What needs to be derived?</h2>
+<p>We want the average kinetic energy of a single classical gas molecule in thermal equilibrium, not just its instantaneous energy.</p>
+<figure class="equation"><img src="assets/eq/b9eb7172ece7.svg" alt="Average kinetic energy equals three halves k B T" loading="lazy"></figure>
+<p>To calculate an average, first we must know how likely each molecular microstate is.</p>
+</section>
+<section class="section"><h2>1. Start with the molecule and its thermal reservoir</h2>
+<p>The combined system has fixed total energy. If the molecule occupies a particular microstate <i>s</i> with energy <i>ε<sub>s</sub></i>, the surrounding reservoir must have energy <i>E<sub>total</sub> − ε<sub>s</sub></i>.</p>
+<figure class="equation"><img src="assets/eq/21774e1ae57c.svg" alt="Reservoir energy equals total energy minus molecular state energy" loading="lazy"></figure>
+<p>Under the microcanonical equal-probability assumption, a specific molecular microstate is more likely when it is compatible with more reservoir microstates:</p>
+<figure class="equation"><img src="assets/eq/db0a1d0f107d.svg" alt="Probability of a molecular microstate proportional to compatible reservoir microstate count" loading="lazy"></figure>
+<div class="branch-location" id="branch-counting"><a class="branch-card" href="counting.html" aria-label="Open deeper explanation: Prove the probability-by-counting rule"><span class="branch-stem" aria-hidden="true"></span><span class="branch-text"><span class="branch-prompt">↳ Your follow-up: <em>“prove that”</em></span><strong>Prove the probability-by-counting rule</strong><span class="branch-description">Fix one molecular state, count the possible combined states, then normalize.</span></span><span class="branch-arrow" aria-hidden="true">↗</span></a></div>
+</section>
+<section class="section"><h2>2. Turn the reservoir count into a probability weight</h2>
+<p>Boltzmann entropy relates the number of available states <i>Ω</i> to entropy <i>S</i>, while equilibrium thermodynamics relates the entropy derivative to temperature.</p>
+<figure class="equation"><img src="assets/eq/d4da3fd8690f.svg" alt="Boltzmann entropy S equals k B logarithm of multiplicity omega" loading="lazy"></figure>
+<figure class="equation"><img src="assets/eq/485817899d0c.svg" alt="Derivative of entropy with respect to energy equals one over temperature" loading="lazy"></figure>
+<p>For a very large reservoir, taking a small energy <i>ε</i> from it decreases its entropy approximately by <i>ε/T</i>.</p>
+<figure class="equation"><img src="assets/eq/ada55cf9fd20.svg" alt="First order Taylor expansion of reservoir entropy" loading="lazy"></figure>
+<p>Exponentiating the entropy gives the familiar <strong>Boltzmann factor</strong>: a particular higher-energy microstate receives a smaller statistical weight at positive temperature.</p>
+<figure class="equation"><img src="assets/eq/c44335f867ee.svg" alt="Reservoir multiplicity proportional to exponential of negative epsilon divided by k B T" loading="lazy"></figure>
+<p>That factor determines the classical equilibrium distribution of molecular velocity.</p>
+</section>
+<section class="section"><h2>3. Calculate the energy in one direction</h2>
+<p>For the x-direction, <i>E<sub>x</sub> = mv<sub>x</sub>²/2</i>. Write <i>a = m/(2k<sub>B</sub>T)</i>. The probability density in <i>v<sub>x</sub></i> is proportional to a Gaussian:</p>
+<figure class="equation"><img src="assets/eq/51b77a91c569.svg" alt="Gaussian distribution proportional to exponential of minus a v x squared" loading="lazy"></figure>
+<p>The average squared velocity is a ratio of integrals:</p>
+<figure class="equation"><img src="assets/eq/41f0df29a738.svg" alt="Mean squared velocity as ratio of Gaussian integrals" loading="lazy"></figure>
+<p>Differentiate <i>v<sub>x</sub>e<sup>−av<sub>x</sub>²</sup></i> and integrate over the real line. The boundary term vanishes, giving:</p>
+<figure class="equation"><img src="assets/eq/1806b3339596.svg" alt="Integration by parts identity" loading="lazy"></figure>
+<figure class="equation"><img src="assets/eq/b7a3cd997a7b.svg" alt="Mean squared x velocity equals k B T divided by m" loading="lazy"></figure>
+<p>Multiplying by <i>m/2</i> gives the average energy in that one direction:</p>
+<figure class="equation"><img src="assets/eq/942cf74977f9.svg" alt="Average kinetic energy in one direction equals one half k B T" loading="lazy"></figure>
+</section>
+<section class="section"><h2>4. Add three independent directions</h2>
+<p>There are three translational components: x, y, and z. Each contributes the same average energy.</p>
+<div class="three-axes"><div><span>x-direction</span><b>½ k<sub>B</sub>T</b></div><div><span>y-direction</span><b>½ k<sub>B</sub>T</b></div><div><span>z-direction</span><b>½ k<sub>B</sub>T</b></div></div>
+<figure class="equation"><img src="assets/eq/f6f7f05b49cb.svg" alt="Three dimensional translational kinetic energy equals three halves k B T" loading="lazy"></figure>
+<p>Finally, substitute this result into the mechanical pressure equation to recover the ideal gas law.</p>
+<figure class="equation"><img src="assets/eq/7fa0c4b538f5.svg" alt="Gas pressure to total kinetic energy to ideal gas law" loading="lazy"></figure>
+<div class="note"><b>The logical distinction</b><p>This derivation relies on classical equilibrium statistics. Newton’s laws alone give the momentum transfer, but do not establish the equilibrium probability distribution.</p></div>
+</section></article><a class="return-link" href="newton.html#branch-equipartition">← Return to the exact statement: The temperature step</a><nav aria-label="Equation library" style="font-size:13px;margin:20px 0"><a href="../derivation-tutorials.html">← All equation tutorials</a> · <a href="../derivation-practice.html#ideal-gas">Practice this derivation →</a></nav><p class="footer">Physics Inquiry · Follow-up questions are linked where they arose in the explanation.</p></main><aside class="side"><div class="side-card"><div class="side-label">Your conversation so far</div><div class="history-row "><span class="circle">1</span><span><a href=index.html>PV = nRT</a></span></div><div class="history-row "><span class="circle">2</span><span><a href=newton.html>Go ahead</a></span></div><div class="history-row current"><span class="circle">3</span><span>derive it</span></div></div><div class="side-card"><div class="side-label">How branching works</div><p>Read the explanation in order. A blue indented branch appears at the precise statement you asked about.</p><p>Open it to explore the proof, then use the return link to come back to the same spot.</p></div></aside></div></div></body></html>

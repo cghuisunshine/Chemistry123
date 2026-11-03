@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Where does μ = μ° + RT ln a come from?">
+  <title>What is chemical potential, and why a logarithm? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#reaction-gibbs">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Reaction Gibbs energy and Q</a><span class="sep">›</span><b>What is chemical potential, and why a logarithm?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Where does μ = μ° + RT ln a come from?</q></div><h1>What is chemical potential, and why a logarithm?</h1><p class="subtitle">Where does μ = μ° + RT ln a come from?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>An energy cost per added mole</h2>
+<p>Chemical potential is the partial molar Gibbs energy: μᵢ = (∂G/∂nᵢ)<sub>T,P,nⱼ</sub>. It measures how G changes when a little of species i is added while the other amounts, temperature, and pressure are held fixed. The mixture volume can change in this definition.</p>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Derive the pressure dependence for an ideal gas</h2>
+<p>For a pure fluid, dμ = −sₘ dT + vₘ dP. On an ideal-gas isotherm vₘ = RT/P. Integrate from a standard pressure p° to P:</p>
+<div class="text-equation">μ(T,P) − μ°(T) = ∫<sub>p°</sub><sup>P</sup> RT dP′/P′
+= RT ln(P/p°)</div>
+<p>The logarithm is therefore a consequence of the ideal-gas volume response. In an ideal mixture the appropriate pressure is the species partial pressure pᵢ.</p>
+<div class="branch-location" id="branch-mixing-logarithm">
+  <a class="branch-card" href="mixing-logarithm.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Can we derive the mixing contribution?</em></span>
+    <strong>Why does an ideal mixture use partial pressure?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="section-3">
+    <h2>Generalize using activity</h2>
+<div class="text-equation">aᵢ ≡ exp[(μᵢ − μᵢ°)/(RT)]</div>
+<p>For a real mixture this equation defines thermodynamic activity relative to its standard state. Ideal gases have aᵢ = pᵢ/p°; real gases use fugacity ratios. A dilute solute is often modeled by aᵢ = γᵢcᵢ/c°. The logarithmic activity form is general, but these concentration and pressure substitutions are models.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-chemical-potential">← Return to the exact statement: Where does μ = μ° + RT ln a come from?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Reaction Gibbs energy and Q</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>What is chemical potential, and why a logarithm?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#reaction-gibbs">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

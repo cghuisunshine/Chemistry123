@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Derive the buffer equation from acid equilibrium, then identify the approximation behind using mixing concentrations.">
+  <title>Henderson–Hasselbalch equation · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#buffer">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Henderson–Hasselbalch equation</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>pH = pKₐ + log₁₀(a_A⁻/a_HA)</q></div><h1>Henderson–Hasselbalch equation</h1><p class="subtitle">Derive the buffer equation from acid equilibrium, then identify the approximation behind using mixing concentrations.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">pH = pKₐ + log₁₀(a_A⁻/a_HA)
+Dilute approximation: pH ≈ pKₐ + log₁₀([A⁻]/[HA])</div><p>Derive the buffer equation from acid equilibrium, then identify the approximation behind using mixing concentrations.</p><p class="symbols"><b>Symbols and units.</b> a: dimensionless activity; Kₐ: dimensionless acid equilibrium constant; pH and pKₐ: dimensionless; [A⁻], [HA]: equilibrium concentrations in matching units.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Equilibrium.</b> For HA ⇌ H⁺ + A⁻, Kₐ = a_H⁺ a_A⁻ / a_HA (water treated as solvent).</li><li><b>Definition.</b> pH = −log₁₀ a_H⁺ and pKₐ = −log₁₀ Kₐ.</li><li><b>Log rule.</b> log(x/y) = log x − log y.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Isolate hydrogen-ion activity</h2>
+<p>Rearrange the acid equilibrium expression to solve for a_H⁺.</p><div class="text-equation">a_H⁺ = Kₐ a_HA/a_A⁻</div><p>Increasing conjugate base relative to acid lowers hydrogen-ion activity.</p><div class="branch-location" id="branch-activities-and-ph">
+  <a class="branch-card" href="activities-and-ph.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Is pH simply minus log concentration?</em></span>
+    <strong>Why use activities in the buffer equation?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Take negative base-10 logarithms</h2>
+<p>Apply −log₁₀ to both sides and expand the product and ratio.</p><div class="text-equation">−log₁₀ a_H⁺ = −log₁₀ Kₐ − log₁₀(a_HA/a_A⁻)</div><p>The acid/base ratio will invert when its logarithm changes sign.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Introduce pH and pKₐ</h2>
+<p>Replace the definitions and reverse the ratio.</p><div class="text-equation">pH = pKₐ + log₁₀(a_A⁻/a_HA)</div><p>Equal acid and conjugate-base activities give pH = pKₐ.</p>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. State the concentration approximation</h2>
+<p>When can you write the ratio as [A⁻]/[HA], and what extra care is needed with initial mixing amounts?</p><div class="text-equation">pH ≈ pKₐ + log₁₀([A⁻]/[HA])</div><p>Use equilibrium concentrations. For a prepared buffer, first account for any stoichiometric reaction with added strong acid or base.</p><div class="branch-location" id="branch-neutralization-bookkeeping">
+  <a class="branch-card" href="neutralization-bookkeeping.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Can I use the original mixing amounts?</em></span>
+    <strong>How should added strong acid or base be handled?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>HA and its conjugate base A⁻ are at equilibrium.</li><li>To replace the activity ratio by a concentration ratio, activity-coefficient effects are negligible or cancel.</li></ul><p>The activity form is an algebraic rearrangement of Kₐ. The concentration form and the use of prepared amounts introduce separate approximations.</p><div class="note"><b>Common misconception</b><p>Initial mixing amounts can always replace equilibrium concentrations, even after adding a large amount of strong acid.</p><p>Use equilibrium concentrations. Initial amounts approximate them only after neutralization bookkeeping and when subsequent dissociation changes are small.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>If pKₐ = 4.76 and [A⁻]/[HA] = 2.00, pH ≈ 4.76 + 0.301 = 5.06.</p><details class="checkpoint"><summary>A dilute equilibrium buffer has [A⁻]/[HA] = 10. What is its pH?</summary><p>log₁₀ 10 = 1, so pH is one unit above pKₐ. More conjugate base gives a higher pH.</p></details><p><a href="../derivation-practice.html#buffer">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Henderson–Hasselbalch equation</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#buffer">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

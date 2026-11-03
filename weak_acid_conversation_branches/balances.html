@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="What equations determine all the concentrations?">
+  <title>Where does the weak-acid quadratic come from? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#weak-acid">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Weak-acid square-root approximation</a><span class="sep">›</span><b>Where does the weak-acid quadratic come from?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>What equations determine all the concentrations?</q></div><h1>Where does the weak-acid quadratic come from?</h1><p class="subtitle">What equations determine all the concentrations?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Write independent constraints</h2>
+<p>For a solution prepared from pure monoprotic HA with no added ions, mass balance gives [HA] + [A⁻] = c₀. Electrical neutrality gives [H⁺] = [A⁻] + [OH⁻]. In the ideal dilute model acid equilibrium and water equilibrium complete the system.</p>
+<div class="text-equation">Kₐ = [H⁺][A⁻]/(c°[HA])
+K<sub>w</sub> = [H⁺][OH⁻]/(c°)²</div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Neglect water as an explicit model reduction</h2>
+<p>If [OH⁻] is negligible relative to [H⁺], set h = [H⁺] ≈ [A⁻] = x. Then [HA] = c₀ − x and the acid equation becomes:</p>
+<div class="text-equation">x² = κ(c₀ − x),  κ = Kₐc°
+x = [−κ + √(κ² + 4κc₀)]/2</div>
+<p>The other quadratic root is negative and cannot represent a concentration. The positive root automatically satisfies 0 &lt; x &lt; c₀.</p>
+<div class="branch-location" id="branch-water-autoionization">
+  <a class="branch-card" href="water-autoionization.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Why can an extremely dilute acid not give alkaline pH?</em></span>
+    <strong>What equation includes water autoionization?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="section-3">
+    <h2>Use a numerically stable equivalent root</h2>
+<div class="text-equation">x = 2κc₀/[κ + √(κ² + 4κc₀)]</div>
+<p>Rationalizing avoids subtracting two nearly equal positive numbers when c₀/κ is tiny. This algebraic improvement does not repair a physical failure of the negligible-water approximation.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-balances">← Return to the exact statement: What equations determine all the concentrations?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Weak-acid square-root approximation</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>Where does the weak-acid quadratic come from?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#weak-acid">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

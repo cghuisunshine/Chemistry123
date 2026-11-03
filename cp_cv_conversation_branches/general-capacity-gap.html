@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="How special is the ideal-gas result?">
+  <title>What replaces Cₚ − Cᵥ = nR for a real fluid? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#cp-cv">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Why Cₚ − Cᵥ equals nR</a><span class="sep">›</span><b>What replaces Cₚ − Cᵥ = nR for a real fluid?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>How special is the ideal-gas result?</q></div><h1>What replaces Cₚ − Cᵥ = nR for a real fluid?</h1><p class="subtitle">How special is the ideal-gas result?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Compare two entropy derivatives</h2>
+<p>For a fixed sample, Cₚ = T(∂S/∂T)<sub>P</sub> and Cᵥ = T(∂S/∂T)<sub>V</sub>. Apply the chain rule to S(T,V) along a constant-pressure path, then use (∂S/∂V)<sub>T</sub> = (∂P/∂T)<sub>V</sub>.</p>
+<div class="text-equation">Cₚ − Cᵥ = T(∂P/∂T)<sub>V</sub>(∂V/∂T)<sub>P</sub></div>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Express it using measurable responses</h2>
+<p>Define the thermal expansion coefficient α = (1/V)(∂V/∂T)<sub>P</sub> and the isothermal compressibility κ<sub>T</sub> = −(1/V)(∂V/∂P)<sub>T</sub>. Setting dV = 0 in the equation for V(T,P) gives (∂P/∂T)<sub>V</sub> = α/κ<sub>T</sub>.</p>
+<div class="text-equation">Cₚ − Cᵥ = TVα²/κ<sub>T</sub></div>
+<p>For a mechanically stable phase κ<sub>T</sub> is positive, so Cₚ ≥ Cᵥ. The dimensions are K·m³·K⁻²·Pa = J K⁻¹.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>Recover the ideal limit</h2>
+<div class="text-equation">ideal gas: α = 1/T,  κ<sub>T</sub> = 1/P
+TVα²/κ<sub>T</sub> = PV/T = nR</div>
+<p>The difference is therefore independent of the number of active internal molecular modes. Both heat capacities may vary with T while their ideal-gas difference remains nR.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="index.html#branch-general-capacity-gap">← Return to the exact statement: How special is the ideal-gas result?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Why Cₚ − Cᵥ equals nR</a></span></div>
+<div class="history-row current"><span class="circle">2</span><span>What replaces Cₚ − Cᵥ = nR for a real fluid?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#cp-cv">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

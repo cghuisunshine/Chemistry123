@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Show why chemical composition enters reaction Gibbs energy through a logarithm of the reaction quotient.">
+  <title>Reaction Gibbs energy and Q · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#reaction-gibbs">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Reaction Gibbs energy and Q</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>ΔᵣG = ΔᵣG° + RT ln Q</q></div><h1>Reaction Gibbs energy and Q</h1><p class="subtitle">Show why chemical composition enters reaction Gibbs energy through a logarithm of the reaction quotient.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">ΔᵣG = ΔᵣG° + RT ln Q
+Q = ∏ aᵢ<sup>νᵢ</sup></div><p>Show why chemical composition enters reaction Gibbs energy through a logarithm of the reaction quotient.</p><p class="symbols"><b>Symbols and units.</b> μᵢ: J mol⁻¹; νᵢ: signed stoichiometric coefficient; ξ: mol of reaction; ΔᵣG: J mol⁻¹ of reaction; aᵢ and Q: dimensionless.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Fundamental.</b> dG = −S dT + V dP + Σ μᵢ dnᵢ; at fixed T,P, μᵢ is the partial molar Gibbs energy.</li><li><b>Definition.</b> For extent ξ, dnᵢ = νᵢ dξ, with νᵢ positive for products and negative for reactants.</li><li><b>Activity.</b> μᵢ = μᵢ° + RT ln aᵢ defines activity relative to a chosen standard state. Ideal gas: aᵢ = pᵢ/p°.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Introduce reaction extent</h2>
+<p>Substitute dnᵢ = νᵢ dξ into dG at fixed T and P, then divide by dξ.</p><div class="text-equation">ΔᵣG = Σ νᵢ μᵢ</div><p>Stoichiometry weights the chemical potential contribution of each species.</p><div class="branch-location" id="branch-extent-and-finite-change">
+  <a class="branch-card" href="extent-and-finite-change.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Is ΔᵣG the energy change of the whole reaction?</em></span>
+    <strong>Why is reaction Gibbs energy a derivative?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Insert the activity relation</h2>
+<p>Replace each μᵢ and separate the standard and composition terms.</p><div class="text-equation">ΔᵣG = Σ νᵢ μᵢ° + RT Σ νᵢ ln aᵢ</div><p>At a common temperature, RT factors out of the composition sum.</p><div class="branch-location" id="branch-chemical-potential">
+  <a class="branch-card" href="chemical-potential.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Where does μ = μ° + RT ln a come from?</em></span>
+    <strong>What is chemical potential, and why a logarithm?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Combine the logarithms</h2>
+<p>Use logarithm rules to turn the weighted sum into a product.</p><div class="text-equation">Σ νᵢ ln aᵢ = ln(∏ aᵢ<sup>νᵢ</sup>) = ln Q</div><p>Negative reactant coefficients put their activities in the denominator.</p>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. Name the standard reaction change</h2>
+<p>Define ΔᵣG° and write the final result. For A ⇌ 2B, write Q.</p><div class="text-equation">ΔᵣG = ΔᵣG° + RT ln Q
+For A ⇌ 2B: Q = a_B²/a_A</div><p>Q changes as composition changes; the standard reaction Gibbs energy at fixed T is the reference value.</p>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>Temperature and pressure are fixed when defining the reaction derivative.</li><li>Q uses dimensionless activities and the same standard-state convention as ΔᵣG°.</li></ul><p>Here ΔᵣG is (∂G/∂ξ) at the current composition, not the total finite change in G over an entire reaction. The activity relation is an explicit thermodynamic starting point.</p><div class="note"><b>Common misconception</b><p>The mixture must already be at equilibrium.</p><p>This relation describes a reaction mixture at any composition. At equilibrium a further condition, ΔᵣG = 0, applies.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For ideal gases use pᵢ/p°. For dilute solutions an approximation is aᵢ ≈ cᵢ/c°. Pure condensed phases have activity approximately 1 in their usual standard states.</p><details class="checkpoint"><summary>For A ⇌ 2B, if a_A = 0.50 and a_B = 0.20, what is Q?</summary><p>Q = a_B²/a_A = 0.20²/0.50 = 0.080. The product coefficient becomes an exponent.</p></details><p><a href="../derivation-practice.html#reaction-gibbs">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Reaction Gibbs energy and Q</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#reaction-gibbs">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

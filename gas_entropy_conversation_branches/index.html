@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Derive the entropy change between two ideal-gas states and see why the actual path need not be reversible.">
+  <title>Entropy change of an ideal gas · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#gas-entropy">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Entropy change of an ideal gas</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>ΔS = nCᵥ,ₘ ln(T₂/T₁) + nR ln(V₂/V₁)</q></div><h1>Entropy change of an ideal gas</h1><p class="subtitle">Derive the entropy change between two ideal-gas states and see why the actual path need not be reversible.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">ΔS = nCᵥ,ₘ ln(T₂/T₁) + nR ln(V₂/V₁)</div><p>Derive the entropy change between two ideal-gas states and see why the actual path need not be reversible.</p><p class="symbols"><b>Symbols and units.</b> S: entropy (J K⁻¹); Cᵥ,ₘ: molar heat capacity (J mol⁻¹ K⁻¹); T: K; both ratios inside ln are dimensionless.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Definition.</b> dS = δq_rev/T along a reversible path between equilibrium states.</li><li><b>First law.</b> dU = δq_rev − P dV for a reversible path with only PV work.</li><li><b>Model.</b> Ideal gas: P = nRT/V and dU = nCᵥ,ₘ dT at fixed composition.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Solve for reversible heat</h2>
+<p>Rearrange the first law to express δq_rev in terms of dU and dV.</p><div class="text-equation">δq<sub>rev</sub> = dU + P dV</div><p>This is an energy balance along the reversible calculation path.</p><div class="branch-location" id="branch-entropy-state-function">
+  <a class="branch-card" href="entropy-state-function.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>The actual expansion is irreversible—what now?</em></span>
+    <strong>Why can an imagined reversible path give the answer?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Use the entropy definition</h2>
+<p>Divide by T, then substitute the ideal-gas expressions.</p><div class="text-equation">dS = nCᵥ,ₘ dT/T + nR dV/V</div><p>Temperature and volume contributions separate for an ideal gas.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Integrate between endpoint states</h2>
+<p>Integrate both terms with constant Cᵥ,ₘ.</p><div class="text-equation">ΔS = nCᵥ,ₘ ln(T₂/T₁) + nR ln(V₂/V₁)</div><p>Entropy depends on the endpoints, so this value also applies to an irreversible process between those same states.</p><div class="branch-location" id="branch-variable-heat-capacity">
+  <a class="branch-card" href="variable-heat-capacity.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Which part of the logarithmic formula is approximate?</em></span>
+    <strong>What if heat capacity is not constant?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. Test a limiting case</h2>
+<p>What remains for an isothermal expansion? What is the sign?</p><div class="text-equation">ΔS<sub>isothermal</sub> = nR ln(V₂/V₁) &gt; 0 for V₂ &gt; V₁</div><p>An isolated ideal gas can gain entropy in free expansion even though q_actual = 0.</p>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The gas is ideal and its amount and composition are fixed.</li><li>Cᵥ,ₘ is constant over the temperature interval for the logarithmic temperature term.</li></ul><p>If Cᵥ,ₘ depends on temperature, retain n∫[T₁→T₂] Cᵥ,ₘ(T) dT/T. Never replace δq_rev by actual irreversible heat in the definition.</p><div class="note"><b>Common misconception</b><p>The actual process must be reversible.</p><p>Entropy is a state function; evaluate it on an imagined reversible path connecting the same equilibrium endpoints.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For 1.00 mol doubling its volume at fixed temperature, ΔS = 8.314 ln 2 = 5.76 J K⁻¹.</p><details class="checkpoint"><summary>An ideal gas freely expands into vacuum in an insulated rigid enclosure. Its equilibrium volume doubles. What is ΔS of the gas?</summary><p>No heat or work crosses the gas boundary, so ΔU = 0 and its temperature is unchanged. A reversible isothermal calculation path gives ΔS = nR ln 2.</p></details><p><a href="../derivation-practice.html#gas-entropy">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Entropy change of an ideal gas</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#gas-entropy">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

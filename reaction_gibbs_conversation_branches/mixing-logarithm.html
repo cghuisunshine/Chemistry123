@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Can we derive the mixing contribution?">
+  <title>Why does an ideal mixture use partial pressure? · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#reaction-gibbs">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><a href="index.html">Reaction Gibbs energy and Q</a><span class="sep">›</span><a href="chemical-potential.html">What is chemical potential, and why a logarithm?</a><span class="sep">›</span><b>Why does an ideal mixture use partial pressure?</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Follow-up <q>Can we derive the mixing contribution?</q></div><h1>Why does an ideal mixture use partial pressure?</h1><p class="subtitle">Can we derive the mixing contribution?</p></div>
+        <article class="article">
+  <section class="section" id="section-1">
+    <h2>Start from an extensive mixture free energy</h2>
+<p>For ideal gases at a common T and total pressure P, the Gibbs energy can be written as the pure-gas reference contribution plus a mixing term. Let n = Σnᵢ and xᵢ = nᵢ/n.</p>
+<div class="text-equation">G = Σ nᵢμᵢ*(T,P) + RT Σ nᵢ ln xᵢ</div>
+<p>The mixing term corresponds to ΔS<sub>mix</sub> = −RΣnᵢ ln xᵢ and zero ideal-gas enthalpy of mixing.</p>
+
+  </section>
+  <section class="section" id="section-2">
+    <h2>Differentiate the whole mixing term</h2>
+<div class="text-equation">Σ nᵢ ln xᵢ = Σ nᵢ ln nᵢ − n ln n
+∂/∂nⱼ = ln nⱼ + 1 − ln n − 1 = ln xⱼ</div>
+<p>Thus μⱼ = μⱼ*(T,P) + RT ln xⱼ. Combining this with the pure ideal-gas pressure term RT ln(P/p°) gives μⱼ = μⱼ° + RT ln(xⱼP/p°). Dalton’s law identifies xⱼP = pⱼ.</p>
+
+  </section>
+  <section class="section" id="section-3">
+    <h2>State what was assumed</h2>
+<p>This proof assumes ideal mixing and a classical ideal-gas equation of state. Stoichiometry alone cannot determine activities in a real solution. Nonideal interactions modify the chemical potential through activity coefficients or fugacities, while ΔᵣG = Σνᵢμᵢ still holds.</p>
+
+  </section>
+        </article>
+        <a class="return-link" href="chemical-potential.html#branch-mixing-logarithm">← Return to the exact statement: Can we derive the mixing contribution?</a>
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row"><span class="circle">1</span><span><a href="index.html">Reaction Gibbs energy and Q</a></span></div>
+<div class="history-row"><span class="circle">2</span><span><a href="chemical-potential.html">What is chemical potential, and why a logarithm?</a></span></div>
+<div class="history-row current"><span class="circle">3</span><span>Why does an ideal mixture use partial pressure?</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#reaction-gibbs">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

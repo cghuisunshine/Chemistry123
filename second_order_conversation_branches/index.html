@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Derive the integrated law for −d[A]/dt = k[A]² and explain why its half-life depends on initial concentration.">
+  <title>Second-order decay and half-life · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#second-order">Derivation practice</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Second-order decay and half-life</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>1/[A]ₜ = 1/[A]₀ + kt</q></div><h1>Second-order decay and half-life</h1><p class="subtitle">Derive the integrated law for −d[A]/dt = k[A]² and explain why its half-life depends on initial concentration.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">1/[A]ₜ = 1/[A]₀ + kt
+t½ = 1/(k[A]₀)</div><p>Derive the integrated law for −d[A]/dt = k[A]² and explain why its half-life depends on initial concentration.</p><p class="symbols"><b>Symbols and units.</b> [A]: mol L⁻¹; k: L mol⁻¹ s⁻¹ when t is in s; 1/[A]: L mol⁻¹; t½: s.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Empirical law.</b> Assume the disappearance law is −d[A]/dt = k[A]².</li><li><b>Calculus.</b> ∫ x⁻² dx = −1/x + constant.</li><li><b>Definition.</b> At t½, [A]ₜ = [A]₀/2.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Separate concentration from time</h2>
+<p>Rearrange the differential rate law for integration.</p><div class="text-equation">d[A]/[A]² = −k dt</div><p>Unlike first order, this integral involves [A]⁻² rather than [A]⁻¹.</p><div class="branch-location" id="branch-rate-conventions">
+  <a class="branch-card" href="rate-conventions.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What exactly does k measure?</em></span>
+    <strong>Where do factors of two enter a second-order law?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Integrate with endpoint limits</h2>
+<p>Evaluate both definite integrals carefully, keeping the signs.</p><div class="text-equation">−1/[A]ₜ + 1/[A]₀ = −kt</div><p>Substitution of limits supplies the initial-condition term.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Rearrange into a line</h2>
+<p>Multiply by −1 and isolate 1/[A]ₜ.</p><div class="text-equation">1/[A]ₜ = 1/[A]₀ + kt</div><p>A graph of 1/[A] versus t is linear with slope k.</p><div class="branch-location" id="branch-two-reactants">
+  <a class="branch-card" href="two-reactants.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Is every second-order integrated law the same?</em></span>
+    <strong>Why does k[A][B] require another formula?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-4">
+    <h2>4. Derive the half-life</h2>
+<p>Substitute [A]ₜ = [A]₀/2 and solve for t½.</p><div class="text-equation">2/[A]₀ − 1/[A]₀ = kt½
+t½ = 1/(k[A]₀)</div><p>A larger starting concentration makes the initial disappearance faster and the half-life shorter.</p>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The stated disappearance law is proportional to [A]², with constant k.</li><li>The volume is fixed and there is no competing source of A.</li></ul><p>Here k is defined by disappearance of A. If a reaction rate is defined as −(1/2)d[A]/dt, a factor of two must be handled consistently.</p><div class="note"><b>Common misconception</b><p>This formula applies to every reaction with overall order two, including k[A][B] with different starting concentrations.</p><p>The derivation integrates one variable with a square. A two-reactant law can require a different integrated expression.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>If k = 0.50 L mol⁻¹ s⁻¹ and [A]₀ = 0.20 mol L⁻¹, t½ = 10 s. The next halving takes 20 s.</p><details class="checkpoint"><summary>For this second-order law, what happens to t½ if [A]₀ is doubled and k stays fixed?</summary><p>t½ = 1/(k[A]₀); doubling the denominator halves the time.</p></details><p><a href="../derivation-practice.html#second-order">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Second-order decay and half-life</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#second-order">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse all 15 equations →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>
