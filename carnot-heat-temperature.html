@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Derive the Carnot heat–temperature relation, with follow-up explanations of adiabatic expansion, heat capacity, and ideal-gas internal energy.">
+<title>Why Qh/Th = Qc/Tc · Chemistry Inquiry</title>
+<style>
+
+:root{--bg:#f8f9fb;--paper:#fff;--ink:#20283c;--muted:#63718a;--line:#e4e8f0;--accent:#315cd1;--accent-faint:#eff3ff;--warm:#fffaf2;--warm-line:#f0debb;--shadow:0 12px 40px rgba(24,43,83,.045)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Noto Sans",sans-serif;font-size:16px;line-height:1.76;-webkit-font-smoothing:antialiased}a{color:var(--accent)}a:hover{text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid #93adff;outline-offset:4px}.site-header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}.head-inner{max-width:1080px;padding:0 28px;min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.wordmark{text-decoration:none;display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:750;letter-spacing:-.02em}.wordmark i{font-style:normal;background:#233e83;color:white;border-radius:9px;width:34px;height:34px;display:grid;place-items:center;font-family:Georgia,serif;font-size:20px}.head-tag{font-size:12px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase}.wrapper{max-width:1080px;margin:auto;padding:30px 28px 76px}.breadcrumbs{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font-size:12px;color:var(--muted);margin:0 0 27px}.breadcrumbs a{color:var(--muted);text-decoration:none}.breadcrumbs a:hover{color:var(--accent);text-decoration:underline}.breadcrumbs b{font-weight:600;color:var(--ink)}.breadcrumbs .sep{color:#b0bacb}.layout{display:grid;grid-template-columns:minmax(0,730px) minmax(0,245px);gap:43px;align-items:start}.document{min-width:0}.hero{padding:16px 0 35px;border-bottom:1px solid var(--line)}.question{font-size:12px;font-weight:800;letter-spacing:.085em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:11px}.question q{font-size:14px;letter-spacing:0;text-transform:none;font-weight:550;background:var(--accent-faint);border-radius:7px;padding:5px 11px;color:#3652a0}.hero h1{font-size:clamp(32px,4.6vw,51px);letter-spacing:-.048em;line-height:1.14;font-weight:760;margin:19px 0 15px;max-width:740px}.hero .subtitle{color:var(--muted);font-size:18px;line-height:1.6;margin:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px 39px 35px;margin-top:29px}.section{padding:18px 0 24px}.section+.section{border-top:1px solid var(--line)}.section h2{font-size:24px;line-height:1.32;letter-spacing:-.025em;margin:11px 0 16px}.section h3{font-size:18px;letter-spacing:-.015em;margin:24px 0 12px}.section p{margin:11px 0 18px}.section strong,.section b{font-weight:710}.equation{margin:18px 0 24px;padding:16px 17px;border:1px solid var(--line);background:#fbfcff;border-radius:11px;text-align:center;overflow-x:auto}.equation img{display:block;margin:auto;max-width:100%;height:auto;max-height:140px;object-fit:contain}.text-equation{padding:15px 9px;margin:18px 0;background:#f8faff;border:1px solid var(--line);border-radius:10px;text-align:center;font-size:21px;font-family:Georgia,"Times New Roman",serif;letter-spacing:.02em;overflow-x:auto}.symbol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:22px 0}.symbol-grid>div{background:#f7f9fd;padding:13px 6px;border-radius:9px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px}.symbol-grid b{font-size:26px;color:#294eab}.symbol-grid span{font-size:13px;font-weight:680;line-height:1.3}.symbol-grid small{font-size:11px;color:var(--muted)}.branch-location{margin:26px 0 32px 22px;scroll-margin-top:85px;position:relative}.branch-location:before{content:"";position:absolute;left:-21px;top:-21px;height:calc(50% + 23px);width:19px;border-left:2px solid #b5c5f3;border-bottom:2px solid #b5c5f3;border-bottom-left-radius:9px}.branch-card{display:flex;align-items:center;gap:12px;padding:15px 15px 15px 17px;background:var(--accent-faint);border:1px solid #c9d5fa;border-radius:12px;color:var(--ink);text-decoration:none;transition:transform .15s,border-color .15s,background .15s}.branch-card:hover{transform:translateX(3px);border-color:#7d9aed;background:#e8efff}.branch-text{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}.branch-text strong{font-size:16px;line-height:1.35;color:#25479b;font-weight:750}.branch-prompt{font-size:11px;color:#49679c;text-transform:uppercase;letter-spacing:.055em;font-weight:750}.branch-prompt em{font-style:normal;text-transform:none;letter-spacing:0;font-size:12px}.branch-description{font-size:12px;line-height:1.45;color:#5c6e91}.branch-arrow{font-size:24px;color:#416be0;line-height:1}.note{background:var(--warm);border:1px solid var(--warm-line);border-radius:11px;padding:17px 19px;margin:25px 0 5px}.note b{font-size:14px}.note p{font-size:14px;line-height:1.65;margin:5px 0 0}.molecule-demo{margin:24px 0;background:linear-gradient(110deg,#f2f6ff,#fdfefe);border:1px solid var(--line);border-radius:14px;position:relative;height:160px;overflow:hidden}.wall{position:absolute;top:24px;bottom:42px;width:9px;border-radius:2px;background:repeating-linear-gradient(0deg,#97a8c9 0 9px,#8195bb 9px 13px)}.left-wall{left:17%}.right-wall{right:17%}.travelling-dot{position:absolute;top:62px;left:calc(17% + 13px);width:18px;height:18px;background:#f2a14b;border-radius:50%;box-shadow:0 0 0 6px rgba(242,161,75,.16);animation:travel 3.5s ease-in-out infinite alternate}@keyframes travel{0%{left:calc(17% + 13px)}100%{left:calc(83% - 29px)}}.demo-label{position:absolute;top:12px;font-size:11px;color:#697894}.left-label{left:15.5%}.right-label{right:15.5%}.demo-caption{position:absolute;bottom:10px;text-align:center;left:0;right:0;color:#667895;font-size:11px}.three-axes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.three-axes>div{display:flex;flex-direction:column;text-align:center;gap:6px;padding:15px 9px;background:#f5f8ff;border-radius:10px}.three-axes span{font-size:12px;color:var(--muted)}.three-axes b{font-family:Georgia,serif;font-size:22px;color:#254da9}.count-bars{display:flex;flex-direction:column;gap:15px;margin:24px 0;padding:18px;background:#f7f9fd;border-radius:11px}.count-bars>div{display:grid;grid-template-columns:18px 1fr 44px;align-items:center;gap:13px;font-size:13px}.count-bars>div>span{height:15px;border-radius:7px;background:#e2e8f2;overflow:hidden}.count-bars i{display:block;height:100%;background:#5f87df;border-radius:7px}.count-bars>div strong{font-size:12px;color:#58708d}.side{position:sticky;top:24px;padding-top:18px}.side-card{background:white;border:1px solid var(--line);border-radius:13px;padding:19px 18px;margin-bottom:13px}.side-label{font-size:10px;font-weight:800;letter-spacing:.11em;color:#8792a5;text-transform:uppercase;margin:0 0 13px}.side-card p{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 8px}.history-row{display:flex;gap:12px;align-items:flex-start;position:relative;padding:3px 0 14px;color:#7b879b;font-size:13px}.history-row:not(:last-child):before{content:"";position:absolute;left:8px;top:25px;bottom:-1px;border-left:1px solid #ccd7ea}.history-row .circle{display:grid;place-items:center;border:1px solid #c8d3e6;background:#fff;width:17px;height:17px;flex:0 0 17px;border-radius:50%;font-size:8px;margin-top:3px;z-index:1}.history-row.current .circle{background:#315cd1;color:white;border-color:#315cd1}.history-row a{color:inherit;text-decoration:none}.history-row a:hover{color:var(--accent);text-decoration:underline}.history-row.current{color:#294a97;font-weight:750}.return-link{display:flex;gap:10px;align-items:center;margin-top:25px;border:1px solid #cfdaee;border-radius:12px;background:#f4f7fd;padding:15px 18px;text-decoration:none;color:#2c4f9e;font-weight:650;font-size:14px}.return-link:hover{background:#e9efff}.small-note{font-size:12px;color:#8591a4;margin-top:18px}.footer{font-size:12px;color:#8894a6;margin:29px 0 0}.mobile-hint{display:none}@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static;padding-top:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.side-card{margin:0}.head-inner,.wrapper{max-width:760px}.article{padding:10px 26px 24px}}@media(max-width:560px){.head-inner{padding:0 17px;min-height:61px}.head-tag{font-size:10px}.wrapper{padding:19px 13px 44px}.breadcrumbs{margin:0 7px 11px;font-size:11px;gap:6px}.hero{padding:9px 7px 25px}.hero h1{font-size:32px;margin:14px 0 12px}.hero .subtitle{font-size:15px}.article{margin-top:16px;padding:7px 17px 16px;border-radius:14px}.section{padding:12px 0 17px}.section h2{font-size:21px}.section h3{font-size:16px}.section p{font-size:15px}.symbol-grid{grid-template-columns:repeat(2,1fr)}.equation{padding:13px 8px}.branch-location{margin-left:15px}.branch-location:before{left:-14px;width:13px}.branch-card{padding:13px 11px;gap:8px}.branch-text strong{font-size:14px}.branch-description{font-size:11px}.side{grid-template-columns:1fr}.side-card:last-child{display:none}.three-axes b{font-size:17px}.text-equation{font-size:17px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.travelling-dot{animation:none}.branch-card{transition:none}}
+
+
+/* Extensions for the equation tutorials; base design follows the ideal gas reference. */
+.skip-link{position:absolute;top:-100px;left:12px;background:white;padding:10px;z-index:10}
+.skip-link:focus{top:10px}.head-links{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}
+.section,.branch-location{scroll-margin-top:25px}.text-equation{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;letter-spacing:0}
+.text-equation sub,.text-equation sup{font-size:.7em}.article,.side-card{overflow-wrap:anywhere}
+.premise-list{padding-left:21px}.premise-list li{margin-block:12px}.symbols{font-size:14px;color:var(--muted)}
+.checkpoint{border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:20px;background:#f7f9fd}
+.checkpoint summary{cursor:pointer;font-weight:650;color:var(--accent)}.checkpoint p:last-child{margin-bottom:0}
+.topic-group{margin-top:35px}.topic-group>h2{font-size:23px}.tutorial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tutorial-card{display:block;background:white;padding:23px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink)}
+.tutorial-card:hover{border-color:var(--accent)}.tutorial-card h3{margin:7px 0 12px;font-size:19px;line-height:1.4}
+.tutorial-card p{font-size:14px;color:var(--muted);margin:0}.tutorial-card .text-equation{font-size:17px;margin:13px 0}
+.tutorial-card small{color:var(--accent)}.scope-note{max-width:760px;color:var(--muted)}.catalog-hero{padding-bottom:28px}
+@media(max-width:560px){.head-inner{flex-wrap:wrap;padding-block:12px}.head-links{font-size:11px;gap:10px}.head-tag{display:none}.tutorial-grid{grid-template-columns:1fr}.tutorial-card{padding:19px}}
+@media print{body{background:white}.site-header,.breadcrumbs,.side,.branch-location,.return-link,.skip-link{display:none}.wrapper{max-width:none;padding:0}.layout{display:block}.article{box-shadow:none;border:0;padding:0}.hero{padding-top:0}.section{break-inside:avoid}.text-equation{overflow:visible}.checkpoint{display:block}}
+
+  
+details.branch{margin:22px 0;padding:16px 19px;background:var(--accent-faint);border:1px solid #c9d5fa;border-radius:12px}details.branch>summary{cursor:pointer;color:#25479b;font-weight:750}details.branch details{background:white}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}.text-equation{font-size:19px}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to explanation</a>
+<header class="site-header"><div class="head-inner"><a class="wordmark" href="derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a><nav class="head-links" aria-label="Study navigation"><a href="derivation-tutorials.html">All equation tutorials</a><a href="index.html">Chem 123 guide</a></nav></div></header>
+<div class="wrapper">
+<nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Carnot heat–temperature relation</b></nav>
+<div class="layout"><main class="document" id="main">
+<div class="hero"><div class="question">Follow the derivation <q>Why are these ratios equal?</q></div><h1>Why Q<sub>h</sub>/T<sub>h</sub> = Q<sub>c</sub>/T<sub>c</sub></h1><p class="subtitle">Start with the Carnot cycle. Open a “why” exactly where you need a deeper explanation.</p></div>
+<article class="article">
+<section class="section" id="meaning"><h2>The relation and its assumptions</h2>
+<div class="text-equation">Q<sub>h</sub>/T<sub>h</sub> = Q<sub>c</sub>/T<sub>c</sub></div>
+<p>For a reversible Carnot engine, the heat absorbed from the hot reservoir divided by its temperature equals the heat released to the cold reservoir divided by its temperature.</p>
+<p class="symbols"><b>Symbols.</b> Q<sub>h</sub>, Q<sub>c</sub>: positive heat amounts (J); T<sub>h</sub> &gt; T<sub>c</sub>: absolute temperatures (K); V₁…V₄: gas volumes (m³); n: amount (mol); R: 8.314 J mol⁻¹ K⁻¹. Each heat–temperature ratio has units J K⁻¹.</p>
+<p>This proof uses a fixed amount of ideal gas, reversible processes, and only pressure–volume work. We assume constant molar heat capacities when using the power law for the adiabatic stages. The Carnot relation itself is more general than that model.</p>
+<div class="note"><b>Sign convention</b><p>Work W done <em>by</em> the gas is positive: dU = δQ − δW. In chemistry notation, work w done <em>on</em> the gas is positive: dU = δQ + δw. These express the same energy balance.</p></div>
+</section>
+<section class="section" id="cycle"><h2>The four stages</h2><div class="table-wrap"><table><thead><tr><th>Stage</th><th>Process</th><th>Energy transfer</th></tr></thead><tbody>
+<tr><td>1 → 2</td><td>Isothermal expansion at T<sub>h</sub></td><td>Absorbs Q<sub>h</sub></td></tr>
+<tr><td>2 → 3</td><td>Adiabatic expansion to T<sub>c</sub></td><td>No heat; gas cools</td></tr>
+<tr><td>3 → 4</td><td>Isothermal compression at T<sub>c</sub></td><td>Releases Q<sub>c</sub></td></tr>
+<tr><td>4 → 1</td><td>Adiabatic compression to T<sub>h</sub></td><td>No heat; gas warms</td></tr>
+</tbody></table></div></section>
+<section class="section" id="hot"><h2>1. Heat absorbed at the hot temperature</h2>
+<p>An ideal gas’s internal energy is unchanged during an isothermal process. The first law therefore gives Q<sub>h</sub> = W₁₂. For reversible piston work, δW = P dV; substituting P = nRT<sub>h</sub>/V gives:</p>
+<div class="text-equation">Q<sub>h</sub> = ∫<sub>V₁</sub><sup>V₂</sup> P dV
+= nRT<sub>h</sub> ∫<sub>V₁</sub><sup>V₂</sup> dV/V
+= nRT<sub>h</sub> ln(V₂/V₁)
+
+Q<sub>h</sub>/T<sub>h</sub> = nR ln(V₂/V₁)</div>
+<p>The logarithm comes from integrating 1/V. Dividing by temperature leaves nR times a logarithmic volume ratio.</p>
+</section>
+<section class="section" id="cold"><h2>2. Heat released at the cold temperature</h2>
+<p>During compression from V₃ to V₄, V₄ &lt; V₃. The signed heat entering the gas is nRT<sub>c</sub> ln(V₄/V₃), which is negative. Q<sub>c</sub> denotes the positive amount released:</p>
+<div class="text-equation">Q<sub>c</sub> = nRT<sub>c</sub> ln(V₃/V₄)
+
+Q<sub>c</sub>/T<sub>c</sub> = nR ln(V₃/V₄)</div>
+<p>We now need to prove that V₂/V₁ = V₃/V₄. The two adiabatic stages provide that connection.</p>
+</section>
+<section class="section" id="adiabats"><h2>3. Why are the volume ratios equal?</h2>
+<p>For a reversible adiabatic ideal-gas process with constant heat capacities:</p>
+<div class="text-equation">TV<sup>γ−1</sup> = constant,
+γ = C<sub>p,m</sub>/C<sub>v,m</sub></div>
+<details class="branch" id="why-adiabatic"><summary>Why does TV<sup>γ−1</sup> stay constant?</summary>
+<p>Adiabatic means δQ = 0. For reversible expansion, the first law becomes:</p>
+<div class="text-equation">dU = −P dV
+nC<sub>v,m</sub> dT = −P dV</div>
+<p>Expansion work comes from internal energy, so the gas cools. Here C<sub>v,m</sub> is the <b>molar</b> constant-volume heat capacity, measured in J mol⁻¹ K⁻¹.</p>
+<details class="branch" id="why-cv"><summary>Why is dU = nC<sub>v,m</sub> dT, even when volume changes?</summary>
+<p>At constant volume, with only pressure–volume work, dV = 0 means no work is done. Thus dU = δQ. The molar heat-capacity definition gives:</p>
+<div class="text-equation">C<sub>v,m</sub> = (1/n)(∂U/∂T)<sub>V</sub>
+δQ<sub>V</sub> = nC<sub>v,m</sub> dT</div>
+<p>For a fixed amount and composition of ideal gas, U = U(T). Consequently, the same temperature change produces the same internal-energy change along any path:</p>
+<div class="text-equation">dU = nC<sub>v,m</sub>(T) dT</div>
+<p>The subscript v identifies how the heat capacity is defined; it does not restrict this ideal-gas energy equation to constant-volume paths. Constant heat capacity is needed only to replace the integral by nC<sub>v,m</sub>ΔT for a finite change.</p>
+<details class="branch" id="why-u"><summary>Is U = U(T) another statement of the first law?</summary>
+<p><b>No. It is an additional property of the ideal-gas model, used together with the first law.</b></p>
+<div class="table-wrap"><table><thead><tr><th>Statement</th><th>What it says</th></tr></thead><tbody>
+<tr><td>dU = δQ − δW</td><td>Energy conservation for the closed system: heat and work change internal energy.</td></tr>
+<tr><td>U = U(T)</td><td>At fixed amount and composition, ideal-gas internal energy depends only on temperature.</td></tr>
+</tbody></table></div>
+<p>In the microscopic ideal-gas model, particles have no interaction potential energy between them. Changing their separation does not change that energy. Their equilibrium microscopic energy depends on temperature; molecules may also store rotational and vibrational energy.</p>
+<p>For a classical monatomic ideal gas:</p>
+<div class="text-equation">U = N(3k<sub>B</sub>T/2) = 3nRT/2
+dU = (3nR/2) dT, so C<sub>v,m</sub> = 3R/2</div>
+<p>N is the number of atoms and k<sub>B</sub> is Boltzmann’s constant; Nk<sub>B</sub> = nR. The energy formula uses the classical equipartition result.</p>
+<p>For real gases, intermolecular interactions can make U depend on both T and V. The first law still holds, but generally:</p>
+<div class="text-equation">dU = nC<sub>v,m</sub> dT + (∂U/∂V)<sub>T</sub> dV</div>
+<p>Energy conservation alone does not make the second term vanish.</p>
+</details></details>
+<p>Now substitute P = nRT/V into the adiabatic energy balance, cancel n, and separate the variables:</p>
+<div class="text-equation">C<sub>v,m</sub> dT = −RT dV/V
+dT/T = −(R/C<sub>v,m</sub>) dV/V</div>
+<p>For an ideal gas, C<sub>p,m</sub> − C<sub>v,m</sub> = R, so R/C<sub>v,m</sub> = γ − 1. <a href="cp_cv_conversation_branches/index.html">Follow the heat-capacity difference proof →</a></p>
+<p>For constant heat capacities, integrate between two states:</p>
+<div class="text-equation">ln(T<sub>b</sub>/T<sub>a</sub>) = −(γ − 1) ln(V<sub>b</sub>/V<sub>a</sub>)
+T<sub>b</sub>V<sub>b</sub><sup>γ−1</sup> = T<sub>a</sub>V<sub>a</sub><sup>γ−1</sup></div>
+<p>That is exactly what “TV<sup>γ−1</sup> = constant” means. It applies to reversible adiabatic paths, not to every process with no heat transfer.</p>
+</details>
+<p>Apply the relation separately to expansion 2 → 3 and compression 4 → 1:</p>
+<div class="text-equation">T<sub>h</sub>V₂<sup>γ−1</sup> = T<sub>c</sub>V₃<sup>γ−1</sup>
+T<sub>h</sub>V₁<sup>γ−1</sup> = T<sub>c</sub>V₄<sup>γ−1</sup></div>
+<p>Divide the first equation by the second. The temperatures cancel:</p>
+<div class="text-equation">(V₂/V₁)<sup>γ−1</sup> = (V₃/V₄)<sup>γ−1</sup>
+V₂/V₁ = V₃/V₄</div>
+<p>The constants on the two separate adiabats need not be equal; we never assume that they are.</p>
+</section>
+<section class="section" id="result"><h2>4. Substitute the equal volume ratios</h2>
+<div class="text-equation">Q<sub>h</sub>/T<sub>h</sub>
+= nR ln(V₂/V₁)
+= nR ln(V₃/V₄)
+= Q<sub>c</sub>/T<sub>c</sub></div>
+<p>The temperatures divide out of the isothermal heat equations, and the adiabatic stages make the remaining logarithms equal.</p>
+<p>For a full cycle ΔU = 0, so W<sub>net</sub> = Q<sub>h</sub> − Q<sub>c</sub>. This also gives the reversible Carnot efficiency:</p>
+<div class="text-equation">η = W<sub>net</sub>/Q<sub>h</sub> = 1 − T<sub>c</sub>/T<sub>h</sub></div>
+</section>
+<section class="section" id="example"><h2>Check with numbers</h2>
+<p>Let n = 1.00 mol, T<sub>h</sub> = 600 K, T<sub>c</sub> = 300 K, and V₂/V₁ = V₃/V₄ = 2.</p>
+<div class="text-equation">Q<sub>h</sub> = (1)(8.314)(600) ln 2 ≈ 3458 J
+Q<sub>c</sub> = (1)(8.314)(300) ln 2 ≈ 1729 J
+Q<sub>h</sub>/T<sub>h</sub> = Q<sub>c</sub>/T<sub>c</sub> ≈ 5.76 J K⁻¹</div>
+<details class="checkpoint"><summary>If the expansion is adiabatic, must its temperature fall?</summary><p>For the reversible ideal-gas expansion used here, yes: it does positive work using internal energy. But in ideal-gas free expansion into a vacuum, Q = 0 and W = 0, so ΔU = 0 and temperature stays constant. “Adiabatic” alone does not imply TV<sup>γ−1</sup> = constant.</p></details>
+</section>
+</article><a class="return-link" href="derivation-tutorials.html">← Return to all equation tutorials</a>
+<p class="footer">Chemistry Inquiry · Follow a question at the statement it explains. Works offline.</p>
+</main><aside class="side" aria-label="Reasoning path"><div class="side-card"><div class="side-label">This derivation</div><p><a href="#hot">1. Hot isotherm</a></p><p><a href="#cold">2. Cold isotherm</a></p><p><a href="#adiabats">3. Connect the volumes</a></p><p><a href="#result">4. Equal heat–temperature ratios</a></p></div><div class="side-card"><div class="side-label">Follow your questions</div><p>Open the adiabatic-law explanation to explore heat capacity, then the ideal-gas property U = U(T). Close a branch to return to the argument.</p></div></aside></div></div></body></html>
