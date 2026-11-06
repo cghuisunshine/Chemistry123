@@ -102,3 +102,7 @@ The extraction accepts parenthesized or bracketed equation labels in the body of
 All detected entries have source images, but automatic label detection is not a proof that every equation label or unnumbered expression was recovered. The complete-source reader retains access to all source content. No percentage of guided coverage is reported: tutorial topics, individual numbered expressions and unnumbered formulas are different counting units.
 
 The reference layer makes the detected numbered formulas available inside the web materials, and the six new guided topics close the representative gaps identified above. Providing a fresh step-by-step derivation for every expression, or a separate native-text transcription of every unnumbered formula, remains distinct work and is not claimed here.
+
+## Deployment asset update
+
+The initial Pages build passed, but publishing timed out. The reference now groups the 1,534 excerpts into 96 lossless WebP sprite sheets. Each displayed crop is checked pixel-for-pixel against its original PNG; source labels and study links are unchanged. Build tools and the ignored excerpt cache are excluded from the published site. This reduces deployment file count and transfer size without removing formulas.

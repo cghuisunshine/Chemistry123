@@ -7,4 +7,7 @@
 
 AGENTS.md
 
+# Regenerable source-equation crops; publish only the shared sprite sheets.
+tools/.equation-cache/
+
 

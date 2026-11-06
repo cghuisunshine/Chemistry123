@@ -1,0 +1,3 @@
+# Build utilities and cached equation crops are not website assets.
+exclude:
+  - tools

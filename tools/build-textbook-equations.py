@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build exact source-equation excerpts and a searchable offline reference.
 
-Requires Poppler (pdftotext, pdftoppm); Python standard library only.
+Requires Poppler (pdftotext, pdftoppm) and Pillow for lossless image packing.
 Run from any directory. Cached excerpts make subsequent builds inexpensive.
 """
 from __future__ import annotations
@@ -14,6 +14,7 @@ import html
 import json
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
@@ -106,7 +107,7 @@ def extract(pdf: Path, bbox: Path):
           'x': float(word.get('xMin')), 'y': y,
           'crop': [int(left * 2), int(top * 2), int((right - left) * 2), int(height * 2)],
           'imageWidth': int((right - left) * 2), 'imageHeight': int(height * 2),
-          'image': f'assets/textbook-equations/eq-{label}.png',
+          'excerpt': f'tools/.equation-cache/eq-{label}.png',
           'context': context[:1800],
         })
   labels = [r['label'] for r in rows]
@@ -119,7 +120,11 @@ def extract(pdf: Path, bbox: Path):
 
 def render_excerpt(args):
   pdf, row, force = args
-  image = WEB / row['image']
+  image = WEB / row['excerpt']
+  previous = WEB / 'assets/textbook-equations' / f'eq-{row["label"]}.png'
+  if not image.exists() and previous.exists() and not force:
+    image.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(previous, image)
   if image.exists() and not force:
     return
   image.parent.mkdir(parents=True, exist_ok=True)
@@ -130,6 +135,29 @@ def render_excerpt(args):
     '-r', '144', '-x', str(left), '-y', str(top), '-W', str(width),
     '-H', str(height), '-png', '-singlefile', str(pdf), str(image.with_suffix(''))],
     check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+
+def pack_sprite_sheets(rows):
+  """Keep original pixels while replacing many deployment files with shared sheets."""
+  from PIL import Image
+  per_sheet = 16
+  for start in range(0, len(rows), per_sheet):
+    group = rows[start:start + per_sheet]
+    width = max(row['imageWidth'] for row in group)
+    cell_height = max(row['imageHeight'] for row in group)
+    height = cell_height * len(group)
+    sheet = Image.new('RGB', (width, height), 'white')
+    image_path = f'assets/textbook-equations/sheet-{start // per_sheet + 1:03}.webp'
+    (WEB / image_path).parent.mkdir(parents=True, exist_ok=True)
+    for index, row in enumerate(group):
+      with Image.open(WEB / row['excerpt']) as original:
+        sheet.paste(original.convert('RGB'), (0, index * cell_height))
+      row.update(image=image_path, spriteX=0, spriteY=index * cell_height,
+        spriteWidth=width, spriteHeight=height)
+    sheet.save(WEB / image_path, format='WEBP', lossless=True, method=1, exact=True)
+    if start % 256 == 0:
+      print(f'Bundled {min(start + per_sheet, len(rows))}/{len(rows)} excerpts.', flush=True)
+  print(f'Packed {len(rows)} pixel-identical excerpts into {(len(rows) + per_sheet - 1) // per_sheet} shared sheets.', flush=True)
 
 
 def main():
@@ -147,12 +175,13 @@ def main():
     for i, _ in enumerate(pool.map(render_excerpt, [(pdf, r, options.force_images) for r in rows]), 1):
       if i % 100 == 0:
         print(f'Prepared {i}/{len(rows)} excerpts.', flush=True)
+  pack_sprite_sheets(rows)
   data = {'source': 'Physical_Chemistry.pdf', 'sourceSha256': hashlib.sha256(pdf.read_bytes()).hexdigest(),
     'sourcePages': count, 'chapters': [{'id': c, 'title': t, 'page': p} for c, t, p in CHAPTERS],
     'equations': rows}
   (WEB / 'tools/textbook-equations.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
   with (WEB / 'derivation-equation-inventory.tsv').open('w', newline='') as target:
-    writer = csv.writer(target, delimiter='\t')
+    writer = csv.writer(target, delimiter='\t', lineterminator='\n')
     writer.writerow(['chapter', 'equation_label', 'pdf_page_1_based', 'source_href', 'image', 'reference_status', 'derivation_status'])
     for row in rows:
       writer.writerow([row['chapter'], row['label'], row['page'], f'Physical_Chemistry.pdf#page={row["page"]}',
