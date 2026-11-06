@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Reduce the exact phase-boundary relation to a useful vapour-pressure law and identify both approximations.">
+  <title>Vapour pressure and temperature · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#clausius-clapeyron">Derivation practice</a><a href="../derivation-formulas.html">Textbook formulas</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Vapour pressure and temperature</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>d ln p/dT = ΔᵥₐₚHₘ/(RT²)</q></div><h1>Vapour pressure and temperature</h1><p class="subtitle">Reduce the exact phase-boundary relation to a useful vapour-pressure law and identify both approximations.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">d ln p/dT = ΔᵥₐₚHₘ/(RT²)
+ln(p₂/p₁) = −(ΔᵥₐₚHₘ/R)(1/T₂ − 1/T₁)</div><p>Reduce the exact phase-boundary relation to a useful vapour-pressure law and identify both approximations.</p><p class="symbols"><b>Symbols and units.</b> p₁,p₂: equilibrium vapour pressures in the same units; T₁,T₂: K; ΔvapHₘ: J mol⁻¹; R: J mol⁻¹ K⁻¹. p₂/p₁ is dimensionless.</p><p class="symbols"><b>Textbook source.</b> <a href="../derivation-formulas.html#eq-4.11">Equation 4.11</a> · <a href="../derivation-formulas.html#eq-4.12">Equation 4.12</a>. Open the exact expression and its context.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Phase equilibrium.</b> Clapeyron: dp/dT = ΔᵥₐₚHₘ/[T(Vₘ,g − Vₘ,l)].</li><li><b>Model.</b> For dilute ideal vapour, Vₘ,g = RT/p and Vₘ,l ≪ Vₘ,g.</li><li><b>Calculus.</b> dp/p = d ln p; ∫T⁻² dT = −1/T.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Approximate the volume change</h2>
+<p>Replace Vₘ,g − Vₘ,l using the gas model.</p><div class="text-equation">ΔᵥₐₚVₘ ≈ RT/p
+dp/dT ≈ pΔᵥₐₚHₘ/(RT²)</div><p>A mole of low-density vapour takes much more space than a mole of liquid.</p><div class="branch-location" id="branch-volume-approximation">
+  <a class="branch-card" href="volume-approximation.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Which physical approximation creates the simple law?</em></span>
+    <strong>Why replace the transition volume by RT/p?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Use the logarithmic derivative</h2>
+<p>Divide by p.</p><div class="text-equation">d ln p/dT = ΔᵥₐₚHₘ/(RT²)</div><p>Positive vaporization enthalpy makes vapour pressure rise with temperature.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Integrate between two coexistence states</h2>
+<p>Treat ΔvapHₘ as constant and integrate with limits.</p><div class="text-equation">ln(p₂/p₁) = −(ΔᵥₐₚHₘ/R)(1/T₂ − 1/T₁)</div><p>The pressure ratio is unit-independent; temperature must be absolute.</p><div class="branch-location" id="branch-variable-latent-heat">
+  <a class="branch-card" href="variable-latent-heat.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Which step actually needs a constant latent heat?</em></span>
+    <strong>What if vaporization enthalpy changes with temperature?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The liquid and vapour are in equilibrium, the vapour is approximately ideal, and liquid molar volume is negligible.</li><li>The molar enthalpy of vaporization is approximately constant between T₁ and T₂ for the integrated expression.</li></ul><p>The approximation becomes poor near the critical point or at high vapour density. This is a phase-equilibrium law; the similar van ’t Hoff expression describes reaction K.</p><div class="note"><b>Common misconception</b><p>The differential equation also requires constant vaporization enthalpy.</p><p>The differential form can use ΔvapHₘ(T). Constant enthalpy is an additional assumption used to perform the short integral.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For ΔvapHₘ = 40.0 kJ mol⁻¹ from 300 K to 310 K, ln(p₂/p₁) ≈ 0.517 and p₂/p₁ ≈ 1.68.</p><details class="checkpoint"><summary>With positive ΔvapHₘ and T₂ &gt; T₁, how do the vapour pressures compare?</summary><p>1/T₂ − 1/T₁ is negative; the leading minus sign gives ln(p₂/p₁) &gt; 0.</p></details><p><a href="../derivation-practice.html#clausius-clapeyron">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Vapour pressure and temperature</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#clausius-clapeyron">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse 22 guided derivations →</a></p><p><a href="../derivation-formulas.html">Browse the textbook equation reference →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

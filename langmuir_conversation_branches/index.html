@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Balance adsorption onto empty sites against desorption from occupied sites to predict fractional coverage.">
+  <title>The Langmuir adsorption isotherm · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#langmuir">Derivation practice</a><a href="../derivation-formulas.html">Textbook formulas</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>The Langmuir adsorption isotherm</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>θ = Kp/(1 + Kp), with K = ka/kd</q></div><h1>The Langmuir adsorption isotherm</h1><p class="subtitle">Balance adsorption onto empty sites against desorption from occupied sites to predict fractional coverage.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">θ = Kp/(1 + Kp), with K = ka/kd</div><p>Balance adsorption onto empty sites against desorption from occupied sites to predict fractional coverage.</p><p class="symbols"><b>Symbols and units.</b> θ: dimensionless occupied fraction; p: gas pressure (for example Pa); ka: Pa⁻¹ s⁻¹ and kd: s⁻¹ for this per-site rate convention; K = ka/kd: Pa⁻¹.</p><p class="symbols"><b>Textbook source.</b> <a href="../derivation-formulas.html#eq-25.4">Equation 25.4</a>. Open the exact expression and its context.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Site model.</b> θ is the occupied fraction of equivalent independent sites, with 0 ≤ θ ≤ 1 and only one adsorbate per site.</li><li><b>Rate model.</b> Per-site adsorption rate is ka p(1 − θ); desorption rate is kd θ.</li><li><b>Equilibrium.</b> At fixed temperature, equilibrium coverage is stationary because adsorption and desorption rates are equal.</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Balance the competing rates</h2>
+<p>Set adsorption and desorption rates equal.</p><div class="text-equation">ka p(1 − θ) = kd θ</div><p>Microscopic exchange continues at equilibrium even though the total occupied fraction is stationary.</p><div class="branch-location" id="branch-site-counting">
+  <a class="branch-card" href="site-counting.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What is being counted by each kinetic factor?</em></span>
+    <strong>Why do the rates contain θ and 1 − θ?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Collect the coverage terms</h2>
+<p>Expand the left side and gather θ.</p><div class="text-equation">ka p = (kd + ka p)θ
+θ = ka p/(kd + ka p)</div><p>The denominator accounts for both adsorption and desorption tendencies.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Introduce K and test the limits</h2>
+<p>Divide numerator and denominator by kd.</p><div class="text-equation">θ = Kp/(1 + Kp)
+Kp ≪ 1: θ ≈ Kp; Kp ≫ 1: θ → 1</div><p>At low pressure coverage rises almost linearly; saturation limits it to one monolayer.</p><div class="branch-location" id="branch-half-coverage-and-fitting">
+  <a class="branch-card" href="half-coverage-and-fitting.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>What does a half-covered surface tell us?</em></span>
+    <strong>How can an isotherm estimate K and total capacity?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>Adsorption forms a monolayer on equivalent sites without interactions between adsorbed molecules.</li><li>Adsorption is nondissociative and the stated rates describe equilibrium at fixed temperature.</li></ul><p>Dissociative adsorption, multiple site types, lateral interactions, and multilayer adsorption require different models. With pressure-based rates, K has inverse-pressure units; Kp is dimensionless.</p><div class="note"><b>Common misconception</b><p>Every collision with a fully covered surface creates a second layer.</p><p>The Langmuir model allows only monolayer occupancy. The empty-site factor tends to zero as coverage approaches one.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For K = 0.020 kPa⁻¹ and p = 50 kPa, Kp = 1 and θ = 0.50. At 100 kPa, θ = 2/3.</p><details class="checkpoint"><summary>At what pressure does the model predict half coverage?</summary><p>Set θ = 1/2. Then 1 + Kp = 2Kp, so Kp = 1 and p = 1/K.</p></details><p><a href="../derivation-practice.html#langmuir">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>The Langmuir adsorption isotherm</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#langmuir">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse 22 guided derivations →</a></p><p><a href="../derivation-formulas.html">Browse the textbook equation reference →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

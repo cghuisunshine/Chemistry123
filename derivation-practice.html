@@ -152,7 +152,7 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">CHEMISTRY 123 <span>A derivation workbook</span></a>
-      <div class="actions"><a class="source" href="derivation-tutorials.html">Equation tutorials ↗</a><a class="source" href="index.html">Chem 123 study guide ↗</a></div>
+      <div class="actions"><a class="source" href="derivation-tutorials.html">Equation tutorials ↗</a><a class="source" href="derivation-formulas.html">Textbook formulas ↗</a><a class="source" href="index.html">Chem 123 study guide ↗</a></div>
     </div>
   </header>
   <div class="wrap" id="top">
@@ -161,7 +161,8 @@
         <div class="eyebrow">Chem 123 · Laws, models &amp; assumptions</div>
         <h1 id="page-title">Derive it.<br><em>Understand it.</em></h1>
         <p>Start with the basic laws. Choose your assumptions. Work through the maths, and explain why the equation makes sense.</p>
-        <div class="stats"><span>15 derivations</span><span>Explicit assumptions</span><span>Guided &amp; blank-page practice</span><span>Saved notes</span></div>
+        <div class="stats"><span id="derivation-count">21 guided derivations</span><span>Textbook equation reference</span><span>Guided &amp; blank-page practice</span><span>Saved notes</span></div>
+        <p class="small"><a href="derivation-formulas.html">Browse the textbook formulas by chapter and equation number →</a></p>
       </div>
       <svg class="hero-art" viewBox="0 0 300 250" aria-hidden="true">
         <circle cx="150" cy="125" r="95" fill="#e7eee6"/>
@@ -202,7 +203,7 @@
         <nav id="exercise-list" aria-label="Choose a derivation"></nav>
         <div class="sidebar-footer">
           <div class="small"><strong id="completed-count">0</strong><span class="muted"> derivations verified</span></div>
-          <progress id="overall-progress" max="15" value="0" aria-label="Verified derivations"></progress>
+          <progress id="overall-progress" max="21" value="0" aria-label="Verified derivations"></progress>
           <p class="small muted">Progress combines your self-checks with assumption and concept questions.</p>
           <button class="button text" id="pick-next">Choose an unfinished one →</button>
         </div>
@@ -395,8 +396,118 @@
           step('Convert to base-10 if useful','Use ln Q = (ln 10) log₁₀ Q and evaluate the coefficient at 298.15 K.','The factor ln 10 ≈ 2.302585 must be included.','E = E° − (2.302585 RT/nF) log₁₀ Q\nAt 298.15 K: 2.302585 RT/F = 0.05916 V','The familiar decimal coefficient has temperature and voltage units built into it.'),
           step('Recover the equilibrium connection','Set E = 0 and Q = K. Solve for E°.','At equilibrium there is no net reversible cell driving force.','E° = (RT/nF) ln K','A positive E° corresponds to K > 1 for the written cell reaction, consistent with ΔᵣG° = −nFE°.')
         ],quiz:{q:'At 298.15 K, n = 2 and Q = 100. What is E − E°?',options:['−0.05916 V','+0.05916 V','−0.11832 V'],answer:0,why:'E − E° = −(0.05916/2) log₁₀ 100 = −0.05916 V.'},example:'If E° = 1.10 V, n = 2, and Q = 100 at 298.15 K, the reversible potential is about 1.041 V.'
+      },
+      {
+        id:'clapeyron', title:'The Clapeyron equation', topic:'Phases & mixtures', level:'Phase equilibrium', time:'14 min',
+        goal:'Explain how entropy and volume changes set the slope of a pure substance’s phase boundary.',
+        target:'dp/dT = ΔₜᵣₛSₘ/ΔₜᵣₛVₘ = ΔₜᵣₛHₘ/(TΔₜᵣₛVₘ)',
+        roots:[['Equilibrium','Along a pure-substance phase boundary, μᵅ(T,p) = μᵝ(T,p).'],['Fundamental','For either pure phase, dμ = Vₘ dp − Sₘ dT.'],['Transition','At coexistence, ΔₜᵣₛGₘ = 0, so ΔₜᵣₛHₘ = TΔₜᵣₛSₘ.']],
+        conditions:['The two phases of one pure substance remain in equilibrium along the boundary.','Transition quantities are evaluated at the same coexistence temperature and pressure; ΔₜᵣₛVₘ is nonzero.'],
+        trap:'The vapour must be ideal.',trapWhy:'The exact Clapeyron equation requires no ideal-gas approximation. That approximation enters the Clausius–Clapeyron reduction.',
+        boundary:'Define every transition change as phase β minus phase α. At a critical point, both numerator and denominator can vanish; evaluate the limiting behaviour rather than dividing two zeros.',
+        symbols:'p: Pa; T: K; Sₘ: J mol⁻¹ K⁻¹; Vₘ: m³ mol⁻¹; Hₘ: J mol⁻¹. The slope has units Pa K⁻¹.',
+        steps:[
+          step('Move along the equilibrium boundary','Differentiate the equality of the phase chemical potentials.','Both phases experience the same infinitesimal dp and dT.','Vₘᵅ dp − Sₘᵅ dT = Vₘᵝ dp − Sₘᵝ dT','A small move along coexistence keeps the chemical potentials equal.'),
+          step('Collect transition differences','Gather the volume terms and entropy terms using β minus α.','Keep the same phase ordering in both differences.','ΔₜᵣₛVₘ dp = ΔₜᵣₛSₘ dT\ndp/dT = ΔₜᵣₛSₘ/ΔₜᵣₛVₘ','More entropy favours the high-temperature phase; pressure favours the smaller-volume phase.'),
+          step('Replace entropy at coexistence','Use zero transition Gibbs energy at equilibrium.','ΔGₘ = ΔHₘ − TΔSₘ = 0.','dp/dT = ΔₜᵣₛHₘ/(TΔₜᵣₛVₘ)','The slope can now be estimated from latent heat and the volume change.')
+        ],
+        quiz:{q:'Melting absorbs heat but decreases molar volume, as for ice near ordinary pressure. What is the sign of dp/dT?',options:['Negative','Positive','Always zero'],answer:0,why:'ΔfusHₘ > 0 and ΔfusVₘ < 0 give a negative slope. Increasing pressure lowers the melting temperature in this regime.'},
+        example:'If ΔHₘ = 6000 J mol⁻¹, T = 273 K and ΔVₘ = −1.6 × 10⁻⁶ m³ mol⁻¹, dp/dT ≈ −1.37 × 10⁷ Pa K⁻¹.'
+      },
+      {
+        id:'clausius-clapeyron',title:'Vapour pressure and temperature',topic:'Phases & mixtures',level:'Approximation & integration',time:'15 min',
+        goal:'Reduce the exact phase-boundary relation to a useful vapour-pressure law and identify both approximations.',
+        target:'d ln p/dT = ΔᵥₐₚHₘ/(RT²)\nln(p₂/p₁) = −(ΔᵥₐₚHₘ/R)(1/T₂ − 1/T₁)',
+        roots:[['Phase equilibrium','Clapeyron: dp/dT = ΔᵥₐₚHₘ/[T(Vₘ,g − Vₘ,l)].'],['Model','For dilute ideal vapour, Vₘ,g = RT/p and Vₘ,l ≪ Vₘ,g.'],['Calculus','dp/p = d ln p; ∫T⁻² dT = −1/T.']],
+        conditions:['The liquid and vapour are in equilibrium, the vapour is approximately ideal, and liquid molar volume is negligible.','The molar enthalpy of vaporization is approximately constant between T₁ and T₂ for the integrated expression.'],
+        trap:'The differential equation also requires constant vaporization enthalpy.',trapWhy:'The differential form can use ΔvapHₘ(T). Constant enthalpy is an additional assumption used to perform the short integral.',
+        boundary:'The approximation becomes poor near the critical point or at high vapour density. This is a phase-equilibrium law; the similar van ’t Hoff expression describes reaction K.',
+        symbols:'p₁,p₂: equilibrium vapour pressures in the same units; T₁,T₂: K; ΔvapHₘ: J mol⁻¹; R: J mol⁻¹ K⁻¹. p₂/p₁ is dimensionless.',
+        steps:[
+          step('Approximate the volume change','Replace Vₘ,g − Vₘ,l using the gas model.','Neglect liquid volume compared with vapour volume.','ΔᵥₐₚVₘ ≈ RT/p\ndp/dT ≈ pΔᵥₐₚHₘ/(RT²)','A mole of low-density vapour takes much more space than a mole of liquid.'),
+          step('Use the logarithmic derivative','Divide by p.','(1/p)dp/dT = d ln p/dT.','d ln p/dT = ΔᵥₐₚHₘ/(RT²)','Positive vaporization enthalpy makes vapour pressure rise with temperature.'),
+          step('Integrate between two coexistence states','Treat ΔvapHₘ as constant and integrate with limits.','The antiderivative of T⁻² is negative.','ln(p₂/p₁) = −(ΔᵥₐₚHₘ/R)(1/T₂ − 1/T₁)','The pressure ratio is unit-independent; temperature must be absolute.')
+        ],
+        quiz:{q:'With positive ΔvapHₘ and T₂ > T₁, how do the vapour pressures compare?',options:['p₂ > p₁','p₂ < p₁','p₂ = p₁'],answer:0,why:'1/T₂ − 1/T₁ is negative; the leading minus sign gives ln(p₂/p₁) > 0.'},
+        example:'For ΔvapHₘ = 40.0 kJ mol⁻¹ from 300 K to 310 K, ln(p₂/p₁) ≈ 0.517 and p₂/p₁ ≈ 1.68.'
+      },
+      {
+        id:'raoult',title:'Raoult’s law',topic:'Phases & mixtures',level:'Chemical potential',time:'12 min',
+        goal:'Connect solvent mole fraction to equilibrium partial vapour pressure for an ideal liquid solution.',target:'pA = xA pA*',
+        roots:[['Equilibrium','The chemical potential of A is equal in liquid and vapour.'],['Ideal solution','μA(l) = μA*(l) + RT ln xA.'],['Ideal vapour','At the same T, μA(g,pA) − μA(g,pA*) = RT ln(pA/pA*); pure A has μA*(l) = μA(g,pA*).']],
+        conditions:['The liquid follows the ideal-solution chemical-potential model for A.','The vapour is approximately ideal; liquid pressure corrections are negligible.'],
+        trap:'The vapour mole fraction equals the liquid mole fraction.',trapWhy:'Raoult’s law uses the liquid mole fraction xA. The vapour fraction is yA = pA/p and can be very different.',
+        boundary:'For a real solution use an appropriate activity correction, pA ≈ aA pA* in the stated vapour approximation. Henry’s law uses a different reference for a dilute solute.',
+        symbols:'xA: dimensionless mole fraction of A in the liquid; pA: its partial vapour pressure; pA*: pure-A saturation vapour pressure at the same T, in matching units.',
+        steps:[
+          step('Subtract the pure-liquid reference','Write the change in liquid chemical potential on mixing.','The ideal-solution premise supplies RT ln xA.','μA(l) − μA*(l) = RT ln xA','Mixing lowers the chemical potential when 0 < xA < 1.'),
+          step('Apply liquid–vapour equilibrium','Replace each liquid chemical potential by its equilibrium vapour counterpart.','Use the mixed partial pressure for one vapour and the pure saturation pressure for the other.','RT ln xA = RT ln(pA/pA*)','The same lowering is reflected by reduced equilibrium partial pressure.'),
+          step('Exponentiate and interpret','Cancel RT and take the exponential.','Equal logarithms have equal positive arguments.','pA = xA pA*','At xA = 1 the pure-component pressure is recovered; dilution lowers A’s partial pressure.')
+        ],
+        quiz:{q:'An ideal solution has xA = 0.40 and pA* = 50 kPa. What is pA?',options:['20 kPa','125 kPa','50 kPa'],answer:0,why:'pA = 0.40 × 50 kPa = 20 kPa. This is a component partial pressure, not necessarily the total pressure.'},
+        example:'For an ideal binary liquid, p = xA pA* + (1 − xA)pB*. The vapour fraction is then yA = xA pA*/p.'
+      },
+      {
+        id:'schrodinger',title:'The Schrödinger energy equation',topic:'Quantum mechanics',level:'Model & eigenfunctions',time:'16 min',
+        goal:'State the quantum postulate, construct its energy operator, and verify a simple energy eigenfunction.',target:'−(ℏ²/2m)d²ψ/dx² + V(x)ψ = Eψ',
+        roots:[['Postulate','A nonrelativistic particle is described by a wavefunction; stationary states obey Ĥψ = Eψ. This is a quantum premise, not a result derived from classical conservation alone.'],['Operator model','In one dimension, p̂ = −iℏ d/dx and Ĥ = p̂²/(2m) + V(x).'],['Calculus','d²exp(ikx)/dx² = −k²exp(ikx).']],
+        conditions:['The model is one nonrelativistic particle in one dimension with a time-independent scalar potential.','Boundary conditions and normalization must be imposed to identify physical states and allowed energies.'],
+        trap:'Every mathematical solution is automatically a normalizable bound state.',trapWhy:'Boundary conditions and normalization matter. A free-particle plane wave on the infinite line is not an ordinary square-integrable bound state.',
+        boundary:'Constructing the differential equation from the stated quantum operators is not a derivation of quantum mechanics from classical physics. The time-dependent equation is a separate dynamical postulate.',
+        symbols:'ψ: wavefunction (units m⁻¹ᐟ² when normalized over a one-dimensional position coordinate); ℏ = h/(2π): J s; m: kg; x: m; V and E: J. |ψ|²dx is a probability.',
+        steps:[
+          step('Construct the kinetic-energy operator','Apply the momentum operator twice.','(−i)² = −1.','p̂²ψ = −ℏ² d²ψ/dx²\nĤψ = −(ℏ²/2m)d²ψ/dx² + V(x)ψ','The minus sign follows from applying the imaginary momentum operator twice.'),
+          step('Write the stationary eigenvalue condition','Use the stated energy-eigenstate postulate.','Ĥ acts on ψ; E multiplies ψ.','−(ℏ²/2m)d²ψ/dx² + V(x)ψ = Eψ','An energy eigenfunction retains its spatial probability distribution during stationary evolution.'),
+          step('Check a free-particle solution','Set V = 0 and insert ψ = C exp(ikx).','Its second derivative is −k²ψ.','E = ℏ²k²/(2m)','Energy is nonnegative. On a periodic interval of length L, normalization gives |C| = 1/√L and k = 2πn/L; this is a stated boundary model.')
+        ],
+        quiz:{q:'For a free particle with E = ℏ²k²/(2m), what happens if |k| doubles?',options:['E increases fourfold','E doubles','E halves'],answer:0,why:'Energy is proportional to k². Positive and negative k of the same magnitude have the same free-particle energy.'},
+        example:'For a particle confined by infinite walls at x = 0 and L, ψₙ = √(2/L) sin(nπx/L) and Eₙ = n²π²ℏ²/(2mL²), n = 1,2,…; both wall boundary conditions are satisfied.'
+      },
+      {
+        id:'arrhenius',title:'The Arrhenius equation',topic:'Kinetics',level:'Temperature dependence',time:'12 min',
+        goal:'Connect the empirical temperature dependence of a rate constant to a straight-line plot and a two-temperature prediction.',target:'k = A exp(−Ea/RT)\nln(k₂/k₁) = −(Ea/R)(1/T₂ − 1/T₁)',
+        roots:[['Empirical model','Over the chosen interval, k(T) = A exp[−Ea/(RT)] with approximately constant A and activation energy Ea.'],['Logarithms','ln(exp x) = x and ln(u/v) = ln u − ln v.'],['Plot convention','A straight line y = b + mx has slope m and intercept b; compare rate constants in one fixed unit.']],
+        conditions:['One Arrhenius model describes the same reaction mechanism and rate-constant definition over the temperature interval.','A and Ea are approximately constant for the straight-line and two-temperature expressions.'],
+        trap:'Activation energy must equal the reaction enthalpy.',trapWhy:'Activation energy characterizes rate-constant temperature dependence, while reaction enthalpy compares products with reactants. They are different quantities.',
+        boundary:'Arrhenius behaviour is an empirical model, not a universal consequence of a balanced reaction. Mechanism changes and temperature-dependent prefactors can curve an Arrhenius plot. For strict dimensionless logs, use ln(k/kref) and ln(A/kref) in a fixed rate-constant unit.',
+        symbols:'Ea: J mol⁻¹; T: K; R: J mol⁻¹ K⁻¹; A has the same units as k (for example s⁻¹ for first order). k₂/k₁ and Ea/(RT) are dimensionless.',
+        steps:[
+          step('Take a logarithm','Apply ln to the empirical exponential using a common reference unit kref.','The prefactor becomes an intercept.','ln(k/kref) = ln(A/kref) − Ea/(RT)','The exponential penalty decreases as temperature rises when Ea > 0.'),
+          step('Identify the plot slope','Choose horizontal coordinate 1/T.','Compare with a straight-line equation.','slope of ln(k/kref) versus 1/T = −Ea/R\nEa = −R × slope','The slope has temperature units; multiplying by R gives molar energy.'),
+          step('Eliminate the prefactor','Write the equation at two temperatures and subtract.','A cancels if it is the same at both temperatures.','ln(k₂/k₁) = −(Ea/R)(1/T₂ − 1/T₁)','This predicts the change in rate constant without separately knowing A.')
+        ],
+        quiz:{q:'An Arrhenius plot has slope −6000 K. Approximately what is Ea?',options:['49.9 kJ mol⁻¹','−49.9 kJ mol⁻¹','6000 kJ mol⁻¹'],answer:0,why:'Ea = −R × (−6000 K) = 49,884 J mol⁻¹, approximately 49.9 kJ mol⁻¹.'},
+        example:'With Ea = 50.0 kJ mol⁻¹ from 300 K to 310 K, ln(k₂/k₁) ≈ 0.647, so k₂/k₁ ≈ 1.91.'
+      },
+      {
+        id:'langmuir',title:'The Langmuir adsorption isotherm',topic:'Surfaces',level:'Dynamic equilibrium',time:'14 min',
+        goal:'Balance adsorption onto empty sites against desorption from occupied sites to predict fractional coverage.',target:'θ = Kp/(1 + Kp), with K = ka/kd',
+        roots:[['Site model','θ is the occupied fraction of equivalent independent sites, with 0 ≤ θ ≤ 1 and only one adsorbate per site.'],['Rate model','Per-site adsorption rate is ka p(1 − θ); desorption rate is kd θ.'],['Equilibrium','At fixed temperature, equilibrium coverage is stationary because adsorption and desorption rates are equal.']],
+        conditions:['Adsorption forms a monolayer on equivalent sites without interactions between adsorbed molecules.','Adsorption is nondissociative and the stated rates describe equilibrium at fixed temperature.'],
+        trap:'Every collision with a fully covered surface creates a second layer.',trapWhy:'The Langmuir model allows only monolayer occupancy. The empty-site factor tends to zero as coverage approaches one.',
+        boundary:'Dissociative adsorption, multiple site types, lateral interactions, and multilayer adsorption require different models. With pressure-based rates, K has inverse-pressure units; Kp is dimensionless.',
+        symbols:'θ: dimensionless occupied fraction; p: gas pressure (for example Pa); ka: Pa⁻¹ s⁻¹ and kd: s⁻¹ for this per-site rate convention; K = ka/kd: Pa⁻¹.',
+        steps:[
+          step('Balance the competing rates','Set adsorption and desorption rates equal.','Only empty sites accept another molecule.','ka p(1 − θ) = kd θ','Microscopic exchange continues at equilibrium even though the total occupied fraction is stationary.'),
+          step('Collect the coverage terms','Expand the left side and gather θ.','Move the negative coverage term to the right.','ka p = (kd + ka p)θ\nθ = ka p/(kd + ka p)','The denominator accounts for both adsorption and desorption tendencies.'),
+          step('Introduce K and test the limits','Divide numerator and denominator by kd.','Use K = ka/kd and check small and large Kp.','θ = Kp/(1 + Kp)\nKp ≪ 1: θ ≈ Kp; Kp ≫ 1: θ → 1','At low pressure coverage rises almost linearly; saturation limits it to one monolayer.')
+        ],
+        quiz:{q:'At what pressure does the model predict half coverage?',options:['p = 1/K','p = K','p = 2/K'],answer:0,why:'Set θ = 1/2. Then 1 + Kp = 2Kp, so Kp = 1 and p = 1/K.'},
+        example:'For K = 0.020 kPa⁻¹ and p = 50 kPa, Kp = 1 and θ = 0.50. At 100 kPa, θ = 2/3.'
       }
     ];
+
+    const sourceReferences = {
+      'pv-work':['2.5','2.6','2.8'], 'ideal-gas':['1.8'], enthalpy:['2.18','2.19a','2.19b'],
+      'cp-cv':['2.26'], 'isothermal-work':['2.9','2.10','2.11'], 'gas-entropy':['3.13','3.19'],
+      gibbs:['3.30','3.31','3.32'], 'reaction-gibbs':['7.11','7.13b','7.15'],
+      'equilibrium-k':['7.16','7.17'], 'vant-hoff':['7.23','7.24','7.25'],
+      'first-order':['22.12a','22.12b','22.13'], 'second-order':['22.15a','22.15b','22.15c','22.16'],
+      'weak-acid':['21.31','21.32','21.33','21.34'], nernst:['7.27','7.28','7.29','7.30'],
+      clapeyron:['4.6'], 'clausius-clapeyron':['4.11','4.12'], raoult:['5.24'],
+      schrodinger:['8.13'], arrhenius:['22.29'], langmuir:['25.4']
+    };
+    exercises.forEach(e => { e.sources = sourceReferences[e.id] || []; });
 
     const KEY = 'chem123-first-principles-v1';
     const byId = id => document.getElementById(id);
@@ -471,6 +582,7 @@
           <h2 id="exercise-title" tabindex="-1">${esc(e.title)}</h2><p class="muted">${esc(e.goal)}</p>
           <details class="target"><summary>Reveal the target equation</summary><div class="equation">${esc(e.target)}</div></details>
           <p class="small" style="margin-top:12px"><a href="${e.id.replaceAll('-', '_')}_conversation_branches/index.html">Read the explanation and follow-up proofs →</a></p>
+          <p class="small">${e.sources.length ? `Textbook source: ${e.sources.map(label => `<a href="derivation-formulas.html#eq-${label}">Equation ${label}</a>`).join(' · ')}` : 'Supplemental derivation using the stated equilibrium definitions.'}</p>
           </div>
         </header>
         <section class="panel">
@@ -534,6 +646,7 @@
       if (focus) byId('exercise-title').focus({preventScroll:false});
     };
     byId('topic').insertAdjacentHTML('beforeend', [...new Set(exercises.map(e => e.topic))].map(t => `<option>${esc(t)}</option>`).join(''));
+    byId('derivation-count').textContent = `${exercises.length} guided derivations`;
     byId('search').addEventListener('input', renderLibrary);
     byId('topic').addEventListener('change', renderLibrary);
     byId('nav-toggle').addEventListener('click', () => {

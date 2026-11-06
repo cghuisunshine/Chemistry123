@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 // Run from any directory: node web/tools/build-derivation-tutorials.mjs
-// No dependencies. The workbook remains the source of the 15 target equations.
+// No runtime dependencies. The workbook remains the source of guided targets.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import vm from 'node:vm';
 import { tutorials } from './derivation-tutorial-content.mjs';
+import { buildFormulaReference } from './build-formula-reference.mjs';
 
 const web = fileURLToPath(new URL('../', import.meta.url));
 const source = await readFile(path.join(web, 'derivation-practice.html'), 'utf8');
@@ -13,6 +14,16 @@ const start = source.indexOf('    const step =');
 const end = source.indexOf("    const KEY =", start);
 if (start < 0 || end < 0) throw new Error('Cannot locate workbook exercise definitions.');
 const exercises = vm.runInNewContext(`${source.slice(start, end)}\nJSON.parse(JSON.stringify(exercises))`, {}, { timeout: 1000 });
+// Preserve the independently authored tutorial already published on GitHub.
+const standaloneTutorials = [{
+  id: 'carnot-heat-temperature', title: 'Carnot heat–temperature relation', topic: 'Thermodynamics',
+  href: 'carnot-heat-temperature.html', practiceHref: null, sources: ['3.7'],
+  target: 'Q_h/T_h = Q_c/T_c', targetHTML: 'Q<sub>h</sub>/T<sub>h</sub> = Q<sub>c</sub>/T<sub>c</sub>',
+  goal: 'Derive the equal heat–temperature ratios, then follow why TV^(γ−1) is constant, why dU = nCᵥ,ₘ dT, and how U = U(T) differs from the first law.'
+}];
+for (const tutorial of standaloneTutorials) await readFile(path.join(web, tutorial.href), 'utf8');
+const catalogTargets = [...exercises, ...standaloneTutorials];
+const reference = await buildFormulaReference(web, catalogTargets);
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const directory = id => `${id.replaceAll('-', '_')}_conversation_branches`;
 const link = (href, label) => `<a href="${esc(href)}">${esc(label)}</a>`;
@@ -21,6 +32,7 @@ const equation = text => `<div class="text-equation">${esc(text)
   .replace(/_(ext|rev|sys|surr|univ|actual|isothermal|system|total)\b/g, '<sub>$1</sub>')
   .replaceAll('aᵢ^νᵢ', 'aᵢ<sup>νᵢ</sup>')
   .replace(/∫\[([^→\]]+)→([^\]]+)\]/g, '∫<sub>$1</sub><sup>$2</sup>')}</div>`;
+const sourceLinks = e => e.sources.length ? `<p class="symbols"><b>Textbook source.</b> ${e.sources.map(label => link(`../derivation-formulas.html#eq-${label}`, `Equation ${label}`)).join(' · ')}. Open the exact expression and its context.</p>` : '<p class="symbols">Supplemental derivation using the stated equilibrium definitions.</p>';
 const section = (title, body, id = '') => `  <section class="section"${id ? ` id="${esc(id)}"` : ''}>\n    <h2>${esc(title)}</h2>\n${body}\n  </section>`;
 const extraCSS = `
 /* Extensions for the equation tutorials; base design follows the ideal gas reference. */
@@ -83,7 +95,7 @@ const shell = ({ title, subtitle, question, content, e, page, branches = [], cat
   const toc = catalog ? '' : `<aside class="side" aria-label="Reasoning path">
     <div class="side-card"><div class="side-label">Your reasoning path</div>${history}</div>
     <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
-    <div class="side-card"><div class="side-label">Continue studying</div><p>${link(`../derivation-practice.html#${e.id}`, 'Practice this derivation →')}</p><p>${link('../derivation-tutorials.html', 'Browse all 15 equations →')}</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p>${link(`../derivation-practice.html#${e.id}`, 'Practice this derivation →')}</p><p>${link('../derivation-tutorials.html', `Browse ${catalogTargets.length} guided derivations →`)}</p><p>${link('../derivation-formulas.html', 'Browse the textbook equation reference →')}</p></div>
   </aside>`;
   const returnLink = page ? `<a class="return-link" href="${esc(page.parent)}.html#branch-${esc(page.slug)}">← Return to the exact statement: ${esc(page.question)}</a>` : '';
   return `<!doctype html>
@@ -100,13 +112,13 @@ const shell = ({ title, subtitle, question, content, e, page, branches = [], cat
   <a class="skip-link" href="#main">Skip to explanation</a>
   <header class="site-header"><div class="head-inner">
     <a class="wordmark" href="${catalog ? 'derivation-tutorials.html' : '../derivation-tutorials.html'}"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
-    <nav class="head-links" aria-label="Study navigation">${link(catalog ? 'derivation-practice.html' : `../derivation-practice.html#${e.id}`, 'Derivation practice')}${link(catalog ? 'index.html' : '../index.html', 'Chem 123 guide')}</nav>
+    <nav class="head-links" aria-label="Study navigation">${link(catalog ? 'derivation-practice.html' : `../derivation-practice.html#${e.id}`, 'Derivation practice')}${link(catalog ? 'derivation-formulas.html' : '../derivation-formulas.html', 'Textbook formulas')}${link(catalog ? 'index.html' : '../index.html', 'Chem 123 guide')}</nav>
   </div></header>
   <div class="wrapper">
     <nav class="breadcrumbs" aria-label="Breadcrumb trail">${crumbs}</nav>
     <div${catalog ? '' : ' class="layout"'}>
       <main class="document" id="main">
-        <div class="hero${catalog ? ' catalog-hero' : ''}"><div class="question">${catalog ? '15 equations' : page ? 'Follow-up' : 'Start with the equation'} <q>${esc(question)}</q></div><h1>${esc(title)}</h1><p class="subtitle">${esc(subtitle)}</p></div>
+        <div class="hero${catalog ? ' catalog-hero' : ''}"><div class="question">${catalog ? `${catalogTargets.length} guided derivations` : page ? 'Follow-up' : 'Start with the equation'} <q>${esc(question)}</q></div><h1>${esc(title)}</h1><p class="subtitle">${esc(subtitle)}</p></div>
         ${catalog ? content : `<article class="article">\n${content}\n        </article>`}
         ${returnLink}
         <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
@@ -127,7 +139,7 @@ for (const e of exercises) {
   const folder = path.join(web, directory(e.id));
   await mkdir(path.join(folder, 'assets'), { recursive: true });
   await writeFile(path.join(folder, 'assets/site.css'), `${referenceCSS}\n${extraCSS}`);
-  const intro = section('The equation and what it means', `${equation(e.target)}${paragraph(e.goal)}<p class="symbols"><b>Symbols and units.</b> ${esc(e.symbols)}</p>`);
+  const intro = section('The equation and what it means', `${equation(e.target)}${paragraph(e.goal)}<p class="symbols"><b>Symbols and units.</b> ${esc(e.symbols)}</p>${sourceLinks(e)}`);
   const premises = section('What can we start from?', `<ul class="premise-list">${e.roots.map(([kind, text]) => `<li><b>${esc(kind)}.</b> ${esc(text)}</li>`).join('')}</ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>`);
   const steps = e.steps.map((step, i) => section(`${i + 1}. ${step.title}`, `${paragraph(step.prompt)}${equation(step.equation)}${paragraph(step.why)}${attached(branches, 'index', i)}`, `step-${i + 1}`)).join('\n');
   const conditions = section('Conditions and limits', `<ul class="premise-list">${e.conditions.map(c => `<li>${esc(c)}</li>`).join('')}</ul>${paragraph(e.boundary)}<div class="note"><b>Common misconception</b>${paragraph(e.trap)}${paragraph(e.trapWhy)}</div>`);
@@ -155,9 +167,9 @@ for (const name of ['index', 'newton', 'equipartition', 'counting', 'entropy']) 
   }
 }
 
-const groups = [...new Set(exercises.map(e => e.topic))];
-const cards = groups.map(topic => `<section class="topic-group"><h2>${esc(topic)}</h2><div class="tutorial-grid">${exercises.filter(e => e.topic === topic).map(e => `<a class="tutorial-card" href="${directory(e.id)}/index.html"><small>${String(exercises.indexOf(e) + 1).padStart(2, '0')} · ${e.id === 'ideal-gas' ? '5' : '4'} linked explanations</small><h3>${esc(e.title)}</h3>${equation(e.target)}${paragraph(e.goal)}<small>Open the explanation and follow its questions →</small></a>`).join('\n')}</div></section>`).join('\n');
-const catalogContent = `<p class="scope-note">Start with the equation you want to understand. Each tutorial contains a worked argument, explicit assumptions, symbols and units, examples, and deeper proof pages linked beside the claims they explain. Every branch has a return link to its precise parent statement.</p><p class="scope-note">Assumed background: basic university calculus, vectors, energy conservation, and elementary probability. Thermodynamics, chemical potentials, reaction kinetics, and acid–base concepts are introduced as needed. The ideal-gas tutorial preserves the supplied reference; the other 14 tutorials follow the same visual and branching pattern.</p>${cards}`;
-await writeFile(path.join(web, 'derivation-tutorials.html'), shell({ title: 'Follow the equation. Follow the question.', subtitle: 'Conversation-style derivations for every equation in the Chemistry 123 workbook.', question: 'One argument at a time', content: catalogContent, catalog: true }));
-await writeFile(path.join(web, 'tools/README.md'), `# Equation tutorial generator\n\nRun \`node tools/build-derivation-tutorials.mjs\` from the web repository, or \`node web/tools/build-derivation-tutorials.mjs\` from its parent directory. No packages are needed.\n\nThe generator reads the exercise definitions in \`derivation-practice.html\`. Authored university-level follow-ups live in \`derivation-tutorial-content.mjs\`; each records a parent page and the section after which its question appears. It creates 14 directories with four static HTML pages, a local stylesheet, and a README each, plus the catalog. The provided ideal-gas directory supplies its original five pages and visual design; its original SVG equations are retained.\n\nGenerated tutorials work from \`file://\` or a local HTTP server. Keep each directory together when copying it. Rebuilding overwrites the 14 generated tutorials and the catalog; edit the authored source to preserve changes. The supplied ideal-gas pages are only given navigation links, if missing.\n`);
+const groups = [...new Set(catalogTargets.map(e => e.topic))];
+const cards = groups.map(topic => `<section class="topic-group"><h2>${esc(topic)}</h2><div class="tutorial-grid">${catalogTargets.filter(e => e.topic === topic).map(e => `<a class="tutorial-card" href="${e.href || `${directory(e.id)}/index.html`}"><small>${String(catalogTargets.indexOf(e) + 1).padStart(2, '0')} · ${e.href ? '3 expandable explanations' : `${e.id === 'ideal-gas' ? '5' : '4'} linked explanations`}</small><h3>${esc(e.title)}</h3>${e.targetHTML ? `<div class="text-equation">${e.targetHTML}</div>` : equation(e.target)}${paragraph(e.goal)}<small>Open the explanation and follow its questions →</small></a>`).join('\n')}</div></section>`).join('\n');
+const catalogContent = `<section class="note"><h2>Looking for a textbook formula?</h2><p>${link('derivation-formulas.html', `Browse ${reference.equations.toLocaleString('en')} numbered expressions across all 25 chapters and the mathematics and physics appendices →`)}</p><p>The reference preserves the original mathematics and links to full source context, including unnumbered formulas, examples and tables. The ${catalogTargets.length} tutorials below provide authored guided arguments for selected equations; source inclusion and a worked derivation are shown separately. The practice workbook contains ${exercises.length} exercises; the Carnot tutorial provides its own expandable explanations.</p></section><p class="scope-note">Start with the equation you want to understand. Each tutorial contains a worked argument, explicit assumptions, symbols and units, examples, and deeper explanations beside the claims they explain. Linked branches have return links to their precise parent statements.</p><p class="scope-note">Assumed background: basic university calculus, vectors, energy conservation, and elementary probability. Thermodynamic, chemical and quantum premises are stated where used. The ideal-gas tutorial preserves the supplied reference; the other tutorials follow the same visual pattern with linked or expandable explanations.</p>${cards}`;
+await writeFile(path.join(web, 'derivation-tutorials.html'), shell({ title: 'Follow the equation. Follow the question.', subtitle: 'Guided chemistry derivations with a chapter-by-chapter physical chemistry equation reference.', question: 'One argument at a time', content: catalogContent, catalog: true }));
+await writeFile(path.join(web, 'tools/README.md'), `# Equation tutorials and textbook reference\n\nRun \`node tools/build-derivation-tutorials.mjs\` from the web repository, or \`node web/tools/build-derivation-tutorials.mjs\` from its parent. Node uses no additional packages.\n\nThe workbook in \`derivation-practice.html\` defines ${exercises.length} guided targets and their textbook equation references. Authored follow-ups live in \`derivation-tutorial-content.mjs\` and \`textbook-tutorial-content.mjs\`. The generator validates branch attachment and source labels, builds ${exercises.length - 1} directories with four HTML pages each, and preserves the supplied five-page ideal-gas tutorial. Edit authored sources before rebuilding generated files.\n\n\`build-formula-reference.mjs\` generates \`derivation-formulas.html\` from \`textbook-equations.json\`, with search, chapter filters, exact source excerpts, saved self-assessment notes and a complete PDF reader for unnumbered expressions and supporting material. It distinguishes source reference entries from authored guided derivations.\n\nTo regenerate source metadata, the inventory and PNG excerpts, run \`python3 tools/build-textbook-equations.py\`, then rerun the Node generator. This uses the Python standard library and Poppler's \`pdftotext\` and \`pdftoppm\`. It is specific to the eighth-edition source PDF: chapter starts and its SHA-256 are recorded in the metadata. Existing excerpt images are cached; use \`--force-images\` after changing the PDF or extraction bounds. The index detects numbered labels, not every unnumbered formula; the complete source remains available in the reader.\n\nAll pages work offline with their local assets and \`Physical_Chemistry.pdf\` present. Neither a server nor a network library is required. Preview through \`python3 -m http.server 8000\` for browser checks. Workbook progress retains the original storage key and exercise IDs; reference notes use a separate key.\n`);
 console.log(`Built ${generated} new explanation pages, catalog, and navigation for the 5 ideal-gas pages.`);

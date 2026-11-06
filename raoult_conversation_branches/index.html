@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Connect solvent mole fraction to equilibrium partial vapour pressure for an ideal liquid solution.">
+  <title>Raoult’s law · Chemistry Inquiry</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explanation</a>
+  <header class="site-header"><div class="head-inner">
+    <a class="wordmark" href="../derivation-tutorials.html"><i aria-hidden="true">∑</i> Chemistry Inquiry</a>
+    <nav class="head-links" aria-label="Study navigation"><a href="../derivation-practice.html#raoult">Derivation practice</a><a href="../derivation-formulas.html">Textbook formulas</a><a href="../index.html">Chem 123 guide</a></nav>
+  </div></header>
+  <div class="wrapper">
+    <nav class="breadcrumbs" aria-label="Breadcrumb trail"><a href="../derivation-tutorials.html">Equation tutorials</a><span class="sep">›</span><b>Raoult’s law</b></nav>
+    <div class="layout">
+      <main class="document" id="main">
+        <div class="hero"><div class="question">Start with the equation <q>pA = xA pA*</q></div><h1>Raoult’s law</h1><p class="subtitle">Connect solvent mole fraction to equilibrium partial vapour pressure for an ideal liquid solution.</p></div>
+        <article class="article">
+  <section class="section">
+    <h2>The equation and what it means</h2>
+<div class="text-equation">pA = xA pA*</div><p>Connect solvent mole fraction to equilibrium partial vapour pressure for an ideal liquid solution.</p><p class="symbols"><b>Symbols and units.</b> xA: dimensionless mole fraction of A in the liquid; pA: its partial vapour pressure; pA*: pure-A saturation vapour pressure at the same T, in matching units.</p><p class="symbols"><b>Textbook source.</b> <a href="../derivation-formulas.html#eq-5.24">Equation 5.24</a>. Open the exact expression and its context.</p>
+  </section>
+  <section class="section">
+    <h2>What can we start from?</h2>
+<ul class="premise-list"><li><b>Equilibrium.</b> The chemical potential of A is equal in liquid and vapour.</li><li><b>Ideal solution.</b> μA(l) = μA*(l) + RT ln xA.</li><li><b>Ideal vapour.</b> At the same T, μA(g,pA) − μA(g,pA*) = RT ln(pA/pA*); pure A has μA*(l) = μA(g,pA*).</li></ul><div class="note"><b>Prerequisites</b><p>We assume basic university mathematics and physics: differentiation, integration, vectors, energy conservation, and elementary probability. The chemical definitions and thermodynamic premises are stated explicitly; an empirical rate law or model is not proved by rearranging it.</p></div>
+  </section>
+  <section class="section" id="step-1">
+    <h2>1. Subtract the pure-liquid reference</h2>
+<p>Write the change in liquid chemical potential on mixing.</p><div class="text-equation">μA(l) − μA*(l) = RT ln xA</div><p>Mixing lowers the chemical potential when 0 &lt; xA &lt; 1.</p><div class="branch-location" id="branch-ideal-solution-premise">
+  <a class="branch-card" href="ideal-solution-premise.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Is Raoult’s law proved without an ideal-solution model?</em></span>
+    <strong>Where does the liquid chemical-potential formula come from?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section" id="step-2">
+    <h2>2. Apply liquid–vapour equilibrium</h2>
+<p>Replace each liquid chemical potential by its equilibrium vapour counterpart.</p><div class="text-equation">RT ln xA = RT ln(pA/pA*)</div><p>The same lowering is reflected by reduced equilibrium partial pressure.</p>
+  </section>
+  <section class="section" id="step-3">
+    <h2>3. Exponentiate and interpret</h2>
+<p>Cancel RT and take the exponential.</p><div class="text-equation">pA = xA pA*</div><p>At xA = 1 the pure-component pressure is recovered; dilution lowers A’s partial pressure.</p><div class="branch-location" id="branch-vapour-composition">
+  <a class="branch-card" href="vapour-composition.html">
+    <span class="branch-text"><span class="branch-prompt">↳ Follow-up: <em>Does a liquid containing 40% A make vapour containing 40% A?</em></span>
+    <strong>Why are liquid and vapour compositions different?</strong><span class="branch-description">Follow the argument, then return to this exact statement.</span></span>
+    <span class="branch-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+  </section>
+  <section class="section">
+    <h2>Conditions and limits</h2>
+<ul class="premise-list"><li>The liquid follows the ideal-solution chemical-potential model for A.</li><li>The vapour is approximately ideal; liquid pressure corrections are negligible.</li></ul><p>For a real solution use an appropriate activity correction, pA ≈ aA pA* in the stated vapour approximation. Henry’s law uses a different reference for a dilute solute.</p><div class="note"><b>Common misconception</b><p>The vapour mole fraction equals the liquid mole fraction.</p><p>Raoult’s law uses the liquid mole fraction xA. The vapour fraction is yA = pA/p and can be very different.</p></div>
+  </section>
+  <section class="section">
+    <h2>Check the result</h2>
+<p>For an ideal binary liquid, p = xA pA* + (1 − xA)pB*. The vapour fraction is then yA = xA pA*/p.</p><details class="checkpoint"><summary>An ideal solution has xA = 0.40 and pA* = 50 kPa. What is pA?</summary><p>pA = 0.40 × 50 kPa = 20 kPa. This is a component partial pressure, not necessarily the total pressure.</p></details><p><a href="../derivation-practice.html#raoult">Try the guided or blank-page derivation →</a></p>
+  </section>
+        </article>
+
+        <p class="footer">Chemistry Inquiry · Read the main argument, follow a question, return to its source. Works offline.</p>
+      </main>
+      <aside class="side" aria-label="Reasoning path">
+    <div class="side-card"><div class="side-label">Your reasoning path</div><div class="history-row current"><span class="circle">1</span><span>Raoult’s law</span></div></div>
+    <div class="side-card"><div class="side-label">Starting knowledge</div><p>University calculus, vectors, energy, and elementary probability. Thermodynamic and chemical concepts are introduced where used.</p><p>A branch opens beside the claim it explains. Its return link restores that exact place.</p></div>
+    <div class="side-card"><div class="side-label">Continue studying</div><p><a href="../derivation-practice.html#raoult">Practice this derivation →</a></p><p><a href="../derivation-tutorials.html">Browse 22 guided derivations →</a></p><p><a href="../derivation-formulas.html">Browse the textbook equation reference →</a></p></div>
+  </aside>
+    </div>
+  </div>
+</body>
+</html>

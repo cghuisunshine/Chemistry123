@@ -1,3 +1,5 @@
+import { textbookTutorials } from './textbook-tutorial-content.mjs';
+
 // Authored follow-up explanations. Each branch attaches to a statement, and a
 // child branch returns to that exact statement rather than a generic topic list.
 const p = text => `<p>${text}</p>`;
@@ -6,6 +8,7 @@ const s = (title, ...body) => ({ title, body: body.join('\n') });
 const b = (slug, title, question, parent, after, sections) => ({ slug, title, question, parent, after, sections });
 
 export const tutorials = {
+  ...textbookTutorials,
   'pv-work': [
     b('boundary-force', 'Why does external pressure determine work?', 'Which force actually crosses the boundary?', 'index', 0, [
       s('Choose a boundary and a sign', p('Take the gas as the system and let x increase when its piston moves outward. The external load exerts an inward force on that boundary. With a frictionless piston whose kinetic-energy change is negligible, the energy delivered to the gas as work is the load force dotted with the displacement.'), eq('δw = (−P<sub>ext</sub>A) dx = −P<sub>ext</sub> dV'), p('The symbol δ marks a path-dependent energy transfer. There is no state variable w whose endpoint difference gives every possible work transfer. The piston assumptions matter: a piston gaining kinetic energy can temporarily store energy that has not gone into the external load.')),
