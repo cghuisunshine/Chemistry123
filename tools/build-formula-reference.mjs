@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { followupCatalog } from './ideal-gas-followups.mjs';
 
 export async function buildFormulaReference(web, exercises) {
   const data = JSON.parse(await readFile(new URL('textbook-equations.json', import.meta.url), 'utf8'));
@@ -37,6 +38,7 @@ export async function buildFormulaReference(web, exercises) {
     <p class="intro">Browse the textbook's numbered expressions, then open a guided derivation where one is available. Each excerpt preserves the original fractions, symbols, subscripts and surrounding text.</p>
     <div class="stats"><span>${data.equations.length.toLocaleString('en')} numbered expressions</span><span>25 chapters + mathematics &amp; physics appendices</span><span>${targets.length} guided derivations</span></div>
     <div class="notice"><strong>Two ways to study.</strong> The equation index contains source excerpts; the linked tutorials supply authored step-by-step arguments. Unnumbered formulas, worked examples, tables and all other source material are available in the full source reader. The automatic index is not a claim that every unnumbered expression has been transcribed.</div>
+    ${followupCatalog.replace('class="note"', 'class="notice"')}
     <button id="show-source" class="source-open">Open the full source reader</button>
     <section class="source-reader" id="source-reader" aria-labelledby="source-title" hidden>
       <h2 id="source-title">Read the complete source</h2>

@@ -2,7 +2,7 @@
 
 Run `node tools/build-derivation-tutorials.mjs` from the web repository, or `node web/tools/build-derivation-tutorials.mjs` from its parent. Node uses no additional packages.
 
-The workbook in `derivation-practice.html` defines 21 guided targets and their textbook equation references. Authored follow-ups live in `derivation-tutorial-content.mjs` and `textbook-tutorial-content.mjs`. The generator validates branch attachment and source labels, builds 20 directories with four HTML pages each, and preserves the supplied five-page ideal-gas tutorial. Edit authored sources before rebuilding generated files.
+The workbook in `derivation-practice.html` defines 21 guided targets and their textbook equation references. Authored follow-ups live in `derivation-tutorial-content.mjs` and `textbook-tutorial-content.mjs`. The generator validates branch attachment and source labels, builds 20 directories with four HTML pages each, and preserves the supplied five-page ideal-gas tutorial while adding five linked reservoir, temperature, Taylor-expansion, weight, and velocity follow-ups. The additional follow-ups, their parent attachments, catalog links, and companion notes are authored in `ideal-gas-followups.mjs` and `ideal-gas-statistical-followups.mjs`. Edit authored sources before rebuilding generated files.
 
 `build-formula-reference.mjs` generates `derivation-formulas.html` from `textbook-equations.json`, with search, chapter filters, exact source excerpts, saved self-assessment notes and a complete PDF reader for unnumbered expressions and supporting material. It distinguishes source reference entries from authored guided derivations.
 
